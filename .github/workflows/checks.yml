@@ -1,0 +1,51 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  boundary:
+    name: secrets / data-boundary
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Secrets and data-boundary check (tracked files)
+        run: python3 scripts/check_secrets.py
+
+  history-secrets:
+    name: Gitleaks history scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan reachable history (redacted output)
+        run: docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/repo:ro" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --redact --no-banner
+
+  engine:
+    name: engine tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # E4 needs the full history of preregistered files
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Python version (the requires-python baseline)
+        run: python -VV
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Eval gate (public mode; any deterministic failure fails CI, warnings do not)
+        run: python -m cnmacro check --public
+      - name: Build public site
+        run: python site/build.py
+      - name: Verify site/dist/index.html
+        run: test -s site/dist/index.html

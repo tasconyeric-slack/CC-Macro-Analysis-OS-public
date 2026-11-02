@@ -1,0 +1,48 @@
+# ---- Private data boundary (see docs/data-policy.md) ----
+# Everything under data/private is licensed/raw input and must never be committed.
+data/private/**
+!data/private/README.md
+research/private/**
+!research/private/README.md
+# The private eval report (python -m cnmacro check, without --public) can name private metrics
+research/cases/*/eval/latest-private.json
+
+# Licensed or copyrighted file types never belong in git, wherever they appear
+*.pdf
+*.xlsx
+*.xls
+*.xlsm
+*.wind
+*.wsd
+*.parquet.private
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Node / site build
+node_modules/
+site/dist/
+site/.astro/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+site/dist-preview/
+site/replay/
+*.egg-info/
+
+# Python packaging
+build/

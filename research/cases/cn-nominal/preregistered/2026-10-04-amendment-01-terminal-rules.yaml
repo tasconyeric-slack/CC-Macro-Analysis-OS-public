@@ -1,0 +1,62 @@
+# Preregistration amendment A-01. Written once, never edited (verified by eval E4).
+# Applied on top of the frozen case in 2026-10-04-baseline.yaml; the baseline file itself is unchanged.
+kind: amendment
+id: A-01
+title: Terminal rules made consistent with the preregistered definition of "sustainable"
+date: 2026-10-04
+baseline: 2026-10-04-baseline.yaml
+baseline_commit: bbd0b351d1281c42cbb5cda00ab0ba5a7437d02e
+effective_before:
+  release: September 2026 CPI and PPI
+  at: '2026-10-14T09:30:00+08:00'
+informed_by_tested_data: false
+data_note: >-
+  Written on 2026-10-04, after the baseline commit (2026-10-04T07:15:31Z) and before any
+  release the baseline tests (the first is September 2026 CPI/PPI on 2026-10-14 09:30 BJT).
+  The baseline's as-of information set is unchanged. No probability, conviction, evidence
+  test, threshold or claim is changed.
+reason: >-
+  The baseline states the thesis is sustainable only if the implied GDP deflator is
+  non-negative in BOTH 2026Q4 and 2027Q1 AND at least 3 of the 6 domestic-demand (H2)
+  tests pass at the terminal release. The frozen CONFIRMED rule implements that exactly.
+  The frozen FALSIFIED rule did not implement its complement: it fired only if the latest
+  deflator was negative (T-H1-04 false), or if the deflator streak held while 5 of 6 demand
+  tests failed. Two outcomes in which the stated success condition plainly fails therefore
+  fell through to RETIRED (inconclusive) instead of FALSIFIED: (a) 2026Q4 deflator negative
+  but 2027Q1 non-negative, so T-H1-05 fails while T-H1-04 passes; (b) deflator condition met
+  but only 2 (or fewer, down to 1) demand tests pass. Separately, the decision window was
+  left as null "to be set from the 2027 NBS calendar", which would have needed a later edit
+  to the frozen case; it now opens when the first 2027Q1 GDP print is in the information set.
+effect: >-
+  At the terminal release the outcome is now CONFIRMED exactly when the stated condition
+  holds and FALSIFIED exactly when it fails. RETIRED is reserved for a genuinely
+  inconclusive case: a required terminal input (the deflator streak, or enough demand tests
+  to decide 3 of 6) has insufficient data. Early falsification (FALSIFIED_EARLY) and every
+  evidence test are unchanged.
+changes:
+- path: terminal_rules.FALSIFIED
+  before:
+    when:
+      any:
+      - {test: T-H1-04, is: false}
+      - all:
+        - {test: T-H1-05}
+        - at_least: 5
+          of: [{test: T-H2-01, is: false}, {test: T-H2-02, is: false}, {test: T-H2-03, is: false},
+               {test: T-H2-04, is: false}, {test: T-H2-05, is: false}, {test: T-H2-06, is: false}]
+  after:
+    when:
+      any:
+      - {test: T-H1-05, is: false}     # deflator not >= 0 in both of the last two quarters
+      - at_least: 4                    # 4 or more of 6 demand tests fail => at most 2 pass
+        of: [{test: T-H2-01, is: false}, {test: T-H2-02, is: false}, {test: T-H2-03, is: false},
+             {test: T-H2-04, is: false}, {test: T-H2-05, is: false}, {test: T-H2-06, is: false}]
+- path: terminal_rules.otherwise
+  before: ACTIVE before the window; RETIRED (inconclusive) at the window.
+  after: >-
+    ACTIVE before the window. At the window, RETIRED (inconclusive) only when required
+    terminal data are insufficient to decide CONFIRMED or FALSIFIED.
+- path: horizon.terminal_window_opens
+  before: null
+  after:
+    when_available: ["obs:cn_ngdp_q@2027Q1", "obs:cn_rgdp_yoy@2027Q1"]

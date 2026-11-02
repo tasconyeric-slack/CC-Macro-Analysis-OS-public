@@ -1,0 +1,183 @@
+# The CURRENT explanatory layer of the public site (not preregistered, not immutable).
+#
+# The preregistered baseline, its amendments and the analyst updates are append-only and frozen
+# (eval E4). This file is how the site explains the present state without touching them:
+#
+#   - the current view and the qualitative state of each hypothesis;
+#   - which claims the homepage shows as key evidence (chosen by the analyst, never by file order);
+#   - the policy summary, the scenario matrix and the limitations.
+#
+# `applies_to` names the judgment document this view was written for. When a newer update is
+# appended the view is stale until the analyst re-confirms or rewrites it: the site then says so
+# on the page, and tests/test_presentation.py fails. No number is typed here: prose follows the
+# memo rule (eval E1 lints every {en, zh} text for bare numbers); figures come from claims.
+#
+# Wording discipline: keep LEVEL, MARGINAL CHANGE, BREADTH and MECHANISM apart, and do not say
+# "has not turned" when the evidence is mixed.
+
+schema: 1
+applies_to: 2026-10-04-baseline.yaml
+written: 2026-10-04
+
+question:
+  en: Is China forming a sustainable turning point in nominal growth?
+  zh: 中国名义增长是否正在形成可持续拐点？
+
+current_view:
+  headline:
+    en: The price side has turned, but broad domestic-demand confirmation is still absent.
+    zh: 价格端已经转向，但内需尚未出现广泛的确认。
+  body:
+    en: >-
+      The current evidence is more consistent with an upstream- and external-price-led nominal rebound
+      than with a durable, demand-led reflation. By level, factory-gate prices and the implied GDP deflator
+      have turned. By breadth, household credit, property and core inflation have not followed. By mechanism,
+      the gains sit in producer goods while consumer-goods prices are still falling. Forward-looking signals
+      are mixed: September manufacturing new orders are already above the expansion line, but their
+      three-month average and the broader demand evidence remain weak.
+    zh: >-
+      目前的证据更符合由上游和外部价格推动的名义增长反弹，而非持久的需求拉动型再通胀。从水平看，出厂价格和
+      隐含GDP平减指数已经转向；从广度看，居民信贷、房地产和核心通胀并未跟上；从传导机制看，涨幅集中在生产资料，
+      生活资料价格仍在下行。前瞻信号不一：9月制造业新订单已升至荣枯线上方，但其三个月均值及更广泛的需求证据依然偏弱。
+  policy:
+    en: Realized policy impulse remains weak in current quantitative data, while the forward policy stance has become more supportive.
+    zh: 从现有量化数据看，已实现的政策力度依然偏弱，而前瞻性的政策取向已转趋支持。
+
+# Qualitative state of each hypothesis. Test counts are diagnostics shown on the Evidence page;
+# they are not a weighted score and they do not set these states.
+hypothesis_states:
+  H1:
+    state: partly
+    note:
+      en: Turned in level terms; momentum has been uneven.
+      zh: 水平上已经转向；动能起伏不定。
+  H2:
+    state: unconfirmed
+    note:
+      en: Broad confirmation is absent. Levels are weak, and the tests that pass rest on marginal changes from weak levels.
+      zh: 广泛确认仍然缺位。水平偏弱，已通过的检验建立在弱势水平上的边际改善之上。
+  H3:
+    state: mixed
+    note:
+      en: Realized impulse is weak; the forward stance is more supportive.
+      zh: 已实现的力度偏弱；前瞻取向更具支持性。
+  H4:
+    state: supportive
+    note:
+      en: Exports are strong, but new export orders are only at the expansion line.
+      zh: 出口强劲，但新出口订单仅在荣枯线上。
+  H0:
+    state: leading_alt
+    note:
+      en: It fits the upstream-led pattern better than a demand-led recovery; the data are consistent with it but do not prove the mechanism.
+      zh: 它比需求拉动型复苏更贴合当前上游主导的特征；数据与之相符，但并不能证明其传导机制。
+
+# Homepage key evidence. Chosen by the analyst for what it shows, in this order. Never derived
+# from the order of claims.jsonl, and never from counting tests. `lens` says which question the
+# claim answers: level | marginal | breadth | mechanism.
+top_evidence_for:
+  - {claim: C-T-01, lens: level}
+  - {claim: C-H1-01, lens: level}
+  - {claim: C-H1-05, lens: marginal}
+top_evidence_against:
+  - {claim: C-H0-02, lens: mechanism}
+  - {claim: C-H2-02, lens: breadth}
+  - {claim: C-H2-06, lens: marginal}
+
+# Conditional research implications, not recommendations. The system tests the macro scenarios;
+# it does not test the market implications, which follow from them.
+scenarios:
+  - id: upstream_led
+    name:
+      en: Upstream-led rebound fades (H0 holds)
+      zh: 上游驱动的反弹逐渐消退（H0成立）
+    rows:
+      rates:
+        en: Little case for pricing a durable reflation; long yields are more likely to follow growth and policy signals than inflation expectations.
+        zh: 缺乏为持久再通胀定价的依据；长端利率更可能跟随增长和政策信号，而非通胀预期。
+      cny:
+        en: No domestic-reflation support; direction depends more on the US rate path and the external balance.
+        zh: 缺少国内再通胀的支撑；走势更多取决于美国利率路径和外部平衡。
+      equities:
+        en: Upstream pricing power matters more than domestic demand; downstream margins are squeezed if input costs stay high while consumer prices lag.
+        zh: 上游定价能力比内需更重要；若投入成本居高而消费价格滞后，下游利润率承压。
+      banks:
+        en: A price-only turn adds little to loan demand or net interest margins; asset quality and property exposure remain the swing factors.
+        zh: 仅有价格转向对贷款需求和净息差的帮助有限；资产质量和房地产敞口仍是关键变量。
+      confirming:
+        en: Consumer-goods PPI stays negative; core CPI and household mortgage flow stay weak; oil and metals ease and PPI momentum fades again.
+        zh: 生活资料PPI持续为负；核心CPI和居民按揭贷款仍然疲弱；油价和金属价格回落，PPI动能再度减弱。
+      falsifying:
+        en: Core CPI and consumer-goods PPI turn up; household credit and retail sales improve; the three-month average of new orders moves above the expansion line.
+        zh: 核心CPI和生活资料PPI转升；居民信贷和零售改善；新订单三个月均值升至荣枯线上方。
+  - id: policy_bridge
+    name:
+      en: Policy-supported stabilisation
+      zh: 政策支撑下的企稳
+    rows:
+      rates:
+        en: "The net effect on yields is ambiguous: more bond supply and a firmer growth outlook push yields up, while easier monetary tools and weak private credit pull them down."
+        zh: 对利率的净影响不明确：债券供给增加和增长预期走强推升收益率，而货币工具放松和私人信贷疲弱则压低收益率。
+      cny:
+        en: Easier monetary tools would lean against CNY strength, a firmer growth outlook would support it; the net direction also depends on the US rate path.
+        zh: 货币工具放松不利于人民币走强，增长预期改善则形成支撑；净方向还取决于美国利率路径。
+      equities:
+        en: Investment-linked and policy-supported cyclicals benefit first; broad earnings upgrades need a private-demand response.
+        zh: 与投资相关、受政策支持的周期板块率先受益；盈利的广泛上修仍需私人需求的响应。
+      banks:
+        en: Government-led credit supports volumes more than margins; property and local-government exposure remain the main risks.
+        zh: 政府主导的信贷更多支撑规模而非息差；房地产和地方政府敞口仍是主要风险。
+      confirming:
+        en: Credit growth and government-bond financing stabilise; budget spending and project starts accelerate; trade-in categories lift retail sales.
+        zh: 信贷增速和政府债券融资企稳；预算支出和项目开工加快；以旧换新品类带动零售回升。
+      falsifying:
+        en: The announced measures prove small or slow to be funded; credit growth keeps decelerating; retail sales fade as trade-in funds are used up.
+        zh: 已公布的措施规模偏小或资金落实偏慢；信贷增速继续放缓；以旧换新资金用尽后零售回落。
+  - id: demand_led
+    name:
+      en: Demand-led reflation (H2 confirms)
+      zh: 需求拉动型再通胀（H2得到确认）
+    rows:
+      rates:
+        en: Rising nominal growth and inflation expectations would push long yields higher and steepen the curve.
+        zh: 名义增长和通胀预期上升将推高长端收益率，并使曲线变陡。
+      cny:
+        en: A firmer domestic growth and rate outlook would be supportive, within the limits set by the policy response to higher yields.
+        zh: 国内增长和利率预期走强将形成支撑，但受制于政策对收益率上行的应对。
+      equities:
+        en: Earnings upgrades broaden from upstream to domestic-demand sectors and cyclicals.
+        zh: 盈利上修从上游扩散到内需板块和周期板块。
+      banks:
+        en: Loan growth and net interest margins improve if household and corporate credit demand recover, and asset-quality pressure eases.
+        zh: 若居民和企业信贷需求恢复，贷款增长和净息差改善，资产质量压力缓解。
+      confirming:
+        en: Core CPI and consumer-goods PPI turn up; mortgage flow turns positive; M1 and retail sales accelerate; at least three of the six demand tests pass.
+        zh: 核心CPI和生活资料PPI转升；按揭贷款转为净增加；M1和零售加速；六项需求检验中至少三项通过。
+      falsifying:
+        en: PPI momentum fades while the demand tests fail together; the deflator slips back below zero.
+        zh: PPI动能减弱的同时需求检验同时不通过；平减指数重新跌回零以下。
+
+limitations:
+  - en: GDP history is the current revised vintage, not first prints; first prints are captured going forward.
+    zh: GDP历史数据为当前修订后的版本，而非首次发布值；今后将记录首次发布值。
+  - en: Release dates are official (NBS release agenda) for NBS series. PBOC, FRED and agency series republished on the NBS portal carry no first-release date, so their availability is the time they were retrieved.
+    zh: 国家统计局系列的发布时间来自官方发布日程。中国人民银行、FRED以及经国家统计局数据库转载的其他机构系列没有首次发布日期，因此其可得时间按抓取时间计。
+  - en: The China 10-year government bond yield has no redistributable public source and is not part of the public build. Its licensed source (Wind) is used only in the researcher's local Private Research Mode; nothing derived from it is published, and this public site runs on official and open sources alone.
+    zh: 中国10年期国债收益率没有可再分发的公开来源，不在公开版之内。其授权数据源（Wind）仅用于研究者本机的私有研究模式；由此得出的任何数据都不会公开，本公开站点仅使用官方和开放来源。
+  - en: Government fund revenue has no reachable public route (the Ministry of Finance release host refuses automated access), so that diagnostic is absent.
+    zh: 政府性基金收入没有可访问的公开途径（财政部发布网站拒绝自动化访问），因此该诊断指标缺失。
+  - en: Exports to the US are missing for 2024-09 and 2024-10, which the customs English bulletin never posted.
+    zh: 对美出口缺少2024年9月和10月的数据，海关英文公告从未发布这两个月的数据。
+  - en: The NBS data portal can trail the NBS press release by several days; the refresh picks a release up once the portal carries it.
+    zh: 国家统计局数据库可能比新闻发布晚数日；数据库更新后，刷新程序才会抓取到该次发布。
+  - en: Year-to-date indicators smooth recent changes. Where it matters, the site reads the direction of the cumulative rate to infer the latest single month, and says so.
+    zh: 累计类指标会平滑近期变化。在影响判断时，本站依据累计增速的变化方向推断最新单月走势，并明确说明。
+  - en: Policy events are curated by hand from official sources and are context only. They are not evidence tests, and they do not alter the preregistered baseline.
+    zh: 政策事件由人工从官方来源整理，仅作背景。它们不是证据检验，也不会改变预先登记的基线。
+
+# Chinese names for calendar entries that carry no Chinese in the calendar file itself
+# (entries added from the NBS agenda carry their Chinese name in brackets and need no mapping).
+calendar_names_zh:
+  September 2026 CPI and PPI: 2026年9月CPI和PPI
+  2026Q3 GDP (national economic performance release): 2026年三季度GDP（国民经济运行情况发布）
+  September 2026 activity (national economic performance release): 2026年9月经济活动数据（国民经济运行情况发布）

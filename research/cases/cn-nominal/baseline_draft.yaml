@@ -1,0 +1,20 @@
+# Proposed baseline judgment. Frozen into preregistered/<date>-baseline.yaml by
+# `python -m cnmacro preregister` only after the owner approves it.
+probability: 0.30
+conviction: LOW
+rationale: >-
+  The deflator turned positive in 2026Q2 and the price leg is more likely than not to hold
+  through 2027Q1 (I-05); the September PMI output price index points to renewed factory-gate
+  momentum. But the turn is concentrated upstream and coincides with the oil and metals shock
+  (I-01). Private domestic demand has not turned (I-02): with the September PMI, new orders
+  slipped below the expansion line on a three-month average, so fewer demand tests pass than
+  the three of six that confirmation requires. Policy impulse is fading (I-03); exports help
+  but do not satisfy the domestic-demand leg (I-04). Price leg roughly 65%, demand leg below
+  even odds given the price leg: 30%.
+hypothesis_assessment:
+  H1: Price turn has happened in level terms; momentum faded after the oil peak, and the September PMI suggests a pickup.
+  H2: Not supported on levels; the change-based tests that pass do so on marginal readings, and new orders are hovering at the expansion line.
+  H3: Fading; credit growth slowing and on-budget spending weak.
+  H4: Supportive; exports strong, new export orders only at the expansion line.
+  H0: Best-supported explanation so far.
+key_claims: [C-T-01, I-01, I-02, I-03, I-04, I-05]

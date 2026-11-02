@@ -1,0 +1,2 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_exports_usd_yoy,2026-08,25.0,2026-09-09,source_field,2026-10-04T05:32:34+00:00,GACC,http://english.customs.gov.cn/Statics/f8da41eb-f559-4b41-988e-16a0a1869f0e.html,public,,ok,"GACC English site preliminary release (1) Total Export & Import Values, Aug 2026 (in USD), page dated 2026/09/09; monthly YoY column; the NBS portal had not yet added this month"

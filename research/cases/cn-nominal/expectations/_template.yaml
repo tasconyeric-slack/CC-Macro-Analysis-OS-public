@@ -1,0 +1,48 @@
+# EXPECTATION NOTE TEMPLATE (strategy §9). Copy this file, do not edit it:
+#
+#   cp research/cases/cn-nominal/expectations/_template.yaml \
+#      research/cases/cn-nominal/expectations/2026-10-14-september-2026-cpi-and-ppi.yaml
+#
+# Fill it in with YOUR expectations (3 to 5 key readings), then commit it and push BEFORE the release:
+#   2026-10-14 09:30 Beijing = 2026-10-14 01:30 UTC.
+#
+# Rules the code enforces, because an expectation written after the fact proves nothing:
+#   * the file counts only if it was committed exactly once, and that commit is earlier than the release;
+#     an uncommitted, later or edited note is excluded from the Copilot's context (and says why);
+#   * nothing here is invented by the system: every number is yours;
+#   * the Copilot never writes this file. It reads the ranges only to compute `vs_expectation`
+#     (inside / above / below) in code. A note changes no thesis, no evidence test and no rule.
+#
+# Files whose names start with "_" are ignored, so this template is never mistaken for a note.
+
+kind: expectation_note
+release: September 2026 CPI and PPI            # must equal the name in data/dictionary/release_calendar.yaml
+release_at: "2026-10-14T09:30:00+08:00"
+author: ""                                     # you
+note: ""                                       # optional one line of context
+
+# 3 to 5 readings. `ref` is the observation the release will publish (period 2026-09).
+# Choose from the CPI/PPI metrics below; any obs: ref in the dictionary works.
+#   obs:cn_ppi_yoy@2026-09   obs:cn_ppi_mom@2026-09   obs:cn_cpi_yoy@2026-09
+#   obs:cn_core_cpi_yoy@2026-09   obs:cn_ppi_consumer_yoy@2026-09   obs:cn_ppi_producer_yoy@2026-09
+# `direction_vs_prior`: up | down | flat, relative to the previous month (2026-08).
+# `range`: [low, high] in the metric's own unit (percent for these series).
+expectations:
+  - ref: obs:cn_ppi_yoy@2026-09
+    direction_vs_prior:                        # up | down | flat
+    range: [null, null]                        # [low, high]
+    note: ""
+  - ref: obs:cn_ppi_mom@2026-09
+    direction_vs_prior:
+    range: [null, null]
+    note: ""
+  - ref: obs:cn_core_cpi_yoy@2026-09
+    direction_vs_prior:
+    range: [null, null]
+    note: ""
+
+# Optional, analyst-written "if A then ..." mapping (the AI scenario mapping of strategy §9.2 is deferred).
+# Say what each outcome would mean for H0-H4 BEFORE you see it. No probabilities needed.
+scenarios:
+  - if: ""
+    then: ""

@@ -1,0 +1,64 @@
+{# Imported "with context", so t() is available inside the macros. #}
+{% macro effect(r) -%}
+{%- if r.effect == "supports" %}<span class="st sup">▲ {{ t('effect.supports') }}</span>
+{%- elif r.effect == "challenges" %}<span class="st cha">▼ {{ t('effect.challenges') }}</span>
+{%- else %}<span class="st pen">○ {{ t('effect.pending') }}</span>{% endif -%}
+{%- endmacro %}
+
+{% macro pill(state) -%}
+<span class="pill tone-{{ state.tone }}"><span aria-hidden="true">{{ {'good': '✓', 'warn': '~', 'bad': '✕', 'alt': '◇'}[state.tone] }}</span> {{ state.label }}</span>
+{%- endmacro %}
+
+{# A claim: the sentence, where it comes from in plain words, and the full trace on request. #}
+{% macro claim(c, anchor=true, lens=none, link=false) -%}
+<div class="claim"{% if anchor %} id="{{ c.id }}"{% endif %}>
+  {% if lens %}<div class="lens"><span class="tag lens-tag">{{ lens }}</span></div>{% endif %}
+  <p class="claim-text{% if c.withheld %} withheld{% endif %}">{{ c.text }}</p>
+  <div class="prov"><span class="tag" title="{{ t('claim.type_hint') }}">{{ c.type_label }}</span>
+    {%- for line in c.prov %} <span class="prov-line">{{ line }}</span>{% endfor %}
+    {%- if c.prov_more %} <span class="muted">{{ t('claim.more_sources', n=c.prov_more) }}</span>{% endif %}
+    {%- if link %} <a class="more" href="evidence.html#{{ c.id }}">{{ t('claim.open_evidence') }} ›</a>{% endif %}</div>
+  <details class="lineage"><summary>{{ t('claim.lineage') }}</summary>
+    <dl>
+      <dt>{{ t('claim.id') }}</dt><dd class="mono">{{ c.id }} · {{ c.type }} · {{ c.hypotheses|join(", ") }}</dd>
+      <dt>{{ t('claim.as_of') }}</dt><dd>{{ c.as_of|when }}</dd>
+      {% if c.supports %}<dt>{{ t('claim.supports') }}</dt><dd class="mono">{% for s in c.supports %}<a href="evidence.html#{{ s }}">{{ s }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+      {% if c.prov_all|length > c.prov|length %}<dt>{{ t('claim.all_sources') }}</dt><dd>{% for line in c.prov_all %}<div>{{ line }}</div>{% endfor %}</dd>{% endif %}
+      <dt>{{ t('claim.refs') }}</dt>
+      <dd>{% for r in c.lineage %}<div class="ref"><span class="mono">{{ r.ref }}</span>{% if r.value is not none %} = <span class="mono">{{ r.value }}</span>{% endif %}
+        {%- if r.source_code %} <span class="muted">· {{ t('claim.source_code') }} {% if r.source_code.startswith('http') %}<a class="mono" href="{{ r.source_code }}" rel="noopener">{{ r.source_code }}</a>{% else %}<span class="mono">{{ r.source_code }}</span>{% endif %}</span>{% endif %}
+        {%- if r.release_date %} <span class="muted">· {{ t('claim.release') }} {{ r.release_date|date }} ({{ r.release_basis }})</span>{% endif %}
+        {%- if r.retrieved_at %} <span class="muted">· {{ t('claim.retrieved') }} {{ r.retrieved_at|when }}</span>{% endif %}
+        {%- if r.inputs %}<div class="inputs muted">{{ t('claim.inputs')|colon }}<span class="mono">{{ r.inputs|join(", ") }}</span></div>{% endif %}</div>{% endfor %}</dd>
+    </dl>
+  </details>
+</div>
+{%- endmacro %}
+
+{% macro chartcard(ch) -%}
+<div class="chartcard" id="{{ ch.id }}">
+  <div class="title">{{ ch.name }}{% if ch.tier == "diagnostic" %} <span class="tag">{{ ch.tier_label }}</span>{% endif %}</div>
+  <div class="sub">{% if ch.name_alt %}<span lang="{{ 'en' if loc == 'zh' else 'zh-Hans' }}">{{ ch.name_alt }}</span> · {% endif %}{{ ch.unit }} · {{ ch.hypotheses|join(", ") }}</div>
+  {% if ch.svg %}{{ ch.svg }}{% else %}<p class="muted small">{{ t('chart.no_public') }}</p>{% endif %}
+  <div class="meta">{{ t('chart.meta_line', period=ch.period, sources=ch.sources|join(t('common.list_sep'))) }}{% if ch.latest_release %} · {{ t('chart.latest_release', period=ch.latest|period, date=ch.latest_release|date) }}{% endif %}</div>
+  <details class="lineage"><summary>{{ t('claim.lineage') }}</summary>
+    <dl><dt>{{ t('chart.why') }}</dt><dd>{{ ch.role }}</dd>
+    {% if ch.source_codes %}<dt>{{ t('claim.source_code') }}</dt><dd class="mono">{{ ch.source_codes|join(", ") }}</dd>{% endif %}
+    {% if ch.retrieved %}<dt>{{ t('claim.retrieved') }}</dt><dd>{{ ch.retrieved|when }}</dd>{% endif %}</dl>
+  </details>
+</div>
+{%- endmacro %}
+
+{# The terminal rules in words; the live state of each test beside it. #}
+{% macro rule_node(n) -%}
+{%- if n.kind == "test" -%}
+  <li class="rt"><span class="mark {{ 'ok' if n.met else ('no' if n.met is not none else 'pen') }}" aria-hidden="true">{{ '✓' if n.met else ('✕' if n.met is not none else '○') }}</span>
+    <span>{{ t('rules.test_passes' if n.want else 'rules.test_fails')|colon }}{{ n.description }} <a class="mono" href="#{{ n.hyp }}">{{ n.id }}</a>
+    <span class="muted small">· {{ t('rules.now_is', state=t('rules.state_met') if n.met else (t('rules.state_not_met') if n.met is not none else t('rules.state_pending'))) }}</span></span></li>
+{%- elif n.kind == "at_least" -%}
+  <li><span>{{ t('rules.at_least', n=n.n, total=n.total) }} <span class="muted small">· {{ t('rules.now_count', met=n.met_count) }}{% if n.pending %} {{ t('rules.pending_count', n=n.pending) }}{% endif %}</span></span>
+    <ul>{% for c in n.children %}{{ rule_node(c) }}{% endfor %}</ul></li>
+{%- elif n.kind in ("all", "any") -%}
+  <li><span>{{ t('rules.' ~ n.kind) }}</span><ul>{% for c in n.children %}{{ rule_node(c) }}{% endfor %}</ul></li>
+{%- else -%}<li class="mono small">{{ n.text }}</li>{%- endif -%}
+{%- endmacro %}

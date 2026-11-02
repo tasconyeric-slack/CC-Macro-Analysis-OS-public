@@ -1,0 +1,530 @@
+kind: baseline
+as_of: '2026-10-04T06:00:00Z'
+committed_before:
+  release: September 2026 CPI and PPI
+  at: '2026-10-14T09:30:00+08:00'
+probability: 0.3
+conviction: LOW
+status: ACTIVE
+last_update_direction: UNCHANGED
+rationale: 'The deflator turned positive in 2026Q2 and the price leg is more likely
+  than not to hold through 2027Q1 (I-05); the September PMI output price index points
+  to renewed factory-gate momentum. But the turn is concentrated upstream and coincides
+  with the oil and metals shock (I-01). Private domestic demand has not turned (I-02):
+  with the September PMI, new orders slipped below the expansion line on a three-month
+  average, so fewer demand tests pass than the three of six that confirmation requires.
+  Policy impulse is fading (I-03); exports help but do not satisfy the domestic-demand
+  leg (I-04). Price leg roughly 65%, demand leg below even odds given the price leg:
+  30%.'
+hypothesis_assessment:
+  H1: Price turn has happened in level terms; momentum faded after the oil peak, and
+    the September PMI suggests a pickup.
+  H2: Not supported on levels; the change-based tests that pass do so on marginal
+    readings, and new orders are hovering at the expansion line.
+  H3: Fading; credit growth slowing and on-budget spending weak.
+  H4: Supportive; exports strong, new export orders only at the expansion line.
+  H0: Best-supported explanation so far.
+key_claims:
+- C-T-01
+- I-01
+- I-02
+- I-03
+- I-04
+- I-05
+test_results:
+  T-H1-01:
+    id: T-H1-01
+    hypothesis: H1
+    outcome: 'false'
+    effect: challenges
+    observed: -0.2
+    latest_period: 2026-08
+    refs:
+    - drv:ma(cn_ppi_mom,3)@2026-08
+  T-H1-02:
+    id: T-H1-02
+    hypothesis: H1
+    outcome: 'true'
+    effect: supports
+    observed: 4.7
+    latest_period: 2026-08
+    refs:
+    - obs:cn_ppi_yoy@2026-02
+    - obs:cn_ppi_yoy@2026-08
+  T-H1-03:
+    id: T-H1-03
+    hypothesis: H1
+    outcome: 'true'
+    effect: supports
+    observed: 50.7333
+    latest_period: 2026-09
+    refs:
+    - drv:ma(cn_pmi_output_price,3)@2026-09
+  T-H1-04:
+    id: T-H1-04
+    hypothesis: H1
+    outcome: 'true'
+    effect: supports
+    observed: 1.5266
+    latest_period: 2026Q2
+    refs:
+    - drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2
+  T-H1-05:
+    id: T-H1-05
+    hypothesis: H1
+    outcome: 'false'
+    effect: challenges
+    observed: 1.5266
+    latest_period: 2026Q2
+    refs:
+    - drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q1
+    - drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2
+  T-H1-06:
+    id: T-H1-06
+    hypothesis: H1
+    outcome: 'true'
+    effect: supports
+    observed: 15.7
+    latest_period: 2026-08
+    refs:
+    - obs:cn_ind_profit_ytd_yoy@2026-08
+  T-H2-01:
+    id: T-H2-01
+    hypothesis: H2
+    outcome: 'false'
+    effect: challenges
+    observed: -0.8
+    latest_period: 2026-08
+    refs:
+    - obs:cn_core_cpi_yoy@2026-02
+    - obs:cn_core_cpi_yoy@2026-08
+  T-H2-02:
+    id: T-H2-02
+    hypothesis: H2
+    outcome: 'false'
+    effect: challenges
+    observed: -1.8
+    latest_period: 2026-08
+    refs:
+    - obs:cn_m1_yoy@2026-02
+    - obs:cn_m1_yoy@2026-08
+  T-H2-03:
+    id: T-H2-03
+    hypothesis: H2
+    outcome: 'true'
+    effect: supports
+    observed: 1.4
+    latest_period: 2026-08
+    refs:
+    - obs:cn_property_sales_area_ytd_yoy@2026-02
+    - obs:cn_property_sales_area_ytd_yoy@2026-08
+  T-H2-04:
+    id: T-H2-04
+    hypothesis: H2
+    outcome: 'false'
+    effect: challenges
+    observed: 49.8667
+    latest_period: 2026-09
+    refs:
+    - drv:ma(cn_pmi_new_orders,3)@2026-09
+  T-H2-05:
+    id: T-H2-05
+    hypothesis: H2
+    outcome: 'true'
+    effect: supports
+    observed: 1.0
+    latest_period: 2026-08
+    refs:
+    - obs:cn_retail_sales_yoy@2026-05
+    - obs:cn_retail_sales_yoy@2026-08
+  T-H2-06:
+    id: T-H2-06
+    hypothesis: H2
+    outcome: 'false'
+    effect: challenges
+    observed: -146.6767
+    latest_period: 2026-08
+    refs:
+    - drv:single(cn_loans_hh_mlt_ytd)@2026-06
+    - drv:single(cn_loans_hh_mlt_ytd)@2026-07
+    - drv:single(cn_loans_hh_mlt_ytd)@2026-08
+  T-H3-01:
+    id: T-H3-01
+    hypothesis: H3
+    outcome: 'false'
+    effect: challenges
+    observed: -0.5
+    latest_period: 2026-08
+    refs:
+    - obs:cn_tsf_stock_yoy@2026-05
+    - obs:cn_tsf_stock_yoy@2026-08
+  T-H3-02:
+    id: T-H3-02
+    hypothesis: H3
+    outcome: 'true'
+    effect: supports
+    observed: 1.3
+    latest_period: 2026-07
+    refs:
+    - obs:cn_budget_exp_ytd_yoy@2026-07
+  T-H4-01:
+    id: T-H4-01
+    hypothesis: H4
+    outcome: 'true'
+    effect: supports
+    observed: 25.3
+    latest_period: 2026-08
+    refs:
+    - drv:ma(cn_exports_usd_yoy,3)@2026-08
+  T-H4-02:
+    id: T-H4-02
+    hypothesis: H4
+    outcome: 'false'
+    effect: challenges
+    observed: 49.9
+    latest_period: 2026-09
+    refs:
+    - drv:ma(cn_pmi_new_export_orders,3)@2026-09
+  T-H0-01:
+    id: T-H0-01
+    hypothesis: H0
+    outcome: 'true'
+    effect: supports
+    observed: 19.14
+    latest_period: 2026-07
+    refs:
+    - obs:gl_brent_usd@2026-01
+    - obs:gl_brent_usd@2026-07
+  T-H0-02:
+    id: T-H0-02
+    hypothesis: H0
+    outcome: 'true'
+    effect: supports
+    observed: 556.2141
+    latest_period: 2026-07
+    refs:
+    - obs:gl_copper_usd@2026-01
+    - obs:gl_copper_usd@2026-07
+  T-H0-03:
+    id: T-H0-03
+    hypothesis: H0
+    outcome: 'true'
+    effect: supports
+    observed: -0.5
+    latest_period: 2026-08
+    refs:
+    - obs:cn_ppi_consumer_yoy@2026-08
+terminal_status_at_baseline: ACTIVE
+claims_sha256: 34ed185ff94d5fbe61ca62ef7c2d28565b08dde347e7114614521af3751addc4
+case:
+  case_id: cn-nominal
+  question: Is China forming a sustainable turning point in nominal growth?
+  question_zh: 中国名义增长是否正在形成可持续拐点？
+  statement: China's GDP deflator turns non-negative and stays there for two consecutive
+    quarters by the 2027Q1 GDP release, supported by a broadening of domestic demand
+    rather than by supply-side or imported price pressure alone.
+  target: drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)
+  horizon:
+    terminal_release: First NBS release of 2027Q1 GDP (expected mid-April 2027; date
+      confirmed from the NBS 2027 calendar when published)
+    definition_of_sustainable: Deflator YoY >= 0 in 2026Q4 and 2027Q1, and at least
+      3 of 6 domestic-demand tests passing at the terminal release.
+    terminal_window_opens: null
+  hypotheses:
+    H1:
+      name: Price turn
+      claim: Industrial and consumer prices are bottoming, and the GDP deflator is
+        moving toward zero or above.
+    H2:
+      name: Domestic demand
+      claim: Private domestic demand (credit, consumption, property, orders) is stabilising
+        or improving.
+    H3:
+      name: Policy impulse
+      claim: Fiscal and credit impulse is large and persistent enough to support nominal
+        demand.
+    H4:
+      name: External demand
+      claim: Exports are a support for, not a drag on, nominal growth.
+    H0:
+      name: Supply-led bounce (competing)
+      claim: Any price improvement is driven by supply discipline or imported commodity
+        costs without demand confirmation, so it is not sustainable.
+  evidence_tests:
+  - id: T-H1-01
+    hypothesis: H1
+    indicator: ma(cn_ppi_mom,3)
+    rule: latest
+    op: '>'
+    threshold: 0
+    if_true: supports
+    window: latest 3 months
+    check: NBS CPI/PPI release
+    description: PPI month-on-month momentum is positive on a 3-month average.
+    threshold_basis: natural (zero momentum)
+  - id: T-H1-02
+    hypothesis: H1
+    indicator: cn_ppi_yoy
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: NBS CPI/PPI release
+    description: PPI YoY is higher than six months earlier.
+    threshold_basis: natural (zero change)
+  - id: T-H1-03
+    hypothesis: H1
+    indicator: ma(cn_pmi_output_price,3)
+    rule: latest
+    op: '>='
+    threshold: 50
+    if_true: supports
+    window: latest 3 months
+    check: NBS PMI release
+    description: PMI output prices signal rising factory-gate prices on average.
+    threshold_basis: natural (PMI 50 = no change)
+  - id: T-H1-04
+    hypothesis: H1
+    indicator: deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)
+    rule: latest
+    op: '>='
+    threshold: 0
+    if_true: supports
+    window: latest quarter
+    check: NBS quarterly GDP release
+    description: The implied GDP deflator is non-negative in the latest quarter.
+    threshold_basis: definition of the thesis
+  - id: T-H1-05
+    hypothesis: H1
+    indicator: deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)
+    rule: streak
+    op: '>='
+    threshold: 0
+    n: 2
+    if_true: supports
+    window: latest 2 quarters
+    check: NBS quarterly GDP release
+    description: The implied GDP deflator is non-negative for two consecutive quarters.
+    threshold_basis: definition of the thesis
+  - id: T-H1-06
+    hypothesis: H1
+    indicator: cn_ind_profit_ytd_yoy
+    rule: latest
+    op: '>'
+    threshold: 0
+    if_true: supports
+    window: latest month
+    check: NBS industrial profits release
+    description: Industrial profits are growing year-to-date (reflation reaching margins).
+    threshold_basis: natural (zero growth). Moved from H2 before preregistration (was
+      T-H2-05).
+  - id: T-H2-01
+    hypothesis: H2
+    indicator: cn_core_cpi_yoy
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: NBS CPI/PPI release
+    description: Core CPI inflation is higher than six months earlier.
+    threshold_basis: natural (zero change)
+  - id: T-H2-02
+    hypothesis: H2
+    indicator: cn_m1_yoy
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: PBOC monetary statistics
+    description: M1 growth is higher than six months earlier.
+    threshold_basis: natural (zero change)
+  - id: T-H2-03
+    hypothesis: H2
+    indicator: cn_property_sales_area_ytd_yoy
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: NBS property release
+    description: Property sales are contracting less (or growing more) than six months
+      earlier.
+    threshold_basis: natural (zero change)
+  - id: T-H2-04
+    hypothesis: H2
+    indicator: ma(cn_pmi_new_orders,3)
+    rule: latest
+    op: '>='
+    threshold: 50
+    if_true: supports
+    window: latest 3 months
+    check: NBS PMI release
+    description: Manufacturing new orders are expanding on a 3-month average.
+    threshold_basis: natural (PMI 50 = no change)
+  - id: T-H2-05
+    hypothesis: H2
+    indicator: cn_retail_sales_yoy
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 3
+    if_true: supports
+    window: change over 3 months
+    check: NBS monthly activity release
+    description: Retail sales growth is higher than three months earlier.
+    threshold_basis: 'natural (zero change); 3 months rather than 6 because January-February
+      are published combined, so a 6-month window would often land on a missing month.
+      Replaces the industrial-profits test before preregistration: the baseline data
+      showed profits can rise on a price shock alone, so profits now test H1 (T-H1-06).'
+  - id: T-H2-06
+    hypothesis: H2
+    indicator: single(cn_loans_hh_mlt_ytd)
+    rule: avg
+    op: '>'
+    threshold: 0
+    n: 3
+    if_true: supports
+    window: latest 3 months
+    check: PBOC monetary statistics
+    description: Net new medium and long-term household loans (mortgages) are positive
+      on a 3-month average.
+    threshold_basis: 'natural (zero net lending). Added before preregistration: household
+      credit is the most direct private-demand read and was missing from the tests.'
+  - id: T-H3-01
+    hypothesis: H3
+    indicator: cn_tsf_stock_yoy
+    rule: change
+    op: '>='
+    threshold: 0
+    n: 3
+    if_true: supports
+    window: change over 3 months
+    check: PBOC monetary statistics
+    description: Aggregate credit growth is not decelerating over the last quarter.
+    threshold_basis: natural (zero change)
+  - id: T-H3-02
+    hypothesis: H3
+    indicator: cn_budget_exp_ytd_yoy
+    rule: latest
+    op: '>'
+    threshold: 0
+    if_true: supports
+    window: latest month
+    check: MOF budget release
+    description: Budget expenditure is growing year-to-date.
+    threshold_basis: natural (zero growth)
+  - id: T-H4-01
+    hypothesis: H4
+    indicator: ma(cn_exports_usd_yoy,3)
+    rule: latest
+    op: '>'
+    threshold: 0
+    if_true: supports
+    window: latest 3 months
+    check: GACC trade release
+    description: Exports are growing on a 3-month average.
+    threshold_basis: natural (zero growth)
+  - id: T-H4-02
+    hypothesis: H4
+    indicator: ma(cn_pmi_new_export_orders,3)
+    rule: latest
+    op: '>='
+    threshold: 50
+    if_true: supports
+    window: latest 3 months
+    check: NBS PMI release
+    description: New export orders are expanding on a 3-month average.
+    threshold_basis: natural (PMI 50 = no change)
+  - id: T-H0-01
+    hypothesis: H0
+    indicator: gl_brent_usd
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: monthly
+    description: Oil is higher than six months earlier (imported cost push).
+    threshold_basis: natural (zero change)
+  - id: T-H0-02
+    hypothesis: H0
+    indicator: gl_copper_usd
+    rule: change
+    op: '>'
+    threshold: 0
+    n: 6
+    if_true: supports
+    window: change over 6 months
+    check: monthly
+    description: Copper is higher than six months earlier (global metals cost push).
+    threshold_basis: natural (zero change)
+  - id: T-H0-03
+    hypothesis: H0
+    indicator: cn_ppi_consumer_yoy
+    rule: latest
+    op: <
+    threshold: 0
+    if_true: supports
+    window: latest month
+    check: NBS CPI/PPI release (diagnostic, triggered by T-H1-02)
+    description: Consumer-goods factory prices are still falling, so the PPI rise
+      has not passed downstream.
+    threshold_basis: 'natural (zero). Added before preregistration: the baseline showed
+      PPI driven by producer goods while consumer goods deflate.'
+  terminal_rules:
+    decision_window: Opens at the terminal_release above.
+    CONFIRMED:
+      when:
+        all:
+        - test: T-H1-05
+        - at_least: 3
+          of:
+          - test: T-H2-01
+          - test: T-H2-02
+          - test: T-H2-03
+          - test: T-H2-04
+          - test: T-H2-05
+          - test: T-H2-06
+    FALSIFIED:
+      when:
+        any:
+        - test: T-H1-04
+          is: false
+        - all:
+          - test: T-H1-05
+          - at_least: 5
+            of:
+            - test: T-H2-01
+              is: false
+            - test: T-H2-02
+              is: false
+            - test: T-H2-03
+              is: false
+            - test: T-H2-04
+              is: false
+            - test: T-H2-05
+              is: false
+            - test: T-H2-06
+              is: false
+    FALSIFIED_EARLY:
+      early: true
+      status: FALSIFIED
+      when:
+        all:
+        - test: T-H1-01
+          is: false
+        - test: T-H1-02
+          is: false
+        - test: T-H2-01
+          is: false
+        - test: T-H2-04
+          is: false
+    otherwise: ACTIVE before the window; RETIRED (inconclusive) at the window.

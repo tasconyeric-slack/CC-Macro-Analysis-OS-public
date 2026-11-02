@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+<div class="eyebrow">{{ t('nav.charts') }}</div>
+<h1>{{ t('charts.h1') }}</h1>
+<p class="lede">{{ t('charts.lede') }}</p>
+{% for h in hypotheses %}{% set group = charts_by_h[h.id] %}{% if group %}
+<h2>{{ h.id }} · {{ h.name }}</h2>
+<div class="grid2">{% for ch in group %}{{ mx.chartcard(ch) }}{% endfor %}</div>
+{% endif %}{% endfor %}
+{% endblock %}

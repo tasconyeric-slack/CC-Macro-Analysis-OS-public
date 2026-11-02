@@ -1,0 +1,6 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_ngdp_q,2026Q3,375367.0,2026-10-19T10:00:00+08:00,official_calendar,2026-10-19T04:50:08+00:00,NBS,https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261019_1965618.html,public,,ok,NBS official first print; portal revision may follow
+cn_rgdp_yoy,2026Q3,4.5,2026-10-19T10:00:00+08:00,official_calendar,2026-10-19T04:50:08+00:00,NBS,https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261019_1965618.html,public,,ok,NBS official first print; portal revision may follow
+cn_retail_sales_yoy,2026-09,1.1,2026-10-19T10:00:00+08:00,official_calendar,2026-10-19T04:50:08+00:00,NBS,https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261019_1965614.html,public,,ok,NBS official first print; portal revision may follow
+cn_property_sales_area_ytd_yoy,2026-09,-13.2,2026-10-19T10:00:00+08:00,official_calendar,2026-10-19T04:50:08+00:00,NBS,https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261019_1965615.html,public,,ok,NBS official first print; portal revision may follow
+cn_ip_yoy,2026-09,5.5,2026-10-19T10:00:00+08:00,official_calendar,2026-10-19T04:50:08+00:00,NBS,https://www.stats.gov.cn/sj/zxfbhjd/202610/t20261019_1965617.html,public,,ok,NBS official first print; portal revision may follow

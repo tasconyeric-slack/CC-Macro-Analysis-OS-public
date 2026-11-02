@@ -1,0 +1,7 @@
+# The single public canonical origin for every static build (production and preview).
+# Primary deployment: Vercel project `ccmacrors` on branch `main`, publicly served at
+# https://ccmacro.byliyz.com/ . Netlify, if still enabled, is a non-canonical legacy mirror.
+# Build metadata (canonical, hreflang, og:url, og:image) must never depend on a preview host.
+url: https://ccmacro.byliyz.com
+locales: [en, zh]
+default_locale: en

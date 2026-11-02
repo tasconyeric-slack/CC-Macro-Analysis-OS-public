@@ -1,0 +1,10 @@
+#!/bin/sh
+# Enable once per clone:  git config core.hooksPath .githooks
+# Fails closed: if no Python interpreter is found, the commit is blocked.
+for py in python3 python "py -3"; do
+  if $py -c "import sys; sys.exit(0 if sys.version_info >= (3, 9) else 1)" >/dev/null 2>&1; then
+    exec $py scripts/check_secrets.py --staged
+  fi
+done
+echo "pre-commit: no Python >= 3.9 found; cannot run scripts/check_secrets.py. Commit blocked." >&2
+exit 1

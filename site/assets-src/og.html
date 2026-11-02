@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Source of site/static/og-en.png and og-zh.png (1200x630). Static on purpose: it carries the
+     question and the brand, never a probability or a date, so it cannot go stale.
+     Regenerate with: python site/assets-src/render_assets.py   (needs playwright; dev only) -->
+<html><head><meta charset="utf-8"><style>
+  html,body{margin:0;width:1200px;height:630px;background:#141413;color:#f4f3ef;
+    font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,"PingFang SC","Noto Sans CJK SC","WenQuanYi Zen Hei",sans-serif}
+  .c{position:relative;width:1200px;height:630px;box-sizing:border-box;padding:68px 80px}
+  .brand{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:650;color:#c3c2b7}
+  .brand svg{width:54px;height:54px}
+  h1{font-family:Charter,"Iowan Old Style",Georgia,"Songti SC","Noto Serif CJK SC","WenQuanYi Zen Hei",serif;
+     font-size:76px;line-height:1.16;font-weight:600;margin:70px 0 22px;max-width:900px}
+  p{font-size:34px;line-height:1.4;color:#c3c2b7;margin:0;max-width:880px}
+  .zh h1{font-size:80px;line-height:1.22}.zh p{font-size:36px}
+  .en p{max-width:600px;font-size:31px}
+  .chart{position:absolute;right:70px;bottom:70px;width:390px;height:190px}
+  .tag{position:absolute;left:80px;bottom:62px;font-size:26px;color:#8f8e86;letter-spacing:.02em}
+</style></head>
+<body><div class="c" id="card">
+  <div class="brand"><svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#2b2b28"/><path d="M10 22 L24 38 L34 34 L54 14" fill="none" stroke="#5598e7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="54" cy="14" r="5" fill="#f4f3ef"/></svg><span>CC Macro Analysis OS</span></div>
+  <h1 id="title"></h1><p id="sub"></p>
+  <div class="tag" id="tag"></div>
+  <svg class="chart" viewBox="0 0 430 210"><line x1="0" y1="150" x2="430" y2="150" stroke="#77756d" stroke-width="2" stroke-dasharray="6 8"/>
+    <path d="M6 40 L70 96 L120 128 L175 150 L230 140 L290 118 L350 70 L418 24" fill="none" stroke="#5598e7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="418" cy="24" r="12" fill="#f4f3ef"/></svg>
+</div>
+<script>
+  var L = {en:{t:"China Nominal Growth Monitor",s:"Is China forming a sustainable turning point in nominal growth?",g:"A preregistered, falsifiable view · NBS · PBOC · GACC · FRED"},
+           zh:{t:"中国名义增长监测",s:"中国名义增长是否正在形成可持续拐点？",g:"预先登记、可证伪的判断 · 国家统计局 · 人民银行 · 海关总署 · FRED"}};
+  var l = location.hash.slice(1) === "zh" ? "zh" : "en";
+  document.getElementById("card").className = "c " + l;
+  document.getElementById("title").textContent = L[l].t; document.getElementById("sub").textContent = L[l].s;
+  document.getElementById("tag").textContent = L[l].g;
+</script></body></html>

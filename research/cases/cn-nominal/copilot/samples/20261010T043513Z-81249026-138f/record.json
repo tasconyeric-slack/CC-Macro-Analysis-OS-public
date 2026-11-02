@@ -1,0 +1,685 @@
+{
+  "as_of": "2026-08-10T03:59:59Z",
+  "contamination": {
+    "cutoff_source": null,
+    "model_knowledge_cutoff": null,
+    "note": "a replay is only as clean as the model's knowledge cutoff; without a probe it cannot be called uncontaminated",
+    "probe": "not run (strategy §10.3 step 3 belongs to Phase C)",
+    "release_after_cutoff": null
+  },
+  "context": {
+    "evidence_allowlist": [
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q1",
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2",
+      "drv:diff(cn_core_cpi_yoy,1)@2026-07",
+      "drv:diff(cn_core_cpi_yoy,3)@2026-07",
+      "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+      "drv:diff(cn_cpi_yoy,1)@2026-07",
+      "drv:diff(cn_cpi_yoy,3)@2026-07",
+      "drv:diff(cn_cpi_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_mom,1)@2026-07",
+      "drv:diff(cn_ppi_mom,3)@2026-07",
+      "drv:diff(cn_ppi_mom,6)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_yoy,6)@2026-07",
+      "drv:diff(cn_property_sales_area_ytd_yoy,6)@2026-06",
+      "drv:diff(cn_retail_sales_yoy,3)@2026-06",
+      "drv:ma(cn_core_cpi_yoy,3)@2026-07",
+      "drv:ma(cn_cpi_yoy,3)@2026-07",
+      "drv:ma(cn_pmi_new_export_orders,3)@2026-07",
+      "drv:ma(cn_pmi_new_orders,3)@2026-07",
+      "drv:ma(cn_pmi_output_price,3)@2026-07",
+      "drv:ma(cn_ppi_consumer_yoy,3)@2026-07",
+      "drv:ma(cn_ppi_mom,3)@2026-06",
+      "drv:ma(cn_ppi_mom,3)@2026-07",
+      "drv:ma(cn_ppi_producer_yoy,3)@2026-07",
+      "drv:ma(cn_ppi_yoy,3)@2026-07",
+      "obs:cn_core_cpi_yoy@2025-12",
+      "obs:cn_core_cpi_yoy@2026-01",
+      "obs:cn_core_cpi_yoy@2026-06",
+      "obs:cn_core_cpi_yoy@2026-07",
+      "obs:cn_cpi_yoy@2026-06",
+      "obs:cn_cpi_yoy@2026-07",
+      "obs:cn_ind_profit_ytd_yoy@2026-06",
+      "obs:cn_ppi_consumer_yoy@2026-06",
+      "obs:cn_ppi_consumer_yoy@2026-07",
+      "obs:cn_ppi_mom@2026-06",
+      "obs:cn_ppi_mom@2026-07",
+      "obs:cn_ppi_producer_yoy@2026-06",
+      "obs:cn_ppi_producer_yoy@2026-07",
+      "obs:cn_ppi_yoy@2025-12",
+      "obs:cn_ppi_yoy@2026-01",
+      "obs:cn_ppi_yoy@2026-06",
+      "obs:cn_ppi_yoy@2026-07",
+      "obs:cn_property_sales_area_ytd_yoy@2025-12",
+      "obs:cn_property_sales_area_ytd_yoy@2026-06",
+      "obs:cn_retail_sales_yoy@2026-03",
+      "obs:cn_retail_sales_yoy@2026-06",
+      "test:T-H0-03",
+      "test:T-H1-01",
+      "test:T-H1-02",
+      "test:T-H1-03",
+      "test:T-H1-04",
+      "test:T-H1-05",
+      "test:T-H1-06",
+      "test:T-H2-01",
+      "test:T-H2-03",
+      "test:T-H2-04",
+      "test:T-H2-05",
+      "test:T-H4-02"
+    ],
+    "file": "context.json",
+    "sha256": "81249026540ac5e557d6483ac3d8759bd33710dbf9e57fd75582d3ba2700313d"
+  },
+  "copilot": "ok",
+  "evidence_class": "fixture (synthetic, not evidence)",
+  "finished_at": "2026-10-10T04:35:13+00:00",
+  "genuine_model_run": false,
+  "kind": "fixture",
+  "mode": "replay",
+  "model": {
+    "files": [
+      "draft.json",
+      "challenge.json"
+    ],
+    "knowledge_cutoff": null,
+    "provider": "fixture",
+    "requested_id": "fixture:hand-written"
+  },
+  "passes": [
+    {
+      "attempts": 1,
+      "latency_ms": 0,
+      "name": "draft",
+      "parsed": {
+        "executive_delta": [
+          {
+            "evidence_refs": [
+              "obs:cn_ppi_yoy@2026-07",
+              "obs:cn_ppi_yoy@2026-06",
+              "obs:cn_ppi_mom@2026-07"
+            ],
+            "id": "X1",
+            "lens": "marginal",
+            "materiality": "high",
+            "template": "PPI year-on-year eased to {obs:cn_ppi_yoy@2026-07} from {obs:cn_ppi_yoy@2026-06}, and the month-on-month print turned more negative at {obs:cn_ppi_mom@2026-07}."
+          },
+          {
+            "evidence_refs": [
+              "drv:ma(cn_ppi_mom,3)@2026-07",
+              "drv:ma(cn_ppi_mom,3)@2026-06",
+              "test:T-H1-01"
+            ],
+            "id": "X2",
+            "lens": "marginal",
+            "materiality": "high",
+            "template": "The three-month average of PPI month-on-month momentum is now {drv:ma(cn_ppi_mom,3)@2026-07}, against {drv:ma(cn_ppi_mom,3)@2026-06} a month earlier, which flipped {test:T-H1-01} against the price-turn hypothesis."
+          },
+          {
+            "evidence_refs": [
+              "obs:cn_cpi_yoy@2026-07",
+              "obs:cn_cpi_yoy@2026-06",
+              "obs:cn_core_cpi_yoy@2026-07",
+              "test:T-H2-01",
+              "drv:diff(cn_core_cpi_yoy,6)@2026-07"
+            ],
+            "id": "X3",
+            "lens": "breadth",
+            "materiality": "medium",
+            "template": "Headline CPI slowed to {obs:cn_cpi_yoy@2026-07} from {obs:cn_cpi_yoy@2026-06} while core CPI was little changed at {obs:cn_core_cpi_yoy@2026-07}; the flip in {test:T-H2-01} rests on a six-month change of only {drv:diff(cn_core_cpi_yoy,6)@2026-07}."
+          },
+          {
+            "evidence_refs": [
+              "obs:cn_ppi_consumer_yoy@2026-07",
+              "obs:cn_ppi_consumer_yoy@2026-06"
+            ],
+            "id": "X4",
+            "lens": "mechanism",
+            "materiality": "medium",
+            "template": "Consumer-goods PPI is still negative at {obs:cn_ppi_consumer_yoy@2026-07}, barely different from {obs:cn_ppi_consumer_yoy@2026-06}, so the producer-goods strength has not passed downstream."
+          }
+        ],
+        "hypothesis_impact": [
+          {
+            "ai_assessment": "strengthen",
+            "divergence": true,
+            "divergence_reason": "No H0 test flipped, but fading month-on-month momentum with consumer-goods prices still negative is the pattern an upstream-led bounce would show as it runs out.",
+            "evidence_refs": [
+              "test:T-H0-03",
+              "obs:cn_ppi_consumer_yoy@2026-07"
+            ],
+            "hypothesis": "H0",
+            "rationale_template": "{test:T-H0-03} still holds with consumer-goods PPI at {obs:cn_ppi_consumer_yoy@2026-07}, while momentum faded."
+          },
+          {
+            "ai_assessment": "weaken",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [
+              "test:T-H1-01",
+              "obs:cn_ppi_yoy@2026-07"
+            ],
+            "hypothesis": "H1",
+            "rationale_template": "Momentum is the weak leg of the price turn: {test:T-H1-01} flipped to challenging while the year-on-year level, now {obs:cn_ppi_yoy@2026-07}, is still high."
+          },
+          {
+            "ai_assessment": "unchanged",
+            "divergence": true,
+            "divergence_reason": "The only supporting flip, {test:T-H2-01}, rests on a six-month core CPI change of {drv:diff(cn_core_cpi_yoy,6)@2026-07} while the latest core print changed by {drv:diff(cn_core_cpi_yoy,1)@2026-07}: that is within noise, not a broadening of demand.",
+            "evidence_refs": [
+              "test:T-H2-01",
+              "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+              "drv:diff(cn_core_cpi_yoy,1)@2026-07"
+            ],
+            "hypothesis": "H2",
+            "rationale_template": "The rule reads supportive, but the margin behind it is {drv:diff(cn_core_cpi_yoy,6)@2026-07} and the latest month moved the other way."
+          },
+          {
+            "ai_assessment": "unresolved",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [],
+            "hypothesis": "H3",
+            "rationale_template": "Nothing in this release tests policy impulse; it needs credit and fiscal data."
+          },
+          {
+            "ai_assessment": "unresolved",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [],
+            "hypothesis": "H4",
+            "rationale_template": "A price release carries no direct export-demand information."
+          }
+        ],
+        "preliminary_implications": [
+          {
+            "evidence_refs": [
+              "obs:cn_ppi_consumer_yoy@2026-07",
+              "drv:ma(cn_ppi_mom,3)@2026-07"
+            ],
+            "hypothesis": "H0",
+            "template": "If momentum stays negative while consumer-goods PPI stays near {obs:cn_ppi_consumer_yoy@2026-07}, the upstream-led reading gains over a demand-led one."
+          }
+        ]
+      },
+      "prompt_sha256": "d5a9cc458268dd0730922072effd7de86501a6db249788d1c77855b473463573",
+      "raw_response": {
+        "file": "draft.json",
+        "fixture": true
+      },
+      "request_id": null,
+      "served_model": "fixture:hand-written",
+      "stop_reason": "end_turn",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "validation": {
+        "errors": [],
+        "ok": true
+      }
+    },
+    {
+      "attempts": 1,
+      "latency_ms": 0,
+      "name": "challenge",
+      "parsed": {
+        "competing_explanation": {
+          "background_knowledge": [
+            "Commodity-linked producer prices often retrace after a sharp supply-driven rise without implying a change in demand."
+          ],
+          "claim": "The July PPI softening is a commodity retracement inside an intact price turn, not a loss of underlying momentum.",
+          "discriminating_observation": "Whether PPI month-on-month turns positive again in the next CPI and PPI release, and whether the PMI output price average recovers.",
+          "evidence_refs": [
+            "drv:diff(cn_ppi_yoy,6)@2026-07",
+            "obs:cn_ppi_yoy@2026-07",
+            "drv:ma(cn_pmi_output_price,3)@2026-07"
+          ],
+          "why_plausible": "A large run-up in the six-month change, {drv:diff(cn_ppi_yoy,6)@2026-07}, can be followed by a pullback in month-on-month prices while the year-on-year level, {obs:cn_ppi_yoy@2026-07}, stays elevated."
+        },
+        "does_not_prove": [
+          "That domestic demand has begun to broaden: one marginal core CPI flip is not breadth.",
+          "That the price turn has ended: the year-on-year level is far above where it was six months earlier.",
+          "That the mechanism is imported cost push: the data are consistent with it but do not identify it."
+        ],
+        "draft_analyst_update": {
+          "direction_hint": "hold",
+          "text_template": "July prices softened at the margin: PPI year-on-year eased to {obs:cn_ppi_yoy@2026-07} and the three-month momentum test flipped negative, while the only demand-side flip rests on a very small change in core CPI. The evidence fits a fading upstream-led bounce better than a broadening of demand, but one print does not settle it. This release alone does not indicate a change to the standing judgment."
+        },
+        "research_needs": [
+          {
+            "decision_it_could_change": "Whether to treat H2 as unresolved rather than weakly supported.",
+            "hypothesis": "H2",
+            "question": "Is producer-goods strength passing into consumer goods and core services?",
+            "resolving_data": "The next CPI and PPI release and the monthly retail sales release.",
+            "why_now": "Consumer-goods PPI is still {obs:cn_ppi_consumer_yoy@2026-07} while core CPI barely moved."
+          },
+          {
+            "decision_it_could_change": "Whether the H1 momentum test should be read as noise.",
+            "hypothesis": "H1",
+            "question": "Does the PMI output price index confirm the loss of PPI momentum?",
+            "resolving_data": "The next PMI release.",
+            "why_now": "The PMI price average is {drv:ma(cn_pmi_output_price,3)@2026-07}, a weaker signal than the producer data."
+          }
+        ]
+      },
+      "prompt_sha256": "8131b74c8b0da45a74b03d56ca79403fd106b8a926fb2d97e405fa73fc8b92e6",
+      "raw_response": {
+        "file": "challenge.json",
+        "fixture": true
+      },
+      "request_id": null,
+      "served_model": "fixture:hand-written",
+      "stop_reason": "end_turn",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "validation": {
+        "errors": [],
+        "ok": true
+      }
+    }
+  ],
+  "prior_as_of": "2026-08-09T14:59:59Z",
+  "publication": {
+    "public": false,
+    "reason": "Shadow: no Copilot output is shown on the site; the analyst decision is the only publishable artifact"
+  },
+  "record_version": "release-copilot-run-record/1",
+  "release": {
+    "metrics": [
+      "cn_core_cpi_yoy",
+      "cn_cpi_yoy",
+      "cn_ppi_consumer_yoy",
+      "cn_ppi_mom",
+      "cn_ppi_producer_yoy",
+      "cn_ppi_yoy"
+    ],
+    "name": "replay of official release(s) on 2026-08-09",
+    "period": "2026-07",
+    "release_at": "2026-08-09",
+    "release_id": "replay-2026-08-09"
+  },
+  "rendered": {
+    "as_of": "2026-08-10T03:59:59Z",
+    "competing_explanation": {
+      "background_knowledge": [
+        "Commodity-linked producer prices often retrace after a sharp supply-driven rise without implying a change in demand."
+      ],
+      "claim": "The July PPI softening is a commodity retracement inside an intact price turn, not a loss of underlying momentum.",
+      "discriminating_observation": "Whether PPI month-on-month turns positive again in the next CPI and PPI release, and whether the PMI output price average recovers.",
+      "evidence_refs": [
+        "drv:diff(cn_ppi_yoy,6)@2026-07",
+        "obs:cn_ppi_yoy@2026-07",
+        "drv:ma(cn_pmi_output_price,3)@2026-07"
+      ],
+      "why_plausible": "A large run-up in the six-month change, +4.9 pp, can be followed by a pullback in month-on-month prices while the year-on-year level, 3.5%, stays elevated."
+    },
+    "does_not_prove": [
+      "That domestic demand has begun to broaden: one marginal core CPI flip is not breadth.",
+      "That the price turn has ended: the year-on-year level is far above where it was six months earlier.",
+      "That the mechanism is imported cost push: the data are consistent with it but do not identify it."
+    ],
+    "draft_analyst_update": {
+      "direction_hint": "hold",
+      "text_template": "July prices softened at the margin: PPI year-on-year eased to 3.5% and the three-month momentum test flipped negative, while the only demand-side flip rests on a very small change in core CPI. The evidence fits a fading upstream-led bounce better than a broadening of demand, but one print does not settle it. This release alone does not indicate a change to the standing judgment."
+    },
+    "executive_delta": [
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_yoy@2026-07",
+          "obs:cn_ppi_yoy@2026-06",
+          "obs:cn_ppi_mom@2026-07"
+        ],
+        "id": "X1",
+        "lens": "marginal",
+        "materiality": "high",
+        "template": "PPI year-on-year eased to 3.5% from 4.1%, and the month-on-month print turned more negative at -0.7%.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "drv:ma(cn_ppi_mom,3)@2026-07",
+          "drv:ma(cn_ppi_mom,3)@2026-06",
+          "test:T-H1-01"
+        ],
+        "id": "X2",
+        "lens": "marginal",
+        "materiality": "high",
+        "template": "The three-month average of PPI month-on-month momentum is now -0.2%, against 0.6% a month earlier, which flipped T-H1-01 against the price-turn hypothesis.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "obs:cn_cpi_yoy@2026-07",
+          "obs:cn_cpi_yoy@2026-06",
+          "obs:cn_core_cpi_yoy@2026-07",
+          "test:T-H2-01",
+          "drv:diff(cn_core_cpi_yoy,6)@2026-07"
+        ],
+        "id": "X3",
+        "lens": "breadth",
+        "materiality": "medium",
+        "template": "Headline CPI slowed to 0.5% from 1.0% while core CPI was little changed at 0.9%; the flip in T-H2-01 rests on a six-month change of only +0.1 pp.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_consumer_yoy@2026-07",
+          "obs:cn_ppi_consumer_yoy@2026-06"
+        ],
+        "id": "X4",
+        "lens": "mechanism",
+        "materiality": "medium",
+        "template": "Consumer-goods PPI is still negative at -0.8%, barely different from -0.9%, so the producer-goods strength has not passed downstream.",
+        "vs_expectation": "not_set"
+      }
+    ],
+    "hypothesis_impact": [
+      {
+        "ai_assessment": "strengthen",
+        "divergence": true,
+        "divergence_reason": "No H0 test flipped, but fading month-on-month momentum with consumer-goods prices still negative is the pattern an upstream-led bounce would show as it runs out.",
+        "evidence_refs": [
+          "test:T-H0-03",
+          "obs:cn_ppi_consumer_yoy@2026-07"
+        ],
+        "hypothesis": "H0",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "T-H0-03 still holds with consumer-goods PPI at -0.8%, while momentum faded."
+      },
+      {
+        "ai_assessment": "weaken",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [
+          "test:T-H1-01",
+          "obs:cn_ppi_yoy@2026-07"
+        ],
+        "hypothesis": "H1",
+        "mechanical_delta": "challenges",
+        "rationale_template": "Momentum is the weak leg of the price turn: T-H1-01 flipped to challenging while the year-on-year level, now 3.5%, is still high."
+      },
+      {
+        "ai_assessment": "unchanged",
+        "divergence": true,
+        "divergence_reason": "The only supporting flip, T-H2-01, rests on a six-month core CPI change of +0.1 pp while the latest core print changed by -0.1 pp: that is within noise, not a broadening of demand.",
+        "evidence_refs": [
+          "test:T-H2-01",
+          "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+          "drv:diff(cn_core_cpi_yoy,1)@2026-07"
+        ],
+        "hypothesis": "H2",
+        "mechanical_delta": "supports",
+        "rationale_template": "The rule reads supportive, but the margin behind it is +0.1 pp and the latest month moved the other way."
+      },
+      {
+        "ai_assessment": "unresolved",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [],
+        "hypothesis": "H3",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "Nothing in this release tests policy impulse; it needs credit and fiscal data."
+      },
+      {
+        "ai_assessment": "unresolved",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [],
+        "hypothesis": "H4",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "A price release carries no direct export-demand information."
+      }
+    ],
+    "preliminary_implications": [
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_consumer_yoy@2026-07",
+          "drv:ma(cn_ppi_mom,3)@2026-07"
+        ],
+        "hypothesis": "H0",
+        "template": "If momentum stays negative while consumer-goods PPI stays near -0.8%, the upstream-led reading gains over a demand-led one."
+      }
+    ],
+    "release_id": "replay-2026-08-09",
+    "research_needs": [
+      {
+        "decision_it_could_change": "Whether to treat H2 as unresolved rather than weakly supported.",
+        "hypothesis": "H2",
+        "question": "Is producer-goods strength passing into consumer goods and core services?",
+        "resolving_data": "The next CPI and PPI release and the monthly retail sales release.",
+        "why_now": "Consumer-goods PPI is still -0.8% while core CPI barely moved."
+      },
+      {
+        "decision_it_could_change": "Whether the H1 momentum test should be read as noise.",
+        "hypothesis": "H1",
+        "question": "Does the PMI output price index confirm the loss of PPI momentum?",
+        "resolving_data": "The next PMI release.",
+        "why_now": "The PMI price average is 49.3, a weaker signal than the producer data."
+      }
+    ]
+  },
+  "replay": {
+    "arrived": [
+      "cn_core_cpi_yoy@2026-07",
+      "cn_cpi_yoy@2026-07",
+      "cn_ppi_consumer_yoy@2026-07",
+      "cn_ppi_mom@2026-07",
+      "cn_ppi_producer_yoy@2026-07",
+      "cn_ppi_yoy@2026-07"
+    ],
+    "data_cutoff": "2026-10-04T23:59:59Z",
+    "eval_eligible": false,
+    "eval_ineligible_reason": "no human labels were committed before this run (strategy §11.1); exploratory only",
+    "refresh_record": "site/replay/copilot/case/refreshes/2026-08-10T0359Z.json",
+    "release_at": "2026-08-09",
+    "sandbox": "site/replay/copilot"
+  },
+  "result": {
+    "as_of": "2026-08-10T03:59:59Z",
+    "competing_explanation": {
+      "background_knowledge": [
+        "Commodity-linked producer prices often retrace after a sharp supply-driven rise without implying a change in demand."
+      ],
+      "claim": "The July PPI softening is a commodity retracement inside an intact price turn, not a loss of underlying momentum.",
+      "discriminating_observation": "Whether PPI month-on-month turns positive again in the next CPI and PPI release, and whether the PMI output price average recovers.",
+      "evidence_refs": [
+        "drv:diff(cn_ppi_yoy,6)@2026-07",
+        "obs:cn_ppi_yoy@2026-07",
+        "drv:ma(cn_pmi_output_price,3)@2026-07"
+      ],
+      "why_plausible": "A large run-up in the six-month change, {drv:diff(cn_ppi_yoy,6)@2026-07}, can be followed by a pullback in month-on-month prices while the year-on-year level, {obs:cn_ppi_yoy@2026-07}, stays elevated."
+    },
+    "does_not_prove": [
+      "That domestic demand has begun to broaden: one marginal core CPI flip is not breadth.",
+      "That the price turn has ended: the year-on-year level is far above where it was six months earlier.",
+      "That the mechanism is imported cost push: the data are consistent with it but do not identify it."
+    ],
+    "draft_analyst_update": {
+      "direction_hint": "hold",
+      "text_template": "July prices softened at the margin: PPI year-on-year eased to {obs:cn_ppi_yoy@2026-07} and the three-month momentum test flipped negative, while the only demand-side flip rests on a very small change in core CPI. The evidence fits a fading upstream-led bounce better than a broadening of demand, but one print does not settle it. This release alone does not indicate a change to the standing judgment."
+    },
+    "executive_delta": [
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_yoy@2026-07",
+          "obs:cn_ppi_yoy@2026-06",
+          "obs:cn_ppi_mom@2026-07"
+        ],
+        "id": "X1",
+        "lens": "marginal",
+        "materiality": "high",
+        "template": "PPI year-on-year eased to {obs:cn_ppi_yoy@2026-07} from {obs:cn_ppi_yoy@2026-06}, and the month-on-month print turned more negative at {obs:cn_ppi_mom@2026-07}.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "drv:ma(cn_ppi_mom,3)@2026-07",
+          "drv:ma(cn_ppi_mom,3)@2026-06",
+          "test:T-H1-01"
+        ],
+        "id": "X2",
+        "lens": "marginal",
+        "materiality": "high",
+        "template": "The three-month average of PPI month-on-month momentum is now {drv:ma(cn_ppi_mom,3)@2026-07}, against {drv:ma(cn_ppi_mom,3)@2026-06} a month earlier, which flipped {test:T-H1-01} against the price-turn hypothesis.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "obs:cn_cpi_yoy@2026-07",
+          "obs:cn_cpi_yoy@2026-06",
+          "obs:cn_core_cpi_yoy@2026-07",
+          "test:T-H2-01",
+          "drv:diff(cn_core_cpi_yoy,6)@2026-07"
+        ],
+        "id": "X3",
+        "lens": "breadth",
+        "materiality": "medium",
+        "template": "Headline CPI slowed to {obs:cn_cpi_yoy@2026-07} from {obs:cn_cpi_yoy@2026-06} while core CPI was little changed at {obs:cn_core_cpi_yoy@2026-07}; the flip in {test:T-H2-01} rests on a six-month change of only {drv:diff(cn_core_cpi_yoy,6)@2026-07}.",
+        "vs_expectation": "not_set"
+      },
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_consumer_yoy@2026-07",
+          "obs:cn_ppi_consumer_yoy@2026-06"
+        ],
+        "id": "X4",
+        "lens": "mechanism",
+        "materiality": "medium",
+        "template": "Consumer-goods PPI is still negative at {obs:cn_ppi_consumer_yoy@2026-07}, barely different from {obs:cn_ppi_consumer_yoy@2026-06}, so the producer-goods strength has not passed downstream.",
+        "vs_expectation": "not_set"
+      }
+    ],
+    "hypothesis_impact": [
+      {
+        "ai_assessment": "strengthen",
+        "divergence": true,
+        "divergence_reason": "No H0 test flipped, but fading month-on-month momentum with consumer-goods prices still negative is the pattern an upstream-led bounce would show as it runs out.",
+        "evidence_refs": [
+          "test:T-H0-03",
+          "obs:cn_ppi_consumer_yoy@2026-07"
+        ],
+        "hypothesis": "H0",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "{test:T-H0-03} still holds with consumer-goods PPI at {obs:cn_ppi_consumer_yoy@2026-07}, while momentum faded."
+      },
+      {
+        "ai_assessment": "weaken",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [
+          "test:T-H1-01",
+          "obs:cn_ppi_yoy@2026-07"
+        ],
+        "hypothesis": "H1",
+        "mechanical_delta": "challenges",
+        "rationale_template": "Momentum is the weak leg of the price turn: {test:T-H1-01} flipped to challenging while the year-on-year level, now {obs:cn_ppi_yoy@2026-07}, is still high."
+      },
+      {
+        "ai_assessment": "unchanged",
+        "divergence": true,
+        "divergence_reason": "The only supporting flip, {test:T-H2-01}, rests on a six-month core CPI change of {drv:diff(cn_core_cpi_yoy,6)@2026-07} while the latest core print changed by {drv:diff(cn_core_cpi_yoy,1)@2026-07}: that is within noise, not a broadening of demand.",
+        "evidence_refs": [
+          "test:T-H2-01",
+          "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+          "drv:diff(cn_core_cpi_yoy,1)@2026-07"
+        ],
+        "hypothesis": "H2",
+        "mechanical_delta": "supports",
+        "rationale_template": "The rule reads supportive, but the margin behind it is {drv:diff(cn_core_cpi_yoy,6)@2026-07} and the latest month moved the other way."
+      },
+      {
+        "ai_assessment": "unresolved",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [],
+        "hypothesis": "H3",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "Nothing in this release tests policy impulse; it needs credit and fiscal data."
+      },
+      {
+        "ai_assessment": "unresolved",
+        "divergence": false,
+        "divergence_reason": "",
+        "evidence_refs": [],
+        "hypothesis": "H4",
+        "mechanical_delta": "unchanged",
+        "rationale_template": "A price release carries no direct export-demand information."
+      }
+    ],
+    "preliminary_implications": [
+      {
+        "evidence_refs": [
+          "obs:cn_ppi_consumer_yoy@2026-07",
+          "drv:ma(cn_ppi_mom,3)@2026-07"
+        ],
+        "hypothesis": "H0",
+        "template": "If momentum stays negative while consumer-goods PPI stays near {obs:cn_ppi_consumer_yoy@2026-07}, the upstream-led reading gains over a demand-led one."
+      }
+    ],
+    "release_id": "replay-2026-08-09",
+    "research_needs": [
+      {
+        "decision_it_could_change": "Whether to treat H2 as unresolved rather than weakly supported.",
+        "hypothesis": "H2",
+        "question": "Is producer-goods strength passing into consumer goods and core services?",
+        "resolving_data": "The next CPI and PPI release and the monthly retail sales release.",
+        "why_now": "Consumer-goods PPI is still {obs:cn_ppi_consumer_yoy@2026-07} while core CPI barely moved."
+      },
+      {
+        "decision_it_could_change": "Whether the H1 momentum test should be read as noise.",
+        "hypothesis": "H1",
+        "question": "Does the PMI output price index confirm the loss of PPI momentum?",
+        "resolving_data": "The next PMI release.",
+        "why_now": "The PMI price average is {drv:ma(cn_pmi_output_price,3)@2026-07}, a weaker signal than the producer data."
+      }
+    ]
+  },
+  "run_at": "2026-10-10T04:35:13+00:00",
+  "run_id": "20261010T043513Z-81249026-138f",
+  "status": "validated",
+  "usage": {
+    "cost_usd": null,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "validation": {
+    "errors": [],
+    "gate_failures": {
+      "as_of_violation": 0,
+      "divergence_inconsistent": 0,
+      "invalid_evidence_ref": 0,
+      "mechanical_delta_overwrite": 0,
+      "missing_evidence": 0,
+      "numeric_grounding": 0,
+      "schema": 0,
+      "thesis_state_write": 0
+    },
+    "hard_gate_failures": {
+      "as_of_violation": 0,
+      "invalid_evidence_ref": 0,
+      "mechanical_delta_overwrite": 0,
+      "missing_evidence": 0,
+      "numeric_grounding": 0
+    },
+    "ok": true
+  },
+  "versions": {
+    "code_commit": "b5773db1e21e3f8cdcdc080f09e4e6f1ed9d76c5",
+    "code_dirty": false,
+    "context": "release-copilot-context/1",
+    "prompt": "release-copilot-prompt/1",
+    "record": "release-copilot-run-record/1",
+    "schema": "release-copilot-schema/1"
+  }
+}

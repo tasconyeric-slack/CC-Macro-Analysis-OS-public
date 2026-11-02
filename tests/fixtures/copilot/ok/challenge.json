@@ -1,0 +1,22 @@
+{
+  "competing_explanation": {
+    "claim": "The July PPI softening is a commodity retracement inside an intact price turn, not a loss of underlying momentum.",
+    "why_plausible": "A large run-up in the six-month change, {drv:diff(cn_ppi_yoy,6)@2026-07}, can be followed by a pullback in month-on-month prices while the year-on-year level, {obs:cn_ppi_yoy@2026-07}, stays elevated.",
+    "discriminating_observation": "Whether PPI month-on-month turns positive again in the next CPI and PPI release, and whether the PMI output price average recovers.",
+    "evidence_refs": ["drv:diff(cn_ppi_yoy,6)@2026-07", "obs:cn_ppi_yoy@2026-07", "drv:ma(cn_pmi_output_price,3)@2026-07"],
+    "background_knowledge": ["Commodity-linked producer prices often retrace after a sharp supply-driven rise without implying a change in demand."]
+  },
+  "does_not_prove": [
+    "That domestic demand has begun to broaden: one marginal core CPI flip is not breadth.",
+    "That the price turn has ended: the year-on-year level is far above where it was six months earlier.",
+    "That the mechanism is imported cost push: the data are consistent with it but do not identify it."
+  ],
+  "research_needs": [
+    {"question": "Is producer-goods strength passing into consumer goods and core services?", "hypothesis": "H2", "why_now": "Consumer-goods PPI is still {obs:cn_ppi_consumer_yoy@2026-07} while core CPI barely moved.", "decision_it_could_change": "Whether to treat H2 as unresolved rather than weakly supported.", "resolving_data": "The next CPI and PPI release and the monthly retail sales release."},
+    {"question": "Does the PMI output price index confirm the loss of PPI momentum?", "hypothesis": "H1", "why_now": "The PMI price average is {drv:ma(cn_pmi_output_price,3)@2026-07}, a weaker signal than the producer data.", "decision_it_could_change": "Whether the H1 momentum test should be read as noise.", "resolving_data": "The next PMI release."}
+  ],
+  "draft_analyst_update": {
+    "text_template": "July prices softened at the margin: PPI year-on-year eased to {obs:cn_ppi_yoy@2026-07} and the three-month momentum test flipped negative, while the only demand-side flip rests on a very small change in core CPI. The evidence fits a fading upstream-led bounce better than a broadening of demand, but one print does not settle it. This release alone does not indicate a change to the standing judgment.",
+    "direction_hint": "hold"
+  }
+}

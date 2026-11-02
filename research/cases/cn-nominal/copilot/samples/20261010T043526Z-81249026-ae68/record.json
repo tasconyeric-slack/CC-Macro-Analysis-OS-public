@@ -1,0 +1,338 @@
+{
+  "as_of": "2026-08-10T03:59:59Z",
+  "contamination": {
+    "cutoff_source": null,
+    "model_knowledge_cutoff": null,
+    "note": "a replay is only as clean as the model's knowledge cutoff; without a probe it cannot be called uncontaminated",
+    "probe": "not run (strategy §10.3 step 3 belongs to Phase C)",
+    "release_after_cutoff": null
+  },
+  "context": {
+    "evidence_allowlist": [
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q1",
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2",
+      "drv:diff(cn_core_cpi_yoy,1)@2026-07",
+      "drv:diff(cn_core_cpi_yoy,3)@2026-07",
+      "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+      "drv:diff(cn_cpi_yoy,1)@2026-07",
+      "drv:diff(cn_cpi_yoy,3)@2026-07",
+      "drv:diff(cn_cpi_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_consumer_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_mom,1)@2026-07",
+      "drv:diff(cn_ppi_mom,3)@2026-07",
+      "drv:diff(cn_ppi_mom,6)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_producer_yoy,6)@2026-07",
+      "drv:diff(cn_ppi_yoy,1)@2026-07",
+      "drv:diff(cn_ppi_yoy,3)@2026-07",
+      "drv:diff(cn_ppi_yoy,6)@2026-07",
+      "drv:diff(cn_property_sales_area_ytd_yoy,6)@2026-06",
+      "drv:diff(cn_retail_sales_yoy,3)@2026-06",
+      "drv:ma(cn_core_cpi_yoy,3)@2026-07",
+      "drv:ma(cn_cpi_yoy,3)@2026-07",
+      "drv:ma(cn_pmi_new_export_orders,3)@2026-07",
+      "drv:ma(cn_pmi_new_orders,3)@2026-07",
+      "drv:ma(cn_pmi_output_price,3)@2026-07",
+      "drv:ma(cn_ppi_consumer_yoy,3)@2026-07",
+      "drv:ma(cn_ppi_mom,3)@2026-06",
+      "drv:ma(cn_ppi_mom,3)@2026-07",
+      "drv:ma(cn_ppi_producer_yoy,3)@2026-07",
+      "drv:ma(cn_ppi_yoy,3)@2026-07",
+      "obs:cn_core_cpi_yoy@2025-12",
+      "obs:cn_core_cpi_yoy@2026-01",
+      "obs:cn_core_cpi_yoy@2026-06",
+      "obs:cn_core_cpi_yoy@2026-07",
+      "obs:cn_cpi_yoy@2026-06",
+      "obs:cn_cpi_yoy@2026-07",
+      "obs:cn_ind_profit_ytd_yoy@2026-06",
+      "obs:cn_ppi_consumer_yoy@2026-06",
+      "obs:cn_ppi_consumer_yoy@2026-07",
+      "obs:cn_ppi_mom@2026-06",
+      "obs:cn_ppi_mom@2026-07",
+      "obs:cn_ppi_producer_yoy@2026-06",
+      "obs:cn_ppi_producer_yoy@2026-07",
+      "obs:cn_ppi_yoy@2025-12",
+      "obs:cn_ppi_yoy@2026-01",
+      "obs:cn_ppi_yoy@2026-06",
+      "obs:cn_ppi_yoy@2026-07",
+      "obs:cn_property_sales_area_ytd_yoy@2025-12",
+      "obs:cn_property_sales_area_ytd_yoy@2026-06",
+      "obs:cn_retail_sales_yoy@2026-03",
+      "obs:cn_retail_sales_yoy@2026-06",
+      "test:T-H0-03",
+      "test:T-H1-01",
+      "test:T-H1-02",
+      "test:T-H1-03",
+      "test:T-H1-04",
+      "test:T-H1-05",
+      "test:T-H1-06",
+      "test:T-H2-01",
+      "test:T-H2-03",
+      "test:T-H2-04",
+      "test:T-H2-05",
+      "test:T-H4-02"
+    ],
+    "file": "context.json",
+    "sha256": "81249026540ac5e557d6483ac3d8759bd33710dbf9e57fd75582d3ba2700313d"
+  },
+  "copilot": "ok",
+  "evidence_class": "fixture (synthetic, not evidence)",
+  "finished_at": "2026-10-10T04:35:26+00:00",
+  "genuine_model_run": false,
+  "kind": "fixture",
+  "mode": "replay",
+  "model": {
+    "files": [
+      "draft.json"
+    ],
+    "knowledge_cutoff": null,
+    "provider": "fixture",
+    "requested_id": "fixture:hand-written"
+  },
+  "passes": [
+    {
+      "attempts": 1,
+      "latency_ms": 0,
+      "name": "draft",
+      "parsed": {
+        "executive_delta": [
+          {
+            "evidence_refs": [
+              "obs:cn_ppi_yoy@2026-07",
+              "obs:cn_ppi_yoy@2026-09"
+            ],
+            "id": "X1",
+            "lens": "marginal",
+            "materiality": "high",
+            "template": "PPI fell to 3.4% in July, the weakest reading since the start of the year, and 2026-09 data will likely confirm it."
+          }
+        ],
+        "hypothesis_impact": [
+          {
+            "ai_assessment": "strengthen",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [
+              "obs:cn_ppi_yoy@2026-07"
+            ],
+            "hypothesis": "H0",
+            "mechanical_delta": "supports",
+            "rationale_template": "Upstream-led."
+          },
+          {
+            "ai_assessment": "weaken",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [
+              "test:T-H1-01"
+            ],
+            "hypothesis": "H1",
+            "rationale_template": "Momentum faded."
+          },
+          {
+            "ai_assessment": "strengthen",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [
+              "test:T-H2-01"
+            ],
+            "hypothesis": "H2",
+            "rationale_template": "Core CPI rose."
+          },
+          {
+            "ai_assessment": "unresolved",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [],
+            "hypothesis": "H3",
+            "rationale_template": "No test."
+          },
+          {
+            "ai_assessment": "unresolved",
+            "divergence": false,
+            "divergence_reason": "",
+            "evidence_refs": [],
+            "hypothesis": "H4",
+            "rationale_template": "No test."
+          }
+        ],
+        "preliminary_implications": [],
+        "probability": 0.35
+      },
+      "prompt_sha256": "d5a9cc458268dd0730922072effd7de86501a6db249788d1c77855b473463573",
+      "raw_response": {
+        "file": "draft.json",
+        "fixture": true
+      },
+      "request_id": null,
+      "served_model": "fixture:hand-written",
+      "stop_reason": "end_turn",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "validation": {
+        "errors": [
+          {
+            "gate": "thesis_state_write",
+            "message": "'probability' is owned by the analyst and cannot be supplied by the model",
+            "path": "$.probability"
+          },
+          {
+            "gate": "invalid_evidence_ref",
+            "message": "'obs:cn_ppi_yoy@2026-09' is not in the supplied evidence allowlist",
+            "path": "$.executive_delta[0].evidence_refs"
+          },
+          {
+            "gate": "numeric_grounding",
+            "message": "bare number '3.4': data may only appear as an allow-listed placeholder",
+            "path": "$.executive_delta[0].template"
+          },
+          {
+            "gate": "numeric_grounding",
+            "message": "unit word '%': magnitudes belong in placeholders",
+            "path": "$.executive_delta[0].template"
+          },
+          {
+            "gate": "as_of_violation",
+            "message": "period 2026-09 is after the information set (as_of 2026-08-10T03:59:59Z) and is not a scheduled release",
+            "path": "$.executive_delta[0].template"
+          },
+          {
+            "gate": "mechanical_delta_overwrite",
+            "message": "'mechanical_delta' is code-owned and cannot be supplied by the model",
+            "path": "$.hypothesis_impact[0].mechanical_delta"
+          },
+          {
+            "gate": "divergence_inconsistent",
+            "message": "mechanical_delta is 'unchanged' and ai_assessment 'strengthen': divergence must be true",
+            "path": "$.hypothesis_impact[0].divergence"
+          }
+        ],
+        "ok": false
+      }
+    }
+  ],
+  "prior_as_of": "2026-08-09T14:59:59Z",
+  "publication": {
+    "public": false,
+    "reason": "Shadow: no Copilot output is shown on the site; the analyst decision is the only publishable artifact"
+  },
+  "record_version": "release-copilot-run-record/1",
+  "release": {
+    "metrics": [
+      "cn_core_cpi_yoy",
+      "cn_cpi_yoy",
+      "cn_ppi_consumer_yoy",
+      "cn_ppi_mom",
+      "cn_ppi_producer_yoy",
+      "cn_ppi_yoy"
+    ],
+    "name": "replay of official release(s) on 2026-08-09",
+    "period": "2026-07",
+    "release_at": "2026-08-09",
+    "release_id": "replay-2026-08-09"
+  },
+  "rendered": null,
+  "replay": {
+    "arrived": [
+      "cn_core_cpi_yoy@2026-07",
+      "cn_cpi_yoy@2026-07",
+      "cn_ppi_consumer_yoy@2026-07",
+      "cn_ppi_mom@2026-07",
+      "cn_ppi_producer_yoy@2026-07",
+      "cn_ppi_yoy@2026-07"
+    ],
+    "data_cutoff": "2026-10-04T23:59:59Z",
+    "eval_eligible": false,
+    "eval_ineligible_reason": "no human labels were committed before this run (strategy §11.1); exploratory only",
+    "refresh_record": "site/replay/copilot/case/refreshes/2026-08-10T0359Z.json",
+    "release_at": "2026-08-09",
+    "sandbox": "site/replay/copilot"
+  },
+  "result": null,
+  "run_at": "2026-10-10T04:35:26+00:00",
+  "run_id": "20261010T043526Z-81249026-ae68",
+  "status": "validation_failed",
+  "usage": {
+    "cost_usd": null,
+    "input_tokens": 0,
+    "latency_ms": 0,
+    "output_tokens": 0
+  },
+  "validation": {
+    "errors": [
+      {
+        "gate": "thesis_state_write",
+        "message": "'probability' is owned by the analyst and cannot be supplied by the model",
+        "pass": "draft",
+        "path": "$.probability"
+      },
+      {
+        "gate": "invalid_evidence_ref",
+        "message": "'obs:cn_ppi_yoy@2026-09' is not in the supplied evidence allowlist",
+        "pass": "draft",
+        "path": "$.executive_delta[0].evidence_refs"
+      },
+      {
+        "gate": "numeric_grounding",
+        "message": "bare number '3.4': data may only appear as an allow-listed placeholder",
+        "pass": "draft",
+        "path": "$.executive_delta[0].template"
+      },
+      {
+        "gate": "numeric_grounding",
+        "message": "unit word '%': magnitudes belong in placeholders",
+        "pass": "draft",
+        "path": "$.executive_delta[0].template"
+      },
+      {
+        "gate": "as_of_violation",
+        "message": "period 2026-09 is after the information set (as_of 2026-08-10T03:59:59Z) and is not a scheduled release",
+        "pass": "draft",
+        "path": "$.executive_delta[0].template"
+      },
+      {
+        "gate": "mechanical_delta_overwrite",
+        "message": "'mechanical_delta' is code-owned and cannot be supplied by the model",
+        "pass": "draft",
+        "path": "$.hypothesis_impact[0].mechanical_delta"
+      },
+      {
+        "gate": "divergence_inconsistent",
+        "message": "mechanical_delta is 'unchanged' and ai_assessment 'strengthen': divergence must be true",
+        "pass": "draft",
+        "path": "$.hypothesis_impact[0].divergence"
+      }
+    ],
+    "gate_failures": {
+      "as_of_violation": 1,
+      "divergence_inconsistent": 1,
+      "invalid_evidence_ref": 1,
+      "mechanical_delta_overwrite": 1,
+      "missing_evidence": 0,
+      "numeric_grounding": 2,
+      "schema": 0,
+      "thesis_state_write": 1
+    },
+    "hard_gate_failures": {
+      "as_of_violation": 1,
+      "invalid_evidence_ref": 1,
+      "mechanical_delta_overwrite": 1,
+      "missing_evidence": 0,
+      "numeric_grounding": 2
+    },
+    "ok": false
+  },
+  "versions": {
+    "code_commit": "b5773db1e21e3f8cdcdc080f09e4e6f1ed9d76c5",
+    "code_dirty": false,
+    "context": "release-copilot-context/1",
+    "prompt": "release-copilot-prompt/1",
+    "record": "release-copilot-run-record/1",
+    "schema": "release-copilot-schema/1"
+  }
+}

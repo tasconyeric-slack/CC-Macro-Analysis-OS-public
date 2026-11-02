@@ -1,0 +1,153 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_ip_yoy,2019-03,8.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-04,5.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-05,5.0,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-06,6.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-07,4.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-08,4.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-09,5.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-10,4.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-11,6.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-12,6.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-03,-1.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-04,3.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-05,4.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-06,4.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-07,4.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-08,5.6,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-09,6.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-10,6.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-11,7.0,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2020-12,7.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-03,14.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-04,9.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-05,8.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-06,8.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-07,6.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-08,5.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-09,3.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-10,3.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-11,3.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2021-12,4.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-03,5.0,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-04,-2.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-05,0.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-06,3.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-07,3.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-08,4.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-09,6.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-10,5.0,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-11,2.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2022-12,1.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-03,3.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-04,5.6,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-05,3.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-06,4.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-07,3.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-08,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-09,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-10,4.6,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-11,6.6,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2023-12,6.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-03,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-04,6.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-05,5.6,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-06,5.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-07,5.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-08,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-09,5.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-10,5.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-11,5.4,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2024-12,6.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-03,7.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-04,6.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-05,5.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-06,6.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-07,5.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-08,5.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-09,6.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-10,4.9,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-11,4.8,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2025-12,5.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-03,5.7,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-04,4.1,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-05,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-06,5.3,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-07,4.5,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2026-08,5.2,,unknown,2026-10-04T04:59:53+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,"historical NBS value; first-release date not recorded, availability taken as retrieval time"
+cn_ip_yoy,2019-03,8.5,2019-04-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-04,5.4,2019-05-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-05,5.0,2019-06-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-06,6.3,2019-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-07,4.8,2019-08-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-08,4.4,2019-09-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-09,5.8,2019-10-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-10,4.7,2019-11-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-11,6.2,2019-12-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2019-12,6.9,2020-01-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-03,-1.1,2020-04-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-04,3.9,2020-05-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-05,4.4,2020-06-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-06,4.8,2020-07-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-07,4.8,2020-08-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-08,5.6,2020-09-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-09,6.9,2020-10-19,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-10,6.9,2020-11-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-11,7.0,2020-12-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2020-12,7.3,2021-01-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-03,14.1,2021-04-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-04,9.8,2021-05-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-05,8.8,2021-06-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-06,8.3,2021-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-07,6.4,2021-08-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-08,5.3,2021-09-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-09,3.1,2021-10-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-10,3.5,2021-11-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-11,3.8,2021-12-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2021-12,4.3,2022-01-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-03,5.0,2022-04-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-04,-2.9,2022-05-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-05,0.7,2022-06-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-06,3.9,2022-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-07,3.8,2022-08-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-08,4.2,2022-09-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-09,6.3,2022-10-24,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-10,5.0,2022-11-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-11,2.2,2022-12-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2022-12,1.3,2023-01-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-03,3.9,2023-04-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-04,5.6,2023-05-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-05,3.5,2023-06-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-06,4.4,2023-07-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-07,3.7,2023-08-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-08,4.5,2023-09-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-09,4.5,2023-10-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-10,4.6,2023-11-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-11,6.6,2023-12-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2023-12,6.8,2024-01-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-03,4.5,2024-04-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-04,6.7,2024-05-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-05,5.6,2024-06-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-06,5.3,2024-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-07,5.1,2024-08-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-08,4.5,2024-09-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-09,5.4,2024-10-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-10,5.3,2024-11-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-11,5.4,2024-12-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2024-12,6.2,2025-01-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-03,7.7,2025-04-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-04,6.1,2025-05-19,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-05,5.8,2025-06-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-06,6.8,2025-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-07,5.7,2025-08-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-08,5.2,2025-09-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-09,6.5,2025-10-20,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-10,4.9,2025-11-14,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-11,4.8,2025-12-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2025-12,5.2,2026-01-19,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-03,5.7,2026-04-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-04,4.1,2026-05-18,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-05,4.5,2026-06-16,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-06,5.3,2026-07-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-07,4.5,2026-08-17,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,
+cn_ip_yoy,2026-08,5.2,2026-09-15,official_calendar,2026-10-04T05:25:15+00:00,NBS,nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916,public,,ok,

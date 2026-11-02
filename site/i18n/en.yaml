@@ -1,0 +1,501 @@
+# UI strings, English. Same keys, same {placeholders} as zh.yaml (tests/test_i18n.py enforces both).
+# Keys ending in _html hold trusted markup. Research prose does NOT live here: it is in
+# research/cases/cn-nominal/ (claims, presentation.yaml, frozen_zh.yaml, policy_events.yaml, memo.*.md.j2).
+site:
+  title: China Nominal Growth Monitor
+  name: CC Macro Analysis OS
+  brand: CC Macro Analysis OS
+  tagline: China nominal growth
+  og_alt: "China Nominal Growth Monitor: a preregistered, falsifiable view of whether China's nominal growth is turning"
+
+lang:
+  label: Language
+  name_en: EN
+  name_zh: 中文
+
+a11y:
+  skip: Skip to content
+  nav: Main navigation
+
+nav:
+  index: Overview
+  memo: Deep Dive
+  evidence: Thesis & Evidence
+  updates: Release Updates
+  charts: Evidence Explorer
+  method: Method & Eval
+
+page:
+  index:
+    title: Overview
+    description: "Is China forming a sustainable turning point in nominal growth? A current macro view with a preregistered, falsifiable thesis, traceable evidence and live release updates."
+  memo:
+    title: Deep Dive
+    description: "Why the price side has turned while broad domestic-demand confirmation is still absent, with conditional research implications."
+  evidence:
+    title: Thesis & Evidence
+    description: "Hypotheses, evidence tests, policy context and the preregistered terminal decision rules behind the thesis."
+  updates:
+    title: Release Updates
+    description: "Append-only record of the baseline, amendments, automatic data refreshes and analyst updates, with commit hashes."
+  charts:
+    title: Evidence Explorer
+    description: "Every series behind the thesis, with metric, period, unit, source and as-of date."
+  method:
+    title: Method & Eval
+    description: "How the system keeps itself honest: deterministic eval checks, data sources and their status, known limitations."
+
+selector:
+  question: Is China forming a sustainable turning point in nominal growth?
+  noscript: Choose a language
+
+banner:
+  preview_html: "<strong>SYNTHETIC PREVIEW.</strong> Random placeholder series for layout review only. These are not data and must never be published."
+  no_baseline: Baseline not yet preregistered. Figures shown are a working draft.
+
+footer:
+  built_html: 'Built {built} from commit <span class="mono">{commit}</span>.'
+  uncommitted: uncommitted
+  boundary: "Public build: official / open sources only (NBS, PBOC, MOF, GACC, FRED). Licensed data is never published; claims that rely on it are marked as withheld."
+  not_advice: Research system, not investment advice.
+
+common:
+  list_sep: ", "
+  pending: pending
+  "yes": "yes"
+  "no": "no"
+
+kind:
+  baseline: baseline
+  amendment: amendment
+  data: data
+  update: update
+  next: next
+
+status:
+  ACTIVE: ACTIVE
+  CONFIRMED: CONFIRMED
+  FALSIFIED: FALSIFIED
+  RETIRED: RETIRED
+  PROPOSED: PROPOSED
+  DRAFT: DRAFT
+
+confidence:
+  LOW: LOW
+  MEDIUM: MEDIUM
+  HIGH: HIGH
+
+direction:
+  STRENGTHENED: strengthened
+  UNCHANGED: unchanged
+  WEAKENED: weakened
+  suggested:
+    toward_thesis: toward the thesis
+    against_thesis: against the thesis
+    neutral: neutral
+
+outcome:
+  "true": passes
+  "false": fails
+  insufficient_data: awaiting data
+
+effect:
+  supports: supports
+  challenges: challenges
+  pending: pending
+
+hyp:
+  short:
+    H1: Price
+    H2: Domestic demand
+    H3: Policy
+    H4: External
+    H0: Leading competing explanation
+
+state:
+  supportive: Supportive
+  partly: Partly confirmed
+  unconfirmed: Not yet confirmed
+  mixed: Mixed
+  leading_alt: Best-fitting alternative
+
+lens:
+  level: Level
+  marginal: Marginal change
+  breadth: Breadth
+  mechanism: Mechanism
+
+claim_type:
+  FACT: Fact
+  DERIVED: Derived
+  EXTERNAL_VIEW: External view
+  INFERENCE: Inference
+
+claim:
+  type_hint: "Fact: an observation. Derived: a calculation from observations. Inference: a judgment resting on listed claims."
+  more_sources: "+{n} more sources"
+  open_evidence: Open in Thesis & Evidence
+  lineage: Technical lineage
+  id: Claim
+  as_of: As of
+  supports: Rests on
+  all_sources: All sources
+  refs: References
+  source_code: source code
+  release: released
+  retrieved: retrieved
+  inputs: inputs
+
+prov:
+  released: "released {date}"
+  retrieved: "retrieved {date}"
+
+derived:
+  deflator_yoy: Implied GDP deflator, year on year
+  single: "{metric}, single month"
+  ma: "{metric}, {n}-month average"
+  yoy: "{metric}, year on year"
+  diff: "{metric}, change"
+  pctile: "{metric}, percentile rank"
+
+units:
+  "%": "%"
+  CNY 100m: CNY 100m
+  index (50 = no change): index (50 = no change)
+  USD/bbl: USD/bbl
+  USD/metric ton: USD/metric ton
+  CNY per USD: CNY per USD
+
+tier:
+  core: core
+  diagnostic: diagnostic
+
+chart:
+  aria: "{name}: line chart"
+  not_enough: Not enough data to chart.
+  no_data: no public data
+  no_public: No public observations yet.
+  meta_line: "Period: {period} · Source: {sources}"
+  latest_release: "latest {period}, released {date}"
+  why: Why it is here
+
+home:
+  eyebrow: Current macro view
+  current_view: Current view
+  policy_tag: Policy
+  policy_link: Policy context
+  view_stale: "A newer analyst update exists than the one this view was written for. Treat this summary as out of date until it is re-confirmed."
+  figures_label: Key figures
+  fig:
+    probability: Analyst probability
+    confidence: Judgment confidence
+    status: Status
+    evidence_as_of: Evidence as of
+    refresh: Latest data refresh
+  prob_note: "Discretionary analyst judgment on a 5ppt grid; not a statistically calibrated model probability."
+  states_title: Where each hypothesis stands
+  states_note: "A qualitative read set by the analyst. Test counts are diagnostics on the Evidence page, not a weighted score, and they do not set these states."
+  key_evidence: Key evidence
+  key_evidence_note: "Chosen by the analyst for what each item shows, in the order shown. Not ranked by a score, a test count or the order of the files. Each item is tagged with the question it answers: level, marginal change, breadth or mechanism."
+  evidence_for: For a sustainable turn
+  evidence_against: Against it
+  no_claims: No claims yet.
+  policy_title: "Policy: what is announced and what has shown up in the data"
+  next_title: What the next releases will test
+  now: now
+  context_only: Context only; no evidence test uses these series.
+  no_releases: No release dates on the verified calendar yet.
+  no_single_release_html: 'No single release can confirm or falsify the thesis; the <a href="evidence.html#rules">terminal rules</a> combine price and demand evidence.'
+  target_title: "Target: implied GDP deflator"
+  target_chart_title: GDP deflator, year on year, implied by nominal and real GDP
+  target_chart_sub: "% · derived: (nominal GDP / nominal GDP a year earlier) ÷ (1 + real GDP growth) − 1 · reference line at zero"
+  target_meta_html: 'Source: National Bureau of Statistics (derived) · as of {asof} · lineage for every point in the <a href="charts.html">Evidence Explorer</a>'
+  awaiting_gdp: Awaiting GDP data.
+  system_title: How this view is kept honest
+  system_intro: "A China-centred research system that states its thesis before the data arrive, tests it against every official release, and shows its work. Every number on this site comes from an official observation or a calculation from one."
+  thesis_title: The preregistered thesis
+  decision_window: Decision window
+  analyst_judgment: Analyst judgment,
+  set_at_baseline: "set at the baseline on {date}."
+  set_in_update: "set in the latest update on {date}."
+  no_release_since: "No release has been tested since the baseline yet; the first is {release}."
+  next_official: the next official release
+  changes_only: It changes only through an appended, reasoned update.
+  evidence_state: Evidence state (automatic)
+  terminal_check: Terminal check
+  window_open: decision window open
+  window_closed: window opens at the first 2027Q1 GDP print
+  flips: "{n} test(s) changed outcome since the baseline."
+  no_flips: No test has changed outcome since the baseline.
+  latest_release: "Latest official release in the data: {name}, {period} (released {date})."
+  diagnostics_note: "Recomputed from the data on every refresh. Test counts are diagnostics, not a weighted score."
+  audit_title: Audit trail
+  audit_baseline_html: 'Preregistered at {prob}, {conf} confidence · commit <span class="mono">{commit}</span> · {when}'
+  audit_commit: "commit {commit}"
+  audit_refresh: "{obs} new observation(s), {flips} test flip(s) · {when}"
+  before_any_release: before any tested release
+  full_history: Full history
+  not_preregistered: Not yet preregistered.
+  eval_ok: "deterministic eval: no failures"
+  eval_failing: "{n} eval check(s) failing"
+  eval_warn: "{n} warning(s)"
+  sources_title: Data sources
+  sources_note: "Wind private research integration is active locally; the public site still runs on official and open sources alone."
+  sources_link: Method and data boundary
+
+evidence:
+  h1: "Hypotheses, tests and claims"
+  intro: "Evidence tests move one hypothesis each. Only the preregistered terminal rules below can confirm or falsify the thesis."
+  asof_html: 'Results are the automatic evidence state as of <strong>{asof}</strong>; the last column shows each test at the baseline ({base}).'
+  counts_note: "Test counts are diagnostics, not a weighted score."
+  counts_why: "A tally of passing and failing tests says nothing about how much each one matters, and several tests share the same underlying data. The qualitative state of each hypothesis is the analyst's judgment."
+  competing: competing
+  baseline_assessment: Baseline assessment
+  see_policy: Policy context
+  col:
+    test: Test
+    condition: Condition
+    window: Window
+    observed: Observed
+    latest: Latest
+    result: Result
+    baseline: At baseline
+  tally: "Tally: ▲ {sup} support · ▼ {cha} challenge · ○ {pen} awaiting data. Test counts are diagnostics, not a weighted score."
+  for: Evidence for
+  against: Evidence against
+  none: None recorded.
+  other: Other claims
+
+policy:
+  title: Policy context
+  intro: "Official policy events, curated by hand from official sources. They give context for H3 (policy impulse) and are not evidence tests: they never feed a terminal rule and they do not change the preregistered baseline or any earlier judgment."
+  realized_note: "Realized impulse is what the credit and budget data show. An announcement or an allocation is not yet realized impulse."
+  forward_note: "Announcements, allocations and their stage. Context, not evidence tests."
+  stage_label: Stage of the measure
+  layer:
+    col_layer: Layer
+    col_what: What it holds
+    col_read: Current read
+    frozen: Frozen baseline judgment
+    frozen_what: "The information the preregistered baseline used for H3: the credit and budget tests and the claims behind them. No policy announcement is part of it."
+    frozen_read: "Unchanged. It is never rewritten."
+    forward: Forward policy stance
+    forward_what: "Official events listed below, with their stage."
+    realized: Realized quantitative impulse
+    realized_what: "What the latest credit and budget-expenditure data show, on the H3 tests."
+  category:
+    fiscal: Fiscal
+    monetary: Monetary
+    investment: Investment
+    consumption: Consumption
+    property: Property
+    multi: Macro-policy mix
+  stage:
+    signal: Signal
+    announced: Announced
+    funded: Funded
+    implementation: Implementation
+    observed_impact: Observed impact
+  scope:
+    in_baseline: Part of the frozen baseline judgment
+    before_baseline: "Public before the baseline date, but not used in the frozen baseline judgment"
+    after_baseline: Published after the baseline date
+  f:
+    measure: Policy measure
+    channel: Transmission channel
+    hypothesis: Linked hypothesis
+    interpretation: Analyst interpretation
+    next: Next observable confirmation
+    source: Source
+    reviewed: "checked against the source on {date}"
+    headline: Headline on the source page
+  source:
+    primary: official source
+    official_media: "official media carrying the announcement; the issuer's own list page:"
+    listing: issuer's page
+
+rules:
+  title: Terminal decision rules (preregistered)
+  sustainable: "Sustainable means:"
+  check_now: "Terminal check now:"
+  amended_html: 'As amended by <a href="updates.html#{id}">{id}</a> ({title}), committed before any tested release.'
+  fires_when: "Fires when"
+  before_window: before the window
+  test_passes: "Test passes"
+  test_fails: "Test fails"
+  all: "All of the following hold:"
+  any: "At least one of the following holds:"
+  at_least: "At least {n} of these {total} hold:"
+  now_is: "currently {state}"
+  now_count: "{met} satisfied so far"
+  pending_count: "({n} awaiting data)"
+  state_met: satisfied
+  state_not_met: not satisfied
+  state_pending: awaiting data
+  technical: "Technical details: the rule as stored"
+  name:
+    CONFIRMED: Confirmed
+    FALSIFIED: Falsified
+    FALSIFIED_EARLY: Falsified early
+
+scenario:
+  row:
+    rates: China rates
+    cny: CNY
+    equities: Broad equities and cyclicals
+    banks: Banks
+    confirming: Confirming evidence
+    falsifying: Falsifying evidence
+
+source_status:
+  active: active
+  private_pending: private / local only
+
+memo:
+  baseline_asof: "baseline as of {date}"
+  print: Print / save as PDF
+  print_line: "{url} · version built on {date}"
+  refs_title: References
+  refs_note: "Each bracketed number in the text is a claim. The sources are listed in plain words; open the technical lineage for the observation and derivation trace."
+  empty: "The Deep Dive is written in the baseline research run. Every figure in it is a bound claim that links to its evidence."
+
+charts:
+  h1: Every series behind the thesis
+  lede: "The core metrics, grouped by the hypothesis they serve. Each chart states its metric, period, unit, source and as-of date. Licensed series are not shown in the public build."
+
+updates:
+  h1: "Baseline, amendments, data refreshes and updates"
+  lede: "Everything here is append-only. The baseline was frozen before the first tested release; nothing earlier is ever rewritten, and the commit hashes let anyone check."
+  legend:
+    baseline: "the preregistered thesis, tests and judgment"
+    amendment: "a correction to decision logic, committed before any tested release"
+    data: "an automatic refresh: new observations and test outcomes, no change of judgment"
+    update: "an analyst judgment after a release (or a status set by a preregistered rule)"
+  no_baseline: No preregistered baseline yet.
+  preregistered: Preregistered
+  commit: commit
+  at: at
+  committed_before: "Committed before {release} ({when})."
+  baseline_line_html: "Probability <strong>{prob}</strong> · confidence {conf} · status {status}"
+  diff_line: "probability {p0} → {p1} · confidence {c0} → {c1} · {direction} · status {status}"
+  as_of_when: "As of {when}"
+  why: Why
+  effect: Effect
+  amends_html: 'Amends <span class="mono">{file}</span> (commit <span class="mono">{commit}</span>); must be committed before {release} ({when}); informed by tested data: {informed}.'
+  changed: Changed
+  unchanged: "Probability, confidence, evidence tests and claims are unchanged."
+  refresh_title: Automatic evidence refresh
+  new_obs: "{n} new observation(s)"
+  revised: revised
+  more: "+{n} more"
+  before: Before
+  after: After
+  no_flips: No evidence test changed outcome.
+  refresh_summary: "Terminal check {terminal}. Mechanical direction of the flips: {direction}. Analyst judgment unchanged at {prob}."
+  rule_fired: Terminal rule fired
+  why_moved: Why the probability moved
+  evidence_list: "evidence {evidence}; hypotheses {hyps}"
+  scheduled: Scheduled
+  next_note: "The refresh job fetches it automatically after release, re-runs the tests and appends a data record here. The analyst then appends an update saying whether it changes the thesis."
+  no_date: No verified release date on the calendar.
+  no_update_yet: "No analyst update since the baseline yet: no tested release has been published since it was frozen. This is the expected state until the first release above."
+
+method:
+  h1: How the system keeps itself honest
+  chain_title: Research chain
+  chain: "Observation → surprise → marginal change → decomposition → mechanism → cross-check → research view → asset implication → evidence test. Every interpretation answers ten questions, from \"compared with what?\" to \"what print would prove this wrong?\""
+  lenses: "Four lenses keep the wording honest. Level: where an indicator stands. Marginal change: which way it is moving now, which cumulative series can hide. Breadth: whether the move is shared. Mechanism: what drives it. A claim that mixes them is rewritten before it is published."
+  flow_title: From data to thesis
+  flow:
+    obs_t: Observations
+    obs: "Append-only rows with release date, retrieval time and source class. Unknown release dates are recorded as unknown, never guessed."
+    claims_t: Claims
+    claims: "Numbers enter prose only as bound references to observations or derived values. Each claim is typed Fact, Derived, External view or Inference, and exists in both languages with the same bindings."
+    thesis_t: Thesis
+    thesis: "{n} evidence tests move hypotheses; preregistered terminal rules move the thesis. Probability changes in 5-point steps, always with reasons."
+  auto_title: Automatic refresh vs analyst judgment
+  auto: "A scheduled job checks the official release calendar twice a day. When a release is due it fetches the new data from the official source, appends only genuinely new observations (a revised value is kept as a new vintage), re-runs every evidence test against the preregistered case, records which tests flipped, runs the eval below and rebuilds this site. Running it again with nothing new does nothing."
+  auto_a_t: Updated automatically
+  auto_a: "Observations, derived values, evidence-test outcomes, the terminal-rule check, charts and a factual record of what changed. A preregistered terminal rule is the only automatic way the thesis status can change."
+  auto_b_t: Changed only by the analyst
+  auto_b: "Probability and confidence. After a release the analyst appends an update saying whether it changes the thesis; any probability change must cite evidence and reasoning or the eval fails. The refresh only offers a mechanical tally of the direction of test flips."
+  latest_refresh: "Latest refresh {when}"
+  reachable: reachable
+  unreachable: unreachable
+  ai:
+    title: Where AI is used, and where it is forbidden
+    intro: "Three jobs are kept apart. Deterministic software establishes what happened. An AI Research Copilot interprets what it means. The analyst decides what to believe. The Copilot is in shadow mode: every run is recorded for audit and evaluation, and nothing it writes is shown on this site as the research view unless the analyst accepts it."
+    col_task: Task
+    col_who: Done by
+    col_check: Checked by
+    r1_task: "Fetching and calculating data, vintages and as-of dates, evidence-test outcomes, terminal rules, and finding which observations and tests changed"
+    r1_who: Software
+    r1_check: "Eval gate E0 to E5, unit tests, historical replay"
+    r2_task: "Writing numbers into text"
+    r2_who: "Software. The AI writes only references to evidence; code fills in the values"
+    r2_check: "A closed list of evidence ids for each run; any figure typed by the model fails validation"
+    r3_task: "Judging whether a change is material, mapping it to the hypotheses, naming the strongest competing explanation, what the evidence does not prove, and the next research questions"
+    r3_who: "AI Research Copilot: two bounded calls, a draft and then a challenge"
+    r3_check: "Hard validation of every output, then analyst review"
+    r4_task: "Probability, conviction and every change to the thesis"
+    r4_who: Analyst
+    r4_check: "Thesis discipline check E5; append-only, time-stamped updates"
+    forbidden_title: What the AI never does
+    f1: "Type a data figure, or recompute an indicator in prose"
+    f2: "Decide whether a terminal rule has fired, or change a preregistered rule or the mechanical direction of an evidence test"
+    f3: "Output or change a probability or a conviction"
+    f4: "Cite evidence outside the list the software supplies, or anything dated after the information set"
+    f5: "Publish. An answer that fails validation is discarded, and a run without a complete record is not used"
+    status: "Copilot v0 is in shadow mode. A historical replay tests interpretation under a given framework, not the framework's predictive power, and is never presented as live evidence."
+  eval_title: Deterministic eval
+  eval_meta_html: 'Generated {when} · commit <span class="mono">{commit}</span> · {mode} mode'
+  eval:
+    col_check: Check
+    col_proves: What it proves
+    col_status: Status
+  no_eval: No eval report yet.
+  eval_note: "These checks are deterministic code. A model grading its own research is not treated as evidence of correctness."
+  limits_title: Known data limitations
+  sources_title: Data sources and boundary
+  boundary: "Private Research Mode consumes Wind and licensed research through a local-only V1.2 Phase 1 integration and runs private diagnostics on top of it (Phase 2, also local-only); it is not required for the public V1. This public site is built only from official and open sources and tracked research artifacts. A claim that depends on licensed data shows as withheld rather than disappearing."
+  sources:
+    col_source: Source
+    col_status: Status
+  budget_title: Metric budget
+  budget_text: "{core} core metrics, evaluated in every run, and {diag} diagnostics, pulled only when a core signal needs decomposition."
+  budget:
+    col_metric: Metric
+    col_tier: Tier
+    col_serves: Serves
+    col_why: Why it is here
+    col_source: Source
+
+eval:
+  pass: pass
+  warn: warn
+  fail: fail
+  mode:
+    public: public
+    private: private
+  name:
+    E0: Data quality
+    E1: Citation integrity
+    E2: Derived calculation lineage
+    E3: As-of leakage
+    E4: Preregistration immutability
+    E5: Thesis update discipline
+  what:
+    E0: "Schema, duplicates, period formats, provenance or a stated limitation for every row"
+    E1: "Every number in every claim equals the data as of the claim's date; both language versions of a claim bind the same numbers and name the same periods"
+    E2: "Every derived value recomputes from observations that exist"
+    E3: "Nothing is cited before it was released"
+    E4: "Baseline, amendments, updates and refresh records were committed once and never edited; amendments precede the first tested release"
+    E5: "Probability on a 5-point grid; every change explained; terminal status only via rules"
+  detail:
+    not_public: "{metric}: not in the public build ({redistribution}); private mode only"
+    no_obs: "{metric}: no observations"
+    gaps: "{metric}: {n} gap(s), e.g. {periods}"
+  redistribution:
+    unclear: licence unclear
+    private_only: licensed
+    public: public

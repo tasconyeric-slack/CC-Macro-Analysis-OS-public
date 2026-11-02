@@ -1,0 +1,352 @@
+# Private research diagnostics: the frozen signal contract (V1.2 Phase 2).
+#
+# Source of authority: docs/specs/v1.2-phase2-research-contract.md (approved, frozen 2026-10-04).
+# Binding to the code: docs/specs/v1.2-phase2-binding.md. Implementation: src/cnmacro/signals.py.
+#
+# This file holds definitions only. It never holds a Wind value, a computed signal or a result:
+# outputs are written by `python -m cnmacro diagnose-private` to gitignored data/private/signals/
+# and data/private/research/ and are private_only, like every Wind-derived number.
+#
+# Rules that the loader enforces (src/cnmacro/signals.py, load_signal_contract):
+#   * A signal is identified by (signal_id, version). Each run records the SHA256 of every definition
+#     (every field except title and caveats, plus the code's method version). If a stored run already
+#     holds the same (signal_id, version) under a different hash, diagnose-private fails closed:
+#     a changed formula, threshold, window or mapping needs a new version, never an edit in place.
+#   * research_role is one of PRIMARY_EVIDENCE | CONFIRMATORY | CONTEXT_ONLY | COMPETING_EXPLANATION |
+#     EXPERIMENTAL. No Phase 2 signal is PRIMARY_EVIDENCE: none is a preregistered evidence test, and
+#     none is read by a terminal rule. Promoting one would need a new prospective amendment.
+#   * A CONTEXT_ONLY or EXPERIMENTAL signal may not be mapped as (STRONG_)CONFIRMATORY for any
+#     hypothesis, and may feed only CONTEXT_ONLY or COMPETING_EXPLANATION assessments. So a market move
+#     can never confirm H1 or H2, and consensus can never score anything.
+#   * Classification compares values rounded to `precision` decimals, so a boundary value classifies
+#     the same way on every machine (e.g. a computed -10.000000000000009 bp is -10 bp: EASING).
+#   * A missing or insufficient input is never neutral. An assessment draws a conclusion only if that
+#     conclusion holds for every value the missing input could take; otherwise INSUFFICIENT_DATA.
+#
+# hypothesis_mapping vocabulary (from the contract's section 9 table):
+#   STRONG_CONFIRMATORY | CONFIRMATORY | WEAK | CONTEXT | RELEVANT | COUNTER_CHECK |
+#   STRONG_COUNTER_CHECK | EXPERIMENTAL. A hypothesis that is absent is not addressed by the signal.
+
+contract_version: 1
+private_only: true
+precision: 6
+
+# Used only to attach caveats to calendar-day windows. Nothing is adjusted, excluded or imputed.
+# Approximate caveat windows around the official holidays (they include the slow days either side);
+# a window that reaches past the table's horizon gets a caveat saying the table does not cover it.
+holiday_caveat_windows:
+  horizon_end: 2027-12-31
+  windows:
+    - {name: Spring Festival 2025, start: 2025-01-26, end: 2025-02-06}
+    - {name: Golden Week 2025, start: 2025-10-01, end: 2025-10-08}
+    - {name: Spring Festival 2026, start: 2026-02-14, end: 2026-02-25}
+    - {name: Golden Week 2026, start: 2026-10-01, end: 2026-10-08}
+    - {name: Spring Festival 2027, start: 2027-02-04, end: 2027-02-15}
+    - {name: Golden Week 2027, start: 2027-10-01, end: 2027-10-08}
+
+signals:
+# ================================================================ Block A: liquidity / financial conditions
+- signal_id: A1_dr007_liquidity_trend
+  version: 1
+  layer: atomic
+  block: A
+  title: DR007 liquidity trend
+  method: median_shift
+  inputs: {metrics: [cn_dr007]}
+  window: {basis: trading_observations, recent: 20, previous: 20}
+  formula: >-
+    recent_median = median of the latest 20 DR007 observations; previous_median = median of the 20
+    observations immediately before them; delta_bp = (recent_median - previous_median) * 100.
+  thresholds: {easing_at_or_below_bp: -10, tightening_at_or_above_bp: 10}
+  classification:
+    - {class: EASING, when: "delta_bp <= -10"}
+    - {class: TIGHTENING, when: "delta_bp >= 10"}
+    - {class: STABLE, when: "-10 < delta_bp < 10"}
+  minimum_coverage: {observations: 40, max_staleness_days: 10}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H3: CONFIRMATORY, H2: CONTEXT, H0: RELEVANT}
+  caveats:
+    - Interbank market liquidity conditions, not monetary-policy stance. DR007 also moves with quarter-end, tax-period and holiday cash demand, and with PBOC open-market operations.
+    - No direct confirmation of domestic demand (H2).
+
+- signal_id: A2_cgb10y_pricing
+  version: 1
+  layer: atomic
+  block: A
+  title: China 10Y government-bond yield, market pricing
+  method: level_changes
+  inputs: {metrics: [cn_cgb10y_daily]}
+  window: {basis: trading_observations, changes: [20, 60]}
+  formula: >-
+    change_20d_bp = (latest yield - yield 20 observations earlier) * 100; change_60d_bp = (latest
+    yield - yield 60 observations earlier) * 100. The label is the direction of the 20-day change.
+  thresholds: {rising_at_or_above_bp: 5, falling_at_or_below_bp: -5}
+  classification:
+    - {class: RISING, when: "change_20d_bp >= 5"}
+    - {class: FALLING, when: "change_20d_bp <= -5"}
+    - {class: FLAT, when: "-5 < change_20d_bp < 5"}
+  minimum_coverage: {observations: 21, observations_for_60d: 61, max_staleness_days: 10}
+  research_role: CONTEXT_ONLY
+  hypothesis_mapping: {H1: CONTEXT, H2: CONTEXT, H3: CONTEXT, H0: CONTEXT}
+  caveats:
+    - "Yield up is not automatically stronger growth, and yield down is not automatically weaker growth: yields also price inflation and policy expectations, bond supply and demand, and risk preference."
+    - Context only. It may corroborate a story but cannot confirm any of H1-H4 by itself.
+    - China Money (中国货币网) 10Y curve via Wind (M0325687); the CCDC curve is permission-blocked on this account.
+
+# ================================================================ Block B: credit demand and composition
+- signal_id: B1_household_credit_pulse
+  version: 1
+  layer: atomic
+  block: B
+  title: Household credit pulse
+  method: credit_pulse
+  inputs: {metrics: {short_term: cn_loans_hh_short_flow, medium_long_term: cn_loans_hh_mlt_flow}}
+  window: {basis: calendar_months, months: 3, comparison: same_calendar_months_one_year_earlier}
+  formula: >-
+    t = the latest month observed for both components. For each component X: recent_X = sum of X over
+    t-2..t; year_ago_X = sum of X over t-14..t-12; delta_X = recent_X - year_ago_X (CNY 100m; a level
+    delta, never a percentage). breadth = number of components with delta_X > 0. ml_share =
+    ML / (ST + ML) for the recent and the year-ago window, only where ST >= 0, ML >= 0 and ST + ML > 0;
+    ml_share_change_pp = (recent share - year-ago share) * 100.
+  thresholds: {positive_delta_above: 0}
+  classification:
+    - {class: BROADENING, when: "breadth == 2"}
+    - {class: MIXED, when: "breadth == 1"}
+    - {class: WEAKENING, when: "breadth == 0"}
+  minimum_coverage: {component_months: 12, max_staleness_months: 3}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H2: STRONG_CONFIRMATORY, H3: WEAK, H0: STRONG_COUNTER_CHECK}
+  caveats:
+    - Covers only the household short-term and medium/long-term new-loan components, not total RMB lending.
+    - Short-term household borrowing is short-duration credit; it is not labelled consumption. Medium/long-term borrowing contains mortgages and other longer-duration demand.
+    - Same-period comparison, because monthly loan flows are strongly seasonal; no sequential month-on-month reading.
+
+- signal_id: B2_corporate_credit_pulse
+  version: 1
+  layer: atomic
+  block: B
+  title: Corporate credit pulse
+  method: credit_pulse
+  inputs: {metrics: {short_term: cn_loans_corp_short_flow, medium_long_term: cn_loans_corp_mlt_flow}}
+  window: {basis: calendar_months, months: 3, comparison: same_calendar_months_one_year_earlier}
+  formula: >-
+    As B1, for the corporate (企(事)业单位) short-term and medium/long-term new-loan components.
+  thresholds: {positive_delta_above: 0}
+  classification:
+    - {class: BROADENING, when: "breadth == 2"}
+    - {class: MIXED, when: "breadth == 1"}
+    - {class: WEAKENING, when: "breadth == 0"}
+  minimum_coverage: {component_months: 12, max_staleness_months: 3}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H2: CONFIRMATORY, H3: CONFIRMATORY, H0: RELEVANT}
+  caveats:
+    - Covers only the corporate short-term and medium/long-term new-loan components, not total RMB lending.
+    - Medium/long-term corporate borrowing is consistent with investment demand and policy transmission, but may also be SOE or infrastructure financing, policy-driven credit supply or refinancing. It is not classified as private endogenous demand.
+
+# ================================================================ Block C: property pulse (four cities, never summed)
+- signal_id: C1_property_city_momentum
+  version: 1
+  layer: atomic
+  block: C
+  title: Property momentum, one city
+  method: city_momentum
+  per_input: true          # one result per city: C1_property_city_momentum.<city>
+  inputs: {metrics: {bj: cn_hf_prop_bj, sh: cn_hf_prop_sh, sz: cn_hf_prop_sz, gz: cn_hf_prop_gz}}
+  window: {basis: calendar_days, recent: 28, previous: 28, anchor: latest observed date of that city}
+  formula: >-
+    end = the city's latest observed date. recent_avg = mean of that city's observed daily transaction
+    area over the 28 calendar days end-27..end; previous_avg = mean over end-55..end-28;
+    momentum_pct = (recent_avg / previous_avg - 1) * 100. Days with no observation are not filled.
+  thresholds: {positive_at_or_above_pct: 5, negative_at_or_below_pct: -5}
+  classification:
+    - {class: POSITIVE, when: "momentum_pct >= 5"}
+    - {class: NEGATIVE, when: "momentum_pct <= -5"}
+    - {class: FLAT, when: "-5 < momentum_pct < 5"}
+  minimum_coverage: {observed_days_per_window: 20, max_staleness_days: 7}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H2: STRONG_CONFIRMATORY, H3: CONFIRMATORY, H0: STRONG_COUNTER_CHECK}
+  caveats:
+    - One city's own definition (signed contracts or closed transactions); never added to another city's area.
+    - High-frequency municipal data, not China national property sales.
+    - Holiday windows (Spring Festival, Golden Week) depress transactions; a window that touches one is caveated, not adjusted.
+
+- signal_id: C2_property_breadth
+  version: 1
+  layer: atomic
+  block: C
+  title: Four-city property breadth
+  method: property_breadth
+  inputs: {signals: [C1_property_city_momentum]}
+  window: {basis: cross_section, cities: 4}
+  formula: >-
+    number_positive and number_negative count the cities classified POSITIVE and NEGATIVE by C1;
+    median_city_momentum = median of the four cities' momentum_pct. Momenta are compared, never areas.
+  thresholds: {broad_min_positive: 3, broad_improvement_median_above_pct: 5, weak_max_positive: 1, broad_weakness_median_below_pct: -5}
+  classification:
+    - {class: BROAD_IMPROVEMENT, when: "number_positive >= 3 and median_city_momentum > 5"}
+    - {class: BROAD_WEAKNESS, when: "number_positive <= 1 and median_city_momentum < -5"}
+    - {class: MIXED, when: otherwise}
+  minimum_coverage: {valid_cities: 4}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H2: STRONG_CONFIRMATORY, H3: CONFIRMATORY, H0: STRONG_COUNTER_CHECK}
+  caveats:
+    - Four-city high-frequency property confirmation. It is NOT China national property-sales growth.
+    - All four cities must classify; the thresholds count cities out of four, so a missing city makes the breadth INSUFFICIENT_DATA.
+
+# ================================================================ Block D: market confirmation (context only)
+- signal_id: D1_market_regime
+  version: 1
+  layer: atomic
+  block: D
+  title: Market regime
+  method: market_regime
+  inputs: {metrics: [mkt_csi300, cn_cgb10y_daily], signals: [A1_dr007_liquidity_trend]}
+  window: {basis: trading_observations, equity_return: 20, yield_change: 20}
+  formula: >-
+    csi300_return_20d_pct = (latest close / close 20 observations earlier - 1) * 100;
+    cgb10y_change_20d_bp = (latest yield - yield 20 observations earlier) * 100; liquidity = A1 class.
+    Each market move is UP, DOWN or FLAT against the noise bands below.
+  thresholds: {equity_up_at_or_above_pct: 3, equity_down_at_or_below_pct: -3, yield_up_at_or_above_bp: 5, yield_down_at_or_below_bp: -5}
+  classification:      # first match wins
+    - {class: REFLATION_CONFIRMATION, when: "equity UP and yield UP and liquidity != TIGHTENING"}
+    - {class: LIQUIDITY_DRIVEN_RALLY, when: "equity UP and yield FLAT or DOWN and liquidity == EASING"}
+    - {class: WEAK_GROWTH_PRICING, when: "equity DOWN and yield DOWN"}
+    - {class: RISK_OFF_OR_MIXED, when: "equity DOWN and yield FLAT or UP"}
+    - {class: MIXED, when: otherwise}
+  minimum_coverage: {observations: 21, max_staleness_days: 10}
+  research_role: CONTEXT_ONLY
+  hypothesis_mapping: {H1: CONTEXT, H2: CONTEXT, H3: CONTEXT, H4: CONTEXT, H0: COUNTER_CHECK}
+  caveats:
+    - The noise bands are round numbers declared before any Phase 2 output was seen, not fitted to the thesis.
+    - Market pricing is context. A rally can never satisfy the domestic-demand (H2) or price-turn (H1) requirement.
+
+# ================================================================ Consensus (experimental, snapshot only)
+- signal_id: X1_consensus_snapshot
+  version: 1
+  layer: atomic
+  block: X
+  title: CPI/PPI consensus snapshot (experimental)
+  method: consensus_snapshot
+  inputs: {metrics: [cn_cpi_consensus_wind, cn_ppi_consensus_wind]}
+  window: {basis: snapshot}
+  formula: >-
+    None. Records which target months have a consensus snapshot in the information set and when each
+    was retrieved. No surprise, no expectation revision and no score is computed.
+  thresholds: {}
+  classification:
+    - {class: EXPERIMENTAL_SNAPSHOT_ONLY, when: "validation.status != VALIDATED"}
+  validation:
+    status: NOT_VALIDATED
+    required: >-
+      The release-time validation in docs/wind-capability-note.md section 6 (first event: September
+      2026 CPI/PPI, 2026-10-14 09:30 Beijing). A surprise model needs its own prospective contract.
+  minimum_coverage: {}
+  research_role: EXPERIMENTAL
+  hypothesis_mapping: {H1: EXPERIMENTAL}
+  caveats:
+    - Wind exposes no as-of query, so a value cannot be proven to be the pre-release consensus. No historical surprise is reconstructed from current Wind consensus history.
+
+# ================================================================ Higher-level research assessments
+- signal_id: R1_domestic_demand_confirmation
+  version: 1
+  layer: assessment
+  block: R
+  title: Private domestic-demand confirmation
+  method: domestic_demand_confirmation
+  inputs: {signals: [B1_household_credit_pulse, B2_corporate_credit_pulse, C2_property_breadth]}
+  window: {basis: inputs}
+  formula: >-
+    Channel states: household (B1) and corporate (B2) BROADENING = positive, WEAKENING = negative,
+    MIXED = mixed; property (C2) BROAD_IMPROVEMENT = positive, BROAD_WEAKNESS = negative, MIXED = mixed.
+  thresholds: {positive_min_channels: 2, negative_min_channels: 2}
+  classification:
+    - {class: POSITIVE, when: "at least 2 channels positive and neither household nor property negative"}
+    - {class: NEGATIVE, when: "at least 2 channels negative"}
+    - {class: MIXED, when: otherwise}
+    - {class: INSUFFICIENT_DATA, when: "a missing channel could change the class"}
+  minimum_coverage: {}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H2: CONFIRMATORY, H0: COUNTER_CHECK}
+  caveats:
+    - A private confirmation layer for H2. It does not replace the preregistered domestic-demand terminal condition (3 of 6 public H2 tests).
+
+- signal_id: R2_policy_transmission
+  version: 1
+  layer: assessment
+  block: R
+  title: Policy transmission diagnostic
+  method: policy_transmission
+  inputs: {signals: [A1_dr007_liquidity_trend, B2_corporate_credit_pulse, B1_household_credit_pulse, C2_property_breadth]}
+  window: {basis: inputs, timing: contemporaneous}
+  formula: >-
+    responding = number of channels responding: corporate BROADENING, household BROADENING, property
+    BROAD_IMPROVEMENT.
+  thresholds: {visible_min_responding: 2}
+  classification:
+    - {class: NO_CLEAR_EASING, when: "A1 is STABLE or TIGHTENING"}
+    - {class: TRANSMISSION_VISIBLE, when: "A1 is EASING and responding >= 2"}
+    - {class: EASING_WITHOUT_RESPONSE, when: "A1 is EASING and responding == 0"}
+    - {class: MIXED, when: "A1 is EASING and responding == 1"}
+    - {class: INSUFFICIENT_DATA, when: "a missing input could change the class"}
+  minimum_coverage: {}
+  research_role: CONFIRMATORY
+  hypothesis_mapping: {H3: CONFIRMATORY, H2: CONTEXT, H0: RELEVANT}
+  caveats:
+    - Contemporaneous co-occurrence only. No causal claim, and no lag structure (easing at t, response at t+1..t+3) until genuine snapshots have accumulated; never reconstructed from current-vintage history.
+
+- signal_id: R3_market_confirmation
+  version: 1
+  layer: assessment
+  block: R
+  title: Market confirmation diagnostic
+  method: market_confirmation
+  inputs: {signals: [D1_market_regime]}
+  window: {basis: inputs}
+  formula: Maps the D1 regime.
+  thresholds: {}
+  classification:
+    - {class: CONFIRMS, when: "D1 REFLATION_CONFIRMATION"}
+    - {class: DOES_NOT_CONFIRM, when: "D1 LIQUIDITY_DRIVEN_RALLY"}
+    - {class: CONTRADICTS, when: "D1 WEAK_GROWTH_PRICING"}
+    - {class: MIXED, when: "D1 RISK_OFF_OR_MIXED or MIXED"}
+  minimum_coverage: {}
+  research_role: CONTEXT_ONLY
+  hypothesis_mapping: {H1: CONTEXT, H2: CONTEXT, H3: CONTEXT, H4: CONTEXT, H0: COUNTER_CHECK}
+  caveats:
+    - Context only. CONFIRMS means market pricing is consistent with the thesis mechanism; it never satisfies an H1 or H2 condition.
+
+- signal_id: R4_h0_competing_explanation
+  version: 2               # v2 (2026-10-05, before merge): external evidence alone no longer makes nominal_improving true
+  layer: assessment
+  block: R
+  title: H0 competing-explanation flag
+  method: h0_competing_explanation
+  inputs:
+    signals: [R1_domestic_demand_confirmation, B1_household_credit_pulse, B2_corporate_credit_pulse, C2_property_breadth, D1_market_regime]
+    public_tests:              # the preregistered public evidence state, read as of the snapshot, never changed
+      price_improving: {at_least: 2, of: [T-H1-01, T-H1-02, T-H1-03]}
+      external_improving: {at_least: 2, of: [T-H4-01, T-H4-02]}   # context only; never the nominal premise
+      h0_context: [T-H0-01, T-H0-02, T-H0-03]
+  window: {basis: inputs}
+  formula: >-
+    nominal_improving = price_improving: at least 2 of the preregistered public tests T-H1-01..03 true
+    (three-valued). external_improving (both T-H4 tests true) is reported as context for an external- or
+    supply-led reading; it never makes nominal_improving true by itself.
+    real_demand_weak = (household WEAKENING or property BROAD_WEAKNESS) and neither household
+    BROADENING nor property BROAD_IMPROVEMENT. market_up = D1 equity move UP.
+    F1 H0_SUPPLY_LED_RISK: nominal_improving and R1 is MIXED or NEGATIVE.
+    F2 FINANCIAL_MARKET_CONFIRMATION_WITHOUT_REAL_DEMAND: market_up and real_demand_weak.
+    F3 POLICY_SUPPLY_LED_CREDIT_RISK: corporate BROADENING and real_demand_weak.
+    Each flag is ELEVATED, NOT_ELEVATED or INSUFFICIENT_DATA.
+  thresholds: {}
+  classification:
+    - {class: ELEVATED, when: "any flag ELEVATED"}
+    - {class: NOT_ELEVATED, when: "every flag NOT_ELEVATED"}
+    - {class: INSUFFICIENT_DATA, when: otherwise}
+  minimum_coverage: {}
+  research_role: COMPETING_EXPLANATION
+  hypothesis_mapping: {H0: STRONG_COUNTER_CHECK, H1: CONTEXT, H2: CONTEXT}
+  caveats:
+    - External-demand strength (H4) alone does not establish an apparent nominal-growth improvement; only the price tests set that premise.
+    - Elevates a competing explanation for analyst attention. It never falsifies the thesis; only a preregistered terminal rule can.
+    - No preregistered production test exists, so the "production" leg of the contract's price/production/external condition is not used; adding one would be a new rule.

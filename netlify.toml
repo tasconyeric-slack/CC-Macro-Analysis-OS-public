@@ -1,0 +1,17 @@
+# Optional legacy mirror: Vercel project `ccmacrors` + https://ccmacro.byliyz.com/
+# is the sole public production/acceptance target. Keep this configuration working
+# if Netlify still builds from main; publish only the tracked public research artifacts.
+[build]
+  # full history lets the audit trail come from git; if the host's clone stays shallow the
+  # site uses the audit manifest in research/cases/cn-nominal/eval/latest.json instead
+  command = "(git fetch --unshallow --quiet || true) && pip install --quiet . && python site/build.py"
+  publish = "site/dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.14"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,55 @@
+# Wind runtime contract (V1.2 Phase 1). Tracked and credential-free.
+#
+# The Wind skill is NOT vendored in this repository. python -m cnmacro refresh-private calls the
+# officially installed skill (default ~/.agents/skills/wind-mcp-skill; set CCMACRO_WIND_SKILL_DIR to
+# point elsewhere on this machine). The API key stays with the skill's own CLI: nothing here, and no
+# Python code, reads or stores it.
+#
+# Pinning is by verification. Before its first call and again before it publishes, every run
+# fingerprints the files below. Any mismatch with this contract, or any change between the two
+# readings, is WIND_RUNTIME_DRIFT: the run fails closed and publishes no normalized observations.
+# A skill update is therefore a deliberate act: review the new skill, then re-pin this file in a
+# reviewed commit with `python -m cnmacro wind-runtime --pin`.
+#
+# The skill rewrites scripts/update-state.json and may rewrite its own files after a successful
+# call (a detached update check). Only the files listed here are fingerprinted, and only by content.
+
+skill:
+  name: wind-mcp-skill
+  version: "2.0.4"                 # SKILL_VERSION in scripts/cli.mjs (SKILL.md carries no version field)
+  files:                           # SHA256 of each runtime file, relative to the skill directory
+    scripts/cli.mjs: 9a211a272a5664283a8e597a03a341af134d4b15f80e0b0c96a081d9f8720b86
+    scripts/tool-manifest.json: 27ccc8a8fb70da0520242b28b4d05861a33ab22bcb24a3f756b53cc97f69a439
+    scripts/call-rules.json: e93e4c9ecb89585ebfa0b85ea92365860e520da4d046da34d532b4a9d3a0be25
+    scripts/update-check.mjs: 874d0ee7a1e7805c0666f0308e130b30d3c98aa4250e5aa7b1b57f3632ed3931
+
+# Operational limits. Credits are a hard external constraint and the cost per call is never returned,
+# so the adapter is deliberately conservative: strictly serial, spaced, bounded and fail-fast.
+operations:
+  min_spacing_s: 4          # minimum gap between billable calls
+  network_retries: 2        # identical retries after a NETWORK_ERROR, and nothing else is retried
+  retry_pause_s: 20         # pause before each retry
+  call_timeout_s: 700       # the CLI's own tools/call timeout is 600 s
+  call_budget: 10           # hard cap on CLI invocations per run, retries included (a normal run is 5)
+  max_codes_per_query: 10   # Wind drops everything past 10 metrics per economic-data query
+
+# Query groups, in call order. One call per group; the metrics in a group are those in the dictionary
+# whose wind.query_group names it. Windows are bounded and relative to the retrieval date in Beijing
+# time: begin = today - back_days, end = today + forward_days.
+groups:
+  rates:
+    back_days: 130          # >= 61 trading days for the 60-day 10Y change and 40 for DR007 (Phase 2), plus holidays
+    forward_days: 0
+  credit:
+    back_days: 500          # >= 15 monthly flows: latest 3 months and the same 3 months a year earlier (Phase 2)
+    forward_days: 0
+  property:
+    back_days: 75           # two 28-day windows per city plus a margin for staleness and gaps (Phase 2)
+    forward_days: 0
+  consensus:
+    back_days: 62           # a small current/forward window of forecasts, no historical backfill
+    forward_days: 366
+  market:
+    back_days: 45
+    forward_days: 0
+    period: 1d              # K-line bar; the only index route used

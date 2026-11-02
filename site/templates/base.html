@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ 'zh-Hans' if loc == 'zh' else 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ meta.title }}</title>
+<meta name="description" content="{{ meta.description }}">
+<link rel="canonical" href="{{ meta.canonical }}">
+{% for hl, href in meta.alternates %}<link rel="alternate" hreflang="{{ hl }}" href="{{ href }}">
+{% endfor %}<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ meta.site_name }}">
+<meta property="og:title" content="{{ meta.title }}">
+<meta property="og:description" content="{{ meta.description }}">
+<meta property="og:url" content="{{ meta.canonical }}">
+<meta property="og:locale" content="{{ meta.og_locale }}">
+{% for l in meta.og_alternate %}<meta property="og:locale:alternate" content="{{ l }}">
+{% endfor %}<meta property="og:image" content="{{ meta.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ meta.og_image_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ meta.title }}">
+<meta name="twitter:description" content="{{ meta.description }}">
+<meta name="twitter:image" content="{{ meta.og_image }}">
+<link rel="icon" href="{{ asset }}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{{ asset }}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ asset }}apple-touch-icon.png">
+<link rel="stylesheet" href="{{ asset }}style.css">
+</head>
+<body class="loc-{{ loc }} page-{{ page }}">
+{% if preview %}<div class="banner"><div class="wrap">{{ t('banner.preview_html') }}</div></div>
+{% elif banner %}<div class="banner"><div class="wrap">{{ banner }}</div></div>
+{% elif not baseline %}<div class="banner"><div class="wrap">{{ t('banner.no_baseline') }}</div></div>{% endif %}
+<a class="skip" href="#main">{{ t('a11y.skip') }}</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">{{ t('site.brand') }}<small>{{ t('site.tagline') }}</small></a>
+  <nav aria-label="{{ t('a11y.nav') }}">{% for f, label, on in nav %}<a href="{{ f }}"{% if on %} class="on" aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
+  <div class="lang" role="group" aria-label="{{ t('lang.label') }}">
+    {%- for l in ['zh', 'en'] -%}
+      {%- if l == loc -%}<span class="cur" lang="{{ 'zh-Hans' if l == 'zh' else 'en' }}" aria-current="true">{{ t('lang.name_' ~ l) }}</span>
+      {%- else -%}<a href="{{ lang_base[l] }}" data-lang="{{ l }}" data-base="{{ lang_base[l] }}" lang="{{ 'zh-Hans' if l == 'zh' else 'en' }}" hreflang="{{ 'zh-Hans' if l == 'zh' else 'en' }}">{{ t('lang.name_' ~ l) }}</a>{%- endif -%}
+      {%- if not loop.last %}<span class="sep" aria-hidden="true">|</span>{% endif -%}
+    {%- endfor -%}
+  </div>
+</div></header>
+<main id="main"><div class="wrap">
+{% block body %}{% endblock %}
+</div></main>
+<footer><div class="wrap">
+  <p>{{ t('footer.built_html', built=built_at|when, commit=commit or t('footer.uncommitted')) }}</p>
+  <p>{{ t('footer.boundary') }} {{ t('footer.not_advice') }}</p>
+</div></footer>
+<script src="{{ asset }}charts.js"></script>
+<script src="{{ asset }}site.js"></script>
+</body>
+</html>

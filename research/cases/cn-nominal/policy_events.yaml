@@ -1,0 +1,103 @@
+# Policy Context layer: official policy events, curated by hand, newest first.
+#
+# This layer complements hypothesis H3 (policy impulse). It is CONTEXT: it is not an evidence
+# test, it never feeds a terminal rule, and it never edits the preregistered baseline or any
+# earlier judgment. The site separates three things on every policy display:
+#
+#   1. information in the frozen baseline judgment  (the baseline lists none of these events)
+#   2. policy context                               (this file)
+#   3. realized quantitative policy impulse         (the H3 tests and claims, from data)
+#
+# `available_at_baseline` is computed from `published` against the baseline's as_of date and
+# `in_baseline_judgment` from the baseline's own `policy_events` list (absent, so false); neither
+# is typed here. An event published before the baseline date but not used by it is shown exactly
+# so: public before the baseline, not part of the frozen judgment.
+#
+# Fields
+#   event_id        unique, POL-<date>-<institution>
+#   published       official publication date (Beijing)
+#   institution     issuing body {en, zh}
+#   title           what the event is {en, zh}
+#   official_headline_zh  headline as it appears on the source page
+#   source          {url, publisher {en, zh}, kind}
+#                     kind: primary         the issuing body's own page
+#                           official_media  state media carrying the announcement; `primary_listing`
+#                                           points at the issuer's own list page until the original
+#                                           item is linked
+#   category        fiscal | monetary | investment | consumption | property | multi
+#   measure         what was announced or done {en, zh}; may use {figure ids}
+#   figures         official amounts used in `measure`. Stored once as a number in CNY; each
+#                   language writes it in its own convention. `quote_zh` is the exact figure as the
+#                   Chinese source writes it, and tests prove value and quote agree.
+#   stage           signal | announced | funded | implementation | observed_impact
+#   channel         transmission channel {en, zh}
+#   hypothesis      H3 (primary); `also` lists secondary links
+#   interpretation  analyst reading {en, zh}
+#   next_confirmation  the next observable that would confirm or refute it {en, zh}
+#   reviewed        date the entry was last checked against the source
+events:
+  - event_id: POL-2026-09-30-NDRC
+    published: 2026-09-30
+    institution:
+      en: National Development and Reform Commission
+      zh: 国家发展和改革委员会
+    title:
+      en: Full-year funding for consumer-goods trade-ins from ultra-long special treasury bonds fully allocated
+      zh: 全年超长期特别国债支持消费品以旧换新资金已全部下达
+    official_headline_zh: 2026年2500亿元超长期特别国债支持消费品以旧换新资金已全部下达
+    source:
+      url: https://www.ndrc.gov.cn/fggz/202609/t20260930_1407948.html
+      publisher: {en: National Development and Reform Commission, zh: 国家发展和改革委员会}
+      kind: primary
+    category: consumption
+    figures:
+      - {id: full_year, value_cny: 250000000000, quote_zh: 2500亿元}
+      - {id: fourth_batch, value_cny: 62500000000, quote_zh: 625亿元}
+    measure:
+      en: The NDRC, with the Ministry of Finance, allocated to localities the fourth batch ({fourth_batch}) of this year's ultra-long special treasury bond funds for consumer-goods trade-ins, so the full-year amount of {full_year} is now fully allocated.
+      zh: 国家发展改革委会同财政部向地方下达了今年第四批（{fourth_batch}）超长期特别国债支持消费品以旧换新资金，全年{full_year}资金至此已全部下达。
+    stage: funded
+    channel:
+      en: Fiscal transfer to localities, then household subsidies on autos, appliances and digital products, then retail sales
+      zh: 向地方的财政转移，进而形成居民在汽车、家电和数码产品上的补贴，最终体现在零售上
+    hypothesis: H3
+    also: [H2]
+    interpretation:
+      en: Funding is no longer a constraint on the trade-in programme this year, which makes the forward fiscal stance on consumption more supportive. Allocation is not disbursement and not demand. The effect has to appear in retail sales and its trade-in categories, and the H3 credit and budget tests do not isolate this funding.
+      zh: 今年以旧换新的资金约束已经解除，使消费端的前瞻性财政取向更具支持性。资金下达不等于补贴兑付，更不等于需求形成。其效果需要体现在零售及以旧换新品类上，而H3的信贷和预算支出检验并不能单独识别这笔资金。
+    next_confirmation:
+      en: Retail sales growth, and its autos and appliances components, in the September activity release; the pace of subsidy payments; whether consumer-goods PPI and core CPI respond.
+      zh: 9月经济活动数据中的零售增速及其汽车、家电分项；补贴兑付进度；生活资料PPI和核心CPI是否随之回应。
+    reviewed: 2026-10-04
+
+  - event_id: POL-2026-09-28-SC
+    published: 2026-09-28
+    institution:
+      en: State Council (executive meeting)
+      zh: 国务院常务会议
+    title:
+      en: Executive meeting on making macro policy more effective and promoting effective investment
+      zh: 国务院常务会议研究宏观政策发力提效、促进有效投资有关工作
+    official_headline_zh: 李强主持召开国务院常务会议 研究宏观政策发力提效、促进有效投资有关工作等
+    source:
+      url: https://www.gov.cn/yaowen/liebiao/202609/content_7082280.htm
+      publisher: {en: Central People's Government of the PRC (gov.cn), zh: 中国政府网}
+      kind: primary
+    category: multi
+    figures: []
+    measure:
+      en: Calls for stronger counter-cyclical adjustment of macro policy. Stock policies are to be implemented more effectively and bond issuance and use sped up; major projects are to start earlier; interest-subsidy support for investment and consumption is to be stepped up. A batch of incremental policies is to be introduced, including better use of fiscal spending and of the local-government debt quota carried over, adjustment of monetary tools with more relending quota for technology, equipment upgrading, agriculture and small firms, and measures to stabilise the property market and support employment and incomes.
+      zh: 提出加大宏观政策逆周期调节力度：存量政策要进一步增强实施效能，加快各类债券发行使用进度，推动重大工程项目尽早开工建设，加力实施扩投资、促消费贴息政策；推出一批增量政策，包括优化财政支出安排、用好地方政府债务结存限额、综合运用并适时调整货币政策工具（增加科技创新和技术改造、支农支小等再贷款额度），以及研究出台稳定房地产市场、促进就业增收等政策措施。
+    stage: announced
+    channel:
+      en: Fiscal (bond issuance and use), investment (project starts), monetary (relending quotas); property and employment measures still to be framed
+      zh: 财政（债券发行与使用）、投资（项目开工）、货币（再贷款额度）；房地产和就业措施仍待出台
+    hypothesis: H3
+    also: [H2]
+    interpretation:
+      en: A clear shift towards a more supportive forward policy stance. It sets direction; it is not yet realized impulse. Credit and budget-spending data through August still show a weak impulse, and the incremental measures are not yet quantified or funded. It strengthens the case that H3 could firm later, but it changes neither the preregistered tests nor the baseline judgment.
+      zh: 前瞻性政策取向明显转向更具支持性。它确立的是方向，尚非已实现的政策力度：截至8月的信贷和预算支出数据仍显示力度偏弱，增量措施也尚未量化和落实资金。这增强了H3日后转强的可能性，但既不改变预先登记的检验，也不改变基线判断。
+    next_confirmation:
+      en: Publication, sizing and funding of the incremental measures; faster government-bond financing in total social financing and in budget expenditure in the September and October releases; relending quota announcements; early project starts.
+      zh: 增量措施的公布、规模测算与资金落实；9月和10月数据中社融的政府债券融资与预算支出是否加快；再贷款额度的公布；项目是否提前开工。
+    reviewed: 2026-10-04

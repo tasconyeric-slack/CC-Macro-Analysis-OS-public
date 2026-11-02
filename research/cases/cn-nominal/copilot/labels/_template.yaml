@@ -1,0 +1,31 @@
+# GOLD-SET LABEL TEMPLATE (strategy §11.1). One file per replay case: labels/<case-id>.yaml.
+#
+# Protocol (the point is that the labels are not anchored by the model):
+#   1. Label BEFORE any model run on that case. Commit and push the label file first; Phase C accepts a case only
+#      if its label commit is earlier than every Run Record for it (computed from git, not asserted).
+#   2. Label from the information set at the case's as_of only. See exactly what the model would see, with no model call:
+#         python -m cnmacro copilot replay --release-at <date> --context-only --context-out /tmp/context.json
+#      Do not use anything you learned afterwards (the 2026-10-04 judgment and later data post-date these releases).
+#   3. A human writes this file. Not the Copilot, not a coding agent.
+#   4. At least one third of the cases need a second annotator who labels independently (new file, same name with
+#      `.second` before `.yaml`); disagreement marks an item `ambiguous` and it is excluded from accuracy.
+#   5. Reference answers need not be unique, but the disagreement must be inspectable: give your reason.
+# Files whose names start with "_" are ignored.
+
+case_id: ""                     # from replay_cases.yaml
+annotator: ""                   # you
+labelled_at: ""                 # ISO time; the git commit time is the authority
+information_set: ""             # the case's as_of, copied from the context
+
+material_changes:               # what actually changed that matters, in your words (no numbers needed; name the series)
+  - ""
+affected_hypotheses:            # which hypotheses move, and which way
+  - hypothesis: H1              # H0..H4
+    direction: ""               # strengthen | weaken | unchanged | unresolved
+    reason: ""
+plausible_alternative_explanations:
+  - ""
+forbidden_conclusions:          # what a careful analyst would refuse to conclude from this release
+  - ""
+highest_value_next_question: "" # the research question whose answer would change the judgment most
+no_material_change: false       # true if the right answer is "nothing changed that matters"

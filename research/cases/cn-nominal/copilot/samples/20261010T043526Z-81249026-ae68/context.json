@@ -1,0 +1,1129 @@
+{
+  "allowlist": [
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "0.9%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Core CPI YoY (ex food and energy) 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_core_cpi_yoy@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 0.9
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "1.0%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Core CPI YoY (ex food and energy) 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_core_cpi_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.0
+    },
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "0.5%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "CPI YoY 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_cpi_yoy@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 0.5
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "1.0%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "CPI YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_cpi_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.0
+    },
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "-0.8%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI, consumer goods YoY 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_consumer_yoy@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.8
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "-0.9%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI, consumer goods YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_ppi_consumer_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.9
+    },
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "-0.7%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI MoM 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_mom@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.7
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "-0.3%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI MoM 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_ppi_mom@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.3
+    },
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "4.8%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI, producer goods YoY 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_producer_yoy@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 4.8
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "5.5%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI, producer goods YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_ppi_producer_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 5.5
+    },
+    {
+      "available_at": "2026-08-09T15:59:59Z",
+      "display": "3.5%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI YoY 2026-07",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_yoy@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 3.5
+    },
+    {
+      "available_at": "2026-07-09T15:59:59Z",
+      "display": "4.1%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_ppi_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 4.1
+    },
+    {
+      "display": "-0.1 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in Core CPI YoY (ex food and energy) over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_core_cpi_yoy,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.1
+    },
+    {
+      "display": "-0.3 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in Core CPI YoY (ex food and energy) over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_core_cpi_yoy,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.3
+    },
+    {
+      "display": "+0.1 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in Core CPI YoY (ex food and energy) over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_core_cpi_yoy,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.1
+    },
+    {
+      "display": "1.0%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of Core CPI YoY (ex food and energy) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_core_cpi_yoy,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.0
+    },
+    {
+      "display": "-0.5 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in CPI YoY over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_cpi_yoy,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.5
+    },
+    {
+      "display": "-0.7 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in CPI YoY over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_cpi_yoy,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.7
+    },
+    {
+      "display": "+0.3 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in CPI YoY over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_cpi_yoy,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.3
+    },
+    {
+      "display": "0.9%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of CPI YoY to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_cpi_yoy,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 0.9
+    },
+    {
+      "display": "+0.1 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, consumer goods YoY over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_consumer_yoy,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.1
+    },
+    {
+      "display": "+0.2 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, consumer goods YoY over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_consumer_yoy,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.2
+    },
+    {
+      "display": "+0.9 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, consumer goods YoY over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_consumer_yoy,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.9
+    },
+    {
+      "display": "-0.8%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of PPI, consumer goods YoY to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_ppi_consumer_yoy,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.8333
+    },
+    {
+      "display": "-0.4 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI MoM over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_mom,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.4
+    },
+    {
+      "display": "-2.4 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI MoM over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_mom,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -2.4
+    },
+    {
+      "display": "-1.1 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI MoM over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_mom,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -1.1
+    },
+    {
+      "display": "-0.2%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of PPI MoM to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_ppi_mom,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.1667
+    },
+    {
+      "display": "-0.7 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, producer goods YoY over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_producer_yoy,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.7
+    },
+    {
+      "display": "+1.0 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, producer goods YoY over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_producer_yoy,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 1.0
+    },
+    {
+      "display": "+6.1 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI, producer goods YoY over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_producer_yoy,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 6.1
+    },
+    {
+      "display": "5.2%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of PPI, producer goods YoY to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_ppi_producer_yoy,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 5.1667
+    },
+    {
+      "display": "-0.6 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI YoY over 1 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_yoy,1)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.6
+    },
+    {
+      "display": "+0.7 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI YoY over 3 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_yoy,3)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 0.7
+    },
+    {
+      "display": "+4.9 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in PPI YoY over 6 period(s) to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:diff(cn_ppi_yoy,6)@2026-07",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": 4.9
+    },
+    {
+      "display": "3.8%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of PPI YoY to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_ppi_yoy,3)@2026-07",
+      "suffix": "%",
+      "unit": "%",
+      "value": 3.8333
+    },
+    {
+      "display": "0.6%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of PPI MoM to 2026-06",
+      "period": "2026-06",
+      "ref": "drv:ma(cn_ppi_mom,3)@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 0.6333
+    },
+    {
+      "available_at": "2026-01-09T15:59:59Z",
+      "display": "-1.9%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI YoY 2025-12",
+      "period": "2025-12",
+      "ref": "obs:cn_ppi_yoy@2025-12",
+      "suffix": "%",
+      "unit": "%",
+      "value": -1.9
+    },
+    {
+      "available_at": "2026-02-11T15:59:59Z",
+      "display": "-1.4%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "PPI YoY 2026-01",
+      "period": "2026-01",
+      "ref": "obs:cn_ppi_yoy@2026-01",
+      "suffix": "%",
+      "unit": "%",
+      "value": -1.4
+    },
+    {
+      "display": "49.3",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of Manufacturing PMI, output prices to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_pmi_output_price,3)@2026-07",
+      "suffix": "",
+      "unit": "index (50 = no change)",
+      "value": 49.3
+    },
+    {
+      "display": "1.5%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "implied GDP deflator YoY 2026Q2 (nominal vs real GDP growth)",
+      "period": "2026Q2",
+      "ref": "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.5266
+    },
+    {
+      "display": "-0.1%",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "implied GDP deflator YoY 2026Q1 (nominal vs real GDP growth)",
+      "period": "2026Q1",
+      "ref": "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q1",
+      "suffix": "%",
+      "unit": "%",
+      "value": -0.0589
+    },
+    {
+      "available_at": "2026-07-27T15:59:59Z",
+      "display": "18.7%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Industrial enterprise profits, YTD YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_ind_profit_ytd_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 18.7
+    },
+    {
+      "available_at": "2026-01-09T15:59:59Z",
+      "display": "1.2%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Core CPI YoY (ex food and energy) 2025-12",
+      "period": "2025-12",
+      "ref": "obs:cn_core_cpi_yoy@2025-12",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.2
+    },
+    {
+      "available_at": "2026-02-11T15:59:59Z",
+      "display": "0.8%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Core CPI YoY (ex food and energy) 2026-01",
+      "period": "2026-01",
+      "ref": "obs:cn_core_cpi_yoy@2026-01",
+      "suffix": "%",
+      "unit": "%",
+      "value": 0.8
+    },
+    {
+      "available_at": "2026-01-19T15:59:59Z",
+      "display": "-8.7%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Commodity building sales area, YTD YoY 2025-12",
+      "period": "2025-12",
+      "ref": "obs:cn_property_sales_area_ytd_yoy@2025-12",
+      "suffix": "%",
+      "unit": "%",
+      "value": -8.7
+    },
+    {
+      "available_at": "2026-07-15T15:59:59Z",
+      "display": "-11.6%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Commodity building sales area, YTD YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_property_sales_area_ytd_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": -11.6
+    },
+    {
+      "display": "-2.9 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in Commodity building sales area, YTD YoY over 6 period(s) to 2026-06",
+      "period": "2026-06",
+      "ref": "drv:diff(cn_property_sales_area_ytd_yoy,6)@2026-06",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -2.9
+    },
+    {
+      "display": "49.9",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of Manufacturing PMI, new orders to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_pmi_new_orders,3)@2026-07",
+      "suffix": "",
+      "unit": "index (50 = no change)",
+      "value": 49.8667
+    },
+    {
+      "available_at": "2026-04-16T15:59:59Z",
+      "display": "1.7%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Retail sales of consumer goods YoY 2026-03",
+      "period": "2026-03",
+      "ref": "obs:cn_retail_sales_yoy@2026-03",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.7
+    },
+    {
+      "available_at": "2026-07-15T15:59:59Z",
+      "display": "1.0%",
+      "fmt": ".1f",
+      "kind": "obs",
+      "label": "Retail sales of consumer goods YoY 2026-06",
+      "period": "2026-06",
+      "ref": "obs:cn_retail_sales_yoy@2026-06",
+      "suffix": "%",
+      "unit": "%",
+      "value": 1.0
+    },
+    {
+      "display": "-0.7 pp",
+      "fmt": "+.1f",
+      "kind": "drv",
+      "label": "change in Retail sales of consumer goods YoY over 3 period(s) to 2026-06",
+      "period": "2026-06",
+      "ref": "drv:diff(cn_retail_sales_yoy,3)@2026-06",
+      "suffix": " pp",
+      "unit": "pp",
+      "value": -0.7
+    },
+    {
+      "display": "49.4",
+      "fmt": ".1f",
+      "kind": "drv",
+      "label": "3-period average of Manufacturing PMI, new export orders to 2026-07",
+      "period": "2026-07",
+      "ref": "drv:ma(cn_pmi_new_export_orders,3)@2026-07",
+      "suffix": "",
+      "unit": "index (50 = no change)",
+      "value": 49.4333
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "PPI month-on-month momentum is positive on a 3-month average.",
+      "ref": "test:T-H1-01"
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "PPI YoY is higher than six months earlier.",
+      "ref": "test:T-H1-02"
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "PMI output prices signal rising factory-gate prices on average.",
+      "ref": "test:T-H1-03"
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "The implied GDP deflator is non-negative in the latest quarter.",
+      "ref": "test:T-H1-04"
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "The implied GDP deflator is non-negative for two consecutive quarters.",
+      "ref": "test:T-H1-05"
+    },
+    {
+      "hypothesis": "H1",
+      "kind": "test",
+      "label": "Industrial profits are growing year-to-date (reflation reaching margins).",
+      "ref": "test:T-H1-06"
+    },
+    {
+      "hypothesis": "H2",
+      "kind": "test",
+      "label": "Core CPI inflation is higher than six months earlier.",
+      "ref": "test:T-H2-01"
+    },
+    {
+      "hypothesis": "H2",
+      "kind": "test",
+      "label": "Property sales are contracting less (or growing more) than six months earlier.",
+      "ref": "test:T-H2-03"
+    },
+    {
+      "hypothesis": "H2",
+      "kind": "test",
+      "label": "Manufacturing new orders are expanding on a 3-month average.",
+      "ref": "test:T-H2-04"
+    },
+    {
+      "hypothesis": "H2",
+      "kind": "test",
+      "label": "Retail sales growth is higher than three months earlier.",
+      "ref": "test:T-H2-05"
+    },
+    {
+      "hypothesis": "H4",
+      "kind": "test",
+      "label": "New export orders are expanding on a 3-month average.",
+      "ref": "test:T-H4-02"
+    },
+    {
+      "hypothesis": "H0",
+      "kind": "test",
+      "label": "Consumer-goods factory prices are still falling, so the PPI rise has not passed downstream.",
+      "ref": "test:T-H0-03"
+    }
+  ],
+  "as_of": "2026-08-10T03:59:59Z",
+  "expectation": null,
+  "forward_periods": [
+    "2026-07",
+    "2026-08",
+    "2026Q4",
+    "2027",
+    "2027Q1"
+  ],
+  "hypotheses": {
+    "H0": {
+      "analyst_prior": null,
+      "claim": "Any price improvement is driven by supply discipline or imported commodity costs without demand confirmation, so it is not sustainable.",
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Supply-led bounce (competing)",
+      "tests": [
+        {
+          "description": "Consumer-goods factory prices are still falling, so the PPI rise has not passed downstream.",
+          "effect_now": "supports",
+          "id": "T-H0-03",
+          "latest_period": "2026-07",
+          "outcome_now": "true",
+          "outcome_prior": "true",
+          "refs_now": [
+            "obs:cn_ppi_consumer_yoy@2026-07"
+          ],
+          "threshold_basis": "natural (zero). Added before preregistration: the baseline showed PPI driven by producer goods while consumer goods deflate.",
+          "window": "latest month"
+        }
+      ],
+      "tests_now": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 1
+      },
+      "tests_prior": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 1
+      }
+    },
+    "H1": {
+      "analyst_prior": null,
+      "claim": "Industrial and consumer prices are bottoming, and the GDP deflator is moving toward zero or above.",
+      "flips": [
+        {
+          "effect_from": "supports",
+          "effect_to": "challenges",
+          "from": "true",
+          "period_from": "2026-06",
+          "period_to": "2026-07",
+          "test": "T-H1-01",
+          "to": "false"
+        }
+      ],
+      "mechanical_delta": "challenges",
+      "name": "Price turn",
+      "tests": [
+        {
+          "description": "PPI month-on-month momentum is positive on a 3-month average.",
+          "effect_now": "challenges",
+          "id": "T-H1-01",
+          "latest_period": "2026-07",
+          "outcome_now": "false",
+          "outcome_prior": "true",
+          "refs_now": [
+            "drv:ma(cn_ppi_mom,3)@2026-07"
+          ],
+          "threshold_basis": "natural (zero momentum)",
+          "window": "latest 3 months"
+        },
+        {
+          "description": "PPI YoY is higher than six months earlier.",
+          "effect_now": "supports",
+          "id": "T-H1-02",
+          "latest_period": "2026-07",
+          "outcome_now": "true",
+          "outcome_prior": "true",
+          "refs_now": [
+            "obs:cn_ppi_yoy@2026-01",
+            "obs:cn_ppi_yoy@2026-07"
+          ],
+          "threshold_basis": "natural (zero change)",
+          "window": "change over 6 months"
+        },
+        {
+          "description": "PMI output prices signal rising factory-gate prices on average.",
+          "effect_now": "challenges",
+          "id": "T-H1-03",
+          "latest_period": "2026-07",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "drv:ma(cn_pmi_output_price,3)@2026-07"
+          ],
+          "threshold_basis": "natural (PMI 50 = no change)",
+          "window": "latest 3 months"
+        },
+        {
+          "description": "The implied GDP deflator is non-negative in the latest quarter.",
+          "effect_now": "supports",
+          "id": "T-H1-04",
+          "latest_period": "2026Q2",
+          "outcome_now": "true",
+          "outcome_prior": "true",
+          "refs_now": [
+            "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2"
+          ],
+          "threshold_basis": "definition of the thesis",
+          "window": "latest quarter"
+        },
+        {
+          "description": "The implied GDP deflator is non-negative for two consecutive quarters.",
+          "effect_now": "challenges",
+          "id": "T-H1-05",
+          "latest_period": "2026Q2",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q1",
+            "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2"
+          ],
+          "threshold_basis": "definition of the thesis",
+          "window": "latest 2 quarters"
+        },
+        {
+          "description": "Industrial profits are growing year-to-date (reflation reaching margins).",
+          "effect_now": "supports",
+          "id": "T-H1-06",
+          "latest_period": "2026-06",
+          "outcome_now": "true",
+          "outcome_prior": "true",
+          "refs_now": [
+            "obs:cn_ind_profit_ytd_yoy@2026-06"
+          ],
+          "threshold_basis": "natural (zero growth). Moved from H2 before preregistration (was T-H2-05).",
+          "window": "latest month"
+        }
+      ],
+      "tests_now": {
+        "challenges": 3,
+        "insufficient_data": 0,
+        "supports": 3
+      },
+      "tests_prior": {
+        "challenges": 2,
+        "insufficient_data": 0,
+        "supports": 4
+      }
+    },
+    "H2": {
+      "analyst_prior": null,
+      "claim": "Private domestic demand (credit, consumption, property, orders) is stabilising or improving.",
+      "flips": [
+        {
+          "effect_from": "challenges",
+          "effect_to": "supports",
+          "from": "false",
+          "period_from": "2026-06",
+          "period_to": "2026-07",
+          "test": "T-H2-01",
+          "to": "true"
+        }
+      ],
+      "mechanical_delta": "supports",
+      "name": "Domestic demand",
+      "tests": [
+        {
+          "description": "Core CPI inflation is higher than six months earlier.",
+          "effect_now": "supports",
+          "id": "T-H2-01",
+          "latest_period": "2026-07",
+          "outcome_now": "true",
+          "outcome_prior": "false",
+          "refs_now": [
+            "obs:cn_core_cpi_yoy@2026-01",
+            "obs:cn_core_cpi_yoy@2026-07"
+          ],
+          "threshold_basis": "natural (zero change)",
+          "window": "change over 6 months"
+        },
+        {
+          "description": "Property sales are contracting less (or growing more) than six months earlier.",
+          "effect_now": "challenges",
+          "id": "T-H2-03",
+          "latest_period": "2026-06",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "obs:cn_property_sales_area_ytd_yoy@2025-12",
+            "obs:cn_property_sales_area_ytd_yoy@2026-06"
+          ],
+          "threshold_basis": "natural (zero change)",
+          "window": "change over 6 months"
+        },
+        {
+          "description": "Manufacturing new orders are expanding on a 3-month average.",
+          "effect_now": "challenges",
+          "id": "T-H2-04",
+          "latest_period": "2026-07",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "drv:ma(cn_pmi_new_orders,3)@2026-07"
+          ],
+          "threshold_basis": "natural (PMI 50 = no change)",
+          "window": "latest 3 months"
+        },
+        {
+          "description": "Retail sales growth is higher than three months earlier.",
+          "effect_now": "challenges",
+          "id": "T-H2-05",
+          "latest_period": "2026-06",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "obs:cn_retail_sales_yoy@2026-03",
+            "obs:cn_retail_sales_yoy@2026-06"
+          ],
+          "threshold_basis": "natural (zero change); 3 months rather than 6 because January-February are published combined, so a 6-month window would often land on a missing month. Replaces the industrial-profits test before preregistration: the baseline data showed profits can rise on a price shock alone, so profits now test H1 (T-H1-06).",
+          "window": "change over 3 months"
+        }
+      ],
+      "tests_now": {
+        "challenges": 3,
+        "insufficient_data": 0,
+        "supports": 1
+      },
+      "tests_prior": {
+        "challenges": 4,
+        "insufficient_data": 0,
+        "supports": 0
+      }
+    },
+    "H3": {
+      "analyst_prior": null,
+      "claim": "Fiscal and credit impulse is large and persistent enough to support nominal demand.",
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Policy impulse",
+      "tests": [],
+      "tests_now": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 0
+      },
+      "tests_prior": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 0
+      }
+    },
+    "H4": {
+      "analyst_prior": null,
+      "claim": "Exports are a support for, not a drag on, nominal growth.",
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "External demand",
+      "tests": [
+        {
+          "description": "New export orders are expanding on a 3-month average.",
+          "effect_now": "challenges",
+          "id": "T-H4-02",
+          "latest_period": "2026-07",
+          "outcome_now": "false",
+          "outcome_prior": "false",
+          "refs_now": [
+            "drv:ma(cn_pmi_new_export_orders,3)@2026-07"
+          ],
+          "threshold_basis": "natural (PMI 50 = no change)",
+          "window": "latest 3 months"
+        }
+      ],
+      "tests_now": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 0
+      },
+      "tests_prior": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 0
+      }
+    }
+  },
+  "mode": "replay",
+  "new_observations": [
+    {
+      "metric_id": "cn_core_cpi_yoy",
+      "period": "2026-07",
+      "ref": "obs:cn_core_cpi_yoy@2026-07",
+      "revised_from": null
+    },
+    {
+      "metric_id": "cn_cpi_yoy",
+      "period": "2026-07",
+      "ref": "obs:cn_cpi_yoy@2026-07",
+      "revised_from": null
+    },
+    {
+      "metric_id": "cn_ppi_consumer_yoy",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_consumer_yoy@2026-07",
+      "revised_from": null
+    },
+    {
+      "metric_id": "cn_ppi_mom",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_mom@2026-07",
+      "revised_from": null
+    },
+    {
+      "metric_id": "cn_ppi_producer_yoy",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_producer_yoy@2026-07",
+      "revised_from": null
+    },
+    {
+      "metric_id": "cn_ppi_yoy",
+      "period": "2026-07",
+      "ref": "obs:cn_ppi_yoy@2026-07",
+      "revised_from": null
+    }
+  ],
+  "next_releases": [
+    {
+      "metrics": [
+        "cn_ip_yoy",
+        "cn_property_sales_area_ytd_yoy",
+        "cn_retail_sales_yoy"
+      ],
+      "periods": [
+        "2026-07"
+      ],
+      "release_at": "2026-08-17T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_exports_us_ytd_yoy"
+      ],
+      "periods": [
+        "2026-07"
+      ],
+      "release_at": "2026-08-18T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_ind_profit_ytd_yoy"
+      ],
+      "periods": [
+        "2026-07"
+      ],
+      "release_at": "2026-08-27T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_pmi_new_export_orders",
+        "cn_pmi_new_orders",
+        "cn_pmi_output_price"
+      ],
+      "periods": [
+        "2026-08"
+      ],
+      "release_at": "2026-08-31T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_core_cpi_yoy",
+        "cn_cpi_yoy",
+        "cn_ppi_consumer_yoy",
+        "cn_ppi_mom",
+        "cn_ppi_producer_yoy",
+        "cn_ppi_yoy"
+      ],
+      "periods": [
+        "2026-08"
+      ],
+      "release_at": "2026-09-09T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_ip_yoy",
+        "cn_property_sales_area_ytd_yoy",
+        "cn_retail_sales_yoy"
+      ],
+      "periods": [
+        "2026-08"
+      ],
+      "release_at": "2026-09-15T15:59:59Z"
+    },
+    {
+      "metrics": [
+        "cn_exports_us_ytd_yoy"
+      ],
+      "periods": [
+        "2026-08"
+      ],
+      "release_at": "2026-09-18T15:59:59Z"
+    }
+  ],
+  "open_research_needs": [],
+  "previous_update": null,
+  "prior_as_of": "2026-08-09T14:59:59Z",
+  "release": {
+    "metrics": [
+      "cn_core_cpi_yoy",
+      "cn_cpi_yoy",
+      "cn_ppi_consumer_yoy",
+      "cn_ppi_mom",
+      "cn_ppi_producer_yoy",
+      "cn_ppi_yoy"
+    ],
+    "name": "replay of official release(s) on 2026-08-09",
+    "period": "2026-07",
+    "release_at": "2026-08-09",
+    "release_id": "replay-2026-08-09"
+  },
+  "replay_disclosure": "REPLAY. The standing judgment below is the 2026-10-04 baseline carried into the sandbox: it was written after the replayed release and the hypotheses were designed after seeing 2026 data (framework contamination, strategy §10.2). The analyst's prose is withheld. This run tests interpretation under the given framework, not the framework's predictive power, and it is not live evidence.",
+  "sha256": "81249026540ac5e557d6483ac3d8759bd33710dbf9e57fd75582d3ba2700313d",
+  "standing_thesis": {
+    "definition_of_sustainable": "Deflator YoY >= 0 in 2026Q4 and 2027Q1, and at least 3 of 6 domestic-demand tests passing at the terminal release.",
+    "judgment": {
+      "as_of": "2026-08-09T14:59:59Z",
+      "conviction": "LOW",
+      "last_update_direction": "UNCHANGED",
+      "probability": 0.3,
+      "status": "ACTIVE"
+    },
+    "judgment_source": "2026-08-09-baseline.yaml",
+    "question": "Is China forming a sustainable turning point in nominal growth?",
+    "read_only": true,
+    "statement": "China's GDP deflator turns non-negative and stays there for two consecutive quarters by the 2027Q1 GDP release, supported by a broadening of domestic demand rather than by supply-side or imported price pressure alone."
+  },
+  "terminal": {
+    "after": {
+      "rule_fired": null,
+      "status": "ACTIVE",
+      "window_open": false
+    },
+    "before": {
+      "rule_fired": null,
+      "status": "ACTIVE",
+      "window_open": false
+    },
+    "owner": "code"
+  },
+  "unavailable_tests": [],
+  "version": "release-copilot-context/1"
+}

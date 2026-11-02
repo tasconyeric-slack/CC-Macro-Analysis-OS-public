@@ -1,0 +1,32 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+<div class="memo-head">
+  <div>
+    <div class="eyebrow">{{ t('nav.memo') }}{% if baseline %} · {{ t('memo.baseline_asof', date=baseline.as_of|date) }}{% endif %}</div>
+    <h1>{{ case.question }}</h1>
+    <p class="small muted printonly">{{ t('memo.print_line', url=meta.canonical, date=built_at|date) }}</p>
+  </div>
+  <button type="button" class="printbtn" data-print>{{ t('memo.print') }}</button>
+</div>
+{% if memo %}
+<article class="memo">{{ memo }}</article>
+<section class="memo-refs" aria-labelledby="refs">
+  <h2 id="refs">{{ t('memo.refs_title') }}</h2>
+  <p class="small muted">{{ t('memo.refs_note') }}</p>
+  <ol class="refs">
+  {% for r in memo_refs %}
+    <li id="ref-{{ r.n }}" value="{{ r.n }}">
+      <span class="tag">{{ r.type_label }}</span>
+      {% for line in r.prov_all[:3] %}<span class="prov-line">{{ line }}</span> {% endfor %}
+      {% if r.prov_all|length > 3 %}<span class="muted small">{{ t('claim.more_sources', n=r.prov_all|length - 3) }}</span>{% endif %}
+      <a class="more small" href="evidence.html#{{ r.id }}">{{ t('claim.open_evidence') }} ›</a>
+      <details class="lineage"><summary>{{ t('claim.lineage') }}</summary>
+        <dl><dt>{{ t('claim.id') }}</dt><dd class="mono">{{ r.id }} · {{ r.type }} · {{ r.hypotheses|join(", ") }}</dd>
+        <dt>{{ t('claim.refs') }}</dt><dd>{% for x in r.lineage %}<div class="mono small">{{ x.ref }}{% if x.value is not none %} = {{ x.value }}{% endif %}</div>{% endfor %}</dd></dl>
+      </details>
+    </li>
+  {% endfor %}
+  </ol>
+</section>
+{% else %}<div class="empty">{{ t('memo.empty') }}</div>{% endif %}
+{% endblock %}

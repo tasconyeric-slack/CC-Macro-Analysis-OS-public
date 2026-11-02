@@ -1,0 +1,2 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_m1_yoy,2026-08,4.1,2026-09-14,source_field,2026-10-04T05:32:29+00:00,PBOC,https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026091414593871200/index.html,public,,ok,PBOC press release 2026年8月金融统计数据报告 (published 2026-09-14 17:00); new M1 caliber from 2025-01; the NBS portal had not yet added this month

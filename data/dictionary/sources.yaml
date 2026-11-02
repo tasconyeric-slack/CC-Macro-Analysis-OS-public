@@ -1,0 +1,40 @@
+# Source status shown on the Method page. This file states what is operational TODAY; it is
+# not a roadmap. A source is `active` only when the repository fetches it (src/cnmacro/ingest.py,
+# scripts/) and the observations in data/demo/observations/ come from it.
+#
+#   active           fetched automatically by `cnmacro refresh-public`
+#   private_pending  Private Research Mode only: connected on the researcher's machine (refresh-private,
+#                    diagnose-private), gitignored, never fetched by the public refresh or read by the
+#                    public build. The identifier is historical; it does not mean "not built".
+#
+# Every metric's `source_primary` in metrics.yaml must be listed here (tests/test_sources.py).
+sources:
+  - id: NBS
+    status: active
+    name: {en: National Bureau of Statistics, zh: 国家统计局}
+    url: https://data.stats.gov.cn/
+  - id: PBOC
+    status: active
+    name: {en: People's Bank of China, zh: 中国人民银行}
+    url: https://www.pbc.gov.cn/
+  - id: GACC
+    status: active
+    name: {en: General Administration of Customs, zh: 海关总署}
+    url: https://english.customs.gov.cn/
+  - id: FRED
+    status: active
+    name: {en: Federal Reserve Bank of St. Louis (FRED), zh: 美国圣路易斯联储（FRED）}
+    url: https://fred.stlouisfed.org/
+  - id: MOF
+    status: active
+    via: NBS            # Ministry of Finance figures are read as republished on the NBS data portal
+    show: false         # not a separate line in the status display
+    name: {en: Ministry of Finance (via the NBS portal), zh: 财政部（经国家统计局数据库）}
+    url: https://www.mof.gov.cn/
+  - id: Wind
+    status: private_pending
+    since: V1.2
+    name: {en: Wind, zh: 万得（Wind）}
+    note:
+      en: Private Research Mode consumes Wind and licensed research through a local-only integration (private snapshots and private diagnostics on the researcher's machine). Wind data is never published, and the public V1 does not depend on it.
+      zh: 私有研究模式通过仅限本地的接入使用万得（Wind）及授权研究资料（研究者本机上的私有快照与私有诊断）。万得数据不会公开，公开版V1也不依赖它。

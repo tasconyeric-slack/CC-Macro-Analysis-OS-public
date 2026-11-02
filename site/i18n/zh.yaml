@@ -1,0 +1,501 @@
+# 界面文字（中文）。键与 {占位符} 必须与 en.yaml 完全一致（tests/test_i18n.py 会检查）。
+# 以 _html 结尾的键含受信任的标记。研究性文字不在这里，而在 research/cases/cn-nominal/ 下
+# （claims、presentation.yaml、frozen_zh.yaml、policy_events.yaml、memo.*.md.j2）。
+site:
+  title: 中国名义增长监测
+  name: CC Macro Analysis OS
+  brand: CC Macro Analysis OS
+  tagline: 中国名义增长
+  og_alt: "中国名义增长监测：对中国名义增长能否出现拐点的预先登记、可证伪的判断"
+
+lang:
+  label: 语言
+  name_en: EN
+  name_zh: 中文
+
+a11y:
+  skip: 跳到正文
+  nav: 主导航
+
+nav:
+  index: 概览
+  memo: 深度分析
+  evidence: 命题与证据
+  updates: 发布更新
+  charts: 证据浏览
+  method: 方法与评估
+
+page:
+  index:
+    title: 概览
+    description: "中国名义增长是否正在形成可持续拐点？预先登记、可证伪的宏观判断，附可追溯的证据，并随官方数据发布实时更新。"
+  memo:
+    title: 深度分析
+    description: "为何价格端已经转向而内需尚未出现广泛确认，并给出有条件的研究含义。"
+  evidence:
+    title: 命题与证据
+    description: "支撑该命题的假设、证据检验、政策背景和预先登记的终点判定规则。"
+  updates:
+    title: 发布更新
+    description: "基线、修订、自动数据刷新和分析师更新的只增不改记录，附提交哈希。"
+  charts:
+    title: 证据浏览
+    description: "命题背后的每一条序列，标明指标、期间、单位、来源和截至日期。"
+  method:
+    title: 方法与评估
+    description: "系统如何保持严谨：确定性评估检查、数据来源及其状态、已知局限。"
+
+selector:
+  question: 中国名义增长是否正在形成可持续拐点？
+  noscript: 请选择语言
+
+banner:
+  preview_html: "<strong>合成数据预览。</strong>这些是仅供版式评审的随机占位序列，并非真实数据，严禁对外发布。"
+  no_baseline: 基线尚未预先登记，所示数字为工作草稿。
+
+footer:
+  built_html: '构建于 {built}，对应提交 <span class="mono">{commit}</span>。'
+  uncommitted: 未提交
+  boundary: "公开版本仅使用官方和开放来源（国家统计局、中国人民银行、财政部、海关总署、FRED）。授权数据从不公开；依赖授权数据的结论会标注为“未公开”。"
+  not_advice: 本站为研究系统，不构成投资建议。
+
+common:
+  list_sep: "、"
+  pending: 待定
+  "yes": 是
+  "no": 否
+
+kind:
+  baseline: 基线
+  amendment: 修订
+  data: 数据
+  update: 更新
+  next: 下一步
+
+status:
+  ACTIVE: 进行中
+  CONFIRMED: 已确认
+  FALSIFIED: 已证伪
+  RETIRED: 已退役（无法判定）
+  PROPOSED: 拟议
+  DRAFT: 草稿
+
+confidence:
+  LOW: 低
+  MEDIUM: 中
+  HIGH: 高
+
+direction:
+  STRENGTHENED: 增强
+  UNCHANGED: 不变
+  WEAKENED: 减弱
+  suggested:
+    toward_thesis: 指向命题成立
+    against_thesis: 指向命题不成立
+    neutral: 中性
+
+outcome:
+  "true": 通过
+  "false": 未通过
+  insufficient_data: 等待数据
+
+effect:
+  supports: 支持
+  challenges: 挑战
+  pending: 待定
+
+hyp:
+  short:
+    H1: 价格
+    H2: 内需
+    H3: 政策
+    H4: 外部需求
+    H0: 主要竞争性解释
+
+state:
+  supportive: 偏支持
+  partly: 部分确认
+  unconfirmed: 尚未确认
+  mixed: 好坏参半
+  leading_alt: 最贴合的替代解释
+
+lens:
+  level: 水平
+  marginal: 边际变化
+  breadth: 广度
+  mechanism: 传导机制
+
+claim_type:
+  FACT: 事实
+  DERIVED: 推算
+  EXTERNAL_VIEW: 外部观点
+  INFERENCE: 推断
+
+claim:
+  type_hint: "事实：一项观测值。推算：由观测值计算得出。推断：建立在所列结论之上的判断。"
+  more_sources: "另有 {n} 个来源"
+  open_evidence: 在“命题与证据”中查看
+  lineage: 技术溯源
+  id: 结论
+  as_of: 截至
+  supports: 依据
+  all_sources: 全部来源
+  refs: 引用
+  source_code: 来源代码
+  release: 发布于
+  retrieved: 抓取于
+  inputs: 输入
+
+prov:
+  released: "{date}发布"
+  retrieved: "{date}抓取"
+
+derived:
+  deflator_yoy: 隐含GDP平减指数（同比）
+  single: "{metric}（当月值）"
+  ma: "{metric}（{n}个月均值）"
+  yoy: "{metric}（同比）"
+  diff: "{metric}（变化）"
+  pctile: "{metric}（百分位）"
+
+units:
+  "%": "%"
+  CNY 100m: 亿元
+  index (50 = no change): 指数（50为荣枯线）
+  USD/bbl: 美元/桶
+  USD/metric ton: 美元/吨
+  CNY per USD: 人民币/美元
+
+tier:
+  core: 核心
+  diagnostic: 诊断
+
+chart:
+  aria: "{name}：折线图"
+  not_enough: 数据不足，无法绘图。
+  no_data: 暂无公开数据
+  no_public: 暂无公开观测值。
+  meta_line: "期间：{period} · 来源：{sources}"
+  latest_release: "最新为{period}，{date}发布"
+  why: 入选原因
+
+home:
+  eyebrow: 当前宏观判断
+  current_view: 当前判断
+  policy_tag: 政策
+  policy_link: 政策背景
+  view_stale: "已有比本判断所依据版本更新的分析师更新。在重新确认之前，请将本摘要视为过时。"
+  figures_label: 关键数字
+  fig:
+    probability: 分析师概率
+    confidence: 判断置信度
+    status: 状态
+    evidence_as_of: 证据截至
+    refresh: 最近一次数据刷新
+  prob_note: "分析师主观判断，以5个百分点为刻度；并非经统计校准的模型概率。"
+  states_title: 各假设目前的状态
+  states_note: "由分析师给出的定性判断。检验计数只是“证据”页上的诊断信息，并非加权得分，也不决定这些状态。"
+  key_evidence: 关键证据
+  key_evidence_note: "由分析师依据每条证据说明的问题挑选，并按所示顺序排列，不按得分、检验计数或文件顺序排序。每条标注其回答的问题：水平、边际变化、广度或传导机制。"
+  evidence_for: 支持可持续拐点
+  evidence_against: 不支持
+  no_claims: 暂无结论。
+  policy_title: 政策：已公布的与已体现在数据中的
+  next_title: 接下来的发布将检验什么
+  now: 目前
+  context_only: 仅作背景；没有证据检验使用这些序列。
+  no_releases: 已核实的日历中暂无发布日期。
+  no_single_release_html: '任何单次发布都不能确认或证伪该命题；<a href="evidence.html#rules">终点规则</a>同时结合价格与需求证据。'
+  target_title: 目标：隐含GDP平减指数
+  target_chart_title: GDP平减指数同比（由名义与实际GDP隐含得出）
+  target_chart_sub: "% · 推算方式：（名义GDP ÷ 上年同期名义GDP）÷（1 + 实际GDP增速）− 1 · 参考线为零"
+  target_meta_html: '来源：国家统计局（推算）· 截至{asof} · 每个数据点的溯源见<a href="charts.html">证据浏览</a>'
+  awaiting_gdp: 等待GDP数据。
+  system_title: 这一判断如何保持严谨
+  system_intro: "这是一套以中国为中心的研究系统：在数据公布之前先陈述命题，用每一次官方发布来检验，并公开推导过程。本站的每个数字都来自官方观测值或由其计算得出。"
+  thesis_title: 预先登记的命题
+  decision_window: 判定窗口
+  analyst_judgment: 分析师判断，
+  set_at_baseline: "于基线（{date}）确定。"
+  set_in_update: "于最近一次更新（{date}）确定。"
+  no_release_since: "基线之后尚无已检验的发布；第一次是{release}。"
+  next_official: 下一次官方发布
+  changes_only: 它只会通过追加的、附有理由的更新而改变。
+  evidence_state: 证据状态（自动）
+  terminal_check: 终点检查
+  window_open: 判定窗口已开启
+  window_closed: 窗口将在首次发布2027年一季度GDP时开启
+  flips: "基线以来有 {n} 项检验的结果发生了变化。"
+  no_flips: 基线以来没有任何检验的结果发生变化。
+  latest_release: "数据中最近一次官方发布：{name}，{period}（{date}发布）。"
+  diagnostics_note: "每次刷新都会依据数据重新计算。检验计数只是诊断信息，并非加权得分。"
+  audit_title: 审计轨迹
+  audit_baseline_html: '预先登记：概率 {prob}，置信度{conf} · 提交 <span class="mono">{commit}</span> · {when}'
+  audit_commit: "提交 {commit}"
+  audit_refresh: "新增 {obs} 条观测值，{flips} 项检验翻转 · {when}"
+  before_any_release: 早于任何已检验的发布
+  full_history: 完整历史
+  not_preregistered: 尚未预先登记。
+  eval_ok: "确定性评估：无失败项"
+  eval_failing: "{n} 项评估检查失败"
+  eval_warn: "{n} 条警告"
+  sources_title: 数据来源
+  sources_note: "Wind私有研究层已在本地接入；公开站点仍仅使用官方和开放来源。"
+  sources_link: 方法与数据边界
+
+evidence:
+  h1: "假设、检验与结论"
+  intro: "每项证据检验只作用于一个假设。只有下方预先登记的终点规则才能确认或证伪该命题。"
+  asof_html: '结果为截至<strong>{asof}</strong>的自动证据状态；最后一列为各项检验在基线时（{base}）的结果。'
+  counts_note: "检验计数只是诊断信息，并非加权得分。"
+  counts_why: "通过与未通过的检验数量，无法反映每项检验的重要性，而且若干检验使用相同的底层数据。各假设的定性状态是分析师的判断。"
+  competing: 竞争性
+  baseline_assessment: 基线评估
+  see_policy: 政策背景
+  col:
+    test: 检验
+    condition: 条件
+    window: 窗口
+    observed: 观测值
+    latest: 最新期
+    result: 结果
+    baseline: 基线时
+  tally: "计数：▲ {sup} 项支持 · ▼ {cha} 项挑战 · ○ {pen} 项等待数据。检验计数只是诊断信息，并非加权得分。"
+  for: 支持的证据
+  against: 不支持的证据
+  none: 暂无记录。
+  other: 其他结论
+
+policy:
+  title: 政策背景
+  intro: "人工从官方来源整理的政策事件。它们为H3（政策力度）提供背景，并非证据检验：不会进入任何终点规则，也不会改变预先登记的基线或任何此前的判断。"
+  realized_note: "已实现的力度是信贷和预算数据所显示的内容。政策公布或资金下达本身尚不等于已实现的力度。"
+  forward_note: "政策公布、资金下达及其所处阶段。仅作背景，不是证据检验。"
+  stage_label: 措施所处阶段
+  layer:
+    col_layer: 层次
+    col_what: 内容
+    col_read: 当前判读
+    frozen: 冻结的基线判断
+    frozen_what: "预先登记的基线在H3上所使用的信息：信贷和预算检验及其背后的结论。任何政策公布都不在其中。"
+    frozen_read: "保持不变，永不改写。"
+    forward: 前瞻性政策取向
+    forward_what: "下方列出的官方事件及其所处阶段。"
+    realized: 已实现的量化政策力度
+    realized_what: "最新的信贷和预算支出数据在H3检验上的表现。"
+  category:
+    fiscal: 财政
+    monetary: 货币
+    investment: 投资
+    consumption: 消费
+    property: 房地产
+    multi: 宏观政策组合
+  stage:
+    signal: 信号
+    announced: 已公布
+    funded: 资金已下达
+    implementation: 实施中
+    observed_impact: 已见成效
+  scope:
+    in_baseline: 属于冻结基线判断的一部分
+    before_baseline: "早于基线日期公开，但未用于冻结的基线判断"
+    after_baseline: 在基线日期之后发布
+  f:
+    measure: 政策措施
+    channel: 传导渠道
+    hypothesis: 关联假设
+    interpretation: 分析师解读
+    next: 下一个可观察的验证点
+    source: 来源
+    reviewed: "{date}已对照来源核对"
+    headline: 来源页面标题
+  source:
+    primary: 官方原始来源
+    official_media: "官方媒体转发该公告；发布机构自己的列表页："
+    listing: 发布机构页面
+
+rules:
+  title: 终点判定规则（预先登记）
+  sustainable: "“可持续”的含义："
+  check_now: "当前终点检查结果："
+  amended_html: '经<a href="updates.html#{id}">{id}</a>（{title}）修订，该修订提交于任何已检验的发布之前。'
+  fires_when: "触发条件"
+  before_window: 窗口开启前
+  test_passes: "检验通过"
+  test_fails: "检验未通过"
+  all: "以下各项全部成立："
+  any: "以下各项至少一项成立："
+  at_least: "以下 {total} 项中至少 {n} 项成立："
+  now_is: "当前{state}"
+  now_count: "目前已满足 {met} 项"
+  pending_count: "（{n} 项等待数据）"
+  state_met: 已满足
+  state_not_met: 未满足
+  state_pending: 等待数据
+  technical: "技术细节：规则的存储形式"
+  name:
+    CONFIRMED: 确认
+    FALSIFIED: 证伪
+    FALSIFIED_EARLY: 提前证伪
+
+scenario:
+  row:
+    rates: 中国利率
+    cny: 人民币
+    equities: 大盘股与周期股
+    banks: 银行
+    confirming: 确认性证据
+    falsifying: 证伪性证据
+
+source_status:
+  active: 运行中
+  private_pending: 私有 / 仅本地
+
+memo:
+  baseline_asof: "基线截至{date}"
+  print: 打印 / 另存为PDF
+  print_line: "{url} · 构建于{date}的版本"
+  refs_title: 参考来源
+  refs_note: "正文中带方括号的数字对应一条结论。来源以通俗的方式列出；展开“技术溯源”可查看观测值与推算的完整轨迹。"
+  empty: "深度分析在基线研究运行中撰写。其中的每个数字都是绑定的结论，并链接到其证据。"
+
+charts:
+  h1: 命题背后的每一条序列
+  lede: "核心指标按其服务的假设分组。每张图都标明指标、期间、单位、来源和截至日期。公开版本不展示授权序列。"
+
+updates:
+  h1: "基线、修订、数据刷新与更新"
+  lede: "这里的一切都只增不改。基线在第一次受检验的发布之前冻结；此前的内容从不改写，提交哈希可供任何人核对。"
+  legend:
+    baseline: "预先登记的命题、检验和判断"
+    amendment: "对判定逻辑的更正，提交于任何已检验的发布之前"
+    data: "自动刷新：新增观测值和检验结果，判断不变"
+    update: "发布之后的分析师判断（或由预先登记的规则设定的状态）"
+  no_baseline: 尚无预先登记的基线。
+  preregistered: 预先登记
+  commit: 提交
+  at: 于
+  committed_before: "提交于{release}（{when}）之前。"
+  baseline_line_html: "概率：<strong>{prob}</strong> · 置信度：{conf} · 状态：{status}"
+  diff_line: "概率：{p0} → {p1} · 置信度：{c0} → {c1} · {direction} · 状态：{status}"
+  as_of_when: "截至{when}"
+  why: 原因
+  effect: 影响
+  amends_html: '修订对象 <span class="mono">{file}</span>（提交 <span class="mono">{commit}</span>）；必须在{release}（{when}）之前提交；是否受已检验数据影响：{informed}。'
+  changed: 变更项
+  unchanged: "概率、置信度、证据检验和结论均未改变。"
+  refresh_title: 自动证据刷新
+  new_obs: "新增 {n} 条观测值"
+  revised: 已修订
+  more: "另有 {n} 条"
+  before: 此前
+  after: 此后
+  no_flips: 没有证据检验的结果发生变化。
+  refresh_summary: "终点检查：{terminal}。翻转的机械方向：{direction}。分析师判断仍为{prob}，未变。"
+  rule_fired: 触发的终点规则
+  why_moved: 概率变动的原因
+  evidence_list: "证据 {evidence}；假设 {hyps}"
+  scheduled: 已安排
+  next_note: "刷新任务会在发布后自动抓取数据、重新运行检验，并在此追加一条数据记录。随后由分析师追加更新，说明其是否改变命题。"
+  no_date: 日历中暂无已核实的发布日期。
+  no_update_yet: "基线之后尚无分析师更新：自基线冻结以来还没有已检验的发布。在上面的第一次发布之前，这是预期的状态。"
+
+method:
+  h1: 系统如何保持严谨
+  chain_title: 研究链条
+  chain: "观测 → 意外 → 边际变化 → 分解 → 传导机制 → 交叉验证 → 研究观点 → 资产含义 → 证据检验。每一项解读都要回答十个问题，从“和什么比？”到“什么样的数据会证明它是错的？”。"
+  lenses: "四个视角让措辞保持准确。水平：指标当前所处的位置。边际变化：它眼下的运行方向，累计类序列可能掩盖这一点。广度：变化是否具有普遍性。传导机制：驱动力量是什么。把它们混在一起的结论，在发布前会被改写。"
+  flow_title: 从数据到命题
+  flow:
+    obs_t: 观测值
+    obs: "只增不改的记录，包含发布日期、抓取时间和来源类别。未知的发布日期如实记为未知，绝不猜测。"
+    claims_t: 结论
+    claims: "数字只能以绑定到观测值或推算值的引用形式进入文字。每条结论分为事实、推算、外部观点或推断，并以相同的绑定同时提供中英文两个版本。"
+    thesis_t: 命题
+    thesis: "{n} 项证据检验作用于各假设；预先登记的终点规则决定命题状态。概率以5个百分点为步长变动，且必须附有理由。"
+  auto_title: 自动刷新与分析师判断
+  auto: "定时任务每天两次核对官方发布日历。有发布到期时，它从官方来源抓取新数据，只追加真正新增的观测值（修订值作为新版本保留），对照预先登记的案例重新运行全部证据检验，记录哪些检验发生翻转，运行下方的评估，并重新构建本站。没有新数据时再次运行不会产生任何改动。"
+  auto_a_t: 自动更新的内容
+  auto_a: "观测值、推算值、证据检验结果、终点规则检查、图表，以及对变化的事实性记录。预先登记的终点规则是命题状态唯一可以自动变化的途径。"
+  auto_b_t: 只由分析师改变的内容
+  auto_b: "概率和置信度。每次发布之后，分析师追加一条更新，说明其是否改变命题；任何概率变动都必须引用证据并给出理由，否则评估失败。刷新任务只提供检验翻转方向的机械统计。"
+  latest_refresh: "最近一次刷新：{when}"
+  reachable: 可访问
+  unreachable: 无法访问
+  ai:
+    title: AI 用在哪里，又禁止用在哪里
+    intro: "三类工作彼此分开。确定性软件负责确认发生了什么；AI 研究助手负责解读其含义；分析师负责决定相信什么。AI 助手目前处于影子模式：每次运行都会记录下来用于审计和评估，除非分析师采纳，否则它写的任何内容都不会作为研究观点显示在本站。"
+    col_task: 工作
+    col_who: 由谁完成
+    col_check: 如何检查
+    r1_task: "抓取与计算数据、数据版本与时点、证据检验结果、终点规则，以及找出哪些观测值和检验发生了变化"
+    r1_who: 软件
+    r1_check: "评估关卡 E0 至 E5、单元测试、历史回放"
+    r2_task: "把数字写进文字"
+    r2_who: "软件。AI 只写对证据的引用，数值由代码填入"
+    r2_check: "每次运行都有一份封闭的证据编号清单；模型自行写出的任何数字都无法通过校验"
+    r3_task: "判断变化是否重要、将其对应到各假设、提出最强的替代解释、说明证据不能证明什么，以及下一步的研究问题"
+    r3_who: "AI 研究助手：两次有边界的调用，先起草，再质疑"
+    r3_check: "对每份输出做硬性校验，再由分析师审阅"
+    r4_task: "概率、置信度，以及对命题的每一次改动"
+    r4_who: 分析师
+    r4_check: "命题纪律检查 E5；只增不改、带时间戳的更新"
+    forbidden_title: AI 绝不会做的事
+    f1: "写出任何数据数字，或在文字中重新计算指标"
+    f2: "判定终点规则是否触发，或修改预先登记的规则及证据检验的机械方向"
+    f3: "输出或修改概率或置信度"
+    f4: "引用软件所提供清单之外的证据，或信息集之后才有的任何内容"
+    f5: "对外发布。未通过校验的答案会被丢弃，记录不完整的运行不予采用"
+    status: "AI 助手 v0 处于影子模式。历史回放检验的是在既定框架下的解读能力，而非框架的预测力，绝不会被当作实时证据。"
+  eval_title: 确定性评估
+  eval_meta_html: '生成于{when} · 提交 <span class="mono">{commit}</span> · {mode}模式'
+  eval:
+    col_check: 检查
+    col_proves: 证明什么
+    col_status: 状态
+  no_eval: 暂无评估报告。
+  eval_note: "这些检查是确定性的代码。让模型给自己的研究打分，不被视为正确性的证据。"
+  limits_title: 已知的数据局限
+  sources_title: 数据来源与边界
+  boundary: "私有研究模式已通过V1.2 Phase 1在本地接入万得（Wind）及授权研究资料，并在其之上运行私有诊断（Phase 2，同样仅在本地）；公开版V1并不依赖它。本公开站点仅基于官方和开放来源以及纳入版本控制的研究文件构建。依赖授权数据的结论会显示为“未公开”，而不会凭空消失。"
+  sources:
+    col_source: 来源
+    col_status: 状态
+  budget_title: 指标预算
+  budget_text: "{core} 个核心指标，每次运行都会评估；{diag} 个诊断指标，仅在核心信号需要分解时调取。"
+  budget:
+    col_metric: 指标
+    col_tier: 类别
+    col_serves: 服务于
+    col_why: 入选原因
+    col_source: 来源
+
+eval:
+  pass: 通过
+  warn: 警告
+  fail: 失败
+  mode:
+    public: 公开
+    private: 私有
+  name:
+    E0: 数据质量
+    E1: 引用完整性
+    E2: 推算值溯源
+    E3: 时点泄漏
+    E4: 预先登记的不可变性
+    E5: 命题更新纪律
+  what:
+    E0: "每一行数据的结构、重复项、期间格式，以及来源或已说明的局限"
+    E1: "每条结论中的每个数字都等于结论日期时点的数据；同一结论的中英文版本绑定相同的数字，并指向相同的期间"
+    E2: "每个推算值都可由真实存在的观测值重新算出"
+    E3: "没有任何内容在发布之前就被引用"
+    E4: "基线、修订、更新和刷新记录只提交一次，从未被编辑；修订早于第一次受检验的发布"
+    E5: "概率落在5个百分点的刻度上；每次变动都有解释；终点状态只能由规则触发"
+  detail:
+    not_public: "{metric}：不在公开版本中（{redistribution}）；仅限私有模式"
+    no_obs: "{metric}：暂无观测值"
+    gaps: "{metric}：存在 {n} 处缺口，例如 {periods}"
+  redistribution:
+    unclear: 授权状况不明
+    private_only: 授权数据
+    public: 公开

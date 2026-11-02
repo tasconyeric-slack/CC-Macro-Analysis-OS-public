@@ -1,0 +1,151 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+
+{# ---- 1. the answer: question, current view, the numbers that matter ---- #}
+<section class="hero" aria-labelledby="q">
+  <div class="eyebrow">{{ t('home.eyebrow') }}</div>
+  <h1 id="q">{{ case.question }}</h1>
+  <div class="viewcard">
+    <div class="eyebrow">{{ t('home.current_view') }}</div>
+    {% if current_view.headline %}
+    <p class="headline">{{ current_view.headline }}</p>
+    <p class="viewbody">{{ current_view.body }}</p>
+    {% if current_view.policy %}<p class="policyline"><span class="tag">{{ t('home.policy_tag') }}</span> {{ current_view.policy }} <a href="evidence.html#policy-context">{{ t('home.policy_link') }} ›</a></p>{% endif %}
+    {% if view_current is false %}<p class="stale small">{{ t('home.view_stale') }}</p>{% endif %}
+    {% else %}<p class="headline">{{ case.statement }}</p>{% endif %}
+  </div>
+
+  <div class="keyfigs" role="group" aria-label="{{ t('home.figures_label') }}">
+    <div class="fig hero-fig">
+      <div class="label">{{ t('home.fig.probability') }}</div>
+      <div class="value">{{ prob }}</div>
+      <div class="fignote">{{ t('home.prob_note') }}</div>
+    </div>
+    <div class="fig"><div class="label">{{ t('home.fig.confidence') }}</div><div class="value">{{ confidence_label }}</div></div>
+    <div class="fig"><div class="label">{{ t('home.fig.status') }}</div><div class="value">{{ status_label }}</div></div>
+    <div class="fig"><div class="label">{{ t('home.fig.evidence_as_of') }}</div><div class="value sm">{{ evidence_as_of|when }}</div></div>
+    <div class="fig"><div class="label">{{ t('home.fig.refresh') }}</div><div class="value sm">{{ refresh_at|when }}</div></div>
+  </div>
+</section>
+
+{# ---- 2. where each hypothesis stands (qualitative; counts live on the Evidence page) ---- #}
+<section aria-labelledby="hs">
+  <h2 id="hs">{{ t('home.states_title') }}</h2>
+  <div class="hstrip">
+  {% for h in hypotheses %}
+    <a class="hcell tone-{{ h.state.tone }}{% if h.id == 'H0' %} h0{% endif %}" href="evidence.html#{{ h.id }}">
+      <div class="hid">{{ h.id }}</div>
+      <div class="hname">{{ h.short }}</div>
+      <div class="hstate">{{ mx.pill(h.state) }}</div>
+      <div class="hnote small">{{ h.state.note }}</div>
+    </a>
+  {% endfor %}
+  </div>
+  <p class="small muted">{{ t('home.states_note') }}</p>
+</section>
+
+{# ---- 3. the evidence the analyst chose to show ---- #}
+<section aria-labelledby="ke">
+  <h2 id="ke">{{ t('home.key_evidence') }}</h2>
+  <p class="small muted">{{ t('home.key_evidence_note') }}</p>
+  <div class="grid2">
+    <div>
+      <h3>{{ t('home.evidence_for') }}</h3>
+      {% for it in top_for %}{{ mx.claim(it.claim, anchor=false, lens=it.lens_label, link=true) }}{% else %}<div class="empty">{{ t('home.no_claims') }}</div>{% endfor %}
+    </div>
+    <div>
+      <h3>{{ t('home.evidence_against') }}</h3>
+      {% for it in top_against %}{{ mx.claim(it.claim, anchor=false, lens=it.lens_label, link=true) }}{% else %}<div class="empty">{{ t('home.no_claims') }}</div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- 4. policy: what is announced versus what has shown up in data ---- #}
+{% if policy.events %}
+<section aria-labelledby="pc">
+  <h2 id="pc">{{ t('home.policy_title') }}</h2>
+  <div class="grid2">
+    <div class="card"><h3>{{ t('policy.layer.realized') }}</h3>
+      {% for c in policy.realized %}<p class="small">{{ c.text }}</p>{% endfor %}
+      <p class="small muted">{{ t('policy.realized_note') }}</p></div>
+    <div class="card"><h3>{{ t('policy.layer.forward') }}</h3>
+      {% for e in policy.events[:2] %}<p class="small"><span class="tag">{{ e.stage_label }}</span> <strong>{{ e.date }}</strong> · {{ e.institution }}{{ colon_s }}<a href="evidence.html#{{ e.id }}">{{ e.title }}</a></p>{% endfor %}
+      <p class="small muted">{{ t('policy.forward_note') }}</p></div>
+  </div>
+  <p class="small"><a href="evidence.html#policy-context">{{ t('home.policy_link') }} ›</a></p>
+</section>
+{% endif %}
+
+{# ---- 5. what comes next, and the target series ---- #}
+<div class="grid2">
+  <section>
+    <h2>{{ t('home.next_title') }}</h2>
+    {% for r in next_releases[:3] %}
+    <div class="rel">
+      <div><strong>{{ r.label }}</strong></div>
+      <div class="small muted">{{ r.release|when }}</div>
+      {% if r.tests %}<ul class="small">{% for x in r.tests %}<li><a class="mono" href="evidence.html#{{ x.hypothesis }}">{{ x.id }}</a> {{ x.description }} <span class="muted">· {{ t('home.now') }} {{ mx.effect(x.result) }}</span></li>{% endfor %}</ul>
+      {% else %}<p class="small muted">{{ t('home.context_only') }}</p>{% endif %}
+    </div>
+    {% else %}<div class="empty">{{ t('home.no_releases') }}</div>{% endfor %}
+    <p class="small muted">{{ t('home.no_single_release_html') }}</p>
+  </section>
+  <section>
+    <h2>{{ t('home.target_title') }}</h2>
+    <div class="chartcard">
+      <div class="title">{{ t('home.target_chart_title') }}</div>
+      <div class="sub">{{ t('home.target_chart_sub') }}</div>
+      {% if target_chart %}{{ target_chart }}{% else %}<p class="muted small">{{ t('home.awaiting_gdp') }}</p>{% endif %}
+      <div class="meta">{{ t('home.target_meta_html', asof=evidence_as_of|when) }}</div>
+    </div>
+  </section>
+</div>
+
+{# ---- 6. the system behind the view: preregistration, audit trail, eval, data sources ---- #}
+<section class="system" aria-labelledby="sys">
+  <h2 id="sys">{{ t('home.system_title') }}</h2>
+  <p class="intro">{{ t('home.system_intro') }}</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="eyebrow">{{ t('home.thesis_title') }}</div>
+      <p class="statement">{{ case.statement }}</p>
+      <p class="small muted">{{ t('home.decision_window')|colon }}{{ case.terminal_release }}</p>
+      {% if judgment_doc %}<p class="layer-note small"><strong>{{ t('home.analyst_judgment') }}</strong> {{ t('home.set_at_baseline' if not updates else 'home.set_in_update', date=(judgment_doc._commit.at or judgment_doc.as_of)|when) }}
+        {% if not updates %}{{ t('home.no_release_since', release=next_releases[0].label if next_releases else t('home.next_official')) }}{% endif %}
+        {{ t('home.changes_only') }}</p>{% endif %}
+    </div>
+    <div class="card">
+      <div class="eyebrow">{{ t('home.evidence_state') }}</div>
+      <p class="small">{{ t('home.terminal_check')|colon }}<strong>{{ terminal_label }}</strong>
+        <span class="muted">({{ t('home.window_open') if terminal_now.window_open else t('home.window_closed') }})</span></p>
+      <p class="small">{% if flips_since_baseline %}<strong>{{ t('home.flips', n=flips_since_baseline|length) }}</strong>{% else %}{{ t('home.no_flips') }}{% endif %}
+        {% if freshness_latest %} {{ t('home.latest_release', name=freshness_latest.name, period=freshness_latest.period, date=freshness_latest.released|date) }}{% endif %}</p>
+      <p class="small muted">{{ t('home.diagnostics_note') }}</p>
+    </div>
+  </div>
+
+  <h3>{{ t('home.audit_title') }}</h3>
+  {% if audit_items %}
+  <ol class="audit-list">
+  {% for it in audit_items %}{% set d = it.doc %}
+    <li>
+    {% if it.kind == "baseline" %}<span class="tag">{{ t('kind.baseline') }}</span> {{ t('home.audit_baseline_html', prob=d.probability|pct, conf=v.confidence(d.conviction), commit=d._commit.short or t('common.pending'), when=(d._commit.at or d.as_of)|when) }}
+    {% elif it.kind == "amendment" %}<span class="tag">{{ t('kind.amendment') }}</span> {{ d.id }}{{ colon_s }}{{ d.title_l }} · {{ t('home.audit_commit', commit=d._commit.short or t('common.pending')) }} · {{ t('home.before_any_release') }}
+    {% elif it.kind == "refresh" %}<span class="tag">{{ t('kind.data') }}</span> {{ t('home.audit_refresh', obs=d.new_observations|length, flips=d.flipped_tests|length, when=d.as_of|when) }}
+    {% else %}<span class="tag">{{ t('kind.update') }}</span> {{ d.release_l }} · {{ d.previous_state.probability|pct }} → {{ d.probability|pct }} · {{ v.status(d.status) }}{% endif %}
+    </li>
+  {% endfor %}
+    <li class="next"><span class="tag">{{ t('kind.next') }}</span> {% if next_releases %}{{ next_releases[0].label }}, {{ next_releases[0].release|when }}{% else %}{{ t('home.next_official') }}{% endif %}</li>
+  </ol>
+  <p class="small"><a href="updates.html">{{ t('home.full_history') }} →</a></p>
+  {% else %}<div class="empty">{{ t('home.not_preregistered') }}</div>{% endif %}
+
+  <p class="evalline">
+  {% if eval %}<a class="evalbadge" href="method.html#eval">{% if eval.fails %}<span class="st cha">✕ {{ t('home.eval_failing', n=eval.fails) }}</span>{% else %}<span class="st sup">✓ {{ t('home.eval_ok') }}</span>{% if eval.warns %} <span class="muted">· {{ t('home.eval_warn', n=eval.warns) }}</span>{% endif %}{% endif %} <span class="muted">· {{ eval.generated_at|when }}</span></a>{% endif %}
+  </p>
+
+  <h3>{{ t('home.sources_title') }}</h3>
+  <ul class="sources">{% for s in sources_status %}<li class="src {{ s.status }}"><span class="dot" aria-hidden="true"></span><strong>{{ s.id }}</strong> <span class="muted">{{ s.label }}</span></li>{% endfor %}</ul>
+  <p class="small muted">{{ t('home.sources_note') }} <a href="method.html#sources">{{ t('home.sources_link') }} ›</a></p>
+</section>
+{% endblock %}

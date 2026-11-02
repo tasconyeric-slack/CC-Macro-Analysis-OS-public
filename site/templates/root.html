@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ t_en('site.title') }} · {{ t_zh('site.title') }}</title>
+<meta name="description" content="{{ t_en('page.index.description') }}">
+<link rel="canonical" href="{{ canonical }}">
+{% for hl, href in alternates %}<link rel="alternate" hreflang="{{ hl }}" href="{{ href }}">
+{% endfor %}<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ t_en('site.name') }}">
+<meta property="og:title" content="{{ t_en('site.title') }} · {{ t_zh('site.title') }}">
+<meta property="og:description" content="{{ t_en('page.index.description') }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ t_en('site.og_alt') }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ og_image }}">
+<link rel="icon" href="{{ asset }}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{{ asset }}favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="{{ asset }}apple-touch-icon.png">
+<link rel="stylesheet" href="{{ asset }}style.css">
+<script>
+/* Pick a language without a server: 1) the choice stored by the language switch, 2) the browser's
+   languages, 3) English. Query string and #fragment are kept. A static page, so it also works
+   when this script cannot run: the two links below are the fallback. */
+(function () {
+  var pick = null;
+  try { var s = localStorage.getItem("ccmacro.locale"); if (s === "en" || s === "zh") pick = s; } catch (e) {}
+  if (!pick) {
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ""];
+    for (var i = 0; i < langs.length && !pick; i++) {
+      var l = String(langs[i]).toLowerCase();
+      if (l.indexOf("zh") === 0) pick = "zh"; else if (l.indexOf("en") === 0) pick = "en";
+    }
+  }
+  location.replace((pick || "en") + "/" + {% if stem %}"{{ stem }}.html"{% else %}""{% endif %} + location.search + location.hash);
+})();
+</script>
+{% if stem %}<meta name="robots" content="noindex">{% endif %}
+</head>
+<body class="selector">
+<main class="wrap choose">
+  <div class="brandline">{{ t_en('site.brand') }}</div>
+  <h1>{{ t_en('site.title') }}<br><span lang="zh-Hans">{{ t_zh('site.title') }}</span></h1>
+  <p class="lede">{{ t_en('selector.question') }}</p>
+  <p class="lede" lang="zh-Hans">{{ t_zh('selector.question') }}</p>
+  <p class="choices">
+    <a class="btn" href="en/{% if stem %}{{ stem }}.html{% endif %}" hreflang="en" lang="en" data-lang="en">English</a>
+    <a class="btn" href="zh/{% if stem %}{{ stem }}.html{% endif %}" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh">中文</a>
+  </p>
+  <noscript><p class="small muted">{{ t_en('selector.noscript') }} · <span lang="zh-Hans">{{ t_zh('selector.noscript') }}</span></p></noscript>
+</main>
+<script>
+document.querySelectorAll("a[data-lang]").forEach(function (a) {
+  a.addEventListener("click", function () {
+    try { localStorage.setItem("ccmacro.locale", a.getAttribute("data-lang")); } catch (e) {}
+    a.href = a.getAttribute("href") + location.hash;
+  });
+});
+</script>
+</body>
+</html>

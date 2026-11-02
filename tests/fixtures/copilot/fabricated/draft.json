@@ -1,0 +1,14 @@
+{
+  "executive_delta": [
+    {"id": "X1", "template": "PPI fell to 3.4% in July, the weakest reading since the start of the year, and 2026-09 data will likely confirm it.", "lens": "marginal", "materiality": "high", "evidence_refs": ["obs:cn_ppi_yoy@2026-07", "obs:cn_ppi_yoy@2026-09"]}
+  ],
+  "hypothesis_impact": [
+    {"hypothesis": "H0", "mechanical_delta": "supports", "ai_assessment": "strengthen", "divergence": false, "divergence_reason": "", "rationale_template": "Upstream-led.", "evidence_refs": ["obs:cn_ppi_yoy@2026-07"]},
+    {"hypothesis": "H1", "ai_assessment": "weaken", "divergence": false, "divergence_reason": "", "rationale_template": "Momentum faded.", "evidence_refs": ["test:T-H1-01"]},
+    {"hypothesis": "H2", "ai_assessment": "strengthen", "divergence": false, "divergence_reason": "", "rationale_template": "Core CPI rose.", "evidence_refs": ["test:T-H2-01"]},
+    {"hypothesis": "H3", "ai_assessment": "unresolved", "divergence": false, "divergence_reason": "", "rationale_template": "No test.", "evidence_refs": []},
+    {"hypothesis": "H4", "ai_assessment": "unresolved", "divergence": false, "divergence_reason": "", "rationale_template": "No test.", "evidence_refs": []}
+  ],
+  "preliminary_implications": [],
+  "probability": 0.35
+}

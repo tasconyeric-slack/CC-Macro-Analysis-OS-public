@@ -1,0 +1,52 @@
+# Historical replay cases for the Release Copilot (strategy §10, §11.1). A registry, not a result.
+#
+# Everything under `deterministic` is a fact reproduced from the store by `cnmacro copilot replay --context-only`
+# (the same as_of path as production). Everything under `labels` is a HUMAN's, and is pending: no label has been
+# written, and none may be written by the Copilot or by a coding agent (strategy §11.1: label first, run second).
+#
+# Why these three: all are 2026 releases (after any model's knowledge cutoff the Owner is likely to use; confirm
+# with the vendor's cutoff, strategy §10.3), they are the same release type as Live #1, and they differ on the
+# thing that matters: one has no test flip (is "no material change" recognised?), one has two flips that the
+# data themselves partly contradict (is the divergence found?), one flips against a demand hypothesis.
+#
+# Limits that must be reported with any result (strategy §10.2): the hypotheses and the 2026-10-04 judgment
+# post-date these releases, so a replay tests interpretation under a given framework, not the framework's
+# predictive power; only live runs are uncontaminated.
+
+schema: 1
+status: unlabeled        # no case is eval-eligible until labels exist and are committed before its first model run
+split: unassigned        # dev/test split is assigned when the gold set is built (Phase C), never from model results
+
+cases:
+  - id: cn-cpi-ppi-2026-06
+    release_at: "2026-07-09"
+    command: python -m cnmacro copilot replay --release-at 2026-07-09
+    deterministic:
+      reference_period: "2026-06"
+      new_observations: 6
+      flipped_tests: []
+      mechanical_delta: {H0: unchanged, H1: unchanged, H2: unchanged, H3: unchanged, H4: unchanged}
+      why: "No test flips: the correct reading may be 'no material change'. Tests that a quiet release is not over-interpreted."
+    labels: {status: pending_owner, file: null, annotators: []}
+
+  - id: cn-cpi-ppi-2026-07
+    release_at: "2026-08-09"
+    command: python -m cnmacro copilot replay --release-at 2026-08-09
+    deterministic:
+      reference_period: "2026-07"
+      new_observations: 6
+      flipped_tests: [T-H1-01, T-H2-01]
+      mechanical_delta: {H0: unchanged, H1: challenges, H2: supports, H3: unchanged, H4: unchanged}
+      why: "Momentum test flips against H1 while a core-CPI test flips for H2 on a marginal change: the case where a divergence (H2) and a missed flip (H0) are both possible."
+    labels: {status: pending_owner, file: null, annotators: []}
+
+  - id: cn-cpi-ppi-2026-08
+    release_at: "2026-09-09"
+    command: python -m cnmacro copilot replay --release-at 2026-09-09
+    deterministic:
+      reference_period: "2026-08"
+      new_observations: 6
+      flipped_tests: [T-H2-01]
+      mechanical_delta: {H0: unchanged, H1: unchanged, H2: challenges, H3: unchanged, H4: unchanged}
+      why: "The same core-CPI test flips back one month later: whether the interpretation is consistent with the previous month's, without access to it."
+    labels: {status: pending_owner, file: null, annotators: []}

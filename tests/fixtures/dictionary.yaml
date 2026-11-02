@@ -1,0 +1,10 @@
+# SYNTHETIC TEST FIXTURE. Not real data or real source codes.
+metrics:
+  - {metric_id: fx_ppi_yoy, name: Test PPI YoY, tier: core, frequency: M, unit: "%", transform: yoy,
+     hypotheses: [H1], role: test, source_primary: TEST}
+  - {metric_id: fx_profit_cum, name: Test cumulative profit, tier: core, frequency: M, unit: bn, transform: cumulative_level,
+     hypotheses: [H2], role: test, source_primary: TEST}
+  - {metric_id: fx_ngdp_yoy, name: Test nominal GDP YoY, tier: core, frequency: Q, unit: "%", transform: yoy,
+     hypotheses: [H1], role: test, source_primary: TEST}
+  - {metric_id: fx_rgdp_yoy, name: Test real GDP YoY, tier: core, frequency: Q, unit: "%", transform: yoy,
+     hypotheses: [H1], role: test, source_primary: TEST}

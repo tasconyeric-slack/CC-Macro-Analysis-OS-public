@@ -1,0 +1,102 @@
+# Chinese renderings of IMMUTABLE English artifacts.
+#
+# The preregistered baseline, amendment A-01 and every later update are written once, in
+# English, and never edited (eval E4). The Chinese site needs their text in Chinese, so the
+# renderings live here, beside the case, as a presentation layer. They are translations, not
+# restatements: nothing here adds, drops or softens a rule, a threshold or a judgment. Where a
+# frozen text is later replaced by a newer reading, the newer reading goes in presentation.yaml.
+#
+# tests/test_frozen_zh.py fails if a frozen item (case statement, hypothesis, evidence test,
+# window, check, audit document) has no rendering, or if the English key no longer matches.
+
+case:
+  statement: >-
+    到2027年一季度GDP发布时，中国GDP平减指数转为非负并连续两个季度保持非负，且这一转变得到内需扩散的支撑，
+    而不仅仅依靠供给端或输入性价格压力。
+  terminal_release: >-
+    国家统计局首次发布2027年一季度GDP（预计2027年4月中旬；待国家统计局公布2027年发布日历后确认具体日期）
+  definition_of_sustainable: >-
+    2026年四季度和2027年一季度的平减指数同比均不低于零，且在终点发布时六项内需检验中至少有三项通过。
+  terminal_rules_otherwise: >-
+    窗口开启前为“进行中”（ACTIVE）。窗口开启后，仅当终点所需数据不足以判定“确认”或“证伪”时，
+    才标记为“退役”（无法判定）。
+
+hypotheses:
+  H1: {name: 价格拐点, claim: 工业品和消费品价格正在筑底，GDP平减指数正向零或零以上回升。}
+  H2: {name: 内需, claim: 私人部门内需（信贷、消费、房地产、订单）正在企稳或改善。}
+  H3: {name: 政策力度, claim: 财政和信用脉冲的力度与持续性足以支撑名义需求。}
+  H4: {name: 外部需求, claim: 出口对名义增长是支撑而非拖累。}
+  H0: {name: 供给端驱动的反弹（竞争性解释）, claim: 价格的任何改善都源于供给端约束或输入性大宗商品成本，缺乏需求的确认，因此不可持续。}
+
+# Keyed by the exact English text in the frozen case
+windows:
+  latest 3 months: 近三个月
+  latest month: 最新一个月
+  latest quarter: 最新一个季度
+  latest 2 quarters: 最近两个季度
+  change over 3 months: 三个月变化
+  change over 6 months: 六个月变化
+
+checks:
+  NBS CPI/PPI release: 国家统计局CPI/PPI发布
+  NBS PMI release: 国家统计局PMI发布
+  NBS quarterly GDP release: 国家统计局季度GDP发布
+  NBS industrial profits release: 国家统计局工业企业利润发布
+  NBS property release: 国家统计局房地产发布
+  NBS monthly activity release: 国家统计局月度经济活动发布
+  PBOC monetary statistics: 中国人民银行金融统计
+  MOF budget release: 财政部预算执行发布
+  GACC trade release: 海关总署贸易数据发布
+  monthly: 月度更新
+  "NBS CPI/PPI release (diagnostic, triggered by T-H1-02)": 国家统计局CPI/PPI发布（诊断指标，由T-H1-02触发）
+
+tests:
+  T-H1-01: PPI环比动能按三个月均值计为正。
+  T-H1-02: PPI同比高于六个月前。
+  T-H1-03: PMI出厂价格指数平均显示出厂价格上涨。
+  T-H1-04: 最新一个季度的隐含GDP平减指数不为负。
+  T-H1-05: 隐含GDP平减指数连续两个季度不为负。
+  T-H1-06: 工业企业利润累计同比增长（再通胀传导至利润）。
+  T-H2-01: 核心CPI同比高于六个月前。
+  T-H2-02: M1同比增速高于六个月前。
+  T-H2-03: 商品房销售面积的收缩幅度小于（或增幅大于）六个月前。
+  T-H2-04: 制造业新订单按三个月均值计处于扩张区间。
+  T-H2-05: 社会消费品零售总额增速高于三个月前。
+  T-H2-06: 住户中长期贷款（按揭）按三个月均值计为净增加。
+  T-H3-01: 近一个季度总体信贷增速没有放缓。
+  T-H3-02: 一般公共预算支出累计同比增长。
+  T-H4-01: 出口按三个月均值计保持增长。
+  T-H4-02: 新出口订单按三个月均值计处于扩张区间。
+  T-H0-01: 油价高于六个月前（输入性成本推动）。
+  T-H0-02: 铜价高于六个月前（全球金属成本推动）。
+  T-H0-03: 生活资料出厂价格仍在下跌，说明PPI的上涨尚未向下游传导。
+
+# Keyed by the file name of the immutable document
+documents:
+  2026-10-04-baseline.yaml:
+    rationale: >-
+      平减指数在2026年二季度转正，价格一环在2027年一季度前得以维持的可能性大于不维持（I-05）；
+      9月PMI出厂价格指数显示出厂价格动能重新回升。但此轮拐点集中在上游，并与油价和金属价格冲击同步（I-01）。
+      私人部门内需尚未转向（I-02）：随着9月PMI公布，新订单三个月均值回落至荣枯线下方，因此通过的需求检验
+      少于确认所要求的六项中的三项。政策力度在减弱（I-03）；出口有所助益，但无法满足内需这一环（I-04）。
+      价格一环约为65%，在价格一环成立的前提下，需求一环的成立概率低于五五开：综合为30%。
+    hypothesis_assessment:
+      H1: 价格拐点在水平上已经出现；油价见顶后动能减弱，9月PMI显示动能有所回升。
+      H2: 在水平上不被支持；通过的基于变化的检验只是边际读数，新订单在荣枯线附近徘徊。
+      H3: 力度在减弱；信贷增速放缓，预算内支出疲弱。
+      H4: 偏支持；出口强劲，新出口订单仅在荣枯线上。
+      H0: 目前证据支持度最高的解释。
+  2026-10-04-amendment-01-terminal-rules.yaml:
+    title: 终点判定规则与预先登记的“可持续”定义保持一致
+    reason: >-
+      基线声明：仅当隐含GDP平减指数在2026年四季度和2027年一季度均不为负，且终点发布时六项内需（H2）检验中
+      至少有三项通过时，命题才算“可持续”。冻结版的“确认”规则恰好实现了这一点。但冻结版的“证伪”规则并未实现
+      其对立面：只有当最新一期平减指数为负（T-H1-04不成立），或在平减指数连续性成立的同时六项需求检验中有五项
+      不成立时才会触发。因此，在所述成功条件明显不成立的两种情形下，结果会落入“退役”（无法判定）而不是“证伪”：
+      （a）2026年四季度平减指数为负、2027年一季度不为负，即T-H1-05不成立而T-H1-04成立；（b）平减指数条件
+      满足，但只有两项（或更少，直至一项）需求检验通过。此外，决策窗口原先设为null，“待2027年国家统计局发布
+      日历确定”，这将需要日后修改冻结版案例；现改为在首次发布的2027年一季度GDP数据进入信息集时开启。
+    effect: >-
+      在终点发布时，所述条件成立则结果恰为“确认”，条件不成立则结果恰为“证伪”。“退役”仅保留给真正无法判定
+      的情形：某项必需的终点输入（平减指数连续性，或足以判定三项通过所需的需求检验）数据不足。提前证伪
+      （FALSIFIED_EARLY）及全部证据检验保持不变。

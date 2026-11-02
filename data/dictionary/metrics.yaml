@@ -1,0 +1,864 @@
+# Global-China Macro Data Dictionary v0.1 (case: cn-nominal)
+#
+# Budget: <= 24 core + <= 6 diagnostic. Core metrics are evaluated in every thesis run;
+# diagnostics are pulled only when a core signal needs decomposition or a cross-check.
+# Every metric names the hypothesis it serves (H0-H4) and why it earns its place.
+#
+# source_code / wind.code are filled only from lookups: FRED ids below are confirmed by the
+# first successful pull (fetch log in data/demo/SOURCES.md); Wind codes come from the
+# capability spike (docs/wind-capability-note.md). Never guess a code.
+# redistribution: public = official/open source usable in the public demo;
+#                 private_only = licensed, research mode only; unclear = treat as private.
+#
+# Tiers: core and diagnostic are the budgeted public thesis evidence (above). `supplemental`
+# is a third tier for private research diagnostics: it does not count against that budget and
+# can never feed a preregistered evidence test or terminal rule automatically. The public site
+# does not list supplemental metrics.
+#
+# wind: the one place a Wind route is pinned (data/dictionary/wind_runtime.yaml holds the
+# runtime pin and the request windows). Normal refresh never searches for codes; it fails closed
+# (WIND_METADATA_DRIFT) if the provider's name, frequency or unit differ from `expected_*`.
+# A field Wind does not supply is declared in `known_gaps`, not special-cased in code.
+
+metrics:
+# ---------------- Target and price (H1, H0) ----------------
+- metric_id: cn_ngdp_q
+  name: Nominal GDP, single quarter, current prices
+  name_zh: 国内生产总值（当季，现价）
+  tier: core
+  frequency: Q
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H1, H2]
+  role: Target variable. With real GDP it gives nominal growth and the implied deflator.
+  role_zh: 目标变量。与实际GDP结合，可得名义增速和隐含平减指数。
+  source_primary: NBS
+  source_code: "nbs:28d936104e304aa191e338eb82b6dc09/d22612f09aeb4241bc557ef0ac61b3ba"
+  release: NBS calendar, quarterly GDP release (~mid-month after quarter end)
+  redistribution: public
+  caliber_notes:
+    - NBS publishes cumulative current-price GDP; single-quarter levels are published alongside or derived as differences.
+    - Historical levels are revised after economic censuses; YoY must use same-vintage levels.
+
+- metric_id: cn_rgdp_yoy
+  name: Real GDP YoY, single quarter
+  name_zh: 国内生产总值不变价当季同比
+  tier: core
+  frequency: Q
+  unit: "%"
+  transform: yoy
+  hypotheses: [H1, H2]
+  role: Denominator of the implied deflator; real side of nominal growth.
+  role_zh: 隐含平减指数的分母，名义增长中的实际部分。
+  source_primary: NBS
+  source_code: "nbs:f9b694c9b79e4ce5958bc88c6410fa67/170e7f00f8c24ede863c0526b42ae81f@idx100"
+  release: NBS calendar, quarterly GDP release
+  redistribution: public
+
+- metric_id: cn_ppi_yoy
+  name: PPI YoY
+  name_zh: 工业生产者出厂价格指数同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H1, H0]
+  role: Monthly proxy for the industrial deflator; the main high-frequency price signal.
+  role_zh: 工业部门平减指数的月度替代指标，也是最主要的高频价格信号。
+  source_primary: NBS
+  source_code: "nbs:60e8b361f11c4a878c652a6487a25561/150633e52b9a470a9a9fd1b296dd6c5b@idx100"
+  release: NBS calendar, ~9th-15th of following month
+  redistribution: public
+  caliber_notes:
+    - YoY is distorted by base effects; read with PPI MoM.
+
+- metric_id: cn_ppi_mom
+  name: PPI MoM
+  name_zh: 工业生产者出厂价格指数环比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: mom
+  hypotheses: [H1, H0]
+  role: Momentum free of base effects; distinguishes a real turn from a base-effect turn.
+  role_zh: 不受基数效应影响的价格动能，用于区分真实拐点与基数效应造成的拐点。
+  source_primary: NBS
+  source_code: "nbs:677cfbb4f06941af8c1761c4804e58cf/e64079bae9064aebad1c4c5fe0c8a6ef@idx100"
+  release: with PPI YoY
+  redistribution: public
+
+- metric_id: cn_cpi_yoy
+  name: CPI YoY
+  name_zh: 居民消费价格指数同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H1]
+  role: Consumer-side price level; part of the GDP deflator.
+  role_zh: 消费端价格水平，是GDP平减指数的组成部分。
+  source_primary: NBS
+  source_code: "nbs:5c7452825c7c4dcba391db5ca7f335c5/53180dfb9c14411ba4b762307c85920c@idx100|nbs:809d2522b0fe4be89142650341b19083/4ae9047687934a6390984c21d6ddab96@idx100|nbs:9d4eec43537742a7ab5d63db97fa2f51/e5c318ffdbbc4d38898e52b52267eb25@idx100"
+  release: NBS calendar, with PPI
+  redistribution: public
+  caliber_notes:
+    - Food (pork) and Lunar New Year timing dominate headline swings; read with core CPI.
+
+- metric_id: cn_core_cpi_yoy
+  name: Core CPI YoY (ex food and energy)
+  name_zh: 扣除食品和能源价格后的核心CPI同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H2, H0]
+  role: Demand-driven price pressure; key discriminator between H2 (demand recovery) and H0 (supply-only).
+  role_zh: 需求拉动的价格压力，是区分H2（需求复苏）与H0（仅供给端）的关键指标。
+  source_primary: NBS
+  source_code: "nbs:5c7452825c7c4dcba391db5ca7f335c5/71be3d43d2fb44188199840272463ae0@idx100|nbs:809d2522b0fe4be89142650341b19083/c2050e97c49a4763a6d0f0f38bf0b4ed@idx100"
+  release: with CPI
+  redistribution: public
+
+- metric_id: cn_pmi_output_price
+  name: Manufacturing PMI, output prices
+  name_zh: 制造业PMI出厂价格指数
+  tier: core
+  frequency: M
+  unit: index (50 = no change)
+  transform: level
+  hypotheses: [H1]
+  role: Leads PPI MoM by roughly one release; earliest price read each month.
+  role_zh: 大致领先PPI环比一期，是每月最早的价格读数。
+  source_primary: NBS
+  source_code: "nbs:93ffbb1aa85740d3aa2618371508b606/105a73cd48cc47d4a914ebccdedf24ec"
+  release: NBS calendar, last day of the reference month
+  redistribution: public
+
+# ---------------- Domestic demand (H2) ----------------
+- metric_id: cn_m1_yoy
+  name: M1 YoY
+  name_zh: M1同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H2]
+  role: Corporate and household transaction balances; a leading read on private activity.
+  role_zh: 企业和居民的交易性存款余额，是私人部门活动的领先指标。
+  source_primary: PBOC
+  source_code: "nbs:82130c6621a745cda3d64b090e733383/640401d3351b4b868dea28f89f410a54"
+  release: PBOC, no fixed calendar (usually ~10th-15th); record actual release date
+  redistribution: public
+  caliber_notes:
+    - From January 2025 PBOC broadened M1 (adds household demand deposits and payment-institution customer reserves). YoY across the break is not like-for-like; flag comparisons spanning it.
+
+- metric_id: cn_loans_hh_mlt_ytd
+  name: New RMB loans to households, medium and long term, year-to-date
+  name_zh: 住户中长期贷款新增（年初至今）
+  tier: core
+  frequency: M
+  unit: CNY 100m
+  transform: cumulative_level
+  hypotheses: [H2]
+  role: Mortgage demand; the cleanest private-credit read on households. Use single() for monthly flow.
+  role_zh: 按揭需求，是观察居民部门私人信贷最干净的指标；月度流量由single()函数得到。
+  source_primary: PBOC
+  release: with PBOC monetary statistics
+  redistribution: public
+  caliber_notes:
+    - Early mortgage repayment depresses net new lending independently of new demand.
+
+- metric_id: cn_retail_sales_yoy
+  jan_feb_combined: true
+  name: Retail sales of consumer goods YoY
+  name_zh: 社会消费品零售总额当月同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H2]
+  role: Nominal household consumption.
+  role_zh: 居民名义消费。
+  source_primary: NBS
+  source_code: "nbs:d0cb882c7f27443ab6b3ef9421901961/aaac57d54d2e465d91bc9f3ea1a8618e"
+  release: NBS calendar, monthly activity release
+  redistribution: public
+  caliber_notes:
+    - January and February published combined; trade-in subsidy programmes distort durable goods.
+
+- metric_id: cn_property_sales_area_ytd_yoy
+  name: Commodity building sales area, YTD YoY
+  name_zh: 商品房销售面积累计同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  hypotheses: [H2]
+  role: Property demand; the largest single drag on private demand since 2021.
+  role_zh: 房地产需求，是2021年以来私人需求最大的单一拖累项。
+  source_primary: NBS
+  source_code: "nbs:0ae633cdb85f4a8397650831b2b27e50/50a37fbef1d04be68f15d82b711783bf"
+  release: NBS calendar, property release (same day as activity data)
+  redistribution: public
+  caliber_notes:
+    - YoY is computed by NBS on a comparable basis; it will not match YoY computed from published levels.
+
+- metric_id: cn_ind_profit_ytd_yoy
+  name: Industrial enterprise profits, YTD YoY
+  name_zh: 规模以上工业企业利润总额累计同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  hypotheses: [H1, H2]
+  role: Where price and volume meet margins; tests whether reflation reaches corporate income.
+  role_zh: 价格与产量在利润率上交汇之处，检验再通胀是否传导至企业收入。
+  source_primary: NBS
+  source_code: "nbs:643feccdedb64e38a64c65a00c390646/9d63a27d727d4beeb32529078442cdd4"
+  release: NBS calendar, ~27th of following month
+  redistribution: public
+  caliber_notes:
+    - Comparable-basis YoY; sample of enterprises changes annually. January-February combined.
+
+- metric_id: cn_pmi_new_orders
+  name: Manufacturing PMI, new orders
+  name_zh: 制造业PMI新订单指数
+  tier: core
+  frequency: M
+  unit: index (50 = no change)
+  transform: level
+  hypotheses: [H2]
+  role: Earliest monthly demand read.
+  role_zh: 最早的月度需求读数。
+  source_primary: NBS
+  source_code: "nbs:93ffbb1aa85740d3aa2618371508b606/4151df33b53f4d02ae9f51fe402f1a50"
+  release: NBS calendar, last day of the reference month
+  redistribution: public
+
+# ---------------- Policy impulse (H3) ----------------
+- metric_id: cn_tsf_stock_yoy
+  name: Total social financing stock YoY
+  name_zh: 社会融资规模存量同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H3, H2]
+  role: Aggregate credit growth across loans, bonds and government debt.
+  role_zh: 涵盖贷款、债券和政府债务的总体信贷增速。
+  source_primary: PBOC
+  release: with PBOC monetary statistics
+  redistribution: public
+  caliber_notes:
+    - TSF coverage has been expanded several times (government bonds, ABS, write-offs). Verify each break against PBOC notes before comparing across it.
+
+- metric_id: cn_tsf_govbond_flow
+  name: TSF, government bond net financing (monthly flow)
+  name_zh: 社融口径政府债券净融资（当月）
+  tier: core
+  frequency: M
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H3]
+  role: Fiscal credit impulse; separates government-led from private credit growth.
+  role_zh: 财政信用脉冲，用于区分政府主导与私人部门的信贷增长。
+  source_primary: PBOC
+  release: with PBOC monetary statistics
+  redistribution: public
+
+- metric_id: cn_budget_exp_ytd_yoy
+  name: General public budget expenditure, YTD YoY
+  name_zh: 一般公共预算支出累计同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  hypotheses: [H3]
+  role: Spending side of fiscal impulse.
+  role_zh: 财政脉冲的支出端。
+  source_primary: MOF
+  source_code: "nbs:37564a0046c14c059382e3ad26a0d94f/8dc84fd764df46a294e54a7662b1a38a"
+  release: MOF, mid-month, no fixed calendar; record actual date
+  redistribution: public
+  caliber_notes:
+    - January and February combined.
+
+# ---------------- External (H4) ----------------
+- metric_id: cn_exports_usd_yoy
+  name: Exports in USD, YoY
+  name_zh: 出口金额（美元计）当月同比
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H4]
+  role: External demand contribution to nominal growth.
+  role_zh: 外需对名义增长的贡献。
+  source_primary: GACC
+  source_code: "nbs:7e11b47c828d4e4e925f1c5a98305558/788f44b0f310403fbd308b77d6f83890"
+  release: GACC calendar, ~7th-10th of following month
+  redistribution: public
+  caliber_notes:
+    - January and February combined. USD vs CNY terms differ by the exchange-rate change; export prices fall with PPI, so value growth mixes price and volume.
+
+- metric_id: cn_pmi_new_export_orders
+  name: Manufacturing PMI, new export orders
+  name_zh: 制造业PMI新出口订单指数
+  tier: core
+  frequency: M
+  unit: index (50 = no change)
+  transform: level
+  hypotheses: [H4]
+  role: Leading read on export momentum.
+  role_zh: 出口动能的领先读数。
+  source_primary: NBS
+  source_code: "nbs:93ffbb1aa85740d3aa2618371508b606/fb245388740743d0974af1b00cfd27bb"
+  release: with PMI
+  redistribution: public
+
+# ---------------- Global and markets (H0, H1, H3) ----------------
+- metric_id: gl_brent_usd
+  name: Brent crude, monthly average
+  name_zh: 布伦特原油价格（月均，美元/桶）
+  tier: core
+  frequency: M
+  unit: USD/bbl
+  transform: level
+  hypotheses: [H0, H1]
+  role: Imported cost-push into PPI; a supply-side price driver (H0).
+  role_zh: 输入性成本推动PPI的渠道，属于供给侧价格驱动因素（H0）。
+  source_primary: FRED
+  source_code: POILBREUSDM
+  release: monthly (IMF Primary Commodity Prices via FRED)
+  redistribution: public
+
+- metric_id: gl_copper_usd
+  name: Copper, monthly average
+  name_zh: 铜价（月均，美元/吨）
+  tier: core
+  frequency: M
+  unit: USD/metric ton
+  transform: level
+  hypotheses: [H0, H1]
+  role: Global industrial-metals price driver of upstream PPI.
+  role_zh: 推动上游PPI的全球工业金属价格因素。
+  source_primary: FRED
+  source_code: PCOPPUSDM
+  release: monthly (IMF Primary Commodity Prices via FRED)
+  redistribution: public
+
+- metric_id: gl_usdcny
+  name: CNY per USD, monthly average
+  name_zh: 美元兑人民币汇率（月均）
+  tier: core
+  frequency: M
+  unit: CNY per USD
+  transform: level
+  hypotheses: [H3]
+  role: Fed/USD -> CNY channel; constraint on PBOC easing room.
+  role_zh: 美联储/美元→人民币的传导渠道，约束央行的宽松空间。
+  source_primary: FRED
+  source_code: EXCHUS
+  release: monthly (Federal Reserve H.10 via FRED)
+  redistribution: public
+
+- metric_id: gl_ust10y
+  name: US 10-year Treasury yield, monthly average
+  name_zh: 美国10年期国债收益率（月均）
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: US rate level; with CGB 10Y gives the China-US spread that binds PBOC policy.
+  role_zh: 美国利率水平；与中国10年期国债收益率共同构成约束央行政策的中美利差。
+  source_primary: FRED
+  source_code: GS10
+  release: monthly (Federal Reserve H.15 via FRED)
+  redistribution: public
+
+- metric_id: cn_cgb10y
+  name: China 10-year government bond yield, month-end
+  name_zh: 10年期国债到期收益率
+  tier: core
+  frequency: M
+  unit: "%"
+  transform: level
+  hypotheses: [H1, H2, H3]
+  role: Market-implied view of nominal growth; benchmark our thesis against the bond market.
+  role_zh: 债券市场隐含的名义增长预期，用于把本命题与债市定价相互对照。
+  source_primary: Wind
+  release: daily market data; month-end value used
+  redistribution: private_only
+  caliber_notes:
+    - Public redistribution of the CCDC curve is unclear; treat as private until confirmed.
+    - Wind-delivered values are private_only (docs/data-policy.md rule 2).
+    - Wind route is the China Money (中国货币网) 10Y curve, M0325687. The CCDC (中债估值中心) Wind routes are permission-blocked on this account (docs/wind-capability-note.md).
+    - Stored as a month-end value, the last Wind daily observation dated inside a completed calendar month. The same Wind series is also stored daily as cn_cgb10y_daily (supplemental, private research diagnostics only), from the same call.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0325687
+    expected_name: "中国:国债收益率:10年"
+    expected_freq: D
+    expected_unit: "%"
+    priority: P0
+    role: gap_fill
+    evidence_use: active_diagnostic
+    query_group: rates
+    aggregate: month_end
+
+# ---------------- Conditional diagnostics (<= 6) ----------------
+- metric_id: cn_ppi_producer_yoy
+  name: PPI, producer goods YoY
+  name_zh: PPI生产资料同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H0, H1]
+  role: Pull when PPI moves; upstream-led moves point to supply or commodity drivers (H0).
+  role_zh: PPI变动时调取；若涨幅由上游主导，则指向供给或大宗商品因素（H0）。
+  source_primary: NBS
+  source_code: "nbs:60e8b361f11c4a878c652a6487a25561/47f8464961184392bc4f6a4b8e5b1cb5@idx100"
+  release: with PPI
+  redistribution: public
+
+- metric_id: cn_ppi_consumer_yoy
+  name: PPI, consumer goods YoY
+  name_zh: PPI生活资料同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H0, H2]
+  role: Pull when PPI moves; downstream pass-through suggests demand (H2) rather than supply.
+  role_zh: PPI变动时调取；若向下游传导，则更像需求（H2）而非供给因素。
+  source_primary: NBS
+  source_code: "nbs:60e8b361f11c4a878c652a6487a25561/649b27dbffb14466a3f204e16f3c74ed@idx100"
+  release: with PPI
+  redistribution: public
+
+- metric_id: cn_ip_yoy
+  jan_feb_combined: true
+  name: Industrial value added, real YoY
+  name_zh: 规模以上工业增加值当月同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H0, H2]
+  role: Pull when prices rise; rising prices with falling output fits supply discipline (H0).
+  role_zh: 价格上涨时调取；价格上涨而产出下降，符合供给收缩（H0）的特征。
+  source_primary: NBS
+  source_code: "nbs:3f2e14f0542348ed9fe02476eca3450b/ef1b1765960d45a29b4d7c4ca91be916"
+  release: NBS calendar, monthly activity release
+  redistribution: public
+
+- metric_id: cn_loans_corp_mlt_ytd
+  name: New RMB loans to non-financial corporates, medium and long term, YTD
+  name_zh: 企（事）业单位中长期贷款新增（年初至今）
+  tier: diagnostic
+  frequency: M
+  unit: CNY 100m
+  transform: cumulative_level
+  hypotheses: [H2, H3]
+  role: Pull when TSF moves; separates capex credit demand from government bond issuance.
+  role_zh: 社融变动时调取；用于区分资本开支类信贷需求与政府债券发行。
+  source_primary: PBOC
+  release: with PBOC monetary statistics
+  redistribution: public
+
+- metric_id: cn_gov_fund_rev_ytd_yoy
+  name: Government fund budget revenue, YTD YoY
+  name_zh: 政府性基金预算收入累计同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  hypotheses: [H2, H3]
+  role: Pull when fiscal or property signals conflict; land sales link property weakness to local fiscal capacity.
+  role_zh: 财政与房地产信号相互矛盾时调取；土地出让收入把房地产疲弱与地方财力联系起来。
+  source_primary: MOF
+  release: with MOF budget release
+  redistribution: public
+
+- metric_id: cn_exports_us_ytd_yoy
+  name: Exports to the United States in USD, YTD YoY
+  name_zh: 对美出口（美元计）累计同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  caliber_notes: >-
+    As published by GACC (bulletin table "Imports and Exports by Country (Region)"). The
+    year-to-date rate is used rather than a single-month rate derived from levels, because a
+    derived rate would mix revised current figures with first-print prior-year figures.
+  hypotheses: [H4]
+  role: Pull when exports move; isolates tariff-exposed demand from rerouting to other markets.
+  role_zh: 出口变动时调取；用于区分受关税冲击的需求与转口至其他市场的部分。
+  source_primary: GACC
+  release: with GACC trade release
+  redistribution: public
+
+# ---------------- Supplemental private diagnostics (Wind, V1.2 Phase 1 P0) ----------------
+# All private_only. P0 is the acquisition set; wind.evidence_use records what each series is used
+# for today: active_diagnostic (private read), mirror (cross-check of a public series) or
+# snapshot_only (consensus: experimental, no evidence test and no surprise model until the
+# release-time validation in docs/wind-capability-note.md section 6 has succeeded).
+# cn_cgb10y (core, above) is the thirteenth P0 series, so the P0 set is 13 Wind series in all. Since V1.2
+# Phase 2 one of them is stored in two views: cn_cgb10y (month-end, core) and cn_cgb10y_daily (daily,
+# supplemental), from one code in one call (docs/specs/v1.2-phase2-binding.md). 14 metrics, 13 codes.
+- metric_id: cn_dr007
+  name: DR007, 7-day pledged repo rate (interbank, deposit-taking institutions)
+  name_zh: DR007（银行间存款类机构7天质押式回购利率）
+  tier: supplemental
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Liquidity read that tracks policy-rate transmission; a private diagnostic for the policy-impulse hypothesis.
+  role_zh: 反映政策利率传导的流动性读数；政策力度假说的私有诊断指标。
+  source_primary: Wind
+  release: daily market data (China Money via Wind)
+  redistribution: private_only
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M1006337
+    expected_name: DR007
+    expected_freq: D
+    expected_unit: "%"
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: rates
+
+- metric_id: cn_cgb10y_daily
+  name: China 10-year government bond yield, daily
+  name_zh: 10年期国债到期收益率（日）
+  tier: supplemental
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H1, H2, H3]
+  role: Trading-day view of the 10Y yield for the private market-pricing diagnostics (20- and 60-day changes); context only.
+  role_zh: 10年期国债收益率的交易日视图，用于私有市场定价诊断（20日与60日变化）；仅作背景参考。
+  source_primary: Wind
+  release: daily market data (China Money via Wind)
+  redistribution: private_only
+  caliber_notes:
+    - The same Wind series as cn_cgb10y (M0325687), requested once in the rates call and stored in two views. Added in V1.2 Phase 2 because the contracted 20- and 60-trading-day changes cannot be computed from month-end values (docs/specs/v1.2-phase2-binding.md).
+    - Not an evidence-test input and never part of the public build.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0325687
+    expected_name: "中国:国债收益率:10年"
+    expected_freq: D
+    expected_unit: "%"
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: rates
+    same_series_as: cn_cgb10y
+
+- metric_id: cn_loans_hh_short_flow
+  name: New RMB loans to households, short term, single-month flow
+  name_zh: 住户短期贷款新增（当月值）
+  tier: supplemental
+  frequency: M
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H2, H3]
+  role: Consumer-credit leg of the four-way new-loan split; separates consumer demand from mortgage demand.
+  role_zh: 新增贷款四分法中的消费信贷部分；用于区分消费需求与按揭需求。
+  source_primary: Wind
+  release: with PBOC monetary statistics (via Wind)
+  redistribution: private_only
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0057874
+    expected_name: "中国:金融机构:新增人民币贷款:居民户:短期:当月值"
+    expected_freq: M
+    expected_unit: 亿元
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: credit
+
+- metric_id: cn_loans_hh_mlt_flow
+  name: New RMB loans to households, medium and long term, single-month flow
+  name_zh: 住户中长期贷款新增（当月值）
+  tier: supplemental
+  frequency: M
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H2]
+  role: Single-month mortgage flow; cross-check of the public year-to-date series without differencing.
+  role_zh: 按揭当月流量；无需差分即可交叉验证公开的累计序列。
+  source_primary: Wind
+  release: with PBOC monetary statistics (via Wind)
+  redistribution: private_only
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0057875
+    expected_name: "中国:金融机构:新增人民币贷款:居民户:中长期:当月值"
+    expected_freq: M
+    expected_unit: 亿元
+    priority: P0
+    role: public_mirror
+    evidence_use: mirror
+    query_group: credit
+    mirrors: cn_loans_hh_mlt_ytd
+
+- metric_id: cn_loans_corp_short_flow
+  name: New RMB loans to non-financial corporates, short term, single-month flow
+  name_zh: 企（事）业单位短期贷款新增（当月值）
+  tier: supplemental
+  frequency: M
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H2, H3]
+  role: Working-capital and bill-financing leg of corporate credit; distinguishes it from capex lending.
+  role_zh: 企业信贷中的流动资金与票据融资部分；用于与资本开支类贷款区分。
+  source_primary: Wind
+  release: with PBOC monetary statistics (via Wind)
+  redistribution: private_only
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0057876
+    expected_name: "中国:金融机构:新增人民币贷款:企(事)业单位:短期:当月值"
+    expected_freq: M
+    expected_unit: 亿元
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: credit
+
+- metric_id: cn_loans_corp_mlt_flow
+  name: New RMB loans to non-financial corporates, medium and long term, single-month flow
+  name_zh: 企（事）业单位中长期贷款新增（当月值）
+  tier: supplemental
+  frequency: M
+  unit: CNY 100m
+  transform: level
+  hypotheses: [H2, H3]
+  role: Single-month capex-credit flow; cross-check of the public year-to-date series without differencing.
+  role_zh: 资本开支类信贷当月流量；无需差分即可交叉验证公开的累计序列。
+  source_primary: Wind
+  release: with PBOC monetary statistics (via Wind)
+  redistribution: private_only
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0057877
+    expected_name: "中国:金融机构:新增人民币贷款:企(事)业单位:中长期:当月值"
+    expected_freq: M
+    expected_unit: 亿元
+    priority: P0
+    role: public_mirror
+    evidence_use: mirror
+    query_group: credit
+    mirrors: cn_loans_corp_mlt_ytd
+
+- metric_id: cn_hf_prop_bj
+  name: Beijing commodity-housing transaction area, daily (signed contracts)
+  name_zh: 北京商品房成交面积（日，签约）
+  tier: supplemental
+  frequency: D
+  unit: m2
+  transform: level
+  hypotheses: [H2]
+  role: Daily property read, far fresher than the monthly NBS release; one of four tier-1 cities kept separate.
+  role_zh: 每日房地产读数，远早于国家统计局月度发布；四个一线城市之一，各自独立保存。
+  source_primary: Wind
+  release: daily municipal bureau data (via Wind)
+  redistribution: private_only
+  caliber_notes:
+    - Each city's definition differs (signed contracts vs closed transactions). The four series are never summed or indexed together without a separately documented deterministic transformation.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: S0203228
+    expected_name: "中国:北京:成交面积(签约):商品房"
+    expected_freq: D
+    expected_unit: 平方米
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: property
+
+- metric_id: cn_hf_prop_sz
+  name: Shenzhen commodity-housing transaction area, daily
+  name_zh: 深圳商品房成交面积（日）
+  tier: supplemental
+  frequency: D
+  unit: m2
+  transform: level
+  hypotheses: [H2]
+  role: Daily property read; one of four tier-1 cities kept separate.
+  role_zh: 每日房地产读数；四个一线城市之一，各自独立保存。
+  source_primary: Wind
+  release: daily municipal bureau data (via Wind)
+  redistribution: private_only
+  caliber_notes:
+    - Each city's definition differs (signed contracts vs closed transactions). Not aggregated with the other cities.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: S0048279
+    expected_name: "中国:深圳:成交面积:商品房"
+    expected_freq: D
+    expected_unit: 平方米
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: property
+
+- metric_id: cn_hf_prop_sh
+  name: Shanghai commodity-housing transaction area, daily
+  name_zh: 上海商品房成交面积（日）
+  tier: supplemental
+  frequency: D
+  unit: m2
+  transform: level
+  hypotheses: [H2]
+  role: Daily property read; one of four tier-1 cities kept separate.
+  role_zh: 每日房地产读数；四个一线城市之一，各自独立保存。
+  source_primary: Wind
+  release: daily municipal bureau data (via Wind)
+  redistribution: private_only
+  caliber_notes:
+    - Each city's definition differs (signed contracts vs closed transactions). Not aggregated with the other cities.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: S0146015
+    expected_name: "中国:上海:成交面积:商品房"
+    expected_freq: D
+    expected_unit: 平方米
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: property
+
+- metric_id: cn_hf_prop_gz
+  name: Guangzhou commodity-housing transaction area, daily (signed contracts)
+  name_zh: 广州商品房成交面积（日，签约）
+  tier: supplemental
+  frequency: D
+  unit: m2
+  transform: level
+  hypotheses: [H2]
+  role: Daily property read; one of four tier-1 cities kept separate.
+  role_zh: 每日房地产读数；四个一线城市之一，各自独立保存。
+  source_primary: Wind
+  release: daily municipal bureau data (via Wind)
+  redistribution: private_only
+  caliber_notes:
+    - Each city's definition differs (signed contracts vs closed transactions). Not aggregated with the other cities.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: S0175476
+    expected_name: "中国:广州:成交面积(签约):商品房"
+    expected_freq: D
+    expected_unit: 平方米
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: property
+
+- metric_id: mkt_csi300
+  name: CSI 300 index, daily close
+  name_zh: 沪深300指数（日收盘）
+  tier: supplemental
+  frequency: D
+  unit: index points
+  transform: level
+  hypotheses: [H1, H2]
+  role: Market confirmation for the asset-implication step of the analysis chain; the one equity index kept in P0.
+  role_zh: 分析链中资产含义一步的市场验证；P0阶段只保留这一只股票指数。
+  source_primary: Wind
+  release: daily close (via Wind K-line)
+  redistribution: private_only
+  caliber_notes:
+    - Value is the K-line MATCH column, the bar's close. Retrieved by the exact windcode, never by index name (a name resolves silently to a different instrument or to nothing).
+  wind:
+    server: index_data
+    tool: get_index_kline
+    code: "000300.SH"
+    value_field: MATCH
+    expected_name: null
+    expected_freq: D
+    expected_unit: null
+    priority: P0
+    role: private_primary
+    evidence_use: active_diagnostic
+    query_group: market
+    known_gaps:
+      - field: name
+        reason: K-line responses carry no instrument name; identity rests on the exact windcode in the request.
+      - field: unit
+        reason: Wind states no unit for K-line prices (only TURNOVER, in yuan); the close is stored as unitless index points.
+
+- metric_id: cn_cpi_consensus_wind
+  name: Wind consensus forecast, China CPI YoY (experimental)
+  name_zh: 万得一致预测：中国CPI当月同比（实验性）
+  tier: supplemental
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H1]
+  role: Snapshot of the market-consensus CPI forecast at each retrieval, so a surprise can be measured at the next release.
+  role_zh: 每次取数时一致预测CPI的快照，以便在下一次发布时度量超预期幅度。
+  source_primary: Wind
+  release: forecast for the target month; snapshotted at each retrieval
+  redistribution: private_only
+  caliber_notes:
+    - EXPERIMENTAL and snapshot-only. Wind exposes no as-of query, so a value cannot be proven to be the pre-release consensus. No evidence test, no historical-surprise analysis and no thesis update may use it until the release-time validation (docs/wind-capability-note.md section 6) has succeeded after the October 2026 release.
+    - Each retrieval is kept as its own row, so several snapshots of the same target month coexist. It is a separate metric, not the consensus column of cn_cpi_yoy.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0061676
+    expected_name: "万得一致预测:中国:CPI:当月同比"
+    expected_freq: M
+    expected_unit: "%"
+    priority: P0
+    role: private_primary
+    evidence_use: snapshot_only
+    query_group: consensus
+    experimental: true
+
+- metric_id: cn_ppi_consensus_wind
+  name: Wind consensus forecast, China PPI YoY (experimental)
+  name_zh: 万得一致预测：中国PPI当月同比（实验性）
+  tier: supplemental
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H1, H0]
+  role: Snapshot of the market-consensus PPI forecast at each retrieval, so a surprise can be measured at the next release.
+  role_zh: 每次取数时一致预测PPI的快照，以便在下一次发布时度量超预期幅度。
+  source_primary: Wind
+  release: forecast for the target month; snapshotted at each retrieval
+  redistribution: private_only
+  caliber_notes:
+    - EXPERIMENTAL and snapshot-only, as for cn_cpi_consensus_wind. Not a consensus column on cn_ppi_yoy.
+  wind:
+    server: economic_data
+    tool: query_economic_indicator_data
+    code: M0061677
+    expected_name: "万得一致预测:中国:PPI:当月同比"
+    expected_freq: M
+    expected_unit: "%"
+    priority: P0
+    role: private_primary
+    evidence_use: snapshot_only
+    query_group: consensus
+    experimental: true

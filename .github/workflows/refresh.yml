@@ -1,0 +1,134 @@
+name: public data refresh
+
+# Fetches official public data when the release calendar says something is due, appends only
+# new observations, re-runs the evidence tests against the preregistered case, runs the eval
+# gate (E0-E5) and commits the new public artifacts to main. Never changes the analyst's
+# probability. A run with nothing due, or nothing new, changes nothing.
+on:
+  # After a reviewed ingestion fix reaches main, refresh immediately rather than waiting for the next cron.
+  # Data-only bot commits do not match these paths, preventing recursive refreshes.
+  push:
+    branches: [main]
+    paths:
+      - "src/cnmacro/ingest.py"
+      - "src/cnmacro/firstprint.py"
+      - "src/cnmacro/refresh.py"
+      - "src/cnmacro/cli.py"
+      - "src/cnmacro/checks.py"
+      - "scripts/fetch_*.py"
+      - ".github/workflows/refresh.yml"
+  schedule:
+    - cron: "20 2 * * *"    # 10:20 Beijing: after the 09:30 / 10:00 NBS releases
+    - cron: "20 4 * * *"    # 12:20 Beijing: first-print retry
+    - cron: "20 6 * * *"    # 14:20 Beijing: first-print retry
+    - cron: "20 10 * * *"   # 18:20 Beijing: after afternoon PBOC releases and portal updates
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Fetch every public route, not only metrics the calendar says are due"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Fetch and diff only; write and commit nothing"
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - "src/cnmacro/refresh.py"
+      - "src/cnmacro/ingest.py"
+      - "src/cnmacro/firstprint.py"
+      - "scripts/fetch_*.py"
+      - ".github/workflows/refresh.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # E4 checks the full history of immutable files
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e .
+      - name: Probe official sources from this runner
+        run: python scripts/probe_sources.py
+      - name: Refresh public data
+        env:
+          # pull requests test every route without writing anything
+          ARGS: >-
+            ${{ github.event_name == 'pull_request' && '--all --dry-run --no-build' || '' }}
+            ${{ inputs.all && '--all' || '' }}
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: python -m cnmacro refresh-public --summary refresh-summary.json $ARGS
+      - name: Secrets and data-boundary check
+        run: python scripts/check_secrets.py
+      - name: Commit new public artifacts
+        if: github.event_name != 'pull_request' && !inputs.dry_run
+        run: |
+          # Least privilege: stage only what a refresh writes. The rest of research/cases/cn-nominal
+          # (case.yaml, preregistered/, claims, presentation, memo templates...) is analyst-controlled
+          # and must never be auto-committed. refreshes/ and updates/ are append-only directories that
+          # only exist once a refresh has written a record, and git fails a pathspec that matches
+          # nothing, so each is staged only if present (no placeholder directories).
+          git add -A -- data/demo/observations research/cases/cn-nominal/eval
+          for d in research/cases/cn-nominal/refreshes research/cases/cn-nominal/updates; do
+            if [ -e "$d" ]; then
+              git add -A -- "$d"
+            fi
+          done
+          # Check the actual index, including newly generated public artifacts.
+          python scripts/check_secrets.py --staged
+          if git diff --cached --quiet; then
+            echo "No new public data; nothing to commit."
+            exit 0
+          fi
+          MSG=$(python - <<'PY'
+          import json
+          s = json.load(open("refresh-summary.json"))
+          flips = ", ".join(s["flipped"]) or "none"
+          print(f"data: public refresh {s['as_of']}: {s['new_rows']} new observation(s); test flips: {flips}")
+          print()
+          print("Automatic evidence refresh (cnmacro refresh-public). Analyst judgment unchanged.")
+          print(f"Record: {s['record']}")
+          if s.get("terminal_update"):
+              print(f"Preregistered terminal rule fired: {s['terminal_update']}")
+          PY
+          )
+          git config user.name "cnmacro-refresh[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "$MSG"
+          # main may have moved during the run; observation files are append-only, so a rebase is safe
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: refresh-summary
+          path: refresh-summary.json
+          if-no-files-found: ignore
+      - name: Check official release freshness
+        if: github.event_name != 'pull_request' && !inputs.dry_run
+        run: |
+          python - <<'PY'
+          import json
+          import sys
+          s = json.load(open("refresh-summary.json", encoding="utf-8"))
+          state = s.get("freshness", {}).get("status", "CURRENT")
+          for row in s.get("freshness", {}).get("missing", []):
+              print(f"official release pending: {row['metric_id']} {row['expected_period']} "
+                    f"({row['age_minutes']} minutes since scheduled release)")
+          if state == "SOURCE_STALE":
+              print("::error title=NBS official-release stale::"
+                    "One or more calendar-confirmed series are still missing beyond 90-minute grace")
+              sys.exit(1)
+          print(f"Official release freshness: {state}")
+          PY

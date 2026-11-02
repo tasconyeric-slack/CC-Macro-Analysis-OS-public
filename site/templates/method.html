@@ -1,0 +1,75 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+<div class="eyebrow">{{ t('nav.method') }}</div>
+<h1>{{ t('method.h1') }}</h1>
+
+<h2>{{ t('method.chain_title') }}</h2>
+<p>{{ t('method.chain') }}</p>
+<p>{{ t('method.lenses') }}</p>
+
+<h2>{{ t('method.flow_title') }}</h2>
+<div class="grid3">
+  <div class="card"><h3>1 · {{ t('method.flow.obs_t') }}</h3><p class="small">{{ t('method.flow.obs') }}</p></div>
+  <div class="card"><h3>2 · {{ t('method.flow.claims_t') }}</h3><p class="small">{{ t('method.flow.claims') }}</p></div>
+  <div class="card"><h3>3 · {{ t('method.flow.thesis_t') }}</h3><p class="small">{{ t('method.flow.thesis', n=n_tests) }}</p></div>
+</div>
+
+<h2 id="automation">{{ t('method.auto_title') }}</h2>
+<p>{{ t('method.auto') }}</p>
+<div class="grid2">
+  <div class="card"><h3>{{ t('method.auto_a_t') }}</h3><p class="small">{{ t('method.auto_a') }}</p></div>
+  <div class="card"><h3>{{ t('method.auto_b_t') }}</h3><p class="small">{{ t('method.auto_b') }}</p></div>
+</div>
+{% if refreshes %}{% set r = refreshes[-1] %}
+<p class="small muted">{{ t('method.latest_refresh', when=r.as_of|when)|colon }}
+  {% for name, s in r.sources.items() %}{{ name }} {{ t('method.reachable') if s.ok else t('method.unreachable') }}{% if not loop.last %} · {% endif %}{% endfor %}.</p>
+{% endif %}
+
+<h2 id="ai">{{ t('method.ai.title') }}</h2>
+<p>{{ t('method.ai.intro') }}</p>
+<div class="tablewrap"><table>
+<thead><tr><th>{{ t('method.ai.col_task') }}</th><th>{{ t('method.ai.col_who') }}</th><th>{{ t('method.ai.col_check') }}</th></tr></thead><tbody>
+{% for n in ('r1', 'r2', 'r3', 'r4') %}
+<tr><td class="small">{{ t('method.ai.' ~ n ~ '_task') }}</td><td class="small">{{ t('method.ai.' ~ n ~ '_who') }}</td><td class="small">{{ t('method.ai.' ~ n ~ '_check') }}</td></tr>
+{% endfor %}
+</tbody></table></div>
+<h3>{{ t('method.ai.forbidden_title') }}</h3>
+<ul class="small">{% for n in ('f1', 'f2', 'f3', 'f4', 'f5') %}<li>{{ t('method.ai.' ~ n) }}</li>{% endfor %}</ul>
+<p class="small muted">{{ t('method.ai.status') }}</p>
+
+<h2 id="eval">{{ t('method.eval_title') }}</h2>
+{% if eval %}
+<p class="small muted">{{ t('method.eval_meta_html', when=eval.generated_at|when, commit=eval.commit[:7], mode=t('eval.mode.' ~ eval.mode)) }}</p>
+<div class="tablewrap"><table>
+<thead><tr><th>{{ t('method.eval.col_check') }}</th><th>{{ t('method.eval.col_proves') }}</th><th>{{ t('method.eval.col_status') }}</th></tr></thead><tbody>
+{% for c in eval.checks %}
+<tr><td class="mono">{{ c.id }} {{ c.label }}</td><td class="small">{{ c.what }}{% if c.details %}<div class="muted">{% for dt in c.details[:2] %}{% if dt.raw %}<span lang="en">{{ dt.text }}</span>{% else %}{{ dt.text }}{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}{% if c.details|length > 2 %} …{% endif %}</div>{% endif %}</td>
+<td>{% if c.status == "pass" %}<span class="st sup">✓ {{ t('eval.pass') }}</span>{% elif c.status == "warn" %}<span class="st pen">! {{ t('eval.warn') }}</span>{% else %}<span class="st cha">✕ {{ t('eval.fail') }}</span>{% endif %}</td></tr>
+{% endfor %}
+</tbody></table></div>
+{% else %}<div class="empty">{{ t('method.no_eval') }}</div>{% endif %}
+<p class="small muted">{{ t('method.eval_note') }}</p>
+
+<h2 id="limitations">{{ t('method.limits_title') }}</h2>
+<ul class="small">{% for x in limitations %}<li>{{ x }}</li>{% endfor %}</ul>
+
+<h2 id="sources">{{ t('method.sources_title') }}</h2>
+<p>{{ t('method.boundary') }}</p>
+<div class="tablewrap"><table class="sources-table">
+  <thead><tr><th>{{ t('method.sources.col_source') }}</th><th>{{ t('method.sources.col_status') }}</th></tr></thead>
+  <tbody>
+  {% for s in sources_status %}
+  <tr><td><strong>{{ s.id }}</strong> <span class="muted small">{{ s.name }}</span></td>
+    <td><span class="src {{ s.status }}"><span class="dot" aria-hidden="true"></span>{{ s.label }}</span>{% if s.note %}<div class="small muted">{{ s.note }}</div>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody></table></div>
+
+<h2>{{ t('method.budget_title') }}</h2>
+<p>{{ t('method.budget_text', core=n_core, diag=n_diag) }}</p>
+<div class="tablewrap"><table>
+<thead><tr><th>{{ t('method.budget.col_metric') }}</th><th>{{ t('method.budget.col_tier') }}</th><th>{{ t('method.budget.col_serves') }}</th><th>{{ t('method.budget.col_why') }}</th><th>{{ t('method.budget.col_source') }}</th></tr></thead><tbody>
+{% for m in metrics_table %}
+<tr><td>{{ m.name }}{% if m.alt %}<div class="small muted" lang="{{ 'en' if loc == 'zh' else 'zh-Hans' }}">{{ m.alt }}</div>{% endif %}</td><td class="small">{{ m.tier }}</td><td class="mono small">{{ m.hypotheses|join(", ") }}</td><td class="small">{{ m.role }}</td><td class="small">{{ m.source }}</td></tr>
+{% endfor %}
+</tbody></table></div>
+{% endblock %}

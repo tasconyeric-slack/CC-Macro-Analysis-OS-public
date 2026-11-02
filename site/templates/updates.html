@@ -1,0 +1,68 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+<div class="eyebrow">{{ t('nav.updates') }}</div>
+<h1>{{ t('updates.h1') }}</h1>
+<p class="lede">{{ t('updates.lede') }}</p>
+<div class="legend small">
+  <span><span class="tag">{{ t('kind.baseline') }}</span> {{ t('updates.legend.baseline') }}</span>
+  <span><span class="tag">{{ t('kind.amendment') }}</span> {{ t('updates.legend.amendment') }}</span>
+  <span><span class="tag">{{ t('kind.data') }}</span> {{ t('updates.legend.data') }}</span>
+  <span><span class="tag">{{ t('kind.update') }}</span> {{ t('updates.legend.update') }}</span>
+</div>
+{% if not baseline %}<div class="empty" style="margin-top:24px">{{ t('updates.no_baseline') }}</div>{% else %}
+<div class="timeline" style="margin-top:28px">
+{% for it in audit_items %}{% set d = it.doc %}
+  {% if it.kind == "baseline" %}
+  <div class="tl-item base" id="baseline">
+    <div class="eyebrow"><span class="tag">{{ t('kind.baseline') }}</span> {{ t('updates.preregistered') }}</div>
+    <strong>{{ t('updates.as_of_when', when=d.as_of|when) }}</strong> · <span class="mono">{{ d._file }}</span> · {{ t('updates.commit') }} <span class="mono">{{ d._commit.short or t('common.pending') }}</span>{% if d._commit.at %} {{ t('updates.at') }} {{ d._commit.at|when }}{% endif %}
+    {% if d.committed_before %}<div class="small muted">{{ t('updates.committed_before', release=d.committed_release, when=d.committed_before.at|when) }}</div>{% endif %}
+    <p>{{ t('updates.baseline_line_html', prob=d.probability|pct, conf=v.confidence(d.conviction), status=v.status(d.status)) }}</p>
+    <p class="small">{{ d.rationale_l }}</p>
+  </div>
+  {% elif it.kind == "amendment" %}
+  <div class="tl-item amend" id="{{ d.id }}">
+    <div class="eyebrow"><span class="tag">{{ t('kind.amendment') }}</span> {{ d.id }} · {{ t('home.before_any_release') }}</div>
+    <strong>{{ d.title_l }}</strong> · <span class="mono">{{ d._file }}</span> · {{ t('updates.commit') }} <span class="mono">{{ d._commit.short or t('common.pending') }}</span>{% if d._commit.at %} {{ t('updates.at') }} {{ d._commit.at|when }}{% endif %}
+    <p class="small">{{ t('updates.why')|labelb }}{{ d.reason_l }}</p>
+    <p class="small">{{ t('updates.effect')|labelb }}{{ d.effect_l }}</p>
+    <p class="small muted">{{ t('updates.amends_html', file=d.baseline, commit=d.baseline_commit|short, release=d.effective_release, when=d.effective_before.at|when, informed=t('common.no') if d.informed_by_tested_data == false else t('common.yes')) }}
+      {{ t('updates.changed')|colon }}{% for ch in d.changes %}<span class="mono">{{ ch.path }}</span>{% if not loop.last %}, {% endif %}{% endfor %}. {{ t('updates.unchanged') }}</p>
+  </div>
+  {% elif it.kind == "refresh" %}
+  <div class="tl-item data">
+    <div class="eyebrow"><span class="tag">{{ t('kind.data') }}</span> {{ t('updates.refresh_title') }}</div>
+    <strong>{{ t('updates.as_of_when', when=d.as_of|when) }}</strong> · {{ t('updates.new_obs', n=d.new_observations|length) }} · <span class="mono">{{ d._file }}</span>
+    <div class="small">{% for o in d.new_observations[:8] %}<span class="mono">{{ o.metric_id }}@{{ o.reference_period }}</span>{% if o.quality_flag == "revised" %} ({{ t('updates.revised') }}){% endif %}{% if not loop.last %} · {% endif %}{% endfor %}{% if d.new_observations|length > 8 %} · {{ t('updates.more', n=d.new_observations|length - 8) }}{% endif %}</div>
+    {% if d.flipped_tests %}
+    <div class="tablewrap"><table><thead><tr><th>{{ t('evidence.col.test') }}</th><th>{{ t('updates.before') }}</th><th>{{ t('updates.after') }}</th><th>{{ t('evidence.col.latest') }}</th></tr></thead><tbody>
+    {% for f in d.flipped_tests %}<tr><td class="mono nowrap">{{ f.test }}</td><td>{{ t('outcome.' ~ f['from']) if t.has('outcome.' ~ f['from']) else f['from'] }}</td><td>{{ t('outcome.' ~ f.to) if t.has('outcome.' ~ f.to) else f.to }}</td><td class="mono small">{{ f.period_from }} → {{ f.period_to }}</td></tr>{% endfor %}
+    </tbody></table></div>
+    {% else %}<p class="small muted">{{ t('updates.no_flips') }}</p>{% endif %}
+    <p class="small">{{ t('updates.refresh_summary', terminal=v.status(d.terminal.after.status), direction=t('direction.suggested.' ~ d.suggested_direction.direction) if t.has('direction.suggested.' ~ d.suggested_direction.direction) else d.suggested_direction.direction, prob=d.analyst_judgment.probability|pct) }}</p>
+  </div>
+  {% else %}
+  <div class="tl-item">
+    <div class="eyebrow"><span class="tag">{{ t('kind.update') }}</span> {{ d.release_l }}{% if d.author %} · {{ d.author }}{% endif %}</div>
+    <strong>{{ t('updates.as_of_when', when=d.as_of|when) }}</strong> · <span class="mono">{{ d._file }}</span> · {{ t('updates.commit') }} <span class="mono">{{ d._commit.short or t('common.pending') }}</span>
+    <p class="diff">{{ t('updates.diff_line', p0=d.previous_state.probability|pct, p1=d.probability|pct, c0=v.confidence(d.previous_state.conviction), c1=v.confidence(d.conviction), direction=v.direction(d.last_update_direction), status=v.status(d.status)) }}</p>
+    {% if d.terminal_rule_fired %}<p class="small">{{ t('updates.rule_fired')|labelb }}<span class="mono">{{ d.terminal_rule_fired }}</span></p>{% endif %}
+    {% if d.probability_change %}<p class="small">{{ t('updates.why_moved')|labelb }}{% if d.reasoning_fb %}<span lang="en">{{ d.reasoning_l }}</span>{% else %}{{ d.reasoning_l }}{% endif %} <span class="muted">({{ t('updates.evidence_list', evidence=d.probability_change.evidence|join(", "), hyps=d.probability_change.hypotheses|join(", ")) }})</span></p>{% endif %}
+    <p>{% if d.does_this_change_the_thesis_fb %}<span lang="en">{{ d.does_this_change_the_thesis_l }}</span>{% else %}{{ d.does_this_change_the_thesis_l }}{% endif %}</p>
+    {% if d.flipped_tests %}
+    <div class="tablewrap"><table><thead><tr><th>{{ t('evidence.col.test') }}</th><th>{{ t('updates.before') }}</th><th>{{ t('updates.after') }}</th></tr></thead><tbody>
+    {% for f in d.flipped_tests %}<tr><td class="mono nowrap">{{ f.test }}</td><td>{{ f['from'] or "–" }}</td><td>{{ f.to }}</td></tr>{% endfor %}
+    </tbody></table></div>{% else %}<p class="small muted">{{ t('updates.no_flips') }}</p>{% endif %}
+  </div>
+  {% endif %}
+{% endfor %}
+  <div class="tl-item next">
+    <div class="eyebrow"><span class="tag">{{ t('kind.next') }}</span> {{ t('updates.scheduled') }}</div>
+    {% if next_releases %}<strong>{{ next_releases[0].label }}</strong> · {{ next_releases[0].release|when }}
+    <p class="small muted">{{ t('updates.next_note') }}</p>
+    {% else %}<p class="small muted">{{ t('updates.no_date') }}</p>{% endif %}
+  </div>
+</div>
+{% if not updates %}<p class="small muted">{{ t('updates.no_update_yet') }}</p>{% endif %}
+{% endif %}
+{% endblock %}

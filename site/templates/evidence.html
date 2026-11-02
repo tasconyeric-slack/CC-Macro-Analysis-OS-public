@@ -1,0 +1,94 @@
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% block body %}
+<div class="eyebrow">{{ t('nav.evidence') }}</div>
+<h1>{{ t('evidence.h1') }}</h1>
+<p class="lede">{{ case.statement }}</p>
+<p class="small muted">{{ t('evidence.intro') }}
+{% if baseline %}{{ t('evidence.asof_html', asof=evidence_as_of|when, base=baseline.as_of|when) }}{% endif %}</p>
+<p class="note"><strong>{{ t('evidence.counts_note') }}</strong> {{ t('evidence.counts_why') }}</p>
+
+{% for h in hypotheses %}
+<h2 id="{{ h.id }}">{{ h.id }} · {{ h.name }}{% if h.id == 'H0' %} <span class="tag">{{ t('evidence.competing') }}</span>{% endif %}</h2>
+<p>{{ h.claim }}</p>
+<p class="small hstateline">{{ mx.pill(h.state) }} <span>{{ h.state.note }}</span></p>
+{% if h.assessment %}<p class="small">{{ t('evidence.baseline_assessment')|labelb }}{{ h.assessment }}</p>{% endif %}
+{% if h.id == 'H3' and policy.events %}
+<p class="callout small">{{ policy.summary }} <a href="#policy-context">{{ t('evidence.see_policy') }} ›</a></p>
+{% endif %}
+<div class="tablewrap"><table>
+  <thead><tr><th>{{ t('evidence.col.test') }}</th><th>{{ t('evidence.col.condition') }}</th><th>{{ t('evidence.col.window') }}</th><th class="num">{{ t('evidence.col.observed') }}</th><th>{{ t('evidence.col.latest') }}</th><th>{{ t('evidence.col.result') }}</th>{% if baseline %}<th>{{ t('evidence.col.baseline') }}</th>{% endif %}</tr></thead>
+  <tbody>
+  {% for x in h.tests %}
+  <tr>
+    <td class="mono nowrap">{{ x.id }}</td>
+    <td>{{ x.description }}<details class="inline"><summary class="small muted">{{ t('claim.lineage') }}</summary><div class="small muted mono">{{ x.indicator }} · {{ x.rule }}{% if x.n > 1 %}({{ x.n }}){% endif %} {{ x.op }} {{ x.threshold }}</div></details></td>
+    <td class="small">{{ x.window }}<div class="muted">{{ x.check }}</div></td>
+    <td class="num">{{ x.result.observed|num }}</td>
+    <td class="small">{{ x.result.latest_period|period if x.result.latest_period else "–" }}</td>
+    <td>{{ mx.effect(x.result) }}</td>
+    {% if baseline %}<td>{{ mx.effect(x.at_baseline) }}</td>{% endif %}
+  </tr>
+  {% endfor %}
+  </tbody>
+</table></div>
+<p class="small muted tally">{{ t('evidence.tally', sup=h.supports, cha=h.challenges, pen=h.pending) }}</p>
+<div class="grid2">
+  <div><h3>{{ t('evidence.for') }}</h3>{% for c in h.claims_for %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
+  <div><h3>{{ t('evidence.against') }}</h3>{% for c in h.claims_against %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
+</div>
+{% endfor %}
+
+{# ---------------- policy context ---------------- #}
+<h2 id="policy-context">{{ t('policy.title') }}</h2>
+<p>{{ t('policy.intro') }}</p>
+<div class="tablewrap"><table class="layers">
+  <thead><tr><th>{{ t('policy.layer.col_layer') }}</th><th>{{ t('policy.layer.col_what') }}</th><th>{{ t('policy.layer.col_read') }}</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">{{ t('policy.layer.frozen') }}</th><td class="small">{{ t('policy.layer.frozen_what') }}</td><td class="small">{{ t('policy.layer.frozen_read') }}</td></tr>
+    <tr><th scope="row">{{ t('policy.layer.forward') }}</th><td class="small">{{ t('policy.layer.forward_what') }}</td><td class="small">{{ policy.summary }}</td></tr>
+    <tr><th scope="row">{{ t('policy.layer.realized') }}</th><td class="small">{{ t('policy.layer.realized_what') }}</td>
+      <td class="small">{% for c in policy.realized %}<div>{{ c.text }}</div>{% endfor %}</td></tr>
+  </tbody>
+</table></div>
+<p class="small muted">{{ t('policy.realized_note') }}</p>
+
+{% for e in policy.events %}
+<article class="event" id="{{ e.id }}">
+  <div class="eyebrow">{{ e.date }} · {{ e.institution }} · {{ e.category }}</div>
+  <h3><a href="{{ e.url }}" rel="noopener">{{ e.title }}</a></h3>
+  <p class="scope scope-{{ e.scope }}"><span class="tag">{{ e.scope_label }}</span></p>
+  <ol class="stages" aria-label="{{ t('policy.stage_label') }}">{% for s in e.stages %}<li class="{{ 'done' if s.done else '' }}{{ ' current' if s.current else '' }}"{% if s.current %} aria-current="step"{% endif %}>{{ s.label }}</li>{% endfor %}</ol>
+  <dl class="eventdl">
+    <dt>{{ t('policy.f.measure') }}</dt><dd>{{ e.measure }}</dd>
+    <dt>{{ t('policy.f.channel') }}</dt><dd>{{ e.channel }}</dd>
+    <dt>{{ t('policy.f.hypothesis') }}</dt><dd><a href="#{{ e.hypothesis }}">{{ e.hypothesis }}</a>{% for a in e.also %}, <a href="#{{ a }}">{{ a }}</a>{% endfor %}</dd>
+    <dt>{{ t('policy.f.interpretation') }}</dt><dd>{{ e.interpretation }}</dd>
+    <dt>{{ t('policy.f.next') }}</dt><dd>{{ e.next }}</dd>
+  </dl>
+  <p class="small muted">{{ t('policy.f.source')|colon }}<a href="{{ e.url }}" rel="noopener">{{ e.publisher }}</a>
+    {% if e.source_kind == 'primary' %}· {{ t('policy.source.primary') }}{% else %}· {{ t('policy.source.official_media') }} <a href="{{ e.primary_listing }}" rel="noopener">{{ t('policy.source.listing') }}</a>{% endif %}
+    {% if e.reviewed %}· {{ t('policy.f.reviewed', date=e.reviewed) }}{% endif %}</p>
+  <details class="lineage"><summary>{{ t('claim.lineage') }}</summary><dl>
+    <dt>{{ t('claim.id') }}</dt><dd class="mono">{{ e.id }} · {{ e.stage }}</dd>
+    <dt>{{ t('policy.f.headline') }}</dt><dd lang="zh-Hans">{{ e.headline_zh }}</dd>
+    <dt>URL</dt><dd class="mono">{{ e.url }}</dd></dl></details>
+</article>
+{% endfor %}
+
+{# ---------------- terminal rules ---------------- #}
+<h2 id="rules">{{ t('rules.title') }}</h2>
+<p><strong>{{ t('rules.sustainable') }}</strong> {{ case.sustainable }}</p>
+<p class="small muted">{{ case.otherwise }} {{ t('rules.check_now') }} <strong>{{ terminal_label }}</strong>.
+{% for a in amendments %} {{ t('rules.amended_html', id=a.id, title=a.title_l) }}{% endfor %}</p>
+{% for r in rules %}
+<div class="card rule">
+  <h3>{{ r.title }}{% if r.early %} <span class="tag">{{ t('rules.before_window') }}</span>{% endif %}</h3>
+  <p class="small muted">{{ t('rules.fires_when') }}</p>
+  <ul class="rtree">{{ mx.rule_node(r.tree) }}</ul>
+  <details class="lineage"><summary>{{ t('rules.technical') }}</summary><pre class="mono small">{{ r.raw }}</pre></details>
+</div>
+{% endfor %}
+
+<h2>{{ t('evidence.other') }}</h2>
+{% for c in other_claims %}{{ mx.claim(c) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}
+{% endblock %}

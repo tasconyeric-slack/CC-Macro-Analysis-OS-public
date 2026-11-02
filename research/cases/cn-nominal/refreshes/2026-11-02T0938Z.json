@@ -1,0 +1,358 @@
+{
+  "kind": "evidence_refresh",
+  "as_of": "2026-11-02T09:38:14+00:00",
+  "previous_evidence_as_of": "2026-11-01T09:23:13+00:00",
+  "case_in_force": {
+    "baseline": "2026-10-04-baseline.yaml",
+    "amendments": [
+      "2026-10-04-amendment-01-terminal-rules.yaml"
+    ]
+  },
+  "calendar": "repo calendar + NBS agenda 2026-08-19..2026-12-17",
+  "sources": {
+    "nbs": {
+      "ok": true,
+      "fetched": 42,
+      "new": 3,
+      "metrics": [
+        "cn_pmi_new_export_orders",
+        "cn_pmi_new_orders",
+        "cn_pmi_output_price"
+      ]
+    }
+  },
+  "due": {
+    "cn_pmi_output_price": {
+      "route": "nbs",
+      "held": "2026-09",
+      "expected": "2026-10"
+    },
+    "cn_pmi_new_orders": {
+      "route": "nbs",
+      "held": "2026-09",
+      "expected": "2026-10"
+    },
+    "cn_pmi_new_export_orders": {
+      "route": "nbs",
+      "held": "2026-09",
+      "expected": "2026-10"
+    }
+  },
+  "new_observations": [
+    {
+      "metric_id": "cn_pmi_output_price",
+      "reference_period": "2026-10",
+      "value": 51.7,
+      "release_date": "2026-10-31T09:30:00+08:00",
+      "release_date_basis": "official_calendar",
+      "source": "NBS",
+      "quality_flag": "ok"
+    },
+    {
+      "metric_id": "cn_pmi_new_orders",
+      "reference_period": "2026-10",
+      "value": 49.4,
+      "release_date": "2026-10-31T09:30:00+08:00",
+      "release_date_basis": "official_calendar",
+      "source": "NBS",
+      "quality_flag": "ok"
+    },
+    {
+      "metric_id": "cn_pmi_new_export_orders",
+      "reference_period": "2026-10",
+      "value": 48.7,
+      "release_date": "2026-10-31T09:30:00+08:00",
+      "release_date_basis": "official_calendar",
+      "source": "NBS",
+      "quality_flag": "ok"
+    }
+  ],
+  "flipped_tests": [
+    {
+      "test": "T-H2-04",
+      "hypothesis": "H2",
+      "from": "false",
+      "to": "true",
+      "effect_from": "challenges",
+      "effect_to": "supports",
+      "period_from": "2026-09",
+      "period_to": "2026-10"
+    }
+  ],
+  "marginal_changes": [
+    {
+      "test": "T-H1-03",
+      "hypothesis": "H1",
+      "period_from": "2026-09",
+      "period_to": "2026-10",
+      "observed_from": 50.7333,
+      "observed_to": 52.0333,
+      "change": 1.3
+    },
+    {
+      "test": "T-H2-04",
+      "hypothesis": "H2",
+      "period_from": "2026-09",
+      "period_to": "2026-10",
+      "observed_from": 49.8667,
+      "observed_to": 50.1667,
+      "change": 0.3
+    },
+    {
+      "test": "T-H4-02",
+      "hypothesis": "H4",
+      "period_from": "2026-09",
+      "period_to": "2026-10",
+      "observed_from": 49.9,
+      "observed_to": 49.6,
+      "change": -0.3
+    }
+  ],
+  "test_results": {
+    "T-H1-01": {
+      "id": "T-H1-01",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 0.3,
+      "latest_period": "2026-09",
+      "refs": [
+        "drv:ma(cn_ppi_mom,3)@2026-09"
+      ]
+    },
+    "T-H1-02": {
+      "id": "T-H1-02",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 4.5,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_ppi_yoy@2026-03",
+        "obs:cn_ppi_yoy@2026-09"
+      ]
+    },
+    "T-H1-03": {
+      "id": "T-H1-03",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 52.0333,
+      "latest_period": "2026-10",
+      "refs": [
+        "drv:ma(cn_pmi_output_price,3)@2026-10"
+      ]
+    },
+    "T-H1-04": {
+      "id": "T-H1-04",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 1.4393,
+      "latest_period": "2026Q3",
+      "refs": [
+        "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q3"
+      ]
+    },
+    "T-H1-05": {
+      "id": "T-H1-05",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 1.4393,
+      "latest_period": "2026Q3",
+      "refs": [
+        "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2",
+        "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q3"
+      ]
+    },
+    "T-H1-06": {
+      "id": "T-H1-06",
+      "hypothesis": "H1",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 15.5,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_ind_profit_ytd_yoy@2026-09"
+      ]
+    },
+    "T-H2-01": {
+      "id": "T-H2-01",
+      "hypothesis": "H2",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": -0.1,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_core_cpi_yoy@2026-03",
+        "obs:cn_core_cpi_yoy@2026-09"
+      ]
+    },
+    "T-H2-02": {
+      "id": "T-H2-02",
+      "hypothesis": "H2",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": -1.9,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_m1_yoy@2026-03",
+        "obs:cn_m1_yoy@2026-09"
+      ]
+    },
+    "T-H2-03": {
+      "id": "T-H2-03",
+      "hypothesis": "H2",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": -2.8,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_property_sales_area_ytd_yoy@2026-03",
+        "obs:cn_property_sales_area_ytd_yoy@2026-09"
+      ]
+    },
+    "T-H2-04": {
+      "id": "T-H2-04",
+      "hypothesis": "H2",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 50.1667,
+      "latest_period": "2026-10",
+      "refs": [
+        "drv:ma(cn_pmi_new_orders,3)@2026-10"
+      ]
+    },
+    "T-H2-05": {
+      "id": "T-H2-05",
+      "hypothesis": "H2",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 0.1,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_retail_sales_yoy@2026-06",
+        "obs:cn_retail_sales_yoy@2026-09"
+      ]
+    },
+    "T-H2-06": {
+      "id": "T-H2-06",
+      "hypothesis": "H2",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": -383.4133,
+      "latest_period": "2026-09",
+      "refs": [
+        "drv:single(cn_loans_hh_mlt_ytd)@2026-07",
+        "drv:single(cn_loans_hh_mlt_ytd)@2026-08",
+        "drv:single(cn_loans_hh_mlt_ytd)@2026-09"
+      ]
+    },
+    "T-H3-01": {
+      "id": "T-H3-01",
+      "hypothesis": "H3",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": -0.3,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_tsf_stock_yoy@2026-06",
+        "obs:cn_tsf_stock_yoy@2026-09"
+      ]
+    },
+    "T-H3-02": {
+      "id": "T-H3-02",
+      "hypothesis": "H3",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 1.0,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_budget_exp_ytd_yoy@2026-09"
+      ]
+    },
+    "T-H4-01": {
+      "id": "T-H4-01",
+      "hypothesis": "H4",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 28.4,
+      "latest_period": "2026-09",
+      "refs": [
+        "drv:ma(cn_exports_usd_yoy,3)@2026-09"
+      ]
+    },
+    "T-H4-02": {
+      "id": "T-H4-02",
+      "hypothesis": "H4",
+      "outcome": "false",
+      "effect": "challenges",
+      "observed": 49.6,
+      "latest_period": "2026-10",
+      "refs": [
+        "drv:ma(cn_pmi_new_export_orders,3)@2026-10"
+      ]
+    },
+    "T-H0-01": {
+      "id": "T-H0-01",
+      "hypothesis": "H0",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 2.6131,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:gl_brent_usd@2026-03",
+        "obs:gl_brent_usd@2026-09"
+      ]
+    },
+    "T-H0-02": {
+      "id": "T-H0-02",
+      "hypothesis": "H0",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": 1944.3464,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:gl_copper_usd@2026-03",
+        "obs:gl_copper_usd@2026-09"
+      ]
+    },
+    "T-H0-03": {
+      "id": "T-H0-03",
+      "hypothesis": "H0",
+      "outcome": "true",
+      "effect": "supports",
+      "observed": -0.1,
+      "latest_period": "2026-09",
+      "refs": [
+        "obs:cn_ppi_consumer_yoy@2026-09"
+      ]
+    }
+  },
+  "terminal": {
+    "before": {
+      "status": "ACTIVE",
+      "rule_fired": null,
+      "window_open": false
+    },
+    "after": {
+      "status": "ACTIVE",
+      "rule_fired": null,
+      "window_open": false
+    }
+  },
+  "analyst_judgment": {
+    "probability": 0.3,
+    "conviction": "LOW",
+    "status": "ACTIVE",
+    "last_update_direction": "UNCHANGED",
+    "as_of": "2026-10-04T06:00:00Z",
+    "changed_by_this_refresh": false
+  },
+  "suggested_direction": {
+    "direction": "toward_thesis",
+    "score": 2,
+    "note": "mechanical tally of evidence-test flips; the analyst judgment is unchanged until an update is appended"
+  }
+}

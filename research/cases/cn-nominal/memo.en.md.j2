@@ -1,0 +1,74 @@
+{# Deep Dive template, English. Every figure comes from a claim ({{ c("id") }}) or the thesis state.
+   No number may be typed here: the E1 check lints this file for bare numbers. The Chinese edition is
+   memo.zh.md.j2: written for Chinese readers, citing the same claims in the same places. #}
+## Bottom line
+
+The price side has turned, but broad domestic-demand confirmation is still absent. The evidence is more consistent with an upstream- and external-price-led nominal rebound than with a durable, demand-led reflation. {{ c("C-T-01") }} That is a real change after three years of deflation.
+
+What has not happened yet is breadth. Household credit, property and core inflation have not followed prices, and the leading competing explanation, H0 (the rebound is driven by supply-side discipline and imported costs), still fits the pattern better than a demand-led recovery. Realized policy impulse remains weak in the quantitative data, while the forward policy stance has become more supportive (section 4).
+
+**Judgment:** {{ state.probability_pct }} analyst probability that the thesis holds at the 2027Q1 decision window. This is a discretionary judgment on a five-point grid, not a statistically calibrated model probability. Confidence {{ state.confidence_label|lower }} · status {{ state.status_label }}.
+
+## How to read this note
+
+Every indicator is read through four lenses. **Level** is where it stands. **Marginal change** is which way it is moving now, which cumulative series can hide. **Breadth** is whether the move is shared across sectors and demand channels. **Mechanism** is what drives it: supply, imported costs, policy or demand. Confusing them is how a price rebound gets mistaken for a demand recovery.
+
+## 1. The question and how we measure it
+
+*Is China forming a sustainable turning point in nominal growth?* We measure the turn through the implied GDP deflator, which is nominal GDP growth relative to real GDP growth. Monthly price, demand, credit, property, external and market series serve as leading or confirming evidence. "Sustainable" is defined in advance: the deflator must be non-negative in both 2026Q4 and 2027Q1, **and** at least three of six domestic-demand tests must pass at the 2027Q1 release. The thesis is therefore falsifiable on two separate legs: price and demand.
+
+## 2. Prices: the level has turned (H1)
+
+{{ c("C-H1-01") }} {{ c("C-H1-03") }}
+
+Level and momentum tell different stories. Month-on-month PPI momentum stalled over the summer. {{ c("C-H1-02") }} Cumulative series flatter the picture in the same way. {{ c("C-H1-06") }} {{ c("I-06") }} The September survey suggests factory-gate momentum is picking up again. {{ c("C-H1-05") }} The official PPI print on the first release after the baseline is the test. {{ c("C-H1-04") }}
+
+## 3. Supply or demand? (H0 versus H2)
+
+This is the central question. H0 is the leading competing explanation: the rebound is driven by supply-side discipline and imported commodity costs. The data are consistent with it, but they do not prove the mechanism.
+
+**Mechanism (H0).** {{ c("C-H0-04") }} {{ c("C-H0-01") }} {{ c("C-H0-02") }} {{ c("C-H0-03") }}
+
+**Level and breadth (H2).** {{ c("C-H2-01") }} {{ c("C-H2-07") }} {{ c("I-07") }} {{ c("C-H2-02") }} {{ c("C-H2-03") }} {{ c("C-H2-04") }} {{ c("C-H2-05") }}
+
+**Forward-looking signals.** Orders send a mixed message. {{ c("C-H2-06") }}
+
+**Reading.** {{ c("I-01") }} {{ c("I-08") }}
+
+## 4. Policy and external demand (H3, H4)
+
+Policy has to be read in two layers. **Realized impulse**, measured in credit and fiscal data, remains weak. {{ c("C-H3-01") }} {{ c("C-H3-02") }} {{ c("I-03") }} The **forward stance** has become more supportive: a late-September State Council executive meeting called for stronger counter-cyclical adjustment and a batch of incremental measures, and at the end of September the NDRC reported that the full year's consumer trade-in funding had been allocated. These are announcements and allocations, not yet realized impulse, and they were not part of the information in the frozen baseline judgment. They are listed with their official sources and stage in the policy context on the Evidence page.
+
+{{ c("C-H4-01") }} {{ c("C-H4-02") }} {{ c("I-04") }}
+
+## 5. Global and market cross-check
+
+{{ c("C-H3-03") }} A stronger renminbi alongside higher US yields gives the PBOC some room. A stronger currency also dampens imported inflation, which matters if the price turn depends on imported costs. The China 10-year government bond yield is the market's own read of nominal growth. It has no redistributable public source and is therefore not part of this public build.
+
+## 6. Judgment
+
+{{ c("I-05") }} The demand leg is the weak link. At the baseline, fewer demand tests passed than confirmation requires, and those that passed did so on marginal changes from weak levels. We therefore put the analyst probability that the thesis is confirmed at **{{ state.probability_pct }}**, with **{{ state.confidence_label|lower }}** confidence. This is a judgment, not a model output. Confidence is low for three reasons: GDP history is a revised vintage rather than first prints, consensus forecasts are not available in the public build, and both oil and exports can swing sharply.
+
+## 7. What would change our mind
+
+| Release | What we will check | Moves |
+|---|---|---|
+| September CPI and PPI | PPI momentum, PPI versus six months ago, core CPI, consumer-goods PPI | H1, H2, H0 |
+| Third-quarter GDP and September activity | implied deflator for 2026Q3, retail sales | H1, H2 |
+| September credit data | household mortgage flow, M1, credit growth | H2, H3 |
+
+**Toward confirmation:** core CPI turning up, consumer-goods PPI turning positive (pass-through), net mortgage lending turning positive and, on policy, incremental measures showing up as faster government-bond financing and budget spending.
+
+**Toward falsification:** PPI momentum and demand failing together (the early falsification rule), or the deflator slipping back below zero once oil base effects fade.
+
+## 8. Research implications (conditional)
+
+These are conditional research implications of the macro scenarios, not recommendations and not forecasts of market levels. The system tests the macro scenarios against preregistered rules; it does not test the market implications, which follow from them.
+
+{{ scenario_matrix }}
+
+The scenarios are not mutually exclusive in time: a policy-supported stabilisation can precede either of the other two.
+
+## Limitations
+
+GDP and history are current revised vintages, not first prints. Release dates for history are recorded only where an official calendar confirms them; otherwise availability is taken as our retrieval time. Two diagnostics (government fund revenue, exports to the US) have no public route and are absent. The China 10-year yield has no redistributable public source and is not in this build; its licensed source (Wind) is used only in the researcher's local private research mode, and nothing derived from it is published. Policy events are curated by hand from official sources and are context only.

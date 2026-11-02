@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-11-02T09:38:41+00:00",
+  "commit": "6a66843a3e6865690169a17b65d959ad70e8df4b",
+  "mode": "public",
+  "checks": [
+    {
+      "id": "E0",
+      "name": "Data quality",
+      "status": "warn",
+      "details": [
+        "cn_cgb10y: not in public build (private_only); private mode only",
+        "cn_gov_fund_rev_ytd_yoy: no observations",
+        "cn_exports_us_ytd_yoy: 2 gap(s), e.g. ['2024-09', '2024-10']"
+      ]
+    },
+    {
+      "id": "E1",
+      "name": "Citation integrity",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "E2",
+      "name": "Derived calculation lineage",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "E3",
+      "name": "As-of leakage",
+      "status": "pass",
+      "details": []
+    },
+    {
+      "id": "E4",
+      "name": "Preregistration immutability",
+      "status": "warn",
+      "details": [
+        "2026-11-02T0938Z.json: not committed yet"
+      ]
+    },
+    {
+      "id": "E5",
+      "name": "Thesis update discipline",
+      "status": "pass",
+      "details": []
+    }
+  ],
+  "audit": {
+    "research/cases/cn-nominal/preregistered/2026-10-04-amendment-01-terminal-rules.yaml": {
+      "sha": "15421aafafd04452fce4213b47a92fe486b2a3d6",
+      "at": "2026-10-04T07:45:53Z"
+    },
+    "research/cases/cn-nominal/preregistered/2026-10-04-baseline.yaml": {
+      "sha": "bbd0b351d1281c42cbb5cda00ab0ba5a7437d02e",
+      "at": "2026-10-04T07:15:31Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-09T1036Z.json": {
+      "sha": "8e6b69d0d2072a4f2295b908386b2eacb38eaece",
+      "at": "2026-10-09T10:37:14Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-14T0701Z.json": {
+      "sha": "efeb22c61c0e73ad2be5bb6448e7c53e3bc2c681",
+      "at": "2026-10-14T07:04:30Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-14T1051Z.json": {
+      "sha": "1267a059af99e25e9ebca65f459f2ef9407404e2",
+      "at": "2026-10-14T10:52:15Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-19T0450Z.json": {
+      "sha": "7c2be681908d2cf745be2c3c3294b08209f582de",
+      "at": "2026-10-19T04:52:10Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-23T0254Z.json": {
+      "sha": "7ae81f4fa9c068e85a445c26df7dc7b8e69860a4",
+      "at": "2026-10-23T02:54:57Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-11-01T0923Z.json": {
+      "sha": "6a66843a3e6865690169a17b65d959ad70e8df4b",
+      "at": "2026-11-01T09:24:29Z"
+    }
+  }
+}
