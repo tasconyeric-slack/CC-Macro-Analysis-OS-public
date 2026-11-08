@@ -76,7 +76,10 @@ class ArticleLinks(HTMLParser):
         title = " ".join("".join(self.parts).split())
         pattern = r"/113469/(\d{14})\d*/index\.html" if self.kind == "pbc" else r"(?:/t|/)(\d{8})[_/]"
         match = re.search(pattern, url)
-        if title and match and urllib.parse.urlsplit(url).hostname == urllib.parse.urlsplit(self.base).hostname:
+        host = urllib.parse.urlsplit(url).hostname
+        base_host = urllib.parse.urlsplit(self.base).hostname
+        same_publisher = host == base_host or (base_host == "www.mof.gov.cn" and host == "gks.mof.gov.cn")
+        if title and match and same_publisher:
             stamp = match[1]
             try:
                 date = datetime.strptime(stamp, "%Y%m%d%H%M%S" if self.kind == "pbc" else "%Y%m%d")
@@ -104,11 +107,16 @@ def event_items(body: bytes, url: str, kind: str) -> list[dict]:
                 for i in root.findall("./channel/item")]
     if kind == "gov":
         payload = json.loads(body)
-        rows = payload.get("searchVO", {}).get("result")
+        search = payload.get("searchVO", {})
+        rows = search.get("result")
+        if not isinstance(rows, list) and isinstance(search.get("catMap"), dict):
+            rows = [item for category in search["catMap"].values()
+                    for item in category.get("listVO", [])]
         if not isinstance(rows, list):
-            raise ValueError("expected searchVO.result list")
+            raise ValueError("expected searchVO.result or catMap listVO")
         return [{"title": re.sub(r"<[^>]+>", "", str(i.get("title", ""))),
-                 "url": i.get("url"), "published": i.get("pubTime"),
+                 "url": i.get("url"), "published": i.get("pubtimeStr", i.get("pubTime")),
+                 "published_epoch_ms": i.get("pubtime"),
                  "publisher": i.get("puborg")}
                 for i in rows]
     text = body.decode("utf-8", errors="replace")
@@ -128,7 +136,7 @@ def probe(url: str, timeout: int = 30, kind: str | None = None, response_dir: st
         headers.update({"Referer": "https://sousuo.www.gov.cn/", "Accept": "application/json"})
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=timeout) as r:
-            body = r.read(4_000_001 if kind else 4096)
+            body = r.read(16_000_001 if kind else 4096)
             result = {"ok": True, "status": r.status, "bytes": len(body),
                       "seconds": round(time.time() - t0, 1)}
             if kind:
@@ -140,7 +148,7 @@ def probe(url: str, timeout: int = 30, kind: str | None = None, response_dir: st
                     target.write_bytes(body)
                     result["response_file"] = target.as_posix()
                 try:
-                    if len(body) > 4_000_000:
+                    if len(body) > 16_000_000:
                         raise ValueError("response exceeds probe limit")
                     items = event_items(body, r.url, kind)
                     result.update({"item_count": len(items), "samples": items[:3], "content_ok": bool(items)})
