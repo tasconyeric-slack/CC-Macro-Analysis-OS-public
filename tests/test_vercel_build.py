@@ -192,6 +192,9 @@ def test_vercel_production_build_keeps_the_true_audit_trail(tmp_path, platform_p
         assert shown == audit[PREREG + name]["sha"][:7]
         if graft:
             assert shown != graft[:7]   # never the clone's tip
-        if git("rev-parse", "--is-shallow-repository", cwd=ROOT) == "false":
+        origin = json.loads((ROOT / "research/cases/cn-nominal/origin_history.json").read_text(encoding="utf-8"))["files"]
+        if PREREG + name in origin:   # carried over from the origin repository: its first commit, not this repo's snapshot
+            assert shown == origin[PREREG + name]["sha"][:7]
+        elif git("rev-parse", "--is-shallow-repository", cwd=ROOT) == "false":
             added = git("log", "--diff-filter=A", "--format=%H", "--", PREREG + name, cwd=ROOT).splitlines()[-1]
             assert shown == added[:7]

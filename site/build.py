@@ -82,6 +82,9 @@ def first_commit(path: Path, audit: dict) -> dict:
         rel = path.resolve().relative_to(ROOT).as_posix()   # the audit manifest's keys are git paths
     except ValueError:
         return {"sha": None, "short": None, "at": None}
+    a = audit.get(rel)
+    if a and a.get("origin"):            # first committed in the origin repository (origin_history.json)
+        return {"sha": a["sha"], "short": a["sha"][:7], "at": a["at"]}
     # in a shallow clone git log would name the graft commit, so only the manifest is trusted there
     out = "" if git("rev-parse", "--is-shallow-repository") == "true" else git("log", "--diff-filter=A", "--format=%H|%cI", "--", rel)
     if out:
@@ -195,6 +198,10 @@ def build_model(cfg) -> dict:
     eval_path = case_dir / "eval/latest.json"
     eval_report = json.loads(eval_path.read_text(encoding="utf-8")) if eval_path.exists() else None
     audit = (eval_report or {}).get("audit", {})
+    # files carried over from the origin repository: their first commit is the origin's, not this repo's snapshot
+    origin_path = case_dir / "origin_history.json"
+    origin = json.loads(origin_path.read_text(encoding="utf-8")).get("files", {}) if origin_path.exists() else {}
+    audit = {**audit, **{k: {"sha": v["sha"], "at": v["at"], "origin": True} for k, v in origin.items()}}
 
     case = yaml.safe_load((case_dir / "case.yaml").read_text(encoding="utf-8"))
     baseline, amendments, updates, refreshes, state, history = None, [], [], [], None, []
