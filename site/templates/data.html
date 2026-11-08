@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block body %}
+<h1>{{ t('portal.data_group') }}</h1><p class="lede">{{ t('portal.data_note') }}</p>
+<div class="column-grid">{% for c in portal.categories %}{{ mx.column_card(c.url, c.title, c.description, c.kicker, '%02d'|format(loop.index), t('portal.data_frequency'), [t('portal.metrics', n=c.metric_count)]) }}{% endfor %}</div>
+{% endblock %}

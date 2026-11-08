@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block body %}
+<h1>{{ t('portal.policy_title') }}</h1><p class="lede">{{ t('portal.policy_description') }}</p><p>{{ t('portal.shell_policy') }}</p>
+{% for e in policy.events %}<article class="card policy-shell">{{ mx.tier_badge('EVENT') }}<h2>{{ e.title }}</h2><p>{{ e.date }} · {{ e.institution }}</p><p>{{ e.measure }}</p>{{ mx.source_line(e.publisher, released=e.published, url=e.url) }}<p><a href="evidence.html#{{ e.id }}">{{ t('portal.evidence_title') }}</a></p></article>{% endfor %}
+{% endblock %}
