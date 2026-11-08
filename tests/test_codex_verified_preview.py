@@ -44,3 +44,4 @@ def test_signed_checkpoint_receives_fresh_checks():
     checks = CHECKS.read_text(encoding="utf-8")
     assert 'workflow_id: "checks.yml"' in workflow
     assert "workflow_dispatch:" in checks
+    assert "actions: write" in workflow
