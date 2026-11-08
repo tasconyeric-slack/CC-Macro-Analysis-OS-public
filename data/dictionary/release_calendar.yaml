@@ -43,43 +43,43 @@ releases:
     release: "2026-11-09T09:30:00+08:00"
     metrics: [cn_cpi_yoy, cn_core_cpi_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-10 PPI (工业生产者价格指数月度报告)"
     period: "2026-10"
     release: "2026-11-09T09:30:00+08:00"
     metrics: [cn_ppi_yoy, cn_ppi_mom, cn_ppi_producer_yoy, cn_ppi_consumer_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-10 property development and sales (房地产开发和销售情况月度报告)"
     period: "2026-10"
     release: "2026-11-16T10:00:00+08:00"
     metrics: [cn_property_sales_area_ytd_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-10 retail sales (社会消费品零售总额月度报告)"
     period: "2026-10"
     release: "2026-11-16T10:00:00+08:00"
     metrics: [cn_retail_sales_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-10 industrial production (规模以上工业生产月度报告)"
     period: "2026-10"
     release: "2026-11-16T10:00:00+08:00"
     metrics: [cn_ip_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-10 industrial profits (工业经济效益月度报告)"
     period: "2026-10"
     release: "2026-11-27T09:30:00+08:00"
     metrics: [cn_ind_profit_ytd_yoy]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-11 PMI (采购经理指数月度报告)"
     period: "2026-11"
     release: "2026-11-30T09:30:00+08:00"
     metrics: [cn_pmi_output_price, cn_pmi_new_orders, cn_pmi_new_export_orders]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
-    verified_on: "2026-10-04"
+    verified_on: "2026-11-08"
   - name: "2026-11 CPI (居民消费价格指数月度报告)"
     period: "2026-11"
     release: "2026-12-09T09:30:00+08:00"
