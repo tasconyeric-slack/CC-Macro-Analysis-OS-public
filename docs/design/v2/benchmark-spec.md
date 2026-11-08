@@ -29,6 +29,8 @@ Captured 2026-11-08 with Playwright Chromium (desktop 1440×900; mobile 390×844
 
 The `portal-comparison-desktop.png` and `portal-comparison-mobile.png` pairs put the Guojin capture beside the portal. Guojin has no mobile menu button; CMM uses in-page tabs and had horizontal overflow at this viewport. REA bundle analysis retained one captured CMM source as unavailable, so its endpoint inventory is explicitly incomplete; the HAR's observed Chart.js/SheetJS/ExcelJS resources are the usable vendor evidence. Do not infer absent routes from the zero static candidates.
 
+Only trimmed HAR summaries are retained. REA summary exports omit generated script/resource identity fields; their historical `script_key`/`resource_key` values are prefix plus SHA256, independently verified as content identities, not credentials. Six exact historical Gitleaks fingerprints are documented in `.gitleaksignore`; the general history scan remains enabled.
+
 ## Shared implementation contract
 
 `site/portal.py` defines the seven category IDs and returns localized `portal.categories` with title, kicker, description, actual public metric count, latest release and destination. `build_model` exposes public point-in-time `observations` and `release_calendar` for the downstream Daily/Data modules. `base.html` provides `head` and `scripts` extension blocks. `_macros.html` provides section_header, column_card, kpi_tile, source_line, tier_badge, empty_state and chart_frame. All original research URLs and fragments remain intact.

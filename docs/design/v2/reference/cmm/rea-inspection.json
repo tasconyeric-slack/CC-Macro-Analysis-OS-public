@@ -148,7 +148,6 @@
       "total": 1,
       "items": [
         {
-          "script_key": "scr_bf6f951bcd57d9d025048d0d9e6ab4601b81494983e9ed6123b1fecbaf9691ef",
           "frame_id": "25E7A800FA9398BE060841F3D8B23E22",
           "url": "https://chinamacromonitor.com/",
           "origin": "https://chinamacromonitor.com",
@@ -170,7 +169,6 @@
     },
     "resources": [
       {
-        "resource_key": "res_33a12643d32fb7b22990b642e65e36ec451b8d4547b0195fc47993e3c123bdeb",
         "url": "https://chinamacromonitor.com/static/research/china_macro_aug2026_cover.png",
         "origin": "https://chinamacromonitor.com",
         "type": "Image",

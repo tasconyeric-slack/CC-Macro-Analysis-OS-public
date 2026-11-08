@@ -21,6 +21,13 @@ const path = require('node:path');
       console.log(JSON.stringify({name,url:page.url(),title:await page.title()}));
     } catch(e) {fs.writeFileSync(path.join(dir,'capture-error.txt'),String(e)); console.log(name+' '+e.message);}
     await context.close();
+    // Commit request metadata only. Raw HAR headers/cookies are unnecessary for visual QA.
+    const capturePath=path.join(dir,'capture.har');
+    if(fs.existsSync(capturePath)) {
+      const har=JSON.parse(fs.readFileSync(capturePath,'utf8'));
+      fs.writeFileSync(path.join(dir,'har-summary.json'),JSON.stringify({requests:har.log.entries.map(e=>({url:e.request.url,status:e.response.status,mime:e.response.content.mimeType,latency_ms:e.time,body_size:e.response.bodySize})),note:'Headers, cookies and bodies omitted.'},null,2));
+      fs.unlinkSync(capturePath);
+    }
   }
   const context=await browser.newContext({viewport:{width:1440,height:900}});
   for(const url of ['https://sunyongle.cn/','https://chinamacromonitor.com/']){const p=await context.newPage(); await p.goto(url,{waitUntil:'domcontentloaded',timeout:60000}).catch(()=>{});}
