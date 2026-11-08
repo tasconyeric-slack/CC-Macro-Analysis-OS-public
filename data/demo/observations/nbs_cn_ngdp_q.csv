@@ -59,3 +59,4 @@ cn_ngdp_q,2025Q3,354106.2,2025-10-20,official_calendar,2026-10-04T05:22:02+00:00
 cn_ngdp_q,2025Q4,387911.3,2026-01-19,official_calendar,2026-10-04T05:22:02+00:00,NBS,nbs:28d936104e304aa191e338eb82b6dc09/d22612f09aeb4241bc557ef0ac61b3ba,public,,ok,
 cn_ngdp_q,2026Q1,334192.9,2026-04-16,official_calendar,2026-10-04T05:22:02+00:00,NBS,nbs:28d936104e304aa191e338eb82b6dc09/d22612f09aeb4241bc557ef0ac61b3ba,public,,ok,
 cn_ngdp_q,2026Q2,361511.1,2026-07-15,official_calendar,2026-10-04T05:22:02+00:00,NBS,nbs:28d936104e304aa191e338eb82b6dc09/d22612f09aeb4241bc557ef0ac61b3ba,public,,ok,
+cn_ngdp_q,2026Q3,375367.2,,unknown,2026-11-08T17:44:51+00:00,NBS,nbs:28d936104e304aa191e338eb82b6dc09/d22612f09aeb4241bc557ef0ac61b3ba,public,,revised,"revised value seen at retrieval (earlier vintage 375367.0 kept); revision date unknown, availability taken as retrieval time"
