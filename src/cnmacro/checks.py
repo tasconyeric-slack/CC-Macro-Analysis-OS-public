@@ -4,7 +4,8 @@
     E1 citation integrity  every claim value matches the data as of the claim date
     E2 derived lineage     every derived value recomputes from existing observations
     E3 as-of leakage       nothing cited was unavailable at the artifact's as-of time
-    E4 preregistration     baseline and updates are append-only in git history; so is every route history
+    E4 preregistration     baseline and updates are append-only in git history (or in the origin
+                           repository's, via origin_history.json); so is every route history
     E5 thesis discipline   probability grid, explained changes, terminal rules only
 
 An LLM rubric on research method may be added as a secondary signal; it never
@@ -228,7 +229,41 @@ def git_history(path: Path) -> list[str]:
     return commits
 
 
-def commit_time(sha: str) -> pd.Timestamp | None:
+ORIGIN_HISTORY = "origin_history.json"
+
+
+def origin_history(case_dir: Path) -> dict:
+    """The origin-history anchor (scripts/origin_history.py): first commits, in the private origin repository, of the
+    research files this repository's one-commit snapshot carried over. Empty when the case has no anchor."""
+    import json
+    f = case_dir / ORIGIN_HISTORY
+    if not f.exists():
+        return {}
+    return json.loads(f.read_text(encoding="utf-8"))
+
+
+def _git_path(f: Path) -> str:
+    try:
+        return subprocess.check_output(["git", "ls-files", "--full-name", "--", str(f)], text=True,
+                                       stderr=subprocess.DEVNULL).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return ""
+
+
+def _blob(f: Path) -> str:
+    try:
+        return subprocess.check_output(["git", "hash-object", "--", str(f)], text=True, stderr=subprocess.DEVNULL).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return ""
+
+
+def commit_time(sha: str, anchor: dict | None = None) -> pd.Timestamp | None:
+    """Commit time of `sha`, from this repository's history, else from the origin-history anchor."""
+    at = (anchor or {}).get("commits", {}).get(sha)
+    if at is None and anchor and sha:
+        at = next((v for k, v in anchor.get("commits", {}).items() if k.startswith(sha)), None)
+    if at is not None:
+        return pd.Timestamp(at).tz_convert("UTC").tz_localize(None)
     try:
         out = subprocess.check_output(["git", "show", "-s", "--format=%cI", sha], text=True,
                                       stderr=subprocess.DEVNULL).strip()
@@ -365,38 +400,60 @@ def route_history_integrity(c: "Check", dictionary: Path) -> None:
 
 def preregistration(case_dir: Path) -> Check:
     """Baseline, amendments, updates and refresh records are append-only; amendments must be
-    committed after the baseline and before the first release they could have been informed by."""
+    committed after the baseline and before the first release they could have been informed by.
+
+    A file carried over from the origin repository (listed in the origin-history anchor) is immutable when its
+    content still equals the blob the origin committed, and its first commit is the origin's."""
     from .store import utc_naive
     c = Check("E4", "Preregistration immutability")
+    anchor = origin_history(case_dir)
+    anchored = anchor.get("files", {})
     files = (sorted((case_dir / "preregistered").glob("*.yaml")) + sorted((case_dir / "updates").glob("*.yaml"))
              + sorted((case_dir / "refreshes").glob("*.json")))
+    if anchor:
+        files.append(case_dir / ORIGIN_HISTORY)         # the anchor itself is append-only
     if not files:
         c.warn("no preregistered baseline yet")
+    first_at: dict[Path, pd.Timestamp | None] = {}
     for f in files:
-        commits = git_history(f)
+        origin = anchored.get(_git_path(f))
+        if origin:
+            if _blob(f) != origin.get("blob"):
+                c.fail(f"{f.name}: differs from the content first committed in {anchor.get('origin_repo')} "
+                       f"({origin['sha'][:7]})")
+            if origin.get("origin_commits", 1) != 1:
+                c.fail(f"{f.name}: modified in the origin repository ({origin['origin_commits']} commits)")
+            first_at[f] = pd.Timestamp(origin["at"]).tz_convert("UTC").tz_localize(None)
+        commits = git_history(f)          # anchored or not, this repo's own history must stay append-only too
         dirty = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", str(f)]).returncode != 0
+        if origin:
+            if len(commits) > 1:
+                c.fail(f"{f.name}: modified in this repository after the snapshot ({len(commits)} commits)")
+            if commits and dirty:
+                c.fail(f"{f.name}: uncommitted edits to an immutable file")
+            continue
         if not commits:
             c.warn(f"{f.name}: not committed yet")
         elif len(commits) > 1:
             c.fail(f"{f.name}: modified after first commit ({len(commits)} commits)")
         if commits and dirty:
             c.fail(f"{f.name}: uncommitted edits to an immutable file")
+        first_at[f] = commit_time(commits[-1]) if commits else None
     import yaml
     for f in sorted((case_dir / "preregistered").glob("*-amendment-*.yaml")):
         a = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
-        commits = git_history(f)
-        if not commits:
+        t = first_at.get(f)
+        if t is None:
             continue
-        t = commit_time(commits[-1])
-        base_commit = commit_time(a.get("baseline_commit", "")) if a.get("baseline_commit") else None
+        base_commit = commit_time(a.get("baseline_commit", ""), anchor) if a.get("baseline_commit") else None
         deadline = (a.get("effective_before") or {}).get("at")
         if base_commit is None:
             c.fail(f"{f.name}: baseline_commit {a.get('baseline_commit')} not found in history")
-        elif t is not None and t < base_commit:
+        elif t < base_commit:
             c.fail(f"{f.name}: committed before the baseline it amends")
         if not deadline:
             c.fail(f"{f.name}: no effective_before release")
-        elif t is not None and t >= utc_naive(deadline):
+        elif t >= utc_naive(deadline):
             c.fail(f"{f.name}: committed at {t} UTC, after the release it must precede ({deadline})")
     return c
 
@@ -430,7 +487,12 @@ def audit_manifest(case_dir: Path) -> dict:
         return out
     files = (sorted((case_dir / "preregistered").glob("*.yaml")) + sorted((case_dir / "updates").glob("*.yaml"))
              + sorted((case_dir / "refreshes").glob("*.json")))
+    anchored = origin_history(case_dir).get("files", {})
     for f in files:
+        rel = _git_path(f)
+        if rel in anchored:                              # first committed in the origin repository
+            out[rel] = {"sha": anchored[rel]["sha"], "at": anchored[rel]["at"]}
+            continue
         try:
             log = subprocess.check_output(["git", "log", "--diff-filter=A", "--format=%H|%cI", "--", str(f)],
                                           text=True, stderr=subprocess.DEVNULL).strip()

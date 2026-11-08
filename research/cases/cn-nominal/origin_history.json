@@ -1,0 +1,73 @@
+{
+  "origin_repo": "tasconyeric-slack/CC-Macro-Analysis-OS",
+  "origin_commit": "0d86522dd0cb2eb41faccaf4dce8f4ac4d634cdc",
+  "origin_commit_at": "2026-11-02T09:38:51+00:00",
+  "note": "First commits of research files carried over from the origin repository's full history. Written once by scripts/origin_history.py; never edited.",
+  "files": {
+    "research/cases/cn-nominal/preregistered/2026-10-04-amendment-01-terminal-rules.yaml": {
+      "sha": "15421aafafd04452fce4213b47a92fe486b2a3d6",
+      "at": "2026-10-04T07:45:53+00:00",
+      "blob": "198bc17b1a62201bd8641a2def12f23e69d44360",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/preregistered/2026-10-04-baseline.yaml": {
+      "sha": "bbd0b351d1281c42cbb5cda00ab0ba5a7437d02e",
+      "at": "2026-10-04T07:15:31+00:00",
+      "blob": "4222db33c67285f3693f446178c7ea6543d366ec",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-09T1036Z.json": {
+      "sha": "8e6b69d0d2072a4f2295b908386b2eacb38eaece",
+      "at": "2026-10-09T10:37:14+00:00",
+      "blob": "060bd241ff689748d0350a08bfc406db19dc8183",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-14T0701Z.json": {
+      "sha": "efeb22c61c0e73ad2be5bb6448e7c53e3bc2c681",
+      "at": "2026-10-14T07:04:30+00:00",
+      "blob": "4427a31f309b1a5337ea4a5ce73bdae5b404c7ef",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-14T1051Z.json": {
+      "sha": "1267a059af99e25e9ebca65f459f2ef9407404e2",
+      "at": "2026-10-14T10:52:15+00:00",
+      "blob": "181976462c3ba64c9b591265a47070779aa89d27",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-19T0450Z.json": {
+      "sha": "7c2be681908d2cf745be2c3c3294b08209f582de",
+      "at": "2026-10-19T04:52:10+00:00",
+      "blob": "0393bbd7def7efa5df6fc0597dfecfed3f0ada2c",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-10-23T0254Z.json": {
+      "sha": "7ae81f4fa9c068e85a445c26df7dc7b8e69860a4",
+      "at": "2026-10-23T02:54:57+00:00",
+      "blob": "5d6bafdab17f1efad69d8a05154d076d99bd756c",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-11-01T0923Z.json": {
+      "sha": "6a66843a3e6865690169a17b65d959ad70e8df4b",
+      "at": "2026-11-01T09:24:29+00:00",
+      "blob": "7bbf6238e76937c37f126308cbe963ec1d68773b",
+      "origin_commits": 1
+    },
+    "research/cases/cn-nominal/refreshes/2026-11-02T0938Z.json": {
+      "sha": "0d86522dd0cb2eb41faccaf4dce8f4ac4d634cdc",
+      "at": "2026-11-02T09:38:51+00:00",
+      "blob": "3d1093e94f80b43f38830c03a712bdde00a13c67",
+      "origin_commits": 1
+    }
+  },
+  "commits": {
+    "bbd0b351d1281c42cbb5cda00ab0ba5a7437d02e": "2026-10-04T07:15:31+00:00",
+    "15421aafafd04452fce4213b47a92fe486b2a3d6": "2026-10-04T07:45:53+00:00",
+    "8e6b69d0d2072a4f2295b908386b2eacb38eaece": "2026-10-09T10:37:14+00:00",
+    "efeb22c61c0e73ad2be5bb6448e7c53e3bc2c681": "2026-10-14T07:04:30+00:00",
+    "1267a059af99e25e9ebca65f459f2ef9407404e2": "2026-10-14T10:52:15+00:00",
+    "7c2be681908d2cf745be2c3c3294b08209f582de": "2026-10-19T04:52:10+00:00",
+    "7ae81f4fa9c068e85a445c26df7dc7b8e69860a4": "2026-10-23T02:54:57+00:00",
+    "6a66843a3e6865690169a17b65d959ad70e8df4b": "2026-11-01T09:24:29+00:00",
+    "0d86522dd0cb2eb41faccaf4dce8f4ac4d634cdc": "2026-11-02T09:38:51+00:00"
+  }
+}
