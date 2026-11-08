@@ -15,15 +15,17 @@
 
 | 项 | 当前值 |
 |---|---|
-| 当前 Phase | **Phase A — Release Copilot v0 + Shadow Live** |
-| 下一个硬日期 | **2026-10-14 09:30 北京时间：9 月 CPI/PPI（Live #1）** |
-| 之后的硬日期 | 2026-10-19 10:00：2026Q3 GDP + 9 月经济活动（Live #2）；10 月底：10 月 PMI（Live #3，以 NBS 日历为准） |
-| 下一个 Gate | G-A（见 §14） |
-| 唯一 P0 | 每次 release 后 48 小时内发布 analyst update，Copilot 是否就绪都不影响这一条 |
-| 冻结事项 | 见 §15 |
+| 当前 Phase | **V2 Product Build — Public News & Official Data**（Owner 于 2026-11-08 授权，与 Phase B/C 真实发布与研究更新节奏并行） |
+| 硬日期 | **2026-11-09 09:30 北京时间：2026 年 10 月 CPI/PPI**；后续关注 11-16 经济活动、11-27 工业利润、11-30 PMI（确切发布日期须对照 NBS 官方日历与 `release_calendar.yaml` 核实） |
+| 当前产品目标 | 以官方宏观数据、公开新闻与政策文件为基础，交付双语门户、Daily Macro Desk、七类数据与图表、政策事件收集/去重/变化比较、Evidence→Hypothesis→What Changed 的可追溯研究链路 |
+| 唯一 P0 | 新数据 `refresh.yml` 持续成功；经验证签名的最新合格 `main` 提交可部署到正式站；每次重大 release 后 48 小时内的 analyst update 必须由分析师审阅签署，不能由自动刷新或 AI 冒充 |
+| 本阶段授权 | 执行 Epic #8 与 #1 中的 **#2–#7、#9、#10、#12、#13**；#3 只做限时信源研究。允许新公开信源：NBS 最新发布 RSS、PBOC 新闻发布列表、gov.cn 政策文件库；保留现有官方/公开数据源。允许新增 NBS 制造业 PMI 主指数（现有 NBS 路由）；开发工具 Playwright、REA。既有 Python/Jinja2 静态站、GitHub Actions、静态 JSON 架构不变 |
+| 明确暂缓 | **#11 FinLens/Consensus Radar 与券商研报数据库全部 DEFERRED**。本轮不领取 `FINLENS_TOKEN`、不接入 FinLens API、不同步研报或机构观点/预测、不创建 `radar.yml`，不在导航、验收、图表里承诺 Radar 或 consensus；后续只有 Owner 新授权且有合法真实数据源才恢复 |
+| 仍然冻结 | 不改预注册、amendment、既有 update/refresh 历史与 `mechanical_delta`；AI 不设概率；Wind/授权私有数据不进公开站；不新增服务器、数据库、向量库或复杂 Agent 框架；不伪造新闻、历史事件、数据、预测或 analyst judgment |
+| §20.8 窗口 | release 前 **2 小时**至后 **6 小时**不合并 site/pipeline PR；其余时间 V2 PR 可按依赖、CI 与真实风险检查持续推进。live refresh 与 analyst update 优先 |
+| §13.1 域名 | 唯一对外 canonical 域名 **https://ccmacro.byliyz.com/**，与 `site/site.yaml` 一致 |
 
 ---
-
 ## 1. 一页纸 Charter
 
 **North Star：** CC Macro 把可信的宏观事实转化为有纪律的研究更新。确定性软件回答“发生了什么”，AI 研究“这意味着什么”，分析师决定“应该相信什么”。
@@ -403,7 +405,7 @@ H0–H4 是在 2026 年 10 月设计的，设计时已经看到了 2026 年的�
 
 ### 13.1 硬约束
 
-- **唯一对外域名为 `ccmacrors.vercel.app`。** canonical、og:url、og:image 全部指向vercel。
+- **唯一对外域名为 `ccmacro.byliyz.com`。** canonical、og:url、og:image 全部指向该生产域名（与 `site/site.yaml` 一致）。
 - 公开站点必须**始终处于可演示状态**，main 分支不能出现坏的首屏。
 
 ### 13.2 首页结构（服务三分钟读者）
@@ -594,7 +596,7 @@ H0–H4 是在 2026 年 10 月设计的，设计时已经看到了 2026 年的�
 5. **AI 功能 PR 必须附带：** Run Record 样例、hard gates 结果、至少一个失败案例，以及对相关指标的影响（哪怕只是“尚无数据”）。
 6. **不得破坏可演示性。** main 分支的公开首屏必须始终可用。
 7. **不得越权。** 不得修改本文件、预注册文件或 `mechanical_delta` 逻辑；不得引入新的数据源、provider 或依赖，除非 Owner 在 Current Focus 中写明。
-8. **硬日期优先。** §0 列出的 release 日期前后 48 小时内，只允许做服务于该次 live run 的工作。
+8. **硬日期优先。** §0 列出的 release 前 2 小时至后 6 小时内，不合并任何 site/pipeline PR；live refresh、analyst update 的优先级不变；其他时间允许按 §0 范围持续推进 V2，不得干扰重要发布。
 9. **完成的定义。** 完成意味着在公开站点或评测表上可见，而不是“测试通过”。
 
 ---
