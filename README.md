@@ -162,3 +162,7 @@ State of the build on `main`, as of 2026-10-07. The research question and the pr
 **What comes next.** [`docs/PRODUCT_STRATEGY.md`](docs/PRODUCT_STRATEGY.md) (v2.0) is the roadmap authority. Its current focus is Phase A: a Release Copilot v0 (Draft and Challenge passes with a Run Record) run in shadow on the next live release, tracked in [Issue #11](https://github.com/tasconyeric-slack/CC-Macro-Analysis-OS/issues/11). The shadow-only Copilot is implemented (see the status table) but has not run against a live model. The strategy keeps the analyst update on time whether or not any AI is ready, and holds provider and infrastructure expansion until its Gate G-C.
 
 The first live validation event is **September 2026 CPI and PPI on 2026-10-14 at 09:30 Beijing time**: the refresh job will pick it up and append a data record, and the analyst then appends the first post-baseline update. Until then, "no update since the baseline" is the correct state. The thesis stays open until the 2027Q1 GDP release. Known data limitations are listed on the Method page and in [`docs/brief/project-brief-v0.3.md`](docs/brief/project-brief-v0.3.md).
+
+## Codex contributions and Vercel previews
+
+For same-repository `codex/*` pull requests, [the verified-preview workflow](docs/ops/codex-verified-previews.md) publishes an identical-tree GitHub-signed checkpoint so Vercel can deploy a preview without disabling verified-commit enforcement. Local Codex can alternatively use native SSH commit signing; cloud commits are not retroactively signed.
