@@ -18,7 +18,10 @@ a11y:
   nav: 主导航
 
 nav:
-  index: 概览
+  index: 首页
+  daily: 每日宏观
+  data: 数据研究
+  policy: 政策追踪
   memo: 深度分析
   evidence: 命题与证据
   updates: 发布更新
@@ -26,6 +29,15 @@ nav:
   method: 方法与评估
 
 page:
+  daily:
+    title: 每日宏观
+    description: "官方数据发布与研究更新，明确区分事实、事件和分析师判断。"
+  data:
+    title: 数据研究
+    description: "七类真实公开宏观数据、图表与可追溯的官方来源。"
+  policy:
+    title: 政策追踪
+    description: "官方政策文本、事件进展与中国名义增长假设的联系。"
   index:
     title: 概览
     description: "中国名义增长是否正在形成可持续拐点？预先登记、可证伪的宏观判断，附可追溯的证据，并随官方数据发布实时更新。"
@@ -499,3 +511,90 @@ eval:
     unclear: 授权状况不明
     private_only: 授权数据
     public: 公开
+
+# V2 public-source portal
+portal:
+  menu: 菜单
+  column: 专栏
+  open_column: 进入专栏
+  released: 发布
+  retrieved: 采集
+  metrics: '{n}条公开序列'
+  last_release: 最近发布：{date}
+  no_release: 暂无可确认的发布日期
+  changed: 最近发生了什么
+  changed_note: 新事实自动刷新，研究判断由分析师审阅后更新。
+  refresh: 最近一次官方数据刷新
+  refresh_counts: 新增{observations}条观测，{flips}项检验变化
+  no_refresh: 尚无自动刷新记录
+  review_pending: 基线之后尚无分析师更新
+  review_note: 当前判断仍来自预先登记的分析师基线。数据刷新不代表新的研究决策。
+  review_update: 最近一次分析师更新
+  next: 下一次官方发布
+  view_history: 查看发布记录
+  daily_group: 每日与日历
+  daily_note: 跟踪下一次发布，核对新数据带来的变化。
+  daily_title: 每日宏观
+  daily_description: 官方发布、真实读数与研究判断，集中阅读。
+  daily_kicker: DAILY MACRO DESK
+  calendar_title: 数据发布日历
+  calendar_description: 经官方核实的发布时间，以及可能受到影响的证据。
+  calendar_kicker: RELEASE CALENDAR
+  calendar_frequency: 按官方日程
+  data_group: 经济金融数据
+  data_note: 七类研究视角，只展示本项目实际持有的公开观测。
+  data_frequency: 随官方发布
+  policy_group: 政策与研究
+  policy_note: 从官方公告出发，追溯证据、假设与分析师判断。
+  policy_title: 政策追踪
+  policy_description: 官方文本、传导路径，以及下一条确认性观察。
+  policy_kicker: POLICY TRACKER
+  research_title: 研究报告与命题
+  research_description: 当前判断、竞争性解释与最强反方论证。
+  research_kicker: RESEARCH THESIS
+  evidence_title: 证据与方法
+  evidence_description: 绑定来源的事实、确定性检验与研究局限。
+  evidence_kicker: EVIDENCE & METHOD
+  public_sources: 官方与开放来源
+  research_portal: 宏观数据研究门户
+  read_research: 阅读研究报告
+  browse_data: 浏览公开数据
+  shell_daily: 每日宏观正在接入发布记录。下方可查看已核实的日历与现有历史记录。
+  shell_policy: 官方来源采集与文本比较正在接入。当前可查看分析师已整理的政策背景。
+  no_data: 此类暂无公开观测
+  no_data_note: 本项目不会使用猜测值或授权私有数据补齐缺口。
+  tier:
+    FACT: 事实
+    EVENT: 事件
+    EXTERNAL_VIEW: 外部观点
+    JUDGMENT: 分析师判断
+    CANDIDATE: 待审候选
+  category:
+    growth:
+      title: 增长与活动
+      kicker: GROWTH & ACTIVITY
+      description: GDP、消费、生产与房地产。
+    prices:
+      title: 物价
+      kicker: PRICES & INFLATION
+      description: CPI、核心通胀与工业生产者价格。
+    pmi:
+      title: PMI与景气
+      kicker: PMI & SENTIMENT
+      description: 新订单、出口订单与出厂价格。
+    trade:
+      title: 外需
+      kicker: TRADE & DEMAND
+      description: 出口与来自海外的需求。
+    credit:
+      title: 金融与信用
+      kicker: MONEY & CREDIT
+      description: 货币、信用存量与融资条件。
+    fiscal:
+      title: 财政
+      kicker: FISCAL POLICY
+      description: 政府融资、财政支出与收入。
+    external:
+      title: 外部环境
+      kicker: GLOBAL ENVIRONMENT
+      description: 能源、金属、汇率与美债利率。

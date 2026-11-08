@@ -18,6 +18,9 @@ a11y:
   nav: Main navigation
 
 nav:
+  daily: Daily
+  data: Data
+  policy: Policy
   index: Overview
   memo: Deep Dive
   evidence: Thesis & Evidence
@@ -26,6 +29,15 @@ nav:
   method: Method & Eval
 
 page:
+  daily:
+    title: Daily Macro Desk
+    description: "Official releases and research updates, with facts, events and analyst judgment clearly separated."
+  data:
+    title: Data research
+    description: "Seven categories of real public macro data, charts and traceable official sources."
+  policy:
+    title: Policy tracker
+    description: "Official policy texts, event stages and links to the China nominal-growth hypotheses."
   index:
     title: Overview
     description: "Is China forming a sustainable turning point in nominal growth? A current macro view with a preregistered, falsifiable thesis, traceable evidence and live release updates."
@@ -499,3 +511,90 @@ eval:
     unclear: licence unclear
     private_only: licensed
     public: public
+
+# V2 public-source portal
+portal:
+  menu: Menu
+  column: Column
+  open_column: Open column
+  released: Released
+  retrieved: Retrieved
+  metrics: '{n} public series'
+  last_release: 'Latest release: {date}'
+  no_release: Release date unavailable
+  changed: What Changed Recently
+  changed_note: New facts are refreshed automatically. Research judgment changes only after analyst review.
+  refresh: Latest official data refresh
+  refresh_counts: '{observations} new observations · {flips} test changes'
+  no_refresh: No automatic refresh recorded yet
+  review_pending: No analyst update since baseline
+  review_note: The displayed view remains the preregistered analyst judgment. A data refresh is not a new research decision.
+  review_update: Latest analyst update
+  next: Next official release
+  view_history: View release history
+  daily_group: Daily and calendar
+  daily_note: Follow the next release, then inspect what actually changed.
+  daily_title: Daily Macro Desk
+  daily_description: Official releases, sourced facts and the research view in one place.
+  daily_kicker: DAILY MACRO DESK
+  calendar_title: Release calendar
+  calendar_description: Verified official release times and the evidence they could change.
+  calendar_kicker: RELEASE CALENDAR
+  calendar_frequency: By official schedule
+  data_group: Economic and financial data
+  data_note: Seven research lenses, using only the public observations held by this project.
+  data_frequency: Official releases
+  policy_group: Policy and research
+  policy_note: Trace an official announcement through evidence to the analyst view.
+  policy_title: Policy tracker
+  policy_description: Official texts, transmission channels and the next confirming observation.
+  policy_kicker: POLICY TRACKER
+  research_title: Research thesis
+  research_description: The current view, competing explanations and the strongest counter-case.
+  research_kicker: RESEARCH THESIS
+  evidence_title: Evidence and method
+  evidence_description: Source-bound claims, deterministic tests and the limits of this research.
+  evidence_kicker: EVIDENCE & METHOD
+  public_sources: Official and open sources
+  research_portal: Macro research portal
+  read_research: Read the research
+  browse_data: Explore public data
+  shell_daily: The Daily Desk is being connected to the release store. The verified calendar and existing history are available below.
+  shell_policy: Official-source intake and text comparison are being connected. Existing analyst-curated policy context remains available here.
+  no_data: No public observations in this category yet
+  no_data_note: This project does not fill gaps with estimates or licensed data.
+  tier:
+    FACT: FACT
+    EVENT: EVENT
+    EXTERNAL_VIEW: EXTERNAL VIEW
+    JUDGMENT: JUDGMENT
+    CANDIDATE: CANDIDATE
+  category:
+    growth:
+      title: Growth and activity
+      kicker: GROWTH & ACTIVITY
+      description: GDP, consumption, production and property.
+    prices:
+      title: Prices
+      kicker: PRICES & INFLATION
+      description: CPI, core inflation and producer prices.
+    pmi:
+      title: PMI and sentiment
+      kicker: PMI & SENTIMENT
+      description: Orders, export orders and output prices.
+    trade:
+      title: External demand
+      kicker: TRADE & DEMAND
+      description: Exports and demand beyond China.
+    credit:
+      title: Money and credit
+      kicker: MONEY & CREDIT
+      description: Money, credit stocks and financing conditions.
+    fiscal:
+      title: Fiscal policy
+      kicker: FISCAL POLICY
+      description: Government financing, spending and revenue.
+    external:
+      title: Global environment
+      kicker: GLOBAL ENVIRONMENT
+      description: Energy, metals, exchange rates and US yields.

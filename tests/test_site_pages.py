@@ -21,7 +21,7 @@ def pages(built):
     return {(loc, name): parse(built / loc / name) for loc in LOCALES for name in PAGES}
 
 
-def test_each_language_has_the_same_six_pages_plus_selector_and_legacy_redirects(built):
+def test_each_language_has_the_same_portal_pages_plus_selector_and_legacy_redirects(built):
     for loc in LOCALES:
         assert sorted(p.name for p in (built / loc).glob("*.html")) == PAGES
     root = sorted(p.name for p in built.glob("*.html"))

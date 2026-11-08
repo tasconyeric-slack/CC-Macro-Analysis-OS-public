@@ -55,7 +55,9 @@ def test_chinese_ui_is_chinese_and_english_ui_is_not():
     """No mixed-language UI: a zh string with no Chinese in it must be a deliberate proper noun or acronym."""
     allowed = {"EN", "CC Macro Analysis OS", "%"}
     mixed = [k for k, v in flat("zh").items()
-             if re.search(r"[A-Za-z]", str(v)) and not L.CJK.search(str(v)) and str(v) not in allowed]
+             if re.search(r"[A-Za-z]", str(v)) and not L.CJK.search(str(v)) and str(v) not in allowed
+             # Guojin column cards deliberately pair an English kicker with a Chinese title.
+             and not (k.startswith("portal.") and k.endswith("kicker"))]
     assert not mixed, f"zh.yaml strings with no Chinese (untranslated?): {mixed}"
     leaked = [k for k, v in flat("en").items() if L.CJK.search(str(v)) and k not in ("lang.name_zh",)]
     assert not leaked, f"en.yaml strings containing Chinese: {leaked}"
