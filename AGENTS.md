@@ -8,3 +8,4 @@
 - Do not edit `docs/PRODUCT_STRATEGY.md`; propose changes in the PR description.
 
 - Codex PRs that need Vercel Preview must use a same-repo `codex/<topic>` branch targeting `main`. `.github/workflows/codex-verified-preview.yml` appends a GitHub-signed identical-tree checkpoint when the PR head is unsigned. It never signs the original Git commit; local Codex should prefer native SSH commit signing where configured. Details: `docs/ops/codex-verified-previews.md`. Do not disable Vercel verified-commit enforcement or force-push to make previews work.
+- When updating an existing `codex/*` PR, sync with its latest remote head before pushing again (for example, `git fetch origin` then rebase on `origin/<branch>`). The signed checkpoint advances the remote branch; do not force-push or discard that checkpoint.
