@@ -2,7 +2,11 @@ name: checks
 
 on:
   push:
+  # GitHub-token-created signed checkpoints trigger synchronize events that GitHub
+  # marks action_required, without running jobs. Instead dispatch checks explicitly.
+  # Same-repo edits still run on push; fork PRs run when first opened/reopened.
   pull_request:
+    types: [opened, reopened, ready_for_review]
   workflow_dispatch:  # Re-run CI on GitHub-signed Codex checkpoint heads
 
 permissions:
