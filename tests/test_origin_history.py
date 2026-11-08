@@ -76,3 +76,18 @@ def test_the_committed_anchor_matches_this_checkout():
         assert _git(ROOT, "hash-object", rel) == v["blob"], rel
         assert v["origin_commits"] == 1
     assert anchor["files"]["research/cases/cn-nominal/preregistered/2026-10-04-baseline.yaml"]["sha"].startswith("bbd0b35")
+
+
+def test_an_anchored_file_changed_and_restored_here_still_fails(tmp_path, monkeypatch):
+    """Restoring the anchored content does not erase the edit: this repo's history is append-only too."""
+    case = _snapshot_repo(tmp_path)
+    base = case / "preregistered/2026-10-04-baseline.yaml"
+    original = base.read_text(encoding="utf-8")
+    base.write_text("probability: 0.5\n", encoding="utf-8")
+    _git(tmp_path, "commit", "-qam", "edit")
+    base.write_text(original, encoding="utf-8")
+    _git(tmp_path, "commit", "-qam", "restore")
+    monkeypatch.chdir(tmp_path)
+    c = checks.preregistration(Path("case"))
+    assert c.status == "fail"
+    assert any("modified in this repository after the snapshot" in m for m in c.details)

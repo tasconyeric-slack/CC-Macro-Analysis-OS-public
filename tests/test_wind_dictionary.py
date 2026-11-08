@@ -115,13 +115,19 @@ def test_the_wind_contract_holds_no_credential_and_no_observation():
 
 
 # ---------------------------------------------------------------- the documents say what the code does
-def test_the_capability_note_no_longer_asks_for_a_vendored_skill():
-    note = (ROOT / "docs/wind-capability-note.md").read_text(encoding="utf-8")
-    assert "Vendor and **pin** a copy" not in note and "Vendor a pinned copy of the skill" not in note
-    for must in ("Do not vendor or copy the skill", "WIND_RUNTIME_DRIFT", "CCMACRO_WIND_SKILL_DIR", "wind_runtime.yaml",
-                 "before** its first call and **again** before it publishes", "Active private diagnostics",
-                 "Mirror / cross-check", "Snapshot-only / experimental", "regardless of any historical reference period or release date"):
-        assert must in note, must
+def test_the_wind_skill_is_never_vendored_into_the_public_repository():
+    """The private Wind capability note stays in the private origin repository; the public repository must still
+    say the skill is never copied in, pin the runtime instead, and track no copy of the skill."""
+    import subprocess
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "the skill is never copied into this repository" in readme
+    assert (ROOT / "data/dictionary/wind_runtime.yaml").exists()
+    tracked = subprocess.check_output(["git", "ls-files"], cwd=ROOT, text=True).splitlines()
+    assert not [p for p in tracked if re.search(r"(^|/)wind[-_]?skill", p, re.I)], "a Wind skill copy is tracked"
+    note = ROOT / "docs/wind-capability-note.md"
+    if note.exists():   # where the private note is present (origin repo), it must not ask for a vendored copy
+        text = note.read_text(encoding="utf-8")
+        assert "Vendor and **pin** a copy" not in text and "Vendor a pinned copy of the skill" not in text
 
 
 def test_the_data_policy_describes_the_boundary_that_is_enforced():

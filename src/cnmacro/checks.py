@@ -424,9 +424,14 @@ def preregistration(case_dir: Path) -> Check:
             if origin.get("origin_commits", 1) != 1:
                 c.fail(f"{f.name}: modified in the origin repository ({origin['origin_commits']} commits)")
             first_at[f] = pd.Timestamp(origin["at"]).tz_convert("UTC").tz_localize(None)
-            continue
-        commits = git_history(f)
+        commits = git_history(f)          # anchored or not, this repo's own history must stay append-only too
         dirty = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", str(f)]).returncode != 0
+        if origin:
+            if len(commits) > 1:
+                c.fail(f"{f.name}: modified in this repository after the snapshot ({len(commits)} commits)")
+            if commits and dirty:
+                c.fail(f"{f.name}: uncommitted edits to an immutable file")
+            continue
         if not commits:
             c.warn(f"{f.name}: not committed yet")
         elif len(commits) > 1:

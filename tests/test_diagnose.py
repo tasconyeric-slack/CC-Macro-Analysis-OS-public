@@ -242,7 +242,8 @@ def test_private_outputs_are_gitignored_and_blocked():
     spec.loader.exec_module(cs)
     assert all(any(re.search(pat, p) for pat, _ in cs.FORBIDDEN_PATHS) for p in paths)
     tracked = subprocess.check_output(["git", "ls-files", "data/private", "research/private"], cwd=ROOT, text=True).split()
-    assert tracked == ["data/private/README.md", "research/private/README.md"]
+    # nothing but an optional README may be tracked in the private folders (the public snapshot ships none)
+    assert set(tracked) <= {"data/private/README.md", "research/private/README.md"}, tracked
 
 
 def test_the_tracked_contract_holds_definitions_not_values():
