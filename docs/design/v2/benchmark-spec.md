@@ -27,6 +27,8 @@ Captured 2026-11-08 with Playwright Chromium (desktop 1440×900; mobile 390×844
 
 `portal-desktop.png`, `portal-mobile.png`, `portal-mobile-menu.png` and `portal-en.png` show the implemented shell. At 1440 and 390px there is no horizontal overflow; the five primary targets resolve; mobile menu expansion works. The shared hero preserves the source-bound analyst text rather than copying promotional copy. Final combined page comparison and the program's one material correction pass belong to #13 after Daily/Data/Policy integration. Own captures are a review baseline, never a competitor pixel-match target.
 
+The `portal-comparison-desktop.png` and `portal-comparison-mobile.png` pairs put the Guojin capture beside the portal. Guojin has no mobile menu button; CMM uses in-page tabs and had horizontal overflow at this viewport. REA bundle analysis retained one captured CMM source as unavailable, so its endpoint inventory is explicitly incomplete; the HAR's observed Chart.js/SheetJS/ExcelJS resources are the usable vendor evidence. Do not infer absent routes from the zero static candidates.
+
 ## Shared implementation contract
 
 `site/portal.py` defines the seven category IDs and returns localized `portal.categories` with title, kicker, description, actual public metric count, latest release and destination. `build_model` exposes public point-in-time `observations` and `release_calendar` for the downstream Daily/Data modules. `base.html` provides `head` and `scripts` extension blocks. `_macros.html` provides section_header, column_card, kpi_tile, source_line, tier_badge, empty_state and chart_frame. All original research URLs and fragments remain intact.
