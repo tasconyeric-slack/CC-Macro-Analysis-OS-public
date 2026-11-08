@@ -67,7 +67,7 @@ class API:
             assert set(body) == {"message", "tree", "parents"}
             return {"sha": "commit"}
         if path == "/commits/commit":
-            return {"committer": {"login": "github-actions[bot]"}, "commit": {"verification": {
+            return {"author": {"login": "github-actions[bot]"}, "committer": {"login": "web-flow"}, "commit": {"verification": {
                 "verified": self.verified, "reason": "valid" if self.verified else "unsigned"}}}
         if method == "PATCH":
             assert body["force"] is False

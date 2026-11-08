@@ -93,8 +93,10 @@ def publish(api, branch, message, base, changes):
         verification = actual["commit"]["verification"]
         if verification["verified"] is not True or verification["reason"] != "valid":
             raise RuntimeError(f"Refusing unverified commit {sha}: {verification['reason']}")
-        if (actual.get("committer") or {}).get("login") != "github-actions[bot]":
-            raise RuntimeError("Unexpected commit identity; requires Actions GITHUB_TOKEN")
+        author = (actual.get("author") or {}).get("login")
+        committer = (actual.get("committer") or {}).get("login")
+        if author != "github-actions[bot]" or committer not in {"web-flow", "github-actions[bot]"}:
+            raise RuntimeError(f"Unexpected commit identity {sha}: author={author}, committer={committer}")
         try:
             api.request("PATCH", ref, {"sha": sha, "force": False})
         except urllib.error.HTTPError as error:
