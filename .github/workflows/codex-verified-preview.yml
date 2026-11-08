@@ -9,7 +9,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: read
+  actions: write  # Needed to dispatch CI on the new signed HEAD
 
 concurrency:
   group: codex-verified-preview-${{ github.event.pull_request.number }}
