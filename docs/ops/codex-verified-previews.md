@@ -21,6 +21,7 @@ This process intentionally makes a zero-file-change commit, not a new research u
 - Race: a newer push during signing causes the stale job to exit; the newer PR synchronize event handles the new SHA. No force pushes.
 - A BLOCKED deployment for the original unsigned SHA remains in historical deployment records; a new signed-SHA Preview should become READY.
 - If a branch protection policy prohibits the non-forced update, this workflow will fail safely. Inspect the Actions log; do not disable Vercel's signature requirement.
+- The ordinary PR CI triggers only on opened/reopened/ready-for-review to avoid GitHub-token-triggered synchronize runs being marked as failed or approval-required without jobs. Same-repository pushes run normal CI; signed checkpoints run CI through explicit workflow_dispatch. Fork PR updates after opening are not covered by this policy and must be reviewed separately if external contributions become relevant.
 - If the CI dispatch is unavailable, the workflow signals failure after the signed HEAD was published. Re-run the checks manually from Actions, and fix the specific permission issue.
 - No workflow can retroactively sign the unsigned original commit. For cryptographically signed original commits, use native Git SSH signing as below.
 

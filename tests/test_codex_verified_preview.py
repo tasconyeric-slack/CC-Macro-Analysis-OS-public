@@ -45,3 +45,4 @@ def test_signed_checkpoint_receives_fresh_checks():
     assert 'workflow_id: "checks.yml"' in workflow
     assert "workflow_dispatch:" in checks
     assert "actions: write" in workflow
+    assert "types: [opened, reopened, ready_for_review]" in checks
