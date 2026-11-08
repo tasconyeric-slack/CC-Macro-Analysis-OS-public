@@ -6,3 +6,5 @@
 - Start every ExecPlan by stating the Phase/Gate it advances and answering the Prioritization Rule questions (§15.2). If fewer than 2 answers are "yes", write a Deferred note instead of code.
 - Check §0 Current Focus first; it is updated by the Owner only.
 - Do not edit `docs/PRODUCT_STRATEGY.md`; propose changes in the PR description.
+
+- Codex PRs that need Vercel Preview must use a same-repo `codex/<topic>` branch targeting `main`. `.github/workflows/codex-verified-preview.yml` appends a GitHub-signed identical-tree checkpoint when the PR head is unsigned. It never signs the original Git commit; local Codex should prefer native SSH commit signing where configured. Details: `docs/ops/codex-verified-previews.md`. Do not disable Vercel verified-commit enforcement or force-push to make previews work.
