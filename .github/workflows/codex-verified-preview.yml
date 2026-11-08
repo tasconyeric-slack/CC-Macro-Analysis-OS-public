@@ -1,0 +1,104 @@
+name: verified Codex previews
+
+# Runs from the trusted default branch, never from the PR's code.
+# A Codex git commit may be unsigned in a cloud environment. Append a
+# GitHub-signed, identical-tree checkpoint so Vercel can preview that exact tree.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: codex-verified-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  checkpoint:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.base.ref == 'main' &&
+      startsWith(github.event.pull_request.head.ref, 'codex/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Publish a verified checkpoint of the exact PR tree
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pr = context.payload.pull_request;
+            const branch = pr.head.ref;
+
+            // Defense in depth: pull_request_target has a write token. Do not
+            // check out, execute, or import anything from the proposed branch.
+            if (pr.head.repo.id !== context.payload.repository.id ||
+                pr.base.ref !== "main" || !branch.startsWith("codex/")) {
+              throw new Error("Only same-repository Codex PRs into main are eligible");
+            }
+
+            const ref = "heads/" + branch;
+            const current = await github.rest.git.getRef({ owner, repo, ref });
+            const originalSha = current.data.object.sha;
+            if (originalSha !== pr.head.sha) {
+              core.info("PR event is stale; a newer synchronize event will handle the branch");
+              return;
+            }
+
+            const original = await github.rest.git.getCommit({
+              owner, repo, commit_sha: originalSha
+            });
+            if (original.data.verification?.verified === true &&
+                original.data.verification.reason === "valid") {
+              core.info("Head " + originalSha + " is already GitHub-verified; no commit needed");
+              return;
+            }
+
+            // No files, content, branch history or analyst states are rewritten.
+            // GitHub's API signs the new commit using the existing GITHUB_TOKEN;
+            // omitting author, committer and signature is essential.
+            const created = await github.rest.git.createCommit({
+              owner, repo,
+              message: "ci: verified Codex preview checkpoint",
+              tree: original.data.tree.sha,
+              parents: [originalSha]
+            });
+            const signed = await github.rest.repos.getCommit({
+              owner, repo, ref: created.data.sha
+            });
+            const proof = signed.data.commit.verification;
+            if (proof?.verified !== true || proof.reason !== "valid" ||
+                signed.data.author?.login !== "github-actions[bot]" ||
+                !["web-flow", "github-actions[bot]"].includes(signed.data.committer?.login)) {
+              throw new Error("GitHub did not verify the bot checkpoint; refusing publication");
+            }
+            if (signed.data.commit.tree.sha !== original.data.tree.sha) {
+              throw new Error("Signed checkpoint changed the PR's file tree");
+            }
+
+            const again = await github.rest.git.getRef({ owner, repo, ref });
+            if (again.data.object.sha !== originalSha) {
+              core.info("Branch advanced while signing; leave newer work untouched");
+              return;
+            }
+            try {
+              await github.rest.git.updateRef({
+                owner, repo, ref, sha: created.data.sha, force: false
+              });
+            } catch (error) {
+              if (error.status === 409 || error.status === 422) {
+                core.warning("Branch advanced or protected; no force push attempted");
+                return;
+              }
+              throw error;
+            }
+            core.info("Published GitHub-verified checkpoint " + created.data.sha +
+                      " for Codex tree " + original.data.tree.sha);
+
+            // Pushes made by GITHUB_TOKEN do not start ordinary push/PR CI.
+            // Dispatch the existing checks on the new, verified PR head.
+            await github.rest.actions.createWorkflowDispatch({
+              owner, repo, workflow_id: "checks.yml", ref: branch
+            });
