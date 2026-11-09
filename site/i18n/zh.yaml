@@ -730,3 +730,25 @@ reader:
   title: 看清最新变化，跟踪经济趋势
   description: 重要数据、政策与新闻，以及持续更新的宏观研究判断。
   research: 当前研究判断
+
+policy_compare:
+  heading: 政策措辞对比
+  intro: 对照前后两份官方原文，快速找到新增、删除与保留的表述。
+  before: 前次表述
+  after: 本次表述
+  original: 比较保留中文原文。
+  more_changes: '展开其余 {n} 处变化'
+  unchanged: '未变化表述（{n}）'
+  interpretation: 已审阅的研究解读
+  channel: 传导渠道
+  counter: 另一种理解
+  next: 下一步确认
+  sources: 原文与采集详情
+  source_note: 发布时间取自发布方页面元数据；文档记录同时保留网址时间戳和原文校验值。
+  collected: 采集于
+  tag:
+    added: 新增
+    removed: 删除
+    strengthened: 措辞增强
+    weakened: 措辞减弱
+    unchanged: 未变

@@ -528,6 +528,8 @@ def main(argv=None) -> int:
     copilot_cli.register(sub)
     from .events import cli as events_cli
     events_cli.register(sub)
+    from . import policy_cli
+    policy_cli.register(sub)
     a = p.parse_args(argv)
     return a.f(a)
 
