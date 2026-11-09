@@ -1,0 +1,1094 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "dpr": 2
+  },
+  "overflow": true,
+  "menuButtons": [
+    {
+      "text": "Reload briefing",
+      "label": null
+    },
+    {
+      "text": "Home",
+      "label": null
+    },
+    {
+      "text": "Data and charts",
+      "label": null
+    },
+    {
+      "text": "Release calendar",
+      "label": null
+    },
+    {
+      "text": "Research",
+      "label": null
+    },
+    {
+      "text": "About",
+      "label": null
+    },
+    {
+      "text": "Subscribe",
+      "label": null
+    },
+    {
+      "text": "Explore the dashboard →",
+      "label": null
+    },
+    {
+      "text": "Subscribe",
+      "label": null
+    },
+    {
+      "text": "×",
+      "label": "Close"
+    },
+    {
+      "text": "Send me the study →",
+      "label": null
+    },
+    {
+      "text": "GDP",
+      "label": null
+    },
+    {
+      "text": "PMI",
+      "label": null
+    },
+    {
+      "text": "Inflation (CPI)",
+      "label": null
+    },
+    {
+      "text": "Inflation (PPI)",
+      "label": null
+    },
+    {
+      "text": "Monetary Policy",
+      "label": null
+    },
+    {
+      "text": "Trade",
+      "label": null
+    },
+    {
+      "text": "Balance of Payments",
+      "label": null
+    },
+    {
+      "text": "Job market & consumption",
+      "label": null
+    },
+    {
+      "text": "Debt & financial risks",
+      "label": null
+    },
+    {
+      "text": "Structural / Long-term",
+      "label": null
+    },
+    {
+      "text": "🔄 Refresh data",
+      "label": null
+    },
+    {
+      "text": "⬇ Export data in Excel",
+      "label": null
+    },
+    {
+      "text": "✕",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Real YoY",
+      "label": null
+    },
+    {
+      "text": "Nominal YoY (LC)",
+      "label": null
+    },
+    {
+      "text": "Nominal YoY (USD)",
+      "label": null
+    },
+    {
+      "text": "QoQ (SA)",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Components",
+      "label": null
+    },
+    {
+      "text": "Industries",
+      "label": null
+    },
+    {
+      "text": "Sub-sectors",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Sub-sectors",
+      "label": null
+    },
+    {
+      "text": "Aggregates (3-level)",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "YoY",
+      "label": null
+    },
+    {
+      "text": "MoM",
+      "label": null
+    },
+    {
+      "text": "YTD",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Headline",
+      "label": null
+    },
+    {
+      "text": "Core",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Urban",
+      "label": null
+    },
+    {
+      "text": "Rural",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "YoY",
+      "label": null
+    },
+    {
+      "text": "MoM",
+      "label": null
+    },
+    {
+      "text": "YTD",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "PPI",
+      "label": null
+    },
+    {
+      "text": "PPPI",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "3Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "LPR 1Y",
+      "label": null
+    },
+    {
+      "text": "Real rate",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "M0",
+      "label": null
+    },
+    {
+      "text": "M1",
+      "label": null
+    },
+    {
+      "text": "M2",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "CNY/USD spot",
+      "label": null
+    },
+    {
+      "text": "NEER",
+      "label": null
+    },
+    {
+      "text": "REER",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Trade Balance",
+      "label": null
+    },
+    {
+      "text": "Exports",
+      "label": null
+    },
+    {
+      "text": "Imports",
+      "label": null
+    },
+    {
+      "text": "Monthly",
+      "label": null
+    },
+    {
+      "text": "12m rolling",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "By region",
+      "label": null
+    },
+    {
+      "text": "By country",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "% share",
+      "label": null
+    },
+    {
+      "text": "Value (bn $, annual)",
+      "label": null
+    },
+    {
+      "text": "By region",
+      "label": null
+    },
+    {
+      "text": "By country",
+      "label": null
+    },
+    {
+      "text": "By region",
+      "label": null
+    },
+    {
+      "text": "By country",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "% share",
+      "label": null
+    },
+    {
+      "text": "Value (bn $, annual)",
+      "label": null
+    },
+    {
+      "text": "By region",
+      "label": null
+    },
+    {
+      "text": "By country",
+      "label": null
+    },
+    {
+      "text": "By region",
+      "label": null
+    },
+    {
+      "text": "By country",
+      "label": null
+    },
+    {
+      "text": "bn USD",
+      "label": null
+    },
+    {
+      "text": "% of GDP",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Monthly",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Quarterly",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "Job market",
+      "label": null
+    },
+    {
+      "text": "Consumption",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "YoY %",
+      "label": null
+    },
+    {
+      "text": "YTD %",
+      "label": null
+    },
+    {
+      "text": "Level (100M yuan)",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "YoY %",
+      "label": null
+    },
+    {
+      "text": "Level (100M yuan)",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "YoY %",
+      "label": null
+    },
+    {
+      "text": "Level (100M yuan)",
+      "label": null
+    },
+    {
+      "text": "2Y",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "20Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "Level (100M yuan)",
+      "label": null
+    },
+    {
+      "text": "YoY %",
+      "label": null
+    },
+    {
+      "text": "Monthly YTD",
+      "label": null
+    },
+    {
+      "text": "Annual",
+      "label": null
+    },
+    {
+      "text": "5Y",
+      "label": null
+    },
+    {
+      "text": "10Y",
+      "label": null
+    },
+    {
+      "text": "All",
+      "label": null
+    },
+    {
+      "text": "×",
+      "label": null
+    },
+    {
+      "text": "Edit chart...",
+      "label": null
+    },
+    {
+      "text": "Cancel",
+      "label": null
+    },
+    {
+      "text": "⬇ Download PNG",
+      "label": null
+    },
+    {
+      "text": "×",
+      "label": null
+    },
+    {
+      "text": "+ Add line",
+      "label": null
+    },
+    {
+      "text": "Reset edits",
+      "label": null
+    },
+    {
+      "text": "Cancel",
+      "label": null
+    },
+    {
+      "text": "⬇ Download PNG",
+      "label": null
+    }
+  ]
+}

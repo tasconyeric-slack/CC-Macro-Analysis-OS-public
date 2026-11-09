@@ -526,6 +526,8 @@ def main(argv=None) -> int:
     s = sub.add_parser("nbs-indicators"); s.add_argument("cid"); s.set_defaults(f=cmd_nbs_indicators)
     from .copilot import cli as copilot_cli          # imported here only: refresh / replay never import the Copilot
     copilot_cli.register(sub)
+    from .events import cli as events_cli
+    events_cli.register(sub)
     a = p.parse_args(argv)
     return a.f(a)
 

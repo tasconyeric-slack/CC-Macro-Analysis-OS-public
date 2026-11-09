@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "site"))
 
 CASE = ROOT / "research/cases/cn-nominal"
 LOCALES = ("en", "zh")
-PAGES = ["charts.html", "evidence.html", "index.html", "memo.html", "method.html", "updates.html"]
+PAGES = sorted(["charts.html", "evidence.html", "index.html", "memo.html", "method.html", "updates.html", "daily.html", "data.html", "policy.html"] + [f"data-{c}.html" for c in ("growth", "prices", "pmi", "trade", "credit", "fiscal", "external")])
 
 
 @pytest.fixture(autouse=True)

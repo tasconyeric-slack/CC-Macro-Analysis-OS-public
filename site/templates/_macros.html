@@ -1,4 +1,30 @@
 {# Imported "with context", so t() is available inside the macros. #}
+{% macro section_header(title, description='', number='') -%}
+<div class="section-heading">{% if number %}<span class="section-number">{{ number }}</span>{% endif %}<div><h2>{{ title }}</h2>{% if description %}<p>{{ description }}</p>{% endif %}</div></div>
+{%- endmacro %}
+
+{% macro tier_badge(tier) -%}<span class="tier-badge tier-{{ tier|lower }}">{{ t('portal.tier.' ~ tier) }}</span>{%- endmacro %}
+
+{% macro source_line(publisher, period='', released='', retrieved='', url='') -%}
+<div class="source-line">{% if url %}<a href="{{ url }}" rel="noopener">{{ publisher }}</a>{% else %}{{ publisher }}{% endif %}{% if period %}<span>{{ period }}</span>{% endif %}{% if released %}<span>{{ t('portal.released') }} {{ released|date }}</span>{% endif %}{% if retrieved %}<span>{{ t('portal.retrieved') }} {{ retrieved|when }}</span>{% endif %}</div>
+{%- endmacro %}
+
+{% macro column_card(url, title, description, kicker='', number='', frequency='', chips=[], meta='') -%}
+<a class="column-card" href="{{ url }}"><div class="column-card-top"><span>{{ t('portal.column') }} {{ number }}</span>{% if frequency %}<span class="frequency-tag">{{ frequency }}</span>{% endif %}</div>{% if kicker %}<div class="column-kicker">{{ kicker }}</div>{% endif %}<h3>{{ title }}</h3><p>{{ description }}</p>{% if chips %}<div class="column-chips">{% for chip in chips %}<span>{{ chip }}</span>{% endfor %}</div>{% endif %}{% if meta %}<div class="column-meta">{{ meta }}</div>{% endif %}<span class="column-link">{{ t('portal.open_column') }} <span aria-hidden="true">↗</span></span></a>
+{%- endmacro %}
+
+{% macro kpi_tile(name, value, unit='', period='', publisher='', released='', delta='') -%}
+<div class="kpi-tile"><div class="label">{{ name }} {{ tier_badge('FACT') }}</div><div class="kpi-value">{{ value }}<small>{{ unit }}</small></div>{% if delta %}<p>{{ delta }}</p>{% endif %}{{ source_line(publisher, period, released) }}</div>
+{%- endmacro %}
+
+{% macro empty_state(title, description='', url='', action='') -%}
+<div class="empty-state"><strong>{{ title }}</strong>{% if description %}<p>{{ description }}</p>{% endif %}{% if url %}<a href="{{ url }}">{{ action }}</a>{% endif %}</div>
+{%- endmacro %}
+
+{% macro chart_frame(title, subtitle='') -%}
+<div class="chartcard"><h3>{{ title }}</h3>{% if subtitle %}<p class="small muted">{{ subtitle }}</p>{% endif %}{{ caller() }}</div>
+{%- endmacro %}
+
 {% macro effect(r) -%}
 {%- if r.effect == "supports" %}<span class="st sup">▲ {{ t('effect.supports') }}</span>
 {%- elif r.effect == "challenges" %}<span class="st cha">▼ {{ t('effect.challenges') }}</span>

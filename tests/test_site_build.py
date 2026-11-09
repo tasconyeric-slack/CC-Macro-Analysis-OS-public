@@ -9,7 +9,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 PREREG = "research/cases/cn-nominal/preregistered/"
-SIX = ["charts.html", "evidence.html", "index.html", "memo.html", "method.html", "updates.html"]
+from conftest import PAGES
 
 
 def test_shallow_clone_build_keeps_the_true_audit_trail(tmp_path):
@@ -19,8 +19,8 @@ def test_shallow_clone_build_keeps_the_true_audit_trail(tmp_path):
     subprocess.run(["git", "clone", "-q", "--depth", "1", f"file://{ROOT}", str(clone)], check=True)
     subprocess.run([sys.executable, "site/build.py"], cwd=clone, check=True, capture_output=True)
     dist = clone / "site/dist"
-    assert sorted(p.name for p in (dist / "en").glob("*.html")) == SIX
-    assert sorted(p.name for p in (dist / "zh").glob("*.html")) == SIX
+    assert sorted(p.name for p in (dist / "en").glob("*.html")) == PAGES
+    assert sorted(p.name for p in (dist / "zh").glob("*.html")) == PAGES
     audit = json.loads((clone / "research/cases/cn-nominal/eval/latest.json").read_text(encoding="utf-8"))["audit"]
     page = (dist / "en/updates.html").read_text(encoding="utf-8")
 

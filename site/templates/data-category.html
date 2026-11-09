@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block body %}
+<p class="small"><a href="data.html">{{ t('portal.data_group') }}</a></p><h1>{{ category.title }}</h1><p class="lede">{{ category.description }}</p>
+<div class="grid2">{% for ch in category_charts %}{{ mx.chartcard(ch) }}{% else %}{{ mx.empty_state(t('portal.no_data'),t('portal.no_data_note')) }}{% endfor %}</div>
+{% endblock %}

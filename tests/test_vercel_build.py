@@ -12,11 +12,11 @@ import tomllib
 from pathlib import Path
 
 import pytest
+from conftest import PAGES
 
 ROOT = Path(__file__).resolve().parents[1]
 PREREG = "research/cases/cn-nominal/preregistered/"
 IMMUTABLE = {"baseline": "2026-10-04-baseline.yaml", "A-01": "2026-10-04-amendment-01-terminal-rules.yaml"}
-PAGES = ["charts.html", "evidence.html", "index.html", "memo.html", "method.html", "updates.html"]
 LOCALES = ["en", "zh"]
 
 
@@ -177,7 +177,7 @@ def test_vercel_build_stops_when_python_is_not_the_baseline(tmp_path):
 @pytest.mark.parametrize("scenario", ["unshallow_fails", "unshallow_works", "no_git_dir"])
 def test_vercel_production_build_keeps_the_true_audit_trail(tmp_path, platform_python, scenario):
     clone, out = build_on_vercel_like_clone(tmp_path, scenario, platform_python)
-    for loc in LOCALES:   # the same six pages in each language, built into the one artifact
+    for loc in LOCALES:   # the same portal pages in each language, built into the one artifact
         assert sorted(p.name for p in (clone / "site/dist" / loc).glob("*.html")) == PAGES
     if scenario == "unshallow_fails":
         assert "shallow clone = true" in out    # the manifest path is what is being tested

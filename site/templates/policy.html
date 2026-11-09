@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}policy.css">{% endblock %}
+{% block body %}
+<section class="policy-heading"><div><p class="policy-eyebrow">{{ t('official_inbox.kicker') }}</p><h1>{{ t('portal.policy_title') }}</h1><p class="lede">{{ t('official_inbox.description') }}</p></div><a class="policy-research-link" href="memo.html">{{ t('nav.memo') }}</a></section>
+<div class="policy-counts"><span>{{ t('official_inbox.count', n=official_inbox.total) }}</span><span>{{ t('official_inbox.archive_count', n=official_inbox.archived_count) }}</span><span>{{ t('official_inbox.quarantine_count', n=official_inbox.quarantined) }}</span></div>
+<p class="policy-boundary">{{ t('official_inbox.boundary') }}</p>
+{% macro inbox_row(e) %}
+<article class="policy-item" id="{{ e.item_id }}" data-source="{{ e.source }}">
+  <div class="policy-item-meta">{{ mx.tier_badge('EVENT') }} {{ mx.tier_badge('CANDIDATE') if e.status == 'raw_candidate' else '' }}<span class="policy-status">{{ t('official_inbox.status_' ~ e.status) }}</span><span>{{ e.publisher }}</span></div>
+  <h3{% if e.original_language %} lang="zh-Hans"{% endif %}><a href="{{ e.canonical_url }}" rel="noopener">{{ e.title }}</a></h3>
+  {% if e.original_language %}<p class="policy-original">{{ t('official_inbox.original') }}</p>{% endif %}
+  {% if e.summary %}<p class="policy-excerpt"{% if e.original_language %} lang="zh-Hans"{% endif %}>{{ e.summary }}</p>{% endif %}
+  <dl class="policy-times"><div><dt>{{ t('official_inbox.published') }}</dt><dd>{{ e.published_at|date if e.publication_precision == 'date' else e.published_at|when }}{% if e.publication_precision == 'date' %} ({{ t('official_inbox.date_only') }}){% endif %}</dd></div><div><dt>{{ t('official_inbox.first_seen') }}</dt><dd>{{ e.first_seen_at|when }}</dd></div><div><dt>{{ t('official_inbox.retrieved') }}</dt><dd>{{ e.retrieved_at|when }}</dd></div></dl>
+  <div class="policy-item-links"><a href="{{ e.canonical_url }}" rel="noopener">{{ t('official_inbox.source') }}</a>{% for mid in e.metric_ids %}<a href="charts.html#ch-{{ mid }}">{{ mid }}</a>{% endfor %}<a href="evidence.html">{{ t('portal.evidence_title') }}</a></div>
+</article>
+{% endmacro %}
+<section class="policy-layout" aria-labelledby="inbox-title"><div><h2 id="inbox-title">{{ t('official_inbox.latest') }}</h2>{% for e in official_inbox['items'] %}{{ inbox_row(e) }}{% else %}<div class="policy-empty"><h3>{{ t('official_inbox.empty') }}</h3><p>{{ t('official_inbox.empty_detail') }}</p></div>{% endfor %}</div>
+<aside class="policy-source-panel"><h2>{{ t('official_inbox.sources') }}</h2>{% for source in official_inbox.sources %}<div class="policy-source"><a href="{{ source.url }}">{{ source.publisher }}</a><span class="{{ 'source-ok' if source.ok else 'source-failed' }}">{{ t('official_inbox.source_ok' if source.ok else 'official_inbox.source_failed') }}</span><p>{{ source.retrieved_at|when }}</p>{% if not source.ok %}<p>{{ source.error }}</p>{% endif %}</div>{% else %}<p>{{ t('official_inbox.no_sources') }}</p>{% endfor %}<p class="small muted">{{ t('official_inbox.source_note') }}</p><a href="daily.html#calendar">{{ t('official_inbox.calendar') }}</a></aside></section>
+{% if official_inbox.archive %}<section class="policy-archive"><h2>{{ t('official_inbox.archive') }}</h2><p>{{ t('official_inbox.archive_detail') }}</p><details><summary>{{ t('official_inbox.show_archive', n=official_inbox.archive|length) }}</summary>{% for e in official_inbox.archive %}{{ inbox_row(e) }}{% endfor %}</details></section>{% endif %}
+{% if policy.events %}<section class="policy-reviewed"><h2>{{ t('official_inbox.research_events') }}</h2>{% for e in policy.events %}<article class="card policy-shell">{{ mx.tier_badge('EVENT') }}<h3>{{ e.title }}</h3><p>{{ e.date }} · {{ e.institution }}</p><p>{{ e.measure }}</p>{{ mx.source_line(e.publisher, released=e.published, url=e.url) }}<p><a href="evidence.html#{{ e.id }}">{{ t('portal.evidence_title') }}</a></p></article>{% endfor %}</section>{% endif %}
+{% endblock %}

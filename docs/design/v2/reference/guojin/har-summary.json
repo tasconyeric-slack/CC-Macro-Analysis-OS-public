@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-11-08T17:55:40.040Z",
+  "requests": [
+    {
+      "url": "https://sunyongle.cn/",
+      "status": 200,
+      "mime": "text/html",
+      "latency_ms": 2477.4379999999996,
+      "body_size": 52007
+    }
+  ],
+  "note": "Bodies omitted from reference capture. Requests describe observed browsing only."
+}

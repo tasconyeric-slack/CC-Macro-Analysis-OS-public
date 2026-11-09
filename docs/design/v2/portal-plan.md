@@ -1,0 +1,7 @@
+# V2 portal slice
+
+Phase: V2 Product Build / Epic #8 Stage 1 gate (#9). §15.2: (1) Yes, make changes and source paths immediately legible; (2) Yes, expose actual refresh records to readers; (3) No AI is needed for layout or counts, use deterministic code; (4) Yes, the current research-first page lacks daily/data entry points identified in the Owner review; (5) Yes, the public usable product is this stage's deliverable. The blocked behavior is finding a sourced official release from the home page.
+
+Use measured Guojin geometry and typography for the portal, adapting its navy hero to the existing analyst view rather than adding a promotional banner. Colors: navy #0b2545, blue #235da4, gold #e7c46a, white #ffffff, canvas #f4f7fb, slate #556982. Chinese sans headings; system sans body and tabular numbers. Shared container 1280px, 24px desktop inset, three column cards and one column on mobile. Keep the existing research state, evidence and audit sections below the new change summary and entry cards. Daily/Data/Policy shell pages expose real existing artifacts while their assigned issues fill the views. No new data sources or judgments.
+
+Reference capture and computed tokens precede implementation. The program performs its combined visual correction in #13. Validate bilingual keys, every internal link/fragment, home order, static build and public checks. PR-only deployment with verified checkpoint; no merge in the release blackout.

@@ -51,11 +51,13 @@ from cnmacro.refresh import evaluate, previous_evidence_as_of  # noqa: E402
 from cnmacro.store import as_of, load_dictionary, load_observations, release_time, utc_naive  # noqa: E402
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
+from portal import CATEGORY_METRICS, portal_context  # noqa: E402
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
 HYP_ORDER = ["H1", "H2", "H3", "H4", "H0"]
-PAGES = ["index", "memo", "evidence", "updates", "charts", "method"]
+PAGES = ["index", "daily", "data", "policy", "memo", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
+PRIMARY_PAGES = ["index", "daily", "data", "policy", "memo"]
 REF_LINES = {"%": 0.0}
 
 
@@ -354,6 +356,7 @@ def build_model(cfg) -> dict:
         "view_current": (presentation.get("applies_to") == judgment_file) if presentation else None,
         "built_at": now.replace(microsecond=0).isoformat(), "commit": git("rev-parse", "--short", "HEAD"),
         "case_dir": case_dir,
+        "observations": ev_obs, "release_calendar": calendar,
     }
 
 
@@ -506,16 +509,24 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
             d["release_l"] = v.release_name(d["release"])
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
+    ctx["portal"] = portal_context(model, v)
+    if stem == "policy":
+        from official_inbox import policy_inbox
+        ctx["official_inbox"] = policy_inbox(model, loc)
+    if stem.startswith("data-"):
+        ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
+        ctx["category_charts"] = [chart_card(model, v, ch) for ch in model["charts"] if ch["m"].metric_id in CATEGORY_METRICS[stem[5:]]]
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
     return ctx
 
 
 def meta(v: View, stem: str) -> dict:
     loc, t = v.loc, v.t
-    title_key = f"page.{stem}.title"
+    key_stem = "data" if stem.startswith("data-") else stem
+    title_key = f"page.{key_stem}.title"
     title = t("site.title") if stem == "index" else f"{t(title_key)} · {t('site.title')}"
     return {
-        "title": title, "description": t(f"page.{stem}.description"), "canonical": page_url(loc, stem),
+        "title": title, "description": t(f"page.{key_stem}.description"), "canonical": page_url(loc, stem),
         "alternates": [(L.HREFLANG[l], page_url(l, stem)) for l in L.LOCALES] + [("x-default", f"{SITE_URL}/")],
         "og_image": f"{SITE_URL}/static/og-{loc}.png", "og_image_alt": t("site.og_alt"),
         "og_locale": L.OG_LOCALE[loc], "og_alternate": [L.OG_LOCALE[x] for x in L.LOCALES if x != loc],
@@ -555,8 +566,9 @@ def render_site(model: dict, out: Path) -> dict:
             ctx["meta"] = meta(v, stem)
             ctx["asset"] = "../static/"
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
-            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem) for s in PAGES]
-            html = env.get_template(page_file(stem)).render(**ctx)
+            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["memo", "evidence", "updates", "charts", "method"]]
+            html = env.get_template("data-category.html" if stem.startswith("data-") else page_file(stem)).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
         missing[loc] = sorted(set(v.missing))
     # the root selector and the legacy V1.0 flat URLs
