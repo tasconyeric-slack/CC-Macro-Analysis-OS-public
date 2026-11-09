@@ -518,6 +518,10 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
             model["desk"] = build_desk(model)
         ctx["desk"] = desk_context(model["desk"], v)
         ctx["metrics"] = model["metrics"]
+
+    if stem == "policy":
+        from official_inbox import policy_inbox
+        ctx["official_inbox"] = policy_inbox(model, loc)
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
         ctx["data_explorer"] = data_context(model, v, stem[5:])

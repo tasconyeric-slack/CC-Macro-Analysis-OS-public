@@ -1,0 +1,21 @@
+{
+  "nbs-rss.xml": {
+    "source_url": "https://www.stats.gov.cn/sj/zxfb/rss.xml",
+    "retrieved_at": "2026-11-09T02:36:45.490953+00:00",
+    "selection": "first five complete item nodes; no text edits",
+    "response_sha256": "2b420145605f4f76e016c27cf0768b6ca75afeb6d3b25789bb4583ac6515546a"
+  },
+  "pboc-news.html": {
+    "source_url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
+    "retrieved_at": "2026-11-09T02:36:45.495320+00:00",
+    "selection": "complete response",
+    "response_sha256": "e4bd35a43032387bc2dd2e83afe6ebbd6935767439e9cb4227bd9338ebfb27db"
+  },
+  "gov-policy.json": {
+    "source_url": "https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=%E8%B4%A2%E6%94%BF",
+    "retrieved_at": "2026-11-08T17:52:40+00:00",
+    "selection": "first two actual rows per category, envelope trimmed",
+    "response_sha256": "d7f4b52996290ce0bfb68c318a2aaae0451fc1fa33bee6f9e6174b12a7996a49",
+    "runner": "https://github.com/tasconyeric-slack/CC-Macro-Analysis-OS-public/actions/runs/42507127955"
+  }
+}

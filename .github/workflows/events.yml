@@ -1,0 +1,75 @@
+name: official event intake
+
+on:
+  schedule:
+    - cron: "0 0-12 * * *" # hourly 08:00-20:00 Beijing
+  push:
+    branches: [main]
+    paths: ["src/cnmacro/events/**", "scripts/commit_official_events.py", ".github/workflows/events.yml"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Fetch/parse only; no event artifacts or commits"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: official-event-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e .
+      - name: Collect official candidates
+        id: collect
+        continue-on-error: true
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=""
+          if [ "$DRY_RUN" = "true" ]; then ARGS="--dry-run"; fi
+          python -m cnmacro intake --gov --summary events-summary.json $ARGS
+      - name: Publish verified events-only commit
+        if: github.ref == 'refs/heads/main' && !inputs.dry_run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -d data/events ]; then git add -- data/events; fi
+          python scripts/commit_official_events.py "events: collect official public announcements (research judgment unchanged)"
+      - name: Source outcomes
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path("events-summary.json")
+          if p.exists():
+              s = json.loads(p.read_text())
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+                  f.write("## Official event intake\n\n| Source | Result | Parsed | Added |\n|---|---|---:|---:|\n")
+                  for r in s["sources"]:
+                      result = "ok" if r["ok"] else r["error"].replace("|", "/")
+                      f.write(f"| {r['source']} | {result} | {r.get('parsed', '—')} | {r['new_items']} |\n")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-event-intake
+          path: |
+            events-summary.json
+            data/events/
+      - name: Report source failures
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

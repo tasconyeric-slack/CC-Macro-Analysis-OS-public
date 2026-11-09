@@ -679,3 +679,34 @@ data_explorer:
     not change the analyst view.
   calendar_note: Each category uses the observation dictionary and actual release
     metadata. Revisions remain visible in the metric detail.
+
+official_inbox:
+  kicker: OFFICIAL ANNOUNCEMENTS
+  description: Official releases and policy documents, with source dates and a separate review trail.
+  count: '{n} source items'
+  archive_count: '{n} archived on first collection'
+  quarantine_count: '{n} awaiting a trustworthy date'
+  boundary: Source verification confirms the document and its date. It does not imply analyst approval, a changed thesis or a changed probability.
+  latest: Latest official items
+  published: Published
+  first_seen: First collected
+  retrieved: Retrieved
+  date_only: date precision
+  source: Official source
+  original: Original Chinese source; no English translation approved yet.
+  status_raw_candidate: Awaiting review
+  status_verified: Source verified
+  status_analyst_approved: Analyst approved
+  status_rejected: Rejected
+  empty: No new dated official items
+  empty_detail: Earlier items remain in the archive. Unavailable sources and undated items are reported separately.
+  sources: Source checks
+  source_ok: Parsed
+  source_failed: Unavailable
+  no_sources: No recorded source check for this information boundary.
+  source_note: Latest recorded change in source outcome. Repeated unchanged fetches do not create duplicate records.
+  calendar: Official release calendar
+  archive: Collected history
+  archive_detail: First collected more than 48 hours after publication. These documents are context, not today's news.
+  show_archive: 'Show {n} recent archived items'
+  research_events: Research-linked policy events
