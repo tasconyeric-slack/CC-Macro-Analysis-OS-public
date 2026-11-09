@@ -18,9 +18,9 @@ jobs:
       - run: python scripts/probe_price_releases.py .prices-probe
       - name: Push temporary diagnostic branch
         run: |
-          git switch -c codex/prices-probe-browser-results
+          git switch -c codex/prices-probe-${{ github.run_id }}
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .prices-probe
           git commit -m "diagnostic: runner NBS archive responses"
-          git push origin HEAD:refs/heads/codex/prices-probe-browser-results
+          git push origin HEAD:refs/heads/codex/prices-probe-${{ github.run_id }}

@@ -60,24 +60,30 @@ def main(target):
             except Exception as e: report['errors'].append(str(e))
     blocked = [item for item in report['releases'] if '<table' not in (out/item['file']).read_text(encoding='utf-8')]
     if blocked:
-        from playwright.sync_api import sync_playwright
-        with sync_playwright() as pw:
-            browser = pw.chromium.launch()
-            context = browser.new_context(locale='zh-CN')
-            page = context.new_page()
-            for item in blocked:
-                try:
-                    page.goto(item['url'], wait_until='domcontentloaded', timeout=45000)
-                    page.wait_for_selector('table', timeout=15000)
-                    body = page.content()
-                    (out/item['file']).write_text(body,encoding='utf-8')
-                    item['browser_table'] = True
-                    print('browser table',item['title'],flush=True)
-                except Exception as e:
-                    item['browser_table'] = False
-                    item['browser_error'] = str(e)[:180]
-                    print('browser unavailable',item['title'],flush=True)
-            browser.close()
+        import asyncio
+        from playwright.async_api import async_playwright
+        async def browse():
+            async with async_playwright() as pw:
+                browser = await pw.chromium.launch()
+                context = await browser.new_context(locale='zh-CN')
+                limit = asyncio.Semaphore(6)
+                async def one(item):
+                    async with limit:
+                        page = await context.new_page()
+                        try:
+                            await page.goto(item['url'], wait_until='domcontentloaded', timeout=30000)
+                            await page.wait_for_selector('table', state='attached', timeout=12000)
+                            (out/item['file']).write_text(await page.content(),encoding='utf-8')
+                            item['browser_table'] = True
+                            print('browser table',item['title'],flush=True)
+                        except Exception as e:
+                            item['browser_table'] = False
+                            item['browser_error'] = str(e)[:180]
+                            print('browser unavailable',item['title'],flush=True)
+                        finally: await page.close()
+                await asyncio.gather(*(one(item) for item in blocked))
+                await browser.close()
+        asyncio.run(browse())
     (out/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'listings': len(report['requests']), 'releases': len(report['releases']), 'errors': report['errors']}, ensure_ascii=False))
 
