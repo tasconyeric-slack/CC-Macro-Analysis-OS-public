@@ -32,7 +32,25 @@ jobs:
         with:
           fetch-depth: 0
       - name: Scan reachable history (redacted output)
-        run: docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/repo:ro" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --redact --no-banner
+        run: |
+          set +e
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/repo:ro" -v "$RUNNER_TEMP:/report" ghcr.io/gitleaks/gitleaks:v8.30.0 git /repo --redact --no-banner --report-format json --report-path /report/gitleaks.json
+          status=$?
+          set -e
+          if [ -f "$RUNNER_TEMP/gitleaks.json" ]; then
+            python3 - <<'PY'
+          import collections
+          import json
+          import os
+          from pathlib import Path
+          report = json.loads((Path(os.environ["RUNNER_TEMP"]) / "gitleaks.json").read_text())
+          counts = collections.Counter((x.get("File", "?"), x.get("RuleID", "?")) for x in report)
+          print(f"Gitleaks findings: {len(report)} (metadata only; secrets never printed)")
+          for (path, rule), n in counts.most_common(25):
+              print(f"{n:>3}  {rule}  {path}")
+          PY
+          fi
+          exit "$status"
 
   engine:
     name: engine tests

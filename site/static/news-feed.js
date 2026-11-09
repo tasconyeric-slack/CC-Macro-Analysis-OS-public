@@ -1,1 +1,13 @@
-(function(){document.querySelectorAll('[data-news-today]').forEach(function(root){var topic='all',period='latest';function update(){var count=0;root.querySelectorAll('.news-story').forEach(function(row){var show=(topic==='all'||row.dataset.newsTopic===topic)&&(period==='latest'||row.dataset.newsDate===root.dataset.newsToday);row.hidden=!show;if(show)count++;});root.querySelector('.news-empty').hidden=count>0;}root.querySelectorAll('[data-news-period]').forEach(function(button){button.addEventListener('click',function(){period=button.dataset.newsPeriod;root.querySelectorAll('[data-news-period]').forEach(function(b){b.setAttribute('aria-pressed',String(b===button));});update();});});var select=root.querySelector('select[data-news-topic]');if(select)select.addEventListener('change',function(){topic=select.value;update();});});})();
+(function(){
+  var sel=document.querySelector('select[data-news-topic]');
+  if(sel){sel.addEventListener('change',function(){var v=sel.value;document.querySelectorAll('.news-rows li[data-news-topic]').forEach(function(li){li.hidden=v!=='all'&&li.getAttribute('data-news-topic')!==v;});});}
+  var box=document.getElementById('news-search');
+  if(!box)return;
+  // Pagefind's files are written by the indexing step after the site build; load them only when present.
+  var root=box.getAttribute('data-pagefind-root');
+  var css=document.createElement('link');css.rel='stylesheet';css.href=root+'pagefind-ui.css';document.head.appendChild(css);
+  var js=document.createElement('script');js.src=root+'pagefind-ui.js';
+  js.onload=function(){try{new PagefindUI({element:'#news-search',showSubResults:true,showImages:false,translations:{placeholder:box.getAttribute('data-placeholder')}});}catch(e){}};
+  js.onerror=function(){box.hidden=true;};
+  document.head.appendChild(js);
+})();

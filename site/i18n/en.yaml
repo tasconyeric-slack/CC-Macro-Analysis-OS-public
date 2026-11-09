@@ -18,6 +18,7 @@ a11y:
   nav: Main navigation
 
 nav:
+  news: News
   daily: Daily
   data: Data
   policy: Policy
@@ -29,6 +30,9 @@ nav:
   method: Method & Eval
 
 page:
+  news:
+    title: Macro news
+    description: "China macro data releases, policy actions and market moves, ranked by importance and updated hourly, with daily editions and a searchable archive."
   daily:
     title: Daily Macro Desk
     description: "Official releases and research updates, with facts, events and analyst judgment clearly separated."

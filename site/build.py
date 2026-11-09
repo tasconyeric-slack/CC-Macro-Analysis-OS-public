@@ -52,15 +52,15 @@ from cnmacro.store import as_of, load_dictionary, load_observations, release_tim
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
-from news_feed import news_context
+from news_feed import news_context, edition_context, archive_context, edition_days, archive_months
 from daily import build_desk, desk_context, write_desk  # noqa: E402
 from data_portal import build_data_portal, data_context, public_history, write_data_assets  # noqa: E402
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
 HYP_ORDER = ["H1", "H2", "H3", "H4", "H0"]
-PAGES = ["index", "daily", "data", "policy", "memo", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
-PRIMARY_PAGES = ["index", "daily", "data", "policy", "memo"]
+PAGES = ["index", "news", "daily", "data", "policy", "memo", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
+PRIMARY_PAGES = ["index", "news", "data", "memo"]
 REF_LINES = {"%": 0.0}
 
 
@@ -514,6 +514,8 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
     ctx["portal"] = portal_context(model, v)
+    if stem == "news":
+        ctx["macro_news"] = news_context(model, loc)
     if stem in ("daily", "index"):
         if "desk" not in model:
             public_case = Path(model["case_dir"]).resolve() == (ROOT / "research/cases/cn-nominal").resolve()
@@ -547,7 +549,7 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
 
 def meta(v: View, stem: str) -> dict:
     loc, t = v.loc, v.t
-    key_stem = "data" if stem.startswith("data-") else stem
+    key_stem = "data" if stem.startswith("data-") else ("news" if stem.startswith("news-") else stem)
     title_key = f"page.{key_stem}.title"
     title = t("site.title") if stem == "index" else f"{t(title_key)} · {t('site.title')}"
     return {
@@ -593,9 +595,18 @@ def render_site(model: dict, out: Path) -> dict:
             ctx["asset"] = "../static/"
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
             ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
-            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["memo", "evidence", "updates", "charts", "method"]]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method"]]
             html = env.get_template("data-category.html" if stem.startswith("data-") else page_file(stem)).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
+            if stem == "news" and ctx["macro_news"]["enabled"]:
+                base = {k: ctx[k] for k in ("nav", "footer_nav", "asset")}
+                for kind, keys, render_ctx in (("edition", edition_days(), edition_context), ("archive", archive_months(), archive_context)):
+                    for key in keys:
+                        sub = f"news-{kind}-{key}"
+                        sctx = {**context(model, v, sub, env_md), **base, kind: render_ctx(key, loc), "meta": meta(v, sub),
+                                "lang_base": {l: f"../{l}/{page_file(sub)}" for l in L.LOCALES}}
+                        sctx["nav"] = [(f, label, s == "news.html") for f, label, s in [(a, b, a) for a, b, _ in ctx["nav"]]]
+                        (out / loc / page_file(sub)).write_text(env.get_template(f"news-{kind}.html").render(**sctx), encoding="utf-8")
         missing[loc] = sorted(set(v.missing))
     # the root selector and the legacy V1.0 flat URLs
     write_desk(model["desk"], out)

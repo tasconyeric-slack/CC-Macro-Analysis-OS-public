@@ -1,0 +1,56 @@
+{
+ "date": "2026-11-09",
+ "window": [
+  "2026-11-08T08:00:00+08:00",
+  "2026-11-09T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-07cfd2db462d",
+  "evt-34e7dcf92db9",
+  "release-ppi-2026-10"
+ ],
+ "body": [
+  {
+   "event_id": "evt-07cfd2db462d",
+   "title_zh": "国务院关税税则委员会关于调整对原产于美国的进口商品加征关税措施的公告",
+   "summary_zh": "国务院关税税则委员会关于调整对原产于美国的进口商品加征关税措施的公告",
+   "url": "https://gss.mof.gov.cn/gzdt/zhengcefabu/202611/t20261109_4004260.htm",
+   "publisher": "财政部",
+   "topic": "fiscal",
+   "publishers": [
+    "财政部"
+   ],
+   "score": 83,
+   "rank_key": 88.15888308335967
+  },
+  {
+   "event_id": "evt-34e7dcf92db9",
+   "title_zh": "《出口中国能力发展报告》在第九届虹桥国际经济论坛首次发布",
+   "summary_zh": "《出口中国能力发展报告》在第九届虹桥国际经济论坛首次发布",
+   "url": "https://www.mofcom.gov.cn/xwfb/rcxwfb/art/2026/art_301031d5ca8447a6bf8fd8478d8e1052.html",
+   "publisher": "商务部",
+   "topic": "trade",
+   "publishers": [
+    "商务部"
+   ],
+   "score": 59,
+   "rank_key": 66.15888308335967
+  },
+  {
+   "event_id": "release-ppi-2026-10",
+   "title_zh": "国家统计局城市司首席统计师董莉娟解读2026年10月份CPI和PPI数据",
+   "summary_zh": "国家统计局城市司首席统计师董莉娟解读2026年10月份CPI和PPI数据",
+   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261109_1965796.html",
+   "publisher": "国家统计局",
+   "topic": "prices",
+   "publishers": [
+    "国家统计局"
+   ],
+   "score": 79,
+   "rank_key": 64.15888308335967
+  }
+ ],
+ "quick": [],
+ "final": true
+}
