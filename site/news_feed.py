@@ -5,6 +5,7 @@ from pathlib import Path
 import localization as L
 from cnmacro.news_feed import TOPICS, classify
 from cnmacro.news_rank import score, BROWSE_FLOOR
+from cnmacro import news_ai
 from cnmacro.events.store import stamp, BEIJING
 ROOT = Path(__file__).resolve().parents[1]
 NEWS = ROOT / 'data/news'
@@ -14,13 +15,15 @@ LABELS = {
                all_topics='全部主题', sources_n='{n} 个来源', more='查看全部要闻', hot='热', official='官方',
                updated='更新于', empty='暂无内容。', edition_title='{date} 宏观日报', edition_window='覆盖 {start} 至 {end}（北京时间）',
                quick='快讯', open_edition='进行中', archive_title='{month} 新闻归档', items_n='{n} 条', also='同一事件',
-               policy='政策文件对比', calendar='发布日历'),
+               policy='政策文件对比', calendar='发布日历', why='为什么重要', ai_tag='AI', original='原题',
+               ai_note='AI 生成的解读，不是原始来源的内容，可能有误；请以所链接的原文为准。'),
     'en': dict(title='Macro news', intro='China macro data releases, policy actions and market moves, ranked by importance and coverage, updated hourly.',
                top='Top stories', all='All updates', editions='Daily editions', archive='Archive', search='Search news', search_ph='Search headlines and summaries',
                all_topics='All topics', sources_n='{n} sources', more='See all news', hot='Hot', official='Official',
                updated='Updated', empty='Nothing yet.', edition_title='Daily edition · {date}', edition_window='Covers {start} to {end} Beijing time',
                quick='Briefly', open_edition='in progress', archive_title='News archive · {month}', items_n='{n} items', also='Also reported by',
-               policy='Policy wording compared', calendar='Release calendar')}
+               policy='Policy wording compared', calendar='Release calendar', why='Why it matters', ai_tag='AI', original='Original',
+               ai_note='AI-generated interpretation, not primary-source content. It can be wrong; rely on the linked original.')}
 
 
 def _load(name):
@@ -36,6 +39,23 @@ def enabled(model):
 def _when(iso, loc):
     at = stamp(iso).astimezone(BEIJING)
     return at.strftime('%m-%d %H:%M') if 'T' in iso else at.strftime('%m-%d')
+
+
+def _ai_on():
+    """The Owner's display switch as written by the last news run. Missing means off."""
+    return bool((_load('latest.json') or {}).get('ai_display'))
+
+
+def _ai_text(ai, loc, show):
+    """(English headline or None, why-it-matters text) from stored model text. Nothing at all unless the display switch is on."""
+    ai = ai if show and isinstance(ai, dict) else {}
+    return (ai.get('title_en') or None) if loc == 'en' else None, ai.get('why_en' if loc == 'en' else 'why_zh') or ''
+
+
+def _headline(zh, ai, loc, show):
+    """Title fields: the English headline when there is one, else the Chinese original (marked as Chinese on English pages)."""
+    en, why = _ai_text(ai, loc, show)
+    return {'title': en or L.tidy(zh, loc), 'title_is_zh': loc == 'en' and not en, 'orig': L.tidy(zh, loc) if en else '', 'why': why}
 
 
 def _topic(key, loc):
@@ -74,6 +94,7 @@ def news_context(model, loc):
     if not enabled(model):
         return {'enabled': False, 'labels': lab, 'events': [], 'home_events': [], 'items': [], 'editions': [], 'months': [], 'topics': []}
     snap = _load('latest.json') or {'events': [], 'items': [], 'as_of': None, 'sources': []}
+    show = bool(snap.get('ai_display'))
     cutoff = model.get('built_at') or datetime.now(timezone.utc).isoformat()
     items = [x for x in snap.get('items', []) if stamp(x['published_at']) <= stamp(cutoff)]
     seen = {x['canonical_url'] for x in items}
@@ -89,7 +110,7 @@ def news_context(model, loc):
             if x['canonical_url'] != e['url'] and x['publisher'] not in named:
                 others.append({'publisher': x['publisher'], 'url': x['canonical_url']}); named.add(x['publisher'])
         is_release = any(x.get('content_type') == 'data_release' for x in members)
-        events.append({'id': e['event_id'], 'title': L.tidy(e['title_zh'], loc), 'summary': e.get('summary_zh', '') if e.get('summary_zh') != e['title_zh'] else '',
+        events.append({'id': e['event_id'], **_headline(e['title_zh'], e.get('ai'), loc, show), 'summary': e.get('summary_zh', '') if e.get('summary_zh') != e['title_zh'] else '',
                        'url': e['url'], 'publisher': e['publisher'], 'n_sources': len(e['publishers']), 'official': e['official'],
                        'hot': e['heat'] >= 1.5, 'topic': e['topic'], 'topic_name': _topic(e['topic'], loc), 'time': _when(e['last_at'], loc),
                        'last_at': e['last_at'], 'importance': e['importance'], 'others': others[:6], 'related': _related(model, e['topic'], loc) if is_release else [],
@@ -114,7 +135,8 @@ def edition_context(day, loc):
     ed = json.loads((NEWS / 'editions' / f'{day}.json').read_text(encoding='utf-8'))
     lab = LABELS[loc]
     fmt = lambda iso: stamp(iso).astimezone(BEIJING).strftime('%m-%d %H:%M')
-    row = lambda r: {'title': L.tidy(r['title_zh'], loc), 'summary': r.get('summary_zh', '') if r.get('summary_zh') != r['title_zh'] else '',
+    show = _ai_on()
+    row = lambda r: {**_headline(r['title_zh'], r.get('ai'), loc, show), 'summary': r.get('summary_zh', '') if r.get('summary_zh') != r['title_zh'] else '',
                      'url': r['url'], 'publisher': r['publisher'], 'n_sources': len(r['publishers']), 'topic_name': _topic(r['topic'], loc)}
     return {'date': day, 'final': ed.get('final', False), 'title': lab['edition_title'].format(date=day),
             'window': lab['edition_window'].format(start=fmt(ed['window'][0]), end=fmt(ed['window'][1])),
@@ -124,7 +146,10 @@ def edition_context(day, loc):
 def archive_context(month, loc):
     rows = json.loads((NEWS / 'archive' / f'{month}.json').read_text(encoding='utf-8'))
     lab = LABELS[loc]
-    rows = [{'id': x['item_id'], 'title': L.tidy(x['title_zh'], loc), 'url': x['canonical_url'], 'publisher': x['publisher'], 'topic_name': _topic(x.get('topic'), loc),
+    show = _ai_on()
+    index = news_ai.index_cache(news_ai.load_cache(NEWS)) if show else {}
+    ai_of = lambda x: news_ai.shown_fields(index.get((x['item_id'], news_ai.content_hash(news_ai.source_input(x))), {}))
+    rows = [{'id': x['item_id'], **_headline(x['title_zh'], ai_of(x), loc, show), 'url': x['canonical_url'], 'publisher': x['publisher'], 'topic_name': _topic(x.get('topic'), loc),
              'time': _when(x['published_at'], loc), 'summary': x.get('summary_zh', '') if x.get('summary_zh') != x['title_zh'] else ''}
             for x in rows if x.get('topic') in TOPICS]
     return {'month': month, 'title': lab['archive_title'].format(month=month), 'rows': rows, 'count': lab['items_n'].format(n=len(rows)), 'labels': lab}

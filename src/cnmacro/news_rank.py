@@ -178,7 +178,7 @@ def build_events(items, now):
         official = any(x.get('source_tier') == 'T1' for x in members)
         events.append({
             'event_id': event_id(members), 'topic': rep['topic'], 'title_zh': rep['title_zh'], 'summary_zh': rep.get('summary_zh', ''),
-            'url': rep['canonical_url'], 'publisher': rep['publisher'], 'source_tier': rep.get('source_tier'),
+            'rep_id': rep['item_id'], 'url': rep['canonical_url'], 'publisher': rep['publisher'], 'source_tier': rep.get('source_tier'),
             'first_at': min(x['published_at'] for x in members), 'last_at': max(x['published_at'] for x in members),
             'score': best, 'heat': h, 'publishers': publishers, 'official': official, 'selected': selected,
             'importance': round(best + 6 * math.log1p(len(publishers)) + 3 * official + 4 * h, 2),
@@ -204,9 +204,12 @@ def build_edition(day, items_by_id, events, previous):
         pubs = {x['publisher'] for x in window_items}
         if ev['event_id'] in led and not (any(x.get('source_tier') == 'T1' for x in window_items) or len(pubs) >= 4):
             continue
-        rows.append({'event_id': ev['event_id'], 'title_zh': ev['title_zh'], 'summary_zh': ev.get('summary_zh', ''), 'url': ev['url'],
-                     'publisher': ev['publisher'], 'topic': ev['topic'], 'publishers': sorted(pubs), 'score': ev['score'],
-                     'rank_key': max(x['score'] for x in window_items) + 6 * math.log1p(len(pubs)) + 3 * any(x.get('source_tier') == 'T1' for x in window_items)})
+        row = {'event_id': ev['event_id'], 'title_zh': ev['title_zh'], 'summary_zh': ev.get('summary_zh', ''), 'url': ev['url'],
+               'publisher': ev['publisher'], 'topic': ev['topic'], 'publishers': sorted(pubs), 'score': ev['score'],
+               'rank_key': max(x['score'] for x in window_items) + 6 * math.log1p(len(pubs)) + 3 * any(x.get('source_tier') == 'T1' for x in window_items)}
+        if ev.get('ai'):  # optional model text (news_ai); the official title_zh above is never replaced
+            row['ai'] = ev['ai']
+        rows.append(row)
     rows.sort(key=lambda r: -r['rank_key'])
     body, quick, per = [], [], {}
     for r in rows:
@@ -248,6 +251,11 @@ def rank_and_publish(out: Path, archive: dict, statuses, now_iso):
     today = now.astimezone(BEIJING)
     first = today if today.hour >= 8 else today - timedelta(days=1)
     days = [first.date().isoformat(), (first + timedelta(days=1)).date().isoformat()]  # last closed edition, open one
+    # Optional model enrichment (news_ai): bounded, cached, fail-open, and off unless the Owner turned it on. The open
+    # edition's events go first. Closed editions on disk are never touched below, so they keep whatever they were closed with.
+    from cnmacro import news_ai
+    draft = build_edition(days[1], by_id, events, [p for p in previous if p['date'] < days[1]])
+    ai_run = news_ai.run(out, {'events': events, 'items': recent}, now=now_iso, priority=[r['event_id'] for r in draft['body'] + draft['quick']])
     for day in days:
         f = ed_dir / f'{day}.json'
         _, end = edition_window(day)
@@ -258,6 +266,7 @@ def rank_and_publish(out: Path, archive: dict, statuses, now_iso):
         ed['final'] = end <= now
         write_json(f, ed)
     snapshot = {'as_of': now_iso, 'rule_version': RULE_VERSION, 'thresholds': THRESHOLDS, 'browse_floor': BROWSE_FLOOR, 'sources': statuses,
+                'ai_display': ai_run['display'], 'ai': ai_run,  # the site renders model text only when ai_display is true
                 'events': sorted(events, key=lambda e: -e['importance']),
                 'items': sorted(recent, key=lambda x: stamp(x['published_at']), reverse=True)}
     write_json(out / 'latest.json', snapshot)
