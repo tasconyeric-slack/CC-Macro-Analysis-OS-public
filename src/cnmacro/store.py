@@ -105,7 +105,6 @@ class Metric:
     hypotheses: list[str]
     role: str                 # the one-line reason this metric is in the budget
     source_primary: str
-    category: str | None = None       # public portal grouping; validated by the site build
     source_code: str | None = None
     source_fallback: str | None = None
     release: str | None = None
@@ -117,6 +116,8 @@ class Metric:
     wind: WindContract | None = None  # pinned Wind route; filled only from the capability spike, never guessed
     sources: list[SourceRoute] = field(default_factory=list)          # declared routes (routed metrics only)
     route_history: list[RouteChange] = field(default_factory=list)    # append-only; first record is `genesis`
+
+    category: str | None = None       # public portal grouping; validated by the site build
 
     @property
     def routed(self) -> bool:
