@@ -51,11 +51,13 @@ def main(target):
                         if re.fullmatch(r'https://www.stats.gov.cn/sj/zxfb/20\d{4}/t\d{8}_\d+\.html', url): links[url] = title.strip()
             except Exception as e: report['errors'].append(str(e))
     def release(item):
-        url, title = item; body, metadata = fetch(url)
-        if b'<table' not in body:
-            body, transport = fetch(url+'?v=1')
-            metadata['transport_url'] = transport['url']
-            metadata['bytes'] = len(body)
+        url, title = item
+        # Direct HTTP on the same official host was independently measured by
+        # runner 42659428457; keep canonical HTTPS identity and actual transport.
+        body, metadata = fetch(url.replace('https:','http:'))
+        metadata['transport_url'] = metadata['url']
+        metadata['url'] = url
+        metadata['has_table'] = b'<table' in body
         filename = url.rsplit('/', 1)[1]; (out/filename).write_bytes(body)
         return {**metadata, 'title': title, 'file': filename}
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
