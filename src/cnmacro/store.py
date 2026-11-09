@@ -117,6 +117,8 @@ class Metric:
     sources: list[SourceRoute] = field(default_factory=list)          # declared routes (routed metrics only)
     route_history: list[RouteChange] = field(default_factory=list)    # append-only; first record is `genesis`
 
+    category: str | None = None       # public portal grouping; validated by the site build
+
     @property
     def routed(self) -> bool:
         return bool(self.sources)

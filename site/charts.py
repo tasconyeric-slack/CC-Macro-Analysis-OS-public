@@ -41,7 +41,7 @@ def fmt(v: float, unit: str) -> str:
 
 def line_chart(points: list[tuple[str, float]], unit: str, ref: float | None = None,
                chart_id: str = "c", width: int = W, height: int = H,
-               label: str = "line chart", empty: str = "Not enough data to chart.") -> str:
+               label: str = "line chart", empty: str = "Not enough data to chart.", details: list[str] | None = None) -> str:
     W_, H_ = width, height
     if len(points) < 2:
         return f'<p class="muted">{escape(empty)}</p>'
@@ -77,6 +77,6 @@ def line_chart(points: list[tuple[str, float]], unit: str, ref: float | None = N
     parts.append("</svg>")
     data = {"x": [round(x(i), 1) for i in range(len(points))], "y": [round(y(v), 1) for v in vals],
             "labels": [p for p, _ in points], "values": [fmt(v, unit) for v in vals],
-            "top": PAD_T, "bottom": H_ - PAD_B}
+            "top": PAD_T, "bottom": H_ - PAD_B, "details": details or []}
     parts.append(f'<script type="application/json" data-for="{chart_id}">{json.dumps(data)}</script>')
     return "".join(parts)
