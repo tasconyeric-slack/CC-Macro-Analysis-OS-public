@@ -99,7 +99,7 @@ def test_model_tie_records_schema_failure_and_success_separately(tmp_path):
     assert resolve_pair(Client({"relation": "SAME_OCCURRENCE", "reason": "发生了2次"}), tmp_path, a, b, as_of=NOW) is None
     records = list((tmp_path / "relation_model/samples").glob("*/record.json"))
     assert len(records) == 2
-    assert {json.loads(p.read_text())["validation"]["passed"] for p in records} == {True, False}
+    assert {json.loads(p.read_text(encoding="utf-8"))["validation"]["passed"] for p in records} == {True, False}
 
 
 def test_background_mention_of_implementation_does_not_create_a_followup():
