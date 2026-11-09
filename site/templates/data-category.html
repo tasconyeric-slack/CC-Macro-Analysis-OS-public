@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% import "_macros.html" as mx with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}data-portal.css">{% endblock %}
 {% block body %}
-<p class="small"><a href="data.html">{{ t('portal.data_group') }}</a></p><h1>{{ category.title }}</h1><p class="lede">{{ category.description }}</p>
-<div class="grid2">{% for ch in category_charts %}{{ mx.chartcard(ch) }}{% else %}{{ mx.empty_state(t('portal.no_data'),t('portal.no_data_note')) }}{% endfor %}</div>
+<p class="small"><a href="data.html">{{ t('portal.data_group') }}</a></p>
+<div class="data-intro"><div><p class="small muted">{{ category.kicker }}</p><h1>{{ category.title }}</h1><p class="lede">{{ category.description }}</p></div><div class="data-total"><strong>{{ data_explorer.available }}</strong><span>{{ t('data_explorer.series') }}</span></div></div>
+<nav class="data-category-nav" aria-label="{{ t('data_explorer.categories') }}">{% for c in portal.categories %}<a href="{{ c.url }}"{% if c.id == category.id %} aria-current="page"{% endif %}>{{ c.title }}</a>{% endfor %}</nav>
+<div class="data-metric-nav">{% for c in data_explorer.cards %}<a href="#metric-{{ c.id }}">{{ c.name }}</a>{% endfor %}</div>
+<div class="data-metrics">{% for c in data_explorer.cards %}
+<article class="data-metric chartcard" id="metric-{{ c.id }}">
+<header class="data-metric-heading"><div><h2>{{ c.name }}</h2><p class="small muted">{{ c.role }}</p></div>{{ mx.tier_badge('FACT') }}</header>
+{% if c.latest %}
+<div class="data-reading"><div><strong>{{ c.value }}</strong><span>{{ c.unit }}</span><p>{{ c.latest.period|period }}</p></div><dl><dt>{{ t('data_explorer.previous') }}</dt><dd>{{ c.previous_change }}</dd><dt>{{ t('data_explorer.year') }}</dt><dd>{{ c.year_change }}</dd></dl></div>
+{{ mx.source_line(c.publisher, c.latest.period|period, c.latest.release_date, c.latest.retrieved_at, c.source_url) }}
+{% if not c.latest.release_date %}<p class="small data-limitation">{{ t('data_explorer.unknown_release') }}</p>{% endif %}
+<div class="data-range" role="group" aria-label="{{ t('data_explorer.range') }}">{% for r in c.ranges %}<button type="button" data-range="{{ r.key }}" aria-pressed="{{ 'true' if r.key == 'all' else 'false' }}">{{ t('data_explorer.' ~ r.key) }}</button>{% endfor %}</div>
+{% for r in c.ranges %}<div data-range-plot="{{ r.key }}"{% if r.key != 'all' %} hidden{% endif %}>{% for p in r.plots %}<div class="data-plot-{{ p.size }}">{{ p.svg }}</div>{% endfor %}</div>{% endfor %}
+<p class="small data-chart-hint">{{ t('data_explorer.chart_hint') }}</p>
+{% if c.tests %}<div class="data-tests"><span>{{ t('data_explorer.used_in') }}</span>{% for test in c.tests %}<a href="evidence.html#{{ test.hypothesis }}">{{ test.id }}</a>{% endfor %}</div>{% endif %}
+{% else %}{{ mx.empty_state(t('data_explorer.gap'),t('data_explorer.gap_note')) }}{% endif %}
+<details class="data-detail"><summary>{{ t('data_explorer.detail') }}</summary>
+<dl><dt>{{ t('data_explorer.definition') }}</dt><dd>{{ c.role }}</dd>{% if c.source_code %}<dt>{{ t('claim.source_code') }}</dt><dd class="data-code">{{ c.source_code }}</dd>{% endif %}</dl>
+{% if c.notes %}<p class="small muted">{{ t('data_explorer.caliber') }}</p><ul lang="en">{% for note in c.notes %}<li>{{ note }}</li>{% endfor %}</ul>{% endif %}
+<p><a href="{{ c.csv_url }}" download>{{ t('data_explorer.download') }}</a> / <a href="{{ c.json_url }}">{{ t('data_explorer.json') }}</a>{% if c.source_url %} / <a href="{{ c.source_url }}" rel="noopener">{{ t('data_explorer.source') }}</a>{% endif %}</p>
+{% if c.vintages %}<p class="small">{{ t('data_explorer.vintage_note') }}</p><div class="tablewrap"><table><thead><tr><th>{{ t('data_explorer.period') }}</th><th>{{ t('data_explorer.value') }}</th><th>{{ t('portal.released') }}</th><th>{{ t('portal.retrieved') }}</th><th>{{ t('data_explorer.vintage') }}</th></tr></thead><tbody>{% for p in c.vintages %}<tr><td>{{ p.reference_period|period }}</td><td>{{ p.value|num }}</td><td>{{ p.release_date|when if p.release_date else t('data_explorer.unknown') }}</td><td>{{ p.retrieved_at|when }}</td><td>{{ p.quality_flag }}</td></tr>{% endfor %}</tbody></table></div>{% elif c.derived %}<div class="tablewrap"><table><thead><tr><th>{{ t('data_explorer.period') }}</th><th>{{ t('data_explorer.value') }}</th><th>{{ t('claim.inputs') }}</th></tr></thead><tbody>{% for p in c.points|reverse %}<tr><td>{{ p.period|period }}</td><td>{{ p.value|num }}</td><td class="data-code">{{ p.inputs|join(', ') }}</td></tr>{% endfor %}</tbody></table></div>{% endif %}
+</details>
+</article>{% endfor %}</div>
 {% endblock %}
+{% block scripts %}<script src="{{ asset }}data-portal.js"></script>{% endblock %}

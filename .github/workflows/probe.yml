@@ -17,5 +17,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.14"
-      - run: python scripts/probe_sources.py --out probe.json
+      - run: python scripts/probe_sources.py --events --out probe.json --summary "$GITHUB_STEP_SUMMARY" --response-dir probe-responses
       - run: cat probe.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-source-probe
+          path: |
+            probe.json
+            probe-responses/

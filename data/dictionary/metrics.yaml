@@ -23,6 +23,7 @@
 metrics:
 # ---------------- Target and price (H1, H0) ----------------
 - metric_id: cn_ngdp_q
+  category: growth
   name: Nominal GDP, single quarter, current prices
   name_zh: 国内生产总值（当季，现价）
   tier: core
@@ -41,6 +42,7 @@ metrics:
     - Historical levels are revised after economic censuses; YoY must use same-vintage levels.
 
 - metric_id: cn_rgdp_yoy
+  category: growth
   name: Real GDP YoY, single quarter
   name_zh: 国内生产总值不变价当季同比
   tier: core
@@ -56,6 +58,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_ppi_yoy
+  category: prices
   name: PPI YoY
   name_zh: 工业生产者出厂价格指数同比
   tier: core
@@ -73,6 +76,7 @@ metrics:
     - YoY is distorted by base effects; read with PPI MoM.
 
 - metric_id: cn_ppi_mom
+  category: prices
   name: PPI MoM
   name_zh: 工业生产者出厂价格指数环比
   tier: core
@@ -88,6 +92,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_cpi_yoy
+  category: prices
   name: CPI YoY
   name_zh: 居民消费价格指数同比
   tier: core
@@ -105,6 +110,7 @@ metrics:
     - Food (pork) and Lunar New Year timing dominate headline swings; read with core CPI.
 
 - metric_id: cn_core_cpi_yoy
+  category: prices
   name: Core CPI YoY (ex food and energy)
   name_zh: 扣除食品和能源价格后的核心CPI同比
   tier: core
@@ -120,6 +126,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_pmi_output_price
+  category: pmi
   name: Manufacturing PMI, output prices
   name_zh: 制造业PMI出厂价格指数
   tier: core
@@ -136,6 +143,7 @@ metrics:
 
 # ---------------- Domestic demand (H2) ----------------
 - metric_id: cn_m1_yoy
+  category: credit
   name: M1 YoY
   name_zh: M1同比
   tier: core
@@ -153,6 +161,7 @@ metrics:
     - From January 2025 PBOC broadened M1 (adds household demand deposits and payment-institution customer reserves). YoY across the break is not like-for-like; flag comparisons spanning it.
 
 - metric_id: cn_loans_hh_mlt_ytd
+  category: credit
   name: New RMB loans to households, medium and long term, year-to-date
   name_zh: 住户中长期贷款新增（年初至今）
   tier: core
@@ -169,6 +178,7 @@ metrics:
     - Early mortgage repayment depresses net new lending independently of new demand.
 
 - metric_id: cn_retail_sales_yoy
+  category: growth
   jan_feb_combined: true
   name: Retail sales of consumer goods YoY
   name_zh: 社会消费品零售总额当月同比
@@ -187,6 +197,7 @@ metrics:
     - January and February published combined; trade-in subsidy programmes distort durable goods.
 
 - metric_id: cn_property_sales_area_ytd_yoy
+  category: growth
   name: Commodity building sales area, YTD YoY
   name_zh: 商品房销售面积累计同比
   tier: core
@@ -204,6 +215,7 @@ metrics:
     - YoY is computed by NBS on a comparable basis; it will not match YoY computed from published levels.
 
 - metric_id: cn_ind_profit_ytd_yoy
+  category: growth
   name: Industrial enterprise profits, YTD YoY
   name_zh: 规模以上工业企业利润总额累计同比
   tier: core
@@ -221,6 +233,7 @@ metrics:
     - Comparable-basis YoY; sample of enterprises changes annually. January-February combined.
 
 - metric_id: cn_pmi_new_orders
+  category: pmi
   name: Manufacturing PMI, new orders
   name_zh: 制造业PMI新订单指数
   tier: core
@@ -237,6 +250,7 @@ metrics:
 
 # ---------------- Policy impulse (H3) ----------------
 - metric_id: cn_tsf_stock_yoy
+  category: credit
   name: Total social financing stock YoY
   name_zh: 社会融资规模存量同比
   tier: core
@@ -253,6 +267,7 @@ metrics:
     - TSF coverage has been expanded several times (government bonds, ABS, write-offs). Verify each break against PBOC notes before comparing across it.
 
 - metric_id: cn_tsf_govbond_flow
+  category: fiscal
   name: TSF, government bond net financing (monthly flow)
   name_zh: 社融口径政府债券净融资（当月）
   tier: core
@@ -267,6 +282,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_budget_exp_ytd_yoy
+  category: fiscal
   name: General public budget expenditure, YTD YoY
   name_zh: 一般公共预算支出累计同比
   tier: core
@@ -285,6 +301,7 @@ metrics:
 
 # ---------------- External (H4) ----------------
 - metric_id: cn_exports_usd_yoy
+  category: trade
   name: Exports in USD, YoY
   name_zh: 出口金额（美元计）当月同比
   tier: core
@@ -302,6 +319,7 @@ metrics:
     - January and February combined. USD vs CNY terms differ by the exchange-rate change; export prices fall with PPI, so value growth mixes price and volume.
 
 - metric_id: cn_pmi_new_export_orders
+  category: pmi
   name: Manufacturing PMI, new export orders
   name_zh: 制造业PMI新出口订单指数
   tier: core
@@ -318,6 +336,7 @@ metrics:
 
 # ---------------- Global and markets (H0, H1, H3) ----------------
 - metric_id: gl_brent_usd
+  category: external
   name: Brent crude, monthly average
   name_zh: 布伦特原油价格（月均，美元/桶）
   tier: core
@@ -333,6 +352,7 @@ metrics:
   redistribution: public
 
 - metric_id: gl_copper_usd
+  category: external
   name: Copper, monthly average
   name_zh: 铜价（月均，美元/吨）
   tier: core
@@ -348,6 +368,7 @@ metrics:
   redistribution: public
 
 - metric_id: gl_usdcny
+  category: external
   name: CNY per USD, monthly average
   name_zh: 美元兑人民币汇率（月均）
   tier: core
@@ -363,6 +384,7 @@ metrics:
   redistribution: public
 
 - metric_id: gl_ust10y
+  category: external
   name: US 10-year Treasury yield, monthly average
   name_zh: 美国10年期国债收益率（月均）
   tier: core
@@ -410,6 +432,7 @@ metrics:
 
 # ---------------- Conditional diagnostics (<= 6) ----------------
 - metric_id: cn_ppi_producer_yoy
+  category: prices
   name: PPI, producer goods YoY
   name_zh: PPI生产资料同比
   tier: diagnostic
@@ -425,6 +448,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_ppi_consumer_yoy
+  category: prices
   name: PPI, consumer goods YoY
   name_zh: PPI生活资料同比
   tier: diagnostic
@@ -440,6 +464,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_ip_yoy
+  category: growth
   jan_feb_combined: true
   name: Industrial value added, real YoY
   name_zh: 规模以上工业增加值当月同比
@@ -456,6 +481,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_loans_corp_mlt_ytd
+  category: credit
   name: New RMB loans to non-financial corporates, medium and long term, YTD
   name_zh: 企（事）业单位中长期贷款新增（年初至今）
   tier: diagnostic
@@ -470,6 +496,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_gov_fund_rev_ytd_yoy
+  category: fiscal
   name: Government fund budget revenue, YTD YoY
   name_zh: 政府性基金预算收入累计同比
   tier: diagnostic
@@ -484,6 +511,7 @@ metrics:
   redistribution: public
 
 - metric_id: cn_exports_us_ytd_yoy
+  category: trade
   name: Exports to the United States in USD, YTD YoY
   name_zh: 对美出口（美元计）累计同比
   tier: diagnostic

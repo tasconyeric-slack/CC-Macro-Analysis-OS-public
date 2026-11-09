@@ -1,0 +1,2 @@
+# Extracted policy text hashes use stable LF bytes on every host.
+data/events/texts/*.txt text eol=lf
