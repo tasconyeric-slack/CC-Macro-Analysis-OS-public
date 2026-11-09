@@ -1,0 +1,42 @@
+version: macro-events-v1
+irrelevant:
+  pattern: '会见|出席.*峰会|干部任免|处分条例|廉洁从业|登记管理条例'
+  reason_zh: 原文是会见、出席或行政管理信息，尚未给出影响名义增长的具体工具或观测。
+  reason_en: The source describes a meeting or administrative matter without a specific nominal-growth tool or observation.
+roundup_pattern: '国民经济运行|经济运行总体|统计公报|金融工作情况的报告|政府工作报告|新闻发布会|发布会介绍|发布会聚焦|总体平稳|财政改革发展有关情况'
+followup_pattern: '解读|答记者问|这样完善|实施细则|落实|操作结果|实施情况|有关负责人'
+stages:
+  funded: '下达.*资金|拨付|投放|操作结果|发行结果'
+  implementation: '实施细则|操作规程|正式实施|加力实施|落实'
+  announced: '通知|决定|印发|公告|发布|意见|会议|管理办法'
+hypotheses:
+  - id: H1
+    pattern: '居民消费价格|工业生产者|出厂价格|价格指数|CPI|PPI'
+    mechanism_zh: 检查价格改善是否扩散，并与需求侧证据交叉验证。
+    mechanism_en: Check whether price changes broaden and corroborate them with demand evidence.
+    next_zh: 后续CPI、PPI与GDP平减指数。
+    next_en: Subsequent CPI, PPI and the GDP deflator.
+  - id: H2
+    pattern: '消费|零售|房地产|新订单|贷款|就业|内需'
+    mechanism_zh: 检查消费、订单、房地产与信用能否确认国内需求传导。
+    mechanism_en: Check consumption, orders, property and credit for domestic-demand transmission.
+    next_zh: 零售、房地产销售、订单与贷款流量。
+    next_en: Retail sales, property sales, orders and loan flows.
+  - id: H3
+    pattern: '财政|货币政策|再贷款|专项债|预算|降准|降息|存款准备金|金融支持|金融协同'
+    mechanism_zh: 政策信号仍需资金落地与实体需求数据确认，不能由公告直接推断效果。
+    mechanism_en: Policy signals require funding and real-demand confirmation; announcements do not establish effects.
+    next_zh: 实际拨付、融资与支出数据，以及后续实施文件。
+    next_en: Actual disbursement, financing and spending, plus implementation documents.
+  - id: H4
+    pattern: '出口|外贸|对外贸易'
+    mechanism_zh: 检查外需变化是否传导到出口、订单与名义增长。
+    mechanism_en: Check whether external-demand developments transmit to exports, orders and nominal growth.
+    next_zh: 海关出口与出口订单数据。
+    next_en: Customs exports and export orders.
+  - id: H0
+    pattern: '原材料|生产资料|供给|煤炭|产能'
+    mechanism_zh: 供给或成本变化也可能推升价格，需要独立的需求确认。
+    mechanism_en: Supply or cost changes can also lift prices and require independent demand confirmation.
+    next_zh: 投入品价格、产能与需求指标的交叉验证。
+    next_en: Cross-check input prices, capacity and demand indicators.

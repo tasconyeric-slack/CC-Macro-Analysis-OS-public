@@ -5,6 +5,7 @@ logs cannot be truncated/replaced; only the successful-source cursor is mutable.
 """
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -17,8 +18,11 @@ def staged_changes():
     for status, path in zip(fields[0::2], fields[1::2]):
         log_path = (path.startswith("data/events/inbox/") and path.endswith(".jsonl")) or path in {
             "data/events/source_status.jsonl", "data/events/reviews.jsonl", "data/events/events.jsonl"}
-        if not log_path and path != "data/events/cursors.json":
+        model_record = bool(re.fullmatch(r"data/events/relation_model/runs/[a-zA-Z0-9_-]+/(record|context)\.json", path))
+        if not log_path and path != "data/events/cursors.json" and not model_record:
             raise RuntimeError(f"Outside official event allowlist: {path}")
+        if model_record and status != "A":
+            raise RuntimeError(f"Model run records are write-once: {path}")
         if status not in {"A", "M"}:
             raise RuntimeError(f"Events cannot delete or rename artifacts: {path}")
         content = verified.git("show", ":" + path)
