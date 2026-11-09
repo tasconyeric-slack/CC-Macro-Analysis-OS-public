@@ -131,6 +131,7 @@ def test_chinese_pages_contain_no_stray_spaces_inside_sentences(built):
     """YAML line-folding must not leave 'word word' gaps inside Chinese text."""
     for f in (built / "zh").glob("*.html"):
         html = re.sub(r"<(script|style)\b.*?</\1>", "", f.read_text(encoding="utf-8"), flags=re.S)
+        html = re.sub(r"<q\b[^>]*>.*?</q>", "", html, flags=re.S)  # preserve literal official excerpts
         for e in policy_events():                      # an official headline may contain its own space
             html = html.replace(e["official_headline_zh"], "")
         html = re.sub(r"<q\b[^>]*>.*?</q>", "", html, flags=re.S)  # Literal source excerpts preserve original spacing.
