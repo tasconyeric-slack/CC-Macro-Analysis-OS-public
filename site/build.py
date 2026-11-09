@@ -513,6 +513,8 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
     if stem == "policy":
         from official_inbox import policy_inbox
         ctx["official_inbox"] = policy_inbox(model, loc)
+        from policy_comparisons import comparison_view
+        ctx["policy_comparisons"] = comparison_view(model, loc)
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
         ctx["category_charts"] = [chart_card(model, v, ch) for ch in model["charts"] if ch["m"].metric_id in CATEGORY_METRICS[stem[5:]]]

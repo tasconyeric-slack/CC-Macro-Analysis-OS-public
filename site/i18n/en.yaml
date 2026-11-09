@@ -629,3 +629,25 @@ official_inbox:
   archive_detail: First collected more than 48 hours after publication. These documents are context, not today's news.
   show_archive: 'Show {n} recent archived items'
   research_events: Research-linked policy events
+
+policy_compare:
+  heading: Policy wording, compared
+  intro: Compare the original statements and see what was added, removed or retained.
+  before: Previous statement
+  after: Latest statement
+  original: The comparison preserves the original Chinese wording.
+  more_changes: 'Show {n} more changes'
+  unchanged: 'Unchanged wording ({n})'
+  interpretation: Reviewed research interpretation
+  channel: Transmission channel
+  counter: Counter-reading
+  next: Next confirmation
+  sources: Source documents and collection details
+  source_note: Publication times use the publisher metadata. URL timestamps and text hashes remain recorded with each document.
+  collected: Collected
+  tag:
+    added: Added
+    removed: Removed
+    strengthened: Stronger wording
+    weakened: Softer wording
+    unchanged: Unchanged
