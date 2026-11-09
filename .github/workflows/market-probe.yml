@@ -1,0 +1,52 @@
+name: market source probe
+
+# Step A of the market-data task: call each candidate Tushare endpoint once and probe the public
+# official pages used for cross-checks, from a GitHub runner (TUSHARE_TOKEN exists only there).
+# Runs on pushes to the task branch that touch the probe; the report is pushed to a temporary
+# branch so it can be read, and that branch is deleted afterwards. Remove this workflow once
+# docs/research/market-source-matrix.md is recorded.
+on:
+  push:
+    branches: [codex/market-data]
+    paths: ["scripts/probe_market_sources.py", "src/cnmacro/tushare_client.py", ".github/workflows/market-probe.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Probe Tushare and the official pages
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: python scripts/probe_market_sources.py --out market-probe.json --summary "$GITHUB_STEP_SUMMARY" --response-dir probe-responses
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: market-source-probe
+          path: |
+            market-probe.json
+            probe-responses/
+          if-no-files-found: ignore
+      - name: Publish the report to a temporary branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan tmp/market-probe-results
+          git rm -rf --quiet . || true
+          mkdir -p report
+          cp market-probe.json report/
+          cp -r probe-responses report/ 2>/dev/null || true
+          git add report
+          git commit -q -m "market probe report (temporary; delete after use)"
+          git push --force origin HEAD:refs/heads/tmp/market-probe-results
