@@ -105,6 +105,7 @@ class Metric:
     hypotheses: list[str]
     role: str                 # the one-line reason this metric is in the budget
     source_primary: str
+    category: str | None = None       # public portal grouping; validated by the site build
     source_code: str | None = None
     source_fallback: str | None = None
     release: str | None = None
