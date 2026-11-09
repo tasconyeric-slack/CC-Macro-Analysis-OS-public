@@ -171,6 +171,7 @@ derived:
   pctile: "{metric}, percentile rank"
 
 units:
+  USD thousand: USD thousand
   "%": "%"
   CNY 100m: CNY 100m
   index (50 = no change): index (50 = no change)
@@ -733,6 +734,7 @@ event_triage:
   ambiguous: Similar material remains separate because the relation is unresolved.
 
 reader:
+  snapshot: Macro snapshot
   kicker: CHINA MACRO
   title: The economy, in focus
   description: Recent releases, the trends behind them, and the evolving research view.

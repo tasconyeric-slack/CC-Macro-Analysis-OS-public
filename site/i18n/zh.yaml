@@ -171,6 +171,7 @@ derived:
   pctile: "{metric}（百分位）"
 
 units:
+  USD thousand: 千美元
   "%": "%"
   CNY 100m: 亿元
   index (50 = no change): 指数（50为荣枯线）
@@ -726,6 +727,7 @@ event_triage:
   ambiguous: 相近资料的关系尚未确认，继续分别保留。
 
 reader:
+  snapshot: 宏观全景快照
   kicker: 中国宏观
   title: 看清最新变化，跟踪经济趋势
   description: 重要数据、政策与新闻，以及持续更新的宏观研究判断。

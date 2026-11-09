@@ -11,7 +11,7 @@ import localization as L
 from cnmacro.claims import Binding, Claim, validate_claim
 from cnmacro.derive import Deriver
 from cnmacro.store import utc_naive
-from cnmacro.events.store import load_public_items, load_source_status
+from cnmacro.events.store import load_grouped_public_items as load_public_items, load_source_status
 
 KPI_IDS = ("cn_rgdp_yoy", "cn_cpi_yoy", "cn_core_cpi_yoy", "cn_ppi_yoy",
            "cn_pmi_mfg", "cn_pmi_new_orders")

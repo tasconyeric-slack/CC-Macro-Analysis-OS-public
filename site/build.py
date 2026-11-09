@@ -52,6 +52,7 @@ from cnmacro.store import as_of, load_dictionary, load_observations, release_tim
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
+from news_feed import news_context
 from daily import build_desk, desk_context, write_desk  # noqa: E402
 from data_portal import build_data_portal, data_context, public_history, write_data_assets  # noqa: E402
 
@@ -520,6 +521,7 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
             model["desk"] = build_desk(model, events_dir=event_dir)
         ctx["desk"] = desk_context(model["desk"], v)
         ctx["metrics"] = model["metrics"]
+        ctx["macro_news"] = news_context(model, loc)
         if stem == "index":
             by_metric = {ch["m"].metric_id: ch for ch in model["charts"]}
             ctx["macro_snapshot"] = []
