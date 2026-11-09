@@ -1,0 +1,41 @@
+{
+  "report": [
+    {
+      "locale": "zh",
+      "width": 1440,
+      "overflow": false,
+      "rows": 28,
+      "rangeSwitch": "passed",
+      "metricDetail": "passed",
+      "exports": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "overflow": false,
+      "rows": 28,
+      "rangeSwitch": "passed",
+      "metricDetail": "passed",
+      "exports": "passed"
+    },
+    {
+      "locale": "zh",
+      "width": 390,
+      "overflow": false,
+      "rows": 28,
+      "rangeSwitch": "passed",
+      "metricDetail": "passed",
+      "exports": "passed"
+    },
+    {
+      "locale": "en",
+      "width": 390,
+      "overflow": false,
+      "rows": 28,
+      "rangeSwitch": "passed",
+      "metricDetail": "passed",
+      "exports": "passed"
+    }
+  ],
+  "errors": []
+}

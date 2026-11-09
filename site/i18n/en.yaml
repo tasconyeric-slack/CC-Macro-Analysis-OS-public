@@ -765,3 +765,22 @@ policy_compare:
     strengthened: Stronger wording
     weakened: Softer wording
     unchanged: Unchanged
+prices:
+  kicker: "PRICE TRANSMISSION · MONTHLY FACTS"
+  chain_title: "From factory gate to the consumer"
+  chain_note: "Compare upstream production, finished consumer goods and underlying consumer inflation. A gap describes relative price movements; it does not establish causal pass-through."
+  common: "Latest common month · YoY"
+  producer_gap: "Producer goods − consumer goods"
+  consumer_gap: "Consumer goods − core CPI"
+  no_common: "No common published month is available for the three series."
+  xlsx: "All price series · XLSX"
+  month: "This month"
+  table_note: "Each row labels its latest published month; prior is the immediately preceding calendar month. Missing published cells stay blank (–). Changes are percentage points for growth rates, index points for PMI."
+  component: "Component"
+  latest: "Latest"
+  prior: "Prior"
+  change: "Change"
+  percentile: "3-year percentile"
+  percentile_note: "Percentile: average rank within the trailing 36 calendar months, scaled from 0 to 100; ties average, constant samples = 50. n is the actual number of published observations, not an assumed 36."
+  components: "Explore the components"
+  fuel_note: "NBS transport fuel changes to transport energy in January 2026. The chart breaks at this classification change and percentiles use only the comparable segment; neither is broad energy. PMI prices are diffusion indices (50 = unchanged), not inflation rates."

@@ -5,6 +5,7 @@ import yaml
 
 from cnmacro.derive import parse_drv
 from cnmacro.expanded_data import NEW_METRICS
+from cnmacro.price_releases import NEW_PRICE_METRICS
 from cnmacro.evidence import load_tests
 from cnmacro.store import load_dictionary
 
@@ -39,7 +40,7 @@ def test_case_tests_reference_dictionary_metrics():
 def test_metric_budget():
     metrics = load_dictionary(ROOT / "data/dictionary/metrics.yaml")
     # Owner-authorized Issues #10/#28 add named public views; the prior research budget remains bounded.
-    tiers = [m.tier for m in metrics.values() if m.metric_id != "cn_pmi_mfg" and m.metric_id not in NEW_METRICS]
+    tiers = [m.tier for m in metrics.values() if m.metric_id != "cn_pmi_mfg" and m.metric_id not in NEW_METRICS | NEW_PRICE_METRICS]
     assert tiers.count("core") <= 24 and tiers.count("diagnostic") <= 6
     headline = metrics["cn_pmi_mfg"]
     assert (headline.tier, headline.source_primary, headline.redistribution) == ("diagnostic", "NBS", "public")

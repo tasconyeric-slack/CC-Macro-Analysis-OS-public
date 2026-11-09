@@ -451,6 +451,9 @@ def cmd_ingest_nbs(a) -> int:
         cal = {**agenda, **cal}
     for m in metrics.values():
         if (m.source_primary == "NBS" or (m.source_code or "").startswith("nbs:")) and (not a.metric or m.metric_id == a.metric):
+            if (m.source_code or '').startswith('nbs-release:'):
+                print(f"skip {m.metric_id}: use scripts/fetch_price_releases.py for official release tables")
+                continue
             if not m.source_code:
                 print(f"skip {m.metric_id}: no NBS code yet")
                 continue

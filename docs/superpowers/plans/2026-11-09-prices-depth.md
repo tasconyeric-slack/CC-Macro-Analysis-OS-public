@@ -19,3 +19,11 @@ Chosen approach: dedicated release parser/collector plus dedicated prices view/t
 ## Review focus
 
 Column reversal (NBS tables publish MoM before YoY); food vs food/tobacco/alcohol; transport fuel vs broad energy; missing core MoM; duplicate/conflicting rows; PMI tables contain multiple months; gaps must break chart lines; prior means previous calendar month; same-period composite; stable archived vintage availability; no manufactured history.
+
+## Execution evidence
+
+- Small-batch runner archive capture: 42662050695. Imported 144 releases / 1,008 new observations / 21 new metrics with 48 published months each; no interpolation or parser errors. Existing longer histories retained. Six temporary result branches and diagnostic workflows/scripts removed after use.
+- Current NBS CPI table revealed the 2026 transport fuel-to-energy classification change. Exact labels, observation limitations, chart breaks and comparable percentile segments record it.
+- Independent review found and verified fixes for same-source legacy revision capture and a missing-January classification-break path. A real combined-store build additionally caught timestamp precision incompatibility; new captures now use the existing second-precision ISO convention, with a regression test.
+- Real-data browser acceptance: both locales, 1440/390 px, no page overflow or browser errors; range switches, metric details and CSV/XLSX routes verified. Screenshots and reports live in `docs/design/prices/`.
+- Public evaluation: E1–E5 pass; only pre-existing E0 warnings remain. Full-suite results are recorded in the PR checks.
