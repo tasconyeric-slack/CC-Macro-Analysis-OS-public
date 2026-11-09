@@ -52,6 +52,10 @@ def main(target):
             except Exception as e: report['errors'].append(str(e))
     def release(item):
         url, title = item; body, metadata = fetch(url)
+        if b'<table' not in body:
+            body, transport = fetch(url+'?v=1')
+            metadata['transport_url'] = transport['url']
+            metadata['bytes'] = len(body)
         filename = url.rsplit('/', 1)[1]; (out/filename).write_bytes(body)
         return {**metadata, 'title': title, 'file': filename}
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:

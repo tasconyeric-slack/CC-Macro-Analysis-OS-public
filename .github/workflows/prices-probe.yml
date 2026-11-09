@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.14'
-      - run: pip install playwright && playwright install --with-deps chromium
       - run: python scripts/probe_price_releases.py .prices-probe
       - name: Push temporary diagnostic branch
         run: |
