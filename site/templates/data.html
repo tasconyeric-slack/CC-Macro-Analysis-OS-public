@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% import "_macros.html" as mx with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}data-portal.css">{% endblock %}
 {% block body %}
-<h1>{{ t('portal.data_group') }}</h1><p class="lede">{{ t('portal.data_note') }}</p>
-<div class="column-grid">{% for c in portal.categories %}{{ mx.column_card(c.url, c.title, c.description, c.kicker, '%02d'|format(loop.index), t('portal.data_frequency'), [t('portal.metrics', n=c.metric_count)]) }}{% endfor %}</div>
+<div class="data-intro"><div><p class="small muted">{{ t('portal.public_sources') }}</p><h1>{{ t('portal.data_group') }}</h1><p class="lede">{{ t('portal.data_note') }}</p></div><div class="data-total"><strong>{{ data_explorer.available }}</strong><span>{{ t('data_explorer.series') }}</span></div></div>
+<div class="column-grid">{% for c in portal.categories %}
+<section class="data-category-card">{{ mx.column_card(c.url, c.title, c.description, c.kicker, '%02d'|format(loop.index), t('portal.data_frequency'), [t('portal.metrics', n=c.metric_count)], t('portal.last_release',date=c.latest_release|date) if c.latest_release else t('portal.no_release')) }}
+{% set samples = data_explorer.cards|selectattr('category','equalto',c.id)|selectattr('latest')|list %}{% if samples %}<div class="data-preview"><span>{{ samples[0].name }}</span><strong>{{ samples[0].value }} <small>{{ samples[0].unit }}</small></strong><span>{{ samples[0].latest.period|period }}</span>{{ samples[0].thumbnail }}</div>{% endif %}
+</section>{% endfor %}</div>
+<aside class="data-boundary"><h2>{{ t('data_explorer.coverage_title') }}</h2><p>{{ t('data_explorer.coverage') }}</p><p>{{ t('data_explorer.calendar_note') }}</p><a href="daily.html#calendar">{{ t('portal.calendar_title') }}</a></aside>
 {% endblock %}

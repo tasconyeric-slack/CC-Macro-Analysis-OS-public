@@ -637,3 +637,45 @@ desk:
   pp: percentage points
   points: index points
   view_release: View release
+
+data_explorer:
+  series: available series
+  categories: Data categories
+  previous: Change vs prior period
+  year: Change vs year earlier
+  pp: pp
+  points: points
+  not_available: Unavailable
+  deflator: Implied GDP deflator YoY
+  deflator_note: Calculated from nominal and real GDP with the existing deterministic
+    formula; input observations remain linked.
+  unknown_release: Release time unknown; retrieval time is shown.
+  unknown: Unknown
+  tooltip: 'Released: {released}; retrieved: {retrieved}; vintage: {vintage}'
+  range: Chart range
+  2y: 2Y
+  5y: 5Y
+  all: All
+  chart_hint: Hover for period, value and vintage. All ranges work from static public
+    data.
+  used_in: Used in evidence tests
+  gap: No public observations
+  gap_note: This metric is tracked but no public observation is held. No estimate
+    or licensed substitute is shown.
+  detail: Definition, source and vintage history
+  definition: Definition and research role
+  caliber: Original caliber notes (English)
+  download: Download public CSV
+  json: Series JSON
+  source: Official source
+  vintage_note: Every captured vintage is retained below. A missing release date remains
+    unknown; it is never replaced with the retrieval date.
+  period: Period
+  value: Value
+  vintage: Vintage flag
+  coverage_title: Coverage and limits
+  coverage: Government-fund revenue has no public observations. Licensed interest-rate
+    and high-frequency series are excluded. Published figures are facts; a chart does
+    not change the analyst view.
+  calendar_note: Each category uses the observation dictionary and actual release
+    metadata. Revisions remain visible in the metric detail.
