@@ -510,6 +510,9 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
     ctx["portal"] = portal_context(model, v)
+    if stem == "policy":
+        from official_inbox import policy_inbox
+        ctx["official_inbox"] = policy_inbox(model, loc)
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
         ctx["category_charts"] = [chart_card(model, v, ch) for ch in model["charts"] if ch["m"].metric_id in CATEGORY_METRICS[stem[5:]]]

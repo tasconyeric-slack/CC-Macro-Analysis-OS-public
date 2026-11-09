@@ -598,3 +598,34 @@ portal:
       title: 外部环境
       kicker: GLOBAL ENVIRONMENT
       description: 能源、金属、汇率与美债利率。
+
+official_inbox:
+  kicker: 官方发布与政策文件
+  description: 追踪官方原文、发布时间与收集时间，保留独立的审阅记录。
+  count: '{n} 条官方资料'
+  archive_count: '{n} 条首次收集时已归档'
+  quarantine_count: '{n} 条等待确认发布日期'
+  boundary: 信源核验只确认原文及日期，不代表分析师认可、研究观点变化或概率调整。
+  latest: 最新官方发布
+  published: 原始发布
+  first_seen: 首次收集
+  retrieved: 抓取时间
+  date_only: 精度为日期
+  source: 官方原文
+  original: 中文原文，英文译文尚未审阅。
+  status_raw_candidate: 待审阅
+  status_verified: 信源已核验
+  status_analyst_approved: 分析师已认可
+  status_rejected: 已拒绝
+  empty: 暂无新的已知日期官方发布
+  empty_detail: 较早资料保留在历史归档中；信源不可用与日期缺失会单独说明。
+  sources: 信源检查
+  source_ok: 已解析
+  source_failed: 不可用
+  no_sources: 当前信息边界内尚无信源检查记录。
+  source_note: 展示最近一次信源结果变化。重复抓取没有变化时，不新增重复记录。
+  calendar: 官方发布日历
+  archive: 历史归档
+  archive_detail: 首次收集距原始发布已超过四十八小时，仅作背景资料，不列入今日新闻。
+  show_archive: '展开最近 {n} 条归档资料'
+  research_events: 已关联研究的政策事件
