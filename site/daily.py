@@ -11,6 +11,7 @@ import localization as L
 from cnmacro.claims import Binding, Claim, validate_claim
 from cnmacro.derive import Deriver
 from cnmacro.store import utc_naive
+from cnmacro.events.store import load_public_items, load_source_status
 
 KPI_IDS = ("cn_rgdp_yoy", "cn_cpi_yoy", "cn_core_cpi_yoy", "cn_ppi_yoy",
            "cn_pmi_mfg", "cn_pmi_new_orders")
@@ -41,7 +42,7 @@ def source_url(model, source, code=""):
                  if s["id"] == source and s.get("url")), "https://www.stats.gov.cn/sj/zxfb/")
 
 
-def build_desk(model):
+def build_desk(model, events_dir=None):
     obs, metrics = model["observations"], model["metrics"]
     history = model.get("observation_history", obs)
     kpis, claims = [], []
@@ -123,10 +124,23 @@ def build_desk(model):
                 if test and mid in test["metrics"] and flip not in group["test_flips"]:
                     group["test_flips"].append(flip)
     releases = sorted(groups.values(), key=lambda r: utc_naive(r["published_at"] or r["retrieved_at"]), reverse=True)
+    events = load_public_items(events_dir, as_of=model["built_at"]) if events_dir else []
+    sources = load_source_status(events_dir, as_of=model["built_at"]) if events_dir else []
+    announcements = []
+    for item in events:
+        related = next((r for r in releases if r["canonical_url"] == item["canonical_url"]), None)
+        if related:
+            related["official_item_id"] = item["item_id"]
+            related["first_seen_at"] = item["first_seen_at"]
+            related["event_id"] = item.get("event_id")
+            item["attached_release_id"] = related["item_id"]
+        else:
+            announcements.append(item)
     return {"built_at": model["built_at"], "evidence_as_of": model["evidence_as_of"],
             "last_refresh": model["refresh_at"], "judgment_as_of": (model["judgment_doc"] or {}).get("as_of"),
             "has_analyst_update": bool(model["updates"]), "kpis": kpis, "claims": claims,
-            "releases": releases, "calendar": build_calendar(model), "events": []}
+            "releases": releases, "calendar": build_calendar(model), "events": events,
+            "announcements": announcements, "source_status": sources}
 
 
 def desk_context(desk, v):
@@ -168,7 +182,12 @@ def desk_context(desk, v):
     pending = [item for item in calendar if item["status"] in ("pending", "today", "scheduled")]
     calendar = pending + sorted((item for item in calendar if item["status"] == "released"),
                                 key=lambda item: utc_naive(item["release"]), reverse=True)
-    return {**desk, "kpis": kpis, "releases": releases,
+    announcements = [{**item, "title": item.get("title_" + v.loc) or item["title_zh"],
+                       "original_language": v.loc == "en" and not item.get("title_en"),
+                       "published_at": beijing(item["published_at"]),
+                       "first_seen_at": beijing(item["first_seen_at"]),
+                       "retrieved_at": beijing(item["retrieved_at"])} for item in desk["announcements"]]
+    return {**desk, "kpis": kpis, "releases": releases, "announcements": announcements,
             "built_at": beijing(desk["built_at"]), "last_refresh": beijing(desk["last_refresh"]),
             "judgment_as_of": beijing(desk["judgment_as_of"]),
             "brief": [claim.render(locale=v.loc) for claim in desk["claims"]],

@@ -61,3 +61,18 @@ def test_briefing_json_is_public_and_source_linked(built):
         assert release["retrieved_at"]
         assert all(value["ref"].startswith("obs:") for value in release["values"])
     assert "private_only" not in json.dumps(data)
+
+
+def test_verified_source_item_joins_its_release_without_a_duplicate_signal(model, tmp_path):
+    from cnmacro.events.store import append
+    fixture = {**model, "built_at": "2099-01-01T00:00:00Z"}
+    release = next(r for r in build_desk(fixture)["releases"] if r["published_at"])
+    item = {"item_id": "verified-release", "kind": "data_release", "tier": "EVENT",
+            "canonical_url": release["canonical_url"], "published_at": release["published_at"],
+            "first_seen_at": "2098-12-31T01:00:00Z", "retrieved_at": "2098-12-31T01:00:00Z",
+            "status": "verified", "title_zh": "官方数据", "archived": False}
+    append(tmp_path / "inbox/2098-12.jsonl", [item, {**item, "item_id": "candidate", "canonical_url": "https://www.stats.gov.cn/other", "status": "raw_candidate"}])
+    desk = build_desk(fixture, events_dir=tmp_path)
+    assert len(desk["events"]) == 1 and not desk["announcements"]
+    assert desk["events"][0]["attached_release_id"] == release["item_id"]
+    assert not build_desk(model)["events"]  # sandbox consumers require an explicit event directory

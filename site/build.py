@@ -515,7 +515,9 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
     ctx["portal"] = portal_context(model, v)
     if stem == "daily":
         if "desk" not in model:
-            model["desk"] = build_desk(model)
+            public_case = Path(model["case_dir"]).resolve() == (ROOT / "research/cases/cn-nominal").resolve()
+            event_dir = ROOT / "data/events" if public_case and not model["preview"] and not model.get("banner") else None
+            model["desk"] = build_desk(model, events_dir=event_dir)
         ctx["desk"] = desk_context(model["desk"], v)
         ctx["metrics"] = model["metrics"]
 

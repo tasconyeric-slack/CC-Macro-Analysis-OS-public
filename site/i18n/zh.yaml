@@ -638,6 +638,13 @@ desk:
   points: 点
   view_release: 查看发布记录
 
+  announcements: 官方公告
+  announcements_note: 仅展示信源已核验的文件；已关联数据的发布文章只保留一次。
+  no_other_announcements: 暂无其他已核验公告，官方数据原文已关联到发布记录。
+  source_status: 官方信源采集状态
+  source_ok: 最近采集成功
+  source_failed: 采集失败，已收集资料仍保留
+
 data_explorer:
   series: 条可用序列
   categories: 数据分类

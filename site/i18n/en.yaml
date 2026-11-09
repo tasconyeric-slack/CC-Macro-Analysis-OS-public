@@ -638,6 +638,13 @@ desk:
   points: index points
   view_release: View release
 
+  announcements: Official announcements
+  announcements_note: Source-verified documents only. Data-release articles already linked above are shown once.
+  no_other_announcements: No additional source-verified announcements. Data releases are linked in the release list.
+  source_status: Official source collection
+  source_ok: Last collection succeeded
+  source_failed: Collection failed; retained items remain visible
+
 data_explorer:
   series: available series
   categories: Data categories

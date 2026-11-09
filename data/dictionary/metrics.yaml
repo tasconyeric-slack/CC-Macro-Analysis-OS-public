@@ -257,8 +257,8 @@ metrics:
   unit: index (50 = no change)
   transform: level
   hypotheses: [H2]
-  role: Owner-authorized headline diagnostic for the Daily Macro Desk; not a preregistered evidence test.
-  role_zh: 经Owner授权用于每日宏观台的制造业主指数，不进入预注册证据检验。
+  role: Headline composite diffusion index for manufacturing business conditions; diagnostic context, not a preregistered evidence test.
+  role_zh: 制造业景气的综合扩散指数，用作对照背景，不进入预注册证据检验。
   source_primary: NBS
   # Verified against the NBS catalog response in source probe 42507127955; no guessed identifier.
   source_code: "nbs:93ffbb1aa85740d3aa2618371508b606/a09aa989bdcf4cffa2021795722eb916"
