@@ -25,6 +25,7 @@ def build_calendar(model, now=None):
     entries = []
     for release in model["release_calendar"]:
         at = pd.Timestamp(release["release"])
+        at = at.tz_localize("Asia/Shanghai") if at.tzinfo is None else at
         mids = release["metrics"]
         complete = all(not obs[(obs.metric_id == mid) &
                                (obs.reference_period == release["period"])].empty for mid in mids)
@@ -195,8 +196,8 @@ def desk_context(desk, v):
             "brief": [claim.render(locale=v.loc) for claim in desk["claims"]],
             "calendar": calendar, "upcoming": pending,
             "no_release_today": not any(item["published_at"] and
-                pd.Timestamp(item["published_at"]).tz_convert("Asia/Shanghai").date() ==
-                pd.Timestamp(desk["built_at"]).tz_convert("Asia/Shanghai").date() for item in releases)}
+                pd.Timestamp(beijing(item["published_at"])).date() ==
+                pd.Timestamp(beijing(desk["built_at"])).date() for item in releases)}
 
 
 def write_desk(desk, out: Path):
