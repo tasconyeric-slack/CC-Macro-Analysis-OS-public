@@ -1,71 +1,32 @@
-"""Runner-only diagnostic: archive official NBS price release bodies, never publish values."""
-import concurrent.futures
+"""Small-batch GitHub-runner archive reading from an already verified NBS index."""
 import json
-import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
-from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin
-
-BASE = 'https://www.stats.gov.cn/sj/zxfb/'
 
 
-def fetch(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=35) as r:
-        body = r.read()
-        return body, {'url': url, 'status': r.status, 'bytes': len(body)}
-
-
-class Links(HTMLParser):
-    def __init__(self):
-        super().__init__(); self.items = []; self.href = None; self.title = ''; self.text = []
-    def handle_starttag(self, tag, attrs):
-        if tag == 'a':
-            a = dict(attrs); self.href = a.get('href'); self.title = a.get('title', ''); self.text = []
-    def handle_data(self, value):
-        if self.href: self.text.append(value)
-    def handle_endtag(self, tag):
-        if tag == 'a' and self.href:
-            self.items.append((self.href, self.title or ''.join(self.text))); self.href = None
-
-
-def main(target):
-    out = Path(target); out.mkdir(parents=True, exist_ok=True)
-    report = {'retrieved_at': datetime.now(timezone.utc).isoformat(), 'requests': [], 'releases': [], 'errors': []}
-    links = {}
-    # About 20 monthly releases per listing. 100 pages comfortably spans 36 months.
-    def listing(i):
-        url = BASE + (f'index_{i}.html' if i else 'index.html')
-        body, metadata = fetch(url)
-        parser = Links(); parser.feed(body.decode('utf-8'))
-        return metadata, parser.items
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        for future in [pool.submit(listing, i) for i in range(100)]:
+def main(out, shard):
+    out=Path(out);out.mkdir(exist_ok=True)
+    links=json.loads(Path('docs/design/prices/release-index.json').read_text(encoding='utf-8'))
+    report={'retrieved_at':datetime.now(timezone.utc).isoformat(),'releases':[],'errors':[]}
+    for item in links[shard::12]:
+        error='no real table'
+        for transport in (item['url']+'?_=20261109',item['url']+'?v=1',item['url'].replace('https:','http:')):
             try:
-                metadata, items = future.result(); report['requests'].append(metadata)
-                for href, title in items:
-                    if any(x in title for x in ('居民消费价格', '工业生产者出厂价格', '采购经理指数运行情况')):
-                        url = urljoin(BASE, href)
-                        if re.fullmatch(r'https://www.stats.gov.cn/sj/zxfb/20\d{4}/t\d{8}_\d+\.html', url): links[url] = title.strip()
-            except Exception as e: report['errors'].append(str(e))
-    def release(item):
-        url, title = item
-        # Direct HTTP on the same official host was independently measured by
-        # runner 42659428457; keep canonical HTTPS identity and actual transport.
-        body, metadata = fetch(url.replace('https:','http:'))
-        metadata['transport_url'] = metadata['url']
-        metadata['url'] = url
-        metadata['has_table'] = b'<table' in body
-        filename = url.rsplit('/', 1)[1]; (out/filename).write_bytes(body)
-        return {**metadata, 'title': title, 'file': filename}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        for future in [pool.submit(release, item) for item in sorted(links.items())]:
-            try: report['releases'].append(future.result())
-            except Exception as e: report['errors'].append(str(e))
-    (out/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
-    print(json.dumps({'listings': len(report['requests']), 'releases': len(report['releases']), 'errors': report['errors']}, ensure_ascii=False))
+                request=urllib.request.Request(transport,headers={'User-Agent':'Mozilla/5.0'})
+                with urllib.request.urlopen(request,timeout=20) as response:body=response.read()
+                if b'<table' in body.lower():
+                    (out/item['file']).write_bytes(body)
+                    report['releases'].append({**item,'transport_url':transport,'status':200,'bytes':len(body),'has_table':True})
+                    break
+            except Exception as exc:error=str(exc)
+            time.sleep(1)
+        else:report['errors'].append({'url':item['url'],'error':error})
+        time.sleep(1)
+    (out/f'report-{shard}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
+    print('shard',shard,'tables',len(report['releases']),'errors',len(report['errors']))
 
 
-if __name__ == '__main__': main(sys.argv[1])
+if __name__=='__main__':main(sys.argv[1],int(sys.argv[2]))

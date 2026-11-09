@@ -8,18 +8,45 @@ permissions:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.14'
-      - run: python scripts/probe_price_releases.py .prices-probe
-      - name: Push temporary diagnostic branch
-        run: |
+      - run: python scripts/probe_price_releases.py .prices-probe ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prices-probe-${{ matrix.shard }}
+          path: .prices-probe
+          include-hidden-files: true
+  collect:
+    needs: probe
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: prices-probe-*
+          merge-multiple: true
+          path: .prices-probe
+      - run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('.prices-probe')
+          reports=[json.loads(p.read_text()) for p in root.glob('report-*.json')]
+          report={'retrieved_at':max(r['retrieved_at'] for r in reports),'releases':[x for r in reports for x in r['releases']],'errors':[x for r in reports for x in r['errors']]}
+          (root/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print('Real official tables:',sum(x.get('has_table',False) for x in report['releases']),'of',len(report['releases']))
+          PY
           git switch -c codex/prices-probe-${{ github.run_id }}
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add .prices-probe
-          git commit -m "diagnostic: runner NBS archive responses"
-          git push origin HEAD:refs/heads/codex/prices-probe-${{ github.run_id }}
+          git commit -m "diagnostic: small-batch runner NBS archive responses"
+          git push origin HEAD
