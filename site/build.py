@@ -52,6 +52,7 @@ from cnmacro.store import as_of, load_dictionary, load_observations, release_tim
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
+from data_portal import build_data_portal, data_context, public_history, write_data_assets  # noqa: E402
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
@@ -356,7 +357,8 @@ def build_model(cfg) -> dict:
         "view_current": (presentation.get("applies_to") == judgment_file) if presentation else None,
         "built_at": now.replace(microsecond=0).isoformat(), "commit": git("rev-parse", "--short", "HEAD"),
         "case_dir": case_dir,
-        "observations": ev_obs, "release_calendar": calendar,
+        "observations": ev_obs, "observation_history": public_history(obs, metrics), "release_calendar": calendar,
+        "data_portal": build_data_portal(obs, metrics, test_rows, ev_as_of),
     }
 
 
@@ -512,7 +514,9 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
     ctx["portal"] = portal_context(model, v)
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
-        ctx["category_charts"] = [chart_card(model, v, ch) for ch in model["charts"] if ch["m"].metric_id in CATEGORY_METRICS[stem[5:]]]
+        ctx["data_explorer"] = data_context(model, v, stem[5:])
+    if stem == "data":
+        ctx["data_explorer"] = data_context(model, v)
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
     return ctx
 
@@ -550,6 +554,7 @@ def make_env(loc: str) -> Environment:
 def render_site(model: dict, out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site/static", out / "static")
+    write_data_assets(model["data_portal"], out)
     # browsers ask for /favicon.ico at the root before they read any <link>
     if (out / "static/favicon.ico").exists():
         shutil.copy(out / "static/favicon.ico", out / "favicon.ico")

@@ -598,3 +598,38 @@ portal:
       title: 外部环境
       kicker: GLOBAL ENVIRONMENT
       description: 能源、金属、汇率与美债利率。
+
+data_explorer:
+  series: 条可用序列
+  categories: 数据分类
+  previous: 较上期变化
+  year: 较上年同期变化
+  pp: 个百分点
+  points: 点
+  not_available: 暂无可比值
+  deflator: 隐含 GDP 平减指数同比
+  deflator_note: 沿用确定性公式，由名义与实际 GDP 计算；保留输入观测值的引用链。
+  unknown_release: 发布时间未知；展示真实抓取时间。
+  unknown: 未知
+  tooltip: 发布：{released}；抓取：{retrieved}；版本：{vintage}
+  range: 图表区间
+  2y: 近两年
+  5y: 近五年
+  all: 全部
+  chart_hint: 悬停查看时期、数值与版本信息。各区间均来自静态公开数据。
+  used_in: 相关证据检验
+  gap: 暂无公开观测值
+  gap_note: 已纳入跟踪，但尚未持有公开观测值。不会以估算或授权私有数据补齐。
+  detail: 定义、来源与历史版本
+  definition: 定义与研究用途
+  caliber: 原始口径说明（英文）
+  download: 下载公开 CSV
+  json: 序列 JSON
+  source: 官方来源
+  vintage_note: 下表保留各次实际抓取的版本。发布日期缺失时保持未知，不以抓取日期代替。
+  period: 参考时期
+  value: 数值
+  vintage: 版本标识
+  coverage_title: 覆盖与边界
+  coverage: 政府性基金收入尚无公开观测值。授权利率与高频序列不进入公开站。图中数值属于事实，不会自动改变分析师判断。
+  calendar_note: 各分类来自指标字典和实际发布元数据。修订记录可在指标详情中查看。
