@@ -1,12 +1,15 @@
 {% extends "base.html" %}{% import "_macros.html" as mx with context %}
 {% block body %}
+<section class="reader-front"><div class="reader-heading"><div><p>{{ t('reader.kicker') }}</p><h1>{{ t('reader.title') }}</h1><p>{{ t('reader.description') }}</p></div><a href="daily.html">{{ t('portal.daily_title') }}</a></div>
+<div class="reader-snapshot">{% for k in macro_snapshot %}<a class="reader-indicator" href="data-{{ metrics[k.metric_id].category }}.html#metric-{{ k.metric_id }}"><span>{{ k.name }}</span><strong>{{ '%.1f'|format(k.value) }}<small>{{ k.unit_label }}</small></strong><p>{{ k.period|period }}{% if k.delta is not none %} · {{ '%+.1f'|format(k.delta) }} {{ k.delta_unit }}{% endif %}</p>{{ k.spark or '' }}<small>{{ k.publisher_name }} · {{ k.release_date|date if k.release_date else k.retrieved_at|date }}</small></a>{% endfor %}</div></section>
+
 
 {# ---- 1. the answer: question, current view, the numbers that matter ---- #}
 <section class="hero portal-hero" aria-labelledby="q">
   <div class="hero-copy">
   <div class="hero-kicker">{{ t('portal.research_portal') }} <span>{{ t('portal.public_sources') }}</span></div>
   <div class="eyebrow">{{ t('home.eyebrow') }}</div>
-  <h1 id="q">{{ case.question }}</h1>
+  <h2 id="q">{{ case.question }}</h2>
   <div class="viewcard">
     <div class="eyebrow">{{ t('home.current_view') }}</div>
     {% if current_view.headline %}
@@ -34,12 +37,7 @@
 
 <section class="change-section" aria-labelledby="recent-changes">
   <div class="section-heading"><div><h2 id="recent-changes">{{ t('portal.changed') }}</h2><p>{{ t('portal.changed_note') }}</p></div><a href="updates.html">{{ t('portal.view_history') }}</a></div>
-  <div class="change-grid">
-    <div>{{ mx.tier_badge('FACT') }}<h3>{{ t('portal.refresh') }}</h3>
-    {% if portal.latest_refresh %}<p class="change-date">{{ portal.latest_refresh.as_of|when }}</p><p>{{ t('portal.refresh_counts', observations=portal.latest_refresh.new_observations|length, flips=portal.latest_refresh.flipped_tests|length) }}</p>{% else %}<p>{{ t('portal.no_refresh') }}</p>{% endif %}</div>
-    <div>{{ mx.tier_badge('JUDGMENT') }}<h3>{{ t('portal.review_update') if updates else t('portal.review_pending') }}</h3><p>{{ updates[-1].as_of|when if updates else t('portal.review_note') }}</p></div>
-    <div>{{ mx.tier_badge('EVENT') }}<h3>{{ t('portal.next') }}</h3>{% if next_releases %}<p><a href="daily.html#calendar">{{ next_releases[0].label }}</a></p><p class="change-date">{{ next_releases[0].release|when }}</p>{% else %}<p>{{ t('home.no_releases') }}</p>{% endif %}</div>
-  </div>
+  <div class="change-grid">{% for release in desk.releases[:2] %}<article><h3><a href="daily.html#{{ release.item_id }}">{{ release.title }}</a></h3><p class="change-date">{{ release.published_at|when if release.published_at else release.retrieved_at|when }}</p>{% for value in release['values'][:2] %}<p>{{ value.name }} <strong>{{ '%.1f'|format(value.value) }}{{ value.unit_label }}</strong></p>{% endfor %}<a class="small" href="{{ release.canonical_url }}">{{ release.publisher_name }}</a></article>{% endfor %}<article><h3><a href="memo.html">{{ t('reader.research') }}</a></h3><p>{{ current_view.headline if current_view else case.statement }}</p><p class="small muted">{{ t('desk.judgment_date')|colon }}{{ desk.judgment_as_of|date }}</p><a href="updates.html">{{ t('portal.view_history') }}</a></article></div>
 </section>
 
 <section class="portal-columns" aria-labelledby="portal-columns">
@@ -134,7 +132,7 @@
 </div>
 
 {# ---- 6. the system behind the view: preregistration, audit trail, eval, data sources ---- #}
-<section class="system" aria-labelledby="sys">
+<details class="system reader-method"><summary>{{ t('home.system_title') }}</summary><section aria-labelledby="sys">
   <h2 id="sys">{{ t('home.system_title') }}</h2>
   <p class="intro">{{ t('home.system_intro') }}</p>
   <div class="grid2">
@@ -179,5 +177,5 @@
   <h3>{{ t('home.sources_title') }}</h3>
   <ul class="sources">{% for s in sources_status %}<li class="src {{ s.status }}"><span class="dot" aria-hidden="true"></span><strong>{{ s.id }}</strong> <span class="muted">{{ s.label }}</span></li>{% endfor %}</ul>
   <p class="small muted">{{ t('home.sources_note') }} <a href="method.html#sources">{{ t('home.sources_link') }} ›</a></p>
-</section>
+</section></details>
 {% endblock %}

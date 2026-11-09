@@ -731,3 +731,9 @@ event_triage:
   links: Hypothesis links and next confirmation
   sources: '{n} source records for this occurrence'
   ambiguous: Similar material remains separate because the relation is unresolved.
+
+reader:
+  kicker: CHINA MACRO
+  title: The economy, in focus
+  description: Recent releases, the trends behind them, and the evolving research view.
+  research: The current research view

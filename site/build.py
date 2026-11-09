@@ -513,13 +513,21 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
     ctx["portal"] = portal_context(model, v)
-    if stem == "daily":
+    if stem in ("daily", "index"):
         if "desk" not in model:
             public_case = Path(model["case_dir"]).resolve() == (ROOT / "research/cases/cn-nominal").resolve()
             event_dir = ROOT / "data/events" if public_case and not model["preview"] and not model.get("banner") else None
             model["desk"] = build_desk(model, events_dir=event_dir)
         ctx["desk"] = desk_context(model["desk"], v)
         ctx["metrics"] = model["metrics"]
+        if stem == "index":
+            by_metric = {ch["m"].metric_id: ch for ch in model["charts"]}
+            ctx["macro_snapshot"] = []
+            for kpi in ctx["desk"]["kpis"][:4]:
+                ch = by_metric.get(kpi["metric_id"])
+                spark = Markup(line_chart(ch["pts"][-24:], kpi["unit"], chart_id="reader-" + kpi["metric_id"], width=320, height=115, label=kpi["name"])) if ch and len(ch["pts"]) > 1 else None
+                ctx["macro_snapshot"].append({**kpi, "spark": spark})
+
 
     if stem == "policy":
         from official_inbox import policy_inbox

@@ -14,12 +14,14 @@ def test_the_view_comes_before_the_system(built, loc):
                     prereg="Preregistered at", audit="Audit trail", ev="Deterministic eval|deterministic eval"),
          "zh": dict(view="当前判断", states="各假设目前的状态", evidence="关键证据", system="这一判断如何保持严谨",
                     prereg="预先登记：概率", audit="审计轨迹", ev="确定性评估")}[loc]
-    order = [text.index(t["view"]), text.index(t["states"]), text.index(t["evidence"]), text.index(t["system"])]
+    order = [text.index(t["view"]), text.index(t["states"]), text.index(t["evidence"])]
     assert order == sorted(order), order
-    # the preregistration / commit / eval detail sits after the system heading
+    raw = (built / loc / "index.html").read_text(encoding="utf-8")
+    assert '<details class="system reader-method">' in raw
+    # Technical material is accessible in the collapsed secondary layer.
     for later in (t["prereg"], t["audit"]):
-        assert text.index(later) > text.index(t["system"]), later
-    assert re.search(t["ev"], text) and re.search(t["ev"], text).start() > text.index(t["system"])
+        assert raw.index(later) > raw.index(t["system"]), later
+    assert re.search(t["ev"], raw) and re.search(t["ev"], raw).start() > raw.index(t["system"])
 
 
 def test_first_screen_shows_the_required_figures_and_the_probability_label(built):
@@ -131,5 +133,6 @@ def test_chinese_pages_contain_no_stray_spaces_inside_sentences(built):
         html = re.sub(r"<(script|style)\b.*?</\1>", "", f.read_text(encoding="utf-8"), flags=re.S)
         for e in policy_events():                      # an official headline may contain its own space
             html = html.replace(e["official_headline_zh"], "")
+        html = re.sub(r"<q\b[^>]*>.*?</q>", "", html, flags=re.S)  # Literal source excerpts preserve original spacing.
         hits = re.findall(r".{6}[\u4e00-\u9fff] [\u4e00-\u9fff].{6}", html)
         assert not hits, (f.name, hits[:3])

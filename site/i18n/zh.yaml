@@ -724,3 +724,9 @@ event_triage:
   links: 假设联系与下一步确认
   sources: '同一事件的 {n} 条来源记录'
   ambiguous: 相近资料的关系尚未确认，继续分别保留。
+
+reader:
+  kicker: 中国宏观
+  title: 看清最新变化，跟踪经济趋势
+  description: 重要数据、政策与新闻，以及持续更新的宏观研究判断。
+  research: 当前研究判断
