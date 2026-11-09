@@ -2,6 +2,7 @@
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import localization as L
 from cnmacro.news_feed import TOPICS, classify, occurrence_key
 from cnmacro.events.store import stamp, BEIJING, load_items
 ROOT=Path(__file__).resolve().parents[1]
@@ -42,13 +43,13 @@ def news_context(model,loc):
         links=[]
         for mid in mids:
             metric=model.get('metrics',{}).get(mid)
-            if metric is not None and getattr(metric,'category',None):links.append({'name':metric.name_zh if loc=='zh' else metric.name,'url':f'data-{metric.category}.html#metric-{mid}'})
+            if metric is not None and getattr(metric,'category',None):links.append({'name':L.tidy(metric.name_zh if loc=='zh' else metric.name,loc),'url':f'data-{metric.category}.html#metric-{mid}'})
         unique[key]={**raw,'topic':topic,'topic_name':TOPICS[topic][0 if loc=='zh' else 1],
-                     'title':raw.get('title_'+loc) or raw.get('title_zh') or raw.get('title',''),
+                     'title':L.tidy(raw.get('title_'+loc) or raw.get('title_zh') or raw.get('title',''),loc),
                      'summary':raw.get('summary_'+loc) or raw.get('summary_zh',''),
                      'original_language':loc=='en' and not raw.get('title_en'),
                      'published_day':day,'display_time':stamp(raw['published_at']).astimezone(BEIJING).strftime('%m-%d %H:%M') if 'T' in raw['published_at'] else day,
-                     'why':WATCH[topic][0 if loc=='zh' else 1],'related':links}
+                     'why':L.tidy(WATCH[topic][0 if loc=='zh' else 1],loc),'related':links}
     items=sorted(unique.values(),key=lambda x:stamp(x['published_at']),reverse=True)
     day=stamp(cutoff).astimezone(BEIJING).date().isoformat()
     today=[x for x in items if x['published_day']==day]
