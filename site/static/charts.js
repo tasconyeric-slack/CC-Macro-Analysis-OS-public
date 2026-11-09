@@ -25,7 +25,7 @@ document.querySelectorAll("svg.chart").forEach(function (svg) {
     var c = card.getBoundingClientRect();
     tip.style.left = (s.x - c.left) + "px";
     tip.style.top = (s.y - c.top) + "px";
-    tip.textContent = d.labels[best] + "  ·  " + d.values[best];
+    tip.textContent = d.labels[best] + "  ·  " + d.values[best] + (d.details && d.details[best] ? " · " + d.details[best] : "");
     tip.hidden = false;
   }
   svg.addEventListener("pointermove", move);
