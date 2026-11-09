@@ -420,8 +420,8 @@ AGENDA_URL = NBS2 + "queryAgendas"
 AGENDA_MAP = [  # (name prefix after removing the time suffix, metrics, period rule)
     ("居民消费价格指数月度报告", ["cn_cpi_yoy", "cn_core_cpi_yoy"], "prev_month"),
     ("工业生产者价格指数月度报告", ["cn_ppi_yoy", "cn_ppi_mom", "cn_ppi_producer_yoy", "cn_ppi_consumer_yoy"], "prev_month"),
-    ("采购经理指数月度报告", ["cn_pmi_output_price", "cn_pmi_new_orders", "cn_pmi_new_export_orders", "cn_pmi_mfg"], "pmi"),
-    ("中国采购经理指数月度报告", ["cn_pmi_output_price", "cn_pmi_new_orders", "cn_pmi_new_export_orders", "cn_pmi_mfg"], "pmi"),
+    ("采购经理指数月度报告", ["cn_pmi_output_price", "cn_pmi_new_orders", "cn_pmi_new_export_orders", "cn_pmi_mfg", "cn_pmi_nonmfg", "cn_pmi_services", "cn_pmi_construction", "cn_pmi_composite"], "pmi"),
+    ("中国采购经理指数月度报告", ["cn_pmi_output_price", "cn_pmi_new_orders", "cn_pmi_new_export_orders", "cn_pmi_mfg", "cn_pmi_nonmfg", "cn_pmi_services", "cn_pmi_construction", "cn_pmi_composite"], "pmi"),
     ("规模以上工业生产月度报告", ["cn_ip_yoy"], "prev_month"),
     ("社会消费品零售总额月度报告", ["cn_retail_sales_yoy"], "prev_month"),
     ("房地产开发和销售情况月度报告", ["cn_property_sales_area_ytd_yoy"], "prev_month"),

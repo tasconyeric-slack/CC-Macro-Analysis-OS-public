@@ -910,3 +910,165 @@ metrics:
     evidence_use: snapshot_only
     query_group: consensus
     experimental: true
+
+- metric_id: cn_pmi_nonmfg
+  category: pmi
+  name: Non-manufacturing business activity PMI
+  name_zh: 非制造业商务活动指数
+  tier: diagnostic
+  frequency: M
+  unit: "index (50 = no change)"
+  transform: level
+  hypotheses: [H2]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: NBS
+  source_code: "nbs:7a64a6e25aec4a8e9dde044ecd9e2cce/88a150208f6e4a1db8babe41ae700f66"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Composite diffusion index; 50 separates expansion from contraction, not a percentage growth rate.
+
+- metric_id: cn_pmi_services
+  category: pmi
+  name: Services business activity PMI
+  name_zh: 服务业商务活动指数
+  tier: diagnostic
+  frequency: M
+  unit: "index (50 = no change)"
+  transform: level
+  hypotheses: [H2]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: NBS
+  source_code: "nbs:7a64a6e25aec4a8e9dde044ecd9e2cce/6f77d579993b454d9e61776b7113a672"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Composite diffusion index; 50 separates expansion from contraction, not a percentage growth rate.
+
+- metric_id: cn_pmi_construction
+  category: pmi
+  name: Construction business activity PMI
+  name_zh: 建筑业商务活动指数
+  tier: diagnostic
+  frequency: M
+  unit: "index (50 = no change)"
+  transform: level
+  hypotheses: [H2]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: NBS
+  source_code: "nbs:7a64a6e25aec4a8e9dde044ecd9e2cce/97a152f401d64409892a7fdbe22b0225"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Composite diffusion index; 50 separates expansion from contraction, not a percentage growth rate.
+
+- metric_id: cn_pmi_composite
+  category: pmi
+  name: Composite PMI output index
+  name_zh: 综合PMI产出指数
+  tier: diagnostic
+  frequency: M
+  unit: "index (50 = no change)"
+  transform: level
+  hypotheses: [H2]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: NBS
+  source_code: "nbs:455378e1c3264a32875768a35ba5de76/55cdc89fa122446aa263912bdf14a540"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Composite diffusion index; 50 separates expansion from contraction, not a percentage growth rate.
+
+- metric_id: cn_unemployment
+  category: growth
+  name: Urban surveyed unemployment rate
+  name_zh: 全国城镇调查失业率
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: rate
+  hypotheses: [H2]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: NBS
+  source_code: "nbs:ee3b7046b390415b9b7745e3d16f6052/3888eac6062945a79c8a27e5f13d4953"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
+
+- metric_id: cn_imports_usd_yoy
+  category: trade
+  name: Goods imports USD YoY
+  name_zh: 美元计价进口同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H4]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: GACC
+  source_code: "nbs:7e11b47c828d4e4e925f1c5a98305558/cc1ac699bc4f4cd7aa5c2b7a1e643259"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
+
+- metric_id: cn_trade_balance_usd
+  category: trade
+  name: Goods trade balance, USD thousand
+  name_zh: 货物贸易差额（千美元）
+  tier: diagnostic
+  frequency: M
+  unit: "USD thousand"
+  transform: level
+  hypotheses: [H4]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: GACC
+  source_code: "nbs:7e11b47c828d4e4e925f1c5a98305558/0123bdd4e85348f28efc74685a4a40e5"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
+
+- metric_id: cn_budget_rev_ytd_yoy
+  category: fiscal
+  name: General public budget revenue YTD YoY
+  name_zh: 一般公共预算收入累计同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: cumulative_yoy
+  hypotheses: [H3]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: MOF
+  source_code: "nbs:0083b57bb6b44d4d964b87a89192344e/03e60611a6be446099bef411599bceb0"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
+
+- metric_id: cn_m2_yoy
+  category: credit
+  name: Broad money M2 YoY
+  name_zh: 广义货币M2同比
+  tier: diagnostic
+  frequency: M
+  unit: "%"
+  transform: yoy
+  hypotheses: [H3]
+  role: Public macro context for activity, demand and policy transmission; no automatic thesis judgment.
+  role_zh: 用于观察经济活动、需求与政策传导的公开指标，不自动形成研究判断。
+  source_primary: PBOC
+  source_code: "nbs:82130c6621a745cda3d64b090e733383/e03f2232631f41cd9d754a7d7feb4a81"
+  release: Official monthly publication; original publication time retained when known
+  redistribution: public
+  caliber_notes:
+    - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
