@@ -1,0 +1,69 @@
+{
+  "issue": 28,
+  "verified_at": "2026-11-09",
+  "metrics": [
+    {
+      "metric_id": "cn_pmi_nonmfg",
+      "catalog": "7a64a6e25aec4a8e9dde044ecd9e2cce",
+      "indicator": "88a150208f6e4a1db8babe41ae700f66",
+      "label": "非制造业商务活动指数 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_pmi_services",
+      "catalog": "7a64a6e25aec4a8e9dde044ecd9e2cce",
+      "indicator": "6f77d579993b454d9e61776b7113a672",
+      "label": "服务业商务活动指数 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_pmi_construction",
+      "catalog": "7a64a6e25aec4a8e9dde044ecd9e2cce",
+      "indicator": "97a152f401d64409892a7fdbe22b0225",
+      "label": "建筑业商务活动指数 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_pmi_composite",
+      "catalog": "455378e1c3264a32875768a35ba5de76",
+      "indicator": "55cdc89fa122446aa263912bdf14a540",
+      "label": "综合PMI产出指数 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_unemployment",
+      "catalog": "ee3b7046b390415b9b7745e3d16f6052",
+      "indicator": "3888eac6062945a79c8a27e5f13d4953",
+      "label": "全国城镇调查失业率 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_imports_usd_yoy",
+      "catalog": "7e11b47c828d4e4e925f1c5a98305558",
+      "indicator": "cc1ac699bc4f4cd7aa5c2b7a1e643259",
+      "label": "进口总值同比增长 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_trade_balance_usd",
+      "catalog": "7e11b47c828d4e4e925f1c5a98305558",
+      "indicator": "0123bdd4e85348f28efc74685a4a40e5",
+      "label": "进出口差额当期值 (千美元) ",
+      "unit": "千美元"
+    },
+    {
+      "metric_id": "cn_budget_rev_ytd_yoy",
+      "catalog": "0083b57bb6b44d4d964b87a89192344e",
+      "indicator": "03e60611a6be446099bef411599bceb0",
+      "label": "国家财政收入累计增长 (%) ",
+      "unit": "%"
+    },
+    {
+      "metric_id": "cn_m2_yoy",
+      "catalog": "82130c6621a745cda3d64b090e733383",
+      "indicator": "e03f2232631f41cd9d754a7d7feb4a81",
+      "label": "货币和准货币 (M2) 供应量_同比增长 (%) ",
+      "unit": "%"
+    }
+  ]
+}
