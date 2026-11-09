@@ -1,5 +1,6 @@
 """Static policy inbox view; current events are never injected into replay builds."""
 from pathlib import Path
+import localization as L
 
 from cnmacro.events.store import load_grouped_items, load_source_status, stamp
 
@@ -18,7 +19,7 @@ def policy_inbox(model: dict, loc: str) -> dict:
             continue
         title = raw.get("title_" + loc) or raw["title_zh"]
         summary = raw.get("summary_" + loc) or raw.get("summary_zh") or ""
-        visible.append({**raw, "title": title, "summary": summary,
+        visible.append({**raw, "title": L.tidy(title, loc), "summary": L.tidy(summary, loc),
                         "original_language": loc == "en" and not raw.get("title_en")})
     return {"items": [r for r in visible if not r["archived"]][:30],
             "archive": [r for r in visible if r["archived"]][:30],
