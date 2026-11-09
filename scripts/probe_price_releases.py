@@ -50,6 +50,14 @@ def main(target):
                         url = urljoin(BASE, href)
                         if re.fullmatch(r'https://www.stats.gov.cn/sj/zxfb/20\d{4}/t\d{8}_\d+\.html', url): links[url] = title.strip()
             except Exception as e: report['errors'].append(str(e))
+    def release(item):
+        url, title = item; body, metadata = fetch(url)
+        filename = url.rsplit('/', 1)[1]; (out/filename).write_bytes(body)
+        return {**metadata, 'title': title, 'file': filename}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+        for future in [pool.submit(release, item) for item in sorted(links.items())]:
+            try: report['releases'].append(future.result())
+            except Exception as e: report['errors'].append(str(e))
     blocked = [item for item in report['releases'] if '<table' not in (out/item['file']).read_text(encoding='utf-8')]
     if blocked:
         from playwright.sync_api import sync_playwright
@@ -70,14 +78,6 @@ def main(target):
                     item['browser_error'] = str(e)[:180]
                     print('browser unavailable',item['title'],flush=True)
             browser.close()
-    def release(item):
-        url, title = item; body, metadata = fetch(url)
-        filename = url.rsplit('/', 1)[1]; (out/filename).write_bytes(body)
-        return {**metadata, 'title': title, 'file': filename}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        for future in [pool.submit(release, item) for item in sorted(links.items())]:
-            try: report['releases'].append(future.result())
-            except Exception as e: report['errors'].append(str(e))
     (out/'report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({'listings': len(report['requests']), 'releases': len(report['releases']), 'errors': report['errors']}, ensure_ascii=False))
 
