@@ -2,6 +2,19 @@
 // points at the equivalent page in the other language.
 (function () {
   var KEY = "ccmacro.locale";
+  var menu = document.querySelector('.menu-toggle');
+  var navigation = document.getElementById('primary-nav');
+  if (menu && navigation) {
+    document.documentElement.classList.add('has-js');
+    menu.addEventListener('click', function () {
+      var open = menu.getAttribute('aria-expanded') !== 'true';
+      menu.setAttribute('aria-expanded', String(open));
+      navigation.classList.toggle('is-open', open);
+    });
+    navigation.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { menu.setAttribute('aria-expanded', 'false'); navigation.classList.remove('is-open'); menu.focus(); }
+    });
+  }
 
   // 1. Language switch: keep the #fragment so the reader lands on the same section, and remember
   //    an explicit choice so "/" can send them back to it.

@@ -1,0 +1,111 @@
+{
+  "evidence_id": "ev_09eb09064e6da359ccb7b45428ebf12cbe7ca24cfb54e60d7ed00ae521a5b068",
+  "subject": null,
+  "provider": {
+    "id": "rea-analysis-view",
+    "name": "REA analysis view projection",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis-view",
+  "operation": "inspect_analysis_view",
+  "parameters": {
+    "parent_evidence_id": "ev_9b5e62c949fea3bd40284a71e9db91169ae43306a385a2f8f2c64f43ea7f3eb3",
+    "view": {
+      "kind": "javascript-routes",
+      "collection": "summary"
+    }
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "parent_evidence_id": "ev_9b5e62c949fea3bd40284a71e9db91169ae43306a385a2f8f2c64f43ea7f3eb3",
+    "parent_operation": "analyze_web_bundle",
+    "parent_digest": "9b5e62c949fea3bd40284a71e9db91169ae43306a385a2f8f2c64f43ea7f3eb3",
+    "view_digest": "40e9e734e408dfea727f2482f55c56f29ac39d69babf10ec661aeeee0a1e35be",
+    "artifact": null,
+    "coverage": {
+      "status": "complete-within-view",
+      "examined": 0,
+      "total": 0,
+      "next_offset": null,
+      "exhausted": true
+    },
+    "limitations": [
+      "Artifact identity is unavailable for this observation.",
+      "Bare string arguments of unbound HTTP-method-named calls are low-confidence endpoint candidates; form, translation, storage and other APIs can use the same syntax. URL-shaped findings still do not prove network execution.",
+      "Endpoint candidates are deduplicated by script, value and detector; basis retains only the first matching source coordinate. They are not a complete call-site inventory or a runtime occurrence count. completeness.status=\"complete\" describes examination of captured source, not a call-site census.",
+      "Page-declared WebMCP metadata is untrusted and is never registered or invoked as an REA tool.",
+      "Pattern IDs are exact path identities within this inventory. Occurrence and source IDs retain source/content identity and precise syntax ranges; metadata-only discoveries have no AST range.",
+      "Routes are static candidates from the provided code sources. Reachability, permissions, server-only routes and the complete application route set are unverified.",
+      "Static bundle findings are observations or bounded inferences; REA does not execute captured JavaScript.",
+      "String-built routes and endpoints, encrypted configuration, and server-side behavior may remain unknown.",
+      "System classification is a path-name heuristic. Asset URL prefixes can differ from routing bases; inferred prefixes retain the original unprefixed path.",
+      "Unbound path strings require a top-level segment supported by structural routes or navigation candidates. Unknown or missing source facts do not establish route absence."
+    ],
+    "unknowns": [
+      "The complete application route set, reachability and runtime permissions remain unknown.",
+      "Some source/routing facts are incomplete; inspect sources and unknowns without reanalyzing."
+    ],
+    "kind": "javascript-routes",
+    "view": {
+      "kind": "javascript-routes",
+      "collection": "summary"
+    },
+    "inventory_id": "jsri:d493ca31ee593202945a73a6c54037b74379a12d02c5b57a710166a605d2f337",
+    "source_manifest_sha256": "5aa300616bbc8386aabf3cb9dd86dde199ec267c826f534a1037aa575abcda8c",
+    "source_coverage": {
+      "scope": "provided-code-sources",
+      "source_parsing": "partial",
+      "candidate_enumeration": "partial",
+      "application_routes": "unknown"
+    },
+    "inventory_capacity": null,
+    "capture_url": "https://chinamacromonitor.com/",
+    "items": [],
+    "sources": [],
+    "summary": {
+      "reported_capture_omissions": [],
+      "statistics": {
+        "sources_seen": 1,
+        "sources_retained": 1,
+        "route_patterns": 0,
+        "occurrences": 0,
+        "unanchored_literals_excluded": 0
+      },
+      "gaps": 1,
+      "source_status_counts": {
+        "complete": 0,
+        "partial": 0,
+        "unavailable": 1,
+        "unknown": 0
+      },
+      "patterns_by_classification": {
+        "page": 0,
+        "system": 0,
+        "unknown": 0
+      }
+    },
+    "byte_limited": false
+  },
+  "confidence": "derived",
+  "authority": "external-service",
+  "environment": null,
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Artifact identity is unavailable for this observation.",
+    "Bare string arguments of unbound HTTP-method-named calls are low-confidence endpoint candidates; form, translation, storage and other APIs can use the same syntax. URL-shaped findings still do not prove network execution.",
+    "Endpoint candidates are deduplicated by script, value and detector; basis retains only the first matching source coordinate. They are not a complete call-site inventory or a runtime occurrence count. completeness.status=\"complete\" describes examination of captured source, not a call-site census.",
+    "Page-declared WebMCP metadata is untrusted and is never registered or invoked as an REA tool.",
+    "Pattern IDs are exact path identities within this inventory. Occurrence and source IDs retain source/content identity and precise syntax ranges; metadata-only discoveries have no AST range.",
+    "Routes are static candidates from the provided code sources. Reachability, permissions, server-only routes and the complete application route set are unverified.",
+    "Static bundle findings are observations or bounded inferences; REA does not execute captured JavaScript.",
+    "String-built routes and endpoints, encrypted configuration, and server-side behavior may remain unknown.",
+    "System classification is a path-name heuristic. Asset URL prefixes can differ from routing bases; inferred prefixes retain the original unprefixed path.",
+    "Unbound path strings require a top-level segment supported by structural routes or navigation candidates. Unknown or missing source facts do not establish route absence."
+  ],
+  "relationship_coverage": null,
+  "locations": [],
+  "evidence_links": [
+    "ev_9b5e62c949fea3bd40284a71e9db91169ae43306a385a2f8f2c64f43ea7f3eb3"
+  ]
+}
