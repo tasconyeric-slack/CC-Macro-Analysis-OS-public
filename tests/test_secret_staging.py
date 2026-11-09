@@ -1,4 +1,5 @@
 """The pre-commit check must inspect the index, not later working-tree edits."""
+import sys
 import shutil
 import subprocess
 from pathlib import Path
@@ -13,7 +14,7 @@ def test_staged_secret_cannot_be_hidden_by_unstaged_edit(tmp_path):
     target.write_text('api_key = ' + 'x' * 24, encoding='utf-8')
     subprocess.run(['git', 'add', 'sample.txt'], cwd=tmp_path, check=True)
     target.write_text('clean', encoding='utf-8')
-    result = subprocess.run(['python3', 'scripts/check_secrets.py', '--staged'], cwd=tmp_path, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, 'scripts/check_secrets.py', '--staged'], cwd=tmp_path, capture_output=True, text=True)
     assert result.returncode != 0
     assert 'possible credential assignment' in result.stdout
 
@@ -33,7 +34,7 @@ def test_rename_into_private_directory_is_rejected(tmp_path):
     (tmp_path / "data/private").mkdir(parents=True)
     subprocess.run(["git", "mv", "benign.txt", "data/private/exposed.txt"], cwd=tmp_path, check=True)
     result = subprocess.run(
-        ["python3", "scripts/check_secrets.py", "--staged"],
+        [sys.executable, "scripts/check_secrets.py", "--staged"],
         cwd=tmp_path, capture_output=True, text=True
     )
     assert result.returncode != 0

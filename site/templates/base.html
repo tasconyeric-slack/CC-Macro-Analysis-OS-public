@@ -26,6 +26,7 @@
 <link rel="icon" href="{{ asset }}favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{{ asset }}apple-touch-icon.png">
 <link rel="stylesheet" href="{{ asset }}style.css">
+{% if page in ["index", "daily"] %}<link rel="stylesheet" href="{{ asset }}news-feed.css">{% endif %}
 {% block head %}{% endblock %}
 </head>
 <body class="loc-{{ loc }} page-{{ page }}">
@@ -55,6 +56,7 @@
 </div></footer>
 <script src="{{ asset }}charts.js"></script>
 <script src="{{ asset }}site.js"></script>
+{% if page in ["index", "daily"] %}<script src="{{ asset }}news-feed.js"></script>{% endif %}
 {% block scripts %}{% endblock %}
 </body>
 </html>

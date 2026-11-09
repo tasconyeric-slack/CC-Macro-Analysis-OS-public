@@ -1,0 +1,14 @@
+version: policy-delta-v1
+# A direction is assigned only when replacing one phrase makes the remaining
+# normalized sentence identical. Other rewrites remain removed/added, without a direction.
+families:
+  - name: policy_stance
+    terms:
+      - {phrase: 从紧, weight: 0}
+      - {phrase: 稳健, weight: 1}
+      - {phrase: 适度宽松, weight: 2}
+  - name: support_intensity
+    terms:
+      - {phrase: 保持, weight: 1}
+      - {phrase: 加大, weight: 2}
+      - {phrase: 进一步加大, weight: 3}

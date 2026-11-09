@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% import "_macros.html" as mx with context %}
-{% block head %}<link rel="stylesheet" href="{{ asset }}policy.css">{% endblock %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}policy.css"><link rel="stylesheet" href="{{ asset }}policy-comparison.css">{% endblock %}
 {% block body %}
 <section class="policy-heading"><div><p class="policy-eyebrow">{{ t('official_inbox.kicker') }}</p><h1>{{ t('portal.policy_title') }}</h1><p class="lede">{{ t('official_inbox.description') }}</p></div><a class="policy-research-link" href="memo.html">{{ t('nav.memo') }}</a></section>
+{% macro diff_rows(rows) %}{% for row in rows %}<article class="policy-diff-row diff-{{ row.tag }}"><div class="diff-label">{{ t('policy_compare.tag.' ~ row.tag) }}</div><div class="diff-before"><q lang="zh-Hans">{{ row.before or '—' }}</q></div><div class="diff-after"><q lang="zh-Hans">{{ row.after or '—' }}</q></div></article>{% endfor %}{% endmacro %}
+{% if policy_comparisons %}<section class="policy-comparisons" aria-labelledby="comparison-title"><h2 id="comparison-title">{{ t('policy_compare.heading') }}</h2><p class="comparison-intro">{{ t('policy_compare.intro') }}</p>
+{% for pair in policy_comparisons %}<article class="policy-comparison" id="{{ pair.comparison_id }}"><h3>{{ pair.title }}</h3><div class="comparison-sources"><a href="{{ pair.before.canonical_url }}" rel="noopener"><small>{{ t('policy_compare.before') }}</small><strong>{{ pair.before_title }}</strong><span>{{ pair.before.published_at|date }}</span></a><a href="{{ pair.after.canonical_url }}" rel="noopener"><small>{{ t('policy_compare.after') }}</small><strong>{{ pair.after_title }}</strong><span>{{ pair.after.published_at|date }}</span></a></div>
+{% if loc == 'en' %}<p class="small muted">{{ t('policy_compare.original') }}</p>{% endif %}
+{{ diff_rows(pair.changed[:6]) }}{% if pair.changed|length > 6 %}<details class="comparison-more"><summary>{{ t('policy_compare.more_changes', n=pair.changed|length - 6) }}</summary>{{ diff_rows(pair.changed[6:]) }}</details>{% endif %}
+<details class="comparison-more"><summary>{{ t('policy_compare.unchanged', n=pair.unchanged|length) }}</summary>{{ diff_rows(pair.unchanged) }}</details>
+{% if pair.accepted %}<section class="policy-reading"><h4>{{ t('policy_compare.interpretation') }}</h4>{% for interpretation in pair.accepted.interpretations %}<p lang="zh-Hans">{{ interpretation.intent }}</p><dl><dt>{{ t('policy_compare.channel') }}</dt><dd lang="zh-Hans">{{ interpretation.transmission_channel }}</dd><dt>{{ t('policy_compare.counter') }}</dt><dd lang="zh-Hans">{{ interpretation.counter_reading }}</dd><dt>{{ t('policy_compare.next') }}</dt><dd lang="zh-Hans">{{ interpretation.next_confirmation }}</dd></dl>{% endfor %}<p class="small muted">{{ pair.accepted.reviewer }} · {{ pair.accepted.reviewed_at|when }}</p></section>{% endif %}
+<details class="comparison-provenance"><summary>{{ t('policy_compare.sources') }}</summary><p>{{ t('policy_compare.source_note') }}</p>{% for doc in [pair.before, pair.after] %}<p><a href="{{ doc.canonical_url }}" rel="noopener">{{ doc['title_' ~ loc] }}</a><br>{{ t('policy_compare.collected') }} {{ doc.retrieved_at|when }}<br><code>{{ doc.text_sha256 }}</code></p>{% endfor %}</details></article>{% endfor %}</section>{% endif %}
+
 <div class="policy-counts"><span>{{ t('official_inbox.count', n=official_inbox.total) }}</span><span>{{ t('official_inbox.archive_count', n=official_inbox.archived_count) }}</span><span>{{ t('official_inbox.quarantine_count', n=official_inbox.quarantined) }}</span></div>
 <p class="policy-boundary">{{ t('official_inbox.boundary') }}</p>
 {% macro inbox_row(e) %}

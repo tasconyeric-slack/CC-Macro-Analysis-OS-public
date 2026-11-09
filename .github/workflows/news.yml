@@ -1,0 +1,38 @@
+name: public macro news
+on:
+  schedule:
+    - cron: "15 0-12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["src/cnmacro/news_feed.py", "scripts/fetch_macro_news.py", ".github/workflows/news.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: public-macro-news
+  cancel-in-progress: false
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e .
+      - name: Collect public macro reporting
+        id: collect
+        continue-on-error: true
+        run: python scripts/fetch_macro_news.py
+      - name: Publish the public snapshot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add -- data/news/latest.json
+          python scripts/commit_macro_news.py
+      - name: Report source failure
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

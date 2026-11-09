@@ -171,6 +171,7 @@ derived:
   pctile: "{metric}, percentile rank"
 
 units:
+  USD thousand: USD thousand
   "%": "%"
   CNY 100m: CNY 100m
   index (50 = no change): index (50 = no change)
@@ -599,6 +600,94 @@ portal:
       kicker: GLOBAL ENVIRONMENT
       description: Energy, metals, exchange rates and US yields.
 
+desk:
+  kicker: DAILY MACRO DESK
+  lede: Official releases, public observations and the research questions they inform.
+  beijing: Beijing time
+  last_refresh: Last factual refresh
+  delta: "Vs prior: {value}"
+  chart_detail: Chart and metric detail
+  publication_unknown: Publication time not recorded
+  awaiting_official: Awaiting the official observation
+  headline_pmi: Manufacturing PMI
+  deflator: Implied GDP deflator YoY
+  brief_title: The latest data, at a glance
+  brief_note: Deterministic facts bound to public observations. No analyst interpretation is implied.
+  open_evidence: View evidence and hypotheses
+  judgment: Analyst research state
+  reviewed_update: A reviewed update is available in the research history.
+  judgment_date: Judgment as of
+  releases_title: Releases and revisions
+  no_new_today: No new verified release today. The latest available releases are listed below.
+  revision: Data revision
+  received: Public data received
+  release_time: Released
+  flips: Evidence tests changed
+  no_flips: No evidence-test flips
+  watch_next: Next releases to watch
+  official_calendar: Official schedule / source
+  research_path: From facts to the research view
+  research_note: Observations update automatically. The analyst reviews their implications before changing the thesis.
+  calendar_note: All times are Beijing time. A scheduled time passing does not create a data release.
+  state:
+    released: Released
+    pending: Awaiting data
+    today: Due today
+    scheduled: Scheduled
+
+  pp: percentage points
+  points: index points
+  view_release: View release
+
+  announcements: Official announcements
+  announcements_note: Source-verified documents only. Data-release articles already linked above are shown once.
+  no_other_announcements: No additional source-verified announcements. Data releases are linked in the release list.
+  source_status: Official source collection
+  source_ok: Last collection succeeded
+  source_failed: Collection failed; retained items remain visible
+
+data_explorer:
+  series: available series
+  categories: Data categories
+  previous: Change vs prior period
+  year: Change vs year earlier
+  pp: pp
+  points: points
+  not_available: Unavailable
+  deflator: Implied GDP deflator YoY
+  deflator_note: Calculated from nominal and real GDP with the existing deterministic
+    formula; input observations remain linked.
+  unknown_release: Release time unknown; retrieval time is shown.
+  unknown: Unknown
+  tooltip: 'Released: {released}; retrieved: {retrieved}; vintage: {vintage}'
+  range: Chart range
+  2y: 2Y
+  5y: 5Y
+  all: All
+  chart_hint: Hover for period, value and vintage. All ranges work from static public
+    data.
+  used_in: Used in evidence tests
+  gap: No public observations
+  gap_note: This metric is tracked but no public observation is held. No estimate
+    or licensed substitute is shown.
+  detail: Definition, source and vintage history
+  definition: Definition and research role
+  caliber: Original caliber notes (English)
+  download: Download public CSV
+  json: Series JSON
+  source: Official source
+  vintage_note: Every captured vintage is retained below. A missing release date remains
+    unknown; it is never replaced with the retrieval date.
+  period: Period
+  value: Value
+  vintage: Vintage flag
+  coverage_title: Coverage and limits
+  coverage: Government-fund revenue has no public observations. Licensed interest-rate
+    and high-frequency series are excluded. Published figures are facts; a chart does
+    not change the analyst view.
+  calendar_note: Each category uses the observation dictionary and actual release
+    metadata. Revisions remain visible in the metric detail.
+
 official_inbox:
   kicker: OFFICIAL ANNOUNCEMENTS
   description: Official releases and policy documents, with source dates and a separate review trail.
@@ -644,44 +733,31 @@ event_triage:
   sources: '{n} source records for this occurrence'
   ambiguous: Similar material remains separate because the relation is unresolved.
 
-data_explorer:
-  series: available series
-  categories: Data categories
-  previous: Change vs prior period
-  year: Change vs year earlier
-  pp: pp
-  points: points
-  not_available: Unavailable
-  deflator: Implied GDP deflator YoY
-  deflator_note: Calculated from nominal and real GDP with the existing deterministic
-    formula; input observations remain linked.
-  unknown_release: Release time unknown; retrieval time is shown.
-  unknown: Unknown
-  tooltip: 'Released: {released}; retrieved: {retrieved}; vintage: {vintage}'
-  range: Chart range
-  2y: 2Y
-  5y: 5Y
-  all: All
-  chart_hint: Hover for period, value and vintage. All ranges work from static public
-    data.
-  used_in: Used in evidence tests
-  gap: No public observations
-  gap_note: This metric is tracked but no public observation is held. No estimate
-    or licensed substitute is shown.
-  detail: Definition, source and vintage history
-  definition: Definition and research role
-  caliber: Original caliber notes (English)
-  download: Download public CSV
-  json: Series JSON
-  source: Official source
-  vintage_note: Every captured vintage is retained below. A missing release date remains
-    unknown; it is never replaced with the retrieval date.
-  period: Period
-  value: Value
-  vintage: Vintage flag
-  coverage_title: Coverage and limits
-  coverage: Government-fund revenue has no public observations. Licensed interest-rate
-    and high-frequency series are excluded. Published figures are facts; a chart does
-    not change the analyst view.
-  calendar_note: Each category uses the observation dictionary and actual release
-    metadata. Revisions remain visible in the metric detail.
+reader:
+  snapshot: Macro snapshot
+  kicker: CHINA MACRO
+  title: The economy, in focus
+  description: Recent releases, the trends behind them, and the evolving research view.
+  research: The current research view
+
+policy_compare:
+  heading: Policy wording, compared
+  intro: Compare the original statements and see what was added, removed or retained.
+  before: Previous statement
+  after: Latest statement
+  original: The comparison preserves the original Chinese wording.
+  more_changes: 'Show {n} more changes'
+  unchanged: 'Unchanged wording ({n})'
+  interpretation: Reviewed research interpretation
+  channel: Transmission channel
+  counter: Counter-reading
+  next: Next confirmation
+  sources: Source documents and collection details
+  source_note: Publication times use the publisher metadata. URL timestamps and text hashes remain recorded with each document.
+  collected: Collected
+  tag:
+    added: Added
+    removed: Removed
+    strengthened: Stronger wording
+    weakened: Softer wording
+    unchanged: Unchanged
