@@ -1,7 +1,7 @@
 """Static policy inbox view; current events are never injected into replay builds."""
 from pathlib import Path
 
-from cnmacro.events.store import load_items, load_source_status, stamp
+from cnmacro.events.store import load_grouped_items, load_source_status, stamp
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -10,7 +10,7 @@ def policy_inbox(model: dict, loc: str) -> dict:
     canonical = ROOT / "research/cases/cn-nominal"
     enabled = not model["preview"] and not model.get("banner") and Path(model["case_dir"]).resolve() == canonical.resolve()
     cutoff = model["built_at"]
-    items = load_items(ROOT / "data/events", as_of=cutoff) if enabled else []
+    items = load_grouped_items(ROOT / "data/events", as_of=cutoff) if enabled else []
     sources = load_source_status(ROOT / "data/events", as_of=cutoff) if enabled else []
     visible = []
     for raw in items:

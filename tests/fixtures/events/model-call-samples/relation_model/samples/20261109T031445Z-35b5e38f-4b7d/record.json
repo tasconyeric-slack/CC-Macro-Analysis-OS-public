@@ -1,0 +1,34 @@
+{
+  "as_of": "2026-11-09T03:14:45+00:00",
+  "context_sha256": "35b5e38f9aa185acf9f87e8cfb3c16ba8790d2aeb96a93d6e6598418d1e90982",
+  "cost_usd": null,
+  "evidence_ids": [
+    "item_6022c78c7a6e631fbe06a524",
+    "item_bf16b56df74ecd18a8472fdb"
+  ],
+  "kind": "fixture",
+  "latency_ms": 0,
+  "model": {
+    "genuine": false,
+    "requested_id": "fixture-only-no-provider-call"
+  },
+  "prompt_version": "macro-relations-v1",
+  "raw_output": {
+    "output": {
+      "reason": "资料描述独立发生，不能按同一机构合并。",
+      "relation": "UNRELATED"
+    },
+    "synthetic": true
+  },
+  "rendered_output": {
+    "reason": "资料描述独立发生，不能按同一机构合并。",
+    "relation": "UNRELATED"
+  },
+  "run_at": "2026-11-09T03:14:45+00:00",
+  "run_id": "20261109T031445Z-35b5e38f-4b7d",
+  "schema_version": "macro-relations-v1",
+  "tokens": {},
+  "validation": {
+    "passed": true
+  }
+}

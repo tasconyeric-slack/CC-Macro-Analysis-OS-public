@@ -41,6 +41,13 @@ jobs:
           ARGS=""
           if [ "$DRY_RUN" = "true" ]; then ARGS="--dry-run"; fi
           python -m cnmacro intake --gov --summary events-summary.json $ARGS
+      - name: Group source occurrences and candidate triage
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=""
+          if [ "$DRY_RUN" = "true" ]; then ARGS="--dry-run"; fi
+          python -m cnmacro events group $ARGS
       - name: Publish verified events-only commit
         if: github.ref == 'refs/heads/main' && !inputs.dry_run
         env:

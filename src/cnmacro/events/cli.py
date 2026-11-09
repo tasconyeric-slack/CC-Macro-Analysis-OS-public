@@ -24,6 +24,21 @@ def cmd_review(args):
     return 0
 
 
+def cmd_group(args):
+    from .grouping import RULES, group_events
+    client = None
+    if args.model:
+        from cnmacro.copilot.llm import DeepSeekClient, ModelUnavailable
+        try:
+            client = DeepSeekClient(model=args.model, max_tokens=1200, timeout=90)
+        except ModelUnavailable:
+            print("Model unavailable; ambiguous pairs remain separate and flagged.")
+    summary = group_events(Path(args.events_dir), Path(args.rules) if args.rules else RULES,
+                           dry_run=args.dry_run, client=client)
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    return 0
+
+
 def register(sub):
     parser = sub.add_parser("intake", help="collect official text candidates, separate from observations")
     parser.add_argument("--events-dir", default="data/events")
@@ -43,3 +58,9 @@ def register(sub):
     review.add_argument("--reviewer", required=True)
     review.add_argument("--reason", required=True)
     review.set_defaults(f=cmd_review)
+    group = actions.add_parser("group", help="group official occurrences and attach candidate triage")
+    group.add_argument("--events-dir", default="data/events")
+    group.add_argument("--rules")
+    group.add_argument("--dry-run", action="store_true")
+    group.add_argument("--model", choices=["deepseek-flash", "deepseek-v4-pro"], help="optional bounded tie-break; never required")
+    group.set_defaults(f=cmd_group)

@@ -126,7 +126,7 @@ def test_policy_view_does_not_inject_live_events_into_replay_or_synthetic(monkey
     import official_inbox
     def forbidden(*args, **kwargs):
         pytest.fail("replay attempted to read live event artifacts")
-    monkeypatch.setattr(official_inbox, "load_items", forbidden)
+    monkeypatch.setattr(official_inbox, "load_grouped_items", forbidden)
     base = {"preview": False, "case_dir": Path("/replay/case"), "built_at": NOW}
     assert official_inbox.policy_inbox(base, "zh")["total"] == 0
     assert official_inbox.policy_inbox({**base, "preview": True}, "en")["total"] == 0
