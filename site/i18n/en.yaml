@@ -605,7 +605,7 @@ desk:
   lede: Official releases, public observations and the research questions they inform.
   beijing: Beijing time
   last_refresh: Last factual refresh
-  delta: "Change vs prior reading: {value}"
+  delta: "Vs prior: {value}"
   chart_detail: Chart and metric detail
   publication_unknown: Publication time not recorded
   awaiting_official: Awaiting the official observation

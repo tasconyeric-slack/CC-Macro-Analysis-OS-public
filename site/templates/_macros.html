@@ -14,7 +14,7 @@
 {%- endmacro %}
 
 {% macro kpi_tile(name, value, unit='', period='', publisher='', released='', delta='') -%}
-<div class="kpi-tile"><div class="label">{{ name }} {{ tier_badge('FACT') }}</div><div class="kpi-value">{{ value }}<small>{{ unit }}</small></div>{% if delta %}<p>{{ delta }}</p>{% endif %}{{ source_line(publisher, period, released) }}</div>
+<div class="kpi-tile"><div class="label">{{ name }}</div><div class="kpi-value">{{ value }}<small>{{ unit }}</small></div>{% if delta %}<p>{{ delta }}</p>{% endif %}{{ source_line(publisher, period, released) }}</div>
 {%- endmacro %}
 
 {% macro empty_state(title, description='', url='', action='') -%}

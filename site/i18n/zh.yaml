@@ -605,7 +605,7 @@ desk:
   lede: 从官方发布、公开观测，到需要研究的问题。
   beijing: 北京时间
   last_refresh: 最近事实刷新
-  delta: "较上期读数变化：{value}"
+  delta: "较上期：{value}"
   chart_detail: 图表与指标详情
   publication_unknown: 发布时间未记录
   awaiting_official: 等待官方观测

@@ -1,0 +1,60 @@
+{
+  "report": [
+    {
+      "page": "index",
+      "width": 1440,
+      "title": "中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "daily",
+      "width": 1440,
+      "title": "每日宏观 · 中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "data-prices",
+      "width": 1440,
+      "title": "数据研究 · 中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "policy",
+      "width": 1440,
+      "title": "政策追踪 · 中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 390,
+      "title": "中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "daily",
+      "width": 390,
+      "title": "每日宏观 · 中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "data-prices",
+      "width": 390,
+      "title": "数据研究 · 中国名义增长监测",
+      "overflow": false
+    },
+    {
+      "page": "policy",
+      "width": 390,
+      "title": "政策追踪 · 中国名义增长监测",
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "journeys": [
+    "home/news/topic filters",
+    "mobile navigation",
+    "data/chart/metric detail/source",
+    "policy comparison/original",
+    "English daily"
+  ]
+}
