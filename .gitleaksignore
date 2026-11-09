@@ -1,0 +1,9 @@
+
+# Exact false positives: REA script/resource content identities (prefix + SHA256), not API keys.
+# Preserve history and verified checkpoints; no path/rule-wide suppression.
+cca07bfb8cc8ca4f8c11ca7efe6be2b247628625:docs/design/v2/reference/cmm/rea-inspection.json:generic-api-key:151
+cca07bfb8cc8ca4f8c11ca7efe6be2b247628625:docs/design/v2/reference/cmm/rea-inspection.json:generic-api-key:173
+cca07bfb8cc8ca4f8c11ca7efe6be2b247628625:docs/design/v2/reference/guojin/rea-inspection.json:generic-api-key:129
+281e7804e52d3f20d282bee80f32ed5f541525a9:docs/design/v2/reference/cmm/rea-inspection.json:generic-api-key:151
+281e7804e52d3f20d282bee80f32ed5f541525a9:docs/design/v2/reference/cmm/rea-inspection.json:generic-api-key:173
+281e7804e52d3f20d282bee80f32ed5f541525a9:docs/design/v2/reference/guojin/rea-inspection.json:generic-api-key:129

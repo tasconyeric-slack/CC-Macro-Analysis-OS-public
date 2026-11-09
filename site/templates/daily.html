@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block body %}
+<h1>{{ t('portal.daily_title') }}</h1><p class="lede">{{ t('portal.daily_description') }}</p>
+<p>{{ t('portal.shell_daily') }}</p><p><a href="updates.html">{{ t('portal.view_history') }}</a></p>
+<section id="calendar"><h2>{{ t('portal.calendar_title') }}</h2>{% for r in next_releases %}<div class="rel"><h3>{{ r.label }}</h3><p>{{ r.release|when }}</p></div>{% else %}{{ mx.empty_state(t('home.no_releases')) }}{% endfor %}</section>
+{% endblock %}

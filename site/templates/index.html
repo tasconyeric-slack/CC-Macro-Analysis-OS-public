@@ -2,7 +2,9 @@
 {% block body %}
 
 {# ---- 1. the answer: question, current view, the numbers that matter ---- #}
-<section class="hero" aria-labelledby="q">
+<section class="hero portal-hero" aria-labelledby="q">
+  <div class="hero-copy">
+  <div class="hero-kicker">{{ t('portal.research_portal') }} <span>{{ t('portal.public_sources') }}</span></div>
   <div class="eyebrow">{{ t('home.eyebrow') }}</div>
   <h1 id="q">{{ case.question }}</h1>
   <div class="viewcard">
@@ -15,6 +17,8 @@
     {% else %}<p class="headline">{{ case.statement }}</p>{% endif %}
   </div>
 
+  <div class="hero-actions"><a href="memo.html">{{ t('portal.read_research') }}</a><a href="data.html">{{ t('portal.browse_data') }}</a></div>
+  </div>
   <div class="keyfigs" role="group" aria-label="{{ t('home.figures_label') }}">
     <div class="fig hero-fig">
       <div class="label">{{ t('home.fig.probability') }}</div>
@@ -25,6 +29,34 @@
     <div class="fig"><div class="label">{{ t('home.fig.status') }}</div><div class="value">{{ status_label }}</div></div>
     <div class="fig"><div class="label">{{ t('home.fig.evidence_as_of') }}</div><div class="value sm">{{ evidence_as_of|when }}</div></div>
     <div class="fig"><div class="label">{{ t('home.fig.refresh') }}</div><div class="value sm">{{ refresh_at|when }}</div></div>
+  </div>
+</section>
+
+<section class="change-section" aria-labelledby="recent-changes">
+  <div class="section-heading"><div><h2 id="recent-changes">{{ t('portal.changed') }}</h2><p>{{ t('portal.changed_note') }}</p></div><a href="updates.html">{{ t('portal.view_history') }}</a></div>
+  <div class="change-grid">
+    <div>{{ mx.tier_badge('FACT') }}<h3>{{ t('portal.refresh') }}</h3>
+    {% if portal.latest_refresh %}<p class="change-date">{{ portal.latest_refresh.as_of|when }}</p><p>{{ t('portal.refresh_counts', observations=portal.latest_refresh.new_observations|length, flips=portal.latest_refresh.flipped_tests|length) }}</p>{% else %}<p>{{ t('portal.no_refresh') }}</p>{% endif %}</div>
+    <div>{{ mx.tier_badge('JUDGMENT') }}<h3>{{ t('portal.review_update') if updates else t('portal.review_pending') }}</h3><p>{{ updates[-1].as_of|when if updates else t('portal.review_note') }}</p></div>
+    <div>{{ mx.tier_badge('EVENT') }}<h3>{{ t('portal.next') }}</h3>{% if next_releases %}<p><a href="daily.html#calendar">{{ next_releases[0].label }}</a></p><p class="change-date">{{ next_releases[0].release|when }}</p>{% else %}<p>{{ t('home.no_releases') }}</p>{% endif %}</div>
+  </div>
+</section>
+
+<section class="portal-columns" aria-labelledby="portal-columns">
+  {{ mx.section_header(t('portal.daily_group'), t('portal.daily_note'), '01') }}
+  <div class="column-grid column-grid-two">
+    {{ mx.column_card('daily.html', t('portal.daily_title'), t('portal.daily_description'), t('portal.daily_kicker'), '01', t('portal.data_frequency')) }}
+    {{ mx.column_card('daily.html#calendar', t('portal.calendar_title'), t('portal.calendar_description'), t('portal.calendar_kicker'), '02', t('portal.calendar_frequency')) }}
+  </div>
+  <div id="portal-columns">{{ mx.section_header(t('portal.data_group'), t('portal.data_note'), '02') }}</div>
+  <div class="column-grid">
+    {% for c in portal.categories %}{{ mx.column_card(c.url, c.title, c.description, c.kicker, '%02d'|format(loop.index + 2), t('portal.data_frequency'), [t('portal.metrics', n=c.metric_count)], t('portal.last_release', date=c.latest_release|date) if c.latest_release else t('portal.no_release')) }}{% endfor %}
+  </div>
+  {{ mx.section_header(t('portal.policy_group'), t('portal.policy_note'), '03') }}
+  <div class="column-grid">
+    {{ mx.column_card('policy.html', t('portal.policy_title'), t('portal.policy_description'), t('portal.policy_kicker'), '10') }}
+    {{ mx.column_card('memo.html', t('portal.research_title'), t('portal.research_description'), t('portal.research_kicker'), '11') }}
+    {{ mx.column_card('evidence.html', t('portal.evidence_title'), t('portal.evidence_description'), t('portal.evidence_kicker'), '12') }}
   </div>
 </section>
 

@@ -1,0 +1,94 @@
+{
+  "evidence_id": "ev_4ec9ef6a0314de8a3f8962bd9d8138b2bb09cacba2023eef88af1d477c79d31f",
+  "subject": {
+    "name": "capture.har",
+    "digest": {
+      "sha256": "41f800cb4d2cbd4a5189f9b058e41f921133a538959f167ba84ef4e6b8755a73"
+    },
+    "local_path": "C:/Users/Li Yuze/.codex/worktrees/v2-portal/CCMacro_PublicRepo/docs/design/v2/reference/cmm/capture.har",
+    "format": "file",
+    "architecture": null
+  },
+  "provider": {
+    "id": "rea-analysis-view",
+    "name": "REA analysis view projection",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis-view",
+  "operation": "inspect_analysis_view",
+  "parameters": {
+    "parent_evidence_id": "ev_9df22b0f2e06630250a4be5a7bac377c306d7c94ba0d96dffbb72384a06a9e3c",
+    "view": {
+      "kind": "summary"
+    }
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "kind": "summary",
+    "view": {
+      "kind": "summary"
+    },
+    "parent_evidence_id": "ev_9df22b0f2e06630250a4be5a7bac377c306d7c94ba0d96dffbb72384a06a9e3c",
+    "parent_operation": "inspect_web_network_capture",
+    "parent_digest": "9df22b0f2e06630250a4be5a7bac377c306d7c94ba0d96dffbb72384a06a9e3c",
+    "view_digest": "b5683a995fac112e84325a3c43b7f28aad0715e27d5d9d2cc646673cbb1d53b3",
+    "artifact": {
+      "path": "C:/Users/Li Yuze/.codex/worktrees/v2-portal/CCMacro_PublicRepo/docs/design/v2/reference/cmm/capture.har",
+      "sha256": "41f800cb4d2cbd4a5189f9b058e41f921133a538959f167ba84ef4e6b8755a73"
+    },
+    "coverage": {
+      "status": "complete-within-view",
+      "examined": 13,
+      "total": 13,
+      "next_offset": null,
+      "exhausted": true
+    },
+    "limitations": [
+      "This is retained producer evidence, without live browser transaction IDs, scenario provenance, execution attribution or deployment authenticity. Recorded URLs are never fetched.",
+      "Every record is decoded before selection; no partial success is returned on malformed input or a resource limit.",
+      "Known authentication headers/cookies and explicitly marked literal values are excluded. Unknown extension names do not establish sensitivity.",
+      "Complete evidence is bounded by a 33554432-byte input budget, a 100663296-byte reply budget, and a 64-level nesting cap. Those have no runtime override. capture_timeout_ms is 30000 ms (omitted means 30000). HAR/SAZ/qlog use a 192 MiB Node old-generation heap (source default). The effective REA_CAPTURE_DECODER_OLD_GENERATION_MIB value is 192 MiB (source default; default 192 MiB, floor 8 MiB, maximum 16384 MiB). Set REA_CAPTURE_DECODER_OLD_GENERATION_MIB in the environment that starts REA to a decimal integer from 8 to 16384, then restart REA. In a running MCP server, use update_analysis_settings with setting capture.decoder_old_generation_mib and action set instead; the new value applies to new work without a REA restart. On Node.js the decoder passes --max-old-space-size=192 and removes inherited NODE_OPTIONS, so additional host memory and NODE_OPTIONS do not raise this heap. The 8 MiB semi-space stays fixed. On Bun the V8 flags are ignored. Windows limits the decoder's committed memory to this value plus a 512 MiB reserve. Other Bun hosts enforce no decoder heap limit. Mitmproxy decoding uses a 768 MiB Linux address-space limit.",
+      "Capture record pages cover the records selected into the parent Evidence, in that selected order; total_records counts the original decoded capture."
+    ],
+    "unknowns": [
+      "Historical records do not establish live runtime attribution or deployment authenticity."
+    ],
+    "summary": {
+      "artifact": {
+        "path": "C:/Users/Li Yuze/.codex/worktrees/v2-portal/CCMacro_PublicRepo/docs/design/v2/reference/cmm/capture.har",
+        "sha256": "41f800cb4d2cbd4a5189f9b058e41f921133a538959f167ba84ef4e6b8755a73",
+        "bytes": 52102
+      },
+      "decoder": {
+        "id": "har-schema/lossless-json",
+        "name": "REA HAR capture adapter",
+        "version": "har-schema@2.0.0;har-schema-corrections@1;jsonc-parser@3.3.1;lossless-json@4.3.1"
+      },
+      "format": "har",
+      "total_records": 13,
+      "retained_records": 13,
+      "runtime_attribution": "unknown"
+    }
+  },
+  "confidence": "derived",
+  "authority": "historical-reference",
+  "environment": null,
+  "limitations": [
+    "This is retained producer evidence, without live browser transaction IDs, scenario provenance, execution attribution or deployment authenticity. Recorded URLs are never fetched.",
+    "Every record is decoded before selection; no partial success is returned on malformed input or a resource limit.",
+    "Known authentication headers/cookies and explicitly marked literal values are excluded. Unknown extension names do not establish sensitivity.",
+    "Complete evidence is bounded by a 33554432-byte input budget, a 100663296-byte reply budget, and a 64-level nesting cap. Those have no runtime override. capture_timeout_ms is 30000 ms (omitted means 30000). HAR/SAZ/qlog use a 192 MiB Node old-generation heap (source default). The effective REA_CAPTURE_DECODER_OLD_GENERATION_MIB value is 192 MiB (source default; default 192 MiB, floor 8 MiB, maximum 16384 MiB). Set REA_CAPTURE_DECODER_OLD_GENERATION_MIB in the environment that starts REA to a decimal integer from 8 to 16384, then restart REA. In a running MCP server, use update_analysis_settings with setting capture.decoder_old_generation_mib and action set instead; the new value applies to new work without a REA restart. On Node.js the decoder passes --max-old-space-size=192 and removes inherited NODE_OPTIONS, so additional host memory and NODE_OPTIONS do not raise this heap. The 8 MiB semi-space stays fixed. On Bun the V8 flags are ignored. Windows limits the decoder's committed memory to this value plus a 512 MiB reserve. Other Bun hosts enforce no decoder heap limit. Mitmproxy decoding uses a 768 MiB Linux address-space limit.",
+    "Capture record pages cover the records selected into the parent Evidence, in that selected order; total_records counts the original decoded capture."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "C:/Users/Li Yuze/.codex/worktrees/v2-portal/CCMacro_PublicRepo/docs/design/v2/reference/cmm/capture.har"
+    }
+  ],
+  "evidence_links": [
+    "ev_9df22b0f2e06630250a4be5a7bac377c306d7c94ba0d96dffbb72384a06a9e3c"
+  ]
+}

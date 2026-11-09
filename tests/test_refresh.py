@@ -64,9 +64,10 @@ def test_replay_of_a_published_release_runs_the_whole_update_path(tmp_path):
     record = json.loads(Path(rep["refresh"]["record"]).read_text(encoding="utf-8"))
     assert record["analyst_judgment"]["changed_by_this_refresh"] is False
     assert rep["rerun"] == {"status": "no_new_data", "new_rows": 0, "record": None}
-    # the same six pages in each language, plus the root selector and the legacy redirects
+    from conftest import PAGES
+    # The same portal pages in each language, plus the selector and legacy redirects.
     pages = {loc: {p.split("/", 1)[1] for p in rep["site_pages"] if p.startswith(loc + "/")} for loc in ("en", "zh")}
-    assert pages["en"] == pages["zh"] and len(pages["en"]) == 6 and "index.html" in rep["site_pages"]
+    assert pages["en"] == pages["zh"] == set(PAGES) and "index.html" in rep["site_pages"]
     for loc in ("en", "zh"):
         page = (tmp_path / f"replay/site/{loc}/updates.html").read_text(encoding="utf-8")
         assert BANNER.split(":")[0] in page and "T-H1-01" in page
