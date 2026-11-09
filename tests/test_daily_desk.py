@@ -76,3 +76,10 @@ def test_verified_source_item_joins_its_release_without_a_duplicate_signal(model
     assert len(desk["events"]) == 1 and not desk["announcements"]
     assert desk["events"][0]["attached_release_id"] == release["item_id"]
     assert not build_desk(model)["events"]  # sandbox consumers require an explicit event directory
+
+
+def test_automatic_terminal_rule_is_not_called_an_analyst_update(model):
+    automated = {"author": "automation (preregistered terminal rule)", "as_of": "2099-01-01T00:00:00Z"}
+    desk = build_desk({**model, "updates": [automated], "judgment_doc": automated})
+    assert not desk["has_analyst_update"]
+    assert desk["judgment_as_of"] == model["baseline"]["as_of"]

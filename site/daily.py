@@ -136,9 +136,11 @@ def build_desk(model, events_dir=None):
             item["attached_release_id"] = related["item_id"]
         else:
             announcements.append(item)
+    analyst_updates = [u for u in model["updates"] if not str(u.get("author", "")).startswith("automation")]
+    judgment = analyst_updates[-1] if analyst_updates else model["baseline"]
     return {"built_at": model["built_at"], "evidence_as_of": model["evidence_as_of"],
-            "last_refresh": model["refresh_at"], "judgment_as_of": (model["judgment_doc"] or {}).get("as_of"),
-            "has_analyst_update": bool(model["updates"]), "kpis": kpis, "claims": claims,
+            "last_refresh": model["refresh_at"], "judgment_as_of": (judgment or {}).get("as_of"),
+            "has_analyst_update": bool(analyst_updates), "kpis": kpis, "claims": claims,
             "releases": releases, "calendar": build_calendar(model), "events": events,
             "announcements": announcements, "source_status": sources}
 
