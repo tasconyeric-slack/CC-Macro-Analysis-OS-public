@@ -536,7 +536,7 @@ portal:
   daily_note: 跟踪下一次发布，核对新数据带来的变化。
   daily_title: 每日宏观
   daily_description: 官方发布、真实读数与研究判断，集中阅读。
-  daily_kicker: DAILY MACRO DESK
+  daily_kicker: 每日宏观台
   calendar_title: 数据发布日历
   calendar_description: 经官方核实的发布时间，以及可能受到影响的证据。
   calendar_kicker: RELEASE CALENDAR
@@ -598,3 +598,42 @@ portal:
       title: 外部环境
       kicker: GLOBAL ENVIRONMENT
       description: 能源、金属、汇率与美债利率。
+
+desk:
+  kicker: 每日宏观台
+  lede: 从官方发布、公开观测，到需要研究的问题。
+  beijing: 北京时间
+  last_refresh: 最近事实刷新
+  delta: "较上期读数变化：{value}"
+  chart_detail: 图表与指标详情
+  publication_unknown: 发布时间未记录
+  awaiting_official: 等待官方观测
+  headline_pmi: 制造业采购经理指数
+  deflator: GDP隐含平减指数同比
+  brief_title: 最新数据速览
+  brief_note: 由公开观测确定性生成，仅陈述事实，不代表分析师解读。
+  open_evidence: 查看证据与假设
+  judgment: 分析师研究状态
+  reviewed_update: 已审核的更新可在研究历史中查看。
+  judgment_date: 判断截至
+  releases_title: 数据发布与修订
+  no_new_today: 今日暂无新核实的数据发布，以下为最近可用的发布记录。
+  revision: 数据修订
+  received: 收到公开数据
+  release_time: 发布时间
+  flips: 证据检验变化
+  no_flips: 无证据检验翻转
+  watch_next: 下一批值得关注的发布
+  official_calendar: 官方日程与来源
+  research_path: 从事实走向研究判断
+  research_note: 观测自动更新。它们对研究假设意味着什么，由分析师审阅后决定。
+  calendar_note: 全部时间为北京时间。日程时间到达，不代表数据已经入库。
+  state:
+    released: 已发布
+    pending: 等待数据
+    today: 今日预定
+    scheduled: 预定发布
+
+  pp: 个百分点
+  points: 点
+  view_release: 查看发布记录

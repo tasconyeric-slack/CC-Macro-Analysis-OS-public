@@ -52,6 +52,7 @@ from cnmacro.store import as_of, load_dictionary, load_observations, release_tim
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
+from daily import build_desk, desk_context, write_desk  # noqa: E402
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
@@ -357,6 +358,7 @@ def build_model(cfg) -> dict:
         "built_at": now.replace(microsecond=0).isoformat(), "commit": git("rev-parse", "--short", "HEAD"),
         "case_dir": case_dir,
         "observations": ev_obs, "release_calendar": calendar,
+        "observation_history": obs[obs.metric_id.isin(metrics)].copy(),
     }
 
 
@@ -510,6 +512,11 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
     ctx["portal"] = portal_context(model, v)
+    if stem == "daily":
+        if "desk" not in model:
+            model["desk"] = build_desk(model)
+        ctx["desk"] = desk_context(model["desk"], v)
+        ctx["metrics"] = model["metrics"]
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
         ctx["category_charts"] = [chart_card(model, v, ch) for ch in model["charts"] if ch["m"].metric_id in CATEGORY_METRICS[stem[5:]]]
@@ -569,6 +576,7 @@ def render_site(model: dict, out: Path) -> dict:
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
         missing[loc] = sorted(set(v.missing))
     # the root selector and the legacy V1.0 flat URLs
+    write_desk(model["desk"], out)
     t_en, t_zh = L.Translator("en"), L.Translator("zh")
     env = make_env("en")
     root_ctx = {"site_url": SITE_URL, "t_en": t_en, "t_zh": t_zh, "asset": "static/",

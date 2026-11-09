@@ -598,3 +598,42 @@ portal:
       title: Global environment
       kicker: GLOBAL ENVIRONMENT
       description: Energy, metals, exchange rates and US yields.
+
+desk:
+  kicker: DAILY MACRO DESK
+  lede: Official releases, public observations and the research questions they inform.
+  beijing: Beijing time
+  last_refresh: Last factual refresh
+  delta: "Change vs prior reading: {value}"
+  chart_detail: Chart and metric detail
+  publication_unknown: Publication time not recorded
+  awaiting_official: Awaiting the official observation
+  headline_pmi: Manufacturing PMI
+  deflator: Implied GDP deflator YoY
+  brief_title: The latest data, at a glance
+  brief_note: Deterministic facts bound to public observations. No analyst interpretation is implied.
+  open_evidence: View evidence and hypotheses
+  judgment: Analyst research state
+  reviewed_update: A reviewed update is available in the research history.
+  judgment_date: Judgment as of
+  releases_title: Releases and revisions
+  no_new_today: No new verified release today. The latest available releases are listed below.
+  revision: Data revision
+  received: Public data received
+  release_time: Released
+  flips: Evidence tests changed
+  no_flips: No evidence-test flips
+  watch_next: Next releases to watch
+  official_calendar: Official schedule / source
+  research_path: From facts to the research view
+  research_note: Observations update automatically. The analyst reviews their implications before changing the thesis.
+  calendar_note: All times are Beijing time. A scheduled time passing does not create a data release.
+  state:
+    released: Released
+    pending: Awaiting data
+    today: Due today
+    scheduled: Scheduled
+
+  pp: percentage points
+  points: index points
+  view_release: View release

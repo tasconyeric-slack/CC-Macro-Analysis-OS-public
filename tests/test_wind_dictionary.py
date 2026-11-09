@@ -29,7 +29,9 @@ def _entries(text: str) -> list[dict]:
 
 def test_supplemental_is_a_third_tier_outside_the_public_budget(metrics):
     by_tier = {t: [m for m in metrics.values() if m.tier == t] for t in ("core", "diagnostic", "supplemental")}
-    assert len(by_tier["core"]) <= 24 and len(by_tier["diagnostic"]) <= 6          # unchanged public budget
+    # The Owner-authorized public headline PMI (#10) does not expand the Wind diagnostic budget.
+    budgeted = [m for m in by_tier["diagnostic"] if m.metric_id != "cn_pmi_mfg"]
+    assert len(by_tier["core"]) <= 24 and len(budgeted) <= 6
     assert len(by_tier["supplemental"]) == 13                                       # 12 P0 series + the daily 10Y view (cn_cgb10y stays core)
     for m in by_tier["supplemental"]:
         assert m.redistribution == "private_only" and m.wind is not None and m.hypotheses and m.role, m.metric_id

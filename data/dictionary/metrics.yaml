@@ -248,6 +248,26 @@ metrics:
   release: NBS calendar, last day of the reference month
   redistribution: public
 
+- metric_id: cn_pmi_mfg
+  category: pmi
+  name: Manufacturing PMI, headline
+  name_zh: 制造业采购经理指数
+  tier: diagnostic
+  frequency: M
+  unit: index (50 = no change)
+  transform: level
+  hypotheses: [H2]
+  role: Owner-authorized headline diagnostic for the Daily Macro Desk; not a preregistered evidence test.
+  role_zh: 经Owner授权用于每日宏观台的制造业主指数，不进入预注册证据检验。
+  source_primary: NBS
+  # Verified against the NBS catalog response in source probe 42507127955; no guessed identifier.
+  source_code: "nbs:93ffbb1aa85740d3aa2618371508b606/a09aa989bdcf4cffa2021795722eb916"
+  release: NBS calendar, last day of the reference month
+  redistribution: public
+  caliber_notes:
+    - Headline composite diffusion index; 50 is the expansion/contraction threshold, not a growth rate.
+    - The NBS metadata uses percent for the diffusion index; displayed as index points consistently with the existing PMI components.
+
 # ---------------- Policy impulse (H3) ----------------
 - metric_id: cn_tsf_stock_yoy
   category: credit

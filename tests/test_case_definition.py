@@ -37,7 +37,10 @@ def test_case_tests_reference_dictionary_metrics():
 
 def test_metric_budget():
     metrics = load_dictionary(ROOT / "data/dictionary/metrics.yaml")
-    tiers = [m.tier for m in metrics.values()]
+    # §0 / Issue #10 explicitly authorizes this one headline diagnostic in addition to the frozen budget.
+    tiers = [m.tier for m in metrics.values() if m.metric_id != "cn_pmi_mfg"]
     assert tiers.count("core") <= 24 and tiers.count("diagnostic") <= 6
+    headline = metrics["cn_pmi_mfg"]
+    assert (headline.tier, headline.source_primary, headline.redistribution) == ("diagnostic", "NBS", "public")
     for m in metrics.values():
         assert m.hypotheses and m.role, f"{m.metric_id} needs hypotheses and a role"
