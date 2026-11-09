@@ -13,7 +13,7 @@ from charts import line_chart
 from cnmacro.derive import Deriver
 from cnmacro.store import OBS_COLUMNS, as_of
 
-CATEGORIES = ("growth", "prices", "pmi", "trade", "credit", "fiscal", "external")
+CATEGORIES = ("growth", "prices", "pmi", "trade", "credit", "fiscal", "external", "markets")
 DEFLATOR = "deflator"
 
 
@@ -37,6 +37,12 @@ def build_data_portal(obs, metrics, tests, evidence_as_of):
     allowed = public_metrics(metrics)
     history = public_history(obs, metrics)
     current = as_of(history, evidence_as_of)
+    # Daily market series are refreshed outside the evidence state (market.yml writes no refresh record), so
+    # their information set is everything retrieved so far, not the last evidence refresh.
+    daily = [mid for mid, m in allowed.items() if m.frequency == "D"]
+    daily_rows = history[history.metric_id.isin(daily)]
+    if not daily_rows.empty:
+        current = pd.concat([current[~current.metric_id.isin(daily)], as_of(daily_rows, daily_rows.retrieved_at.max())])
     series = {}
     for mid, m in allowed.items():
         vintages = [clean_row(r) for _, r in history[history.metric_id == mid].sort_values(["reference_period", "retrieved_at"]).iterrows()]
@@ -102,11 +108,18 @@ def changes(points, freq):
 
 def data_context(model, v, category=None):
     cards = []
+    specs, checks = None, None
     source_rows = model.get("sources", {}).get("sources", [])
     for mid, item in model["data_portal"]["series"].items():
         if category and item["category"] != category:
             continue
         m = model["metrics"].get(mid)
+        if item["frequency"] == "D":
+            import markets
+            specs = specs or markets.load_specs()
+            checks = markets.latest_crosschecks() if checks is None else checks
+            cards.append(markets.market_card(mid, item, m, v, specs[mid], checks.get(mid), "https://tushare.pro/"))
+            continue
         derived = bool(item.get("derived"))
         name = v.t("data_explorer.deflator") if derived else v.metric_name(mid)
         pts = item["points"]
