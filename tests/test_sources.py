@@ -56,7 +56,7 @@ def test_no_page_describes_delivered_wind_work_as_planned(built):
 def test_data_sources_status_display(built):
     from htmlutil import parse
     for loc, pending in (("en", "private / local only"), ("zh", "私有 / 仅本地")):
-        for page in ("index.html", "method.html"):
+        for page in ("method.html",):  # overview no longer shows the source-status table
             text = parse(built / loc / page).text()
             for src in ("NBS", "PBOC", "GACC", "FRED"):
                 assert re.search(rf"\b{src}\b.{{0,70}}?\b(active|运行中)", text), (loc, page, src)

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}news-feed.css">{% endblock %}
+{% block body %}{% set E = edition %}
+<article class="news-edition" data-pagefind-body><p class="news-back"><a href="news.html#editions">{{ E.labels.editions }}</a></p><h1>{{ E.title }}{% if not E.final %} <small>{{ E.labels.open_edition }}</small>{% endif %}</h1><p class="lede">{{ E.window }}</p>
+<ol class="edition-body">{% for r in E.body %}<li><div class="news-meta"><span class="news-topic">{{ r.topic_name }}</span><span>{{ r.publisher }}</span>{% if r.n_sources > 1 %}<span class="news-count">{{ E.labels.sources_n.format(n=r.n_sources) }}</span>{% endif %}</div><h2{% if loc == 'en' %} lang="zh-Hans"{% endif %}><a href="{{ r.url }}" rel="noopener">{{ r.title }}</a></h2>{% if r.summary %}<p{% if loc == 'en' %} lang="zh-Hans"{% endif %}>{{ r.summary[:200] }}</p>{% endif %}</li>{% else %}<li>{{ E.labels.empty }}</li>{% endfor %}</ol>
+{% if E.quick %}<h2>{{ E.labels.quick }}</h2><ul class="news-index">{% for r in E.quick %}<li><a href="{{ r.url }}" rel="noopener"{% if loc == 'en' %} lang="zh-Hans"{% endif %}>{{ r.title }}</a> <small>{{ r.publisher }}</small></li>{% endfor %}</ul>{% endif %}
+</article>{% endblock %}

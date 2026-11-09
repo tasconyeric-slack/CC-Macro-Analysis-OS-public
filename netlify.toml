@@ -4,7 +4,7 @@
 [build]
   # full history lets the audit trail come from git; if the host's clone stays shallow the
   # site uses the audit manifest in research/cases/cn-nominal/eval/latest.json instead
-  command = "(git fetch --unshallow --quiet || true) && pip install --quiet . && python site/build.py"
+  command = "(git fetch --unshallow --quiet || true) && pip install --quiet . && python site/build.py && (npx --yes pagefind@1.4.0 --site site/dist || true)"
   publish = "site/dist"
 
 [build.environment]

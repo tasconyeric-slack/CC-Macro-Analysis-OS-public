@@ -23,7 +23,8 @@ def pages(built):
 
 def test_each_language_has_the_same_portal_pages_plus_selector_and_legacy_redirects(built):
     for loc in LOCALES:
-        assert sorted(p.name for p in (built / loc).glob("*.html")) == PAGES
+        # news-edition-*/news-archive-* pages are generated from the dated news files
+        assert sorted(p.name for p in (built / loc).glob("*.html") if not p.name.startswith("news-")) == PAGES
     root = sorted(p.name for p in built.glob("*.html"))
     assert root == PAGES                      # index.html = selector; the others = V1.0 URLs that now redirect
     assert (built / "static/style.css").is_file()

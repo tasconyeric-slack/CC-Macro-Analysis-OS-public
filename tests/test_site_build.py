@@ -19,8 +19,8 @@ def test_shallow_clone_build_keeps_the_true_audit_trail(tmp_path):
     subprocess.run(["git", "clone", "-q", "--depth", "1", f"file://{ROOT}", str(clone)], check=True)
     subprocess.run([sys.executable, "site/build.py"], cwd=clone, check=True, capture_output=True)
     dist = clone / "site/dist"
-    assert sorted(p.name for p in (dist / "en").glob("*.html")) == PAGES
-    assert sorted(p.name for p in (dist / "zh").glob("*.html")) == PAGES
+    assert sorted(p.name for p in (dist / "en").glob("*.html") if not p.name.startswith(("news-edition-", "news-archive-"))) == PAGES
+    assert sorted(p.name for p in (dist / "zh").glob("*.html") if not p.name.startswith(("news-edition-", "news-archive-"))) == PAGES
     audit = json.loads((clone / "research/cases/cn-nominal/eval/latest.json").read_text(encoding="utf-8"))["audit"]
     page = (dist / "en/updates.html").read_text(encoding="utf-8")
 

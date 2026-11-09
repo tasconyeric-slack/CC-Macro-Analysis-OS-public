@@ -19,7 +19,9 @@
 | 硬日期 | **2026-11-09 09:30 北京时间：2026 年 10 月 CPI/PPI**；后续关注 11-16 经济活动、11-27 工业利润、11-30 PMI（确切发布日期须对照 NBS 官方日历与 `release_calendar.yaml` 核实） |
 | 当前产品目标 | 以官方宏观数据、公开新闻与政策文件为基础，交付双语门户、Daily Macro Desk、七类数据与图表、政策事件收集/去重/变化比较、Evidence→Hypothesis→What Changed 的可追溯研究链路 |
 | 唯一 P0 | 新数据 `refresh.yml` 持续成功；经验证签名的最新合格 `main` 提交可部署到正式站；每次重大 release 后 48 小时内的 analyst update 必须由分析师审阅签署，不能由自动刷新或 AI 冒充 |
-| 本阶段授权 | 执行 Epic #8 与 #1 中的 **#2–#7、#9、#10、#12、#13**；#3 只做限时信源研究。允许新公开信源：NBS 最新发布 RSS、PBOC 新闻发布列表、gov.cn 政策文件库；保留现有官方/公开数据源。允许新增 NBS 制造业 PMI 主指数（现有 NBS 路由）；开发工具 Playwright、REA。既有 Python/Jinja2 静态站、GitHub Actions、静态 JSON 架构不变 |
+| 本阶段授权 | 执行 Epic #8 与 #1 中的 **#2–#7、#9、#10、#12、#13**；#3 只做限时信源研究。允许新公开信源：NBS 最新发布 RSS、NBS 数据解读、PBOC 新闻发布列表、gov.cn 政策文件库、财政部财政新闻、商务部新闻发布、外汇局新闻、金融监管总局新闻，以及新浪 7×24、东方财富 7×24、第一财经、中国新闻网财经 RSS；保留现有官方/公开数据源。允许新增 NBS 制造业 PMI 主指数（现有 NBS 路由）；开发工具 Playwright、REA。既有 Python/Jinja2 静态站、GitHub Actions、静态 JSON 架构不变 |
+| News 采集/搜索/导航 | 新闻采集 `news.yml` 允许每小时运行；Pagefind 仅作构建期静态全文检索依赖（不引入运行时服务器或数据库）；主导航为 **Overview · News · Data · Research**，Daily 和 Policy 从 News 内页及页脚访问。 |
+| News 可选模型增强 | Owner 允许通过 DeepSeek 或兼容模型生成英文新闻标题与每条“为什么重要”的简短解释；**默认关闭，可由 Owner 随时关闭**，关闭时回退到确定性新闻采集与原文展示，不影响新闻、日报、检索和站点构建。API Key 只放 GitHub Actions Secrets 等私有配置，不得入库或发往浏览器。模型仅解释已采集的事实，不得伪造数字、来源，不得更改研究判断或预注册。 |
 | 明确暂缓 | **#11 FinLens/Consensus Radar 与券商研报数据库全部 DEFERRED**。本轮不领取 `FINLENS_TOKEN`、不接入 FinLens API、不同步研报或机构观点/预测、不创建 `radar.yml`，不在导航、验收、图表里承诺 Radar 或 consensus；后续只有 Owner 新授权且有合法真实数据源才恢复 |
 | 仍然冻结 | 不改预注册、amendment、既有 update/refresh 历史与 `mechanical_delta`；AI 不设概率；Wind/授权私有数据不进公开站；不新增服务器、数据库、向量库或复杂 Agent 框架；不伪造新闻、历史事件、数据、预测或 analyst judgment |
 | §20.8 窗口 | release 前 **2 小时**至后 **6 小时**不合并 site/pipeline PR；其余时间 V2 PR 可按依赖、CI 与真实风险检查持续推进。live refresh 与 analyst update 优先 |

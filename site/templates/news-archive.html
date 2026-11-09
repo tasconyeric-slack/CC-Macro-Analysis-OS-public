@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}news-feed.css">{% endblock %}
+{% block body %}{% set A = archive %}
+<section class="news-archive"><p class="news-back"><a href="news.html#archive">{{ A.labels.archive }}</a></p><h1>{{ A.title }}</h1><p class="lede">{{ A.count }}</p>
+<ol class="news-rows" data-pagefind-body>{% for x in A.rows %}<li><time>{{ x.time }}</time><span class="news-topic">{{ x.topic_name }}</span><h3 class="news-row-title" id="{{ x.id }}"><a href="{{ x.url }}" rel="noopener"{% if loc == 'en' %} lang="zh-Hans"{% endif %}>{{ x.title }}</a></h3><span class="news-pub">{{ x.publisher }}</span>{% if x.summary %}<p class="news-row-summary"{% if loc == 'en' %} lang="zh-Hans"{% endif %}>{{ x.summary[:160] }}</p>{% endif %}</li>{% endfor %}</ol></section>{% endblock %}

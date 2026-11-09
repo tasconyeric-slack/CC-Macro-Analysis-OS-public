@@ -18,6 +18,7 @@ a11y:
   nav: 主导航
 
 nav:
+  news: 要闻
   index: 首页
   daily: 每日宏观
   data: 数据研究
@@ -29,6 +30,9 @@ nav:
   method: 方法与评估
 
 page:
+  news:
+    title: 宏观要闻
+    description: "中国宏观数据发布、政策动作与市场变化，按重要性排序、每小时更新，附每日日报与可检索的历史归档。"
   daily:
     title: 每日宏观
     description: "官方数据发布与研究更新，明确区分事实、事件和分析师判断。"

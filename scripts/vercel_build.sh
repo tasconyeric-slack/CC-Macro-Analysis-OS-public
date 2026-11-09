@@ -47,4 +47,10 @@ echo "vercel_build: build venv Python $("$VENV_PYTHON" -c 'import sys; print(sys
 "$VENV_PYTHON" -m pip install --quiet .
 "$VENV_PYTHON" site/build.py
 
+# 4. Static full-text search over the news editions and archive (no search server). A failure
+#    leaves the site without search rather than without a deploy.
+if command -v npx >/dev/null 2>&1; then
+  npx --yes pagefind@1.4.0 --site site/dist || echo "vercel_build: pagefind failed; search unavailable in this build" >&2
+fi
+
 test -s site/dist/index.html || { echo "vercel_build: site/dist/index.html missing or empty" >&2; exit 1; }
