@@ -630,6 +630,20 @@ official_inbox:
   show_archive: 'Show {n} recent archived items'
   research_events: Research-linked policy events
 
+event_triage:
+  candidate: Rule-based candidate
+  irrelevant: Outside the current thesis
+  monitor: Monitor
+  research_needed: Research needed
+  stage_signal: Signal
+  stage_announced: Announced
+  stage_funded: Funding or operation reported
+  stage_implementation: Implementation
+  stage_observed_impact: Observed outcome, without causal attribution
+  links: Hypothesis links and next confirmation
+  sources: '{n} source records for this occurrence'
+  ambiguous: Similar material remains separate because the relation is unresolved.
+
 data_explorer:
   series: available series
   categories: Data categories

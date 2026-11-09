@@ -630,6 +630,20 @@ official_inbox:
   show_archive: '展开最近 {n} 条归档资料'
   research_events: 已关联研究的政策事件
 
+event_triage:
+  candidate: 规则候选
+  irrelevant: 当前研究框架之外
+  monitor: 持续观察
+  research_needed: 待进一步研究
+  stage_signal: 信号
+  stage_announced: 已公布
+  stage_funded: 已报告资金或操作落地
+  stage_implementation: 实施阶段
+  stage_observed_impact: 已观测结果，尚不作因果归因
+  links: 假设联系与下一步确认
+  sources: '同一事件的 {n} 条来源记录'
+  ambiguous: 相近资料的关系尚未确认，继续分别保留。
+
 data_explorer:
   series: 条可用序列
   categories: 数据分类

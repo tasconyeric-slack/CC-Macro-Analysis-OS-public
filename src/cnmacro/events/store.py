@@ -55,6 +55,34 @@ def load_public_items(events_dir: Path, *, as_of: str) -> list[dict]:
             and stamp(r["published_at"]) <= cutoff and not r.get("archived")]
 
 
+def load_grouped_items(events_dir: Path, *, as_of: str, public_only=False) -> list[dict]:
+    """One source-visible item per occurrence; model/rule triage remains candidate metadata."""
+    from .grouping import event_rows
+    items = load_public_items(events_dir, as_of=as_of) if public_only else load_items(events_dir, as_of=as_of)
+    by_id = {r["item_id"]: r for r in items}
+    used, output = set(), []
+    for event in event_rows(events_dir, as_of=as_of):
+        members = [by_id[mid] for mid in event["member_item_ids"] if mid in by_id]
+        if not members:
+            continue
+        primary = next((r for r in members if r["item_id"] == event["primary_item_id"]), members[0])
+        links = [h for h in event["hypotheses"] if h["item_id"] in by_id]
+        output.append({**primary, "event_id": event["event_id"], "member_item_ids": event["member_item_ids"],
+                       "alternate_sources": [{"url": r["canonical_url"], "publisher": r["publisher"]} for r in members],
+                       "hypotheses": sorted({h["hypothesis"] for h in links}), "hypothesis_links": links,
+                       "stage": event["stage"], "triage": event["triage"], "triage_reason_zh": event["reason_zh"],
+                       "triage_reason_en": event["reason_en"], "relation": event["relation"],
+                       "related_events": event["related_events"], "ambiguous_pairs": event["ambiguous_pairs"],
+                       "next_confirmation": event["next_confirmation"], "event_status": "candidate"})
+        used.update(r["item_id"] for r in members)
+    output.extend(r for r in items if r["item_id"] not in used)
+    return sorted(output, key=lambda r: (r.get("published_at") or "", r["item_id"]), reverse=True)
+
+
+def load_grouped_public_items(events_dir: Path, *, as_of: str) -> list[dict]:
+    return load_grouped_items(events_dir, as_of=as_of, public_only=True)
+
+
 def load_source_status(events_dir: Path, *, as_of: str) -> list[dict]:
     cutoff, latest = stamp(as_of), {}
     for run in rows(events_dir / "source_status.jsonl"):
