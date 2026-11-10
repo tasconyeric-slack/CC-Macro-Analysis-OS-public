@@ -80,7 +80,9 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .wrap { max-width: var(--mr-size-content); margin: 0 auto; padding: 0 var(--mr-space-xl); }
 /* the double focus ring, on every focusable element */
-:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--mr-focus-inner), 0 0 0 4px var(--mr-focus-outer); border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--mr-focus-outer); outline-offset: 2px; }
+/* drawn as an outline, so no component's box-shadow or overflow rule can remove it; the 2px offset
+   shows the surface underneath as the inner (focus-inner) ring */
 
 /* header / nav */
 nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
