@@ -76,7 +76,9 @@ def call(api_name: str, params: dict | None = None, fields: list[str] | None = N
             message = scrub(payload.get("msg") or "", token)
             kind = classify(message)
             last = TushareError(kind, message[:300])
-            if kind == RATE_LIMITED and attempt < retries:
+            # Only a per-minute limit is worth waiting out. The Owner's account answers "1 call per hour/day" for
+            # several interfaces: waiting a minute cannot help, so the series is skipped and reported instead.
+            if kind == RATE_LIMITED and "分钟" in message and attempt < retries:
                 time.sleep(rate_limit_wait)
                 continue
             raise last

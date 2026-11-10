@@ -78,12 +78,18 @@ def run(name, api, params, fields=None, *, limit=None, note=""):
     return out, rows
 
 
-def tushare_probe(report):
+ROUND2 = ("index_daily by trade_date", "shibor_lpr", "hibor", "us_trycr", "index_global", "sge_daily", "fut_basic")
+
+
+def tushare_probe(report, round2_only=False):
+    """round2_only: skip the calls already recorded in round 1 (the account allows ~1 call per interface per hour)."""
     results = report["tushare"]
     end = ymd(today())
     start = "20180101"
 
     def add(*args, **kw):
+        if round2_only and not args[0].startswith(ROUND2):
+            return []
         out, rows = run(*args, **kw)
         results.append(out)
         return rows
@@ -132,8 +138,9 @@ def tushare_probe(report):
 
     # Round 2 (after round 1 showed yc_cb, fx_*, sw_daily, fut_* and repo_daily are not permitted for this account):
     # which neighbouring endpoints ARE permitted, so the Owner can choose a replacement set from facts.
-    for code in ("801050.SI", "801120.SI", "000905.SH", "000016.SH", "399006.SZ", "000852.SH"):
-        add(f"index_daily {code}", "index_daily", {"ts_code": code, "start_date": ymd(today() - timedelta(days=60)), "end_date": end}, limit=10000)
+    # index_daily is limited to ~1 call/hour on this account: one trade_date call lists every index of a day.
+    add("index_daily by trade_date (which codes exist)", "index_daily", {"trade_date": ymd(today() - timedelta(days=1))},
+        ["ts_code", "trade_date", "close"], limit=10000)
     add("shibor_lpr", "shibor_lpr", {"start_date": ymd(today() - timedelta(days=120)), "end_date": end})
     add("hibor", "hibor", {"start_date": ymd(today() - timedelta(days=30)), "end_date": end})
     add("us_trycr (real yields)", "us_trycr", {"start_date": ymd(today() - timedelta(days=30)), "end_date": end})
@@ -195,11 +202,12 @@ def main() -> int:
     ap.add_argument("--summary")
     ap.add_argument("--response-dir")
     ap.add_argument("--skip-tushare", action="store_true")
+    ap.add_argument("--round2-only", action="store_true", help="only the calls not yet recorded (rate-limited account)")
     a = ap.parse_args()
     report = {"probed_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
               "token_present": bool(ts.token_from_env()), "tushare": [], "public": []}
     if report["token_present"] and not a.skip_tushare:
-        tushare_probe(report)
+        tushare_probe(report, a.round2_only)
     else:
         print("TUSHARE_TOKEN is not available in this run; Tushare probes skipped (reported, not failed).")
     public_probe(report, a.response_dir)

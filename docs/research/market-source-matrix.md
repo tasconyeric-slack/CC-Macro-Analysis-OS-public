@@ -1,33 +1,39 @@
 # Market data source matrix (T4, Step A)
 
-Status: **Step A is partly done.** The public cross-check pages are verified from a GitHub runner. The Tushare rows are **not yet verified**: the first runner probe found no `TUSHARE_TOKEN` in the Actions environment (`token_present: false`), so no Tushare call was made. Nothing below under "Tushare" is an observed account permission or history depth until the probe is re-run with the secret set. Endpoint names, parameters and returned fields are from the Tushare Pro interface documentation as exposed by its catalogue (the "documented" columns); every "observed" cell stays `—` until the runner fills it.
+Status: **Step A is done for what the Owner's Tushare account can call, and it shows the account cannot supply most of the requested list.** Observed from a GitHub runner with `TUSHARE_TOKEN` set: run [42759975862](https://github.com/tasconyeric-slack/CC-Macro-Analysis-OS-public/actions/runs/42759975862), 2026-11-10T05:06Z (round 1, permissions and depth) and run [42760322801](https://github.com/tasconyeric-slack/CC-Macro-Analysis-OS-public/actions/runs/42760322801) (round 2, mostly blocked by rate limits, see below). The first run, 42657525872 (2026-11-09), had no token and called nothing.
 
-Probe: `scripts/probe_market_sources.py` via `.github/workflows/market-probe.yml` on branch `codex/market-data`. Run [42657525872](https://github.com/tasconyeric-slack/CC-Macro-Analysis-OS-public/actions/runs/42657525872), 2026-11-09T16:42Z. The report goes to a temporary branch and is deleted after use; the token is read from the environment only and is never printed or written (the probe refuses to write a report containing it).
+Probe: `scripts/probe_market_sources.py` via `.github/workflows/market-probe.yml` on branch `codex/market-data`. The report goes to a temporary branch that is deleted after reading; the token is read from the environment only and never printed or written (the probe refuses to write a report containing it). Endpoint names, parameters and fields are from the Tushare interface documentation; every "Observed" column is from the runs above.
 
-## Tushare candidates
+## Result in one table
 
-Row caps and update times are from the interface documentation. "Points" is whether this account may call it; unknown until probed.
+| Series wanted | Endpoint | Account may call it? | Observed history in one call | Rows (cap) | Fields observed |
+|---|---|---|---|---:|---|
+| CGB 1Y / 10Y yield | `yc_cb` (`ts_code=1001.CB`, `curve_type=0`, `curve_term`) | **No** (permission error) | — | — | — |
+| 10Y − 1Y slope | derived from `yc_cb` | **No** (inputs missing) | — | — | — |
+| SHIBOR ON, 3M | `shibor` | **Yes** | 2018-09-27 → 2026-11-09 (from 2018-01-01, so truncated by the cap; start 2020-01-01 fits) | 2000 (2000) | `date, on, 1w, 2w, 1m, 3m, 6m, 9m, 1y` |
+| DR007 | none identified; `shibor_quote` (permitted, bank-by-bank SHIBOR quotes, 107 rows in 10 days) is not DR007; `repo_daily` **not permitted** | — | — | — | — |
+| USD/CNH, USD/CNY | `fx_obasic`, `fx_daily` | **No** | — | — | — |
+| CSI 300 | `index_daily` (`000300.SH`) | **Yes** | 2018-01-02 → 2026-11-09, not truncated | 2146 (10000) | `ts_code, trade_date, close, open, high, low, pre_close, change, pct_chg, vol, amount` |
+| Shenwan L1 (up/downstream) | `sw_daily`, `index_classify` | **No** | — | — | — |
+| Copper, rebar, iron ore main | `fut_mapping`, `fut_daily` | **No** | — | — | — |
+| US Treasury 1Y / 10Y | `us_tycr` | **Yes** | 2018-11-05 → 2026-11-09 (truncated by the cap; start 2020-01-01 fits) | 2000 (2000) | `date, y1, y10` (also `m1…y30`) |
 
-| Series wanted | Endpoint | ts_code / key params | Documented fields used | Row cap per call | Documented update time | Observed history depth | Account points |
-|---|---|---|---|---:|---|---|---|
-| CGB 1Y yield | `yc_cb` | `ts_code=1001.CB`, `curve_type=0` (maturity), `curve_term=1` | `trade_date`, `yield` | 2000 | daily 20:00 | — | — |
-| CGB 10Y yield | `yc_cb` | same, `curve_term=10` | `trade_date`, `yield` | 2000 | daily 20:00 | — | — |
-| 10Y − 1Y slope | derived | `mk_cn_gov_10y − mk_cn_gov_1y`, same trade date | — | — | after both | — | — |
-| SHIBOR ON, 3M | `shibor` | date range | `date`, `on`, `3m` | 2000 | daily ~14:00 | — | — |
-| DR007 | none identified | — | — | — | — | — | — |
-| USD/CNH | `fx_daily` | `ts_code=USDCNH.FXCM` (confirm in `fx_obasic`) | `trade_date`, `bid_close`, `ask_close` (mid used) | 4000 | morning 08:30 (GMT dates) | — | — |
-| USD/CNY | `fx_daily` if `fx_obasic` lists a `USDCNY` code | probed dynamically | as above | 4000 | as above | — | — |
-| CSI 300 | `index_daily` | `ts_code=000300.SH` | `trade_date`, `close` | 10000 | daily 19:00 | — | — |
-| Shenwan L1 | `sw_daily` (SW2021 default) | `801050.SI`, `801040.SI`, `801950.SI` (upstream); `801120.SI`, `801110.SI`, `801880.SI` (downstream) | `trade_date`, `close` | 4000 | trading days 18:30 | — | — |
-| Copper, rebar, iron ore main | `fut_mapping` + `fut_daily` | `CU.SHF`, `RB.SHF`, `I.DCE` → `mapping_ts_code` per day | mapping: `trade_date`, `mapping_ts_code`; daily: `close` | 5000 / 2000 | trading days 18:30 / 17–18h | — | — |
-| US Treasury 10Y | `us_tycr` | date range | `date`, `y10` | 2000 | daily | — | — |
+Other endpoints probed (round 2): permitted — `shibor_lpr` (monthly 1Y/5Y LPR, 2 rows in 120 days), `hibor` (`on…12m`, 20 rows in 30 days), `us_trycr` (US real yields `y5…y30`, 20 rows), `fut_basic` (listing only, 3613 SHFE contracts). Not permitted — `repo_daily`, `index_global` (SPX), `sge_daily` (Au99.99).
 
-Notes on what is and is not known:
+Update times are the documented ones (shibor ~14:00; index_daily 19:00; yc_cb 20:00; fx_daily 08:30; sw_daily 18:30; futures 17–18:30 Beijing).
 
-- **DR007**: the catalogue has `shibor`, `shibor_quote`, `shibor_lpr`, `hibor`, `libor`, and `repo_daily` (exchange-traded repo such as 204007.SH, a different instrument). No endpoint for the interbank DR007 fixing was found. The probe calls `shibor_quote` and `repo_daily` only to document that; neither is ingested as DR007. If the runner confirms there is none, DR007 is dropped from scope rather than substituted.
-- **Futures main contract**: `fut_mapping` returns the mapped monthly contract per day; the ingest then reads that contract's `close` from `fut_daily`. The series is **not roll-adjusted**, so a roll shows as a jump; the page says so. Whether `fut_daily` accepts the continuous code directly is also probed.
-- **USD/CNY**: Tushare's `fx_daily` is the FXCM offshore feed (bid/ask, GMT dates). An onshore USD/CNY series is only ingested if `fx_obasic` lists one. The CFETS central parity is therefore compared with USD/CNH as a *proxy*, a reference rate against a close.
-- **Rate limits**: low-point accounts can be limited per minute. The client waits 62 s and retries twice on a rate-limit reply; a still-failing series is skipped and reported.
+## What this means for the task
+
+- **Instruments the account can supply today:** SHIBOR ON/3M (and the other 7 tenors from the same call), CSI 300, US Treasury 1Y/10Y (+ a 10Y−1Y slope computed from them), and the extras above. Counting SHIBOR ON, 3M, UST 1Y, 10Y, CSI 300 gives **5** of the requested instruments; the 8-instrument acceptance bar cannot be met from the requested list with this account.
+- **Not available with this account:** every China government-bond yield, all FX, all Shenwan industry indices, all commodity futures. The ChinaBond 10Y cross-check therefore has no Tushare series to compare against, and the CFETS check has none either.
+- **Rate limit (important):** the account answers "frequency exceeded" for `shibor`, `shibor_quote`, `index_daily` and `us_tycr` on a second call about 20 minutes after the first. The reply states one call per period (the unit is unreadable in the stored report; for `index_daily`, `shibor_quote` and `us_tycr` it is per hour). Consequences built into the ingest: each interface is read in **one** call per run (history from 2020-01-01 fits every row cap in one call); only a *per-minute* limit is retried; an hourly limit skips the series and reports it. `index_daily` can therefore serve one index code per hour, not a basket.
+- **DR007:** no Tushare endpoint exists for the interbank fixing among the interfaces probed. Dropped from scope rather than substituted.
+- **Futures main contract / USD-CNY:** moot until the account is permitted for `fut_mapping`/`fut_daily` and `fx_daily`.
+
+### Options for the Owner (a product and licence decision, not made here)
+1. **Raise the Tushare account's points** so `yc_cb`, `fx_daily`, `sw_daily`, `fut_mapping`, `fut_daily` become callable (and check the call-frequency tier). The code already handles all of them; they are skipped until permitted.
+2. **Accept a smaller Tushare-only set** (SHIBOR tenors, UST 1Y/10Y/slope, CSI 300, HIBOR, real yields) and relax the 8-instrument bar accordingly.
+3. **Use the official pages as a primary source** for China yields and USD/CNY (ChinaBond, CFETS). That is a new provider under strategy §20.7 and also needs history that those pages do not give in one call, so it is not started.
 
 ## Public cross-checks (observed from the runner)
 
@@ -50,9 +56,8 @@ Tolerances (design choices, to be reviewed by the Owner):
 | ChinaBond 10Y and 1Y vs `yc_cb` | same trade date, percentage points | 0.01 (1 bp) | the same curve at 4 decimals; 1 bp absorbs rounding only |
 | CFETS USD/CNY parity vs `USDCNH` mid | same date, relative | 0.5% | the parity is a 09:15 reference rate and the stored value is a close, so a small spot-to-fixing distance is normal; a larger one is a signal |
 
-## Still to do before this document is complete
+## Still to do
 
-1. Owner adds the Actions secret `TUSHARE_TOKEN` (repository secret, not environment).
-2. Re-run the probe (push to `codex/market-data`); fill the "Observed history depth" and "Account points" columns from the report; record any endpoint the account may not call.
-3. Record, per series, the first trade date returned and whether the row cap truncated it.
-4. Delete the temporary report branch and `market-probe.yml` once recorded.
+1. Owner decision on the options above.
+2. After an hour, one `index_daily` call by `trade_date` (queued in the probe) lists which index codes this account can read (to see whether Shenwan `801xxx.SI` codes are available through `index_daily`).
+3. Delete `market-probe.yml` and the temporary report branch once the matrix is final.

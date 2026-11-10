@@ -27,7 +27,9 @@ from .store import load_dictionary, load_observations
 SPEC = "data/dictionary/market_series.yaml"
 FILE_PREFIX = "tushare_"
 LIMITATION = "Tushare daily value; no publication time is given, so availability is taken as retrieval time"
-YEARS_PER_CALL = 2          # keeps each call well under Tushare's row caps (yc_cb 2000, us_tycr 2000)
+# The account is limited to roughly one call per interface per hour (observed 2026-11-10), so every series is read
+# in ONE call per interface: history_start..today fits the row caps (shibor/us_tycr 2000, index_daily 10000).
+YEARS_PER_CALL = 8
 Caller = type(ts.call)
 
 

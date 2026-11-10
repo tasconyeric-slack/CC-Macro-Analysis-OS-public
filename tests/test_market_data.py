@@ -242,3 +242,38 @@ def test_run_crosschecks_end_to_end_with_fixtures():
     stored_ = {"mk_cn_gov_10y": {"2026-11-09": 1.5874}, "mk_cn_gov_1y": {"2026-11-09": 1.1667}, "mk_usdcnh": {"2026-11-09": 6.7211}}
     results = {r["metric_id"]: r for r in xc.run_crosschecks(stored_, fetch=fetch, today=date(2026, 11, 10), log=lambda *_: None)}
     assert [results[m]["status"] for m in ("mk_cn_gov_10y", "mk_cn_gov_1y", "mk_usdcnh")] == ["ok", "ok", "ok"]
+
+
+def test_hourly_rate_limit_is_not_waited_out_but_per_minute_limit_is(monkeypatch):
+    waits = []
+    monkeypatch.setattr(tc.time, "sleep", lambda s: waits.append(s))
+
+    class Reply:
+        def __init__(self, msg):
+            self.msg = msg
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+        def read(self):
+            return json.dumps({"code": 40203, "msg": self.msg}).encode()
+
+    with pytest.raises(tc.TushareError) as err:
+        tc.call("shibor", {}, token="t", opener=lambda req, timeout: Reply("抱歉，您访问接口(shibor)频率超限(1次/小时)"))
+    assert err.value.kind == tc.RATE_LIMITED and waits == []
+    with pytest.raises(tc.TushareError):
+        tc.call("shibor", {}, token="t", opener=lambda req, timeout: Reply("抱歉，您访问接口(shibor)频率超限(2次/分钟)"))
+    assert waits == [62.0, 62.0]
+
+
+def test_each_interface_is_read_in_one_call_for_the_default_history(root):
+    call = FakeTushare()
+    run(root, call)
+    per_api = {}
+    for api, p in call.calls:
+        if api in ("shibor", "us_tycr", "index_daily", "sw_daily", "fx_daily"):
+            per_api.setdefault((api, p.get("ts_code")), []).append(p)
+    assert all(len(v) == 1 for v in per_api.values()), per_api

@@ -29,7 +29,7 @@ jobs:
       - name: Probe Tushare and the official pages
         env:
           TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
-        run: python scripts/probe_market_sources.py --out market-probe.json --summary "$GITHUB_STEP_SUMMARY" --response-dir probe-responses
+        run: python scripts/probe_market_sources.py --round2-only --out market-probe.json --summary "$GITHUB_STEP_SUMMARY" --response-dir probe-responses
       - uses: actions/upload-artifact@v4
         if: always()
         with:
