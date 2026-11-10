@@ -1,7 +1,8 @@
 name: verified Codex previews
 
 # Runs from the trusted default branch, never from the PR's code.
-# A Codex git commit may be unsigned in a cloud environment. Append a
+# A Codex or Claude Code git commit (codex/* or claude/* branch) may be unsigned in a
+# cloud environment. Append a
 # GitHub-signed, identical-tree checkpoint so Vercel can preview that exact tree.
 on:
   pull_request_target:
@@ -20,7 +21,8 @@ jobs:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
       github.event.pull_request.base.ref == 'main' &&
-      startsWith(github.event.pull_request.head.ref, 'codex/')
+      (startsWith(github.event.pull_request.head.ref, 'codex/') ||
+       startsWith(github.event.pull_request.head.ref, 'claude/'))
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -35,8 +37,9 @@ jobs:
             // Defense in depth: pull_request_target has a write token. Do not
             // check out, execute, or import anything from the proposed branch.
             if (pr.head.repo.id !== context.payload.repository.id ||
-                pr.base.ref !== "main" || !branch.startsWith("codex/")) {
-              throw new Error("Only same-repository Codex PRs into main are eligible");
+                pr.base.ref !== "main" ||
+                !(branch.startsWith("codex/") || branch.startsWith("claude/"))) {
+              throw new Error("Only same-repository codex/* or claude/* PRs into main are eligible");
             }
 
             const ref = "heads/" + branch;

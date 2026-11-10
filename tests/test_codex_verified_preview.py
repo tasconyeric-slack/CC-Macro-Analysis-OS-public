@@ -17,6 +17,7 @@ def test_only_trusted_same_repo_codex_prs_can_get_checkpoints():
     assert "head.repo.full_name == github.repository" in text
     assert "head.repo.id !== context.payload.repository.id" in text
     assert "startsWith(github.event.pull_request.head.ref, 'codex/')" in text
+    assert "startsWith(github.event.pull_request.head.ref, 'claude/')" in text
     assert "pr.base.ref !== \"main\"" in text
     assert "actions/checkout" not in text
     assert "exec(" not in text
