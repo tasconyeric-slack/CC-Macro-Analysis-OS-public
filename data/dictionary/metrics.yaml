@@ -1072,3 +1072,182 @@ metrics:
   redistribution: public
   caliber_notes:
     - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
+
+# ---- Markets & financial conditions: daily, public. Fetched by `cnmacro market-refresh` from Tushare
+# (Owner decision 2026-11-09: Tushare data may be shown on the public site). Fetch spec: market_series.yaml.
+
+- metric_id: mk_shibor_on
+  category: markets
+  name: SHIBOR overnight
+  name_zh: SHIBOR隔夜
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Overnight interbank funding cost; the front end of money-market conditions.
+  role_zh: 银行间隔夜资金成本；货币市场松紧的最前端。
+  source_primary: Tushare
+  source_code: "shibor:on"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_shibor_1w
+  category: markets
+  name: SHIBOR 1-week
+  name_zh: SHIBOR 1周
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: One-week interbank rate; the policy-corridor anchor of money-market conditions.
+  role_zh: 一周银行间利率；货币市场松紧的政策走廊锚。
+  source_primary: Tushare
+  source_code: "shibor:1w"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_shibor_3m
+  category: markets
+  name: SHIBOR 3-month
+  name_zh: SHIBOR 3个月
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Three-month interbank rate; term funding conditions.
+  role_zh: 三个月银行间利率；期限资金面。
+  source_primary: Tushare
+  source_code: "shibor:3m"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_shibor_1y
+  category: markets
+  name: SHIBOR 1-year
+  name_zh: SHIBOR 1年
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: One-year interbank rate; term funding cost and expected policy path.
+  role_zh: 一年期银行间利率；期限资金成本与政策路径预期。
+  source_primary: Tushare
+  source_code: "shibor:1y"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust1y
+  category: markets
+  name: US Treasury 1-year yield, daily (Treasury par curve via Tushare)
+  name_zh: 美国国债1年期收益率（日度，经Tushare）
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: US short rate; the Fed-expectations end of the US curve.
+  role_zh: 美国短端利率；美国曲线中反映美联储预期的一端。
+  source_primary: Tushare
+  source_code: "us_tycr:y1"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust10y
+  category: markets
+  name: US Treasury 10-year yield, daily (Treasury par curve via Tushare)
+  name_zh: 美国国债10年期收益率（日度，经Tushare）
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: US long rate; with the China 10Y gives the cross-border spread. Alongside the monthly FRED series.
+  role_zh: 美国长期利率；与中国10年期合成中美利差。与FRED月度序列并列。
+  source_primary: Tushare
+  source_code: "us_tycr:y10"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust_slope_10y_1y
+  category: markets
+  name: US Treasury curve slope, 10Y minus 1Y
+  name_zh: 美国国债曲线斜率：10年减1年
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Term spread of the US curve, computed from the two stored yields on the same date.
+  role_zh: 美国国债曲线期限利差，由同一日期的两个已存收益率计算。
+  source_primary: Tushare
+  source_code: "derived:mk_ust10y-mk_ust1y"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust_real10y
+  category: markets
+  name: US 10-year real yield, daily (Treasury real par curve via Tushare)
+  name_zh: 美国10年期实际收益率（日度，经Tushare）
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: US real long rate; separates inflation expectations from the real-rate effect on global liquidity.
+  role_zh: 美国长期实际利率；区分通胀预期与实际利率对全球流动性的影响。
+  source_primary: Tushare
+  source_code: "us_trycr:y10"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_hibor_on
+  category: markets
+  name: HIBOR overnight
+  name_zh: 香港银行同业拆息（HIBOR）隔夜
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Hong Kong overnight interbank rate; offshore yuan and dollar funding conditions.
+  role_zh: 香港隔夜银行同业拆息；离岸人民币与美元资金面。
+  source_primary: Tushare
+  source_code: "hibor:on"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_hibor_3m
+  category: markets
+  name: HIBOR 3-month
+  name_zh: 香港银行同业拆息（HIBOR）3个月
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Hong Kong three-month interbank rate; offshore term funding.
+  role_zh: 香港三个月银行同业拆息；离岸期限资金。
+  source_primary: Tushare
+  source_code: "hibor:3m"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_csi300
+  category: markets
+  name: CSI 300 index, close
+  name_zh: 沪深300指数收盘
+  tier: diagnostic
+  frequency: D
+  unit: "index level"
+  transform: level
+  hypotheses: [H0, H1]
+  role: Broad onshore equity benchmark; risk appetite and earnings expectations.
+  role_zh: 境内权益宽基基准；反映风险偏好与盈利预期。
+  source_primary: Tushare
+  source_code: "index_daily:000300.SH"
+  release: daily after market close (Tushare)
+  redistribution: public
