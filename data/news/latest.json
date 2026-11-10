@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-10T16:23:46+00:00",
+ "as_of": "2026-11-10T22:20:49+00:00",
  "rule_version": "macro-rank-v1",
  "thresholds": {
   "T1": 55,
@@ -13,7 +13,7 @@
    "tier": "T1",
    "url": "https://www.stats.gov.cn/sj/zxfb/rss.xml",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 15,
    "new": 0,
    "response_sha256": "2b420145605f4f76e016c27cf0768b6ca75afeb6d3b25789bb4583ac6515546a"
@@ -24,7 +24,7 @@
    "tier": "T1",
    "url": "https://www.stats.gov.cn/sj/sjjd/",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 11,
    "new": 0,
    "response_sha256": "2690ad17c5c8c342a48ea1c4e339944cd95e0859d4715df873bf8f1ead08c577"
@@ -35,7 +35,7 @@
    "tier": "T1",
    "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 12,
    "new": 0,
    "response_sha256": "e4bd35a43032387bc2dd2e83afe6ebbd6935767439e9cb4227bd9338ebfb27db"
@@ -46,9 +46,9 @@
    "tier": "T1",
    "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 5,
-   "new": 1,
+   "new": 0,
    "response_sha256": "cb6f22694c945b81a8d9260b6d97644d31d2a928ab8b73a5d826a29e9b73b3f6"
   },
   {
@@ -57,9 +57,9 @@
    "tier": "T1",
    "url": "https://www.ndrc.gov.cn/xwdt/xwfb/",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 12,
-   "new": 1,
+   "new": 0,
    "response_sha256": "6b2c296d32399043570e81c862c3349eb293fb2b58150e8ab9a813212be9f232"
   },
   {
@@ -68,7 +68,7 @@
    "tier": "T1",
    "url": "https://www.mofcom.gov.cn/xwfb/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 15,
    "new": 0,
    "response_sha256": "92d3d296d10a7b7752923845883350bf20bb7e421c9b88a823467a7f80ae7cd9"
@@ -79,7 +79,7 @@
    "tier": "T1",
    "url": "https://www.safe.gov.cn/safe/whxw/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 4,
    "new": 0,
    "response_sha256": "b1deefb1edf547476ac797943786fe0b43b8da04e496eefbeba9e1bd3d99b600"
@@ -90,7 +90,7 @@
    "tier": "T1",
    "url": "https://www.nfra.gov.cn/cbircweb/DocInfo/SelectDocByItemIdAndChild?itemId=915&pageSize=18&pageIndex=1",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 1,
    "new": 0,
    "response_sha256": "48f86c3892b0bdee39962521f2988d823731577e97ee38200585c9c6ca3dd0fb"
@@ -101,10 +101,10 @@
    "tier": "T2",
    "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=100",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
-   "items": 12,
-   "new": 12,
-   "response_sha256": "3271fe14260b64a97f3b09db7fcda24cb927aa405e01d3c8aa59cd23cd8079d1"
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "items": 5,
+   "new": 5,
+   "response_sha256": "92a5273a086ca44dc585b0bc8c57a82fe347058f96fd8b2c809f3c1fcc08597b"
   },
   {
    "source": "sina",
@@ -112,10 +112,10 @@
    "tier": "T2",
    "url": "https://zhibo.sina.com.cn/api/zhibo/feed?page=1&page_size=60&zhibo_id=152",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
-   "items": 2,
-   "new": 1,
-   "response_sha256": "17e0438502b1a529fab0e157b52fa32b58775e7e9422528e8432acc39b7073f5"
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "items": 6,
+   "new": 6,
+   "response_sha256": "d0a562bd572d65d2c6f21d942b33183e501d31c284bcfb5fce9a6af310998264"
   },
   {
    "source": "eastmoney",
@@ -123,10 +123,10 @@
    "tier": "T2",
    "url": "https://np-weblist.eastmoney.com/comm/web/getFastNewsList?client=web&biz=web_724&fastColumn=102&sortEnd=&pageSize=50&req_trace=1",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 4,
-   "new": 3,
-   "response_sha256": "3fe247250a5a71b2938a3528dee5177c02072260dbfacb5b86d1accb99120e25"
+   "new": 4,
+   "response_sha256": "cac82edf39ff1923fdebce1e9e5b46d9308c1ecb05ad4fc19bf123c2304647d6"
   },
   {
    "source": "yicai",
@@ -134,9 +134,9 @@
    "tier": "T2",
    "url": "https://www.yicai.com/api/ajax/getjuhelist?action=news&page=1&pagesize=25",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 3,
-   "new": 3,
+   "new": 0,
    "response_sha256": "09f1370deadf0266f2479154ffc3c1285a9eb921a185ac14c70068385fa6f0f2"
   },
   {
@@ -145,9 +145,9 @@
    "tier": "T2",
    "url": "https://www.chinanews.com.cn/rss/finance.xml",
    "ok": true,
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "items": 5,
-   "new": 5,
+   "new": 0,
    "response_sha256": "7e736076c43b04b0238456e4657fb536dcd55de5b9e64923268328d8b5050850"
   }
  ],
@@ -163,7 +163,7 @@
    "first_at": "2026-11-10",
    "last_at": "2026-11-10T23:27:35+08:00",
    "score": 75,
-   "heat": 2.44,
+   "heat": 2.054,
    "publishers": [
     "东方财富",
     "华尔街见闻",
@@ -171,7 +171,7 @@
    ],
    "official": true,
    "selected": true,
-   "importance": 96.08,
+   "importance": 94.53,
    "items": [
     "news_190892118fde4fce286c",
     "news_61f1a33b19bdc822c71d",
@@ -189,7 +189,7 @@
    "first_at": "2026-11-09",
    "last_at": "2026-11-10T13:03:46+08:00",
    "score": 79,
-   "heat": 1.046,
+   "heat": 0.881,
    "publishers": [
     "中国新闻网",
     "华尔街见闻",
@@ -197,7 +197,7 @@
    ],
    "official": true,
    "selected": true,
-   "importance": 94.5,
+   "importance": 93.84,
    "items": [
     "news_2b14bd68640939d0255b",
     "news_7c0e35a3eee519ffe8ae",
@@ -221,14 +221,14 @@
    "first_at": "2026-11-09",
    "last_at": "2026-11-09T02:33:38+00:00",
    "score": 83,
-   "heat": 0.335,
+   "heat": 0.282,
    "publishers": [
     "华尔街见闻",
     "财政部"
    ],
    "official": true,
    "selected": true,
-   "importance": 93.93,
+   "importance": 93.72,
    "items": [
     "news_4b3edd7f558fa436ed06",
     "news_07cfd2db462dffdc49dc",
@@ -246,7 +246,7 @@
    "first_at": "2026-11-10T06:54:33+00:00",
    "last_at": "2026-11-10T14:55:35+08:00",
    "score": 72,
-   "heat": 2.281,
+   "heat": 1.921,
    "publishers": [
     "东方财富",
     "华尔街见闻",
@@ -254,7 +254,7 @@
    ],
    "official": false,
    "selected": true,
-   "importance": 89.44,
+   "importance": 88.0,
    "items": [
     "news_3a136a4d76f87fe857ee",
     "news_6e856800524eafff8e51",
@@ -272,14 +272,14 @@
    "first_at": "2026-11-09T17:00:45+08:00",
    "last_at": "2026-11-10T19:47:58+08:00",
    "score": 74,
-   "heat": 1.074,
+   "heat": 0.904,
    "publishers": [
     "中国新闻网",
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 84.89,
+   "importance": 84.21,
    "items": [
     "news_34790a0b1f4b7085f1c3",
     "news_f1e2a7687f9d0d11d889",
@@ -312,6 +312,28 @@
    ]
   },
   {
+   "event_id": "evt-cb8bc4972fc5",
+   "topic": "fiscal",
+   "title_zh": "10年期美债发行认购需求不及预期尽管票面利率创20年以来最高",
+   "summary_zh": "【10年期美债发行认购需求不及预期尽管票面利率创20年以来最高】美国财政部发行的420亿美元10年期国债中标收益率5.020%，高于纽约时间下午1点投标截止时5.010%的发行前交易收益率，显示需求不及预期。截至投标截止时，该期限美债收益率当日已上涨逾12个基点。发行结果公布后，收益率小幅走高，但仍处于当日波动区间内；2年期与10年期美债收益率之差则从当日最低水平略有回升，较周一收盘仍收窄约6个基点。尽管当前收益率水平仍低于上月发债时的",
+   "url": "https://finance.eastmoney.com/a/202611113927721582.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-11T02:33:59+08:00",
+   "last_at": "2026-11-11T02:33:59+08:00",
+   "score": 75,
+   "heat": 0.897,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 82.75,
+   "items": [
+    "news_cb8bc4972fc55fcf80d7"
+   ]
+  },
+  {
    "event_id": "evt-9ffb38b2f8d9",
    "topic": "prices",
    "title_zh": "欧洲央行管委Nagel：12月加息“相当明显”",
@@ -322,13 +344,13 @@
    "first_at": "2026-11-10T14:55:20+00:00",
    "last_at": "2026-11-10T14:55:20+00:00",
    "score": 75,
-   "heat": 0.958,
+   "heat": 0.807,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 82.99,
+   "importance": 82.39,
    "items": [
     "news_9ffb38b2f8d9386ad5ef"
    ]
@@ -344,14 +366,14 @@
    "first_at": "2026-11-10T02:32:07+00:00",
    "last_at": "2026-11-10T10:32:48+08:00",
    "score": 71,
-   "heat": 1.34,
+   "heat": 1.129,
    "publishers": [
     "中国新闻网",
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 82.95,
+   "importance": 82.11,
    "items": [
     "news_530d64a1cae802c44c0d",
     "news_177ee871c0353c78ee7a"
@@ -368,13 +390,13 @@
    "first_at": "2026-11-10T11:18:15+08:00",
    "last_at": "2026-11-10T11:18:15+08:00",
    "score": 74,
-   "heat": 0.685,
+   "heat": 0.577,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 80.9,
+   "importance": 80.47,
    "items": [
     "news_5478353f74fee681ff06"
    ]
@@ -390,13 +412,13 @@
    "first_at": "2026-11-09T13:50:40+00:00",
    "last_at": "2026-11-10T13:48:44+00:00",
    "score": 74,
-   "heat": 0.464,
+   "heat": 0.391,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 80.01,
+   "importance": 79.72,
    "items": [
     "news_508c7a0e173477fc2885",
     "news_7f060f284cd377539998"
@@ -413,13 +435,13 @@
    "first_at": "2026-11-10T11:13:53+08:00",
    "last_at": "2026-11-10T11:13:53+08:00",
    "score": 72,
-   "heat": 0.684,
+   "heat": 0.576,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 78.89,
+   "importance": 78.46,
    "items": [
     "news_22835df230d60d071ae6"
    ]
@@ -435,13 +457,13 @@
    "first_at": "2026-11-10T07:35:04+08:00",
    "last_at": "2026-11-10T07:35:04+08:00",
    "score": 72,
-   "heat": 0.615,
+   "heat": 0.518,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": true,
-   "importance": 78.62,
+   "importance": 78.23,
    "items": [
     "news_216808bb995e09a3e1ca"
    ]
@@ -457,13 +479,13 @@
    "first_at": "2026-11-10T07:28:09+08:00",
    "last_at": "2026-11-10T07:28:09+08:00",
    "score": 72,
-   "heat": 0.613,
+   "heat": 0.516,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": true,
-   "importance": 78.61,
+   "importance": 78.22,
    "items": [
     "news_d8a9d331eabd0de5abdd"
    ]
@@ -479,7 +501,7 @@
    "first_at": "2026-11-09",
    "last_at": "2026-11-09T16:02:14+08:00",
    "score": 64,
-   "heat": 0.785,
+   "heat": 0.661,
    "publishers": [
     "中国新闻网",
     "华尔街见闻",
@@ -487,7 +509,7 @@
    ],
    "official": true,
    "selected": false,
-   "importance": 78.46,
+   "importance": 77.96,
    "items": [
     "news_eec59e5741fa923aaad6",
     "news_72635559e9cdeccdc71a",
@@ -561,6 +583,28 @@
    ]
   },
   {
+   "event_id": "evt-b09c17f9f834",
+   "topic": "prices",
+   "title_zh": "美联储理事鲍曼警告：若AI押注落空，股市或现回调",
+   "summary_zh": "美联储理事、负责金融监管事务的副主席鲍曼认为，金融市场对经济活动构成风险，其中包括：若人工智能（AI）投资的回报不及预期，股价可能出现急跌。风险来自AI回报引发的“股票估值的大幅回调”，以及“私人部门长期利率的急剧上升”。“股价下跌可能削弱消费的韧性，”她说，“而利率上升可能进一步挤压经济中对利率敏感的部门，比如房地产和小企业投资。”鲍曼对AI相关债务快速上升感到忧心忡忡：公司债、私募信贷和项目融资增长显著，今年恐怕会超过8000亿美元",
+   "url": "https://wallstreetcn.com/livenews/3197909",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T20:30:21+00:00",
+   "last_at": "2026-11-10T20:30:21+00:00",
+   "score": 66,
+   "heat": 0.948,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 73.95,
+   "items": [
+    "news_b09c17f9f83439f7f2c9"
+   ]
+  },
+  {
    "event_id": "evt-d9c53bc92cbc",
    "topic": "growth",
    "title_zh": "年发电量12亿千瓦时我国西北地区海拔最高抽水蓄能电站开工建设",
@@ -571,14 +615,14 @@
    "first_at": "2026-11-10T07:07:33+00:00",
    "last_at": "2026-11-10T15:06:55+08:00",
    "score": 62,
-   "heat": 1.53,
+   "heat": 1.288,
    "publishers": [
     "华尔街见闻",
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 74.71,
+   "importance": 73.74,
    "items": [
     "news_d9c53bc92cbc64241a7a",
     "news_7fe05df8eb349f886b68"
@@ -595,13 +639,13 @@
    "first_at": "2026-11-10T04:30:27+00:00",
    "last_at": "2026-11-10T04:30:27+00:00",
    "score": 67,
-   "heat": 0.709,
+   "heat": 0.597,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.99,
+   "importance": 73.55,
    "items": [
     "news_f892dcebe208bd08485e"
    ]
@@ -617,13 +661,13 @@
    "first_at": "2026-11-10T02:43:15+00:00",
    "last_at": "2026-11-10T02:43:15+00:00",
    "score": 67,
-   "heat": 0.674,
+   "heat": 0.567,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.85,
+   "importance": 73.43,
    "items": [
     "news_1d9475a2e1ee4cfa3821"
    ]
@@ -639,13 +683,13 @@
    "first_at": "2026-11-10T02:43:27+00:00",
    "last_at": "2026-11-10T02:43:27+00:00",
    "score": 67,
-   "heat": 0.674,
+   "heat": 0.567,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.85,
+   "importance": 73.43,
    "items": [
     "news_7229e95e2d206f8e9822"
    ]
@@ -661,13 +705,13 @@
    "first_at": "2026-11-10T02:43:38+00:00",
    "last_at": "2026-11-10T02:43:38+00:00",
    "score": 67,
-   "heat": 0.674,
+   "heat": 0.567,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.85,
+   "importance": 73.43,
    "items": [
     "news_e0eeeeee40498ffbe244"
    ]
@@ -683,13 +727,13 @@
    "first_at": "2026-11-10T08:08:24+08:00",
    "last_at": "2026-11-10T08:08:24+08:00",
    "score": 67,
-   "heat": 0.625,
+   "heat": 0.527,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.66,
+   "importance": 73.27,
    "items": [
     "news_230ac71adcc35f96b302"
    ]
@@ -705,13 +749,13 @@
    "first_at": "2026-11-09T23:25:08+00:00",
    "last_at": "2026-11-09T23:25:08+00:00",
    "score": 67,
-   "heat": 0.612,
+   "heat": 0.516,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 73.61,
+   "importance": 73.22,
    "items": [
     "news_f2e5bf42622c388e60d4"
    ]
@@ -727,13 +771,13 @@
    "first_at": "2026-11-09T15:43:07+08:00",
    "last_at": "2026-11-09T15:43:07+08:00",
    "score": 67,
-   "heat": 0.389,
+   "heat": 0.328,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 72.71,
+   "importance": 72.47,
    "items": [
     "news_053074a50574fa4dffc1"
    ]
@@ -749,15 +793,39 @@
    "first_at": "2026-11-10T19:42:46+08:00",
    "last_at": "2026-11-10T19:42:46+08:00",
    "score": 65,
-   "heat": 0.873,
+   "heat": 0.736,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 72.65,
+   "importance": 72.1,
    "items": [
     "news_d6895508deb7c677145c"
+   ]
+  },
+  {
+   "event_id": "evt-c1cd61ebb57c",
+   "topic": "markets",
+   "title_zh": "上期所原油期货2612合约夜盘收跌0.77%，报604.4元人民币/桶",
+   "summary_zh": "上期所原油期货2612合约夜盘收跌0.77%，报604.4元人民币/桶。沪金夜盘收跌2.29%，沪银收跌3.41%。",
+   "url": "https://wallstreetcn.com/livenews/3197871",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T18:30:28+00:00",
+   "last_at": "2026-11-11T02:31:41+08:00",
+   "score": 58,
+   "heat": 1.791,
+   "publishers": [
+    "东方财富",
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 71.76,
+   "items": [
+    "news_c1cd61ebb57c88dc9fd4",
+    "news_50f55404acaa3c4738ad"
    ]
   },
   {
@@ -771,13 +839,13 @@
    "first_at": "2026-11-10T02:44:39+00:00",
    "last_at": "2026-11-10T02:44:39+00:00",
    "score": 65,
-   "heat": 0.674,
+   "heat": 0.568,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": true,
-   "importance": 71.85,
+   "importance": 71.43,
    "items": [
     "news_eaa42f7d2edd42afe0d7"
    ]
@@ -793,13 +861,13 @@
    "first_at": "2026-11-10T10:14:15+08:00",
    "last_at": "2026-11-10T10:14:15+08:00",
    "score": 65,
-   "heat": 0.664,
+   "heat": 0.559,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 71.81,
+   "importance": 71.39,
    "items": [
     "news_06cb1855264a4883f241"
    ]
@@ -815,13 +883,13 @@
    "first_at": "2026-11-10T08:09:21+08:00",
    "last_at": "2026-11-10T08:09:21+08:00",
    "score": 65,
-   "heat": 0.626,
+   "heat": 0.527,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": true,
-   "importance": 71.66,
+   "importance": 71.27,
    "items": [
     "news_795abe67c77f83b42f9a"
    ]
@@ -837,13 +905,13 @@
    "first_at": "2026-11-09T19:06:08+08:00",
    "last_at": "2026-11-09T19:06:08+08:00",
    "score": 65,
-   "heat": 0.429,
+   "heat": 0.361,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 70.87,
+   "importance": 70.6,
    "items": [
     "news_dc5f53c9604ca5f7f94d"
    ]
@@ -859,13 +927,13 @@
    "first_at": "2026-11-10T15:00:56+08:00",
    "last_at": "2026-11-10T15:00:56+08:00",
    "score": 62,
-   "heat": 0.763,
+   "heat": 0.642,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 69.21,
+   "importance": 68.73,
    "items": [
     "news_53d883b79138f6034262"
    ]
@@ -881,13 +949,13 @@
    "first_at": "2026-11-09T12:59:41+00:00",
    "last_at": "2026-11-09T12:59:41+00:00",
    "score": 63,
-   "heat": 0.453,
+   "heat": 0.382,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 68.97,
+   "importance": 68.69,
    "items": [
     "news_3759e81682c6594f2514"
    ]
@@ -903,14 +971,14 @@
    "first_at": "2026-11-10T07:11:31+00:00",
    "last_at": "2026-11-10T15:11:03+08:00",
    "score": 56,
-   "heat": 1.533,
+   "heat": 1.291,
    "publishers": [
     "华尔街见闻",
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 68.72,
+   "importance": 67.76,
    "items": [
     "news_5468484d97e3e57e6c62",
     "news_4978cf6a60e0ec11b39e"
@@ -927,13 +995,13 @@
    "first_at": "2026-11-10T00:00:00+00:00",
    "last_at": "2026-11-10T00:00:00+00:00",
    "score": 61,
-   "heat": 0.623,
+   "heat": 0.524,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 67.65,
+   "importance": 67.25,
    "items": [
     "news_fbd12f66951348deef42"
    ]
@@ -949,13 +1017,13 @@
    "first_at": "2026-11-10T00:00:00+00:00",
    "last_at": "2026-11-10T00:00:00+00:00",
    "score": 61,
-   "heat": 0.623,
+   "heat": 0.524,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 67.65,
+   "importance": 67.25,
    "items": [
     "news_01b1edfc3ee4cf782cb5"
    ]
@@ -971,13 +1039,13 @@
    "first_at": "2026-11-09T18:25:47+08:00",
    "last_at": "2026-11-09T18:25:47+08:00",
    "score": 61,
-   "heat": 0.421,
+   "heat": 0.354,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 66.84,
+   "importance": 66.57,
    "items": [
     "news_0934a1532193e785a3a2"
    ]
@@ -1015,15 +1083,37 @@
    "first_at": "2026-11-10",
    "last_at": "2026-11-10",
    "score": 57,
-   "heat": 0.494,
+   "heat": 0.416,
    "publishers": [
     "国家发展改革委"
    ],
    "official": true,
    "selected": true,
-   "importance": 66.13,
+   "importance": 65.82,
    "items": [
     "news_f23b22a5744942e5edda"
+   ]
+  },
+  {
+   "event_id": "evt-d224c3f088ee",
+   "topic": "markets",
+   "title_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6805元，较周一夜盘收盘跌81点",
+   "summary_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6805元，较周一夜盘收盘跌81点。成交量364.54亿美元。",
+   "url": "https://wallstreetcn.com/livenews/3197878",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T19:01:09+00:00",
+   "last_at": "2026-11-10T19:01:09+00:00",
+   "score": 58,
+   "heat": 0.908,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 65.79,
+   "items": [
+    "news_d224c3f088ee38274e85"
    ]
   },
   {
@@ -1037,13 +1127,13 @@
    "first_at": "2026-11-10T22:31:08+08:00",
    "last_at": "2026-11-10T22:31:08+08:00",
    "score": 58,
-   "heat": 0.947,
+   "heat": 0.798,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 65.95,
+   "importance": 65.35,
    "items": [
     "news_380f6500fe4360bd7bc3"
    ]
@@ -1059,13 +1149,13 @@
    "first_at": "2026-11-09T20:03:09+00:00",
    "last_at": "2026-11-09T20:03:09+00:00",
    "score": 59,
-   "heat": 0.556,
+   "heat": 0.468,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 65.38,
+   "importance": 65.03,
    "items": [
     "news_699bed280f1bbc07c2e0"
    ]
@@ -1081,39 +1171,15 @@
    "first_at": "2026-11-10T07:01:01+00:00",
    "last_at": "2026-11-10T07:01:01+00:00",
    "score": 58,
-   "heat": 0.763,
+   "heat": 0.642,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 65.21,
+   "importance": 64.73,
    "items": [
     "news_3ffa217da653a9512359"
-   ]
-  },
-  {
-   "event_id": "evt-e09dc54aa869",
-   "topic": "credit",
-   "title_zh": "吸引海外央行存金新加坡争当“世界金库”",
-   "summary_zh": "新加坡金融管理局（央行）10日宣布为外国央行、国际金融机构和主权实体提供黄金存储服务，以期巩固新加坡作为关键贵金属交易中心的地位。新加坡副总理、金管局局长颜金勇10日接受媒体采访时说，在外部环境日益不确定的情况下，外国投资者和央行纷纷推动投资组合多元化，黄金需求应声走高。新加坡此时推出黄金存储服务，可以向外国央行和主权实体提供额外的黄金储备托管选择，目前已有外国央行向新方表达了兴趣。（新华社）",
-   "url": "https://wallstreetcn.com/livenews/3197763",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T14:32:44+00:00",
-   "last_at": "2026-11-10T22:37:13+08:00",
-   "score": 51,
-   "heat": 1.898,
-   "publishers": [
-    "东方财富",
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 65.18,
-   "items": [
-    "news_e09dc54aa86979386dd0",
-    "news_144341a0d2e51a401ca3"
    ]
   },
   {
@@ -1127,39 +1193,15 @@
    "first_at": "2026-11-09T16:17:00+08:00",
    "last_at": "2026-11-09T16:17:00+08:00",
    "score": 59,
-   "heat": 0.396,
+   "heat": 0.333,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 64.74,
+   "importance": 64.49,
    "items": [
     "news_17d43d55c17a2cae04b0"
-   ]
-  },
-  {
-   "event_id": "evt-660f63e23fdd",
-   "topic": "credit",
-   "title_zh": "第二次中加经济财金战略对话联合情况说明",
-   "summary_zh": "【第二次中加经济财金战略对话联合情况说明】当地时间2026年11月8日至9日，中国国务院副总理何立峰与加拿大财政部部长商鹏飞、国际贸易部长西杜在加拿大温哥华共同主持了第二次中加经济财金战略对话。本次对话落实两国领导人2026年1月达成的共识，取得了一系列互利共赢的成果，将加强双边经济财金合作，推进构建中加新型战略伙伴关系。双方就全球经济前景以及两国各自宏观经济形势和政策交换了意见，同意加强在二十国集团和亚太经合组织等多边机制，多边开发银",
-   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyexvh6094072.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T00:07:27+00:00",
-   "last_at": "2026-11-10T08:05:37+08:00",
-   "score": 53,
-   "heat": 1.25,
-   "publishers": [
-    "华尔街见闻",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 64.59,
-   "items": [
-    "news_660f63e23fddb00d9770",
-    "news_56351513642a05c5b228"
    ]
   },
   {
@@ -1252,6 +1294,54 @@
    ]
   },
   {
+   "event_id": "evt-e09dc54aa869",
+   "topic": "credit",
+   "title_zh": "吸引海外央行存金新加坡争当“世界金库”",
+   "summary_zh": "新加坡金融管理局（央行）10日宣布为外国央行、国际金融机构和主权实体提供黄金存储服务，以期巩固新加坡作为关键贵金属交易中心的地位。新加坡副总理、金管局局长颜金勇10日接受媒体采访时说，在外部环境日益不确定的情况下，外国投资者和央行纷纷推动投资组合多元化，黄金需求应声走高。新加坡此时推出黄金存储服务，可以向外国央行和主权实体提供额外的黄金储备托管选择，目前已有外国央行向新方表达了兴趣。（新华社）",
+   "url": "https://wallstreetcn.com/livenews/3197763",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T14:32:44+00:00",
+   "last_at": "2026-11-10T22:37:13+08:00",
+   "score": 51,
+   "heat": 1.598,
+   "publishers": [
+    "东方财富",
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 63.98,
+   "items": [
+    "news_e09dc54aa86979386dd0",
+    "news_144341a0d2e51a401ca3"
+   ]
+  },
+  {
+   "event_id": "evt-660f63e23fdd",
+   "topic": "credit",
+   "title_zh": "第二次中加经济财金战略对话联合情况说明",
+   "summary_zh": "【第二次中加经济财金战略对话联合情况说明】当地时间2026年11月8日至9日，中国国务院副总理何立峰与加拿大财政部部长商鹏飞、国际贸易部长西杜在加拿大温哥华共同主持了第二次中加经济财金战略对话。本次对话落实两国领导人2026年1月达成的共识，取得了一系列互利共赢的成果，将加强双边经济财金合作，推进构建中加新型战略伙伴关系。双方就全球经济前景以及两国各自宏观经济形势和政策交换了意见，同意加强在二十国集团和亚太经合组织等多边机制，多边开发银",
+   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyexvh6094072.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T00:07:27+00:00",
+   "last_at": "2026-11-10T08:05:37+08:00",
+   "score": 53,
+   "heat": 1.052,
+   "publishers": [
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 63.8,
+   "items": [
+    "news_660f63e23fddb00d9770",
+    "news_56351513642a05c5b228"
+   ]
+  },
+  {
    "event_id": "evt-c87565199b06",
    "topic": "markets",
    "title_zh": "美股高开高走三大股指均涨超1%",
@@ -1262,13 +1352,13 @@
    "first_at": "2026-11-09T22:40:37+08:00",
    "last_at": "2026-11-09T22:40:37+08:00",
    "score": 58,
-   "heat": 0.476,
+   "heat": 0.401,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 64.06,
+   "importance": 63.76,
    "items": [
     "news_c87565199b0699cb98b1"
    ]
@@ -1284,37 +1374,15 @@
    "first_at": "2026-11-09T22:31:07+08:00",
    "last_at": "2026-11-09T22:31:07+08:00",
    "score": 58,
-   "heat": 0.474,
+   "heat": 0.399,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 64.05,
+   "importance": 63.75,
    "items": [
     "news_2494a966f74819425869"
-   ]
-  },
-  {
-   "event_id": "evt-110444607081",
-   "topic": "trade",
-   "title_zh": "中国汽车新叙事：金九银十消失，出海进程提速",
-   "summary_zh": "专家预计，后续出口会相对放缓，明年出口增长只有10%左右。",
-   "url": "https://www.yicai.com/news/103433481.html",
-   "publisher": "第一财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T09:46:23+08:00",
-   "last_at": "2026-11-10T09:46:23+08:00",
-   "score": 57,
-   "heat": 0.656,
-   "publishers": [
-    "第一财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 63.78,
-   "items": [
-    "news_110444607081b5d20478"
    ]
   },
   {
@@ -1328,15 +1396,37 @@
    "first_at": "2026-11-09T07:01:01+00:00",
    "last_at": "2026-11-09T07:01:01+00:00",
    "score": 58,
-   "heat": 0.381,
+   "heat": 0.321,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 63.68,
+   "importance": 63.44,
    "items": [
     "news_11456aab9a578f413ce5"
+   ]
+  },
+  {
+   "event_id": "evt-110444607081",
+   "topic": "trade",
+   "title_zh": "中国汽车新叙事：金九银十消失，出海进程提速",
+   "summary_zh": "专家预计，后续出口会相对放缓，明年出口增长只有10%左右。",
+   "url": "https://www.yicai.com/news/103433481.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T09:46:23+08:00",
+   "last_at": "2026-11-10T09:46:23+08:00",
+   "score": 57,
+   "heat": 0.552,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 63.37,
+   "items": [
+    "news_110444607081b5d20478"
    ]
   },
   {
@@ -1350,14 +1440,14 @@
    "first_at": "2026-11-10T14:55:14+08:00",
    "last_at": "2026-11-10T14:56:56+08:00",
    "score": 51,
-   "heat": 1.522,
+   "heat": 1.281,
    "publishers": [
     "东方财富",
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 63.68,
+   "importance": 62.72,
    "items": [
     "news_74743552fe9fbabfe651",
     "news_85ca3ee64316a15c15c7"
@@ -1374,41 +1464,15 @@
    "first_at": "2026-11-10T12:20:53+00:00",
    "last_at": "2026-11-10T12:20:53+00:00",
    "score": 55,
-   "heat": 0.89,
+   "heat": 0.749,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 62.72,
+   "importance": 62.15,
    "items": [
     "news_c99895289aa987334655"
-   ]
-  },
-  {
-   "event_id": "evt-9dc565d44e31",
-   "topic": "fiscal",
-   "title_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
-   "summary_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
-   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261110_4004339.htm",
-   "publisher": "财政部",
-   "source_tier": "T1",
-   "first_at": "2026-11-10",
-   "last_at": "2026-11-10T08:09:21+08:00",
-   "score": 44,
-   "heat": 1.744,
-   "publishers": [
-    "东方财富",
-    "新浪财经",
-    "财政部"
-   ],
-   "official": true,
-   "selected": false,
-   "importance": 62.29,
-   "items": [
-    "news_9dc565d44e310605576f",
-    "news_0dfac2e9d07a916d28ff",
-    "news_d79100a922fedf6fec25"
    ]
   },
   {
@@ -1422,13 +1486,13 @@
    "first_at": "2026-11-09T14:04:07+00:00",
    "last_at": "2026-11-09T14:04:07+00:00",
    "score": 56,
-   "heat": 0.467,
+   "heat": 0.394,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 62.03,
+   "importance": 61.73,
    "items": [
     "news_2231fe2583a1d27b3351"
    ]
@@ -1444,13 +1508,13 @@
    "first_at": "2026-11-09T18:49:00+08:00",
    "last_at": "2026-11-09T18:49:00+08:00",
    "score": 56,
-   "heat": 0.426,
+   "heat": 0.358,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 61.86,
+   "importance": 61.59,
    "items": [
     "news_5435dfec7b584052fcd8"
    ]
@@ -1466,41 +1530,65 @@
    "first_at": "2026-11-09T09:14:49+00:00",
    "last_at": "2026-11-09T16:51:16+08:00",
    "score": 52,
-   "heat": 0.809,
+   "heat": 0.681,
    "publishers": [
     "华尔街见闻",
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 61.83,
+   "importance": 61.32,
    "items": [
     "news_701d804d8a9403d522b7",
     "news_70e50296d1e23e91286b"
    ]
   },
   {
-   "event_id": "evt-3f755727f758",
-   "topic": "growth",
-   "title_zh": "贵金属价格波动，中国金币集团发布风险提示",
-   "summary_zh": "今天（11月10日），中国金币集团有限公司发布关于贵金属价格波动的风险提示：近期，受国内外多重宏观因素叠加影响，贵金属价格震荡加剧。广大集藏投资者需树立理性稳健的配置理念，客观认知贵金属市场运行规律，高度重视市场价格波动风险。理性参与、审慎操作，避免盲目追涨杀跌，科学管控投资集藏风险。",
-   "url": "https://wallstreetcn.com/livenews/3197402",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T05:16:20+00:00",
-   "last_at": "2026-11-10T13:18:43+08:00",
-   "score": 49,
-   "heat": 1.451,
+   "event_id": "evt-9dc565d44e31",
+   "topic": "fiscal",
+   "title_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
+   "summary_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
+   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261110_4004339.htm",
+   "publisher": "财政部",
+   "source_tier": "T1",
+   "first_at": "2026-11-10",
+   "last_at": "2026-11-10T08:09:21+08:00",
+   "score": 44,
+   "heat": 1.469,
    "publishers": [
-    "中国新闻网",
-    "华尔街见闻"
+    "东方财富",
+    "新浪财经",
+    "财政部"
+   ],
+   "official": true,
+   "selected": false,
+   "importance": 61.19,
+   "items": [
+    "news_9dc565d44e310605576f",
+    "news_0dfac2e9d07a916d28ff",
+    "news_d79100a922fedf6fec25"
+   ]
+  },
+  {
+   "event_id": "evt-3d2f901e6e46",
+   "topic": "prices",
+   "title_zh": "周三（11月11日）重点关注财经事件和经济数据",
+   "summary_zh": "【周三（11月11日）重点关注财经事件和经济数据】①15:00德国10月CPI；② 17:45 欧洲央行拉加德出席论坛。",
+   "url": "https://finance.eastmoney.com/a/202611113927737652.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-11T05:19:53+08:00",
+   "last_at": "2026-11-11T05:19:53+08:00",
+   "score": 53,
+   "heat": 0.971,
+   "publishers": [
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 61.4,
+   "importance": 61.04,
    "items": [
-    "news_3f755727f758e67395b1",
-    "news_63201e9bbfdf90549ddd"
+    "news_3d2f901e6e4627e015e7"
    ]
   },
   {
@@ -1514,59 +1602,39 @@
    "first_at": "2026-11-09T20:49:35+08:00",
    "last_at": "2026-11-09T20:49:35+08:00",
    "score": 55,
-   "heat": 0.451,
+   "heat": 0.38,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.96,
+   "importance": 60.68,
    "items": [
     "news_18aa59ef708795236f37"
    ]
   },
   {
-   "event_id": "evt-3608e6401538",
-   "topic": "growth",
-   "title_zh": "挪威主权财富基金CEO称黄仁勋执掌英伟达“表现出色”",
-   "summary_zh": "挪威主权财富基金首席执行官Nicolai Tangen表示，黄仁勋在打造英伟达以及领导该公司方面“做得非常出色”。对于英伟达“近期事件”，Tangen表示不予置评。当被问及英伟达是否仍像上周那样是一项好的投资时，他表示，“这是个很难回答的问题”。 “他们的技术在全球所处的地位无可匹敌，创新能力也无可匹敌。这是一家非常、非常令人印象深刻的公司。” “我们喜欢英伟达。正如你一开始所说，我们是一家基本贴近指数的机构，而英伟达在指数中的权重很大",
-   "url": "https://wallstreetcn.com/livenews/3197766",
-   "publisher": "华尔街见闻",
+   "event_id": "evt-b25365c76266",
+   "topic": "global",
+   "title_zh": "据CME“美联储观察”：美联储12月加息25个基点的概率为88.5%",
+   "summary_zh": "据CME“美联储观察”：美联储12月加息25个基点的概率为88.5%。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauk2233915.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-10T14:37:25+00:00",
-   "last_at": "2026-11-10T14:37:25+00:00",
-   "score": 53,
-   "heat": 0.95,
+   "first_at": "2026-11-11T06:11:34+08:00",
+   "last_at": "2026-11-11T06:14:14+08:00",
+   "score": 46,
+   "heat": 1.992,
    "publishers": [
-    "华尔街见闻"
+    "东方财富",
+    "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.96,
+   "importance": 60.56,
    "items": [
-    "news_3608e64015383964d4cc"
-   ]
-  },
-  {
-   "event_id": "evt-c91b646abae4",
-   "topic": "prices",
-   "title_zh": "11月第1周生猪和猪肉价格有所下跌",
-   "summary_zh": "中新网11月9日电据农业农村部对500个县集贸市场和采集点监测，上周(11月第1周，11月2—8日，下同)，全国活猪价格为10.11元/公斤，环比跌2.9%；猪肉集贸市场价格为20.11元/公斤，环比跌1.2%。据农业农村部对200个批发市场监测调度，上周全国猪肉批发市场均价为15.01元/公斤，环比跌3.1%，同比低16.7%。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728946.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T17:31:36+08:00",
-   "last_at": "2026-11-09T17:31:36+08:00",
-   "score": 55,
-   "heat": 0.41,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 60.8,
-   "items": [
-    "news_c91b646abae46bfe45b5"
+    "news_b25365c762666b9816fe",
+    "news_716dfd56ca20d79399d7"
    ]
   },
   {
@@ -1580,37 +1648,83 @@
    "first_at": "2026-11-09T17:27:24+08:00",
    "last_at": "2026-11-09T17:27:24+08:00",
    "score": 55,
-   "heat": 0.409,
+   "heat": 0.345,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.79,
+   "importance": 60.54,
    "items": [
     "news_670cb7064f5f21520b10"
    ]
   },
   {
-   "event_id": "evt-f7b9df780266",
-   "topic": "credit",
-   "title_zh": "欧洲央行管委穆兰：法国人担任欧洲央行首席经济学家是合理的",
-   "summary_zh": "欧洲央行管委穆兰：法国人担任欧洲央行首席经济学家是合理的。若诺特或德科斯接任（欧洲央行行长），预计欧洲央行将保持政策连续性。",
-   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyfuyw5866540.d.html",
-   "publisher": "新浪财经",
+   "event_id": "evt-c91b646abae4",
+   "topic": "prices",
+   "title_zh": "11月第1周生猪和猪肉价格有所下跌",
+   "summary_zh": "中新网11月9日电据农业农村部对500个县集贸市场和采集点监测，上周(11月第1周，11月2—8日，下同)，全国活猪价格为10.11元/公斤，环比跌2.9%；猪肉集贸市场价格为20.11元/公斤，环比跌1.2%。据农业农村部对200个批发市场监测调度，上周全国猪肉批发市场均价为15.01元/公斤，环比跌3.1%，同比低16.7%。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728946.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-10T15:00:07+08:00",
-   "last_at": "2026-11-10T15:00:07+08:00",
-   "score": 53,
-   "heat": 0.762,
+   "first_at": "2026-11-09T17:31:36+08:00",
+   "last_at": "2026-11-09T17:31:36+08:00",
+   "score": 55,
+   "heat": 0.345,
    "publishers": [
-    "新浪财经"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.21,
+   "importance": 60.54,
    "items": [
-    "news_f7b9df780266c24f9b8e"
+    "news_c91b646abae46bfe45b5"
+   ]
+  },
+  {
+   "event_id": "evt-3f755727f758",
+   "topic": "growth",
+   "title_zh": "贵金属价格波动，中国金币集团发布风险提示",
+   "summary_zh": "今天（11月10日），中国金币集团有限公司发布关于贵金属价格波动的风险提示：近期，受国内外多重宏观因素叠加影响，贵金属价格震荡加剧。广大集藏投资者需树立理性稳健的配置理念，客观认知贵金属市场运行规律，高度重视市场价格波动风险。理性参与、审慎操作，避免盲目追涨杀跌，科学管控投资集藏风险。",
+   "url": "https://wallstreetcn.com/livenews/3197402",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T05:16:20+00:00",
+   "last_at": "2026-11-10T13:18:43+08:00",
+   "score": 49,
+   "heat": 1.222,
+   "publishers": [
+    "中国新闻网",
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 60.48,
+   "items": [
+    "news_3f755727f758e67395b1",
+    "news_63201e9bbfdf90549ddd"
+   ]
+  },
+  {
+   "event_id": "evt-3608e6401538",
+   "topic": "growth",
+   "title_zh": "挪威主权财富基金CEO称黄仁勋执掌英伟达“表现出色”",
+   "summary_zh": "挪威主权财富基金首席执行官Nicolai Tangen表示，黄仁勋在打造英伟达以及领导该公司方面“做得非常出色”。对于英伟达“近期事件”，Tangen表示不予置评。当被问及英伟达是否仍像上周那样是一项好的投资时，他表示，“这是个很难回答的问题”。 “他们的技术在全球所处的地位无可匹敌，创新能力也无可匹敌。这是一家非常、非常令人印象深刻的公司。” “我们喜欢英伟达。正如你一开始所说，我们是一家基本贴近指数的机构，而英伟达在指数中的权重很大",
+   "url": "https://wallstreetcn.com/livenews/3197766",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T14:37:25+00:00",
+   "last_at": "2026-11-10T14:37:25+00:00",
+   "score": 53,
+   "heat": 0.8,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 60.36,
+   "items": [
+    "news_3608e64015383964d4cc"
    ]
   },
   {
@@ -1658,6 +1772,28 @@
    ]
   },
   {
+   "event_id": "evt-f7b9df780266",
+   "topic": "credit",
+   "title_zh": "欧洲央行管委穆兰：法国人担任欧洲央行首席经济学家是合理的",
+   "summary_zh": "欧洲央行管委穆兰：法国人担任欧洲央行首席经济学家是合理的。若诺特或德科斯接任（欧洲央行行长），预计欧洲央行将保持政策连续性。",
+   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyfuyw5866540.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T15:00:07+08:00",
+   "last_at": "2026-11-10T15:00:07+08:00",
+   "score": 53,
+   "heat": 0.642,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 59.73,
+   "items": [
+    "news_f7b9df780266c24f9b8e"
+   ]
+  },
+  {
    "event_id": "evt-52eab0cc5127",
    "topic": "policy",
    "title_zh": "江苏省印发新型储能产业发展行动计划，2030年装机量将超千万千瓦",
@@ -1668,13 +1804,13 @@
    "first_at": "2026-11-10T05:28:52+00:00",
    "last_at": "2026-11-10T05:28:52+00:00",
    "score": 53,
-   "heat": 0.73,
+   "heat": 0.614,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.08,
+   "importance": 59.61,
    "items": [
     "news_52eab0cc5127aeebf45a"
    ]
@@ -1690,13 +1826,13 @@
    "first_at": "2026-11-10T03:05:38+00:00",
    "last_at": "2026-11-10T03:05:38+00:00",
    "score": 53,
-   "heat": 0.681,
+   "heat": 0.573,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.88,
+   "importance": 59.45,
    "items": [
     "news_3f19c1c19476389c9527"
    ]
@@ -1712,13 +1848,13 @@
    "first_at": "2026-11-10T02:24:15+00:00",
    "last_at": "2026-11-10T02:24:15+00:00",
    "score": 53,
-   "heat": 0.668,
+   "heat": 0.562,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.83,
+   "importance": 59.41,
    "items": [
     "news_9d2449669c7dd7d588d2"
    ]
@@ -1734,59 +1870,59 @@
    "first_at": "2026-11-09T22:39:07+00:00",
    "last_at": "2026-11-09T22:39:07+00:00",
    "score": 53,
-   "heat": 0.599,
+   "heat": 0.504,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.55,
+   "importance": 59.17,
    "items": [
     "news_456abbc12f19b344c35e"
    ]
   },
   {
-   "event_id": "evt-774b36d856cd",
-   "topic": "credit",
-   "title_zh": "交易员已完全消化英国央行在明年3月之前实施两次25个基点加息的预期",
-   "summary_zh": "交易员已完全消化英国央行在明年3月之前实施两次25个基点加息的预期。",
-   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyhmwq5785348.d.html",
+   "event_id": "evt-69625809f66b",
+   "topic": "global",
+   "title_zh": "美联储高官接连放鹰：沃勒提示12月或加息50基点，洛根支持至少两次加息且提速",
+   "summary_zh": "【美联储高官接连放鹰：沃勒提示12月或加息50基点，洛根支持至少两次加息且提速】美联储理事沃勒警告称，12月可能有必要加息50个基点；随后达拉斯联储主席洛根表示支持至少再加息两次、每次25个基点，并称加息速度可能需要比官员们今年秋季的行动更快。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaun8776953.d.html",
    "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-10T23:56:38+08:00",
-   "last_at": "2026-11-10T23:56:38+08:00",
+   "first_at": "2026-11-11T05:27:22+08:00",
+   "last_at": "2026-11-11T05:27:22+08:00",
    "score": 51,
-   "heat": 0.987,
+   "heat": 0.975,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.11,
+   "importance": 59.06,
    "items": [
-    "news_774b36d856cddba575d1"
+    "news_69625809f66b1c5458d4"
    ]
   },
   {
-   "event_id": "evt-0c201533f03e",
-   "topic": "credit",
-   "title_zh": "交易员充分消化英国央行到明年3月再加息两次、每次25个基点的预期",
-   "summary_zh": "交易员充分消化英国央行到明年3月再加息两次、每次25个基点的预期。",
-   "url": "https://wallstreetcn.com/livenews/3197806",
-   "publisher": "华尔街见闻",
+   "event_id": "evt-55fe103cb82c",
+   "topic": "fiscal",
+   "title_zh": "美联储鲍曼：与财政部保持畅通的沟通渠道至关重要",
+   "summary_zh": "美联储鲍曼：与财政部保持畅通的沟通渠道至关重要。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaum2127367.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-10T15:58:55+00:00",
-   "last_at": "2026-11-10T15:58:55+00:00",
+   "first_at": "2026-11-11T05:09:36+08:00",
+   "last_at": "2026-11-11T05:09:36+08:00",
    "score": 51,
-   "heat": 0.988,
+   "heat": 0.966,
    "publishers": [
-    "华尔街见闻"
+    "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.11,
+   "importance": 59.02,
    "items": [
-    "news_0c201533f03eb55ba528"
+    "news_55fe103cb82c37f53119"
    ]
   },
   {
@@ -1800,37 +1936,81 @@
    "first_at": "2026-11-09T20:01:49+08:00",
    "last_at": "2026-11-09T20:01:49+08:00",
    "score": 53,
-   "heat": 0.441,
+   "heat": 0.371,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.92,
+   "importance": 58.64,
    "items": [
     "news_6af8649e5fefa24ef7f0"
    ]
   },
   {
-   "event_id": "evt-51e2eaf2f11e",
-   "topic": "credit",
-   "title_zh": "欧洲央行执委会成员西波洛内（Piero Cipollone）警告称，如果为通过支撑该项目关键立法所必需的谈判不能尽快收尾，数字欧元的推出可能会被推迟",
-   "summary_zh": "欧洲央行执委会成员西波洛内（Piero Cipollone）警告称，如果为通过支撑该项目关键立法所必需的谈判不能尽快收尾，数字欧元的推出可能会被推迟。正在进行的三方会谈（trilogue）若能迅速收尾，将按预期为年底前通过《单一货币一揽子法案》（Single Currency Package）铺平道路。反之，通过时间的延后可能推迟数字欧元的推出，进一步固化欧洲对外国服务商的依赖，并使欧洲企业更难创新和竞争。在当前不确定的地缘政治环境下，",
-   "url": "https://wallstreetcn.com/livenews/3197742",
+   "event_id": "evt-333607fcab8b",
+   "topic": "prices",
+   "title_zh": "欧洲央行执行委员兼首席经济学家Lane：我们非常重视共识，若采用点阵图将很难达成",
+   "summary_zh": "欧洲央行执行委员兼首席经济学家Lane：我们非常重视共识，若采用点阵图将很难达成。目前我对提供方向性前瞻指引会设定较高门槛。核心通胀尚未变动，这一点具有参考意义，意味着这属于通常的滞后反应。潜在通胀是未来一年通胀的指引。能源价格已开始回落，若这一趋势持续，整体通胀将下降，而潜在通胀将上升。人们应关注通胀是否强于或弱于预期。若未出现第二轮效应，反而会令人意外。",
+   "url": "https://wallstreetcn.com/livenews/3197851",
    "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-10T14:00:48+00:00",
-   "last_at": "2026-11-10T14:00:48+00:00",
+   "first_at": "2026-11-10T17:26:15+00:00",
+   "last_at": "2026-11-10T17:26:15+00:00",
    "score": 51,
-   "heat": 0.933,
+   "heat": 0.868,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.89,
+   "importance": 58.63,
    "items": [
-    "news_51e2eaf2f11ed19e08be"
+    "news_333607fcab8b87bc0fb0"
+   ]
+  },
+  {
+   "event_id": "evt-0c201533f03e",
+   "topic": "credit",
+   "title_zh": "交易员充分消化英国央行到明年3月再加息两次、每次25个基点的预期",
+   "summary_zh": "交易员充分消化英国央行到明年3月再加息两次、每次25个基点的预期。",
+   "url": "https://wallstreetcn.com/livenews/3197806",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T15:58:55+00:00",
+   "last_at": "2026-11-10T15:58:55+00:00",
+   "score": 51,
+   "heat": 0.832,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 58.49,
+   "items": [
+    "news_0c201533f03eb55ba528"
+   ]
+  },
+  {
+   "event_id": "evt-774b36d856cd",
+   "topic": "credit",
+   "title_zh": "交易员已完全消化英国央行在明年3月之前实施两次25个基点加息的预期",
+   "summary_zh": "交易员已完全消化英国央行在明年3月之前实施两次25个基点加息的预期。",
+   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyhmwq5785348.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T23:56:38+08:00",
+   "last_at": "2026-11-10T23:56:38+08:00",
+   "score": 51,
+   "heat": 0.831,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 58.48,
+   "items": [
+    "news_774b36d856cddba575d1"
    ]
   },
   {
@@ -1844,13 +2024,13 @@
    "first_at": "2026-11-10T02:30:42+00:00",
    "last_at": "2026-11-10T02:30:42+00:00",
    "score": 52,
-   "heat": 0.67,
+   "heat": 0.564,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.84,
+   "importance": 58.41,
    "items": [
     "news_54896a235c412d4a51e7"
    ]
@@ -1866,13 +2046,13 @@
    "first_at": "2026-11-10T02:30:56+00:00",
    "last_at": "2026-11-10T02:30:56+00:00",
    "score": 52,
-   "heat": 0.67,
+   "heat": 0.564,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.84,
+   "importance": 58.41,
    "items": [
     "news_f22b72b359d8c046d446"
    ]
@@ -1888,15 +2068,37 @@
    "first_at": "2026-11-10T02:31:10+00:00",
    "last_at": "2026-11-10T02:31:10+00:00",
    "score": 52,
-   "heat": 0.67,
+   "heat": 0.564,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.84,
+   "importance": 58.41,
    "items": [
     "news_21b5882719bd081544a7"
+   ]
+  },
+  {
+   "event_id": "evt-51e2eaf2f11e",
+   "topic": "credit",
+   "title_zh": "欧洲央行执委会成员西波洛内（Piero Cipollone）警告称，如果为通过支撑该项目关键立法所必需的谈判不能尽快收尾，数字欧元的推出可能会被推迟",
+   "summary_zh": "欧洲央行执委会成员西波洛内（Piero Cipollone）警告称，如果为通过支撑该项目关键立法所必需的谈判不能尽快收尾，数字欧元的推出可能会被推迟。正在进行的三方会谈（trilogue）若能迅速收尾，将按预期为年底前通过《单一货币一揽子法案》（Single Currency Package）铺平道路。反之，通过时间的延后可能推迟数字欧元的推出，进一步固化欧洲对外国服务商的依赖，并使欧洲企业更难创新和竞争。在当前不确定的地缘政治环境下，",
+   "url": "https://wallstreetcn.com/livenews/3197742",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T14:00:48+00:00",
+   "last_at": "2026-11-10T14:00:48+00:00",
+   "score": 51,
+   "heat": 0.786,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 58.3,
+   "items": [
+    "news_51e2eaf2f11ed19e08be"
    ]
   },
   {
@@ -1910,13 +2112,13 @@
    "first_at": "2026-11-10T12:30:14+00:00",
    "last_at": "2026-11-10T12:30:14+00:00",
    "score": 51,
-   "heat": 0.894,
+   "heat": 0.753,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.73,
+   "importance": 58.17,
    "items": [
     "news_9d445b2223f070d061d6"
    ]
@@ -1932,13 +2134,13 @@
    "first_at": "2026-11-10T14:56:46+08:00",
    "last_at": "2026-11-10T14:56:46+08:00",
    "score": 51,
-   "heat": 0.761,
+   "heat": 0.641,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.2,
+   "importance": 57.72,
    "items": [
     "news_d6f14109bc2913b96c8f"
    ]
@@ -1954,13 +2156,13 @@
    "first_at": "2026-11-09T07:06:10+00:00",
    "last_at": "2026-11-09T07:06:10+00:00",
    "score": 52,
-   "heat": 0.382,
+   "heat": 0.322,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.69,
+   "importance": 57.45,
    "items": [
     "news_e0ae7401d2ed2811a24b"
    ]
@@ -1976,13 +2178,13 @@
    "first_at": "2026-11-10T00:05:26+00:00",
    "last_at": "2026-11-10T00:05:26+00:00",
    "score": 51,
-   "heat": 0.624,
+   "heat": 0.526,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.65,
+   "importance": 57.26,
    "items": [
     "news_660d6f35bbf1a74c23dc"
    ]
@@ -1998,37 +2200,15 @@
    "first_at": "2026-11-10T07:33:09+08:00",
    "last_at": "2026-11-10T07:33:09+08:00",
    "score": 51,
-   "heat": 0.615,
+   "heat": 0.518,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.62,
+   "importance": 57.23,
    "items": [
     "news_6c90db25ecd567f49905"
-   ]
-  },
-  {
-   "event_id": "evt-fbdbd239e42a",
-   "topic": "fiscal",
-   "title_zh": "爱尔兰财政部长：欧盟27个成员国中有26个同意有必要对烟草制品实行最低税收",
-   "summary_zh": "爱尔兰财政部长：欧盟27个成员国中有26个同意有必要对烟草制品实行最低税收。",
-   "url": "https://wallstreetcn.com/livenews/3197122",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T19:19:39+00:00",
-   "last_at": "2026-11-09T19:19:39+00:00",
-   "score": 51,
-   "heat": 0.544,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.33,
-   "items": [
-    "news_fbdbd239e42a20c4fa9f"
    ]
   },
   {
@@ -2142,6 +2322,28 @@
    ]
   },
   {
+   "event_id": "evt-fbdbd239e42a",
+   "topic": "fiscal",
+   "title_zh": "爱尔兰财政部长：欧盟27个成员国中有26个同意有必要对烟草制品实行最低税收",
+   "summary_zh": "爱尔兰财政部长：欧盟27个成员国中有26个同意有必要对烟草制品实行最低税收。",
+   "url": "https://wallstreetcn.com/livenews/3197122",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T19:19:39+00:00",
+   "last_at": "2026-11-09T19:19:39+00:00",
+   "score": 51,
+   "heat": 0.458,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 56.99,
+   "items": [
+    "news_fbdbd239e42a20c4fa9f"
+   ]
+  },
+  {
    "event_id": "evt-4a50def51410",
    "topic": "trade",
    "title_zh": "（第九届进博会）弗拉明戈伴火腿香巴塞罗那亮相进博续写上海友城佳话",
@@ -2152,15 +2354,37 @@
    "first_at": "2026-11-10T13:08:51+08:00",
    "last_at": "2026-11-10T13:08:51+08:00",
    "score": 50,
-   "heat": 0.723,
+   "heat": 0.609,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.05,
+   "importance": 56.59,
    "items": [
     "news_4a50def514104931fd01"
+   ]
+  },
+  {
+   "event_id": "evt-9088327f87a1",
+   "topic": "policy",
+   "title_zh": "我国牵头！铀矿冶地下水修复领域首个国际标准发布",
+   "summary_zh": "中新网11月9日电据市场监管总局网站消息，近日，我国牵头制定的铀矿冶地下水修复领域首个国际标准《地浸采铀地下水修复第1部分：地下水修复目标值确定》(ISO 22280-1:2026)由国际标准化组织(ISO)发布。该国际标准由我国专家牵头，美国、英国、加拿大、德国、阿根廷等国专家参与。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728948.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T17:32:15+08:00",
+   "last_at": "2026-11-09T17:32:15+08:00",
+   "score": 51,
+   "heat": 0.345,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 56.54,
+   "items": [
+    "news_9088327f87a1aab37741"
    ]
   },
   {
@@ -2174,13 +2398,13 @@
    "first_at": "2026-11-10T14:32:03+00:00",
    "last_at": "2026-11-10T14:32:03+00:00",
    "score": 49,
-   "heat": 0.948,
+   "heat": 0.798,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.95,
+   "importance": 56.35,
    "items": [
     "news_979e1c6b9e45fd403fc1"
    ]
@@ -2196,13 +2420,13 @@
    "first_at": "2026-11-10T21:54:51+08:00",
    "last_at": "2026-11-10T21:54:51+08:00",
    "score": 49,
-   "heat": 0.931,
+   "heat": 0.784,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.88,
+   "importance": 56.29,
    "items": [
     "news_8664e817414822d46a78"
    ]
@@ -2218,13 +2442,13 @@
    "first_at": "2026-11-10T21:13:29+08:00",
    "last_at": "2026-11-10T21:13:29+08:00",
    "score": 49,
-   "heat": 0.912,
+   "heat": 0.768,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.81,
+   "importance": 56.23,
    "items": [
     "news_f3b1e70ec949c96d6c89"
    ]
@@ -2240,37 +2464,15 @@
    "first_at": "2026-11-10T13:14:38+00:00",
    "last_at": "2026-11-10T13:14:38+00:00",
    "score": 49,
-   "heat": 0.913,
+   "heat": 0.769,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.81,
+   "importance": 56.23,
    "items": [
     "news_cc588e56017def0c4742"
-   ]
-  },
-  {
-   "event_id": "evt-9088327f87a1",
-   "topic": "policy",
-   "title_zh": "我国牵头！铀矿冶地下水修复领域首个国际标准发布",
-   "summary_zh": "中新网11月9日电据市场监管总局网站消息，近日，我国牵头制定的铀矿冶地下水修复领域首个国际标准《地浸采铀地下水修复第1部分：地下水修复目标值确定》(ISO 22280-1:2026)由国际标准化组织(ISO)发布。该国际标准由我国专家牵头，美国、英国、加拿大、德国、阿根廷等国专家参与。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728948.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T17:32:15+08:00",
-   "last_at": "2026-11-09T17:32:15+08:00",
-   "score": 51,
-   "heat": 0.41,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 56.8,
-   "items": [
-    "news_9088327f87a1aab37741"
    ]
   },
   {
@@ -2284,13 +2486,13 @@
    "first_at": "2026-11-10T20:28:54+08:00",
    "last_at": "2026-11-10T20:28:54+08:00",
    "score": 49,
-   "heat": 0.893,
+   "heat": 0.752,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.73,
+   "importance": 56.17,
    "items": [
     "news_1cdd13898ef000e78f52"
    ]
@@ -2306,15 +2508,37 @@
    "first_at": "2026-11-10T20:16:17+08:00",
    "last_at": "2026-11-10T20:16:17+08:00",
    "score": 49,
-   "heat": 0.888,
+   "heat": 0.748,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.71,
+   "importance": 56.15,
    "items": [
     "news_88ecb63c634c7a5cb977"
+   ]
+  },
+  {
+   "event_id": "evt-fb69c721f3a2",
+   "topic": "trade",
+   "title_zh": "叙利亚与黎巴嫩一边境口岸时隔两年重开",
+   "summary_zh": "叙利亚与黎巴嫩间的达布西耶-阿布迪耶口岸9日重新开放，该口岸在2024年11月遭以色列空袭后被迫关闭近两年。叙利亚过渡政府口岸与海关总署署长古泰巴·巴达维当天在社交媒体上表示，该口岸重新开放是数月来不懈开展修复工作的成果，也是叙利亚推进边境口岸建设、增强口岸服务功能的新一步。（央视）",
+   "url": "https://wallstreetcn.com/livenews/3197021",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T15:03:31+00:00",
+   "last_at": "2026-11-09T15:03:31+00:00",
+   "score": 50,
+   "heat": 0.405,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.78,
+   "items": [
+    "news_fb69c721f3a249b0c3a4"
    ]
   },
   {
@@ -2328,13 +2552,13 @@
    "first_at": "2026-11-10T14:53:02+08:00",
    "last_at": "2026-11-10T14:53:02+08:00",
    "score": 49,
-   "heat": 0.76,
+   "heat": 0.64,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.2,
+   "importance": 55.72,
    "items": [
     "news_2a567e2512eeb77379ad"
    ]
@@ -2350,59 +2574,15 @@
    "first_at": "2026-11-10T14:40:00+08:00",
    "last_at": "2026-11-10T14:40:00+08:00",
    "score": 49,
-   "heat": 0.755,
+   "heat": 0.636,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.18,
+   "importance": 55.7,
    "items": [
     "news_8e7f89cf4da7e727c60a"
-   ]
-  },
-  {
-   "event_id": "evt-fb69c721f3a2",
-   "topic": "trade",
-   "title_zh": "叙利亚与黎巴嫩一边境口岸时隔两年重开",
-   "summary_zh": "叙利亚与黎巴嫩间的达布西耶-阿布迪耶口岸9日重新开放，该口岸在2024年11月遭以色列空袭后被迫关闭近两年。叙利亚过渡政府口岸与海关总署署长古泰巴·巴达维当天在社交媒体上表示，该口岸重新开放是数月来不懈开展修复工作的成果，也是叙利亚推进边境口岸建设、增强口岸服务功能的新一步。（央视）",
-   "url": "https://wallstreetcn.com/livenews/3197021",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T15:03:31+00:00",
-   "last_at": "2026-11-09T15:03:31+00:00",
-   "score": 50,
-   "heat": 0.481,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 56.08,
-   "items": [
-    "news_fb69c721f3a249b0c3a4"
-   ]
-  },
-  {
-   "event_id": "evt-3c46ab9afb15",
-   "topic": "markets",
-   "title_zh": "长钱长投特征凸显三季度百亿私募重仓高股息与核心资产",
-   "summary_zh": "【长钱长投特征凸显三季度百亿私募重仓高股息与核心资产】A股上市公司三季报披露收官，知名百亿私募最新持仓版图浮出水面。根据Choice数据统计，2026年三季度末，共有44家百亿私募旗下产品合计现身176家A股公司的前10大流通股东名单之中，持股市值合计约818亿元。",
-   "url": "https://finance.eastmoney.com/a/202611103926628140.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T07:59:15+08:00",
-   "last_at": "2026-11-10T07:59:15+08:00",
-   "score": 49,
-   "heat": 0.623,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 55.65,
-   "items": [
-    "news_3c46ab9afb15668d512d"
    ]
   },
   {
@@ -2416,15 +2596,37 @@
    "first_at": "2026-11-10T08:04:15+08:00",
    "last_at": "2026-11-10T08:04:15+08:00",
    "score": 49,
-   "heat": 0.624,
+   "heat": 0.526,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 55.65,
+   "importance": 55.26,
    "items": [
     "news_6b41c831be551ae49f08"
+   ]
+  },
+  {
+   "event_id": "evt-3c46ab9afb15",
+   "topic": "markets",
+   "title_zh": "长钱长投特征凸显三季度百亿私募重仓高股息与核心资产",
+   "summary_zh": "【长钱长投特征凸显三季度百亿私募重仓高股息与核心资产】A股上市公司三季报披露收官，知名百亿私募最新持仓版图浮出水面。根据Choice数据统计，2026年三季度末，共有44家百亿私募旗下产品合计现身176家A股公司的前10大流通股东名单之中，持股市值合计约818亿元。",
+   "url": "https://finance.eastmoney.com/a/202611103926628140.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T07:59:15+08:00",
+   "last_at": "2026-11-10T07:59:15+08:00",
+   "score": 49,
+   "heat": 0.524,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.25,
+   "items": [
+    "news_3c46ab9afb15668d512d"
    ]
   },
   {
@@ -2450,29 +2652,6 @@
    ]
   },
   {
-   "event_id": "evt-f86145bc55fc",
-   "topic": "trade",
-   "title_zh": "商务部：自2026年11月6日起对原产于欧盟和日本的进口乙叉降冰片烯进行反倾销立案调查",
-   "summary_zh": "商务部：自2026年11月6日起对原产于欧盟和日本的进口乙叉降冰片烯进行反倾销立案调查。",
-   "url": "https://wallstreetcn.com/livenews/3197422",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T05:52:36+00:00",
-   "last_at": "2026-11-10T05:52:50+00:00",
-   "score": 48,
-   "heat": 0.738,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 55.11,
-   "items": [
-    "news_f86145bc55fc12d8a494",
-    "news_8c8a33229587a7447d9c"
-   ]
-  },
-  {
    "event_id": "evt-35c209233f74",
    "topic": "policy",
    "title_zh": "“黄河入晋第一县”山西偏关：依托资源优势做强农业能源文旅特色产业",
@@ -2483,13 +2662,13 @@
    "first_at": "2026-11-09T21:45:26+08:00",
    "last_at": "2026-11-09T21:45:26+08:00",
    "score": 49,
-   "heat": 0.463,
+   "heat": 0.39,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 55.01,
+   "importance": 54.72,
    "items": [
     "news_35c209233f74d1c4d0fb"
    ]
@@ -2505,15 +2684,38 @@
    "first_at": "2026-11-09T20:11:03+08:00",
    "last_at": "2026-11-09T20:11:03+08:00",
    "score": 49,
-   "heat": 0.443,
+   "heat": 0.373,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.93,
+   "importance": 54.65,
    "items": [
     "news_abc91f62d9e151fd46e2"
+   ]
+  },
+  {
+   "event_id": "evt-f86145bc55fc",
+   "topic": "trade",
+   "title_zh": "商务部：自2026年11月6日起对原产于欧盟和日本的进口乙叉降冰片烯进行反倾销立案调查",
+   "summary_zh": "商务部：自2026年11月6日起对原产于欧盟和日本的进口乙叉降冰片烯进行反倾销立案调查。",
+   "url": "https://wallstreetcn.com/livenews/3197422",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T05:52:36+00:00",
+   "last_at": "2026-11-10T05:52:50+00:00",
+   "score": 48,
+   "heat": 0.621,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 54.64,
+   "items": [
+    "news_f86145bc55fc12d8a494",
+    "news_8c8a33229587a7447d9c"
    ]
   },
   {
@@ -2527,37 +2729,15 @@
    "first_at": "2026-11-09T08:30:33+00:00",
    "last_at": "2026-11-09T08:30:33+00:00",
    "score": 49,
-   "heat": 0.398,
+   "heat": 0.335,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.75,
+   "importance": 54.5,
    "items": [
     "news_828a086b51f43c040293"
-   ]
-  },
-  {
-   "event_id": "evt-812e9a234dbe",
-   "topic": "policy",
-   "title_zh": "“中国生态柠檬之都”重庆潼南擦亮金字招牌",
-   "summary_zh": "中新网重庆11月9日电 (张旭)中共潼南区委副书记、区政府区长涂山全9日在重庆市政府新闻办举行的新闻发布会上介绍，“十五五”时期，当地将以现代工业思维推动柠檬产业高质量发展。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728858.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T15:46:49+08:00",
-   "last_at": "2026-11-09T15:46:49+08:00",
-   "score": 49,
-   "heat": 0.39,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 54.72,
-   "items": [
-    "news_812e9a234dbe51e8c862"
    ]
   },
   {
@@ -2571,15 +2751,37 @@
    "first_at": "2026-11-09T15:40:45+08:00",
    "last_at": "2026-11-09T15:40:45+08:00",
    "score": 49,
-   "heat": 0.389,
+   "heat": 0.327,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.71,
+   "importance": 54.47,
    "items": [
     "news_712277d23c747fe685f8"
+   ]
+  },
+  {
+   "event_id": "evt-812e9a234dbe",
+   "topic": "policy",
+   "title_zh": "“中国生态柠檬之都”重庆潼南擦亮金字招牌",
+   "summary_zh": "中新网重庆11月9日电 (张旭)中共潼南区委副书记、区政府区长涂山全9日在重庆市政府新闻办举行的新闻发布会上介绍，“十五五”时期，当地将以现代工业思维推动柠檬产业高质量发展。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10728858.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T15:46:49+08:00",
+   "last_at": "2026-11-09T15:46:49+08:00",
+   "score": 49,
+   "heat": 0.328,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 54.47,
+   "items": [
+    "news_812e9a234dbe51e8c862"
    ]
   },
   {
@@ -2593,59 +2795,15 @@
    "first_at": "2026-11-09T19:54:22+08:00",
    "last_at": "2026-11-09T19:54:22+08:00",
    "score": 48,
-   "heat": 0.439,
+   "heat": 0.37,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 53.91,
+   "importance": 53.64,
    "items": [
     "news_89c56b4b201ec672a58f"
-   ]
-  },
-  {
-   "event_id": "evt-27242269ced1",
-   "topic": "trade",
-   "title_zh": "西宁综合保税区首单保税租赁业务落地",
-   "summary_zh": "中新社西宁11月10日电 (记者孙睿)青海西宁海关10日消息，一辆装载瑞典进口叉车的货车日前驶出西宁综合保税区卡口。这是西宁综合保税区完成的首单保税租赁业务，也意味着“国外采购+区内保税+区外租赁”在青海实现。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729724.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T20:13:08+08:00",
-   "last_at": "2026-11-10T20:13:08+08:00",
-   "score": 46,
-   "heat": 0.886,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.7,
-   "items": [
-    "news_27242269ced100ef64dc"
-   ]
-  },
-  {
-   "event_id": "evt-1500364b3b81",
-   "topic": "trade",
-   "title_zh": "（第九届进博会）跨国美妆企业在进博会与本土创新“共创”",
-   "summary_zh": "中新网上海11月10日电 (李秋莹)10日，第九届中国国际进口博览会在上海闭幕。进博会也是跨国美妆企业展示本土创新实践的重要窗口，从联合研究到开放创新，助力本土创新的路径愈发清晰。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729690.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T19:54:59+08:00",
-   "last_at": "2026-11-10T19:54:59+08:00",
-   "score": 46,
-   "heat": 0.879,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.67,
-   "items": [
-    "news_1500364b3b81bdbafeb7"
    ]
   },
   {
@@ -2659,37 +2817,15 @@
    "first_at": "2026-11-10T07:31:41+08:00",
    "last_at": "2026-11-10T07:31:41+08:00",
    "score": 47,
-   "heat": 0.614,
+   "heat": 0.517,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 53.61,
+   "importance": 53.23,
    "items": [
     "news_7fae47ee6e061984756f"
-   ]
-  },
-  {
-   "event_id": "evt-742da72b7ae0",
-   "topic": "trade",
-   "title_zh": "九赴进博，再续十年之诺：拜耳以“黑科技”和十余项合作签约交出进博新答卷",
-   "summary_zh": "2026年11月10日，第九届中国国际进口博览会落下帷幕。连续第九年赴约的拜耳，再次携处方药及影像诊断、健康消费品和作物科学三大事业部亮相，在医疗健康与现代农业领域带来近30项首展首发，并围绕创新药物可及性、临床研究、医疗数据与人工智能、基层医疗、科学循证、市场准入等话题开展和参与60场签约、成果发布及交流等展台内外活动，达成十余项合作签约。与此同时，拜耳已提前签约第十届进博会，即将从九届连续参展迈向十年“全勤”。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729395.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-10T14:48:46+08:00",
-   "last_at": "2026-11-10T14:48:46+08:00",
-   "score": 46,
-   "heat": 0.758,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.19,
-   "items": [
-    "news_742da72b7ae02f9f0e87"
    ]
   },
   {
@@ -2715,6 +2851,72 @@
    ]
   },
   {
+   "event_id": "evt-27242269ced1",
+   "topic": "trade",
+   "title_zh": "西宁综合保税区首单保税租赁业务落地",
+   "summary_zh": "中新社西宁11月10日电 (记者孙睿)青海西宁海关10日消息，一辆装载瑞典进口叉车的货车日前驶出西宁综合保税区卡口。这是西宁综合保税区完成的首单保税租赁业务，也意味着“国外采购+区内保税+区外租赁”在青海实现。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729724.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T20:13:08+08:00",
+   "last_at": "2026-11-10T20:13:08+08:00",
+   "score": 46,
+   "heat": 0.746,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 53.14,
+   "items": [
+    "news_27242269ced100ef64dc"
+   ]
+  },
+  {
+   "event_id": "evt-1500364b3b81",
+   "topic": "trade",
+   "title_zh": "（第九届进博会）跨国美妆企业在进博会与本土创新“共创”",
+   "summary_zh": "中新网上海11月10日电 (李秋莹)10日，第九届中国国际进口博览会在上海闭幕。进博会也是跨国美妆企业展示本土创新实践的重要窗口，从联合研究到开放创新，助力本土创新的路径愈发清晰。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729690.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T19:54:59+08:00",
+   "last_at": "2026-11-10T19:54:59+08:00",
+   "score": 46,
+   "heat": 0.74,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 53.12,
+   "items": [
+    "news_1500364b3b81bdbafeb7"
+   ]
+  },
+  {
+   "event_id": "evt-742da72b7ae0",
+   "topic": "trade",
+   "title_zh": "九赴进博，再续十年之诺：拜耳以“黑科技”和十余项合作签约交出进博新答卷",
+   "summary_zh": "2026年11月10日，第九届中国国际进口博览会落下帷幕。连续第九年赴约的拜耳，再次携处方药及影像诊断、健康消费品和作物科学三大事业部亮相，在医疗健康与现代农业领域带来近30项首展首发，并围绕创新药物可及性、临床研究、医疗数据与人工智能、基层医疗、科学循证、市场准入等话题开展和参与60场签约、成果发布及交流等展台内外活动，达成十余项合作签约。与此同时，拜耳已提前签约第十届进博会，即将从九届连续参展迈向十年“全勤”。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-10/10729395.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T14:48:46+08:00",
+   "last_at": "2026-11-10T14:48:46+08:00",
+   "score": 46,
+   "heat": 0.638,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 52.71,
+   "items": [
+    "news_742da72b7ae02f9f0e87"
+   ]
+  },
+  {
    "event_id": "evt-00488301dc52",
    "topic": "trade",
    "title_zh": "（第九届进博会）进博会读懂中国“聚侨力”：侨心所向机遇共享",
@@ -2725,13 +2927,13 @@
    "first_at": "2026-11-10T13:41:07+08:00",
    "last_at": "2026-11-10T13:41:07+08:00",
    "score": 46,
-   "heat": 0.734,
+   "heat": 0.618,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 53.09,
+   "importance": 52.63,
    "items": [
     "news_00488301dc5225c8742f"
    ]
@@ -2747,13 +2949,13 @@
    "first_at": "2026-11-10T13:04:37+08:00",
    "last_at": "2026-11-10T13:04:37+08:00",
    "score": 46,
-   "heat": 0.721,
+   "heat": 0.607,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 53.04,
+   "importance": 52.59,
    "items": [
     "news_ef239dc9cbdbf2ad3f35"
    ]
@@ -2769,13 +2971,13 @@
    "first_at": "2026-11-10T12:03:26+08:00",
    "last_at": "2026-11-10T12:03:26+08:00",
    "score": 46,
-   "heat": 0.7,
+   "heat": 0.59,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.96,
+   "importance": 52.52,
    "items": [
     "news_536bf3cd4b30fcf5426b"
    ]
@@ -2791,13 +2993,13 @@
    "first_at": "2026-11-10T12:04:41+08:00",
    "last_at": "2026-11-10T12:04:41+08:00",
    "score": 46,
-   "heat": 0.701,
+   "heat": 0.59,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.96,
+   "importance": 52.52,
    "items": [
     "news_ce6d9bddfb83c9f2420d"
    ]
@@ -2813,13 +3015,13 @@
    "first_at": "2026-11-10T11:47:26+08:00",
    "last_at": "2026-11-10T11:47:26+08:00",
    "score": 46,
-   "heat": 0.695,
+   "heat": 0.585,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.94,
+   "importance": 52.5,
    "items": [
     "news_d260c36a7d8a609e8993"
    ]
@@ -2835,13 +3037,13 @@
    "first_at": "2026-11-09T07:30:52+00:00",
    "last_at": "2026-11-09T07:30:52+00:00",
    "score": 47,
-   "heat": 0.387,
+   "heat": 0.326,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.71,
+   "importance": 52.46,
    "items": [
     "news_30f81de1e63e5007d1bb"
    ]
@@ -2857,59 +3059,15 @@
    "first_at": "2026-11-10T07:55:23+08:00",
    "last_at": "2026-11-10T07:55:23+08:00",
    "score": 46,
-   "heat": 0.621,
+   "heat": 0.523,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.64,
+   "importance": 52.25,
    "items": [
     "news_9ae6053186a4801ec28f"
-   ]
-  },
-  {
-   "event_id": "evt-66021f1a55ac",
-   "topic": "trade",
-   "title_zh": "（第九届进博会）进博会“首发效应”凸显展品加速变爆款",
-   "summary_zh": "中新社上海11月9日电 (记者徐珊珊)正在上海举行的第九届中国国际进口博览会上，欧莱雅北亚及中国公共事务总裁兰珍珍接受中新社记者采访时透露了一组数据：欧莱雅引入中国的34个品牌中，近一半是通过进博会首秀推向市场，最终成为消费者熟知的“爆款”。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10729142.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T21:52:23+08:00",
-   "last_at": "2026-11-09T21:52:23+08:00",
-   "score": 46,
-   "heat": 0.465,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 52.02,
-   "items": [
-    "news_66021f1a55aca21807ec"
-   ]
-  },
-  {
-   "event_id": "evt-d6259d6323f7",
-   "topic": "trade",
-   "title_zh": "（第九届进博会）两代人接力叙利亚橄榄油续写“四叶草之约”",
-   "summary_zh": "中新网上海11月9日电 (蓝伊旎)11月正值叙利亚橄榄丰收季，农户们忙着采摘鲜果，送到工厂榨油、封装后，一批批成品橄榄油便被运往世界各地。跨越几千公里，这种被誉为“液体黄金”的叙利亚特产再次来到上海，在第九届中国国际进口博览会(简称“进博会”)上受到客商青睐。",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10729126.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-09T21:41:24+08:00",
-   "last_at": "2026-11-09T21:41:24+08:00",
-   "score": 46,
-   "heat": 0.462,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 52.01,
-   "items": [
-    "news_d6259d6323f7bd1861ca"
    ]
   },
   {
@@ -2923,13 +3081,13 @@
    "first_at": "2026-11-09T21:43:08+08:00",
    "last_at": "2026-11-09T21:43:08+08:00",
    "score": 46,
-   "heat": 0.463,
+   "heat": 0.39,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.01,
+   "importance": 51.72,
    "items": [
     "news_9ba09df905cd669d98c4"
    ]
@@ -2945,13 +3103,13 @@
    "first_at": "2026-11-09T21:46:00+08:00",
    "last_at": "2026-11-09T21:46:00+08:00",
    "score": 46,
-   "heat": 0.463,
+   "heat": 0.39,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.01,
+   "importance": 51.72,
    "items": [
     "news_2090a630ba08fe0dd0f4"
    ]
@@ -2967,15 +3125,37 @@
    "first_at": "2026-11-09T21:50:27+08:00",
    "last_at": "2026-11-09T21:50:27+08:00",
    "score": 46,
-   "heat": 0.464,
+   "heat": 0.391,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 52.01,
+   "importance": 51.72,
    "items": [
     "news_2ffdeddf732e557a4b33"
+   ]
+  },
+  {
+   "event_id": "evt-66021f1a55ac",
+   "topic": "trade",
+   "title_zh": "（第九届进博会）进博会“首发效应”凸显展品加速变爆款",
+   "summary_zh": "中新社上海11月9日电 (记者徐珊珊)正在上海举行的第九届中国国际进口博览会上，欧莱雅北亚及中国公共事务总裁兰珍珍接受中新社记者采访时透露了一组数据：欧莱雅引入中国的34个品牌中，近一半是通过进博会首秀推向市场，最终成为消费者熟知的“爆款”。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10729142.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T21:52:23+08:00",
+   "last_at": "2026-11-09T21:52:23+08:00",
+   "score": 46,
+   "heat": 0.391,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 51.72,
+   "items": [
+    "news_66021f1a55aca21807ec"
    ]
   },
   {
@@ -2989,15 +3169,37 @@
    "first_at": "2026-11-09T21:26:49+08:00",
    "last_at": "2026-11-09T21:26:49+08:00",
    "score": 46,
-   "heat": 0.459,
+   "heat": 0.387,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.99,
+   "importance": 51.71,
    "items": [
     "news_e87975ba0621973b96da"
+   ]
+  },
+  {
+   "event_id": "evt-d6259d6323f7",
+   "topic": "trade",
+   "title_zh": "（第九届进博会）两代人接力叙利亚橄榄油续写“四叶草之约”",
+   "summary_zh": "中新网上海11月9日电 (蓝伊旎)11月正值叙利亚橄榄丰收季，农户们忙着采摘鲜果，送到工厂榨油、封装后，一批批成品橄榄油便被运往世界各地。跨越几千公里，这种被誉为“液体黄金”的叙利亚特产再次来到上海，在第九届中国国际进口博览会(简称“进博会”)上受到客商青睐。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-09/10729126.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-09T21:41:24+08:00",
+   "last_at": "2026-11-09T21:41:24+08:00",
+   "score": 46,
+   "heat": 0.389,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 51.71,
+   "items": [
+    "news_d6259d6323f7bd1861ca"
    ]
   },
   {
@@ -3011,13 +3213,13 @@
    "first_at": "2026-11-09T20:49:39+08:00",
    "last_at": "2026-11-09T20:49:39+08:00",
    "score": 46,
-   "heat": 0.451,
+   "heat": 0.38,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.96,
+   "importance": 51.68,
    "items": [
     "news_c966d7a0028eef52389c"
    ]
@@ -3033,13 +3235,13 @@
    "first_at": "2026-11-09T20:13:15+08:00",
    "last_at": "2026-11-09T20:13:15+08:00",
    "score": 46,
-   "heat": 0.443,
+   "heat": 0.373,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.93,
+   "importance": 51.65,
    "items": [
     "news_23e60e18f5ba5999f792"
    ]
@@ -3055,13 +3257,13 @@
    "first_at": "2026-11-09T20:17:20+08:00",
    "last_at": "2026-11-09T20:17:20+08:00",
    "score": 46,
-   "heat": 0.444,
+   "heat": 0.374,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.93,
+   "importance": 51.65,
    "items": [
     "news_efa0395afb670a2bef1c"
    ]
@@ -3077,13 +3279,13 @@
    "first_at": "2026-11-09T19:59:47+08:00",
    "last_at": "2026-11-09T19:59:47+08:00",
    "score": 46,
-   "heat": 0.44,
+   "heat": 0.371,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.92,
+   "importance": 51.64,
    "items": [
     "news_eae86cde27179c6646ca"
    ]
@@ -3099,15 +3301,37 @@
    "first_at": "2026-11-09T20:03:11+08:00",
    "last_at": "2026-11-09T20:03:11+08:00",
    "score": 46,
-   "heat": 0.441,
+   "heat": 0.371,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.92,
+   "importance": 51.64,
    "items": [
     "news_2bb5e57956c7d3a6a496"
+   ]
+  },
+  {
+   "event_id": "evt-f667b9b6bee3",
+   "topic": "global",
+   "title_zh": "美联储Schmid：从现在到美联储12月会议之间，将有许多有趣的数据点值得关注",
+   "summary_zh": "美联储Schmid：从现在到美联储12月会议之间，将有许多有趣的数据点值得关注。",
+   "url": "https://wallstreetcn.com/livenews/3197880",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-10T19:06:20+00:00",
+   "last_at": "2026-11-10T19:06:20+00:00",
+   "score": 43,
+   "heat": 0.911,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 50.8,
+   "items": [
+    "news_f667b9b6bee37a23f2bc"
    ]
   },
   {
@@ -3121,13 +3345,13 @@
    "first_at": "2026-11-09T19:25:38+08:00",
    "last_at": "2026-11-09T19:25:38+08:00",
    "score": 43,
-   "heat": 0.433,
+   "heat": 0.365,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 48.89,
+   "importance": 48.62,
    "items": [
     "news_10eef9955bcab50024ea"
    ]
@@ -3143,15 +3367,81 @@
    "first_at": "2026-11-09T10:05:09+00:00",
    "last_at": "2026-11-09T10:05:09+00:00",
    "score": 43,
-   "heat": 0.417,
+   "heat": 0.351,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 48.83,
+   "importance": 48.56,
    "items": [
     "news_f66c9ea55e3a731cb0c1"
+   ]
+  },
+  {
+   "event_id": "evt-2fbe071b6aab",
+   "topic": "global",
+   "title_zh": "美联储鲍曼计划在未来几周内敲定巴塞尔协议一揽子方案",
+   "summary_zh": "美联储鲍曼计划在未来几周内敲定巴塞尔协议一揽子方案。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauk2220098.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-11T05:31:42+08:00",
+   "last_at": "2026-11-11T05:31:42+08:00",
+   "score": 40,
+   "heat": 0.977,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 48.07,
+   "items": [
+    "news_2fbe071b6aab9b1c854d"
+   ]
+  },
+  {
+   "event_id": "evt-1afcb94066f4",
+   "topic": "global",
+   "title_zh": "美联储鲍曼：已将关注点转向小型银行规则和监管方法",
+   "summary_zh": "美联储鲍曼：已将关注点转向小型银行规则和监管方法。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauh5443172.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-11T05:24:56+08:00",
+   "last_at": "2026-11-11T05:24:56+08:00",
+   "score": 40,
+   "heat": 0.973,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 48.05,
+   "items": [
+    "news_1afcb94066f496222257"
+   ]
+  },
+  {
+   "event_id": "evt-f6c64e81a60f",
+   "topic": "global",
+   "title_zh": "美联储鲍曼：希望并预计在未来几周内敲定关于全球系统重要性银行附加资本要求和巴塞尔III的规则",
+   "summary_zh": "美联储鲍曼：希望并预计在未来几周内敲定关于全球系统重要性银行附加资本要求和巴塞尔III的规则。",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaum2128479.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-11T05:24:28+08:00",
+   "last_at": "2026-11-11T05:24:28+08:00",
+   "score": 39,
+   "heat": 0.973,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 47.05,
+   "items": [
+    "news_f6c64e81a60f12170ea6"
    ]
   },
   {
@@ -3165,13 +3455,13 @@
    "first_at": "2026-11-10T15:57:35+00:00",
    "last_at": "2026-11-10T15:57:35+00:00",
    "score": 39,
-   "heat": 0.987,
+   "heat": 0.832,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 47.11,
+   "importance": 46.49,
    "items": [
     "news_f8274f21a58d296d637d"
    ]
@@ -3187,19 +3477,394 @@
    "first_at": "2026-11-09T23:26:06+08:00",
    "last_at": "2026-11-09T23:26:06+08:00",
    "score": 40,
-   "heat": 0.486,
+   "heat": 0.41,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 46.1,
+   "importance": 45.8,
    "items": [
     "news_e8ee542e6419f0652bca"
    ]
   }
  ],
  "items": [
+  {
+   "item_id": "news_716dfd56ca20d79399d7",
+   "kind": "media",
+   "title_zh": "美联储12月加息50个基点的概率为11.5%",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611113927752559.html",
+   "published_at": "2026-11-11T06:14:14+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "【美联储12月加息50个基点的概率为11.5%】据CME“美联储观察”：美联储12月维持利率不变的概率为0%，加息25个基点的概率为88.5%，加息50个基点的概率为11.5%。美联储到明年1月维持利率不变的概率为0%（昨日为11.8%），累计加息25个基点的概率33.6%（昨日为66.9%），累计加息50个基点的概率为59.2%（昨日为21.3%），累计加息75个基点的概率为7.1%（昨日为0%）。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_d46794531f3d04dac21c5ff66f4f56e83663805f172f586e316b3b27d288bd81",
+   "content_hash": "58b4195e1de3acae",
+   "content_type": "other",
+   "score": 46,
+   "event_id": "evt-b25365c76266"
+  },
+  {
+   "item_id": "news_b25365c762666b9816fe",
+   "kind": "media",
+   "title_zh": "据CME“美联储观察”：美联储12月加息25个基点的概率为88.5%",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauk2233915.d.html",
+   "published_at": "2026-11-11T06:11:34+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "据CME“美联储观察”：美联储12月加息25个基点的概率为88.5%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_8531afe4463ee0e2a90116193cb47ce158713bafe686f46514337bfd512e2339",
+   "content_hash": "6347ee79558a4816",
+   "content_type": "other",
+   "score": 46,
+   "event_id": "evt-b25365c76266"
+  },
+  {
+   "item_id": "news_2fbe071b6aab9b1c854d",
+   "kind": "media",
+   "title_zh": "美联储鲍曼计划在未来几周内敲定巴塞尔协议一揽子方案",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauk2220098.d.html",
+   "published_at": "2026-11-11T05:31:42+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储鲍曼计划在未来几周内敲定巴塞尔协议一揽子方案。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_a06ce0d91afb909076f1ae2832eee78feec70c2bc464c7e8f28edb5800de292b",
+   "content_hash": "e622af993452340e",
+   "content_type": "other",
+   "score": 40,
+   "event_id": "evt-2fbe071b6aab"
+  },
+  {
+   "item_id": "news_69625809f66b1c5458d4",
+   "kind": "media",
+   "title_zh": "美联储高官接连放鹰：沃勒提示12月或加息50基点，洛根支持至少两次加息且提速",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaun8776953.d.html",
+   "published_at": "2026-11-11T05:27:22+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "【美联储高官接连放鹰：沃勒提示12月或加息50基点，洛根支持至少两次加息且提速】美联储理事沃勒警告称，12月可能有必要加息50个基点；随后达拉斯联储主席洛根表示支持至少再加息两次、每次25个基点，并称加息速度可能需要比官员们今年秋季的行动更快。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_35762d8d66da6186281892abe791e03672d1c75fbe6785040a0e66bb29c82ebc",
+   "content_hash": "84933c37597cc8e6",
+   "content_type": "commentary",
+   "score": 51,
+   "event_id": "evt-69625809f66b"
+  },
+  {
+   "item_id": "news_1afcb94066f496222257",
+   "kind": "media",
+   "title_zh": "美联储鲍曼：已将关注点转向小型银行规则和监管方法",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiauh5443172.d.html",
+   "published_at": "2026-11-11T05:24:56+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储鲍曼：已将关注点转向小型银行规则和监管方法。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_6e337f42c4de6aa673fd86fbf433b65ec9dd4e5694703da4c6adc2c42a81cbdc",
+   "content_hash": "bde1a62adaa4328f",
+   "content_type": "other",
+   "score": 40,
+   "event_id": "evt-1afcb94066f4"
+  },
+  {
+   "item_id": "news_f6c64e81a60f12170ea6",
+   "kind": "media",
+   "title_zh": "美联储鲍曼：希望并预计在未来几周内敲定关于全球系统重要性银行附加资本要求和巴塞尔III的规则",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaum2128479.d.html",
+   "published_at": "2026-11-11T05:24:28+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储鲍曼：希望并预计在未来几周内敲定关于全球系统重要性银行附加资本要求和巴塞尔III的规则。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_c65e9e1f39bf7127825af0bee495c0c937ed96ecf644deeb3c5aeb925b9c8a07",
+   "content_hash": "c08f45a300f65940",
+   "content_type": "commentary",
+   "score": 39,
+   "event_id": "evt-f6c64e81a60f"
+  },
+  {
+   "item_id": "news_3d2f901e6e4627e015e7",
+   "kind": "media",
+   "title_zh": "周三（11月11日）重点关注财经事件和经济数据",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611113927737652.html",
+   "published_at": "2026-11-11T05:19:53+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "【周三（11月11日）重点关注财经事件和经济数据】①15:00德国10月CPI；② 17:45 欧洲央行拉加德出席论坛。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "prices",
+   "metric_ids": [
+    "cn_cpi_yoy",
+    "cn_ppi_yoy"
+   ],
+   "event_group_id": "news_event_bec9514d0b6095336fba0c7c209260e12b556591222952f778cf23816dec3033",
+   "content_hash": "4fed2a078455bcdf",
+   "content_type": "meeting",
+   "score": 53,
+   "event_id": "evt-3d2f901e6e46"
+  },
+  {
+   "item_id": "news_55fe103cb82c37f53119",
+   "kind": "media",
+   "title_zh": "美联储鲍曼：与财政部保持畅通的沟通渠道至关重要",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniyiaum2127367.d.html",
+   "published_at": "2026-11-11T05:09:36+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储鲍曼：与财政部保持畅通的沟通渠道至关重要。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "fiscal",
+   "metric_ids": [
+    "cn_budget_exp_ytd_yoy",
+    "cn_tsf_govbond_flow"
+   ],
+   "event_group_id": "news_event_52816b2c0e6d3d1ea57dbc2ca14f9640742546ccf2c63e515d3e9ea535f84cba",
+   "content_hash": "ad1ec7fea0291d4c",
+   "content_type": "other",
+   "score": 51,
+   "event_id": "evt-55fe103cb82c"
+  },
+  {
+   "item_id": "news_b09c17f9f83439f7f2c9",
+   "kind": "media",
+   "title_zh": "美联储理事鲍曼警告：若AI押注落空，股市或现回调",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3197909",
+   "published_at": "2026-11-10T20:30:21+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储理事、负责金融监管事务的副主席鲍曼认为，金融市场对经济活动构成风险，其中包括：若人工智能（AI）投资的回报不及预期，股价可能出现急跌。风险来自AI回报引发的“股票估值的大幅回调”，以及“私人部门长期利率的急剧上升”。“股价下跌可能削弱消费的韧性，”她说，“而利率上升可能进一步挤压经济中对利率敏感的部门，比如房地产和小企业投资。”鲍曼对AI相关债务快速上升感到忧心忡忡：公司债、私募信贷和项目融资增长显著，今年恐怕会超过8000亿美元",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "prices",
+   "metric_ids": [
+    "cn_cpi_yoy",
+    "cn_ppi_yoy"
+   ],
+   "event_group_id": "news_event_b2c37c5e16160ffda50869f1328d1a5736a10bf59d0e0660211da66ece5ad46a",
+   "content_hash": "234a56c724149f3e",
+   "content_type": "commentary",
+   "score": 66,
+   "event_id": "evt-b09c17f9f834"
+  },
+  {
+   "item_id": "news_f667b9b6bee37a23f2bc",
+   "kind": "media",
+   "title_zh": "美联储Schmid：从现在到美联储12月会议之间，将有许多有趣的数据点值得关注",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3197880",
+   "published_at": "2026-11-10T19:06:20+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "美联储Schmid：从现在到美联储12月会议之间，将有许多有趣的数据点值得关注。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "global",
+   "metric_ids": [],
+   "event_group_id": "news_event_1c8cc433b5fb96f4071e27028886e2bcd4d234ddc821453476bb93a8ee5d9475",
+   "content_hash": "9bb3ae045a8d81ea",
+   "content_type": "meeting",
+   "score": 43,
+   "event_id": "evt-f667b9b6bee3"
+  },
+  {
+   "item_id": "news_d224c3f088ee38274e85",
+   "kind": "media",
+   "title_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6805元，较周一夜盘收盘跌81点",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3197878",
+   "published_at": "2026-11-10T19:01:09+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6805元，较周一夜盘收盘跌81点。成交量364.54亿美元。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_d42d86bcc5a77e04cdaf04324f02a7029201d37ac54be16b40dff3e2cf87db01",
+   "content_hash": "34dd065166581f06",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-d224c3f088ee"
+  },
+  {
+   "item_id": "news_cb8bc4972fc55fcf80d7",
+   "kind": "media",
+   "title_zh": "10年期美债发行认购需求不及预期尽管票面利率创20年以来最高",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611113927721582.html",
+   "published_at": "2026-11-11T02:33:59+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "【10年期美债发行认购需求不及预期尽管票面利率创20年以来最高】美国财政部发行的420亿美元10年期国债中标收益率5.020%，高于纽约时间下午1点投标截止时5.010%的发行前交易收益率，显示需求不及预期。截至投标截止时，该期限美债收益率当日已上涨逾12个基点。发行结果公布后，收益率小幅走高，但仍处于当日波动区间内；2年期与10年期美债收益率之差则从当日最低水平略有回升，较周一收盘仍收窄约6个基点。尽管当前收益率水平仍低于上月发债时的",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "fiscal",
+   "metric_ids": [
+    "cn_budget_exp_ytd_yoy",
+    "cn_tsf_govbond_flow"
+   ],
+   "event_group_id": "news_event_17610ae260976ef6ba22470a746b855d58f712b7e38a97329f8eb01d60736e61",
+   "content_hash": "f5e84f8c6804087c",
+   "content_type": "policy_action",
+   "score": 75,
+   "event_id": "evt-cb8bc4972fc5"
+  },
+  {
+   "item_id": "news_50f55404acaa3c4738ad",
+   "kind": "media",
+   "title_zh": "上期所原油期货2612合约夜盘收跌0.77%",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611113927721445.html",
+   "published_at": "2026-11-11T02:31:41+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "上期所原油期货2612合约夜盘收跌0.77%，报604.4元人民币/桶。沪金夜盘收跌2.29%，沪银收跌3.41%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_82d05197014e11db4250d11cabb33f8a30ff9721f348350dc4988a8b0d66925b",
+   "content_hash": "1f1d3a141e6b9a99",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-c1cd61ebb57c"
+  },
+  {
+   "item_id": "news_c1cd61ebb57c88dc9fd4",
+   "kind": "media",
+   "title_zh": "上期所原油期货2612合约夜盘收跌0.77%，报604.4元人民币/桶",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3197871",
+   "published_at": "2026-11-10T18:30:28+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "上期所原油期货2612合约夜盘收跌0.77%，报604.4元人民币/桶。沪金夜盘收跌2.29%，沪银收跌3.41%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_407dc5054f133855f1ba46d713fd2c6689ac739c79cd47a127a3bb7de6527d3f",
+   "content_hash": "240c3925892c2799",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-c1cd61ebb57c"
+  },
+  {
+   "item_id": "news_333607fcab8b87bc0fb0",
+   "kind": "media",
+   "title_zh": "欧洲央行执行委员兼首席经济学家Lane：我们非常重视共识，若采用点阵图将很难达成",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3197851",
+   "published_at": "2026-11-10T17:26:15+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-10T22:20:49+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
+   "language": "zh",
+   "summary_zh": "欧洲央行执行委员兼首席经济学家Lane：我们非常重视共识，若采用点阵图将很难达成。目前我对提供方向性前瞻指引会设定较高门槛。核心通胀尚未变动，这一点具有参考意义，意味着这属于通常的滞后反应。潜在通胀是未来一年通胀的指引。能源价格已开始回落，若这一趋势持续，整体通胀将下降，而潜在通胀将上升。人们应关注通胀是否强于或弱于预期。若未出现第二轮效应，反而会令人意外。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "prices",
+   "metric_ids": [
+    "cn_cpi_yoy",
+    "cn_ppi_yoy"
+   ],
+   "event_group_id": "news_event_7b80b6e21384de8a1aa551555288caf60b1fd92ea8da68bba54ff7a7e9450f7d",
+   "content_hash": "cc790fa2e2e882b7",
+   "content_type": "other",
+   "score": 51,
+   "event_id": "evt-333607fcab8b"
+  },
   {
    "item_id": "news_0c201533f03eb55ba528",
    "kind": "media",
@@ -3527,7 +4192,7 @@
    "published_at": "2026-11-10T21:54:51+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中新网上海11月10日电(记者陈静)2026(第20届)创业周暨全球创业周中国站(下称：创业周)10日开幕。本届创业周进一步提升国际化能级，通过搭建国际协作对话平台，推动国内外创业者、投资机构开展沟通、对接与务实合作。",
    "source_tier": "T2",
@@ -3606,7 +4271,7 @@
    "published_at": "2026-11-10T21:13:29+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "品牌IP、创意产品、前沿趋势密集的进博会，也是跨国消费品牌汲取灵感、试水中国市场的重要平台。",
    "source_tier": "T2",
@@ -3658,7 +4323,7 @@
    "published_at": "2026-11-10T20:28:54+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "科技创新在主要领导座谈会议题层面重要性逐年上升，长三角区域“共建”共识逐渐加深。",
    "source_tier": "T2",
@@ -3709,7 +4374,7 @@
    "published_at": "2026-11-10T20:16:17+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "从名画到球鞋，Z世代跨界“买万物”，包揽近半百万美元级艺术品交易",
    "source_tier": "T2",
@@ -3737,7 +4402,7 @@
    "published_at": "2026-11-10T20:13:08+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中新社西宁11月10日电 (记者孙睿)青海西宁海关10日消息，一辆装载瑞典进口叉车的货车日前驶出西宁综合保税区卡口。这是西宁综合保税区完成的首单保税租赁业务，也意味着“国外采购+区内保税+区外租赁”在青海实现。",
    "source_tier": "T2",
@@ -3764,7 +4429,7 @@
    "published_at": "2026-11-10T19:54:59+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中新网上海11月10日电 (李秋莹)10日，第九届中国国际进口博览会在上海闭幕。进博会也是跨国美妆企业展示本土创新实践的重要窗口，从联合研究到开放创新，助力本土创新的路径愈发清晰。",
    "source_tier": "T2",
@@ -3791,7 +4456,7 @@
    "published_at": "2026-11-10T19:47:58+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中新社北京11月10日电 (记者阮煜琳)中国纺织服装出口延续良好发展势头。记者10日从中国纺织品进出口商会获悉，2026年1-10月，中国纺织服装累计出口2590.6亿美元，同比增长6.2%。",
    "source_tier": "T2",
@@ -3818,7 +4483,7 @@
    "published_at": "2026-11-10T19:42:46+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中新网11月10日电据国家发改委网站消息，为进一步明确信用激励的认定主体、激励对象和实施方式，提升激励措施的系统性、协同性和可感性，促进形成诚信者受益的良好氛围，国家发展改革委、中国人民银行近日联合印发《全国守信激励措施基础清单(2026年版)》。",
    "source_tier": "T2",
@@ -5662,31 +6327,28 @@
    "event_id": "evt-fbdbd239e42a"
   },
   {
-   "item_id": "news_9dc565d44e310605576f",
+   "item_id": "news_f23b22a5744942e5edda",
    "kind": "announcement",
-   "title_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
+   "title_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍增进民生福祉有关情况",
    "title_en": null,
-   "publisher": "财政部",
-   "source": "mof",
-   "canonical_url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261110_4004339.htm",
+   "publisher": "国家发展改革委",
+   "source": "ndrc",
+   "canonical_url": "https://www.ndrc.gov.cn/xwdt/xwfb/202611/t20261110_1408749.html",
    "published_at": "2026-11-10",
    "publication_precision": "date",
-   "first_seen_at": "2026-11-10T00:13:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "first_seen_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
-   "summary_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
+   "summary_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍增进民生福祉有关情况",
    "source_tier": "T1",
    "tier": "EVENT",
-   "topic": "fiscal",
-   "metric_ids": [
-    "cn_budget_exp_ytd_yoy",
-    "cn_tsf_govbond_flow"
-   ],
-   "event_group_id": "news_event_cd9677429aef7a6fd39139127a7cec8f620264b92d24f8da314d735d6844257a",
-   "content_hash": "9bbbe7a99145ed40",
-   "content_type": "other",
-   "score": 44,
-   "event_id": "evt-9dc565d44e31"
+   "topic": "policy",
+   "metric_ids": [],
+   "event_group_id": "news_event_34fe995b35322530fc37d20126dfb63dd718e715530ea50add20b79342e707b7",
+   "content_hash": "91a45384d3fec9db",
+   "content_type": "meeting",
+   "score": 57,
+   "event_id": "evt-f23b22a57449"
   },
   {
    "item_id": "news_190892118fde4fce286c",
@@ -5699,7 +6361,7 @@
    "published_at": "2026-11-10",
    "publication_precision": "date",
    "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "财政部在加拿大成功发行人民币绿色主权债券",
    "source_tier": "T1",
@@ -5716,28 +6378,31 @@
    "event_id": "evt-190892118fde"
   },
   {
-   "item_id": "news_f23b22a5744942e5edda",
+   "item_id": "news_9dc565d44e310605576f",
    "kind": "announcement",
-   "title_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍增进民生福祉有关情况",
+   "title_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
    "title_en": null,
-   "publisher": "国家发展改革委",
-   "source": "ndrc",
-   "canonical_url": "https://www.ndrc.gov.cn/xwdt/xwfb/202611/t20261110_1408749.html",
+   "publisher": "财政部",
+   "source": "mof",
+   "canonical_url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261110_4004339.htm",
    "published_at": "2026-11-10",
    "publication_precision": "date",
-   "first_seen_at": "2026-11-10T16:23:46+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "first_seen_at": "2026-11-10T00:13:58+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
-   "summary_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍增进民生福祉有关情况",
+   "summary_zh": "廖岷副部长与加拿大财政部国际贸易与金融助理副部长帕特里克·海利共同签署财政合作谅解备忘录",
    "source_tier": "T1",
    "tier": "EVENT",
-   "topic": "policy",
-   "metric_ids": [],
-   "event_group_id": "news_event_34fe995b35322530fc37d20126dfb63dd718e715530ea50add20b79342e707b7",
-   "content_hash": "91a45384d3fec9db",
-   "content_type": "meeting",
-   "score": 57,
-   "event_id": "evt-f23b22a57449"
+   "topic": "fiscal",
+   "metric_ids": [
+    "cn_budget_exp_ytd_yoy",
+    "cn_tsf_govbond_flow"
+   ],
+   "event_group_id": "news_event_cd9677429aef7a6fd39139127a7cec8f620264b92d24f8da314d735d6844257a",
+   "content_hash": "9bbbe7a99145ed40",
+   "content_type": "other",
+   "score": 44,
+   "event_id": "evt-9dc565d44e31"
   },
   {
    "item_id": "news_e8ee542e6419f0652bca",
@@ -7068,7 +7733,7 @@
    "published_at": "2026-11-09T09:30:02+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-09T11:39:37+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "2026年10月份，全国居民消费价格同比上涨0.7%。其中，城市上涨0.7%，农村上涨0.7%；食品价格下降2.9%，非食品价格上涨1.5%；消费品价格上涨0.8%，服务价格上涨0.7%。1—10月平均，全国居民消费价格比上年同期上涨0.9%。 10月份，全国居民消费价格环比持平。其中，城市持平，农村下降0.1%；食品价格下降1.0%，非...",
    "source_tier": "T1",
@@ -7095,7 +7760,7 @@
    "published_at": "2026-11-09T09:30:01+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-09T11:39:37+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "2026年10月份，全国工业生产者出厂价格同比上涨5.7%，环比上涨0.7%。工业生产者购进价格同比上涨7.9%，环比上涨1.1%。1—10月平均，工业生产者出厂价格比上年同期上涨2.7%，工业生产者购进价格上涨4.0%。一、工业生产者价格同比变动情况 10月份，工业生产者出厂价格中，生产资料价格同比上涨7.4%，影...",
    "source_tier": "T1",
@@ -7122,7 +7787,7 @@
    "published_at": "2026-11-09",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国家统计局城市司首席统计师董莉娟解读2026年10月份CPI和PPI数据",
    "source_tier": "T1",
@@ -7149,7 +7814,7 @@
    "published_at": "2026-11-09",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "商务部新闻发言人就调整出口管制管控名单措施答记者问",
    "source_tier": "T1",
@@ -7176,7 +7841,7 @@
    "published_at": "2026-11-09",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "《出口中国能力发展报告》在第九届虹桥国际经济论坛首次发布",
    "source_tier": "T1",
@@ -7203,7 +7868,7 @@
    "published_at": "2026-11-09",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国务院关税税则委员会发布公告调整对原产于美国的进口商品加征关税措施",
    "source_tier": "T1",
@@ -7230,7 +7895,7 @@
    "published_at": "2026-11-09",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国务院关税税则委员会关于调整对原产于美国的进口商品加征关税措施的公告",
    "source_tier": "T1",
@@ -7257,7 +7922,7 @@
    "published_at": "2026-11-07",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国家外汇管理局公布2026年10月末外汇储备规模数据",
    "source_tier": "T1",
@@ -7284,7 +7949,7 @@
    "published_at": "2026-11-07",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "李强主持召开国务院常务会议",
    "source_tier": "T1",
@@ -7308,7 +7973,7 @@
    "published_at": "2026-11-07",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "何立峰与美国财政部长贝森特、贸易代表格里尔举行视频通话",
    "source_tier": "T1",
@@ -7366,7 +8031,7 @@
    "published_at": "2026-11-06",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T08:19:25+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍筑牢安全底座有关情况",
    "source_tier": "T1",
@@ -7390,7 +8055,7 @@
    "published_at": "2026-11-06",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国家发展改革委召开“六张网”重大项目建设总体调度会议",
    "source_tier": "T1",
@@ -7414,7 +8079,7 @@
    "published_at": "2026-11-06",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "商务部新闻发言人就涉及欧盟的进口对位芳纶长丝和乙叉降冰片烯两起反倾销调查答记者问",
    "source_tier": "T1",
@@ -7441,7 +8106,7 @@
    "published_at": "2026-11-06",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "金融监管总局商务部等7部委联合印发《关于加快航运保险高质量发展的指导意见》",
    "source_tier": "T1",
@@ -7465,7 +8130,7 @@
    "published_at": "2026-11-06",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "“购在中国·2026精品消费月”启动",
    "source_tier": "T1",
@@ -7493,7 +8158,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行行长潘功胜会见摩根士丹利集团董事长彭泰德",
    "source_tier": "T1",
@@ -7520,7 +8185,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行副行长邹澜出席第五届国际金融领袖投资峰会",
    "source_tier": "T1",
@@ -7547,7 +8212,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行与印度尼西亚银行举行联合工作机制工作会议",
    "source_tier": "T1",
@@ -7574,7 +8239,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "丁薛祥出席第九届中国国际进口博览会开幕式并会见与会外方政要",
    "source_tier": "T1",
@@ -7601,7 +8266,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "商务部在上海举办中欧医疗器械专场贸易对接会",
    "source_tier": "T1",
@@ -7628,7 +8293,7 @@
    "published_at": "2026-11-05",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "财政部将在加拿大发行人民币绿色主权债券",
    "source_tier": "T1",
@@ -7655,7 +8320,7 @@
    "published_at": "2026-11-04",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行加力实施股票回购增持再贷款政策",
    "source_tier": "T1",
@@ -7682,7 +8347,7 @@
    "published_at": "2026-11-04",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T08:19:25+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "国家发展改革委举行奋进“十五五”系列新闻发布会介绍夯实发展支撑有关情况",
    "source_tier": "T1",
@@ -7706,7 +8371,7 @@
    "published_at": "2026-11-04",
    "publication_precision": "date",
    "first_seen_at": "2026-11-09T11:36:58+00:00",
-   "retrieved_at": "2026-11-10T16:23:46+00:00",
+   "retrieved_at": "2026-11-10T22:20:49+00:00",
    "language": "zh",
    "summary_zh": "商务部服贸司负责人介绍2026年1-9月服务贸易发展情况",
    "source_tier": "T1",
