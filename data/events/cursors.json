@@ -1,13 +1,13 @@
 {
   "gov_fiscal": {
-    "items_hash": "9d5125f58b75c2d35d0a522fb9ecd0cd897cc8ee004fcf9cde45a203c02ea858",
-    "last_seen_id": "item_e1ab2dd39bbc84d4df243487",
-    "last_seen_publication": "2026-10-30"
+    "items_hash": "798ca39107ae4081e0f6a817c55ebe79f6ad288f87082daa89297712d97b5661",
+    "last_seen_id": "item_4d64dbe7ce10679a3514b48b",
+    "last_seen_publication": "2026-11-10"
   },
   "gov_monetary": {
-    "items_hash": "c68ec93d269629158fad90679a4f44dd2dd54cc4bb12be3a917df63996829f1c",
-    "last_seen_id": "item_f2ba34922819e78944777394",
-    "last_seen_publication": "2026-10-29"
+    "items_hash": "bc01f141c29b7ddb2eb0d83800bc26d0c5c211a924f112ba857d096979df6b4d",
+    "last_seen_id": "item_168e193f78e45ed6c12b1060",
+    "last_seen_publication": "2026-11-10"
   },
   "nbs": {
     "items_hash": "529c305c082060b5d17219253ce8d2e823d0c78bf4c85033d6c14bd70e261a88",
