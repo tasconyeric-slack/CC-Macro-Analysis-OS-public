@@ -86,7 +86,7 @@ html[lang="zh-Hans"] .news-heading h2 { letter-spacing: 0; line-height: 1.35; }
   .news-heading > .mr-btn { margin-top: 8px; }
   .news-story h3 { font-size: 17px; }
   .news-rows li { grid-template-columns: auto 1fr; gap: 2px 12px; }
-  .news-rows .news-row-title, .news-row-summary { grid-column: 1 / -1; }
+  .news-rows .news-row-title, .news-rows li > a, .news-row-summary { grid-column: 1 / -1; }
   .news-pub { text-align: left; grid-column: 1 / -1; }
   .news-all-head { flex-wrap: wrap; }
   .edition-body li { padding-left: calc(var(--mr-space-xxl) + var(--mr-space-md)); }
