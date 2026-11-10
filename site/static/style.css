@@ -497,7 +497,7 @@ header.top nav a.on::after { content: ""; position: absolute; left: 12px; right:
   .has-js header.top nav.is-open { display: flex; }
 }
 @media (max-width: 400px) { .brand-text small { display: none; } }
-/* Compact phones: keep all header controls visible without horizontal overflow. */
+/* Compact phones: keep all header controls visible without horizontal overflow. 320–360px layouts.*/
 @media (max-width: 360px) {
   header.top .wrap { gap: 0 6px; }
   .brand { gap: 6px; }
