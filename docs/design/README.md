@@ -37,14 +37,17 @@ CC Macro 公开网站（https://ccmacro.byliyz.com/）的视觉设计以 **Mason
 | 项目 | 站点做法 | 原因 |
 |---|---|---|
 | `primary-pressed` | 使用 **#561726**（比 primary 深一级） | 上游值 #f1f5f9 接近白色，会让按钮上的白字不可读 |
-| 暗色模式 | 站点保留暗色模式；页眉页脚用站点暗色 surface/ink，字标和当前页下划线改用 ink | 设计系统只有浅色主题；酒红在深蓝底上对比度不足 |
+| 暗色模式 | 站点保留暖色暗色模式（底色 #161615、卡片 #1f1f1d、分隔线 #33332f、文字 #f4f3ef）；字标、当前页下划线和主按钮改用 ink（主按钮为 ink 底、深色字） | 设计系统只有浅色主题；酒红在近黑底上对比度不足 |
+| 警示色 | 状态中的“待定/警示”沿用站点原有 `--warn`（浅色 #a16207，暗色 #d39a2c） | 设计系统没有警示 token；证据状态需要第三种语义色 |
+| 图表 | 单序列折线用 `charcoal`（暗色为 #e5e5e0），网格用 `hairline-soft`，参考线用 `ash` | 主色只用于操作与品牌，不用于数据 |
 | 字体 | `Inter` 仅在用户本机已安装时生效，其余回退到站点现有的中文友好字体栈 `--sans` | 不新增 Google Fonts 等外部依赖（PRODUCT_STRATEGY §20.7）；中文需要 CJK 字体 |
-| CSS 变量 | 站点内使用 `--mr-` 前缀（如 `--mr-primary`），定义在 `site/static/style.css` 的 “Site chrome” 段 | 避免与站点已有变量（`--ink`、`--surface` 等）冲突 |
+| CSS 变量 | 站点内使用 `--mr-` 前缀（如 `--mr-primary`），定义在 `site/static/style.css` 开头的 “Masonry Red foundation” 段；旧变量名（`--surface`、`--ink`、`--rule`、`--accent` 等）作为别名指向这些 token | 各页面与样式表读取同一套取值 |
+| 共用控件 | `.mr-btn`（`--primary` / `--tertiary`）与 `.mr-chip`（放在 `.mr-chips` 行内，`aria-current` 或 `aria-pressed="true"` 为选中）定义在 `style.css`，页面直接复用 | 不为每个页面重复写按钮和筛选样式 |
 | 导航主按钮 | 站点没有注册功能，导航右侧放语言切换（胶囊分段控件），不放主色按钮 | 不虚构不存在的功能 |
 | 图片类组件 | PinCard、MasonryGrid、CategoryTile、FeatureCard 的“图片即卡片”规则只在有真实图片时使用；数据卡片、图表沿用 16px 圆角、扁平、hairline 的通用规则 | 站点以数据和图表为主，不使用装饰性图片 |
 | 导航结构 | 主导航固定为 Overview · News · Data · Research；Daily、Policy 等从 News 内页与页脚进入 | PRODUCT_STRATEGY §0 |
 
-**已应用：** 页眉与页脚（`site/templates/base.html`、`site/static/style.css`，PR #38）。其余页面在后续改动中逐步按本指南迁移。
+**已应用：** 页眉与页脚（PR #38）；全站 token、排版、卡片、表格、标签、按钮与筛选控件（Masonry Red foundation）。各栏目页面布局在后续改动中逐步迁移。
 
 ## 4. 上游文件中已知的不一致
 

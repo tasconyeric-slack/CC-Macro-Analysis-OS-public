@@ -6,7 +6,7 @@
     <h1>{{ case.question }}</h1>
     <p class="small muted printonly">{{ t('memo.print_line', url=meta.canonical, date=built_at|date) }}</p>
   </div>
-  <button type="button" class="printbtn" data-print>{{ t('memo.print') }}</button>
+  <button type="button" class="printbtn mr-btn" data-print>{{ t('memo.print') }}</button>
 </div>
 {% if memo %}
 <article class="memo">{{ memo }}</article>
