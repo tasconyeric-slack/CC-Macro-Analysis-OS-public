@@ -74,6 +74,9 @@ footer:
   uncommitted: 未提交
   boundary: "公开版本仅使用官方和开放来源（国家统计局、中国人民银行、财政部、海关总署、FRED）。授权数据从不公开；依赖授权数据的结论会标注为“未公开”。"
   not_advice: 本站为研究系统，不构成投资建议。
+  col_site: 本站
+  col_research: "研究与方法"
+  col_sources: 数据来源
 
 common:
   list_sep: "、"
