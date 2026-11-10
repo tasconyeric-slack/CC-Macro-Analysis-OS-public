@@ -544,10 +544,10 @@ portal:
   daily_note: Follow the next release, then inspect what actually changed.
   daily_title: Daily Macro Desk
   daily_description: Official releases, sourced facts and the research view in one place.
-  daily_kicker: DAILY MACRO DESK
+  daily_kicker: Daily macro desk
   calendar_title: Release calendar
   calendar_description: Verified official release times and the evidence they could change.
-  calendar_kicker: RELEASE CALENDAR
+  calendar_kicker: Release calendar
   calendar_frequency: By official schedule
   data_group: Economic and financial data
   data_note: Seven research lenses, using only the public observations held by this project.
@@ -556,13 +556,13 @@ portal:
   policy_note: Trace an official announcement through evidence to the analyst view.
   policy_title: Policy tracker
   policy_description: Official texts, transmission channels and the next confirming observation.
-  policy_kicker: POLICY TRACKER
+  policy_kicker: Policy tracker
   research_title: Research thesis
   research_description: The current view, competing explanations and the strongest counter-case.
-  research_kicker: RESEARCH THESIS
+  research_kicker: Research thesis
   evidence_title: Evidence and method
   evidence_description: Source-bound claims, deterministic tests and the limits of this research.
-  evidence_kicker: EVIDENCE & METHOD
+  evidence_kicker: Evidence & method
   public_sources: Official and open sources
   research_portal: Macro research portal
   read_research: Read the research
@@ -572,43 +572,43 @@ portal:
   no_data: No public observations in this category yet
   no_data_note: This project does not fill gaps with estimates or licensed data.
   tier:
-    FACT: FACT
-    EVENT: EVENT
-    EXTERNAL_VIEW: EXTERNAL VIEW
-    JUDGMENT: JUDGMENT
-    CANDIDATE: CANDIDATE
+    FACT: Fact
+    EVENT: Event
+    EXTERNAL_VIEW: External view
+    JUDGMENT: Judgment
+    CANDIDATE: Candidate
   category:
     growth:
       title: Growth and activity
-      kicker: GROWTH & ACTIVITY
+      kicker: Growth & activity
       description: GDP, consumption, production and property.
     prices:
       title: Prices
-      kicker: PRICES & INFLATION
+      kicker: Prices & inflation
       description: CPI, core inflation and producer prices.
     pmi:
       title: PMI and sentiment
-      kicker: PMI & SENTIMENT
+      kicker: PMI & sentiment
       description: Orders, export orders and output prices.
     trade:
       title: External demand
-      kicker: TRADE & DEMAND
+      kicker: Trade & demand
       description: Exports and demand beyond China.
     credit:
       title: Money and credit
-      kicker: MONEY & CREDIT
+      kicker: Money & credit
       description: Money, credit stocks and financing conditions.
     fiscal:
       title: Fiscal policy
-      kicker: FISCAL POLICY
+      kicker: Fiscal policy
       description: Government financing, spending and revenue.
     external:
       title: Global environment
-      kicker: GLOBAL ENVIRONMENT
+      kicker: Global environment
       description: Energy, metals, exchange rates and US yields.
 
 desk:
-  kicker: DAILY MACRO DESK
+  kicker: Daily macro desk
   lede: Official releases, public observations and the research questions they inform.
   beijing: Beijing time
   last_refresh: Last factual refresh
@@ -696,7 +696,7 @@ data_explorer:
     metadata. Revisions remain visible in the metric detail.
 
 official_inbox:
-  kicker: OFFICIAL ANNOUNCEMENTS
+  kicker: Official announcements
   description: Official releases and policy documents, with source dates and a separate review trail.
   count: '{n} source items'
   archive_count: '{n} archived on first collection'
@@ -742,7 +742,7 @@ event_triage:
 
 reader:
   snapshot: Macro snapshot
-  kicker: CHINA MACRO
+  kicker: China macro
   title: The economy, in focus
   description: Recent releases, the trends behind them, and the evolving research view.
   research: The current research view

@@ -164,7 +164,9 @@ def calendar_label(entry: dict, loc: str, zh_names: dict | None = None) -> str:
     if loc == "en":
         return TRAILING_CJK.sub("", name).strip() if m else name
     if m:
-        return f"{fmt_period(entry.get('period'), 'zh')}{m.group(1)}"
+        # a release named without its period (release_name) still leads with it: '2026-10 CPI (…)'
+        period = entry.get("period") or (re.match(r"\d{4}-\d{2}", name) or [None])[0]
+        return f"{fmt_period(period, 'zh')}{m.group(1)}"
     return (zh_names or {}).get(name, name)
 
 
