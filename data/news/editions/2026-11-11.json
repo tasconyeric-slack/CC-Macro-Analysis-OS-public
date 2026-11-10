@@ -6,10 +6,41 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-3a136a4d76f8",
+  "evt-530d64a1cae8",
   "evt-230ac71adcc3",
-  "evt-795abe67c77f"
+  "evt-1d9475a2e1ee"
  ],
  "body": [
+  {
+   "event_id": "evt-3a136a4d76f8",
+   "title_zh": "欧洲央行管委穆兰预计法国2026年国内生产总值增长约0.3%",
+   "summary_zh": "欧洲央行管委穆兰预计法国2026年国内生产总值增长约0.3%。",
+   "url": "https://finance.sina.cn/7x24/2026-11-10/detail-iniyfqta2769762.d.html",
+   "publisher": "新浪财经",
+   "topic": "credit",
+   "publishers": [
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "score": 72,
+   "rank_key": 80.31776616671934
+  },
+  {
+   "event_id": "evt-530d64a1cae8",
+   "title_zh": "增长20%，前10个月我国外贸保持强劲增长态势",
+   "summary_zh": "海关总署11月10日发布数据，今年前10个月，我国货物贸易进出口44.81万亿元，同比增长20%，保持强劲增长态势。其中，出口25.99万亿元，同比增长17.6%；进口18.82万亿元，同比增长23.6%。（新华社）",
+   "url": "https://wallstreetcn.com/livenews/3197335",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "中国新闻网",
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 77.59167373200866
+  },
   {
    "event_id": "evt-230ac71adcc3",
    "title_zh": "皖能集团战略投资中科星云",
@@ -19,6 +50,19 @@
    "topic": "growth",
    "publishers": [
     "新浪财经"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967
+  },
+  {
+   "event_id": "evt-1d9475a2e1ee",
+   "title_zh": "中国10月大豆进口734.5万吨，同比下降22.5%",
+   "summary_zh": "中国10月大豆进口734.5万吨，同比下降22.5%。",
+   "url": "https://wallstreetcn.com/livenews/3197345",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
    ],
    "score": 67,
    "rank_key": 71.15888308335967
@@ -37,6 +81,59 @@
    "rank_key": 69.15888308335967
   }
  ],
- "quick": [],
+ "quick": [
+  {
+   "event_id": "evt-7229e95e2d20",
+   "title_zh": "中国10月原油进口4,193.8万吨，同比下降13.3%",
+   "summary_zh": "中国10月原油进口4,193.8万吨，同比下降13.3%。",
+   "url": "https://wallstreetcn.com/livenews/3197346",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967
+  },
+  {
+   "event_id": "evt-e0eeeeee4049",
+   "title_zh": "中国10月铁矿砂及其精矿进口10,565.8万吨，同比下降5.1%",
+   "summary_zh": "中国10月铁矿砂及其精矿进口10,565.8万吨，同比下降5.1%。",
+   "url": "https://wallstreetcn.com/livenews/3197347",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967
+  },
+  {
+   "event_id": "evt-f892dcebe208",
+   "title_zh": "早间要闻汇总",
+   "summary_zh": "创业板指半日涨1.49%，AI漫剧、机器人概念再度爆发。恒指半日涨0.3%，恒生科技指数涨0.7%，智谱大涨逾11%，MINIMAX涨逾7%。亚太股市冲高回落，韩国首尔综指盘中一度涨逾5%，日经225指数一度涨逾3%。按美元计，中国10月出口同比增长35.2%，AI硬件热潮为主引擎；进口同比增长41.6%。 Anthropic招股文件刚发就撤！693亿美元融资细节意外泄露，英伟达、微软、台积电等集体押注260亿。药明康德：美国国防部将公",
+   "url": "https://wallstreetcn.com/livenews/3197386",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967
+  },
+  {
+   "event_id": "evt-eaa42f7d2edd",
+   "title_zh": "国家发展改革委：合理制定公共服务收费标准，清单之外一律不得收费",
+   "summary_zh": "国家发展改革委价格司副司长张璐琴表示，“十五五”时期发改委将会同有关部门狠抓已出台政策的贯彻落实。科学定价，指导各地评估现行政策，合理制定公共服务的收费标准，并及时进行动态的评估完善。同时，以建立收费目录清单为抓手，从源头规范相关行业的收费行为，明确机构所有的收费全部进清单，清单之外一律不得收费，同步强化收费公示，没有公示的，还有公示与政策不符的，一律不得收费。养老服务不得随意加码，殡葬服务不得强制推销丧葬用品等，通过收费清单化管理，全",
+   "url": "https://wallstreetcn.com/livenews/3197349",
+   "publisher": "华尔街见闻",
+   "topic": "growth",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967
+  }
+ ],
  "final": false
 }
