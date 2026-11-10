@@ -166,11 +166,11 @@ svg.chart .cross { stroke: var(--ink-3); stroke-width: 1; }
 .tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font: 600 12px/1.4 var(--mr-font); padding: 6px 10px; border-radius: var(--mr-radius-sm); white-space: nowrap; transform: translate(-50%, -120%); z-index: 3; }
 
 /* memo */
-.memo { font-size: 17px; line-height: 1.7; color: var(--ink-2); min-width: 0; }
+.memo { font-size: 16px; line-height: 1.75; color: var(--ink-2); min-width: 0; }
 .memo > *:not(.tablewrap):not(table) { max-width: 720px; }
 .memo > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
 /* the bottom line (the note's first section) reads first: larger, in ink */
-.memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 19px; line-height: 1.6; color: var(--ink); }
+.memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 18px; line-height: 1.6; color: var(--ink); }
 .memo strong { color: var(--ink); }
 .memo sup.cite a, .memo sup a { font-weight: 700; color: var(--ink-3); }
 /* Research note: the text on the left, the current judgment in a sticky rail on the right */
@@ -178,16 +178,16 @@ svg.chart .cross { stroke: var(--ink-3); stroke-width: 1; }
 .memo-rail { position: sticky; top: calc(var(--mr-nav-h) + 24px); display: grid; gap: 16px; }
 .memo-judgment { padding: 24px; border-radius: var(--mr-radius-md); background: var(--surface-2); }
 .memo-judgment .label { font: 500 12px/1.5 var(--mr-font); color: var(--ink-3); }
-.memo-prob { margin: 4px 0 0; font-size: 56px; font-weight: 600; line-height: 1; letter-spacing: -1.2px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.memo-prob { margin: 4px 0 0; font-size: 70px; font-weight: 600; line-height: 1; letter-spacing: -1.2px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .memo-judgment .fignote { margin: var(--mr-space-md) 0 var(--mr-space-lg); padding-bottom: 16px; border-bottom: 1px solid var(--rule); font-size: 12px; line-height: 1.5; color: var(--ink-3); }
-.memo-judgment dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 13px; }
+.memo-judgment dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 14px; }
 .memo-judgment dt { color: var(--ink-3); }
 .memo-judgment dd { margin: 0; font-weight: 700; color: var(--ink); text-align: right; }
 .memo-links { display: grid; gap: 0; padding: 4px 24px; border: 1px solid var(--rule); border-radius: var(--mr-radius-md); }
 .memo-links a { padding: 12px 0; border-bottom: 0; font-weight: 700; color: var(--ink); }
 .memo-links a + a { border-top: 1px solid var(--rule); }
 @media (max-width: 1000px) { .memo-layout { grid-template-columns: 1fr; gap: 32px; } .memo-rail { position: static; order: -1; grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .memo-rail { grid-template-columns: 1fr; } .memo { font-size: 16px; } .memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 17px; } }
+@media (max-width: 600px) { .memo-rail { grid-template-columns: 1fr; } .memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 16px; } }
 
 /* timeline */
 .timeline { max-width: 880px; border-left: 2px solid var(--rule); margin-left: 6px; padding-left: 24px; }
@@ -352,7 +352,7 @@ html[lang="zh-Hans"] body { line-height: 1.75; }
 html[lang="zh-Hans"] h1, html[lang="zh-Hans"] h2, html[lang="zh-Hans"] h3 { letter-spacing: 0; line-height: 1.35; }
 html[lang="zh-Hans"] th { font-size: 12.5px; }
 
-html[lang="zh-Hans"] .memo { font-size: 17px; line-height: 1.9; }
+html[lang="zh-Hans"] .memo { font-size: 16px; line-height: 1.9; }
 html[lang="zh-Hans"] .small, html[lang="zh-Hans"] .prov { line-height: 1.65; }
 
 /* long strings never widen the page */
