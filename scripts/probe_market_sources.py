@@ -130,6 +130,17 @@ def tushare_probe(report):
 
     add("us_tycr 1Y/10Y", "us_tycr", {"start_date": start, "end_date": end}, ["date", "y1", "y10"], limit=2000)
 
+    # Round 2 (after round 1 showed yc_cb, fx_*, sw_daily, fut_* and repo_daily are not permitted for this account):
+    # which neighbouring endpoints ARE permitted, so the Owner can choose a replacement set from facts.
+    for code in ("801050.SI", "801120.SI", "000905.SH", "000016.SH", "399006.SZ", "000852.SH"):
+        add(f"index_daily {code}", "index_daily", {"ts_code": code, "start_date": ymd(today() - timedelta(days=60)), "end_date": end}, limit=10000)
+    add("shibor_lpr", "shibor_lpr", {"start_date": ymd(today() - timedelta(days=120)), "end_date": end})
+    add("hibor", "hibor", {"start_date": ymd(today() - timedelta(days=30)), "end_date": end})
+    add("us_trycr (real yields)", "us_trycr", {"start_date": ymd(today() - timedelta(days=30)), "end_date": end})
+    add("index_global SPX", "index_global", {"ts_code": "SPX", "start_date": ymd(today() - timedelta(days=30)), "end_date": end})
+    add("sge_daily Au99.99", "sge_daily", {"ts_code": "Au99.99", "start_date": ymd(today() - timedelta(days=30)), "end_date": end})
+    add("fut_basic SHFE (listing only)", "fut_basic", {"exchange": "SHFE", "fut_type": "1"}, ["ts_code", "name"])
+
 
 def public_probe(report, response_dir):
     d1 = today().date()
