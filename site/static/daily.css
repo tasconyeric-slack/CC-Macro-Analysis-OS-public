@@ -1,20 +1,20 @@
 /* Daily Macro Desk (Masonry Red, docs/design/README.md) */
 
 /* heading: title on the left, Beijing clock on the right */
-.desk-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; padding: 8px 0 28px; margin-bottom: 0; }
+.desk-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; padding: var(--mr-space-sm) 0 var(--mr-space-xl); margin-bottom: 0; }
 .desk-heading > div > span { color: var(--ink-3); font-size: 12px; font-weight: 700; }
 .desk-heading h1 { margin: 8px 0; }
 .desk-heading p { margin: 0; max-width: 660px; font-size: 18px; color: var(--ink-2); }
-.desk-clock { flex: none; min-width: 240px; padding: 16px 20px; border-radius: var(--mr-radius-md); background: var(--surface-2); font-size: 12px; color: var(--ink-3); }
+.desk-clock { flex: none; min-width: 240px; padding: var(--mr-space-lg) var(--mr-space-xl); border-radius: var(--mr-radius-md); background: var(--surface-2); font-size: 12px; color: var(--ink-3); }
 .desk-clock strong, .desk-clock small { display: block; margin-top: 6px; }
 .desk-clock strong { font-size: 16px; color: var(--ink); font-variant-numeric: tabular-nums; }
 
 /* headline indicators: the same cards as the home snapshot */
 .desk-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 0; }
-.desk-kpi { display: flex; flex-direction: column; min-width: 0; padding: 20px; border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
+.desk-kpi { display: flex; flex-direction: column; min-width: 0; padding: var(--mr-space-xl); border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
 .desk-kpi .kpi-tile { border: 0; border-radius: 0; background: transparent; padding: 0; }
 .desk-kpi .label { font-size: 14px; font-weight: 700; color: var(--ink); }
-.desk-kpi .kpi-value { margin: 10px 0 2px; font-size: 40px; line-height: 1.1; }
+.desk-kpi .kpi-value { margin: var(--mr-space-md) 0 var(--mr-space-xxs); font-size: 40px; line-height: 1.1; }
 .desk-kpi .kpi-value small { font-size: 13px; letter-spacing: 0; color: var(--ink-3); }
 .desk-kpi .kpi-tile p { margin: 4px 0 12px; font-size: 13px; color: var(--ink-2); }
 .desk-kpi .source-line { font-size: 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
@@ -22,16 +22,16 @@
 
 /* two columns: brief, judgment, announcements and releases; then the watch list */
 .desk-layout { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(260px, 1fr); gap: 48px; align-items: start; }
-.desk-layout section { margin: 0 0 40px; }
+.desk-layout section { margin: 0 0 var(--mr-space-xxl); }
 .desk-section-title { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .desk-section-title h2 { margin: 0 0 12px; padding: 0; border: 0; }
 .desk-section-title > a { font-size: 14px; font-weight: 700; color: var(--ink); }
-.desk-brief { padding: 28px; border-radius: var(--mr-radius-md); background: var(--surface-2); }
-.desk-brief p { margin: 10px 0; max-width: 72ch; }
+.desk-brief { padding: var(--mr-space-xxl); border-radius: var(--mr-radius-md); background: var(--surface-2); }
+.desk-brief p { margin: var(--mr-space-md) 0; max-width: 72ch; }
 .desk-brief > a { font-weight: 700; color: var(--ink); }
-.desk-judgment { padding: 20px 24px; border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
+.desk-judgment { padding: var(--mr-space-xl); border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
 .desk-judgment p { margin: 8px 0; }
-.desk-release { border-top: 1px solid var(--rule); padding: 24px 0; }
+.desk-release { border-top: 1px solid var(--rule); padding: var(--mr-space-xl) 0; }
 .desk-release h3 { margin: 8px 0 16px; font-size: 20px; }
 .desk-release h3 a { color: var(--ink); }
 .desk-release-top { display: flex; gap: 12px; align-items: center; font-size: 12px; color: var(--ink-3); }
@@ -42,17 +42,17 @@
 .desk-release-values strong { margin: 4px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.8px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .desk-release-values small { margin-left: 4px; font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--ink-3); }
 .desk-release-values a { font-size: 12px; font-weight: 700; color: var(--ink); }
-.desk-notice { padding: 16px 20px; border-radius: var(--mr-radius-md); background: var(--surface-2); font-size: 14px; }
+.desk-notice { padding: var(--mr-space-lg) var(--mr-space-xl); border-radius: var(--mr-radius-md); background: var(--surface-2); font-size: 14px; }
 
 /* sidebar: soft cards */
 .desk-sidebar { position: sticky; top: calc(var(--mr-nav-h) + 24px); }
-.desk-sidebar section { padding: 20px 24px; border-radius: var(--mr-radius-md); background: var(--surface-2); }
+.desk-sidebar section { padding: var(--mr-space-xl); border-radius: var(--mr-radius-md); background: var(--surface-2); }
 .desk-sidebar h2 { margin: 0 0 8px; padding: 0; border: 0; font-size: 20px; }
 .desk-sidebar h3 { margin: 8px 0; font-size: 15px; line-height: 1.5; }
 .desk-next { padding: 16px 0; border-top: 1px solid var(--rule); }
 .desk-next p, .desk-next a { font-size: 13px; margin: 6px 0; }
 .desk-next a { font-weight: 700; color: var(--ink); }
-.desk-state { display: inline-block; font-size: 11px; font-weight: 700; color: var(--ink-2); background: var(--surface-2); padding: 3px 10px; border-radius: var(--mr-radius-full); }
+.desk-state { display: inline-block; font-size: 11px; font-weight: 700; color: var(--ink-2); background: var(--surface-2); padding: var(--mr-space-xxs) var(--mr-space-md); border-radius: var(--mr-radius-full); }
 .desk-sidebar .desk-state { background: var(--page); }
 .state-pending { background: var(--mr-secondary-bg); color: var(--ink); }
 .state-released { background: var(--mr-success-pale); color: #103c25; }
@@ -63,7 +63,7 @@
 /* release calendar */
 .desk-calendar { margin-top: var(--mr-space-section); }
 .desk-calendar > p { font-size: 14px; color: var(--ink-3); }
-.desk-calendar-table article { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 16px 0; border-top: 1px solid var(--rule); }
+.desk-calendar-table article { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: var(--mr-space-lg); align-items: center; padding: var(--mr-space-lg) 0; border-top: 1px solid var(--rule); }
 .desk-calendar-table h3 { margin: 0 0 4px; font-size: 16px; }
 .desk-calendar-table span, .desk-calendar-table a { font-size: 13px; }
 .desk-calendar-table a { font-weight: 700; color: var(--ink); }
@@ -79,12 +79,12 @@
   .desk-heading { display: block; }
   .desk-clock { margin-top: 16px; min-width: 0; }
   .desk-kpis { gap: 12px; }
-  .desk-kpi { padding: 16px 14px; }
+  .desk-kpi { padding: var(--mr-space-lg); }
   .desk-kpi .kpi-value { font-size: 28px; }
   .desk-kpi .kpi-value small { font-size: 11px; }
   .desk-sidebar { display: block; }
   .desk-sidebar section + section { margin-top: 16px; }
-  .desk-brief { padding: 20px 16px; }
+  .desk-brief { padding: var(--mr-space-xl) var(--mr-space-lg); }
   .desk-calendar-table article { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .desk-release-values { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .desk-release h3 { font-size: 18px; }
