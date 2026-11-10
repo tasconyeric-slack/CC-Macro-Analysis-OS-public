@@ -92,17 +92,17 @@ kind:
   next: next
 
 status:
-  ACTIVE: Active
-  CONFIRMED: Confirmed
-  FALSIFIED: Falsified
-  RETIRED: Retired
-  PROPOSED: Proposed
-  DRAFT: Draft
+  ACTIVE: ACTIVE
+  CONFIRMED: CONFIRMED
+  FALSIFIED: FALSIFIED
+  RETIRED: RETIRED
+  PROPOSED: PROPOSED
+  DRAFT: DRAFT
 
 confidence:
-  LOW: Low
-  MEDIUM: Medium
-  HIGH: High
+  LOW: LOW
+  MEDIUM: MEDIUM
+  HIGH: HIGH
 
 direction:
   STRENGTHENED: strengthened
