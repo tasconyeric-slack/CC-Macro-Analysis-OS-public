@@ -497,6 +497,15 @@ header.top nav a.on::after { content: ""; position: absolute; left: 12px; right:
   .has-js header.top nav.is-open { display: flex; }
 }
 @media (max-width: 400px) { .brand-text small { display: none; } }
+/* Compact phones: keep all header controls visible without horizontal overflow. */
+@media (max-width: 360px) {
+  header.top .wrap { gap: 0 6px; }
+  .brand { gap: 6px; }
+  .brand-text { font-size: 16px; }
+  .lang { padding: 2px; }
+  .lang a, .lang .cur { padding: 0 7px; font-size: 12px; }
+  .menu-toggle { width: 36px; height: 36px; }
+}
 
 /* footer */
 .site-footer { margin-top: 64px; padding: 32px 0; background: var(--mr-canvas); border-top: 1px solid var(--mr-hairline); color: var(--mr-mute); font: 400 14px/1.4 var(--mr-font); }
