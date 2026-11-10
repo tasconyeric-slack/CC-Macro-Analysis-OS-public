@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}<link rel="stylesheet" href="{{ asset }}news-feed.css">{% endblock %}
 {% block body %}{% set N = macro_news %}
-<section class="news-page-head"><div><h1>{{ N.labels.title }}</h1><p class="lede">{{ N.labels.intro }}</p></div><nav class="news-tabs" aria-label="{{ N.labels.title }}"><a href="#top">{{ N.labels.top }}</a><a href="#all">{{ N.labels.all }}</a><a href="#editions">{{ N.labels.editions }}</a><a href="#archive">{{ N.labels.archive }}</a><a href="policy.html">{{ N.labels.policy }}</a><a href="daily.html">{{ N.labels.calendar }}</a></nav></section>
+<section class="news-page-head"><div><h1>{{ N.labels.title }}</h1><p class="lede">{{ N.labels.intro }}</p></div><nav class="news-tabs mr-chips mr-chips--sm" aria-label="{{ N.labels.title }}"><a class="mr-chip" href="#top">{{ N.labels.top }}</a><a class="mr-chip" href="#all">{{ N.labels.all }}</a><a class="mr-chip" href="#editions">{{ N.labels.editions }}</a><a class="mr-chip" href="#archive">{{ N.labels.archive }}</a><a class="mr-chip" href="policy.html">{{ N.labels.policy }}</a><a class="mr-chip" href="daily.html">{{ N.labels.calendar }}</a></nav></section>
 <section class="news-search" aria-label="{{ N.labels.search }}"><div id="news-search" data-placeholder="{{ N.labels.search_ph }}" data-pagefind-root="../pagefind/"></div></section>
 <div class="news-columns">
 <section id="top" class="macro-news"><h2>{{ N.labels.top }}</h2><div class="news-list">{% for e in N.events %}{% include "news-event.html" %}{% else %}<p>{{ N.labels.empty }}</p>{% endfor %}</div></section>

@@ -2,17 +2,19 @@
 .data-intro h1{margin-top:8px}
 .data-total{flex-shrink:0;display:grid;text-align:right;color:var(--ink-3)}
 .data-total strong{font-size:44px;line-height:1.2;color:var(--accent,var(--ink))}
-.data-category-card{border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--surface)}
-.data-category-card .column-card{border:0;border-radius:0;box-shadow:none;height:auto}
+.data-category-card{border:1px solid var(--rule);border-radius:var(--mr-radius-md);overflow:hidden;background:var(--surface)}
+.data-category-card .column-card{border:0;border-radius:0;height:auto}
+/* the card clips its content, so the focus ring is drawn on the card itself */
+.data-category-card .column-card:focus-visible{outline:none}.data-category-card:has(.column-card:focus-visible){outline:2px solid var(--mr-focus-outer);outline-offset:2px}
 .data-preview{padding:14px 22px;border-top:1px solid var(--rule);display:grid;gap:6px;font-size:12px;color:var(--ink-3)}
 .data-preview strong{font-size:23px;color:var(--ink);font-variant-numeric:tabular-nums}
 .data-preview small{font-size:12px;font-weight:400}
-.data-boundary{margin-top:36px;padding:20px 24px;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+.data-boundary{margin-top:36px;padding:20px 24px;background:var(--surface);border:1px solid var(--rule);border-radius:var(--mr-radius-md)}
 .data-boundary h2{margin-top:0}
-.data-category-nav,.data-metric-nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.data-category-nav a,.data-metric-nav a{padding:7px 11px;border:1px solid var(--rule);border-radius:7px;font-size:12px;text-decoration:none}
-.data-category-nav a[aria-current]{background:var(--ink);color:var(--surface)}
-.data-metric-nav a{border-color:transparent;padding-left:0}
+.data-metric-nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 24px;font-size:13px}
+
+
+.data-metric-nav a{font-weight:600}
 .data-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .data-metric{padding:24px;scroll-margin-top:100px}
 .data-metric-heading{display:flex;justify-content:space-between;gap:16px;align-items:start}
@@ -25,15 +27,15 @@
 .data-reading dl{display:grid;grid-template-columns:auto auto;gap:4px 14px;font-size:11px;margin:0}
 .data-reading dt{color:var(--ink-3)}
 .data-reading dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
-.data-range{display:flex;gap:4px;margin-top:20px}
-.data-range button{font:inherit;font-size:12px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:5px 12px;color:var(--ink);cursor:pointer}
-.data-range button[aria-pressed=true]{background:var(--ink);color:var(--surface)}
-.data-range button:focus-visible,.data-detail summary:focus-visible{outline:3px solid var(--series-1);outline-offset:3px}
+.data-range{margin:20px 0 8px}
+
+
+
 .data-plot-compact{display:none}
 .data-chart-hint{color:var(--ink-3);font-size:11px}
 .data-tests{display:flex;gap:7px;flex-wrap:wrap;font-size:11px;margin:16px 0}
 .data-tests span{color:var(--ink-3)}
-.data-tests a{border:1px solid var(--rule);padding:2px 6px;border-radius:4px}
+.data-tests a{background:var(--surface-2);padding:2px 10px;border-radius:var(--mr-radius-full);font-family:var(--mono)}
 .data-detail{border-top:1px solid var(--rule);margin-top:18px;padding-top:14px;font-size:12px}
 .data-detail summary{font-weight:600;cursor:pointer}
 .data-detail table{font-size:11px;white-space:nowrap}
