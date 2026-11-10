@@ -166,15 +166,33 @@ svg.chart .cross { stroke: var(--ink-3); stroke-width: 1; }
 .tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--page); font: 600 12px/1.4 var(--mr-font); padding: 6px 10px; border-radius: var(--mr-radius-sm); white-space: nowrap; transform: translate(-50%, -120%); z-index: 3; }
 
 /* memo */
-.memo { font-family: var(--serif); font-size: 17px; line-height: 1.65; }
+.memo { font-size: 17px; line-height: 1.7; color: var(--ink-2); min-width: 0; }
 .memo > *:not(.tablewrap):not(table) { max-width: 720px; }
-.memo h2, .memo h3 { font-family: var(--sans); }
-.memo table { font-family: var(--sans); }
+.memo > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+/* the bottom line (the note's first section) reads first: larger, in ink */
+.memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 19px; line-height: 1.6; color: var(--ink); }
+.memo strong { color: var(--ink); }
+.memo sup.cite a, .memo sup a { font-weight: 700; color: var(--ink-3); }
+/* Research note: the text on the left, the current judgment in a sticky rail on the right */
+.memo-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: start; margin-top: 32px; }
+.memo-rail { position: sticky; top: calc(var(--mr-nav-h) + 24px); display: grid; gap: 16px; }
+.memo-judgment { padding: 24px; border-radius: var(--mr-radius-md); background: var(--surface-2); }
+.memo-judgment .label { font: 500 12px/1.5 var(--mr-font); color: var(--ink-3); }
+.memo-prob { margin: 4px 0 0; font-size: 56px; font-weight: 600; line-height: 1; letter-spacing: -1.2px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.memo-judgment .fignote { margin: 10px 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); font-size: 12px; line-height: 1.5; color: var(--ink-3); }
+.memo-judgment dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; font-size: 13px; }
+.memo-judgment dt { color: var(--ink-3); }
+.memo-judgment dd { margin: 0; font-weight: 700; color: var(--ink); text-align: right; }
+.memo-links { display: grid; gap: 0; padding: 4px 24px; border: 1px solid var(--rule); border-radius: var(--mr-radius-md); }
+.memo-links a { padding: 12px 0; border-bottom: 0; font-weight: 700; color: var(--ink); }
+.memo-links a + a { border-top: 1px solid var(--rule); }
+@media (max-width: 1000px) { .memo-layout { grid-template-columns: 1fr; gap: 32px; } .memo-rail { position: static; order: -1; grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .memo-rail { grid-template-columns: 1fr; } .memo { font-size: 16px; } .memo > h2:first-child ~ p:not(h2:nth-of-type(2) ~ p) { font-size: 17px; } }
 
 /* timeline */
-.timeline { border-left: 2px solid var(--rule); margin-left: 6px; padding-left: 20px; }
+.timeline { max-width: 880px; border-left: 2px solid var(--rule); margin-left: 6px; padding-left: 24px; }
 .tl-item { position: relative; margin-bottom: 28px; }
-.tl-item::before { content: ""; position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--ink-2); }
+.tl-item::before { content: ""; position: absolute; left: -32px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--page); border: 2px solid var(--ink-3); }
 .tl-item.base::before { background: var(--ink); }
 .diff { display: inline-block; font-family: var(--mono); font-size: 13px; }
 
@@ -195,7 +213,7 @@ a.hcell:hover { text-decoration: none; border-color: var(--ink-3); }
 .audit-list li.next { color: var(--ink-3); }
 .legend { display: flex; flex-direction: column; gap: 4px; margin-top: 16px; color: var(--ink-2); }
 .tl-item.amend::before { border-style: dashed; }
-.tl-item.data::before { width: 8px; height: 8px; left: -25px; top: 8px; }
+.tl-item.data::before { width: 10px; height: 10px; left: -30px; top: 6px; }
 .tl-item.next::before { border-color: var(--rule); }
 
 /* ===================== V1.1: bilingual product layer ===================== */
@@ -311,13 +329,15 @@ ul.sources { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; ma
 .mr-chips--sm .mr-chip { min-height: 32px; padding: 6px 14px; font-size: 13px; }
 
 /* memo */
-.memo-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.memo-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.memo-head h1 { max-width: 20em; margin-bottom: 0; }
 .printonly { display: none; }
 .memo table.scenarios { font-family: var(--sans); }
 .memo .tablewrap { margin: 16px 0; }
-ol.refs { padding-left: 0; list-style-position: inside; font-size: 13.5px; }
-ol.refs li { padding: 8px 0; border-bottom: 1px solid var(--rule); }
-.memo-refs { max-width: 720px; }
+ol.refs { padding-left: 0; list-style-position: inside; font-size: 14px; }
+ol.refs li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+ol.refs li::marker { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.memo-refs { max-width: 880px; margin-top: var(--mr-space-section); }
 
 /* root language selector */
 body.selector { display: grid; min-height: 100vh; place-items: center; }
@@ -331,8 +351,8 @@ body.selector { display: grid; min-height: 100vh; place-items: center; }
 html[lang="zh-Hans"] body { line-height: 1.75; }
 html[lang="zh-Hans"] h1, html[lang="zh-Hans"] h2, html[lang="zh-Hans"] h3 { letter-spacing: 0; line-height: 1.35; }
 html[lang="zh-Hans"] th { font-size: 12.5px; }
-html[lang="zh-Hans"] .memo { font-family: var(--serif-zh); }
-html[lang="zh-Hans"] .memo { font-size: 16.5px; line-height: 1.9; }
+
+html[lang="zh-Hans"] .memo { font-size: 17px; line-height: 1.9; }
 html[lang="zh-Hans"] .small, html[lang="zh-Hans"] .prov { line-height: 1.65; }
 
 /* long strings never widen the page */
@@ -350,6 +370,9 @@ img, svg { max-width: 100%; }
   main { padding: 0; }
   .wrap { max-width: none; padding: 0; }
   .printonly { display: block; }
+  .memo-rail { display: none !important; }
+  .memo-layout { display: block; margin: 0; }
+  .memo-head { border: 0; padding: 0; }
   .memo { max-width: none; font-size: 11pt; line-height: 1.55; }
   .memo h2 { break-after: avoid; margin-top: 18pt; }
   .memo p, .memo li { orphans: 3; widows: 3; }
