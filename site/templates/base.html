@@ -36,6 +36,7 @@
 <a class="skip" href="#main">{{ t('a11y.skip') }}</a>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">CC</span><span class="brand-text">CC Macro<small>{{ t('site.tagline') }}</small></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="visually-hidden">{{ t('portal.menu') }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg></button>
   <nav id="primary-nav" aria-label="{{ t('a11y.nav') }}">{% for f, label, on in nav %}<a href="{{ f }}"{% if on %} class="on" aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
   <div class="lang" role="group" aria-label="{{ t('lang.label') }}">
     {%- for l in ['zh', 'en'] -%}
@@ -43,7 +44,6 @@
       {%- else -%}<a href="{{ lang_base[l] }}" data-lang="{{ l }}" data-base="{{ lang_base[l] }}" lang="{{ 'zh-Hans' if l == 'zh' else 'en' }}" hreflang="{{ 'zh-Hans' if l == 'zh' else 'en' }}">{{ t('lang.name_' ~ l) }}</a>{%- endif -%}
     {%- endfor -%}
   </div>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="visually-hidden">{{ t('portal.menu') }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg></button>
 </div></header>
 <main id="main"><div class="wrap">
 {% block body %}{% endblock %}
