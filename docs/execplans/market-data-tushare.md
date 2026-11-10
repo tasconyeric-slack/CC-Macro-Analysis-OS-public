@@ -36,7 +36,7 @@ New code: `tushare_client.py` (stdlib HTTP, token scrubbed from every message), 
 - Token missing, endpoint not permitted, or any fetch error: that series is skipped and reported; the run is green. No guessed or substituted value is ever written.
 - Reference period is the trade date. Tushare gives no publication time, so `release_date` stays unknown and availability is the retrieval time (point-in-time safe, `limitation` recorded).
 - Page numbers are arithmetic on stored rows: latest level; change vs the prior trading day; change vs one month earlier (last observation on or before the same calendar day); share of the trailing 365 days at or below the latest level.
-- Cross-checks: ChinaBond 1Y/10Y (tolerance 1 bp) and CFETS USD/CNY central parity vs the stored USD/CNH close (0.5%, a reference rate against a close, so a signal rather than an identity). A gap is a warning in the run log, the summary and the page; both values stay; nothing is overwritten. A Tushare value that is not stored yet (`yc_cb` updates at 20:00 Beijing) is `pending`, not a failure.
+- Cross-check in force: monthly mean of the stored US Treasury 10Y vs the FRED GS10 monthly value (0.05 pp). ChinaBond 1Y/10Y (1 bp) and CFETS USD/CNY parity vs USD/CNH (0.5%) are implemented and tested but parked: this account may not call the yield-curve or FX interfaces (Owner decision 2026-11-10: smaller Tushare-only set). A gap is a warning in the run log, the summary and the page; both values stay; nothing is overwritten. A Tushare value that is not stored yet (`yc_cb` updates at 20:00 Beijing) is `pending`, not a failure.
 
 ## 5. Acceptance status
 
@@ -48,4 +48,4 @@ See the PR description for the live checklist. Not claimable from a local run: t
 - Roll-adjusted continuous futures (the page labels the main-contract series as not roll-adjusted).
 - DR007, if no Tushare endpoint covers it (see the matrix).
 - Compacting the daily series JSON (points + vintages duplicate the CSV) if page weight becomes a problem.
-- Choice of the upstream/downstream index sets (3 + 3 Shenwan L1 here; edit `market_series.yaml` only).
+- Upstream-vs-downstream comparison (Shenwan L1), FX, CGB yields and commodity futures: parked until the Tushare account may call `sw_daily`, `fx_daily`, `yc_cb`, `fut_*`.

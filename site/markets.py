@@ -99,6 +99,8 @@ def market_card(mid: str, item: dict, metric, v, spec: dict, check: dict | None,
                       "state": check["status"],
                       "tolerance": f"{check['tolerance'] * 100:g}%" if check.get("tolerance_mode") == "rel"
                       else f"{check['tolerance'] * 100:g} {v.t('markets.bp')}" if check.get("tolerance") is not None else ""}
+        date = str(check.get("date") or "")
+        crosscheck["date_text"] = v.period(date) if len(date) == 7 else v.date(date) if date else ""
         if check.get("difference") is not None:
             crosscheck["difference_text"] = (f"{check['difference'] * 100:+.1f} {v.t('markets.bp')}"
                                              if check.get("tolerance_mode") == "abs" else f"{check['difference']:+.4f}")

@@ -699,7 +699,7 @@ data_explorer:
     metadata. Revisions remain visible in the metric detail.
 
 markets:
-  disclosure: Market series come from Tushare Pro (third-party data, refreshed daily after the close) and are cross-checked against ChinaBond and CFETS where an official public page exists. Context for the research view, not an evidence-test input and not investment advice.
+  disclosure: Market series come from Tushare Pro (third-party data, refreshed daily after the close). The US Treasury 10Y is cross-checked against the FRED GS10 monthly average already used on the Global environment page. Context for the research view, not an evidence-test input and not investment advice.
   change_1d: Change vs prior trading day
   change_1m: Change vs one month earlier
   percentile: 1-year percentile
@@ -721,7 +721,9 @@ markets:
   crosscheck:
     ok: "Cross-check passed: {source}, {date}: {official}; Tushare differs by {diff} (tolerance {tol})."
     gap: "Cross-check gap: {source}, {date}: {official}; Tushare differs by {diff}, beyond the {tol} tolerance. Both values are kept; nothing was overwritten."
-    pending: "Cross-check pending: {source} published {date}; the matching Tushare value is not stored yet."
+    ok_monthly: "Cross-check passed: monthly mean of the Tushare daily values for {date} vs {source} {official}; difference {diff} (tolerance {tol})."
+    gap_monthly: "Cross-check gap: monthly mean of the Tushare daily values for {date} vs {source} {official}; difference {diff}, beyond the {tol} tolerance. Both values are kept; nothing was overwritten."
+    pending: "Cross-check pending: no {source} value can be compared yet; this is not a failure."
     unavailable: "Cross-check unavailable: the {source} page could not be read in the last run."
 
 official_inbox:

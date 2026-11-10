@@ -8,6 +8,13 @@
     the tolerance is wide enough for the normal spot-to-fixing distance and a gap beyond it is a
     reported signal, never an overwrite.
 
+  * US Treasury 10Y: the monthly mean of the stored Tushare daily values against the FRED GS10 monthly
+    value already in the store (the Treasury par curve and H.15 are the same yields), for the latest month
+    complete in both. This needs no web page.
+
+The ChinaBond and CFETS checks apply only to series that are actually ingested (`active`). With this account
+the Tushare yield-curve and FX interfaces are not permitted, so they are parked until those series exist.
+
 A gap beyond tolerance is returned as status "gap" and surfaced in the run log and summary. Nothing
 here writes into the observation store. If the Tushare value for the official date is not stored yet
 (yc_cb updates at 20:00 Beijing time) the result is "pending", not a failure.
@@ -32,6 +39,12 @@ CHECKS = {
                   "label": "ChinaBond 1Y treasury curve"},
     "mk_usdcnh": {"official": "CFETS", "tolerance": 0.005, "mode": "rel",
                   "label": "CFETS USD/CNY central parity (reference rate, not a close)"},
+}
+
+
+MONTHLY_CHECKS = {
+    "mk_ust10y": {"official": "FRED", "series": "gl_ust10y", "tolerance": 0.05, "mode": "abs", "min_days": 15,
+                  "label": "FRED GS10 monthly average"},
 }
 
 
@@ -88,28 +101,57 @@ def compare(metric_id: str, official_date: str, official_value: float, stored: d
             "difference": round(diff, 6), "gap_measure": round(gap, 6)}
 
 
-def run_crosschecks(stored: dict[str, dict[str, float]], *, fetch=get, today: date | None = None, log=print) -> list[dict]:
-    """Run both cross-checks against the stored series ({metric_id: {date: value}}); never raises."""
+def compare_monthly(metric_id: str, daily: dict[str, float], official: dict[str, float]) -> dict:
+    """Monthly mean of a stored daily series vs an official monthly value, for the latest month present in both
+    with enough trading days. `pending` when no month qualifies."""
+    cfg = MONTHLY_CHECKS[metric_id]
+    base = {"metric_id": metric_id, "official_source": cfg["official"], "label": cfg["label"], "basis": "monthly_mean",
+            "tolerance": cfg["tolerance"], "tolerance_mode": cfg["mode"]}
+    by_month: dict[str, list[float]] = {}
+    for day, value in daily.items():
+        by_month.setdefault(day[:7], []).append(value)
+    months = sorted(m for m, v in by_month.items() if m in official and len(v) >= cfg["min_days"])
+    if not months:
+        return {**base, "status": "pending", "date": None, "tushare_value": None, "difference": None,
+                "note": "no month with both an official value and enough Tushare days yet; not a failure"}
+    month = months[-1]
+    mean = round(sum(by_month[month]) / len(by_month[month]), 4)
+    diff = mean - official[month]
+    return {**base, "status": "ok" if abs(diff) <= cfg["tolerance"] else "gap", "date": month,
+            "official_value": official[month], "tushare_value": mean, "difference": round(diff, 6),
+            "gap_measure": round(abs(diff), 6), "days": len(by_month[month])}
+
+
+def run_crosschecks(stored: dict[str, dict[str, float]], *, fetch=get, today: date | None = None, log=print,
+                    active: set[str] | None = None) -> list[dict]:
+    """Run the cross-checks of the ingested series against ({metric_id: {date: value}}); never raises.
+    `active` limits them to series that are really ingested (default: all)."""
     today = today or date.today()
+    on = (lambda mid: True) if active is None else (lambda mid: mid in active)
     results: list[dict] = []
-    try:
-        curve_date, curve = parse_chinabond(fetch(CHINABOND_URL).decode("utf-8"))
-        for mid, cfg in CHECKS.items():
-            if cfg["official"] == "ChinaBond" and cfg["term"] in curve:
-                results.append(compare(mid, curve_date, curve[cfg["term"]], stored.get(mid, {})))
-    except Exception as exc:  # noqa: BLE001 - an unreachable page is reported, never fatal
-        for mid, cfg in CHECKS.items():
-            if cfg["official"] == "ChinaBond":
-                results.append({"metric_id": mid, "official_source": "ChinaBond", "label": cfg["label"],
+    for mid, cfg in MONTHLY_CHECKS.items():
+        if on(mid):
+            results.append(compare_monthly(mid, stored.get(mid, {}), stored.get(cfg["series"], {})))
+    chinabond = [m for m, c in CHECKS.items() if c["official"] == "ChinaBond" and on(m)]
+    if chinabond:
+        try:
+            curve_date, curve = parse_chinabond(fetch(CHINABOND_URL).decode("utf-8"))
+            for mid in chinabond:
+                if CHECKS[mid]["term"] in curve:
+                    results.append(compare(mid, curve_date, curve[CHECKS[mid]["term"]], stored.get(mid, {})))
+        except Exception as exc:  # noqa: BLE001 - an unreachable page is reported, never fatal
+            for mid in chinabond:
+                results.append({"metric_id": mid, "official_source": "ChinaBond", "label": CHECKS[mid]["label"],
                                 "status": "unavailable", "note": f"{type(exc).__name__}: {exc}"[:200]})
-    try:
-        url = CFETS_URL.format(start=(today - timedelta(days=14)).isoformat(), end=today.isoformat())
-        parity = parse_cfets(fetch(url).decode("utf-8"))
-        latest = max(parity)
-        results.append(compare("mk_usdcnh", latest, parity[latest], stored.get("mk_usdcnh", {})))
-    except Exception as exc:  # noqa: BLE001
-        results.append({"metric_id": "mk_usdcnh", "official_source": "CFETS", "label": CHECKS["mk_usdcnh"]["label"],
-                        "status": "unavailable", "note": f"{type(exc).__name__}: {exc}"[:200]})
+    if on("mk_usdcnh"):
+        try:
+            url = CFETS_URL.format(start=(today - timedelta(days=14)).isoformat(), end=today.isoformat())
+            parity = parse_cfets(fetch(url).decode("utf-8"))
+            latest = max(parity)
+            results.append(compare("mk_usdcnh", latest, parity[latest], stored.get("mk_usdcnh", {})))
+        except Exception as exc:  # noqa: BLE001
+            results.append({"metric_id": "mk_usdcnh", "official_source": "CFETS", "label": CHECKS["mk_usdcnh"]["label"],
+                            "status": "unavailable", "note": f"{type(exc).__name__}: {exc}"[:200]})
     for r in results:
         if r["status"] == "gap":
             log(f"::warning title=market cross-check gap::{r['metric_id']} {r['date']}: Tushare {r['tushare_value']} vs "

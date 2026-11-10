@@ -692,7 +692,7 @@ data_explorer:
   calendar_note: 各分类来自指标字典和实际发布元数据。修订记录可在指标详情中查看。
 
 markets:
-  disclosure: 市场序列来自 Tushare Pro（第三方数据，收盘后每日更新），并在有官方公开页面时与中债和外汇交易中心核对。仅作研究判断的背景，不是证据检验的输入，也不构成投资建议。
+  disclosure: 市场序列来自 Tushare Pro（第三方数据，收盘后每日更新）。美国10年期国债收益率与“全球环境”页已使用的 FRED GS10 月均值核对。仅作研究判断的背景，不是证据检验的输入，也不构成投资建议。
   change_1d: 较上一交易日变化
   change_1m: 较一个月前变化
   percentile: 近一年分位
@@ -714,7 +714,9 @@ markets:
   crosscheck:
     ok: "核对通过：{source}，{date}：{official}；Tushare 相差 {diff}（容差 {tol}）。"
     gap: "核对出现差异：{source}，{date}：{official}；Tushare 相差 {diff}，超出 {tol} 容差。两个数值均已保留，未做覆盖。"
-    pending: "核对待定：{source} 已发布 {date} 数据；对应的 Tushare 数值尚未入库。"
+    ok_monthly: "核对通过：{date} Tushare 日度数据的月均值与{source} {official} 相比，差异 {diff}（容差 {tol}）。"
+    gap_monthly: "核对出现差异：{date} Tushare 日度数据的月均值与{source} {official} 相比，差异 {diff}，超出 {tol} 容差。两个数值均已保留，未做覆盖。"
+    pending: "核对待定：暂无可比较的{source}数值，这不是失败。"
     unavailable: "核对不可用：上次运行未能读取{source}页面。"
 
 official_inbox:

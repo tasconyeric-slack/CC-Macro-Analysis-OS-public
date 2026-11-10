@@ -52,10 +52,11 @@ def market_site(tmp_path_factory):
         shutil.copy(ROOT / "data/dictionary" / name, root / "data/dictionary" / name)
     shutil.copytree(ROOT / "data/demo/observations", root / "data/demo/observations")
     md.refresh_market(root, call=FakeTushare(), today=TODAY, log=lambda *_: None, now="2026-11-09T12:30:00+00:00")
-    checks = {"mk_cn_gov_10y": {"metric_id": "mk_cn_gov_10y", "official_source": "ChinaBond", "date": "2026-11-09", "status": "ok",
-                             "official_value": 1.5874, "difference": 0.0, "tolerance": 0.01, "tolerance_mode": "abs"},
-              "mk_usdcnh": {"metric_id": "mk_usdcnh", "official_source": "CFETS", "date": "2026-11-09", "status": "gap",
-                            "official_value": 6.7188, "difference": 0.09, "tolerance": 0.005, "tolerance_mode": "rel"}}
+    checks = {"mk_ust10y": {"metric_id": "mk_ust10y", "official_source": "FRED", "basis": "monthly_mean", "date": "2026-10",
+                            "status": "ok", "official_value": 5.13, "difference": -0.01, "tolerance": 0.05, "tolerance_mode": "abs"},
+              # a gap on another series only to exercise the gap wording; the real check list has one monthly entry
+              "mk_shibor_on": {"metric_id": "mk_shibor_on", "official_source": "FRED", "basis": "monthly_mean", "date": "2026-10",
+                               "status": "gap", "official_value": 5.13, "difference": 0.4, "tolerance": 0.05, "tolerance_mode": "abs"}}
     original = markets.latest_crosschecks
     markets.latest_crosschecks = lambda root=ROOT: checks
     try:
@@ -79,7 +80,7 @@ def test_markets_page_shows_every_series_with_levels_changes_percentile_and_rang
         assert page.count('data-range="3m"') == len(spec) and page.count('data-range="1y"') == len(spec)
         assert 'data-range="all"' in page and page.count("data-range-plot=") == 3 * len(spec)
         assert page.count('.csv" download') == len(spec) and "Tushare" in page
-        assert 'id="upstream-downstream"' in page and page.count('class="chart"') >= 3 * 2 * len(spec) - 6
+        assert page.count('class="chart"') >= 3 * 2 * len(spec) - 6 and 'id="upstream-downstream"' not in page
         assert "%" in page and "data-portal.js" in page
     en = (out / "en/data-markets.html").read_text(encoding="utf-8")
     assert "Markets &amp; financial conditions" in en and "1-year percentile" in en
@@ -90,13 +91,13 @@ def test_markets_page_shows_every_series_with_levels_changes_percentile_and_rang
 def test_crosscheck_lines_report_passes_and_gaps_without_hiding_either(market_site):
     out, _ = market_site
     en = (out / "en/data-markets.html").read_text(encoding="utf-8")
-    assert 'data-state="ok"' in en and "Cross-check passed: China Central Depository" in en
-    assert 'data-state="gap"' in en and "Cross-check gap: China Foreign Exchange" in en and "nothing was overwritten" in en
+    assert 'data-state="ok"' in en and "Cross-check passed: monthly mean of the Tushare daily values for Oct 2026" in en
+    assert 'data-state="gap"' in en and "Cross-check gap: monthly mean" in en and "nothing was overwritten" in en
 
 
 def test_series_csv_exports_every_vintage_and_matches_the_store(market_site):
     out, root = market_site
-    for mid in ("mk_cn_gov_10y", "mk_csi300", "mk_cn_gov_slope_10y_1y"):
+    for mid in ("mk_ust10y", "mk_csi300", "mk_ust_slope_10y_1y"):
         with (root / f"data/demo/observations/tushare_{mid}.csv").open(encoding="utf-8", newline="") as f:
             stored = list(csv.DictReader(f))
         with (out / f"data/series/{mid}.csv").open(encoding="utf-8-sig", newline="") as f:
@@ -117,7 +118,7 @@ def test_data_hub_lists_the_markets_column_and_page_size_stays_reasonable(market
 def test_markets_series_are_not_evidence_explorer_inputs(market_site):
     out, _ = market_site
     charts = (out / "en/charts.html").read_text(encoding="utf-8")
-    assert "mk_cn_gov_10y" not in charts
+    assert "mk_ust10y" not in charts
 
 
 def test_markets_page_without_observations_shows_an_honest_gap_not_numbers(built):

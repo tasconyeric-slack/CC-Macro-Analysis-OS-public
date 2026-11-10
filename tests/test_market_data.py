@@ -3,8 +3,8 @@ import json
 import shutil
 from datetime import date, timedelta
 
-import pandas as pd
 import pytest
+import yaml
 
 from cnmacro import market_crosscheck as xc
 from cnmacro import market_data as md
@@ -47,9 +47,13 @@ class FakeTushare:
                 base = 1.1 if str(params["curve_term"]) == "1" else 1.6
                 rows.append({"trade_date": s, "yield": level(d, base) + bump})
             elif api == "shibor":
-                rows.append({"date": md.iso(s), "on": level(d, 1.3), "3m": level(d, 1.5)})
+                rows.append({"date": md.iso(s), "on": level(d, 1.3), "1w": level(d, 1.35), "3m": level(d, 1.5), "1y": level(d, 1.6)})
+            elif api == "hibor":
+                rows.append({"date": md.iso(s), "on": level(d, 2.4), "3m": level(d, 3.1)})
             elif api == "us_tycr":
-                rows.append({"date": md.iso(s), "y10": level(d, 4.0)})
+                rows.append({"date": md.iso(s), "y1": level(d, 3.5), "y10": level(d, 4.0) + bump})
+            elif api == "us_trycr":
+                rows.append({"date": md.iso(s), "y10": level(d, 2.6)})
             elif api == "fx_daily":
                 rows.append({"trade_date": s, "bid_close": level(d, 7.0), "ask_close": level(d, 7.0) + 0.0004})
             elif api in ("index_daily", "sw_daily"):
@@ -61,13 +65,31 @@ class FakeTushare:
         return rows
 
 
+def make_root(path, with_parked=False):
+    (path / "data/dictionary").mkdir(parents=True)
+    shutil.copy(ROOT / "data/dictionary/metrics.yaml", path / "data/dictionary/metrics.yaml")
+    spec_text = (ROOT / "data/dictionary/market_series.yaml").read_text(encoding="utf-8")
+    if with_parked:     # what enabling the parked series after a points upgrade would look like
+        spec = yaml.safe_load(spec_text)
+        metrics = yaml.safe_load((path / "data/dictionary/metrics.yaml").read_text(encoding="utf-8"))
+        for item in spec.pop("parked"):
+            spec["series"].append(item["series"])
+            metrics["metrics"].append(item["metric"])
+        spec_text = yaml.safe_dump(spec, allow_unicode=True)
+        (path / "data/dictionary/metrics.yaml").write_text(yaml.safe_dump(metrics, allow_unicode=True), encoding="utf-8")
+    (path / "data/dictionary/market_series.yaml").write_text(spec_text, encoding="utf-8")
+    (path / "data/demo/observations").mkdir(parents=True)
+    return path
+
+
 @pytest.fixture()
 def root(tmp_path):
-    (tmp_path / "data/dictionary").mkdir(parents=True)
-    for name in ("metrics.yaml", "market_series.yaml"):
-        shutil.copy(ROOT / "data/dictionary" / name, tmp_path / "data/dictionary" / name)
-    (tmp_path / "data/demo/observations").mkdir(parents=True)
-    return tmp_path
+    return make_root(tmp_path)
+
+
+@pytest.fixture()
+def root_all(tmp_path):
+    return make_root(tmp_path, with_parked=True)
 
 
 def run(root, call, **kw):
@@ -94,28 +116,31 @@ def test_first_run_backfills_and_writes_schema_valid_rows(root):
     assert summary["new_rows"] == len(obs) > 0
     assert set(OBS_COLUMNS) <= set(obs.columns)
     assert {s["status"] for s in summary["series"].values()} == {"ok"}
-    row = obs[obs.metric_id == "mk_cn_gov_10y"].sort_values("reference_period").iloc[-1]
+    row = obs[obs.metric_id == "mk_ust10y"].sort_values("reference_period").iloc[-1]
     assert (row.source, row.source_class, row.release_date_basis, row.quality_flag) == ("Tushare", "public", "unknown", "ok")
     assert row.limitation and row.retrieved_at == "2026-11-09T12:30:00+00:00"
     assert obs.reference_period.str.fullmatch(r"\d{4}-\d{2}-\d{2}").all()
     # history starts at the configured date, not at the first lookback window
-    assert obs[obs.metric_id == "mk_cn_gov_10y"].reference_period.min() >= md.load_spec(root)["history_start"]
+    assert obs[obs.metric_id == "mk_ust10y"].reference_period.min() >= md.load_spec(root)["history_start"]
 
 
 def test_slope_is_the_stored_difference_of_the_two_yields(root):
     run(root, FakeTushare())
     obs = stored(root)
-    ten = obs[obs.metric_id == "mk_cn_gov_10y"].set_index("reference_period").value
-    one = obs[obs.metric_id == "mk_cn_gov_1y"].set_index("reference_period").value
-    slope = obs[obs.metric_id == "mk_cn_gov_slope_10y_1y"].set_index("reference_period").value
+    ten = obs[obs.metric_id == "mk_ust10y"].set_index("reference_period").value
+    one = obs[obs.metric_id == "mk_ust1y"].set_index("reference_period").value
+    slope = obs[obs.metric_id == "mk_ust_slope_10y_1y"].set_index("reference_period").value
     assert len(slope) == len(ten) and (slope - (ten - one).round(4)).abs().max() < 1e-9
 
 
-def test_futures_main_series_follows_the_mapped_contract(root):
+def test_parked_futures_and_yield_curve_series_work_once_enabled(root_all):
+    """The account cannot call these interfaces today; the fetchers stay tested so a points upgrade is a spec edit."""
     call = FakeTushare()
-    run(root, call)
+    run(root_all, call)
+    root = root_all
     assert any(api == "fut_daily" and p["ts_code"] == "CU2701.SHF" for api, p in call.calls)
     assert not stored(root)[lambda d: d.metric_id == "mk_copper_main"].empty
+    assert not stored(root)[lambda d: d.metric_id == "mk_cn_gov_10y"].empty
 
 
 def test_second_run_is_a_no_op_and_a_revision_becomes_a_new_vintage(root):
@@ -123,10 +148,10 @@ def test_second_run_is_a_no_op_and_a_revision_becomes_a_new_vintage(root):
     before = len(stored(root))
     again = run(root, FakeTushare())
     assert again["new_rows"] == 0 and len(stored(root)) == before        # idempotent, lookback only
-    revised = run(root, FakeTushare(tweak={("yc_cb", "20261106"): 0.05}))
+    revised = run(root, FakeTushare(tweak={("us_tycr", "20261106"): 0.05}))
     obs = stored(root)
     assert revised["new_rows"] >= 1
-    rows = obs[(obs.metric_id == "mk_cn_gov_1y") & (obs.reference_period == "2026-11-06") | (obs.metric_id == "mk_cn_gov_10y") & (obs.reference_period == "2026-11-06")]
+    rows = obs[(obs.metric_id == "mk_ust10y") & (obs.reference_period == "2026-11-06")]
     assert (rows.quality_flag == "revised").any() and (rows.quality_flag == "ok").any()   # old vintage kept
 
 
@@ -135,10 +160,11 @@ def test_dry_run_writes_nothing(root):
     assert summary["new_rows"] > 0 and not list((root / "data/demo/observations").glob("*.csv"))
 
 
-def test_not_permitted_endpoint_skips_only_its_series(root):
+def test_not_permitted_endpoint_skips_only_its_series(root_all):
+    root = root_all
     summary = run(root, FakeTushare(deny={"sw_daily"}))
     states = {mid: s["status"] for mid, s in summary["series"].items()}
-    assert states["mk_sw_coal"] == "skipped" and states["mk_cn_gov_10y"] == "ok"
+    assert states["mk_sw_coal"] == "skipped" and states["mk_ust10y"] == "ok"
     assert summary["series"]["mk_sw_coal"]["reason"] == tc.NOT_PERMITTED
     assert stored(root)[lambda d: d.metric_id.str.startswith("mk_sw_")].empty     # never substituted
 
@@ -191,7 +217,7 @@ def test_no_written_artifact_contains_the_token(root, monkeypatch):
     secret = "t0ken-" + "y" * 30
     monkeypatch.setenv(tc.TOKEN_ENV, secret)
     summary = md.run_market(root, call=FakeTushare(), today=TODAY, log=lambda *_: None,
-                            now="2026-11-09T12:30:00+00:00", crosscheck=lambda stored, log: [])
+                            now="2026-11-09T12:30:00+00:00", crosscheck=lambda stored, log, active: [])
     blob = json.dumps(summary) + "".join(p.read_text(encoding="utf-8") for p in root.rglob("*") if p.is_file() and p.suffix in (".csv", ".json"))
     assert secret not in blob
 
@@ -231,7 +257,8 @@ def test_run_crosschecks_reports_unreachable_pages_without_raising():
         raise OSError("blocked")
     logs = []
     results = xc.run_crosschecks({}, fetch=offline, log=logs.append)
-    assert {r["status"] for r in results} == {"unavailable"} and any("unavailable" in line for line in logs)
+    pages = [r for r in results if r["official_source"] in ("ChinaBond", "CFETS")]
+    assert pages and {r["status"] for r in pages} == {"unavailable"} and any("unavailable" in line for line in logs)
 
 
 def test_run_crosschecks_end_to_end_with_fixtures():
@@ -274,6 +301,44 @@ def test_each_interface_is_read_in_one_call_for_the_default_history(root):
     run(root, call)
     per_api = {}
     for api, p in call.calls:
-        if api in ("shibor", "us_tycr", "index_daily", "sw_daily", "fx_daily"):
+        if api in ("shibor", "us_tycr", "index_daily", "hibor", "us_trycr"):
             per_api.setdefault((api, p.get("ts_code")), []).append(p)
     assert all(len(v) == 1 for v in per_api.values()), per_api
+
+
+# ---------------------------------------------------------------- FRED monthly cross-check (no web page involved)
+def month_of(value, month, days=20):
+    return {f"{month}-{d:02d}": value for d in range(1, days + 1)}
+
+
+def test_monthly_mean_matches_fred_within_tolerance_or_reports_a_gap():
+    daily = {**month_of(4.60, "2026-09"), **month_of(5.10, "2026-10")}
+    ok = xc.compare_monthly("mk_ust10y", daily, {"2026-09": 4.60, "2026-10": 5.12})
+    gap = xc.compare_monthly("mk_ust10y", daily, {"2026-09": 4.60, "2026-10": 5.30})
+    assert (ok["status"], ok["date"], ok["tushare_value"], ok["official_value"]) == ("ok", "2026-10", 5.1, 5.12)
+    assert gap["status"] == "gap" and gap["difference"] == pytest.approx(-0.2)
+
+
+def test_monthly_check_is_pending_without_enough_days_or_an_official_month():
+    short = xc.compare_monthly("mk_ust10y", month_of(5.1, "2026-10", days=5), {"2026-10": 5.1})
+    none = xc.compare_monthly("mk_ust10y", month_of(5.1, "2026-11"), {"2026-10": 5.1})
+    assert short["status"] == none["status"] == "pending" and short["tushare_value"] is None
+
+
+def test_crosschecks_cover_only_ingested_series_and_need_no_network_for_fred():
+    def offline(url, timeout=40):
+        raise AssertionError("no page may be fetched: the ChinaBond and CFETS series are not ingested")
+    stored_ = {"mk_ust10y": month_of(5.1, "2026-10"), "gl_ust10y": {"2026-10": 5.13}}
+    results = xc.run_crosschecks(stored_, fetch=offline, log=lambda *_: None, active={"mk_ust10y", "mk_csi300"})
+    assert [(r["metric_id"], r["status"]) for r in results] == [("mk_ust10y", "ok")]
+
+
+def test_run_market_writes_a_crosscheck_record_when_rows_were_added(root):
+    header = ",".join(OBS_COLUMNS)
+    row = "gl_ust10y,2026-10,5.13,,unknown,2026-11-08T15:26:30+00:00,FRED,GS10,public,,ok,x"
+    (root / "data/demo/observations/fred_gl_ust10y.csv").write_text(header + "\n" + row + "\n", encoding="utf-8")
+    summary = md.run_market(root, call=FakeTushare(), today=TODAY, log=lambda *_: None, now="2026-11-09T12:30:00+00:00")
+    files = list((root / "data/market/crosschecks").glob("*.json"))
+    assert len(files) == 1 and summary["crosschecks"][0]["metric_id"] == "mk_ust10y"
+    again = md.run_market(root, call=FakeTushare(), today=TODAY, log=lambda *_: None, now="2026-11-09T13:30:00+00:00")
+    assert again["new_rows"] == 0 and len(list((root / "data/market/crosschecks").glob("*.json"))) == 1

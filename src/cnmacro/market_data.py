@@ -30,6 +30,7 @@ LIMITATION = "Tushare daily value; no publication time is given, so availability
 # The account is limited to roughly one call per interface per hour (observed 2026-11-10), so every series is read
 # in ONE call per interface: history_start..today fits the row caps (shibor/us_tycr 2000, index_daily 10000).
 YEARS_PER_CALL = 8
+DATE_RATE_KINDS = ("shibor", "hibor", "us_tycr", "us_trycr")
 Caller = type(ts.call)
 
 
@@ -86,11 +87,8 @@ def fetch_values(spec: dict, fetcher: Fetcher, start: date, end: date) -> dict[s
         rows = _ranged(fetcher, "yc_cb", {"ts_code": spec["ts_code"], "curve_type": str(spec["curve_type"]),
                                          "curve_term": spec["curve_term"]}, start, end)
         return {iso(r["trade_date"]): float(r[field]) for r in rows if r.get(field) is not None}
-    if kind == "shibor":
-        rows = _ranged(fetcher, "shibor", {}, start, end)
-        return {iso(r["date"]): float(r[field]) for r in rows if r.get(field) is not None}
-    if kind == "us_tycr":
-        rows = _ranged(fetcher, "us_tycr", {}, start, end)
+    if kind in DATE_RATE_KINDS:         # shibor, hibor, us_tycr, us_trycr: one `date` column, one column per tenor
+        rows = _ranged(fetcher, kind, {}, start, end)
         return {iso(r["date"]): float(r[field]) for r in rows if r.get(field) is not None}
     if kind == "fx_daily":
         rows = _ranged(fetcher, "fx_daily", {"ts_code": spec["ts_code"]}, start, end)
@@ -214,8 +212,10 @@ def run_market(root: Path | str = ".", *, crosscheck=None, **kwargs) -> dict:
     log = kwargs.get("log", print)
     summary = refresh_market(root, **kwargs)
     obs = load_observations(root / "data/demo/observations")
-    stored = {mid: held_values(obs, mid) for mid in xc.CHECKS}
-    results = (crosscheck or xc.run_crosschecks)(stored, log=log)
+    active = {s["metric_id"] for s in load_spec(root)["series"]}
+    needed = set(xc.CHECKS) | set(xc.MONTHLY_CHECKS) | {c["series"] for c in xc.MONTHLY_CHECKS.values()}
+    stored = {mid: held_values(obs, mid) for mid in needed}
+    results = (crosscheck or xc.run_crosschecks)(stored, log=log, active=active)
     summary["crosschecks"] = results
     summary["crosscheck_gaps"] = [r["metric_id"] for r in results if r["status"] == "gap"]
     if summary["new_rows"] and not summary["dry_run"]:

@@ -1076,54 +1076,6 @@ metrics:
 # ---- Markets & financial conditions: daily, public. Fetched by `cnmacro market-refresh` from Tushare
 # (Owner decision 2026-11-09: Tushare data may be shown on the public site). Fetch spec: market_series.yaml.
 
-- metric_id: mk_cn_gov_1y
-  category: markets
-  name: China government bond yield, 1-year (ChinaBond, maturity)
-  name_zh: 中债国债到期收益率：1年
-  tier: diagnostic
-  frequency: D
-  unit: "%"
-  transform: level
-  hypotheses: [H3]
-  role: Short end of the China government curve; policy-rate and liquidity expectations.
-  role_zh: 中国国债收益率曲线短端；反映政策利率与流动性预期。
-  source_primary: Tushare
-  source_code: "yc_cb:1001.CB"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_cn_gov_10y
-  category: markets
-  name: China government bond yield, 10-year (ChinaBond, maturity)
-  name_zh: 中债国债到期收益率：10年
-  tier: diagnostic
-  frequency: D
-  unit: "%"
-  transform: level
-  hypotheses: [H3]
-  role: Benchmark long-term rate; the market's nominal growth and inflation expectation.
-  role_zh: 基准长期利率；反映市场对名义增长与通胀的预期。
-  source_primary: Tushare
-  source_code: "yc_cb:1001.CB"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_cn_gov_slope_10y_1y
-  category: markets
-  name: China government curve slope, 10Y minus 1Y
-  name_zh: 中国国债曲线斜率：10年减1年
-  tier: diagnostic
-  frequency: D
-  unit: "%"
-  transform: level
-  hypotheses: [H3]
-  role: Term spread of the government curve, computed from the two stored yields on the same trade date.
-  role_zh: 国债曲线期限利差，由同一交易日的两个已存收益率计算。
-  source_primary: Tushare
-  source_code: "derived:mk_cn_gov_10y-mk_cn_gov_1y"
-  release: daily after market close (Tushare)
-  redistribution: public
-
 - metric_id: mk_shibor_on
   category: markets
   name: SHIBOR overnight
@@ -1137,6 +1089,22 @@ metrics:
   role_zh: 银行间隔夜资金成本；货币市场松紧的最前端。
   source_primary: Tushare
   source_code: "shibor:on"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_shibor_1w
+  category: markets
+  name: SHIBOR 1-week
+  name_zh: SHIBOR 1周
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: One-week interbank rate; the policy-corridor anchor of money-market conditions.
+  role_zh: 一周银行间利率；货币市场松紧的政策走廊锚。
+  source_primary: Tushare
+  source_code: "shibor:1w"
   release: daily after market close (Tushare)
   redistribution: public
 
@@ -1156,179 +1124,35 @@ metrics:
   release: daily after market close (Tushare)
   redistribution: public
 
-- metric_id: mk_usdcnh
+- metric_id: mk_shibor_1y
   category: markets
-  name: USD/CNH, daily close (FXCM mid)
-  name_zh: 美元兑离岸人民币（日收盘，FXCM中间价）
+  name: SHIBOR 1-year
+  name_zh: SHIBOR 1年
   tier: diagnostic
   frequency: D
-  unit: "CNY per USD"
+  unit: "%"
   transform: level
   hypotheses: [H3]
-  role: Offshore yuan against the dollar; the market-set side of the exchange-rate constraint.
-  role_zh: 离岸人民币兑美元汇率；汇率约束中由市场决定的一侧。
+  role: One-year interbank rate; term funding cost and expected policy path.
+  role_zh: 一年期银行间利率；期限资金成本与政策路径预期。
   source_primary: Tushare
-  source_code: "fx_daily:USDCNH.FXCM"
+  source_code: "shibor:1y"
   release: daily after market close (Tushare)
   redistribution: public
 
-- metric_id: mk_csi300
+- metric_id: mk_ust1y
   category: markets
-  name: CSI 300 index, close
-  name_zh: 沪深300指数收盘
+  name: US Treasury 1-year yield, daily (Treasury par curve via Tushare)
+  name_zh: 美国国债1年期收益率（日度，经Tushare）
   tier: diagnostic
   frequency: D
-  unit: "index level"
+  unit: "%"
   transform: level
-  hypotheses: [H0, H1]
-  role: Broad onshore equity benchmark; risk appetite and earnings expectations.
-  role_zh: 境内权益宽基基准；反映风险偏好与盈利预期。
+  hypotheses: [H3]
+  role: US short rate; the Fed-expectations end of the US curve.
+  role_zh: 美国短端利率；美国曲线中反映美联储预期的一端。
   source_primary: Tushare
-  source_code: "index_daily:000300.SH"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_nonferrous
-  category: markets
-  name: Shenwan L1 Nonferrous Metals index, close (upstream)
-  name_zh: 申万一级：有色金属指数收盘（上游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Upstream industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的上游行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801050.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_steel
-  category: markets
-  name: Shenwan L1 Steel index, close (upstream)
-  name_zh: 申万一级：钢铁指数收盘（上游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Upstream industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的上游行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801040.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_coal
-  category: markets
-  name: Shenwan L1 Coal index, close (upstream)
-  name_zh: 申万一级：煤炭指数收盘（上游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Upstream industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的上游行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801950.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_food
-  category: markets
-  name: Shenwan L1 Food & Beverage index, close (downstream)
-  name_zh: 申万一级：食品饮料指数收盘（下游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Downstream consumer industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的下游消费行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801120.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_appliances
-  category: markets
-  name: Shenwan L1 Home Appliances index, close (downstream)
-  name_zh: 申万一级：家用电器指数收盘（下游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Downstream consumer industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的下游消费行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801110.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_sw_autos
-  category: markets
-  name: Shenwan L1 Automobiles index, close (downstream)
-  name_zh: 申万一级：汽车指数收盘（下游）
-  tier: diagnostic
-  frequency: D
-  unit: "index level"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Downstream manufacturing industry index for the upstream-versus-downstream comparison.
-  role_zh: 用于上下游对比的下游制造行业指数。
-  source_primary: Tushare
-  source_code: "sw_daily:801880.SI"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_copper_main
-  category: markets
-  name: Copper, SHFE main contract close
-  name_zh: 沪铜主力合约收盘
-  tier: diagnostic
-  frequency: D
-  unit: "CNY/metric ton"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Domestic industrial-metals price; upstream cost pressure. Main-contract series is not roll-adjusted.
-  role_zh: 国内工业金属价格；上游成本压力。主力连续序列未做换月调整。
-  source_primary: Tushare
-  source_code: "fut_main:CU.SHF"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_rebar_main
-  category: markets
-  name: Rebar, SHFE main contract close
-  name_zh: 螺纹钢主力合约收盘
-  tier: diagnostic
-  frequency: D
-  unit: "CNY/metric ton"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Construction-steel price; property and infrastructure demand. Main-contract series is not roll-adjusted.
-  role_zh: 建筑钢材价格；地产与基建需求。主力连续序列未做换月调整。
-  source_primary: Tushare
-  source_code: "fut_main:RB.SHF"
-  release: daily after market close (Tushare)
-  redistribution: public
-
-- metric_id: mk_iron_ore_main
-  category: markets
-  name: Iron ore, DCE main contract close
-  name_zh: 大商所铁矿石主力合约收盘
-  tier: diagnostic
-  frequency: D
-  unit: "CNY/metric ton"
-  transform: level
-  hypotheses: [H0, H1]
-  role: Steel-chain raw-material price. Main-contract series is not roll-adjusted.
-  role_zh: 钢铁产业链原料价格。主力连续序列未做换月调整。
-  source_primary: Tushare
-  source_code: "fut_main:I.DCE"
+  source_code: "us_tycr:y1"
   release: daily after market close (Tushare)
   redistribution: public
 
@@ -1345,5 +1169,85 @@ metrics:
   role_zh: 美国长期利率；与中国10年期合成中美利差。与FRED月度序列并列。
   source_primary: Tushare
   source_code: "us_tycr:y10"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust_slope_10y_1y
+  category: markets
+  name: US Treasury curve slope, 10Y minus 1Y
+  name_zh: 美国国债曲线斜率：10年减1年
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Term spread of the US curve, computed from the two stored yields on the same date.
+  role_zh: 美国国债曲线期限利差，由同一日期的两个已存收益率计算。
+  source_primary: Tushare
+  source_code: "derived:mk_ust10y-mk_ust1y"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_ust_real10y
+  category: markets
+  name: US 10-year real yield, daily (Treasury real par curve via Tushare)
+  name_zh: 美国10年期实际收益率（日度，经Tushare）
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: US real long rate; separates inflation expectations from the real-rate effect on global liquidity.
+  role_zh: 美国长期实际利率；区分通胀预期与实际利率对全球流动性的影响。
+  source_primary: Tushare
+  source_code: "us_trycr:y10"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_hibor_on
+  category: markets
+  name: HIBOR overnight
+  name_zh: 香港银行同业拆息（HIBOR）隔夜
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Hong Kong overnight interbank rate; offshore yuan and dollar funding conditions.
+  role_zh: 香港隔夜银行同业拆息；离岸人民币与美元资金面。
+  source_primary: Tushare
+  source_code: "hibor:on"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_hibor_3m
+  category: markets
+  name: HIBOR 3-month
+  name_zh: 香港银行同业拆息（HIBOR）3个月
+  tier: diagnostic
+  frequency: D
+  unit: "%"
+  transform: level
+  hypotheses: [H3]
+  role: Hong Kong three-month interbank rate; offshore term funding.
+  role_zh: 香港三个月银行同业拆息；离岸期限资金。
+  source_primary: Tushare
+  source_code: "hibor:3m"
+  release: daily after market close (Tushare)
+  redistribution: public
+
+- metric_id: mk_csi300
+  category: markets
+  name: CSI 300 index, close
+  name_zh: 沪深300指数收盘
+  tier: diagnostic
+  frequency: D
+  unit: "index level"
+  transform: level
+  hypotheses: [H0, H1]
+  role: Broad onshore equity benchmark; risk appetite and earnings expectations.
+  role_zh: 境内权益宽基基准；反映风险偏好与盈利预期。
+  source_primary: Tushare
+  source_code: "index_daily:000300.SH"
   release: daily after market close (Tushare)
   redistribution: public
