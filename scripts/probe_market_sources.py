@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Step A probe for the market-data task: call each candidate Tushare endpoint once from a GitHub
+"""Step A probe for the market-data task (re-run with TUSHARE_TOKEN set): call each candidate Tushare endpoint once from a GitHub
 runner (the token exists only there) and probe the public official pages used for cross-checks.
 
 Writes a JSON report with endpoint, parameters (never the token), fields, row count, date range,
