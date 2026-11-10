@@ -74,6 +74,9 @@ footer:
   uncommitted: uncommitted
   boundary: "Public build: official / open sources only (NBS, PBOC, MOF, GACC, FRED). Licensed data is never published; claims that rely on it are marked as withheld."
   not_advice: Research system, not investment advice.
+  col_site: Site
+  col_research: "Research & method"
+  col_sources: Sources
 
 common:
   list_sep: ", "
