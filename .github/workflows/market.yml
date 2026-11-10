@@ -5,6 +5,7 @@ name: public market data
 # evidence-test refresh, no research record, never touches the analyst's view. A missing
 # TUSHARE_TOKEN or a non-permitted endpoint skips that series and the run stays green; cross-check
 # gaps are reported as warnings in the run log. Commits go through the verified-commit path.
+# The Tushare account allows about one call per interface per hour, so each interface is read once per run.
 on:
   schedule:
     - cron: "40 12 * * 1-5"   # 20:40 Beijing: after yc_cb's 20:00 update; non-trading days add nothing
