@@ -547,7 +547,7 @@ portal:
   daily_kicker: 每日宏观台
   calendar_title: 数据发布日历
   calendar_description: 经官方核实的发布时间，以及可能受到影响的证据。
-  calendar_kicker: RELEASE CALENDAR
+  calendar_kicker: Release calendar
   calendar_frequency: 按官方日程
   data_group: 经济金融数据
   data_note: 七类研究视角，只展示本项目实际持有的公开观测。
@@ -556,13 +556,13 @@ portal:
   policy_note: 从官方公告出发，追溯证据、假设与分析师判断。
   policy_title: 政策追踪
   policy_description: 官方文本、传导路径，以及下一条确认性观察。
-  policy_kicker: POLICY TRACKER
+  policy_kicker: Policy tracker
   research_title: 研究报告与命题
   research_description: 当前判断、竞争性解释与最强反方论证。
-  research_kicker: RESEARCH THESIS
+  research_kicker: Research thesis
   evidence_title: 证据与方法
   evidence_description: 绑定来源的事实、确定性检验与研究局限。
-  evidence_kicker: EVIDENCE & METHOD
+  evidence_kicker: Evidence & method
   public_sources: 官方与开放来源
   research_portal: 宏观数据研究门户
   read_research: 阅读研究报告
@@ -580,31 +580,31 @@ portal:
   category:
     growth:
       title: 增长与活动
-      kicker: GROWTH & ACTIVITY
+      kicker: Growth & activity
       description: GDP、消费、生产与房地产。
     prices:
       title: 物价
-      kicker: PRICES & INFLATION
+      kicker: Prices & inflation
       description: CPI、核心通胀与工业生产者价格。
     pmi:
       title: PMI与景气
-      kicker: PMI & SENTIMENT
+      kicker: PMI & sentiment
       description: 新订单、出口订单与出厂价格。
     trade:
       title: 外需
-      kicker: TRADE & DEMAND
+      kicker: Trade & demand
       description: 出口与来自海外的需求。
     credit:
       title: 金融与信用
-      kicker: MONEY & CREDIT
+      kicker: Money & credit
       description: 货币、信用存量与融资条件。
     fiscal:
       title: 财政
-      kicker: FISCAL POLICY
+      kicker: Fiscal policy
       description: 政府融资、财政支出与收入。
     external:
       title: 外部环境
-      kicker: GLOBAL ENVIRONMENT
+      kicker: Global environment
       description: 能源、金属、汇率与美债利率。
 
 desk:

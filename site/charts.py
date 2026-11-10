@@ -22,11 +22,13 @@ def nice_ticks(lo: float, hi: float, n: int = 4) -> list[float]:
     mag = 10 ** math.floor(math.log10(raw))
     step = min((s * mag for s in (1, 2, 2.5, 5, 10) if s * mag >= raw), default=raw)
     start = math.floor(lo / step) * step
+    # stop at the first tick at or above the maximum, so the axis always contains the data
     ticks, t = [], start
-    while t <= hi + step * 0.5:
+    while True:
         ticks.append(round(t, 10))
+        if t >= hi - step * 1e-9:
+            return ticks
         t += step
-    return ticks
 
 
 def fmt(v: float, unit: str) -> str:
