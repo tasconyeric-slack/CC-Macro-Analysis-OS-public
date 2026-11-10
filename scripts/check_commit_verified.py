@@ -40,10 +40,8 @@ def assess(commit):
              f"  verified={proof.get('verified')} reason={proof.get('reason')}")
     if proof.get("verified") is True and proof.get("reason") == "valid":
         return "verified", "VERIFIED " + facts
-    path = ("pushed from a git client without a valid signature"
-            if who("committer") not in {"web-flow", "github-actions[bot]"}
-            else "created through GitHub but not reported as valid")
-    return "unsigned", f"NOT VERIFIED ({path})\n{facts}\n{NEXT_STEPS}"
+    return "unsigned", (f"NOT VERIFIED (creation path cannot be established from the commit alone)\n"
+                        f"{facts}\n{NEXT_STEPS}")
 
 
 def repo_slug(explicit):
@@ -73,7 +71,11 @@ def main(argv):
     parser.add_argument("--repo", help="OWNER/NAME (default: origin remote)")
     args = parser.parse_args(argv)
     try:
-        ref = args.ref or subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+        ref = args.ref or "HEAD"
+        resolved = subprocess.run(["git", "rev-parse", "--verify", ref + "^{commit}"],
+                                  text=True, capture_output=True)
+        if resolved.returncode == 0:
+            ref = resolved.stdout.strip()
         commit = fetch_commit(repo_slug(args.repo), ref)
     except urllib.error.HTTPError as error:
         hint = " (is it pushed to GitHub?)" if error.code in {404, 422} else ""

@@ -24,7 +24,7 @@ def test_github_verified_commit_passes():
 def test_unsigned_commit_reports_path_and_next_steps_without_retry_advice():
     status, report = check.assess(commit(False, "unsigned"))
     assert status == "unsigned"
-    assert "pushed from a git client" in report
+    assert "creation path cannot be established" in report
     assert "author=someone committer=someone" in report
     assert "Do not retry" in report and "Require Verified Commits" in report
 

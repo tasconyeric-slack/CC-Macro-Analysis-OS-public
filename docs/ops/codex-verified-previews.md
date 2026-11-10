@@ -6,12 +6,12 @@
 
 | Actor | How commits reach GitHub | Verified how |
 |---|---|---|
-| Claude Code / Codex **local** | local `git push` | native SSH signing with the key that stays on the workstation (below) |
+| Claude Code / Codex **local** | local `git push` | SSH signing if configured and recognized by GitHub; verify the actual commit (below) |
 | Claude Code / Codex **Cloud** | git push to a `claude/*` or `codex/*` branch; the private signing key is **never** copied into cloud sessions | PR into `main` → this workflow appends a GitHub-verified checkpoint (a new commit, original stays unsigned) |
 | GitHub web UI merge | squash / merge commit | GitHub signs it (`web-flow`). **Do not use rebase-merge**: it leaves unsigned commits |
 | `refresh.yml` / `news.yml` / `events.yml` | `scripts/commit_*.py` → `commit_public_refresh.publish` (Git Data API with `GITHUB_TOKEN`, no author/committer overrides) | the script refuses to publish unless GitHub reports `verified=true, reason=valid` |
 
-The REST Contents API and Git Data API are **not assumed** verified: they are only trusted after reading `commit.verification` back, as `publish` and this workflow do. The workflows above are the only direct writers; their git-based callers never run `git commit`/`git push`.
+The REST Contents API and Git Data API are **not assumed** verified: they are only trusted after reading `commit.verification` back, as `publish` and this workflow do. The deployment-triggering repository workflows use the verified writer or this checkpoint workflow; they do not directly run `git commit` or `git push`.
 
 ## Check before relying on a commit
 
@@ -20,7 +20,7 @@ python scripts/check_commit_verified.py            # HEAD (must be pushed)
 python scripts/check_commit_verified.py origin/main --repo OWNER/NAME
 ```
 
-Single GitHub API read, no retries. Exit `0` verified; `1` unsigned (prints author/committer and the next step); `2` could not be determined (treat as not verified). If it exits non-zero, stop and report, or open/update the PR so the checkpoint workflow runs; never loop on a blocked deployment and never disable Vercel's signature requirement.
+Single GitHub API read, no retries. Exit `0` verified; `1` unverified (prints author/committer and the next step; identity alone cannot prove the creation path); `2` could not be determined (treat as not verified). If it exits non-zero, stop and report, or open/update the PR so the checkpoint workflow runs; never loop on a blocked deployment and never disable Vercel's signature requirement.
 
 ## Automatic path (no signing key, PAT or new secret)
 
@@ -68,3 +68,7 @@ The Git commit email must be an email verified on the GitHub account (or a match
 ## Acceptance
 
 A genuine *unsigned* same-repo Codex PR must get a subsequent GitHub-verified checkpoint commit and a Vercel Preview in READY state. A pre-verified Codex HEAD must cause no new checkpoint. The signed HEAD must receive a completed `checks.yml` workflow_dispatch run. Do not mark cloud fallback as fully validated until this real PR scenario has occurred.
+
+## Bootstrap and failure handling
+
+This workflow runs from `main`, so a change adding `claude/*` support cannot activate itself on a Claude PR. Bootstrap it with a same-repository `codex/*` PR, and verify its checkpoint and Vercel Preview before merging. Until the change is merged, Claude PRs still require a verified commit from an authorized environment. A verified checkpoint preserves the original tree, but Vercel must independently report the new deployment READY; a verified signature alone does not prove deployment success. If the checkpoint job fails or the branch is protected, stop and inspect the failure rather than retrying automatically. GitHub Actions-created pushes do not trigger normal Actions workflows; this job dispatches checks explicitly.
