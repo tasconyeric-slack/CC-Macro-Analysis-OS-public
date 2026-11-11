@@ -71,6 +71,11 @@ jobs:
             ${{ inputs.all && '--all' || '' }}
             ${{ inputs.dry_run && '--dry-run' || '' }}
         run: python -m cnmacro refresh-public --summary refresh-summary.json $ARGS
+      - name: Draft the analyst review of a new release (draft only; never signs)
+        if: github.event_name != 'pull_request' && !inputs.dry_run
+        # A refresh that brought a new reading of a tested series gets a deterministic draft under reviews/.
+        # The analyst decides it with the "thesis review decision" workflow. A drafting problem never fails the refresh.
+        run: python -m cnmacro review draft || echo "::warning title=review draft::not drafted; see log"
       - name: Secrets and data-boundary check
         run: python scripts/check_secrets.py
       - name: Commit new public artifacts
@@ -80,11 +85,11 @@ jobs:
         run: |
           # Least privilege: stage only what a refresh writes. The rest of research/cases/cn-nominal
           # (case.yaml, preregistered/, claims, presentation, memo templates...) is analyst-controlled
-          # and must never be auto-committed. refreshes/ and updates/ are append-only directories that
+          # and must never be auto-committed. refreshes/, updates/ and reviews/ (drafts only, never a decision) are append-only directories that
           # only exist once a refresh has written a record, and git fails a pathspec that matches
           # nothing, so each is staged only if present (no placeholder directories).
           git add -A -- data/demo/observations research/cases/cn-nominal/eval
-          for d in research/cases/cn-nominal/refreshes research/cases/cn-nominal/updates; do
+          for d in research/cases/cn-nominal/refreshes research/cases/cn-nominal/updates research/cases/cn-nominal/reviews; do
             if [ -e "$d" ]; then
               git add -A -- "$d"
             fi

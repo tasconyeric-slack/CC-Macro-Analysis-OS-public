@@ -787,3 +787,31 @@ prices:
   percentile_note: "Percentile: average rank within the trailing 36 calendar months, scaled from 0 to 100; ties average, constant samples = 50. n is the actual number of published observations, not an assumed 36."
   components: "Explore the components"
   fuel_note: "NBS transport fuel changes to transport energy in January 2026. The chart breaks at this classification change and percentiles use only the comparable segment; neither is broad energy. PMI prices are diffusion indices (50 = unchanged), not inflation rates."
+review:
+  title: Analyst review of the latest release
+  kind: review
+  status:
+    awaiting_analyst: "Draft · awaiting analyst"
+    approved: "Signed · approved as drafted"
+    edited: "Signed · edited by the analyst"
+    rejected: "Draft rejected · no update"
+    superseded: "Draft superseded by a newer release"
+  legend: "a draft produced by code after a release; it becomes a signed update only when the analyst approves or edits it"
+  release: "Release {name} · {when}"
+  drafted: "Drafted {when} from refresh record {file}"
+  in_force_html: 'The judgment shown on this site is still the last signed one: <span class="mono">{file}</span> ({when}).'
+  proposed: Proposed update (draft, not a judgment)
+  signed_html: 'Signed by <strong>{who}</strong> on {when} · {action} · <a href="#{anchor}">{file}</a>'
+  rejected_html: 'Rejected by <strong>{who}</strong> on {when}. No update was published; the judgment in force is unchanged.'
+  reason: Reason
+  flips: "Test changes since the judgment in force"
+  competing: Competing explanation
+  watch: Watch next
+  inputs: Research inputs considered
+  none: none
+  home_awaiting: "Latest release drafted for review; the judgment above is the previous signed one."
+  home_signed: "Latest release reviewed and signed by {who} on {when}."
+  home_rejected: "Latest release draft rejected by {who}; judgment unchanged."
+  action:
+    approve: approve
+    edit: edit
