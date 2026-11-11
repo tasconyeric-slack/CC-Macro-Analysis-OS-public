@@ -8,6 +8,7 @@
     python -m cnmacro refresh-private --provider wind [--plan]   # local only: named provider(s) -> private observations -> private eval
     python -m cnmacro diagnose-private [--anchor PROVIDER_RUNID | --snapshot RUN_ID]  # local only: one verified anchor -> private diagnostics + report
     python -m cnmacro wind-runtime [--pin]            # verify (or deliberately re-pin) the installed Wind skill; no network
+    python -m cnmacro review draft|list|show|decide|verify   # analyst review of a release; see src/cnmacro/review.py
     python -m cnmacro copilot preflight|context|run|replay|blind-take|show|decide|verify|runs   # Release Copilot v0 (shadow); see src/cnmacro/copilot/cli.py
     python -m cnmacro ingest-fred | ingest-nbs [--metric id] | ingest-inbox FILE | nbs-tree [--freq M|Q] [PID] | nbs-indicators CID | nbs-agenda --start --end
 """
@@ -529,6 +530,8 @@ def main(argv=None) -> int:
     s = sub.add_parser("nbs-indicators"); s.add_argument("cid"); s.set_defaults(f=cmd_nbs_indicators)
     from .copilot import cli as copilot_cli          # imported here only: refresh / replay never import the Copilot
     copilot_cli.register(sub)
+    from .review import register as review_register   # release -> draft -> analyst decision -> signed update (#52)
+    review_register(sub)
     from .events import cli as events_cli
     events_cli.register(sub)
     from . import policy_cli

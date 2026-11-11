@@ -50,6 +50,7 @@ from cnmacro.evidence import load_tests  # noqa: E402
 from cnmacro.refresh import evaluate, previous_evidence_as_of  # noqa: E402
 from cnmacro.store import as_of, load_dictionary, load_observations, release_time, utc_naive  # noqa: E402
 from cnmacro.thesis import case_files, effective_case, fold, load_yaml  # noqa: E402
+from cnmacro.review import reviews as load_reviews  # noqa: E402
 from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
 from news_feed import news_context, edition_context, archive_context, edition_days, archive_months
@@ -345,6 +346,8 @@ def build_model(cfg) -> dict:
     refresh_at = refreshes[-1]["as_of"] if refreshes else (held.isoformat() + "Z" if held is not None else None)
 
     judgment_file = judgment_doc["_file"] if judgment_doc else None
+    # ---- analyst reviews of releases: draft (awaiting) vs signed vs rejected; never a judgment by themselves
+    reviews = load_reviews(case_dir) if baseline and not preview else []
     return {
         "preview": preview, "banner": cfg.banner, "draft": draft, "case": case, "metrics": metrics,
         "baseline": baseline, "amendments": amendments, "updates": updates, "refreshes": refreshes,
@@ -354,7 +357,7 @@ def build_model(cfg) -> dict:
         "eval": eval_report, "tests": test_rows,
         "evidence_as_of": ev_as_of, "refresh_at": refresh_at, "terminal_now": terminal_now,
         "flips_since_baseline": flips_since_baseline,
-        "next_releases": next_releases, "audit_items": audit_items,
+        "next_releases": next_releases, "audit_items": audit_items, "reviews": reviews,
         "presentation": presentation, "frozen_zh": frozen_zh, "policy": policy, "sources": sources,
         "view_current": (presentation.get("applies_to") == judgment_file) if presentation else None,
         "built_at": now.replace(microsecond=0).isoformat(), "commit": git("rev-parse", "--short", "HEAD"),
@@ -514,6 +517,8 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
             d["release_l"] = v.release_name(d["release"])
         items.append({"kind": it["kind"], "doc": d})
     ctx["audit_items"] = items
+    ctx["reviews"] = [review_view(r, v) for r in model.get("reviews", [])]
+    ctx["latest_review"] = ctx["reviews"][-1] if ctx["reviews"] else None
     ctx["portal"] = portal_context(model, v)
     if stem == "news":
         ctx["macro_news"] = news_context(model, loc)
@@ -549,6 +554,25 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
         ctx["data_explorer"] = data_context(model, v)
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
     return ctx
+
+
+def review_view(r: dict, v: View) -> dict:
+    """One release review for the page: status, the draft's text in the page's language and the decision."""
+    d, dec = r["draft"], r["decision"]
+    upd = (dec or {}).get("published_update")
+    comp = dict(d["competing_explanation"])
+    h = (v.m["case"].get("hypotheses") or {}).get(comp["hypothesis"])
+    if h:
+        comp["claim"] = v.hypothesis_text(comp["hypothesis"], h)["claim"]
+    names = [v.release_label({"name": e["name"], "period": e["period"]}) for e in d["release"].get("entries") or []]
+    return {"id": r["review_id"], "status": r["status"],
+            "release": " + ".join(names) or v.release_name(d["release"]["name"]),
+            "release_at": d["release"]["release_at"], "created_at": d["created_at"],
+            "refresh_file": d["refresh_record"]["file"], "in_force": d["previous_state"],
+            "text": d["text"]["zh" if v.loc == "zh" else "en"], "flips": d["flips_since_judgment"],
+            "competing": comp, "watch": d["watch_next"][:3],
+            "inputs": (d.get("research_inputs") or {}).get("items") or [],
+            "decision": dec, "update_file": upd, "update_anchor": "u-" + upd.rsplit(".", 1)[0] if upd else None}
 
 
 def meta(v: View, stem: str) -> dict:
