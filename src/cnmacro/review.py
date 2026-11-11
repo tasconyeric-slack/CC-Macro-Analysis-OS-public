@@ -92,13 +92,16 @@ def eligible(record: dict, case: dict) -> bool:
 
 
 def release_group(calendar: Path, record: dict):
-    """The verified calendar entries the refresh delivered: released inside (previous evidence, refresh] and
-    carrying a metric the refresh appended. Several entries can share one release time (CPI and PPI)."""
+    """The verified calendar entries the refresh delivered: an entry matches a new observation by metric and
+    reference period, released at or before the refresh. Ingestion may lag the release (a print published before the
+    previous refresh but fetched only now still belongs to its release), and several entries can share one release
+    time (CPI and PPI)."""
     from .copilot.context import ReleaseSpec, slug
     rels = yaml.safe_load(Path(calendar).read_text(encoding="utf-8"))["releases"]
-    lo, hi = utc_naive(record["previous_evidence_as_of"]), utc_naive(record["as_of"])
-    got = {o["metric_id"] for o in record["new_observations"]}
-    hits = [r for r in rels if lo < release_time(r["release"]) <= hi and got & set(r["metrics"])]
+    hi = utc_naive(record["as_of"])
+    got = {(o["metric_id"], str(o["reference_period"])) for o in record["new_observations"]}
+    hits = [r for r in rels if release_time(r["release"]) <= hi
+            and any((m, str(r["period"])) in got for m in r["metrics"])]
     if not hits:
         return None, []
     first = hits[0]
@@ -117,6 +120,7 @@ def judgment_in_force(case_dir: Path) -> dict:
     return {"file": path.name, "kind": "update" if upd else "baseline", "as_of": str(doc["as_of"]),
             "author": doc.get("author") or ("preregistered baseline" if not upd else None),
             **{k: state[k] for k in ("probability", "conviction", "status", "last_update_direction")},
+            "terminal_rule_fired": doc.get("terminal_rule_fired"),
             "statement_en": (doc.get("does_this_change_the_thesis") if upd else doc.get("rationale")),
             "statement_zh": (doc.get("does_this_change_the_thesis_zh") if upd else None)}
 
@@ -447,7 +451,9 @@ def signed_update(case_dir: Path, draft: dict, decision: dict, edits: dict) -> d
         "new_claims": [],
         "does_this_change_the_thesis": text_en,
         "probability": prob, "conviction": conviction, "status": p["status"], "last_update_direction": direction,
-        "probability_change": pc, "terminal_rule_fired": None,
+        "probability_change": pc,
+        # a terminal status set by a preregistered rule keeps its provenance in every later update
+        "terminal_rule_fired": p.get("terminal_rule_fired") if p["status"] in ("CONFIRMED", "FALSIFIED") else None,
     }
     if text_zh:
         doc["does_this_change_the_thesis_zh"] = text_zh

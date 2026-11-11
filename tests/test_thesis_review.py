@@ -132,3 +132,28 @@ def test_the_repository_has_no_signed_update_without_a_real_decision():
             assert review.verify(CASE, r["review_id"]) == []
     if not any(r["decision"] for r in review.reviews(CASE)):
         assert not list((CASE / "updates").glob("*.yaml"))
+
+
+def test_a_release_ingested_after_a_later_refresh_still_maps_to_its_calendar_entry():
+    """The October PMI (released 2026-10-31) reached the store only in the 2026-11-02 refresh, whose window starts
+    after the release: it is matched by metric and period, not by the release falling inside the window."""
+    rec = json.loads((CASE / "refreshes/2026-11-02T0938Z.json").read_text(encoding="utf-8"))
+    spec, entries = review.release_group(ROOT / "data/dictionary/release_calendar.yaml", rec)
+    assert spec is not None and "PMI" in spec.name and [e["period"] for e in entries] == ["2026-10"]
+
+
+def test_a_terminal_status_keeps_its_preregistered_rule_in_the_signed_update(case):
+    (case / "updates").mkdir()
+    (case / "updates" / "2026-11-10-terminal-confirmed.yaml").write_text(yaml.safe_dump({
+        "kind": "update", "baseline": "2026-10-04-baseline.yaml", "as_of": "2026-11-10T00:00:00Z",
+        "release": "2026-10 CPI (居民消费价格指数月度报告)", "author": "automation (preregistered terminal rule)",
+        "previous_state": {"probability": 0.3, "conviction": "LOW", "status": "ACTIVE", "last_update_direction": "UNCHANGED"},
+        "test_results": {}, "flipped_tests": [], "terminal_check": "CONFIRMED", "new_claims": [],
+        "does_this_change_the_thesis": "Terminal rule fired (fixture).", "probability": 0.3, "conviction": "LOW",
+        "status": "CONFIRMED", "last_update_direction": "UNCHANGED", "probability_change": None,
+        "terminal_rule_fired": "R-FIXTURE"}, allow_unicode=True, sort_keys=False), encoding="utf-8")
+    drafted(case)
+    _, upd = review.decide(case, RID, "approve", FIXTURE_SIGNER, at="2026-11-11T05:00:00Z")
+    doc = yaml.safe_load(upd.read_text(encoding="utf-8"))
+    assert doc["status"] == "CONFIRMED" and doc["terminal_rule_fired"] == "R-FIXTURE"
+    assert not fold(case)[2]
