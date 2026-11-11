@@ -18,11 +18,9 @@
 <article class="policy-item" id="{{ e.item_id }}" data-source="{{ e.source }}">
   <div class="policy-item-meta"><span class="policy-status">{{ t('official_inbox.status_' ~ e.status) }}</span><span>{{ e.publisher }}</span></div>
   <h3{% if e.original_language %} lang="zh-Hans"{% endif %}><a href="{{ e.canonical_url }}" rel="noopener">{{ e.title }}</a></h3>
-  {% if e.original_language %}{% endif %}
-  {% if e.summary %}<p class="policy-excerpt"{% if e.original_language %} lang="zh-Hans"{% endif %}>{{ e.summary }}</p>{% endif %}
+    {% if e.summary %}<p class="policy-excerpt"{% if e.original_language %} lang="zh-Hans"{% endif %}>{{ e.summary }}</p>{% endif %}
   <p class="small muted">{{ e.published_at|date if e.publication_precision == 'date' else e.published_at|when }}</p>
   <div class="policy-item-links"><a href="{{ e.canonical_url }}" rel="noopener">{{ t('official_inbox.source') }}</a>{% for mid in e.metric_ids %}<a href="charts.html#ch-{{ mid }}">{{ mid }}</a>{% endfor %}<a href="evidence.html">{{ t('portal.evidence_title') }}</a></div>
-  
 </article>
 {% endmacro %}
 <section class="policy-layout policy-layout--single" aria-labelledby="inbox-title"><div><h2 id="inbox-title">{{ t('official_inbox.latest') }}</h2>{% for e in official_inbox['items'] %}{{ inbox_row(e) }}{% else %}<div class="policy-empty"><h3>{{ t('official_inbox.empty') }}</h3></div>{% endfor %}</div>
