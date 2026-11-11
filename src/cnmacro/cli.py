@@ -9,6 +9,7 @@
     python -m cnmacro diagnose-private [--anchor PROVIDER_RUNID | --snapshot RUN_ID]  # local only: one verified anchor -> private diagnostics + report
     python -m cnmacro wind-runtime [--pin]            # verify (or deliberately re-pin) the installed Wind skill; no network
     python -m cnmacro review draft|list|show|decide|verify   # analyst review of a release; see src/cnmacro/review.py
+    python -m cnmacro research-inputs build --as-of <ISO>   # hypothesis-linked research input bundle (inputs/<date>.json)
     python -m cnmacro copilot preflight|context|run|replay|blind-take|show|decide|verify|runs   # Release Copilot v0 (shadow); see src/cnmacro/copilot/cli.py
     python -m cnmacro ingest-fred | ingest-nbs [--metric id] | ingest-inbox FILE | nbs-tree [--freq M|Q] [PID] | nbs-indicators CID | nbs-agenda --start --end
 """
@@ -536,6 +537,8 @@ def main(argv=None) -> int:
     events_cli.register(sub)
     from . import policy_cli
     policy_cli.register(sub)
+    from . import research_inputs
+    research_inputs.register(sub)
     a = p.parse_args(argv)
     return a.f(a)
 
