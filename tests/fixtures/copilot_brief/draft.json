@@ -1,0 +1,38 @@
+{
+  "executive_delta": [
+    {"id": "X1",
+     "template": "Factory-gate inflation broadened upstream: PPI YoY rose from {obs:cn_ppi_yoy@2026-09} to {obs:cn_ppi_yoy@2026-10}, led by producer goods at {obs:cn_ppi_producer_yoy@2026-10}, as the NBS release {src:event_7c0e35a3eee519ffe8ae} reports.",
+     "lens": "level", "materiality": "high",
+     "evidence_refs": ["obs:cn_ppi_yoy@2026-09", "obs:cn_ppi_yoy@2026-10", "obs:cn_ppi_producer_yoy@2026-10", "src:event_7c0e35a3eee519ffe8ae"]},
+    {"id": "X2",
+     "template": "Monthly momentum cooled: PPI MoM eased from {obs:cn_ppi_mom@2026-09} to {obs:cn_ppi_mom@2026-10}, although its three-month average is still {drv:ma(cn_ppi_mom,3)@2026-10}.",
+     "lens": "marginal", "materiality": "medium",
+     "evidence_refs": ["obs:cn_ppi_mom@2026-09", "obs:cn_ppi_mom@2026-10", "drv:ma(cn_ppi_mom,3)@2026-10"]},
+    {"id": "X3",
+     "template": "The rise has not reached consumers: consumer-goods PPI is still {obs:cn_ppi_consumer_yoy@2026-10} and core CPI slipped to {obs:cn_core_cpi_yoy@2026-10}, a change of {drv:diff(cn_core_cpi_yoy,1)@2026-10} on the month.",
+     "lens": "breadth", "materiality": "high",
+     "evidence_refs": ["obs:cn_ppi_consumer_yoy@2026-10", "obs:cn_core_cpi_yoy@2026-10", "drv:diff(cn_core_cpi_yoy,1)@2026-10", "src:event_aaa6cf65550e45187700"]}
+  ],
+  "hypothesis_impact": [
+    {"hypothesis": "H1", "ai_assessment": "unchanged", "divergence": false, "divergence_reason": "",
+     "rationale_template": "Upstream prices keep the price-turn case alive, but no test flipped and the gain is concentrated in producer goods.",
+     "evidence_refs": ["obs:cn_ppi_yoy@2026-10", "test:T-H1-02"]},
+    {"hypothesis": "H2", "ai_assessment": "unchanged", "divergence": false, "divergence_reason": "",
+     "rationale_template": "Weaker core CPI at {obs:cn_core_cpi_yoy@2026-10} gives no sign that private demand is pulling prices up.",
+     "evidence_refs": ["obs:cn_core_cpi_yoy@2026-10", "test:T-H2-01"]},
+    {"hypothesis": "H3", "ai_assessment": "unresolved", "divergence": false, "divergence_reason": "",
+     "rationale_template": "This release carries no new fiscal or credit data; the PBOC relending notice is a market-support tool, not a broad demand impulse.",
+     "evidence_refs": ["src:event_1181322de8b6e9176fa4"]},
+    {"hypothesis": "H4", "ai_assessment": "unchanged", "divergence": false, "divergence_reason": "",
+     "rationale_template": "Price data say nothing new about external demand.",
+     "evidence_refs": ["test:T-H4-01"]},
+    {"hypothesis": "H0", "ai_assessment": "strengthen", "divergence": true,
+     "divergence_reason": "No test flipped, but the gap between producer goods at {obs:cn_ppi_producer_yoy@2026-10} and consumer goods at {obs:cn_ppi_consumer_yoy@2026-10} widened: the rule only checks the sign of consumer-goods prices, not how far upstream prices run ahead of them.",
+     "rationale_template": "An upstream-led rise with flat consumer goods prices is what a cost-push bounce looks like.",
+     "evidence_refs": ["obs:cn_ppi_producer_yoy@2026-10", "obs:cn_ppi_consumer_yoy@2026-10", "test:T-H0-03"]}
+  ],
+  "preliminary_implications": [
+    {"template": "Whether margins absorb the upstream rise is the next test of the price turn.", "hypothesis": "H1",
+     "evidence_refs": ["obs:cn_ind_profit_ytd_yoy@2026-09", "test:T-H1-06"]}
+  ]
+}
