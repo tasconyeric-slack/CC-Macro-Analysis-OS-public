@@ -449,6 +449,25 @@ def test_invented_numbers_dates_names_and_advice_are_dropped(field, text, reason
     assert not ok and dropped == {field: reason}
 
 
+@pytest.mark.parametrize('bad_title', [
+    'Industrial profits grow by 100 yuan',
+    'Industrial profits grow by 100 billion yuan',
+])
+def test_magnitude_unit_cannot_be_dropped_or_mis_scaled(bad_title):
+    src = {'title_zh': '工业企业利润增长100亿元', 'summary_zh': '', 'publisher': '统计局',
+           'published_at': '2026-11-09T09:30:00+08:00'}
+    assert news_ai.validate(src, {'title_en': bad_title}) == ({}, {'title_en': 'number'})
+    assert news_ai.validate(src, {'title_en': 'Industrial profits grow by 10 billion yuan'})[0]
+
+
+def test_publication_date_numbers_never_authorize_factual_quantities():
+    src = {'title_zh': '央行宣布降准', 'summary_zh': '', 'publisher': '央行',
+           'published_at': '2026-11-09T09:30:00+08:00'}
+    assert news_ai.validate(src, {'title_en': 'PBOC cuts reserve requirements by 9 percentage points'}) == ({}, {'title_en': 'number'})
+    assert news_ai.validate(src, {'why_en': 'A 30 percent cut affects liquidity'}) == ({}, {'why_en': 'number'})
+    assert news_ai.validate(src, {'title_en': 'PBOC announces reserve requirement cut'})[0]
+
+
 def test_a_bad_field_is_omitted_and_the_good_ones_survive():
     ok, dropped = judged(title_en='PPI rises 5.7% in October', why_zh='出厂价格走势很重要。', why_en='PPI rose 9.9% in October.')
     assert set(ok) == {'title_en', 'why_zh'} and dropped == {'why_en': 'number'}
