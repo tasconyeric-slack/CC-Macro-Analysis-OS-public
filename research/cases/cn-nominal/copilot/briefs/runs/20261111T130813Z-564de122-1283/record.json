@@ -1,0 +1,371 @@
+{
+  "artifact": "research_brief",
+  "as_of": "2026-11-09T03:00:00Z",
+  "contamination": {
+    "cutoff_source": null,
+    "model_knowledge_cutoff": null,
+    "note": "a live run is uncontaminated by construction",
+    "probe": "not run (strategy §10.3 step 3 belongs to Phase C)",
+    "release_after_cutoff": null
+  },
+  "context": {
+    "evidence_allowlist": [
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q2",
+      "drv:deflator_yoy(cn_ngdp_q,cn_rgdp_yoy)@2026Q3",
+      "drv:diff(cn_core_cpi_yoy,1)@2026-10",
+      "drv:diff(cn_core_cpi_yoy,3)@2026-10",
+      "drv:diff(cn_core_cpi_yoy,6)@2026-10",
+      "drv:diff(cn_cpi_yoy,1)@2026-10",
+      "drv:diff(cn_cpi_yoy,3)@2026-10",
+      "drv:diff(cn_cpi_yoy,6)@2026-10",
+      "drv:diff(cn_m1_yoy,6)@2026-09",
+      "drv:diff(cn_ppi_consumer_yoy,1)@2026-10",
+      "drv:diff(cn_ppi_consumer_yoy,3)@2026-10",
+      "drv:diff(cn_ppi_consumer_yoy,6)@2026-10",
+      "drv:diff(cn_ppi_mom,1)@2026-10",
+      "drv:diff(cn_ppi_mom,3)@2026-10",
+      "drv:diff(cn_ppi_mom,6)@2026-10",
+      "drv:diff(cn_ppi_producer_yoy,1)@2026-10",
+      "drv:diff(cn_ppi_producer_yoy,3)@2026-10",
+      "drv:diff(cn_ppi_producer_yoy,6)@2026-10",
+      "drv:diff(cn_ppi_yoy,1)@2026-10",
+      "drv:diff(cn_ppi_yoy,3)@2026-10",
+      "drv:diff(cn_ppi_yoy,6)@2026-10",
+      "drv:diff(cn_property_sales_area_ytd_yoy,6)@2026-09",
+      "drv:diff(cn_retail_sales_yoy,3)@2026-09",
+      "drv:diff(cn_tsf_stock_yoy,3)@2026-09",
+      "drv:diff(gl_brent_usd,6)@2026-09",
+      "drv:diff(gl_copper_usd,6)@2026-09",
+      "drv:ma(cn_core_cpi_yoy,3)@2026-10",
+      "drv:ma(cn_cpi_yoy,3)@2026-10",
+      "drv:ma(cn_exports_usd_yoy,3)@2026-09",
+      "drv:ma(cn_pmi_new_export_orders,3)@2026-10",
+      "drv:ma(cn_pmi_new_orders,3)@2026-10",
+      "drv:ma(cn_pmi_output_price,3)@2026-10",
+      "drv:ma(cn_ppi_consumer_yoy,3)@2026-10",
+      "drv:ma(cn_ppi_mom,3)@2026-09",
+      "drv:ma(cn_ppi_mom,3)@2026-10",
+      "drv:ma(cn_ppi_producer_yoy,3)@2026-10",
+      "drv:ma(cn_ppi_yoy,3)@2026-10",
+      "drv:single(cn_loans_hh_mlt_ytd)@2026-07",
+      "drv:single(cn_loans_hh_mlt_ytd)@2026-08",
+      "drv:single(cn_loans_hh_mlt_ytd)@2026-09",
+      "obs:cn_budget_exp_ytd_yoy@2026-09",
+      "obs:cn_core_cpi_yoy@2026-03",
+      "obs:cn_core_cpi_yoy@2026-04",
+      "obs:cn_core_cpi_yoy@2026-09",
+      "obs:cn_core_cpi_yoy@2026-10",
+      "obs:cn_cpi_yoy@2026-09",
+      "obs:cn_cpi_yoy@2026-10",
+      "obs:cn_ind_profit_ytd_yoy@2026-09",
+      "obs:cn_m1_yoy@2026-03",
+      "obs:cn_m1_yoy@2026-09",
+      "obs:cn_ppi_consumer_yoy@2026-09",
+      "obs:cn_ppi_consumer_yoy@2026-10",
+      "obs:cn_ppi_mom@2026-09",
+      "obs:cn_ppi_mom@2026-10",
+      "obs:cn_ppi_producer_yoy@2026-09",
+      "obs:cn_ppi_producer_yoy@2026-10",
+      "obs:cn_ppi_yoy@2026-03",
+      "obs:cn_ppi_yoy@2026-04",
+      "obs:cn_ppi_yoy@2026-09",
+      "obs:cn_ppi_yoy@2026-10",
+      "obs:cn_property_sales_area_ytd_yoy@2026-03",
+      "obs:cn_property_sales_area_ytd_yoy@2026-09",
+      "obs:cn_retail_sales_yoy@2026-06",
+      "obs:cn_retail_sales_yoy@2026-09",
+      "obs:cn_tsf_stock_yoy@2026-06",
+      "obs:cn_tsf_stock_yoy@2026-09",
+      "obs:gl_brent_usd@2026-03",
+      "obs:gl_brent_usd@2026-09",
+      "obs:gl_copper_usd@2026-03",
+      "obs:gl_copper_usd@2026-09",
+      "src:event_1181322de8b6e9176fa4",
+      "src:event_6e41cc8ee4b700e80e6e",
+      "src:event_7c0e35a3eee519ffe8ae",
+      "src:event_aaa6cf65550e45187700",
+      "test:T-H0-01",
+      "test:T-H0-02",
+      "test:T-H0-03",
+      "test:T-H1-01",
+      "test:T-H1-02",
+      "test:T-H1-03",
+      "test:T-H1-04",
+      "test:T-H1-05",
+      "test:T-H1-06",
+      "test:T-H2-01",
+      "test:T-H2-02",
+      "test:T-H2-03",
+      "test:T-H2-04",
+      "test:T-H2-05",
+      "test:T-H2-06",
+      "test:T-H3-01",
+      "test:T-H3-02",
+      "test:T-H4-01",
+      "test:T-H4-02"
+    ],
+    "file": "context.json",
+    "sha256": "564de1224256352dbc6c7858e2f9c2ced3c53567dff7e965ca9fe76a9cc85d13"
+  },
+  "copilot": "unavailable",
+  "evidence_class": "none (no model ran)",
+  "evidence_pack": {
+    "as_of": "2026-11-09T03:00:00Z",
+    "context_sha256": "564de1224256352dbc6c7858e2f9c2ced3c53567dff7e965ca9fe76a9cc85d13",
+    "facts": [
+      {
+        "change": "-0.2 pp",
+        "metric_id": "cn_core_cpi_yoy",
+        "name": "Core CPI YoY (ex food and energy)",
+        "name_zh": "扣除食品和能源价格后的核心CPI同比",
+        "period": "2026-10",
+        "previous": "1.0%",
+        "ref": "obs:cn_core_cpi_yoy@2026-10",
+        "revised_from": null,
+        "value": "0.8%"
+      },
+      {
+        "change": "-0.2 pp",
+        "metric_id": "cn_cpi_yoy",
+        "name": "CPI YoY",
+        "name_zh": "居民消费价格指数同比",
+        "period": "2026-10",
+        "previous": "0.9%",
+        "ref": "obs:cn_cpi_yoy@2026-10",
+        "revised_from": null,
+        "value": "0.7%"
+      },
+      {
+        "change": "+0.0 pp",
+        "metric_id": "cn_ppi_consumer_yoy",
+        "name": "PPI, consumer goods YoY",
+        "name_zh": "PPI生活资料同比",
+        "period": "2026-10",
+        "previous": "-0.1%",
+        "ref": "obs:cn_ppi_consumer_yoy@2026-10",
+        "revised_from": null,
+        "value": "-0.1%"
+      },
+      {
+        "change": "-0.5 pp",
+        "metric_id": "cn_ppi_mom",
+        "name": "PPI MoM",
+        "name_zh": "工业生产者出厂价格指数环比",
+        "period": "2026-10",
+        "previous": "1.2%",
+        "ref": "obs:cn_ppi_mom@2026-10",
+        "revised_from": null,
+        "value": "0.7%"
+      },
+      {
+        "change": "+0.9 pp",
+        "metric_id": "cn_ppi_producer_yoy",
+        "name": "PPI, producer goods YoY",
+        "name_zh": "PPI生产资料同比",
+        "period": "2026-10",
+        "previous": "6.5%",
+        "ref": "obs:cn_ppi_producer_yoy@2026-10",
+        "revised_from": null,
+        "value": "7.4%"
+      },
+      {
+        "change": "+0.7 pp",
+        "metric_id": "cn_ppi_yoy",
+        "name": "PPI YoY",
+        "name_zh": "工业生产者出厂价格指数同比",
+        "period": "2026-10",
+        "previous": "5.0%",
+        "ref": "obs:cn_ppi_yoy@2026-10",
+        "revised_from": null,
+        "value": "5.7%"
+      }
+    ],
+    "generated_by": "deterministic:cnmacro.copilot.brief.evidence_pack",
+    "mechanical_delta": {
+      "H0": "unchanged",
+      "H1": "unchanged",
+      "H2": "unchanged",
+      "H3": "unchanged",
+      "H4": "unchanged"
+    },
+    "next_releases": [
+      {
+        "metrics": [
+          "cn_ip_yoy",
+          "cn_property_sales_area_ytd_yoy",
+          "cn_retail_sales_yoy"
+        ],
+        "periods": [
+          "2026-10"
+        ],
+        "release_at": "2026-11-16T02:00:00Z"
+      },
+      {
+        "metrics": [
+          "cn_ind_profit_ytd_yoy"
+        ],
+        "periods": [
+          "2026-10"
+        ],
+        "release_at": "2026-11-27T01:30:00Z"
+      },
+      {
+        "metrics": [
+          "cn_pmi_mfg",
+          "cn_pmi_new_export_orders",
+          "cn_pmi_new_orders",
+          "cn_pmi_output_price"
+        ],
+        "periods": [
+          "2026-11"
+        ],
+        "release_at": "2026-11-30T01:30:00Z"
+      },
+      {
+        "metrics": [
+          "cn_core_cpi_yoy",
+          "cn_cpi_yoy",
+          "cn_ppi_consumer_yoy",
+          "cn_ppi_mom",
+          "cn_ppi_producer_yoy",
+          "cn_ppi_yoy"
+        ],
+        "periods": [
+          "2026-11"
+        ],
+        "release_at": "2026-12-09T01:30:00Z"
+      },
+      {
+        "metrics": [
+          "cn_ip_yoy",
+          "cn_property_sales_area_ytd_yoy",
+          "cn_retail_sales_yoy"
+        ],
+        "periods": [
+          "2026-11"
+        ],
+        "release_at": "2026-12-15T02:00:00Z"
+      }
+    ],
+    "release": "2026-10 PPI (工业生产者价格指数月度报告)",
+    "sources": [
+      {
+        "display": "NBS (2026-11-09): 2026年10月份居民消费价格同比上涨0.7%",
+        "evidence_kind": "official_release",
+        "label": "official release",
+        "published_at": "2026-11-09T01:30:02Z",
+        "publisher": "NBS",
+        "ref": "src:event_aaa6cf65550e45187700",
+        "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261109_1965795.html"
+      },
+      {
+        "display": "NBS (2026-11-09): 2026年10月份工业生产者出厂价格同比上涨5.7% 环比上涨0.7%",
+        "evidence_kind": "official_release",
+        "label": "official release",
+        "published_at": "2026-11-09T01:30:01Z",
+        "publisher": "NBS",
+        "ref": "src:event_7c0e35a3eee519ffe8ae",
+        "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261109_1965794.html"
+      },
+      {
+        "display": "PBOC (2026-11-04): 中国人民银行加力实施股票回购增持再贷款政策",
+        "evidence_kind": "first_party_policy",
+        "label": "first-party policy",
+        "published_at": "2026-11-04T00:50:23Z",
+        "publisher": "PBOC",
+        "ref": "src:event_1181322de8b6e9176fa4",
+        "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026110408502315269/index.html"
+      },
+      {
+        "display": "NBS (2026-11-04): 2026年10月下旬流通领域重要生产资料市场价格变动情况",
+        "evidence_kind": "first_party_policy",
+        "label": "first-party policy",
+        "published_at": "2026-11-04T01:30:00Z",
+        "publisher": "NBS",
+        "ref": "src:event_6e41cc8ee4b700e80e6e",
+        "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261103_1965738.html"
+      }
+    ],
+    "standing_judgment": {
+      "as_of": "2026-10-04T06:00:00Z",
+      "conviction": "LOW",
+      "last_update_direction": "UNCHANGED",
+      "probability": 0.3,
+      "status": "ACTIVE"
+    },
+    "test_flips": []
+  },
+  "finished_at": "2026-11-11T13:08:13+00:00",
+  "genuine_model_run": false,
+  "kind": "unavailable",
+  "mode": "live",
+  "model": {
+    "knowledge_cutoff": null,
+    "provider": null
+  },
+  "passes": [],
+  "prior_as_of": "2026-11-09T00:30:00Z",
+  "publication": {
+    "public": false,
+    "reason": "unreviewed: only a brief a named person accepted or edited is exported"
+  },
+  "record_version": "research-brief-run-record/1",
+  "release": {
+    "metrics": [
+      "cn_ppi_yoy",
+      "cn_ppi_mom",
+      "cn_ppi_producer_yoy",
+      "cn_ppi_consumer_yoy"
+    ],
+    "name": "2026-10 PPI (工业生产者价格指数月度报告)",
+    "period": "2026-10",
+    "release_at": "2026-11-09T09:30:00+08:00",
+    "release_id": "2026-10-ppi"
+  },
+  "rendered": null,
+  "result": null,
+  "review_id": "2026-11-09T0223Z",
+  "run_at": "2026-11-11T13:08:13+00:00",
+  "run_id": "20261111T130813Z-564de122-1283",
+  "signed_thesis_update": false,
+  "sources": [],
+  "status": "model_unavailable",
+  "unavailable": {
+    "detail": "DEEPSEEK_API_KEY is not set (the deterministic pipeline does not need it)",
+    "kind": "no_credential"
+  },
+  "usage": {
+    "cost_usd": null,
+    "input_tokens": null,
+    "latency_ms": 0,
+    "output_tokens": null
+  },
+  "validation": {
+    "errors": [],
+    "gate_failures": {
+      "as_of_violation": 0,
+      "divergence_inconsistent": 0,
+      "invalid_evidence_ref": 0,
+      "mechanical_delta_overwrite": 0,
+      "missing_evidence": 0,
+      "numeric_grounding": 0,
+      "schema": 0,
+      "thesis_state_write": 0
+    },
+    "hard_gate_failures": {
+      "as_of_violation": 0,
+      "invalid_evidence_ref": 0,
+      "mechanical_delta_overwrite": 0,
+      "missing_evidence": 0,
+      "numeric_grounding": 0
+    },
+    "ok": false
+  },
+  "versions": {
+    "code_commit": "32bc62c96ea68a78e270caf9a0e26bbdf1b9dac0",
+    "code_dirty": false,
+    "context": "research-brief-context/1",
+    "prompt": "research-brief-prompt/1",
+    "schema": "research-brief-schema/1"
+  }
+}
