@@ -8,6 +8,8 @@ from pathlib import Path
 
 import pytest
 
+from cnmacro.events.store import stamp
+
 from cnmacro.research_inputs import (BundleError, build_bundle, latest_bundle, load_bundle, material_items,
                                      validate_bundle, write_bundle)
 
@@ -15,7 +17,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CASE = "research/cases/cn-nominal"
 AS_OF = "2026-11-10T16:00:00Z"
 CPI, PPI = "item_6022c78c7a6e631fbe06a524", "item_cf6bd6a21159001e7a993cf6"          # NBS first prints, 2026-11-09
+SEP_CPI = "item_a426dd73791c564759995978"                                            # NBS Sep-2026 CPI print, 2026-10-14
 NEWS_EVENTS = ("release-ppi-2026-10", "evt-3a136a4d76f8")   # media coverage of the PPI print; ECB member on French GDP
+LATE_REP = "evt-4b3edd7f558f"      # tariff notice: a media member held 08:19Z, the official representative only at 11:36Z
+NEWS_FIXTURE = ROOT / "tests/fixtures/research_inputs/news_latest.json"   # real records, frozen (the live feed rolls)
 
 
 def _rows(path):
@@ -36,7 +41,7 @@ def root(tmp_path):
     (ev / "inbox/2026-11.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in items), encoding="utf-8")
     events = [r for r in _rows(ROOT / "data/events/events.jsonl") if set(r["member_item_ids"]) & {CPI, PPI}]
     (ev / "events.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in events), encoding="utf-8")
-    feed = json.loads((ROOT / "data/news/latest.json").read_text(encoding="utf-8"))
+    feed = json.loads(NEWS_FIXTURE.read_text(encoding="utf-8"))
     keep = [e for e in feed["events"] if e["event_id"] in NEWS_EVENTS]
     ids = {i for e in keep for i in e["items"]}
     news = {**feed, "events": keep, "items": [i for i in feed["items"] if i["item_id"] in ids]}
@@ -90,3 +95,33 @@ def test_committed_bundle_is_valid_and_traceable():
     assert any(x["evidence_kind"] == "official_release" and x["triage"] == "research_needed" for x in material)
     assert all(x["source_url"].startswith("https://") and x["hypotheses"] for x in material)
     assert b["counts"]["irrelevant"] > 0 and b["counts"]["repetition"] > 0
+
+
+def test_a_release_gets_only_the_observations_of_its_own_print(root):
+    """Two CPI prints in one window: each is credited with its own reference period, never the other's."""
+    shutil.copy(ROOT / CASE / "refreshes/2026-10-14T0701Z.json", root / CASE / "refreshes")
+    sep = [r for r in _rows(ROOT / "data/events/events.jsonl") if r["member_item_ids"] == [SEP_CPI]]   # Sep-2026 CPI print
+    assert sep
+    with open(root / "data/events/events.jsonl", "a", encoding="utf-8") as f:
+        f.writelines(json.dumps(r, ensure_ascii=False) + "\n" for r in sep)
+    members = {i for r in sep for i in r["member_item_ids"]}
+    rows = [r for p in sorted((ROOT / "data/events/inbox").glob("*.jsonl")) for r in _rows(p) if r["item_id"] in members]
+    with open(root / "data/events/inbox/2026-11.jsonl", "a", encoding="utf-8") as f:
+        f.writelines(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
+    b = build_bundle(root, AS_OF, window_days=35)
+    cpi = {x["published_at"][:7]: x["observation_refs"] for x in b["items"]
+           if x["evidence_kind"] == "official_release" and x["triage"] == "research_needed" and "cn_cpi_yoy" in x["linked_metrics"]}
+    assert cpi["2026-10"] and all(r.endswith("@2026-09") for r in cpi["2026-10"])
+    assert cpi["2026-11"] and all(r.endswith("@2026-10") for r in cpi["2026-11"])
+
+
+def test_a_news_group_never_shows_metadata_collected_after_as_of(root):
+    feed = json.loads(NEWS_FIXTURE.read_text(encoding="utf-8"))
+    ev = next(e for e in feed["events"] if e["event_id"] == LATE_REP)
+    items = [i for i in feed["items"] if i["item_id"] in ev["items"]]
+    (root / "data/news/latest.json").write_text(json.dumps({**feed, "events": [ev], "items": items}, ensure_ascii=False), encoding="utf-8")
+    b = build_bundle(root, "2026-11-09T10:00:00Z", window_days=7)
+    x = next(i for i in b["items"] if i["event_id"] == LATE_REP)
+    assert "mof.gov.cn" in ev["url"]                         # the group's representative is the later official source...
+    assert "mof.gov.cn" not in x["source_url"] and x["evidence_kind"] == "media_report"   # ...which the bundle never shows
+    assert all(stamp(i["first_seen_at"]) <= stamp("2026-11-09T10:00:00Z") for i in items if i["canonical_url"] == x["source_url"])

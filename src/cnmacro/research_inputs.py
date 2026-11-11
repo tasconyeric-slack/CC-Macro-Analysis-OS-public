@@ -91,8 +91,17 @@ def _refresh_refs(case_dir: Path, start, end) -> dict[str, list[dict]]:
             continue
         for o in r.get("new_observations", []):
             out.setdefault(o["metric_id"], []).append({"ref": f"obs:{o['metric_id']}@{o['reference_period']}",
-                                                       "refresh": p.name})
+                                                       "refresh": p.name, "release_date": o.get("release_date")})
     return out
+
+
+RELEASE_MATCH = timedelta(days=1)
+
+
+def _same_release(obs: dict, published_at) -> bool:
+    """An observation belongs to a publication only when its official release date matches that publication
+    (a metric is released every month: a metric-only join would credit one print with another's reading)."""
+    return bool(obs.get("release_date")) and abs(stamp(obs["release_date"]) - stamp(published_at)) <= RELEASE_MATCH
 
 
 def _topic_metrics(text: str, metrics: set[str]) -> list[str]:
@@ -113,10 +122,12 @@ def _official(events_dir: Path, start, end, as_of: str, metrics: set[str], test_
             linked = _topic_metrics(r["title_zh"] + " " + (r.get("summary_zh") or ""), metrics)
         is_release = r.get("kind") == "data_release"
         tests = sorted({t for m in linked for t in test_metrics.get(m, [])})
-        obs = [x for m in linked for x in refresh_refs.get(m, [])]
+        obs = [x for m in linked for x in refresh_refs.get(m, []) if _same_release(x, r["published_at"])]
         quote = next((h.get("quote_zh") for h in r.get("hypothesis_links") or [] if h.get("quote_zh")), None)
         if is_release and tests and obs:
             triage = "research_needed"
+            # the preregistered tests name the hypotheses this print bears on, even when the intake rule tagged none
+            hs = hs or sorted({t.split("-")[1] for t in tests})
             why = ("Official first print that added observations read by preregistered evidence tests "
                    f"{', '.join(tests)}; compare with the prior reading before any thesis statement.")
         elif triage == "irrelevant" or not hs:
@@ -168,19 +179,25 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
         return []
     feed, items, out = json.loads(latest.read_text(encoding="utf-8")), _news_items(news_dir), []
     for ev in feed.get("events", []):
-        members = [items[i] for i in ev.get("items", []) if i in items and stamp(items[i]["first_seen_at"]) <= as_of]
+        known = [items[i] for i in ev.get("items", []) if i in items]
+        members = [m for m in known if stamp(m["first_seen_at"]) <= as_of]
         members = [m for m in members if m.get("published_at") and start <= stamp(m["published_at"]) <= end]
         if not members:
             continue
-        rep = next((m for m in members if m["canonical_url"] == ev.get("url")), members[0])
-        body = (ev.get("title_zh") or rep["title_zh"]) + " " + (ev.get("summary_zh") or rep.get("summary_zh") or "")
-        info = rule_triage({"title_zh": ev.get("title_zh") or rep["title_zh"], "summary_zh": ev.get("summary_zh") or rep.get("summary_zh"),
+        # Group-level metadata (title, summary, url, publisher, official) describes every member, including ones
+        # collected after as_of. Use it only when every member was available by as_of; otherwise rebuild the
+        # event from the eligible members alone, so nothing later than as_of leaks into the bundle.
+        whole = len(members) == len(ev.get("items", [])) == len(known)
+        g = ev if whole else {}
+        rep = next((m for m in members if m["canonical_url"] == g.get("url")), members[0])
+        body = (g.get("title_zh") or rep["title_zh"]) + " " + (g.get("summary_zh") or rep.get("summary_zh") or "")
+        info = rule_triage({"title_zh": g.get("title_zh") or rep["title_zh"], "summary_zh": g.get("summary_zh") or rep.get("summary_zh"),
                             "item_id": rep["item_id"], "kind": "media"}, _rules())
         hs = _hyps(h["hypothesis"] for h in info["hypotheses"])
-        host = urlsplit(ev.get("url") or rep["canonical_url"]).hostname or ""
-        first_party = bool(ev.get("official")) and bool(OFFICIAL_HOSTS.search(host))
-        foreign = bool(FOREIGN.search(ev.get("title_zh") or "")) or (classify(body) == "global" and not CHINA.search(body))
-        title = ev.get("title_zh") or rep["title_zh"]
+        host = urlsplit(g.get("url") or rep["canonical_url"]).hostname or ""
+        first_party = bool(g.get("official") if whole else any(m.get("source_tier") == "T1" for m in members)) and bool(OFFICIAL_HOSTS.search(host))
+        foreign = bool(FOREIGN.search(g.get("title_zh") or rep["title_zh"] or "")) or (classify(body) == "global" and not CHINA.search(body))
+        title = g.get("title_zh") or rep["title_zh"]
         actionable = bool(re.search(TYPES["data_release"], body) or re.search(TYPES["policy_action"], body))
         topic_hyp = TOPIC_HYP.get(classify(body))
         if first_party and not hs and topic_hyp and not foreign and not re.search(_rules()["irrelevant"]["pattern"], body):
@@ -199,11 +216,11 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
             # media is a lead, not verified evidence: at most monitor until the first-party text is held
             triage = info["triage"] if first_party else "monitor"
             why = " ".join(dict.fromkeys(m["en"] for m in info["mechanism"]))
-        url = ev.get("url") or rep["canonical_url"]
+        url = g.get("url") or rep["canonical_url"]
         repetition = official_by_url.get(url)
         out.append({
-            "event_id": ev["event_id"], "title": ev.get("title_zh") or rep["title_zh"], "source_url": url,
-            "publisher": ev.get("publisher") or rep["publisher"],
+            "event_id": ev["event_id"], "title": title, "source_url": url,
+            "publisher": g.get("publisher") or rep["publisher"],
             "published_at": iso_z(min(stamp(m["published_at"]) for m in members)),
             "available_at": iso_z(min(stamp(m["first_seen_at"]) for m in members)),
             "hypotheses": hs if triage != "irrelevant" else [], "mechanism": _mechanism(hs) if triage != "irrelevant" else None,
@@ -211,13 +228,13 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
                              if repetition else why),
             "triage": triage,
             "linked_metrics": [m for m in rep.get("metric_ids", []) if m in metrics] if triage != "irrelevant" else [],
-            "excerpt": _excerpt(ev.get("summary_zh") or rep.get("summary_zh") or rep["title_zh"]),
+            "excerpt": _excerpt(g.get("summary_zh") or rep.get("summary_zh") or rep["title_zh"]),
             "evidence_kind": ("official_release" if str(ev["event_id"]).startswith("release-") else "first_party_policy")
                              if first_party else "media_report",
             "repetition_of": repetition,
             "observation_refs": [], "refresh_records": [], "tests": [],
             "stage": None, "intake_triage": None, "source_status": "news_feed",
-            "coverage": len(ev.get("publishers") or [rep["publisher"]]),
+            "coverage": len(g.get("publishers") or {m["publisher"] for m in members}),
         })
     return out
 
