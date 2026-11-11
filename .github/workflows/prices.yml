@@ -1,0 +1,45 @@
+name: official price components
+on:
+  schedule:
+    - cron: '35 2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [src/cnmacro/price_releases.py, scripts/fetch_price_releases.py, .github/workflows/prices.yml]
+permissions:
+  contents: write
+concurrency:
+  group: public-price-components
+  cancel-in-progress: false
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: pip install -e .
+      - name: Read official monthly tables
+        id: collect
+        continue-on-error: true
+        run: python scripts/fetch_price_releases.py
+      - name: Publish valid additions, retain history on source failure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f data/demo/observations/prices_release.csv ]; then
+            git add -- data/demo/observations/prices_release.csv
+            python scripts/commit_price_releases.py
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prices-summary
+          path: prices-summary.json
+      - name: Surface source failures
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

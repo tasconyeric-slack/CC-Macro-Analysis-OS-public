@@ -399,7 +399,8 @@ def chart_card(model: dict, v: View, ch: dict) -> dict:
     m = ch["m"]
     label = v.t("chart.aria", name=v.metric_name(m.metric_id))
     svg = Markup(line_chart(ch["pts"], m.unit, ch["ref"], ch["id"], label=label,
-                            empty=v.t("chart.not_enough"))) if ch["pts"] else None
+                            empty=v.t("chart.not_enough"),
+                            break_before=('2026-01',) if m.metric_id.startswith('cn_cpi_fuel_') else ())) if ch["pts"] else None
     return {
         "id": m.metric_id, "chart_id": ch["id"], "svg": svg, "name": v.metric_name(m.metric_id),
         "name_alt": m.name if v.loc == "zh" else (m.name_zh or ""),
@@ -541,6 +542,9 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
     if stem.startswith("data-"):
         ctx["category"] = next(c for c in ctx["portal"]["categories"] if c["id"] == stem[5:])
         ctx["data_explorer"] = data_context(model, v, stem[5:])
+        if stem == 'data-prices':
+            from prices import prices_context
+            ctx['prices'] = prices_context(model, v, ctx['data_explorer'])
     if stem == "data":
         ctx["data_explorer"] = data_context(model, v)
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
@@ -581,6 +585,8 @@ def render_site(model: dict, out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site/static", out / "static")
     write_data_assets(model["data_portal"], out)
+    from prices import write_price_assets
+    write_price_assets(model['data_portal'], out)
     # browsers ask for /favicon.ico at the root before they read any <link>
     if (out / "static/favicon.ico").exists():
         shutil.copy(out / "static/favicon.ico", out / "favicon.ico")
@@ -596,7 +602,7 @@ def render_site(model: dict, out: Path) -> dict:
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
             ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
             ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method"]]
-            html = env.get_template("data-category.html" if stem.startswith("data-") else page_file(stem)).render(**ctx)
+            html = env.get_template('prices.html' if stem == 'data-prices' else ("data-category.html" if stem.startswith("data-") else page_file(stem))).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
             if stem == "news" and ctx["macro_news"]["enabled"]:
                 base = {k: ctx[k] for k in ("nav", "footer_nav", "asset")}

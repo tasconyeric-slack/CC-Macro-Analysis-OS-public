@@ -104,7 +104,7 @@ def data_context(model, v, category=None):
     cards = []
     source_rows = model.get("sources", {}).get("sources", [])
     for mid, item in model["data_portal"]["series"].items():
-        if category and item["category"] != category:
+        if category and item["category"] != category and not (category == 'prices' and mid in {'cn_pmi_input_price', 'cn_pmi_output_price'}):
             continue
         m = model["metrics"].get(mid)
         derived = bool(item.get("derived"))
@@ -112,6 +112,11 @@ def data_context(model, v, category=None):
         pts = item["points"]
         latest = pts[-1] if pts else None
         prior, year = changes(pts, item["frequency"])
+        if mid.startswith('cn_cpi_fuel_') and latest:
+            if latest['period'] == '2026-01':
+                prior = None
+            if '2026-01' <= latest['period'] < '2027-01':
+                year = None
         unit = v.unit(item["unit"])
         diff_unit = v.t("data_explorer.pp") if item["unit"] == "%" else (v.t("data_explorer.points") if item["unit"].startswith("index") else unit)
         def delta_text(x):
@@ -129,7 +134,9 @@ def data_context(model, v, category=None):
                                    retrieved=v.date(p["retrieved_at"]), vintage=p["quality_flag"]) for p in selected]
                     plots.append({"size": size, "svg": Markup(line_chart([(p["period"], p["value"]) for p in selected], item["unit"],
                                       ref=50 if item["unit"].startswith("index") else (0 if item["unit"] == "%" else None),
-                                      chart_id=chart_id, width=width, label=name, details=details))})
+                                      chart_id=chart_id, width=width, label=name, details=details,
+                                      monthly=category == 'prices' and item['frequency'] == 'M',
+                                      break_before=('2026-01',) if mid.startswith('cn_cpi_fuel_') else ()))})
                 ranges.append({"key": key, "plots": plots})
         used = [t for t in model["tests"] if (mid in t["metrics"] if not derived else "deflator_yoy" in t["indicator"])]
         cards.append({"id": mid, "category": item["category"], "name": name,
@@ -140,7 +147,8 @@ def data_context(model, v, category=None):
                       "source_url": source_url(latest or {}, m, source_rows), "source_code": (latest or {}).get("source_code") or (m.source_code if m else ""),
                       "notes": m.caliber_notes if m else [], "ranges": ranges, "points": pts,
                       "thumbnail": Markup(line_chart([(p["period"], p["value"]) for p in pts[-24:]], item["unit"],
-                                             chart_id=f"thumb-{mid}", width=320, height=110, label=name)) if pts else None,
+                                             chart_id=f"thumb-{mid}", width=320, height=110, label=name,
+                                             break_before=('2026-01',) if mid.startswith('cn_cpi_fuel_') else ())) if pts else None,
                       "vintages": list(reversed(item["vintages"])), "tests": used, "derived": derived,
                       "json_url": f"../data/series/{mid}.json", "csv_url": f"../data/series/{mid}.csv"})
     return {"cards": cards, "available": sum(bool(c["latest"]) for c in cards), "gap_count": sum(not c["latest"] for c in cards)}

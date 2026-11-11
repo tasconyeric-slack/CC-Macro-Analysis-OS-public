@@ -1,0 +1,25 @@
+{% extends "data-category.html" %}
+{% block head %}{{ super() }}<link rel="stylesheet" href="{{ asset }}prices.css">{% endblock %}
+{% block dashboard %}
+<section class="data-metric chartcard price-chain" id="price-chain">
+<p class="small muted">{{ t('prices.kicker') }}</p>
+<h2>{{ t('prices.chain_title') }}</h2>
+{% if prices.common %}
+<p class="small muted">{{ t('prices.common') }} · {{ prices.common|period }}</p>
+<div class="price-legend">{% for line in prices.legend %}<span class="price-key-{{ loop.index0 }}">{{ line.name }} <strong>{{ line.value|num }}%</strong></span>{% endfor %}</div>
+<div class="price-gaps"><p>{{ t('prices.producer_gap') }} <strong>{{ '%+.2f'|format(prices.producer_gap) }} {{ t('data_explorer.pp') }}</strong></p><p>{{ t('prices.consumer_gap') }} <strong>{{ '%+.2f'|format(prices.consumer_gap) }} {{ t('data_explorer.pp') }}</strong></p></div>
+<div class="data-range" role="group" aria-label="{{ t('data_explorer.range') }}">{% for r in prices.ranges %}<button type="button" data-range="{{ r.key }}" aria-pressed="{{ 'true' if r.key == '2y' else 'false' }}">{{ t('data_explorer.' ~ r.key) }}</button>{% endfor %}</div>
+{% for r in prices.ranges %}<div data-range-plot="{{ r.key }}"{% if r.key != '2y' %} hidden{% endif %}>{% for p in r.plots %}<div class="data-plot-{{ p.size }}">{{ p.svg }}</div>{% endfor %}</div>{% endfor %}
+{% else %}<p>{{ t('prices.no_common') }}</p>{% endif %}
+<p class="small muted">{{ t('prices.chain_note') }}</p>
+<p class="small"><a href="../data/prices-chain.csv" download>{{ t('data_explorer.download') }}</a> · <a href="../data/prices.xlsx" download>{{ t('prices.xlsx') }}</a></p>
+</section>
+<section id="price-month" class="price-month">
+<h2>{{ t('prices.month') }}{% if prices.period %} · {{ prices.period|period }}{% endif %}</h2>
+<p class="small muted">{{ t('prices.table_note') }}</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">{{ t('prices.component') }}</th><th scope="col">{{ t('prices.latest') }}</th><th scope="col">{{ t('prices.prior') }}</th><th scope="col">{{ t('prices.change') }}</th><th scope="col">{{ t('prices.percentile') }}</th></tr></thead><tbody>
+{% for row in prices.rows %}<tr><th scope="row"><a href="#metric-{{ row.id }}">{{ row.name }}</a>{% if row.reading_period %}<small> · {{ row.reading_period }}</small>{% endif %}</th><td>{{ row.latest|num }}{% if row.latest is not none %}<small> {{ row.unit }}</small>{% endif %}</td><td>{{ row.prior|num }}</td><td>{{ '%+.2f'|format(row.change) if row.change is not none else '–' }}</td><td>{{ '%.0f'|format(row.percentile) ~ '%' if row.percentile is not none else '–' }} <small>n={{ row.count }}</small></td></tr>{% endfor %}
+</tbody></table></div><p class="small muted">{{ t('prices.percentile_note') }}</p>
+</section>
+<h2>{{ t('prices.components') }}</h2><p class="small muted">{{ t('prices.fuel_note') }}</p>
+{% endblock %}

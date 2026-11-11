@@ -1,0 +1,11 @@
+.price-chain{margin:28px 0;position:relative;border-top:3px solid var(--series-1)}
+.page-data-prices main{padding-top:18px}.page-data-prices .data-intro{margin:12px 0 18px}.page-data-prices .data-category-nav{margin:14px 0}
+.price-chain h2{margin-top:8px}.price-legend{display:flex;flex-wrap:wrap;gap:12px 24px;font-size:13px}
+.price-legend span{border-left:4px solid;padding-left:9px}.price-legend strong{font-variant-numeric:tabular-nums;white-space:nowrap}
+.price-key-0{border-color:var(--series-1)!important}.price-key-1{border-color:#b56b21!important}.price-key-2{border-color:#7460a5!important}
+.price-chain svg.chart .price-line-0{stroke:var(--series-1)}.price-chain svg.chart .price-line-1{stroke:#b56b21;stroke-dasharray:8 3}.price-chain svg.chart .price-line-2{stroke:#7460a5;stroke-dasharray:3 3}
+.price-gaps{display:flex;gap:12px 32px;flex-wrap:wrap;font-size:13px}.price-gaps strong{display:block;font-size:23px}
+.price-month{margin:36px 0}.price-month table{width:100%;font-size:13px}.price-month th:first-child{min-width:200px;text-align:left}.price-month td{white-space:nowrap;font-variant-numeric:tabular-nums;text-align:right}.price-month small{color:var(--ink-3);font-size:10px}
+.price-chain .tip{white-space:normal;max-width:85%;font-size:11px}
+@media(max-width:760px){.price-chain{padding:18px}.price-legend{display:grid;gap:10px}.price-gaps{gap:0}.price-gaps p{width:100%;margin:9px 0}.price-gaps strong{display:inline;font-size:18px;margin-left:8px}.price-month table{font-size:11px}.price-month th:first-child{min-width:140px}.price-month th,.price-month td{padding:8px}.price-chain .tick{font-size:11px}}
+@media(max-width:760px){.page-data-prices .data-intro h1{font-size:30px;margin:6px 0}.page-data-prices .data-intro .lede{font-size:14px;line-height:1.6}.page-data-prices .data-intro .small{margin:0}.page-data-prices .wrap>p.small{margin:10px 0}.price-chain{margin:18px 0}.price-chain>.small:first-child{margin-top:0}.price-chain h2{margin:8px 0}}
