@@ -363,7 +363,9 @@ def build_model(cfg) -> dict:
         "observations": ev_obs, "observation_history": public_history(obs, metrics), "release_calendar": calendar,
         "data_portal": build_data_portal(obs, metrics, test_rows, ev_as_of),
     }
-    model["research_editions"] = build_editions(model, obs, load_optional(ROOT / "research/editions.yaml"))
+    # Edition archive belongs to the live case, never a replay/custom-case sandbox.
+    model["research_editions"] = (build_editions(model, obs, load_optional(ROOT / "research/editions.yaml"))
+                                   if case_dir.resolve() == (ROOT / "research/cases/cn-nominal").resolve() else [])
     return model
 
 
