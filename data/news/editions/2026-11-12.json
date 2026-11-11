@@ -6,10 +6,51 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-25863f243216",
+  "evt-4c6e6e53c9c7",
   "evt-512e4d70eeb0",
   "evt-4ce44727f615"
  ],
  "body": [
+  {
+   "event_id": "evt-25863f243216",
+   "title_zh": "西安高新区打造对外开放强劲引擎前三季度外贸进出口总值超6500亿元",
+   "summary_zh": "中新网西安11月11日电 (记者杨英琦)“前三季度，全区外贸进出口总值6540.56亿元(人民币，下同)，同比增长161.1%，进出口规模、增速均创历史新高。进出口总值分别占陕西省、西安市的81.98%和85.56%，强势拉动全省、全市外贸增长，持续发挥省市外贸发展主力军作用。”西安市政府新闻办11日举行西安市开放型经济情况新闻发布会，西安高新区管委会副主任李晓岚在会上作介绍。",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-11/10730309.shtml",
+   "publisher": "中国新闻网",
+   "topic": "trade",
+   "publishers": [
+    "中国新闻网"
+   ],
+   "score": 76,
+   "rank_key": 80.15888308335967,
+   "ai": {
+    "why_zh": "西安高新区前三季度外贸进出口总值6540.56亿元、同比增长161.1%，分别占陕西省和西安市的81.98%和85.56%，是观察地方外贸动能的重要样本。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-4c6e6e53c9c7",
+   "title_zh": "财政部将在香港发行美元主权债券",
+   "summary_zh": "财政部将在香港发行美元主权债券",
+   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261111_4004480.htm",
+   "publisher": "财政部",
+   "topic": "fiscal",
+   "publishers": [
+    "中国新闻网",
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 77.59167373200866,
+   "ai": {
+    "title_en": "Ministry of Finance to issue US dollar sovereign bonds in Hong Kong",
+    "why_zh": "财政部在香港发行美元主权债券，为观察中国主权债务境外发行节奏提供信息。",
+    "why_en": "The Ministry of Finance's plan to issue US dollar sovereign bonds in Hong Kong offers a view of China's offshore sovereign debt issuance.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-512e4d70eeb0",
    "title_zh": "商务部：深化共建“一带一路”经贸合作，落实对非洲建交国全面实施零关税举措",
@@ -49,8 +90,145 @@
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
+  },
+  {
+   "event_id": "evt-6d7406f3f6fd",
+   "title_zh": "过去三十年深圳进出口值年均增长8.5%",
+   "summary_zh": "【过去三十年深圳进出口值年均增长8.5%】据深圳海关统计，深圳对APEC其他经济体进出口值，从1996年的2675亿元，增至去年的3.13万亿元，年均增长8.5%，增幅超10倍。（央视新闻）",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniykkpv1755832.d.html",
+   "publisher": "新浪财经",
+   "topic": "trade",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 70,
+   "rank_key": 74.15888308335967,
+   "ai": {
+    "title_en": "Shenzhen's import and export value grew 8.5% a year on average over past 30 years",
+    "why_zh": "深圳对APEC其他经济体进出口从1996年的2675亿元增至去年的3.13万亿元，年均增长8.5%，体现外贸规模长期扩张。",
+    "why_en": "Shenzhen's trade with other APEC economies rose from 267.5 billion yuan in 1996 to 3.13 trillion yuan last year, an average annual gain of 8.5%, showing long-term trade expansion.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-b1fa8ea67299",
+   "title_zh": "财政部拟发行2026年记账式贴现（七十四期）国债招标面值总额600亿元",
+   "summary_zh": "财政部拟发行2026年记账式贴现（七十四期）国债。本期国债为期限182天的贴现债。本期国债竞争性招标面值总额600亿元，进行甲类成员追加投标。本期国债发行价格通过竞争性招标确定，以低于票面金额的价格贴现发行。本期国债自2026年11月19日开始计息，于2027年5月20日（节假日顺延）按面值偿还。招标时间2026年11月18日上午10:35至11:35。",
+   "url": "https://wallstreetcn.com/livenews/3198308",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 69,
+   "rank_key": 73.15888308335967,
+   "ai": {
+    "title_en": "Ministry of Finance plans to issue 2026 book-entry discount government bonds (74th tranche) with 60 billion yuan tender face value",
+    "why_zh": "财政部拟发行182天期贴现国债、招标面值总额600亿元，是观察短期国债发行与财政融资安排的直接信息。",
+    "why_en": "The Ministry of Finance plans a 182-day discount bond with 60 billion yuan tender face value, direct information on short-term government bond issuance and fiscal financing.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-d5af6df3a12e",
+   "title_zh": "央行：支持更多符合条件的境外主体发行熊猫债券",
+   "summary_zh": "【央行：支持更多符合条件的境外主体发行熊猫债券】中国人民银行发布2026年第三季度中国货币政策执行报告。中国人民银行将加快金融市场制度建设和高水平对外开放。持续增强债券市场功能和服务实体经济能力。支持更多符合条件的境外主体发行熊猫债券。",
+   "url": "https://finance.eastmoney.com/a/202611113928507084.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "PBOC: support more eligible overseas entities in issuing panda bonds",
+    "why_zh": "央行在2026年第三季度货币政策执行报告中提出支持更多符合条件的境外主体发行熊猫债券，事关债市对外开放。",
+    "why_en": "The central bank's third-quarter 2026 monetary policy report says it will support more eligible overseas entities in issuing panda bonds, a signal on bond-market opening.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-f1abc8fef4c0",
+   "title_zh": "中国人民银行副行长宣昌能出席国际清算银行行长例会",
+   "summary_zh": "中国人民银行副行长宣昌能出席国际清算银行行长例会",
+   "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026111115493736794/index.html",
+   "publisher": "中国人民银行",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 57,
+   "rank_key": 57.15888308335967,
+   "ai": {
+    "why_zh": "央行副行长出席国际清算银行行长例会，是观察中国央行与国际金融监管界沟通的窗口。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   }
  ],
- "quick": [],
+ "quick": [
+  {
+   "event_id": "evt-77211cac3fb2",
+   "title_zh": "美债跌势料延续加息押注升温或推10年期收益率破5%",
+   "summary_zh": "【美债跌势料延续加息押注升温或推10年期收益率破5%】衍生品交易显示美国国债的跌势可能延续，此前公布的通胀数据高于预期，进一步强化了市场对美联储将采取更激进加息行动的预期。由于适逢退伍军人节，美国国债现券市场周三休市。10年期美债期货合约显示，现券市场重新开市后，收益率可能升破5%。周二，基准10年期美债收益率大涨11个基点至4.99%；高于预期的通胀数据以及美联储官员的言论，加剧了市场对通胀正变得根深蒂固的担忧。“我们开始意识到，通胀",
+   "url": "https://finance.sina.cn/7x24/2026-11-11/detail-iniykkqa9058006.d.html",
+   "publisher": "新浪财经",
+   "topic": "prices",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Treasury slump may extend; rate-hike bets could push 10-year yield above 5%",
+    "why_zh": "美债收益率走势与美联储加息预期，会通过汇率和跨境资金影响中国金融条件。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-3a87961890ef",
+   "title_zh": "中国证监会：切实维护投资者合法权益，维护良好市场生态",
+   "summary_zh": "中国证监会有关部门负责人答记者问。近日，北京金融法院发布公告，就东方通证券虚假陈述责任纠纷案件适用特别代表人诉讼程序审理。作为证券监管机构，如何看待这次诉讼？",
+   "url": "https://wallstreetcn.com/livenews/3198317",
+   "publisher": "华尔街见闻",
+   "topic": "growth",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "CSRC: effectively safeguard investors' lawful rights, maintain sound market ecosystem",
+    "why_zh": "证监会就特别代表人诉讼表态，涉及投资者保护与证券监管执法，关系A股市场生态。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-e530449c4485",
+   "title_zh": "中国央行：支持符合条件的科技企业发行科技创新债券，拓宽直接融资渠道",
+   "summary_zh": "央行发布2026年第三季度中国货币政策执行报告，其中在专栏4中提到，要健全知识产权等质押融资机制，盘活企业无形资产，更好支持研发设计、知识产权、科技成果转化、检验检测认证等专业性较强的生产性服务业发展。同时，用好科技创新与民营企业债券风险分担工具，支持符合条件的科技企业发行科技创新债券，拓宽直接融资渠道。",
+   "url": "https://wallstreetcn.com/livenews/3198353",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "PBOC: supports eligible tech firms in issuing sci-tech innovation bonds, broadening direct financing channels",
+    "why_zh": "央行在2026年第三季度货币政策执行报告中提出用好债券风险分担工具，支持科技企业拓宽直接融资。",
+    "why_en": "The central bank's Q3 2026 monetary policy report calls for using bond risk-sharing tools to help tech firms broaden direct financing.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "final": false
 }
