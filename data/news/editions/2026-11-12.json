@@ -22,7 +22,12 @@
     "新浪财经"
    ],
    "score": 71,
-   "rank_key": 77.59167373200866
+   "rank_key": 77.59167373200866,
+   "ai": {
+    "why_zh": "商务部明确“十五五”时期共建“一带一路”经贸合作重点，涉及对非洲建交国零关税举措。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-4ce44727f615",
@@ -36,7 +41,14 @@
     "新浪财经"
    ],
    "score": 69,
-   "rank_key": 75.59167373200866
+   "rank_key": 75.59167373200866,
+   "ai": {
+    "title_en": "Shanghai to overhaul road parking charges after 21 years, with 15-minute free parking",
+    "why_zh": "上海自2005年以来首次全面调整道路停车收费，2026年11月18日起施行，关系城市出行成本。",
+    "why_en": "Shanghai's first full overhaul of road parking charges since 2005 takes effect on 18 November 2026, affecting urban travel costs.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   }
  ],
  "quick": [],

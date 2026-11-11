@@ -1,0 +1,132 @@
+{
+ "version": 3,
+ "entries": {
+  "news_512e4d70eeb07410d643|64b37d8f7281b73c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_512e4d70eeb07410d643",
+   "content_hash": "64b37d8f7281b73c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "why_zh": "商务部明确“十五五”时期共建“一带一路”经贸合作重点，涉及对非洲建交国零关税举措。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_4ce44727f6152edd5ce5|52c082f9a5ac7020|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_4ce44727f6152edd5ce5",
+   "content_hash": "52c082f9a5ac7020",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "Shanghai to overhaul road parking charges after 21 years, with 15-minute free parking",
+   "why_zh": "上海自2005年以来首次全面调整道路停车收费，2026年11月18日起施行，关系城市出行成本。",
+   "why_en": "Shanghai's first full overhaul of road parking charges since 2005 takes effect on 18 November 2026, affecting urban travel costs."
+  },
+  "news_190892118fde4fce286c|a4c7864e339102a9|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_190892118fde4fce286c",
+   "content_hash": "a4c7864e339102a9",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "Ministry of Finance successfully issues RMB green sovereign bonds in Canada",
+   "why_zh": "财政部在加拿大发行人民币绿色主权债券，是人民币主权债海外发行与绿色金融结合的动作。",
+   "why_en": "The finance ministry's RMB green sovereign bond issue in Canada combines offshore RMB sovereign issuance with green finance."
+  },
+  "news_4b3edd7f558fa436ed06|2e4c508bb1385c91|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_4b3edd7f558fa436ed06",
+   "content_hash": "2e4c508bb1385c91",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "Customs Tariff Commission announces adjustment to additional tariffs on US-origin imports",
+   "why_zh": "国务院关税税则委员会调整对美加征关税措施，直接影响中美贸易商品成本。",
+   "why_en": "The Customs Tariff Commission's adjustment to additional tariffs on US-origin goods directly affects the cost of China-US trade."
+  },
+  "news_7c0e35a3eee519ffe8ae|c41fbe2366a43dc0|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7c0e35a3eee519ffe8ae",
+   "content_hash": "c41fbe2366a43dc0",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "October 2026 industrial producer ex-factory prices up 5.7% year on year, up 0.7% month on month",
+   "why_zh": "工业生产者出厂价格同比上涨5.7%，是观察中国工业品价格走势与企业成本压力的官方数据。",
+   "why_en": "A 5.7% year-on-year rise in industrial producer ex-factory prices is official data for tracking Chinese industrial goods prices and cost pressure on firms."
+  },
+  "news_3a136a4d76f87fe857ee|5ac0c6e32609d3fe|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_3a136a4d76f87fe857ee",
+   "content_hash": "5ac0c6e32609d3fe",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "rejected": {
+    "title_en": "name",
+    "why_zh": "name",
+    "why_en": "name"
+   }
+  },
+  "news_cb8bc4972fc55fcf80d7|e56a6366a405cd5b|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_cb8bc4972fc55fcf80d7",
+   "content_hash": "e56a6366a405cd5b",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "10-year US Treasury auction demand falls short of expectations despite highest coupon in 20 years",
+   "why_zh": "美国10年期国债发行需求不及预期，涉及全球资产定价基准，中国读者关注外部金融环境变化。",
+   "why_en": "Weak demand at a 10-year US Treasury auction concerns a global asset-pricing benchmark, relevant to Chinese readers watching the external financial environment."
+  },
+  "news_9ffb38b2f8d9386ad5ef|aea10c49e79decc6|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9ffb38b2f8d9386ad5ef",
+   "content_hash": "aea10c49e79decc6",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "ECB's Nagel: December rate hike 'quite clear'",
+   "rejected": {
+    "why_zh": "name",
+    "why_en": "name"
+   }
+  },
+  "news_530d64a1cae802c44c0d|de789fb73f8e454b|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_530d64a1cae802c44c0d",
+   "content_hash": "de789fb73f8e454b",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "China's foreign trade grows 20% in first 10 months, maintaining strong momentum",
+   "why_zh": "前10个月货物贸易进出口44.81万亿元、同比增长20%，是观察中国外贸动能与外部需求的重要数据。",
+   "why_en": "Goods trade rose 20% year on year to 44.81 trillion yuan in the first 10 months, a key reading on China's trade momentum and external demand."
+  },
+  "news_7f060f284cd377539998|2c3464836fba7d71|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7f060f284cd377539998",
+   "content_hash": "2c3464836fba7d71",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "Global news to know before Tuesday's US market open",
+   "why_zh": "盘前要闻涵盖美国通胀与加息预期、AI融资及阿里分拆等，是判断外部金融环境与中概科技股的参考。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_216808bb995e09a3e1ca|cc5ed3062d9c0ee7|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_216808bb995e09a3e1ca",
+   "content_hash": "cc5ed3062d9c0ee7",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "title_en": "Japan household spending falls for 10th straight month on persistent inflation",
+   "why_zh": "日本家庭支出连续第10个月下滑，反映其消费疲软与通胀固化，关系到日本央行加息路径这一外部变量。",
+   "why_en": "A 10th straight monthly drop in Japanese household spending shows weak consumption and entrenched inflation, relevant to the BOJ's rate path."
+  },
+  "news_d8a9d331eabd0de5abdd|42919584791c36d3|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d8a9d331eabd0de5abdd",
+   "content_hash": "42919584791c36d3",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T03:00:45+00:00",
+   "why_zh": "10月CPI同比涨0.7%、PPI涨5.7%，物价温和为货币政策适度宽松提供空间，是判断政策基调的关键依据。",
+   "why_en": "With CPI up 0.7% and PPI up 5.7% year on year in October, moderate prices leave room for a moderately loose monetary stance, a key policy signal."
+  }
+ }
+}
