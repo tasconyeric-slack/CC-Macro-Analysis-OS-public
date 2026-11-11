@@ -124,6 +124,22 @@ def test_typed_numbers_fail_in_every_brief_field(ctx, text):
     assert "numeric_grounding" in gates(brief.validate_brief_challenge(ch, ctx, load("draft.json")))
 
 
+def test_a_competing_explanation_resting_on_media_alone_is_refused(ctx):
+    ctx["allowlist"].append({"ref": "src:evt-media", "kind": "source", "evidence_kind": "media_report", "display": "x"})
+    ch = load("challenge.json")
+    ch["competing_explanation"]["evidence_refs"] = ["src:evt-media"]
+    ch["competing_explanation"]["why_plausible"] = "Reported in {src:evt-media}."
+    ch["competing_explanation"]["claim"] = "Trade is the driver."
+    assert "missing_evidence" in gates(brief.validate_brief_challenge(ch, ctx, load("draft.json")))
+
+
+def test_non_string_targets_and_dates_are_schema_failures_not_crashes(ctx):
+    ch = load("challenge.json")
+    ch["counter_evidence"][0]["against"] = ["X1"]
+    ch["whats_next"][0]["release_at"] = {"at": "2026-11-16T02:00:00Z"}
+    assert "schema" in gates(brief.validate_brief_challenge(ch, ctx, load("draft.json")))
+
+
 def test_whats_next_dates_are_code_owned(ctx):
     ch = load("challenge.json")
     ch["whats_next"][0]["release_at"] = "2026-11-15T02:00:00Z"

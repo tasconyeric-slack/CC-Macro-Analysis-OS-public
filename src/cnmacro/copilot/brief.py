@@ -201,6 +201,7 @@ def validate_brief_challenge(raw, ctx: dict, draft: dict | None = None) -> list[
     ce = raw.get("competing_explanation")
     if c.keys("$.competing_explanation", ce, {"claim", "why_plausible", "discriminating_observation", "evidence_refs", "background_knowledge"}):
         declared = c.refs("$.competing_explanation.evidence_refs", ce["evidence_refs"])
+        _media_only(c, "$.competing_explanation.evidence_refs", declared, strong)
         for k in ("claim", "why_plausible", "discriminating_observation"):
             c.text(f"$.competing_explanation.{k}", ce[k], declared=declared)
         bk = ce["background_knowledge"]
@@ -217,7 +218,7 @@ def validate_brief_challenge(raw, ctx: dict, draft: dict | None = None) -> list[
         for i, x in enumerate(counter):
             p = f"$.counter_evidence[{i}]"
             if c.keys(p, x, {"against", "claim", "evidence_refs"}):
-                if x["against"] not in targets:
+                if not isinstance(x["against"], str) or x["against"] not in targets:
                     c.err("schema", f"{p}.against", f"{x['against']!r} is neither a draft item id nor H0-H4")
                 declared = c.refs(f"{p}.evidence_refs", x["evidence_refs"])
                 _media_only(c, f"{p}.evidence_refs", declared, strong)
@@ -237,7 +238,9 @@ def validate_brief_challenge(raw, ctx: dict, draft: dict | None = None) -> list[
             p = f"$.whats_next[{i}]"
             if c.keys(p, n, {"watch", "release_at", "hypothesis", "would_support", "would_challenge", "evidence_refs"}):
                 c.enum(f"{p}.hypothesis", n["hypothesis"], contract.DISPLAY_ORDER)
-                if n["release_at"] != UNSCHEDULED and n["release_at"] not in scheduled:
+                if not isinstance(n["release_at"], str):
+                    c.err("schema", f"{p}.release_at", "must be a string: a scheduled release_at or 'unscheduled'")
+                elif n["release_at"] != UNSCHEDULED and n["release_at"] not in scheduled:
                     c.err("as_of_violation", f"{p}.release_at",
                           f"{n['release_at']!r} is not a scheduled release in the context: dates are code-owned (copy one, or say {UNSCHEDULED!r})")
                 declared = c.refs(f"{p}.evidence_refs", n["evidence_refs"], minimum=0)
