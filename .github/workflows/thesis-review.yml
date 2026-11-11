@@ -1,0 +1,120 @@
+name: thesis review decision
+
+# The analyst's Approve / Edit / Reject on a drafted thesis review (research/cases/cn-nominal/reviews/<id>/).
+# Run by hand only (Actions -> "thesis review decision" -> Run workflow). Only the repository owner can sign:
+# the signer is the GitHub account that started the run, and the decision is dated when it runs (never back-dated).
+# Approve/Edit append a signed updates/<date>-<release>.yaml; Reject records the decision and publishes no update.
+on:
+  workflow_dispatch:
+    inputs:
+      review_id:
+        description: "Review id (e.g. 2026-11-09T0223Z) — see `python -m cnmacro review list` or the Updates page"
+        required: true
+        type: string
+      action:
+        description: "Approve = publish the draft as written (no thesis change). Edit = your text below. Reject = no update."
+        required: true
+        type: choice
+        options: [approve, edit, reject]
+      confirm:
+        description: "Type the review id again to confirm you are signing this decision"
+        required: true
+        type: string
+      reason:
+        description: "Reason (required for Edit and Reject)"
+        required: false
+        type: string
+      text_en:
+        description: "Edit only: your update paragraph (English)"
+        required: false
+        type: string
+      text_zh:
+        description: "Edit only: the same paragraph in Chinese (recommended)"
+        required: false
+        type: string
+      probability:
+        description: "Edit only: new probability on the 0.05 grid (e.g. 0.35); leave blank to keep it"
+        required: false
+        type: string
+      conviction:
+        description: "Edit only: conviction"
+        required: false
+        type: choice
+        default: unchanged
+        options: [unchanged, LOW, MEDIUM, HIGH]
+      reasoning:
+        description: "Edit with a probability change: why it moved (English)"
+        required: false
+        type: string
+      evidence:
+        description: "Edit with a probability change: comma-separated test or claim ids (e.g. T-H2-04,T-H1-01)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-refresh          # never interleave with a data refresh commit
+  cancel-in-progress: false
+
+jobs:
+  decide:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # E4 checks the full history of immutable files
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e .
+      - name: Record the decision (and the signed update for Approve / Edit)
+        env:
+          REVIEW_ID: ${{ inputs.review_id }}
+          CONFIRM: ${{ inputs.confirm }}
+          ACTION: ${{ inputs.action }}
+          REASON: ${{ inputs.reason }}
+          TEXT_EN: ${{ inputs.text_en }}
+          TEXT_ZH: ${{ inputs.text_zh }}
+          PROBABILITY: ${{ inputs.probability }}
+          CONVICTION: ${{ inputs.conviction }}
+          REASONING: ${{ inputs.reasoning }}
+          EVIDENCE: ${{ inputs.evidence }}
+          SIGNER: ${{ github.actor }}
+          VIA: github-actions:workflow_dispatch:${{ github.run_id }}
+        run: |
+          # inputs reach the script only through the environment, never interpolated into shell code
+          python - <<'PY'
+          import os, sys, yaml
+          if os.environ["CONFIRM"].strip() != os.environ["REVIEW_ID"].strip():
+              sys.exit("confirmation does not match the review id; nothing recorded")
+          e = {}
+          if os.environ["ACTION"] == "edit":
+              e = {"text_en": os.environ["TEXT_EN"], "text_zh": os.environ["TEXT_ZH"]}
+              if os.environ["PROBABILITY"].strip():
+                  e["probability"] = float(os.environ["PROBABILITY"])
+                  e["reasoning"] = os.environ["REASONING"]
+                  e["evidence"] = [x.strip() for x in os.environ["EVIDENCE"].split(",") if x.strip()]
+              if os.environ["CONVICTION"] != "unchanged":
+                  e["conviction"] = os.environ["CONVICTION"]
+          yaml.safe_dump(e, open("review-edits.yaml", "w"), allow_unicode=True)
+          PY
+          python -m cnmacro review decide --id "$REVIEW_ID" --action "$ACTION" --signer "$SIGNER" \
+            --reason "$REASON" --edits review-edits.yaml --via "$VIA"
+          python -m cnmacro review verify --id "$REVIEW_ID"
+      - name: Eval gate (E0-E5) on the new research state
+        run: python -m cnmacro check --public
+      - name: Commit the decision with GitHub's verified bot identity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_ID: ${{ inputs.review_id }}
+          ACTION: ${{ inputs.action }}
+          SIGNER: ${{ github.actor }}
+        run: |
+          git add -A -- research/cases/cn-nominal/reviews
+          if [ -e research/cases/cn-nominal/updates ]; then git add -A -- research/cases/cn-nominal/updates; fi
+          python scripts/check_secrets.py --staged
+          python scripts/commit_public_refresh.py "$(printf 'analyst: %s thesis review %s (signed by %s)\n\nRecorded by the thesis review decision workflow at the analyst'"'"'s request.' "$ACTION" "$REVIEW_ID" "$SIGNER")"

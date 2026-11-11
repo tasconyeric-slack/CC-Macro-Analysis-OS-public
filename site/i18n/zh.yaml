@@ -814,3 +814,31 @@ prices:
   percentile_note: "分位：过去 36 个自然月内已公布读数的平均秩，缩放为 0–100；并列取平均，全部相同记为 50。n 为实际观测数，并不假定有 36 期。"
   components: "分项走势"
   fuel_note: "统计局自 2026 年 1 月将交通工具用燃料改为交通工具用能源。图线在此口径变化处断开，分位只使用同口径区段；两者均不等同于广义能源。PMI 价格为扩散指数（50 表示持平），并非通胀率。"
+review:
+  title: 最新发布的分析师审阅
+  kind: 审阅
+  status:
+    awaiting_analyst: "草稿 · 待分析师审阅"
+    approved: "已签署 · 按草稿批准"
+    edited: "已签署 · 分析师修改后批准"
+    rejected: "草稿已驳回 · 未发布更新"
+    superseded: "草稿已被更新的发布取代"
+  legend: "发布后由代码生成的草稿；只有分析师批准或修改后才成为已签署的更新"
+  release: "发布：{name} · {when}"
+  drafted: "生成于 {when}，依据刷新记录 {file}"
+  in_force_html: '本站显示的仍是最近一次已签署的判断：<span class="mono">{file}</span>（{when}）。'
+  proposed: 建议更新（草稿，并非判断）
+  signed_html: '由 <strong>{who}</strong> 于 {when} 签署 · {action} · <a href="#{anchor}">{file}</a>'
+  rejected_html: '由 <strong>{who}</strong> 于 {when} 驳回。未发布更新，现行判断不变。'
+  reason: 原因
+  flips: "相对现行判断的检验变化"
+  competing: 竞争性解释
+  watch: 下一步关注
+  inputs: 参考的研究输入
+  none: 无
+  home_awaiting: "最新发布已生成审阅草稿；上方仍为此前已签署的判断。"
+  home_signed: "最新发布已由 {who} 于 {when} 审阅签署。"
+  home_rejected: "最新发布草稿已被 {who} 驳回；判断不变。"
+  action:
+    approve: 批准
+    edit: 修改后批准

@@ -1,0 +1,152 @@
+"""News and policy intake -> China macro occurrences -> calendar and research inputs (deterministic, no model)."""
+import json
+
+from cnmacro.events.store import stamp
+from cnmacro.macro_events import build_occurrences, extract_action, extract_figures, material
+from cnmacro.research_inputs import _news
+from daily import build_calendar, calendar_view, undated_releases
+from views import View
+
+AT = "2026-11-10T10:30:00+08:00"
+
+
+def test_figures_keep_sign_basis_currency_and_period_as_written():
+    text = ("海关总署11月10日发布数据，今年前10个月，我国货物贸易进出口44.81万亿元，同比增长20%。"
+            "其中，出口25.99万亿元，同比增长17.6%。10月份，我国货物贸易进出口总值4.87万亿元，增长31.2%。"
+            "其中，出口2.79万亿元，增长28.7%；进口2.08万亿元，增长34.7%。")
+    got = {(f["indicator"], f["basis"], f["currency"], f["period"]): f["value"] for f in extract_figures(text, AT)}
+    assert got[("exports", "ytd", "CNY", "2026-10")] == 17.6           # 前10个月 is year to date
+    assert ("exports", "yoy", "CNY", "2026-10") not in got              # 10月份 sentence has no 同比 and no 同比(下同)
+    usd = extract_figures("中国10月出口同比(按美元计) 35.2%，前值 36.3%", AT)[0]
+    assert (usd["metric_id"], usd["value"], usd["previous"], usd["currency"]) == ("cn_exports_usd_yoy", 35.2, 36.3, "USD")
+    down = extract_figures("1—9月份，全国固定资产投资（不含农户）334115亿元，同比下降7.2%", "2026-10-19T10:00:00+08:00")[0]
+    assert (down["indicator"], down["value"], down["basis"], down["period"]) == ("fai", -7.2, "ytd", "2026-09")
+    cpi = extract_figures("2026年10月份，全国居民消费价格同比上涨0.7%。10月份，全国居民消费价格环比持平。", AT)
+    assert [(f["metric_id"], f["value"]) for f in cpi] == [("cn_cpi_yoy", 0.7)]
+    jan = extract_figures("12月份CPI同比上涨0.5%", "2027-01-09T09:30:00+08:00")[0]
+    assert jan["period"] == "2026-12"                                    # December is reported in January
+
+
+def test_foreign_regional_and_product_figures_are_not_china_aggregates():
+    assert not extract_figures("美国10月核心CPI环比上涨0.3%超预期", AT)
+    assert not extract_figures("中国10月原油进口4,193.8万吨，同比下降13.3%", AT)
+    assert not extract_figures("10月乘用车出口量同比增长68.5%", AT)
+    assert not extract_figures("截至2026年9月末，西藏本外币各项贷款余额7975.8亿元，同比增长17.5%", AT)
+
+
+def test_policy_action_names_issuer_action_and_size():
+    rrr = extract_action("中国人民银行决定下调金融机构存款准备金率0.5个百分点，自2026年11月15日起执行")
+    assert (rrr["issuer"], rrr["kind"], rrr["rate"], rrr["effective"]) == ("PBOC", "rrr_cut", "0.5个百分点", "11月15日")
+    tariff = extract_action("国务院关税税则委员会：在2个月内继续暂停实施24%的对美加征关税税率")
+    assert (tariff["issuer"], tariff["kind"]) == ("TARIFF", "tariff")
+    assert extract_action("美联储理事沃勒：12月应加息50基点") is None
+    assert extract_action("一份通知印发") is None                         # a document needs a named issuer
+    assert extract_action("央行：今年将灵活高效运用降准降息等多种货币政策工具") is None  # intention, not a cut
+    assert extract_action("中国人民银行决定于11月15日下调存款准备金率0.5个百分点")["kind"] == "rrr_cut"
+
+
+def test_a_chinese_sovereign_issue_abroad_is_an_action_and_a_foreign_one_is_not():
+    hk = extract_action("财政部将在香港发行美元主权债券。经国务院批准，财政部将于2026年11月16日当周在香港特别行政区"
+                        "发行美元主权债券，规模不超过20亿美元")
+    assert (hk["kind"], hk["issuer"], hk["amount"]) == ("bond", "MOF", "20亿美元")  # MOF issues; the State Council approves
+    ca = extract_action("11月9日，中华人民共和国财政部代表中央政府在加拿大成功发行了40亿元人民币绿色主权债券")
+    assert (ca["issuer"], ca["amount"]) == ("MOF", "40亿元")
+    assert extract_action("财政部将在香港发行美元主权债券") is None      # no date and no decision: not yet an action
+    assert extract_action("美国财政部在纽约发行国债") is None
+    assert extract_action("日本央行在东京发行国债") is None
+
+
+def _news_dir(tmp_path):
+    """Four real-shaped reports: a media figure, the official first print plus media coverage of it, a policy action."""
+    def item(i, publisher, tier, url, at, title, summary="", event="evt-x"):
+        return {"item_id": i, "publisher": publisher, "source_tier": tier, "canonical_url": url, "published_at": at,
+                "first_seen_at": "2026-11-10T03:00:00+00:00", "title_zh": title, "summary_zh": summary,
+                "metric_ids": [], "event_id": event}
+    items = [
+        item("n1", "华尔街见闻", "T2", "https://wallstreetcn.com/livenews/1", "2026-11-10T10:30:00+08:00",
+             "中国10月出口同比(按美元计) 35.2%，前值 36.3%", "", "evt-trade"),
+        item("n2", "国家统计局", "T1", "https://www.stats.gov.cn/sj/zxfb/202611/t20261109_1.html", "2026-11-09T09:30:00+08:00",
+             "2026年10月份居民消费价格同比上涨0.7%", "2026年10月份，全国居民消费价格同比上涨0.7%。", "evt-cpi"),
+        item("n3", "东方财富", "T2", "https://finance.eastmoney.com/a/1.html", "2026-11-09T09:40:00+08:00",
+             "国家统计局：10月CPI同比上涨0.7%", "10月份居民消费价格指数（CPI）同比上涨0.7%。", "evt-cpi"),
+        item("n4", "中国人民银行", "T1", "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/1/index.html",
+             "2026-11-03T17:00:00+08:00", "中国人民银行决定上调金融机构外汇存款准备金率",
+             "为加强金融机构外汇流动性管理，中国人民银行决定，自2026年11月15日起，上调金融机构外汇存款准备金率2个百分点。", "evt-pboc"),
+    ]
+    events = [{"event_id": e, "title_zh": t, "summary_zh": "", "url": u, "publisher": p, "official": o,
+               "topic": tp, "items": ids, "publishers": []}
+              for e, t, u, p, o, tp, ids in [
+                  ("evt-trade", items[0]["title_zh"], items[0]["canonical_url"], "华尔街见闻", False, "trade", ["n1"]),
+                  ("evt-cpi", items[1]["title_zh"], items[1]["canonical_url"], "国家统计局", True, "prices", ["n2", "n3"]),
+                  ("evt-pboc", items[3]["title_zh"], items[3]["canonical_url"], "中国人民银行", True, "credit", ["n4"])]]
+    (tmp_path / "archive").mkdir()
+    (tmp_path / "latest.json").write_text(json.dumps({"events": events, "items": items}, ensure_ascii=False), encoding="utf-8")
+    return tmp_path
+
+
+def test_news_to_occurrence_to_calendar_to_research_inputs(model, tmp_path):
+    news = _news_dir(tmp_path)
+    occ = {o["occurrence_id"]: o for o in build_occurrences(news, None, "2026-11-11T06:00:00Z")}
+    assert set(occ) == {"evt-trade", "evt-cpi", "evt-pboc"} and all(material(o) for o in occ.values())
+    assert occ["evt-cpi"]["publishers"] == ["东方财富", "国家统计局"]       # one occurrence, two outlets
+    assert [f["publisher"] for f in occ["evt-cpi"]["figures"]] == ["国家统计局"]  # first party leads, copy dropped
+    assert occ["evt-pboc"]["action"]["kind"] == "rrr_hike" and occ["evt-pboc"]["kind"] == "policy"
+    assert occ["evt-trade"]["figures"][0]["publisher"] == "华尔街见闻"      # media alone is enough to show a report
+
+    releases = [{"name": "2026-10 CPI (居民消费价格指数月度报告)", "period": "2026-10", "release": "2026-11-09T09:30:00+08:00",
+                 "metrics": ["cn_cpi_yoy"], "url": "https://www.stats.gov.cn/sj/fbrc/"}]
+    gacc = [{"source": "GACC", "kind": "gacc_flash", "period": "2026-10", "published": "2026-11-10",
+             "url": "http://english.customs.gov.cn/Statics/oct.html"}]
+    cal = build_calendar({**model, "release_calendar": releases, "official_publications": gacc},
+                         "2026-11-11T06:00:00Z", occurrences=list(occ.values()))
+    assert len(cal) == 3                                                  # CPI and trade coverage folded into releases
+    cpi = next(e for e in cal if e["kinds"] == ["cpi"])
+    assert set(cpi["occurrence_ids"]) == {"evt-cpi"} and {c["publisher"] for c in cpi["coverage"]} == {"国家统计局", "东方财富"}
+    trade = next(e for e in cal if e["kinds"] == ["gacc_flash"])
+    assert [(f["metric_id"], f["value"], f["publisher"]) for f in trade["reported"]] == [("cn_exports_usd_yoy", 35.2, "华尔街见闻")]
+    policy = next(e for e in cal if e["kind"] == "policy")
+    assert (policy["date"], policy["time"], policy["action"]["rate"]) == ("2026-11-03", "17:00", "2个百分点")
+    for loc in ("zh", "en"):
+        short = calendar_view(policy, View(model, loc))["short"]
+        assert short == ("人民银行上调准备金率" if loc == "zh" else "PBoC Reserve ratio raised")
+
+    start, end = stamp("2026-11-04T00:00:00Z"), stamp("2026-11-11T06:00:00Z")
+    rows = {x["event_id"]: x for x in _news(news, start, end, end, {"cn_exports_usd_yoy", "cn_cpi_yoy"}, {})}
+    assert rows["evt-trade"]["triage"] == "monitor" and rows["evt-trade"]["hypotheses"] == ["H4"]
+    assert rows["evt-trade"]["reported_figures"][0]["span"] == "出口同比(按美元计) 35.2%，前值 36.3%"
+    assert "cn_exports_usd_yoy" in rows["evt-trade"]["linked_metrics"]
+    assert rows["evt-cpi"]["reported_figures"][0]["metric_id"] == "cn_cpi_yoy"
+
+
+def test_a_group_seen_only_in_part_at_as_of_shows_only_what_was_available(tmp_path):
+    news = _news_dir(tmp_path)
+    feed = json.loads((news / "latest.json").read_text(encoding="utf-8"))
+    late = {**feed["items"][1], "item_id": "late", "first_seen_at": "2026-11-12T00:00:00+00:00"}
+    feed["items"] = [i for i in feed["items"] if i["item_id"] != "n2"] + [late]
+    cpi = next(e for e in feed["events"] if e["event_id"] == "evt-cpi")
+    cpi["items"] = ["n3", "late"]                    # the official page arrives after as_of
+    (news / "latest.json").write_text(json.dumps(feed, ensure_ascii=False), encoding="utf-8")
+    occ = {o["occurrence_id"]: o for o in build_occurrences(news, None, "2026-11-11T06:00:00Z")}["evt-cpi"]
+    assert occ["publisher"] == "东方财富" and not occ["official"]
+    assert occ["url"] == "https://finance.eastmoney.com/a/1.html" and occ["publishers"] == ["东方财富"]
+
+
+def test_a_release_page_collected_by_the_intake_marks_the_release_published(model, tmp_path):
+    """The PBoC's own 金融统计数据报告 page, seen by the hourly intake, puts the release on the calendar as published
+    on the page's date, and moves the next release to 'date not yet announced'. A media headline does not."""
+    def occ(oid, title, publisher, official, url, date):
+        return {"occurrence_id": oid, "kind": "news", "title_zh": title, "title_en": None, "publisher": publisher,
+                "official": official, "url": url, "date": date, "time": "", "published_at": date + "T00:00:00+08:00",
+                "figures": [], "action": None, "hypotheses": [], "metric_ids": [], "reports": [], "source_urls": [url]}
+    page = "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026111316000000000/index.html"
+    occurrences = [occ("p", "2026年10月金融统计数据报告", "中国人民银行", True, page, "2026-11-13"),
+                   occ("m", "2026年11月金融统计数据报告", "东方财富", False, "https://finance.eastmoney.com/a/2.html", "2026-11-13")]
+    held = [{"source": "PBOC", "kind": "pboc", "period": "2026-09", "published": "2026-10-14",
+             "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/sep/index.html"}]
+    fixture = {**model, "release_calendar": [], "official_publications": held}
+    cal = build_calendar(fixture, "2026-11-14T00:00:00Z", occurrences=occurrences)
+    pboc = [(e["period"], e["date"], e["status"], e["url"]) for e in cal if e["source"] == "PBOC"]
+    assert pboc == [("2026-09", "2026-10-14", "released", held[0]["url"]), ("2026-10", "2026-11-13", "released", page)]
+    assert [(t["source"], t["period"]) for t in undated_releases(fixture, occurrences) if t["source"] == "PBOC"] == [("PBOC", "2026-11")]
+    early = build_calendar(fixture, "2026-11-14T00:00:00Z", occurrences=occurrences[1:])
+    assert [e["period"] for e in early if e["source"] == "PBOC"] == ["2026-09"]   # media alone never dates a release
