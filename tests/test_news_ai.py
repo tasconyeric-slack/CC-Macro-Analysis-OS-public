@@ -468,6 +468,26 @@ def test_publication_date_numbers_never_authorize_factual_quantities():
     assert news_ai.validate(src, {'title_en': 'PBOC announces reserve requirement cut'})[0]
 
 
+@pytest.mark.parametrize('headline', [
+    'PPI rises 10%',             # October is a date, not a 10% release
+    'PPI rises 0.7%',            # declined, not rose
+    'PPI decreases 0.7 percentage points',  # percent is not percentage points
+    'PPI rises +0.7%',           # wrong sign
+])
+def test_percentage_unit_sign_and_date_context_cannot_be_reused(headline):
+    source = {'title_zh': '中国10月PPI同比下降0.7%', 'summary_zh': '',
+              'published_at': '2026-11-09T09:30:00+08:00', 'publisher': '国家统计局'}
+    assert news_ai.validate(source, {'title_en': headline}) == ({}, {'title_en': 'number'})
+    ok, rejected = news_ai.validate(source, {'title_en': 'PPI declines 0.7%'})
+    assert ok and not rejected
+
+
+def test_signed_rate_must_retain_minus_sign():
+    source = {'title_zh': 'PPI同比-0.7%', 'summary_zh': '', 'publisher': '国家统计局',
+              'published_at': '2026-11-09T09:30:00+08:00'}
+    assert news_ai.validate(source, {'title_en': 'PPI rises +0.7%'}) == ({}, {'title_en': 'number'})
+
+
 def test_a_bad_field_is_omitted_and_the_good_ones_survive():
     ok, dropped = judged(title_en='PPI rises 5.7% in October', why_zh='出厂价格走势很重要。', why_en='PPI rose 9.9% in October.')
     assert set(ok) == {'title_en', 'why_zh'} and dropped == {'why_en': 'number'}

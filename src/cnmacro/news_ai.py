@@ -21,8 +21,8 @@ from datetime import timedelta
 from pathlib import Path
 from cnmacro.events.store import stamp
 
-PROMPT_VERSION = 'news-ai-prompt/2'
-CACHE_VERSION = 2
+PROMPT_VERSION = 'news-ai-prompt/3'
+CACHE_VERSION = 3
 CACHE_NAME = 'ai_cache.json'
 DEFAULT_MODEL = 'deepseek-flash'
 DEFAULT_MAX_ITEMS = 12
@@ -233,6 +233,48 @@ def output_numbers(text):
     return nums
 
 
+# Numeric quantities retain their units, context and direction; a date cannot license a percentage.
+# Keep this focused on rates, where month numbers / signed changes are especially dangerous.
+_PERCENT_VALUE = re.compile(
+    r'(?<![\d.])(?P<sign>[+-]?)(?P<value>\d+(?:,\d{3})*(?:\.\d+)?)\s*'
+    r'(?P<unit>%|％|个百分点|percentage(?:\s+points?)?|percent(?:\s+points?)?)',
+    re.I,
+)
+_DOWN_CUE = re.compile(
+    r'下降|下跌|下调|减少|降低|回落|负增长|收缩|降准|\b(?:fall|falls|fell|fallen|drop|drops|dropped|'
+    r'decline|declines|declined|decrease|decreases|decreased|down|lower|lowers|lowered|'
+    r'cut|cuts|cutting|contract|contracts|contracted)\b', re.I,
+)
+_UP_CUE = re.compile(
+    r'上涨|上升|上调|增加|增长|提高|回升|升至|\b(?:rise|rises|rose|risen|up|increase|increases|increased|'
+    r'grow|grows|grew|grown|raise|raises|raised|climb|climbs|climbed)\b', re.I,
+)
+
+
+def percentage_quantities(text):
+    """Exact percent / percentage-point amounts, including direction and explicit signs.
+
+    A numeric month (10月) never authorizes a claim of 10%. "降准0.5个百分点"
+    and "cuts by 0.5 percentage points" both normalize to a -0.5 pp change.
+    """
+    out = set()
+    for m in _PERCENT_VALUE.finditer(text or ''):
+        unit = m.group('unit').lower()
+        kind = 'pp' if unit == '个百分点' or 'point' in unit else 'percent'
+        value = float(m.group('value').replace(',', ''))
+        sign = m.group('sign')
+        if sign == '-':
+            value = -value
+        elif not sign:
+            prefix = text[max(0, m.start() - 50):m.start()]
+            cues = ([(x.start(), -1) for x in _DOWN_CUE.finditer(prefix)] +
+                    [(x.start(), 1) for x in _UP_CUE.finditer(prefix)])
+            if cues and max(cues)[1] == -1:
+                value = -value
+        out.add((kind, round(value, 8)))
+    return out
+
+
 def norm(word):
     return re.sub(r"'s$", '', word.replace('’', "'").lower())
 
@@ -292,6 +334,9 @@ def check_field(name, value, src, allowed_nums, names):
         return 'advice'
     extra = output_numbers(value) - allowed_nums
     if extra:
+        return 'number'
+    factual_text = ' '.join(str(src.get(k, '')) for k in ('title_zh', 'summary_zh'))
+    if not percentage_quantities(value).issubset(percentage_quantities(factual_text)):
         return 'number'
     if english:
         low = value.lower()
