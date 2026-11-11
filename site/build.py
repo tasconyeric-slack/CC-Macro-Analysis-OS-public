@@ -55,11 +55,12 @@ from portal import CATEGORY_METRICS, portal_context  # noqa: E402
 from news_feed import news_context, edition_context, archive_context, edition_days, archive_months
 from daily import build_desk, desk_context, write_desk  # noqa: E402
 from data_portal import build_data_portal, data_context, public_history, write_data_assets  # noqa: E402
+from research_editions import build_editions, edition_context as research_context, write_editions
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
 HYP_ORDER = ["H1", "H2", "H3", "H4", "H0"]
-PAGES = ["index", "news", "daily", "data", "policy", "memo", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
+PAGES = ["index", "news", "daily", "data", "policy", "memo", "research", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
 PRIMARY_PAGES = ["index", "news", "data", "memo"]
 REF_LINES = {"%": 0.0}
 
@@ -345,7 +346,7 @@ def build_model(cfg) -> dict:
     refresh_at = refreshes[-1]["as_of"] if refreshes else (held.isoformat() + "Z" if held is not None else None)
 
     judgment_file = judgment_doc["_file"] if judgment_doc else None
-    return {
+    model = {
         "preview": preview, "banner": cfg.banner, "draft": draft, "case": case, "metrics": metrics,
         "baseline": baseline, "amendments": amendments, "updates": updates, "refreshes": refreshes,
         "judgment_doc": judgment_doc, "judgment_file": judgment_file, "state": state, "history": history,
@@ -362,6 +363,10 @@ def build_model(cfg) -> dict:
         "observations": ev_obs, "observation_history": public_history(obs, metrics), "release_calendar": calendar,
         "data_portal": build_data_portal(obs, metrics, test_rows, ev_as_of),
     }
+    # Edition archive belongs to the live case, never a replay/custom-case sandbox.
+    model["research_editions"] = (build_editions(model, obs, load_optional(ROOT / "research/editions.yaml"))
+                                   if case_dir.resolve() == (ROOT / "research/cases/cn-nominal").resolve() else [])
+    return model
 
 
 # ---------------------------------------------------------------- per-locale context
@@ -547,6 +552,7 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
             ctx['prices'] = prices_context(model, v, ctx['data_explorer'])
     if stem == "data":
         ctx["data_explorer"] = data_context(model, v)
+    ctx["research_editions"] = [research_context(e, v) for e in model.get("research_editions", [])]
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
     return ctx
 
@@ -554,10 +560,10 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
 def meta(v: View, stem: str) -> dict:
     loc, t = v.loc, v.t
     key_stem = "data" if stem.startswith("data-") else ("news" if stem.startswith("news-") else stem)
-    title_key = f"page.{key_stem}.title"
+    title_key = "research.title" if key_stem == "research" else f"page.{key_stem}.title"
     title = t("site.title") if stem == "index" else f"{t(title_key)} · {t('site.title')}"
     return {
-        "title": title, "description": t(f"page.{key_stem}.description"), "canonical": page_url(loc, stem),
+        "title": title, "description": t("research.description") if key_stem == "research" else t(f"page.{key_stem}.description"), "canonical": page_url(loc, stem),
         "alternates": [(L.HREFLANG[l], page_url(l, stem)) for l in L.LOCALES] + [("x-default", f"{SITE_URL}/")],
         "og_image": f"{SITE_URL}/static/og-{loc}.png", "og_image_alt": t("site.og_alt"),
         "og_locale": L.OG_LOCALE[loc], "og_alternate": [L.OG_LOCALE[x] for x in L.LOCALES if x != loc],
@@ -585,6 +591,7 @@ def render_site(model: dict, out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site/static", out / "static")
     write_data_assets(model["data_portal"], out)
+    write_editions(model.get("research_editions", []), out)
     from prices import write_price_assets
     write_price_assets(model['data_portal'], out)
     # browsers ask for /favicon.ico at the root before they read any <link>
@@ -613,6 +620,19 @@ def render_site(model: dict, out: Path) -> dict:
                                 "lang_base": {l: f"../{l}/{page_file(sub)}" for l in L.LOCALES}}
                         sctx["nav"] = [(f, label, s == "news.html") for f, label, s in [(a, b, a) for a, b, _ in ctx["nav"]]]
                         (out / loc / page_file(sub)).write_text(env.get_template(f"news-{kind}.html").render(**sctx), encoding="utf-8")
+        for edition in model.get("research_editions", []):
+            stem = edition["edition_id"]
+            ctx = context(model, v, "research", env_md)
+            ctx["page"] = stem
+            ctx["edition"] = research_context(edition, v)
+            ctx["meta"] = {**meta(v, "research"), "title": ctx["edition"]["title"] + " · CC Macro",
+                           "canonical": page_url(loc, stem),
+                           "alternates": [(L.HREFLANG[l], page_url(l, stem)) for l in L.LOCALES]}
+            ctx["asset"] = "../static/"
+            ctx["lang_base"] = {l: f"../{l}/{stem}.html" for l in L.LOCALES}
+            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), False) for s in PRIMARY_PAGES]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["research", "daily", "policy", "evidence", "updates", "method"]]
+            (out / loc / page_file(stem)).write_text(env.get_template("research-edition.html").render(**ctx), encoding="utf-8")
         missing[loc] = sorted(set(v.missing))
     # the root selector and the legacy V1.0 flat URLs
     write_desk(model["desk"], out)
