@@ -112,3 +112,17 @@ def test_edition_pages_render_series_sections(built):
         html = (built / loc / 'macro-weekly-2026-W45.html').read_text()
         assert 'class="research-inputs"' in html and 'rel="noopener" lang="zh"' in html
         assert ('这是该系列的第一期' if loc == 'zh' else 'This is the first edition') in html
+
+
+def test_newest_bundle_triage_wins_before_materiality(model, tmp_path):
+    src = json.loads((ROOT / 'research/cases/cn-nominal/inputs/2026-11-10.json').read_text())
+    pboc = next(x for x in src['items'] if x['triage'] == 'research_needed' and x['evidence_kind'] == 'first_party_policy'
+                and x['repetition_of'] is None)
+    (tmp_path / '2026-11-10.json').write_text(json.dumps(src))
+    later = {**src, 'bundle_id': '2026-11-11', 'as_of': '2026-11-11T00:00:00Z',
+             'items': [{**pboc, 'triage': 'irrelevant', 'hypotheses': []}]}
+    (tmp_path / '2026-11-11.json').write_text(json.dumps(later))
+    config = {'weekly_start': '2026-11-02', 'monthly_start': '2026-10-01'}
+    got = build_editions(model, model['observation_history'], config, inputs_dir=tmp_path)
+    w45 = next(e for e in got if e['edition_type'] == 'weekly')
+    assert pboc['event_id'] not in {x['event_id'] for x in w45['research_inputs']}

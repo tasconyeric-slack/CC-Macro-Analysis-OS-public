@@ -79,20 +79,24 @@ def bi(zh, en):
 
 def load_inputs(directory, generated):
     """Every committed research-input bundle that existed at generation time; newest item copy wins."""
-    items = {}
     directory = Path(directory)
     if not directory.is_dir():
         return []
+    bundles = []
     for path in sorted(directory.glob('*.json')):
         try:
             bundle = load_bundle(path)
         except (BundleError, ValueError, KeyError):
             continue  # an invalid bundle is skipped, never partially trusted
-        if utc_naive(bundle['as_of']) > utc_naive(generated):
-            continue
-        for x in material_items(bundle):
-            items[x['event_id']] = {**x, 'bundle_id': bundle['bundle_id']}
-    return list(items.values())
+        if utc_naive(bundle['as_of']) <= utc_naive(generated):
+            bundles.append(bundle)
+    # The newest triage of an event wins first (a later bundle may mark it a repetition or
+    # irrelevant); only then is materiality applied.
+    latest = {}
+    for bundle in sorted(bundles, key=lambda b: utc_naive(b['as_of'])):
+        for x in bundle['items']:
+            latest[x['event_id']] = {**x, 'bundle_id': bundle['bundle_id']}
+    return material_items({'items': list(latest.values())})
 
 
 def period_inputs(inputs, period, cutoff, store_refs):
@@ -221,7 +225,7 @@ def build_editions(model, history, config, inputs_dir=LIVE_INPUTS):
                       'Producer and consumer price signals diverge; durability still needs domestic-demand confirmation.' if split else 'Prices and demand require cross-checking; the available evidence alone cannot confirm a durable turn.')
         store_refs = {f'obs:{r.metric_id}@{r.reference_period}' for r in store.itertuples()} if not store.empty else set()
         leads = period_inputs(inputs, period, cutoff, store_refs)
-        if not changes:
+        if not any(c['new_in_period'] for c in cards):
             # Say plainly that the selected indicators did not move, instead of repeating last period's lead.
             n = sum(1 for x in leads if x['triage'] == 'research_needed')
             takeaway = bi(f"本期所选指标没有新发布读数；{n} 条官方或政策线索待研究，价格与需求判断沿用此前证据。" if n else
