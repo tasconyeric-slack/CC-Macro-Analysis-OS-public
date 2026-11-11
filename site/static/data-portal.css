@@ -12,22 +12,23 @@
 .data-total strong { font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: -0.8px; color: var(--ink); font-variant-numeric: tabular-nums; }
 
 /* Data index: the snapshot is denser than the home page's (seven cards, long values) */
-#macro-snapshot > h2 { margin-top: 0; }
+#macro-snapshot > h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+#macro-snapshot { margin-bottom: var(--mr-space-section); }
 #macro-snapshot .reader-indicator > span { font-size: 12px; color: var(--ink-3); }
 #macro-snapshot .reader-indicator h3 { margin: 8px 0 4px; font-size: 16px; line-height: 1.35; }
 #macro-snapshot .reader-indicator > strong { margin: 8px 0 2px; font-size: 28px; }
 #macro-snapshot .reader-indicator > strong small { font-size: 14px; }
 
 /* category cards: entry point above, one live series below */
-.data-category-card { border: 1px solid var(--rule); border-radius: var(--mr-radius-md); overflow: hidden; background: var(--surface); }
-.data-category-card .column-card { border: 0; border-radius: 0; height: auto; }
+.data-category-card { display: flex; flex-direction: column; border-radius: var(--mr-radius-md); overflow: hidden; background: var(--mr-surface-card); }
+.data-category-card .column-card { border: 0; border-radius: 0; height: auto; flex: 1; }
 /* the card clips its content, so the focus ring is drawn on the card itself */
 .data-category-card .column-card:focus-visible { outline: none; }
 .data-category-card:has(.column-card:focus-visible) { outline: 2px solid var(--mr-focus-outer); outline-offset: 2px; }
-.data-preview { position: relative; display: grid; gap: var(--mr-space-xxs); padding: var(--mr-space-lg) var(--mr-space-xl) var(--mr-space-xl); border-top: 1px solid var(--rule); background: var(--surface-2); font-size: 12px; color: var(--ink-3); }
+.data-preview { position: relative; display: grid; gap: var(--mr-space-xxs); margin: 0 var(--mr-space-md) var(--mr-space-md); padding: var(--mr-space-lg); border-radius: var(--mr-radius-md); background: var(--mr-canvas); font-size: 12px; color: var(--ink-3); }
 .data-preview strong { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .data-preview small { font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--ink-3); }
-.data-preview svg.chart .end { stroke: var(--surface-2); }
+.data-preview svg.chart .end { stroke: var(--mr-canvas); }
 .data-boundary { margin-top: var(--mr-space-section); padding: var(--mr-space-xxl); border-radius: var(--mr-radius-md); background: var(--surface-2); }
 .data-boundary h2 { margin-top: 0; padding: 0; border: 0; }
 .data-boundary p { max-width: 72ch; }
