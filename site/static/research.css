@@ -15,6 +15,11 @@
 .research-chart .chart { width:100%; height:auto; }
 .research-chart h3 { margin-top:var(--mr-space-sm); }
 .research-sources details { margin-block:var(--mr-space-lg); }
+.research-series { display:flex; justify-content:space-between; gap:var(--mr-space-lg); margin-block:var(--mr-space-lg); }
+.research-series .next { margin-left:auto; }
+.research-inputs ol { padding-left:var(--mr-space-xl); }
+.research-inputs li { padding-block:var(--mr-space-lg); border-bottom:1px solid var(--rule); }
+.research-inputs li p { margin-block:var(--mr-space-sm); }
 @media (max-width:768px) {
  .research-grid { grid-template-columns:minmax(0,1fr); gap:var(--mr-space-lg); }
  .research-article h1 { font-size:28px; line-height:1.2; }
