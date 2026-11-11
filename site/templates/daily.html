@@ -24,6 +24,9 @@
     <article class="desk-calendar-event" data-calendar-event data-date="{{ item.release[:10] }}" data-time="{{ item.release[11:16] }}" data-status="{{ item.status }}">
       <time datetime="{{ item.release }}">{{ item.release[11:16] }}</time>
       <span class="desk-calendar-name"><a href="{{ '#' ~ item.related_id if item.related_id else item.url }}"{% if not item.related_id %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></span>
+      {% if item.related_id %}{% for release in desk.releases if release.item_id == item.related_id %}
+      <span class="desk-calendar-metrics">{% for value in release['values'][:2] %}<strong title="{{ value.name }}">{{ '%.1f'|format(value.value) }}<small>{{ value.unit_label }}</small></strong>{% endfor %}</span>
+      {% endfor %}{% endif %}
       {% if item.related_id %}<a class="desk-calendar-origin" href="{{ item.url }}" target="_blank" rel="noopener" aria-label="{{ t('desk.official_calendar') }}" title="{{ t('desk.official_calendar') }}">↗</a>{% endif %}
     </article>
     {% endfor %}
