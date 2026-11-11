@@ -50,11 +50,14 @@ class DeepSeekClient:
     provider = "deepseek"
 
     def __init__(self, model: str = DEFAULT_MODEL, effort: str | None = "high", max_tokens: int = 24000,
-                 timeout: int = 900, api_key: str | None = None):
+                 timeout: int = 900, api_key: str | None = None, thinking: str | None = None):
         if model not in MODELS:
             raise ModelUnavailable("unsupported_model", "select deepseek-flash or deepseek-v4-pro")
         if effort is not None and effort not in EFFORT:
             raise ModelUnavailable("unsupported_effort", "select low, medium, high, xhigh, max or none")
+        if thinking not in (None, "disabled"):
+            raise ModelUnavailable("unsupported_thinking", "thinking is left at the API default or set to disabled")
+        self.thinking = thinking  # "disabled" turns off the (default-on) reasoning pass for short, bounded tasks
         key = api_key if api_key is not None else os.environ.get("DEEPSEEK_API_KEY")
         if not key:
             raise ModelUnavailable("no_credential", "DEEPSEEK_API_KEY is not set (the deterministic pipeline does not need it)")
@@ -63,9 +66,12 @@ class DeepSeekClient:
         self.max_tokens, self.timeout = max_tokens, timeout
 
     def identity(self) -> dict:
-        return {"provider": self.provider, "requested_id": self.model, "effort": self.effort,
-                "requested_effort": self.requested_effort, "max_tokens": self.max_tokens,
-                "api_version": API_VERSION}
+        ident = {"provider": self.provider, "requested_id": self.model, "effort": self.effort,
+                 "requested_effort": self.requested_effort, "max_tokens": self.max_tokens,
+                 "api_version": API_VERSION}
+        if self.thinking:  # absent for the Copilot, whose Run Records must not change shape
+            ident["thinking"] = self.thinking
+        return ident
 
     def _safe(self, value):
         """A provider error or response must not be able to echo the credential into a record."""
@@ -79,6 +85,8 @@ class DeepSeekClient:
                 "messages": [{"role": "user", "content": user}]}
         if self.effort:
             body["output_config"] = {"effort": self.effort}
+        if self.thinking == "disabled":
+            body["thinking"] = {"type": "disabled"}
         req = urllib.request.Request(
             API_URL, data=json.dumps(body).encode("utf-8"),
             headers={"content-type": "application/json", "x-api-key": self._key,

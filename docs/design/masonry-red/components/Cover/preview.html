@@ -1,0 +1,51 @@
+<!-- @dsCard height=320 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+<style>
+  html, body { margin: 0; height: 100%; background: var(--canvas); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 320px; background: var(--canvas); }
+  svg { position: absolute; inset: 0; }
+  .t { rx: var(--radius-md); ry: var(--radius-md); }
+  .pill { rx: 12px; ry: 12px; }
+  .red { fill: var(--primary); }
+  .dark { fill: var(--surface-dark); }
+  .sec { fill: var(--secondary-bg); }
+  .stone { fill: var(--stone); }
+  .white { fill: var(--canvas); }
+  .text { position: absolute; left: 48px; bottom: 40px; max-width: 440px; }
+  .name { margin: 0; font: 700 104px/0.95 var(--font-sans); letter-spacing: -2.4px; color: var(--ink); }
+  .tag { margin: 16px 0 0; font: 400 14px/1.4 var(--font-sans); color: var(--mute); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <!--
+    blocks: primary (one tall 104x210 tile), surface-dark (2 tiles), secondary-bg + stone (neutral tiles); canvas pill on the red tile
+    arrangement: a 4-column masonry from x=512, staggered heights, bleeding off the top, bottom and right edges
+    pattern: masonry tiles, chosen because the pin grid in its natural ratios is the system's load-bearing element; one overlay pill is its signature gesture
+    scales: tile width 104 (13 x space-sm), gutter space-sm (8px), corners radius-md (16px), pill radius-full (half of 24px)
+  -->
+  <svg width="960" height="320" viewBox="0 0 960 320" aria-hidden="true">
+    <rect class="t stone" x="512" y="-24" width="104" height="150"/>
+    <rect class="t red"   x="512" y="134" width="104" height="210"/>
+    <rect class="pill white" x="524" y="286" width="64" height="24"/>
+
+    <rect class="t dark"  x="624" y="-60" width="104" height="120"/>
+    <rect class="t sec"   x="624" y="68"  width="104" height="96"/>
+    <rect class="t stone" x="624" y="172" width="104" height="170"/>
+
+    <rect class="t sec"   x="736" y="-10" width="104" height="200"/>
+    <rect class="t dark"  x="736" y="198" width="104" height="140"/>
+
+    <rect class="t stone" x="848" y="-40" width="124" height="110"/>
+    <rect class="t sec"   x="848" y="78"  width="124" height="150"/>
+    <rect class="t stone" x="848" y="236" width="124" height="110"/>
+  </svg>
+  <div class="text">
+    <h1 class="name">Masonry Red</h1>
+    <p class="tag">Photography first. Warm cream chrome, one red for the action.</p>
+  </div>
+</div>
+</body>
+</html>

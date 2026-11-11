@@ -8,6 +8,7 @@ import yaml
 
 from cnmacro import wind
 from cnmacro.expanded_data import NEW_METRICS
+from cnmacro.price_releases import NEW_PRICE_METRICS
 from cnmacro.derive import parse_drv
 from cnmacro.evidence import load_tests
 from cnmacro.refresh import route
@@ -31,7 +32,7 @@ def _entries(text: str) -> list[dict]:
 def test_supplemental_is_a_third_tier_outside_the_public_budget(metrics):
     by_tier = {t: [m for m in metrics.values() if m.tier == t] for t in ("core", "diagnostic", "supplemental")}
     # The Owner-authorized public headline PMI (#10) does not expand the Wind diagnostic budget.
-    budgeted = [m for m in by_tier["diagnostic"] if m.metric_id != "cn_pmi_mfg" and m.metric_id not in NEW_METRICS
+    budgeted = [m for m in by_tier["diagnostic"] if m.metric_id != "cn_pmi_mfg" and m.metric_id not in NEW_METRICS | NEW_PRICE_METRICS
                 and m.category != "markets"]      # daily Tushare market views (T4) sit outside the Wind diagnostic budget
     assert len(by_tier["core"]) <= 24 and len(budgeted) <= 6
     assert len(by_tier["supplemental"]) == 13                                       # 12 P0 series + the daily 10Y view (cn_cgb10y stays core)

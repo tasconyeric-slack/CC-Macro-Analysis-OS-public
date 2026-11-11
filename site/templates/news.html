@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block head %}<link rel="stylesheet" href="{{ asset }}news-feed.css">{% endblock %}
 {% block body %}{% set N = macro_news %}
-<section class="news-page-head"><div><h1>{{ N.labels.title }}</h1><p class="lede">{{ N.labels.intro }}</p></div><nav class="news-tabs" aria-label="{{ N.labels.title }}"><a href="#top">{{ N.labels.top }}</a><a href="#all">{{ N.labels.all }}</a><a href="#editions">{{ N.labels.editions }}</a><a href="#archive">{{ N.labels.archive }}</a><a href="policy.html">{{ N.labels.policy }}</a><a href="daily.html">{{ N.labels.calendar }}</a></nav></section>
+<section class="news-page-head"><div><h1>{{ N.labels.title }}</h1><p class="lede">{{ N.labels.intro }}</p></div><nav class="news-tabs mr-chips mr-chips--sm" aria-label="{{ N.labels.title }}"><a class="mr-chip" href="#top">{{ N.labels.top }}</a><a class="mr-chip" href="#all">{{ N.labels.all }}</a><a class="mr-chip" href="#editions">{{ N.labels.editions }}</a><a class="mr-chip" href="#archive">{{ N.labels.archive }}</a><a class="mr-chip" href="policy.html">{{ N.labels.policy }}</a><a class="mr-chip" href="daily.html">{{ N.labels.calendar }}</a></nav></section>
 <section class="news-search" aria-label="{{ N.labels.search }}"><div id="news-search" data-placeholder="{{ N.labels.search_ph }}" data-pagefind-root="../pagefind/"></div></section>
 <div class="news-columns">
 <section id="top" class="macro-news"><h2>{{ N.labels.top }}</h2><div class="news-list">{% for e in N.events %}{% include "news-event.html" %}{% else %}<p>{{ N.labels.empty }}</p>{% endfor %}</div></section>
@@ -9,7 +9,7 @@
 <section id="editions"><h2>{{ N.labels.editions }}</h2><ul class="news-index">{% for ed in N.editions %}<li><a href="{{ ed.file }}">{{ N.labels.edition_title.format(date=ed.date) }}</a></li>{% endfor %}</ul></section>
 <section id="archive"><h2>{{ N.labels.archive }}</h2><ul class="news-index">{% for m in N.months %}<li><a href="{{ m.file }}">{{ N.labels.archive_title.format(month=m.month) }}</a></li>{% endfor %}</ul></section>
 </aside></div>
-<section id="all" class="news-all"><header class="news-all-head"><h2>{{ N.labels.all }}</h2><select aria-label="{{ N.labels.all_topics }}" data-news-topic><option value="all">{{ N.labels.all_topics }}</option>{% for topic in N.topics %}<option value="{{ topic.id }}">{{ topic.name }}</option>{% endfor %}</select></header>
+<section id="all" class="news-all"><header class="news-all-head"><h2>{{ N.labels.all }}</h2><div class="mr-chips mr-chips--sm" role="group" aria-label="{{ N.labels.all_topics }}" data-news-topics><button type="button" class="mr-chip" data-topic="all" aria-pressed="true">{{ N.labels.all_topics }}</button>{% for topic in N.topics %}<button type="button" class="mr-chip" data-topic="{{ topic.id }}" aria-pressed="false">{{ topic.name }}</button>{% endfor %}</div></header>
 <ol class="news-rows">{% for x in N['items'] %}<li data-news-topic="{{ x.topic }}"><time>{{ x.time }}</time><span class="news-topic">{{ x.topic_name }}</span><a href="{{ x.url }}" rel="noopener"{% if loc == 'en' %} lang="zh-Hans"{% endif %}>{{ x.title }}</a><span class="news-pub">{{ x.publisher }}</span></li>{% endfor %}</ol></section>
 {% endblock %}
 {% block scripts %}<script src="{{ asset }}news-feed.js"></script>{% endblock %}

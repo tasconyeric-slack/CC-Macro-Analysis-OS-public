@@ -8,6 +8,7 @@
     python -m cnmacro refresh-private --provider wind [--plan]   # local only: named provider(s) -> private observations -> private eval
     python -m cnmacro diagnose-private [--anchor PROVIDER_RUNID | --snapshot RUN_ID]  # local only: one verified anchor -> private diagnostics + report
     python -m cnmacro wind-runtime [--pin]            # verify (or deliberately re-pin) the installed Wind skill; no network
+    python -m cnmacro research-inputs build --as-of <ISO>   # hypothesis-linked research input bundle (inputs/<date>.json)
     python -m cnmacro copilot preflight|context|run|replay|blind-take|show|decide|verify|runs   # Release Copilot v0 (shadow); see src/cnmacro/copilot/cli.py
     python -m cnmacro ingest-fred | ingest-nbs [--metric id] | ingest-inbox FILE | nbs-tree [--freq M|Q] [PID] | nbs-indicators CID | nbs-agenda --start --end
 """
@@ -461,6 +462,9 @@ def cmd_ingest_nbs(a) -> int:
         cal = {**agenda, **cal}
     for m in metrics.values():
         if (m.source_primary == "NBS" or (m.source_code or "").startswith("nbs:")) and (not a.metric or m.metric_id == a.metric):
+            if (m.source_code or '').startswith('nbs-release:'):
+                print(f"skip {m.metric_id}: use scripts/fetch_price_releases.py for official release tables")
+                continue
             if not m.source_code:
                 print(f"skip {m.metric_id}: no NBS code yet")
                 continue
@@ -545,6 +549,8 @@ def main(argv=None) -> int:
     events_cli.register(sub)
     from . import policy_cli
     policy_cli.register(sub)
+    from . import research_inputs
+    research_inputs.register(sub)
     a = p.parse_args(argv)
     return a.f(a)
 

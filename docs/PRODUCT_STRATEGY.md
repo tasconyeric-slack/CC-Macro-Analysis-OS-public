@@ -11,21 +11,25 @@
 
 ---
 
-## 0. Current Focus（由 Owner 更新；每次 ExecPlan 必须先读这一节）
+## 0. Current Focus（Owner-directed revision proposed 2026-11-10; merge constitutes Owner acceptance）
+
+**本节是新的优先级与发布节奏授权；当 §13–§20 中旧版 Daily Desk、News 主导航、每次发布后强制对外发文章等要求与本节冲突时，以本节为准。既有数据刷新、真实研究记录、必要时及时形成 analyst update 的义务不变。完整结构见 [Research-First MVP Blueprint](product/RESEARCH_FIRST_MVP_BLUEPRINT.md)。**
 
 | 项 | 当前值 |
 |---|---|
-| 当前 Phase | **V2 Product Build — Public News & Official Data**（Owner 于 2026-11-08 授权，与 Phase B/C 真实发布与研究更新节奏并行） |
-| 硬日期 | **2026-11-09 09:30 北京时间：2026 年 10 月 CPI/PPI**；后续关注 11-16 经济活动、11-27 工业利润、11-30 PMI（确切发布日期须对照 NBS 官方日历与 `release_calendar.yaml` 核实） |
-| 当前产品目标 | 以官方宏观数据、公开新闻与政策文件为基础，交付双语门户、Daily Macro Desk、七类数据与图表、政策事件收集/去重/变化比较、Evidence→Hypothesis→What Changed 的可追溯研究链路 |
-| 唯一 P0 | 新数据 `refresh.yml` 持续成功；经验证签名的最新合格 `main` 提交可部署到正式站；每次重大 release 后 48 小时内的 analyst update 必须由分析师审阅签署，不能由自动刷新或 AI 冒充 |
-| 本阶段授权 | 执行 Epic #8 与 #1 中的 **#2–#7、#9、#10、#12、#13**；#3 只做限时信源研究。允许新公开信源：NBS 最新发布 RSS、NBS 数据解读、PBOC 新闻发布列表、gov.cn 政策文件库、财政部财政新闻、商务部新闻发布、外汇局新闻、金融监管总局新闻，以及新浪 7×24、东方财富 7×24、第一财经、中国新闻网财经 RSS；保留现有官方/公开数据源。允许新增 NBS 制造业 PMI 主指数（现有 NBS 路由）；开发工具 Playwright、REA。既有 Python/Jinja2 静态站、GitHub Actions、静态 JSON 架构不变 |
-| News 采集/搜索/导航 | 新闻采集 `news.yml` 允许每小时运行；Pagefind 仅作构建期静态全文检索依赖（不引入运行时服务器或数据库）；主导航为 **Overview · News · Data · Research**，Daily 和 Policy 从 News 内页及页脚访问。 |
-| News 可选模型增强 | Owner 允许通过 DeepSeek 或兼容模型生成英文新闻标题与每条“为什么重要”的简短解释；**默认关闭，可由 Owner 随时关闭**，关闭时回退到确定性新闻采集与原文展示，不影响新闻、日报、检索和站点构建。API Key 只放 GitHub Actions Secrets 等私有配置，不得入库或发往浏览器。模型仅解释已采集的事实，不得伪造数字、来源，不得更改研究判断或预注册。 |
-| 明确暂缓 | **#11 FinLens/Consensus Radar 与券商研报数据库全部 DEFERRED**。本轮不领取 `FINLENS_TOKEN`、不接入 FinLens API、不同步研报或机构观点/预测、不创建 `radar.yml`，不在导航、验收、图表里承诺 Radar 或 consensus；后续只有 Owner 新授权且有合法真实数据源才恢复 |
-| 仍然冻结 | 不改预注册、amendment、既有 update/refresh 历史与 `mechanical_delta`；AI 不设概率；Wind/授权私有数据不进公开站；不新增服务器、数据库、向量库或复杂 Agent 框架；不伪造新闻、历史事件、数据、预测或 analyst judgment |
-| §20.8 窗口 | release 前 **2 小时**至后 **6 小时**不合并 site/pipeline PR；其余时间 V2 PR 可按依赖、CI 与真实风险检查持续推进。live refresh 与 analyst update 优先 |
-| §13.1 域名 | 唯一对外 canonical 域名 **https://ccmacro.byliyz.com/**，与 `site/site.yaml` 一致 |
+| 当前 Phase | **Research-First MVP — China Macro Weekly / Monthly + research evidence loop**。先让现有数据、新闻及政策采集真正转化为报告和可回溯研究成果，再持续迭代 |
+| 核心用户问题 | **What changed, why, does it change our thesis, and what next?** 先服务研究问题，后展示支持材料 |
+| 前台主导航 | **Overview · Research · Data**。News、Daily、Policy、Evidence、Updates 保留旧链接/二级研究材料入口，不再以新闻热榜或日报占据首屏；兼容既有页 |
+| 发布节奏 | 后台数据/新闻/政策/事件采集继续按既有频率运行；**Macro Weekly 每周、Macro Monthly 每月**形成研究摘要/报告；重大宏观变化可形成经分析师签署的 event-driven Thesis Update；不强制 Daily 公开研究稿 |
+| 本阶段 P0 | 真实数据刷新稳定；**#52 genuine release → evidence → bounded analyst draft → explicit sign-off → research update**；用真实证据生成 Weekly/Monthly 初稿并完成研究优先型前台 MVP。必要时一个 release 的 thesis decision 可为“未变化” |
+| 继续授权的基础设施 | 已有官方数据、新闻（包括现有多源新闻及可选 DeepSeek 增强）、政策、事件、去重、分类、source provenance、关联 H0–H4 持续优化，重点是**将信息输入转化成有研究价值的证据与候选问题**，而不是首页热度排行。沿用现有 Python/Jinja2、静态 JSON、GitHub Actions、Masonry Red；继续 #37 独立 gate，不将其设为报告 MVP 前置条件 |
+| 研究报告权限 | 允许 Agent 自动生成源数据可追溯的 factual summary / draft / charts；**只有真实 Owner/分析师实际确认后**才可保存 signed judgment、改变主观 thesis/probability/conviction 并作为正式研究报告发布。无批准时仅可标示 draft/pending，不得冒充已批准 |
+| 明确暂缓 | **#11 FinLens / Institutional Views / broker reports / forecasts/consensus 全部暂缓**；目前无可靠且允许使用的数据/portal，不建 radar API、前台入口、空图表或虚假机构观点 |
+| 仍然冻结 | 不改历史预注册、amendment、mechanical_delta；不伪造数值、新闻、事件、历史 analyst judgment；Wind/授权私有数据不进公开站；不建新数据库、向量库、复杂 Agent 系统 |
+| Agent 执行 | **先有精简 Product Blueprint，再动手做真实 MVP**；按 Issue 一 owner 一 PR，Claude Code 负责研究更新及输入到证据链、Codex 负责周/月报及研究优先页面。重要风险验证一次；基于真实交付再迭代；遵守 GitHub verified commit 与 Vercel preview gate |
+| release 保护窗口 | 维持 §20.8：重大宏观数据发布时间前 2 小时至后 6 小时不合并 site/pipeline PR，重要 live refresh 和研究决策优先 |
+| canonical 域名 | **https://ccmacro.byliyz.com/**（与 site/site.yaml 一致） |
+
 
 ---
 ## 1. 一页纸 Charter

@@ -74,6 +74,9 @@ footer:
   uncommitted: 未提交
   boundary: "公开版本仅使用官方和开放来源（国家统计局、中国人民银行、财政部、海关总署、FRED）。授权数据从不公开；依赖授权数据的结论会标注为“未公开”。"
   not_advice: 本站为研究系统，不构成投资建议。
+  col_site: 本站
+  col_research: "研究与方法"
+  col_sources: 数据来源
 
 common:
   list_sep: "、"
@@ -546,7 +549,7 @@ portal:
   daily_kicker: 每日宏观台
   calendar_title: 数据发布日历
   calendar_description: 经官方核实的发布时间，以及可能受到影响的证据。
-  calendar_kicker: RELEASE CALENDAR
+  calendar_kicker: Release calendar
   calendar_frequency: 按官方日程
   data_group: 经济金融数据
   data_note: 七类研究视角，只展示本项目实际持有的公开观测。
@@ -555,13 +558,13 @@ portal:
   policy_note: 从官方公告出发，追溯证据、假设与分析师判断。
   policy_title: 政策追踪
   policy_description: 官方文本、传导路径，以及下一条确认性观察。
-  policy_kicker: POLICY TRACKER
+  policy_kicker: Policy tracker
   research_title: 研究报告与命题
   research_description: 当前判断、竞争性解释与最强反方论证。
-  research_kicker: RESEARCH THESIS
+  research_kicker: Research thesis
   evidence_title: 证据与方法
   evidence_description: 绑定来源的事实、确定性检验与研究局限。
-  evidence_kicker: EVIDENCE & METHOD
+  evidence_kicker: Evidence & method
   public_sources: 官方与开放来源
   research_portal: 宏观数据研究门户
   read_research: 阅读研究报告
@@ -579,31 +582,31 @@ portal:
   category:
     growth:
       title: 增长与活动
-      kicker: GROWTH & ACTIVITY
+      kicker: Growth & activity
       description: GDP、消费、生产与房地产。
     prices:
       title: 物价
-      kicker: PRICES & INFLATION
+      kicker: Prices & inflation
       description: CPI、核心通胀与工业生产者价格。
     pmi:
       title: PMI与景气
-      kicker: PMI & SENTIMENT
+      kicker: PMI & sentiment
       description: 新订单、出口订单与出厂价格。
     trade:
       title: 外需
-      kicker: TRADE & DEMAND
+      kicker: Trade & demand
       description: 出口与来自海外的需求。
     credit:
       title: 金融与信用
-      kicker: MONEY & CREDIT
+      kicker: Money & credit
       description: 货币、信用存量与融资条件。
     fiscal:
       title: 财政
-      kicker: FISCAL POLICY
+      kicker: Fiscal policy
       description: 政府融资、财政支出与收入。
     external:
       title: 外部环境
-      kicker: GLOBAL ENVIRONMENT
+      kicker: Global environment
       description: 能源、金属、汇率与美债利率。
     markets:
       title: 市场与金融条件
@@ -792,3 +795,22 @@ policy_compare:
     strengthened: 措辞增强
     weakened: 措辞减弱
     unchanged: 未变
+prices:
+  kicker: "价格传导 · 月度事实"
+  chain_title: "从工厂出厂到居民消费"
+  chain_note: "对照上游生产资料、终端生活资料与核心消费价格。价差反映相对价格变化，不能单独证明因果传导。"
+  common: "最新共同月份 · 同比"
+  producer_gap: "生产资料 − 生活资料"
+  consumer_gap: "生活资料 − 核心 CPI"
+  no_common: "三条序列尚无共同的已公布月份。"
+  xlsx: "全部价格序列 · XLSX"
+  month: "本月读数"
+  table_note: "每行标明最新已公布月份；前期指紧邻的上一自然月；未公布的数据保留为空（–）。增速变化单位为百分点，PMI 变化单位为指数点。"
+  component: "分项"
+  latest: "本期"
+  prior: "前期"
+  change: "变化"
+  percentile: "三年分位"
+  percentile_note: "分位：过去 36 个自然月内已公布读数的平均秩，缩放为 0–100；并列取平均，全部相同记为 50。n 为实际观测数，并不假定有 36 期。"
+  components: "分项走势"
+  fuel_note: "统计局自 2026 年 1 月将交通工具用燃料改为交通工具用能源。图线在此口径变化处断开，分位只使用同口径区段；两者均不等同于广义能源。PMI 价格为扩散指数（50 表示持平），并非通胀率。"

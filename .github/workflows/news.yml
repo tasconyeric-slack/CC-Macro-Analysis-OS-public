@@ -3,9 +3,14 @@ on:
   schedule:
     - cron: "15 * * * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Collect and run the optional AI step, but publish nothing (acceptance runs)"
+        type: boolean
+        default: false
   push:
     branches: [main]
-    paths: ["src/cnmacro/news_feed.py", "src/cnmacro/news_rank.py", "scripts/fetch_macro_news.py", ".github/workflows/news.yml"]
+    paths: ["src/cnmacro/news_feed.py", "src/cnmacro/news_rank.py", "src/cnmacro/news_ai.py", "scripts/fetch_macro_news.py", ".github/workflows/news.yml"]
 permissions:
   contents: write
 concurrency:
@@ -26,8 +31,17 @@ jobs:
       - name: Collect public macro reporting
         id: collect
         continue-on-error: true
+        # Owner switches (Settings > Secrets and variables > Actions > Variables); see docs/runbooks/news-ai.md.
+        # Unset variables arrive as empty strings and mean off. The key is a secret and only this step can read it.
+        env:
+          NEWS_AI_ENABLED: ${{ vars.NEWS_AI_ENABLED }}
+          NEWS_AI_DISPLAY_ENABLED: ${{ vars.NEWS_AI_DISPLAY_ENABLED }}
+          NEWS_AI_MODEL: ${{ vars.NEWS_AI_MODEL }}
+          NEWS_AI_MAX_ITEMS: ${{ vars.NEWS_AI_MAX_ITEMS }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: python scripts/fetch_macro_news.py
       - name: Publish the public snapshot
+        if: github.event.inputs.dry_run != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

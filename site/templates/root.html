@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>{{ t_en('site.title') }} · {{ t_zh('site.title') }}</title>
 <meta name="description" content="{{ t_en('page.index.description') }}">
 <link rel="canonical" href="{{ canonical }}">
@@ -50,8 +51,8 @@
   <p class="lede">{{ t_en('selector.question') }}</p>
   <p class="lede" lang="zh-Hans">{{ t_zh('selector.question') }}</p>
   <p class="choices">
-    <a class="btn" href="en/{% if stem %}{{ stem }}.html{% endif %}" hreflang="en" lang="en" data-lang="en">English</a>
-    <a class="btn" href="zh/{% if stem %}{{ stem }}.html{% endif %}" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh">中文</a>
+    <a class="mr-btn" href="en/{% if stem %}{{ stem }}.html{% endif %}" hreflang="en" lang="en" data-lang="en">English</a>
+    <a class="mr-btn" href="zh/{% if stem %}{{ stem }}.html{% endif %}" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh">中文</a>
   </p>
   <noscript><p class="small muted">{{ t_en('selector.noscript') }} · <span lang="zh-Hans">{{ t_zh('selector.noscript') }}</span></p></noscript>
 </main>

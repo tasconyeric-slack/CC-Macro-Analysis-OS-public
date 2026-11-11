@@ -1,4 +1,4 @@
 {% set N = macro_news %}{% if N.enabled %}<section class="macro-news" id="macro-news">
-<header class="news-heading"><div><h2>{{ N.labels.title }}</h2><p>{{ N.labels.intro }}</p></div><a href="news.html">{{ N.labels.more }}</a></header>
+<header class="news-heading"><div><h2>{{ N.labels.title }}</h2><p>{{ N.labels.intro }}</p></div><a class="mr-btn mr-btn--tertiary" href="news.html">{{ N.labels.more }} ›</a></header>
 <div class="news-list">{% for e in (N.home_events if page == 'index' else N.events[:12]) %}{% include "news-event.html" %}{% else %}<p class="news-empty">{{ N.labels.empty }}</p>{% endfor %}</div>
 </section>{% endif %}

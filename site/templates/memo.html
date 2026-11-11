@@ -6,10 +6,25 @@
     <h1>{{ case.question }}</h1>
     <p class="small muted printonly">{{ t('memo.print_line', url=meta.canonical, date=built_at|date) }}</p>
   </div>
-  <button type="button" class="printbtn" data-print>{{ t('memo.print') }}</button>
+  <button type="button" class="printbtn mr-btn" data-print>{{ t('memo.print') }}</button>
 </div>
 {% if memo %}
+<div class="memo-layout">
 <article class="memo">{{ memo }}</article>
+<aside class="memo-rail" aria-label="{{ t('home.fig.probability') }}">
+  <div class="memo-judgment">
+    <div class="label">{{ t('home.fig.probability') }}</div>
+    <div class="memo-prob">{{ prob }}</div>
+    <p class="fignote">{{ t('home.prob_note') }}</p>
+    <dl>
+      <dt>{{ t('home.fig.confidence') }}</dt><dd>{{ confidence_label }}</dd>
+      <dt>{{ t('home.fig.status') }}</dt><dd>{{ status_label }}</dd>
+      <dt>{{ t('home.fig.evidence_as_of') }}</dt><dd>{{ evidence_as_of|when }}</dd>
+    </dl>
+  </div>
+  <nav class="memo-links" aria-label="{{ t('nav.memo') }}"><a href="evidence.html">{{ t('nav.evidence') }} ›</a><a href="updates.html">{{ t('nav.updates') }} ›</a><a href="charts.html">{{ t('nav.charts') }} ›</a></nav>
+</aside>
+</div>
 <section class="memo-refs" aria-labelledby="refs">
   <h2 id="refs">{{ t('memo.refs_title') }}</h2>
   <p class="small muted">{{ t('memo.refs_note') }}</p>

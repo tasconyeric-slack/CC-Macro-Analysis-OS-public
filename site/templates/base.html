@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>{{ meta.title }}</title>
 <meta name="description" content="{{ meta.description }}">
 <link rel="canonical" href="{{ meta.canonical }}">
@@ -35,24 +36,30 @@
 {% elif not baseline %}<div class="banner"><div class="wrap">{{ t('banner.no_baseline') }}</div></div>{% endif %}
 <a class="skip" href="#main">{{ t('a11y.skip') }}</a>
 <header class="top"><div class="wrap">
-  <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">CC</span><span>CC Macro<small>{{ t('site.tagline') }}</small></span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">{{ t('portal.menu') }} <span aria-hidden="true">☰</span></button>
+  <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">CC</span><span class="brand-text">CC Macro<small>{{ t('site.tagline') }}</small></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="visually-hidden">{{ t('portal.menu') }}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg></button>
   <nav id="primary-nav" aria-label="{{ t('a11y.nav') }}">{% for f, label, on in nav %}<a href="{{ f }}"{% if on %} class="on" aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
   <div class="lang" role="group" aria-label="{{ t('lang.label') }}">
     {%- for l in ['zh', 'en'] -%}
       {%- if l == loc -%}<span class="cur" lang="{{ 'zh-Hans' if l == 'zh' else 'en' }}" aria-current="true">{{ t('lang.name_' ~ l) }}</span>
       {%- else -%}<a href="{{ lang_base[l] }}" data-lang="{{ l }}" data-base="{{ lang_base[l] }}" lang="{{ 'zh-Hans' if l == 'zh' else 'en' }}" hreflang="{{ 'zh-Hans' if l == 'zh' else 'en' }}">{{ t('lang.name_' ~ l) }}</a>{%- endif -%}
-      {%- if not loop.last %}<span class="sep" aria-hidden="true">|</span>{% endif -%}
     {%- endfor -%}
   </div>
 </div></header>
 <main id="main"><div class="wrap">
 {% block body %}{% endblock %}
 </div></main>
-<footer><div class="wrap">
-  <div class="footer-links">{% for f, label in footer_nav %}<a href="{{ f }}">{{ label }}</a>{% endfor %}</div>
-  <p>{{ t('footer.built_html', built=built_at|when, commit=commit or t('footer.uncommitted')) }}</p>
-  <p>{{ t('footer.boundary') }} {{ t('footer.not_advice') }}</p>
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-cols">
+    <div class="footer-brand">
+      <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">CC</span><span class="brand-text">CC Macro<small>{{ t('site.tagline') }}</small></span></a>
+      <p>{{ t('footer.not_advice') }}</p>
+    </div>
+    <nav class="footer-col" aria-label="{{ t('footer.col_site') }}"><h2>{{ t('footer.col_site') }}</h2><ul>{% for f, label, on in nav %}<li><a href="{{ f }}"{% if on %} aria-current="page"{% endif %}>{{ label }}</a></li>{% endfor %}</ul></nav>
+    <nav class="footer-col footer-links" aria-label="{{ t('footer.col_research') }}"><h2>{{ t('footer.col_research') }}</h2><ul>{% for f, label in footer_nav %}<li><a href="{{ f }}">{{ label }}</a></li>{% endfor %}</ul></nav>
+    <div class="footer-col"><h2>{{ t('footer.col_sources') }}</h2><p>{{ t('footer.boundary') }}</p></div>
+  </div>
+  <p class="footer-base">{{ t('footer.built_html', built=built_at|when, commit=commit or t('footer.uncommitted')) }}</p>
 </div></footer>
 <script src="{{ asset }}charts.js"></script>
 <script src="{{ asset }}site.js"></script>

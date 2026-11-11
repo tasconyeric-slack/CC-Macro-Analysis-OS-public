@@ -29,6 +29,8 @@ def test_calendar_names():
     agenda = {"name": "2026-09 industrial profits (工业经济效益月度报告)", "period": "2026-09"}
     assert L.calendar_label(agenda, "en") == "2026-09 industrial profits"
     assert L.calendar_label(agenda, "zh") == "2026年9月工业经济效益月度报告"
+    # named without a period (release_name): the period comes from the name, never a bare dash
+    assert L.calendar_label({**agenda, "period": None}, "zh") == "2026年9月工业经济效益月度报告"
     hand = {"name": "September 2026 CPI and PPI", "period": "2026-09"}
     assert L.calendar_label(hand, "en") == "September 2026 CPI and PPI"
     assert L.calendar_label(hand, "zh", {"September 2026 CPI and PPI": "2026年9月CPI和PPI"}) == "2026年9月CPI和PPI"
