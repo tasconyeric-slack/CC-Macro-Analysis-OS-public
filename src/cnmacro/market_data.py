@@ -60,16 +60,40 @@ def windows(start: date, end: date, years: int = YEARS_PER_CALL):
         cur = nxt + timedelta(days=1)
 
 
+# A refusal that another call in the same run cannot change: once seen for an interface, that interface is not
+# called again in this run (a rate-limited retry would only spend the account's next allowance). A bad or missing
+# token stops every interface.
+STICKY_KINDS = (ts.RATE_LIMITED, ts.NOT_PERMITTED)
+FATAL_KINDS = (ts.INVALID_TOKEN, ts.MISSING_TOKEN)
+
+
 class Fetcher:
-    """Runs the endpoint calls of one refresh; identical queries are made once."""
+    """Runs the endpoint calls of one refresh. Identical queries are made once, and a rate-limit or permission
+    refusal is remembered per interface so the run never sends a second request that is bound to be refused."""
 
     def __init__(self, call: Caller = ts.call):
         self._call, self._cache = call, {}
+        self._refused: dict[str, ts.TushareError] = {}
+        self._fatal: ts.TushareError | None = None
+        self.requests: list[str] = []          # interfaces actually requested, in order (for the run summary)
 
     def rows(self, api: str, params: dict, fields: list[str] | None = None) -> list[dict]:
         key = (api, json.dumps(params, sort_keys=True), tuple(fields or ()))
-        if key not in self._cache:
+        if key in self._cache:
+            return self._cache[key]
+        if self._fatal is not None:
+            raise self._fatal
+        if api in self._refused:
+            raise self._refused[api]
+        self.requests.append(api)
+        try:
             self._cache[key] = self._call(api, params, fields)
+        except ts.TushareError as exc:
+            if exc.kind in FATAL_KINDS:
+                self._fatal = exc
+            elif exc.kind in STICKY_KINDS:
+                self._refused[api] = exc
+            raise
         return self._cache[key]
 
 
@@ -115,6 +139,30 @@ def fetch_values(spec: dict, fetcher: Fetcher, start: date, end: date) -> dict[s
     raise ValueError(f"unknown market series kind {kind!r}")
 
 
+TRUNCATION_SLACK_DAYS = 14     # a backfill whose first row is later than history_start + this is reported as short
+
+
+def request_starts(spec: dict, held: dict[str, dict[str, float]], end: date, *, backfill: bool = False) -> dict[str, date]:
+    """First date to request for each fetched series. Series that share one interface query (the four SHIBOR
+    tenors, both HIBOR tenors, UST 1Y and 10Y) get the earliest start of the group, so the group is still ONE
+    request even when only one of its series has no stored history yet."""
+    first = date.fromisoformat(spec["history_start"])
+    recent = end - timedelta(days=spec["lookback_days"])
+    own = {s["metric_id"]: first if (backfill or not held.get(s["metric_id"])) else recent
+           for s in spec["series"] if s["kind"] != "derived"}
+    group: dict[tuple, date] = {}
+    for s in spec["series"]:
+        if s["metric_id"] in own:
+            key = query_key(s)
+            group[key] = min(group.get(key, own[s["metric_id"]]), own[s["metric_id"]])
+    return {s["metric_id"]: group[query_key(s)] for s in spec["series"] if s["metric_id"] in own}
+
+
+def query_key(s: dict) -> tuple:
+    """The parameters that decide which request a series needs (its field is read from the same reply)."""
+    return (s["kind"], s.get("ts_code"), s.get("curve_type"), s.get("curve_term"))
+
+
 def derive_minus(values: dict[str, dict[str, float]], held: dict[str, dict[str, float]], spec: dict) -> dict[str, float]:
     a, b = spec["minus"]
     va, vb = {**held.get(a, {}), **values.get(a, {})}, {**held.get(b, {}), **values.get(b, {})}
@@ -157,6 +205,7 @@ def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: dat
     fetched: dict[str, dict[str, float]] = {}
     appended: dict[str, list[dict]] = {}
     held = {s["metric_id"]: held_values(obs, s["metric_id"]) for s in spec["series"]}
+    starts = request_starts(spec, held, end, backfill=backfill)
     for s in spec["series"]:
         mid = s["metric_id"]
         if mid not in metrics:
@@ -164,18 +213,26 @@ def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: dat
             continue
         if s["kind"] == "derived":
             continue
-        full = backfill or not held[mid]
-        start = date.fromisoformat(spec["history_start"]) if full else end - timedelta(days=spec["lookback_days"])
+        start = starts[mid]
         try:
             fetched[mid] = fetch_values(s, fetcher, start, end)
         except ts.TushareError as exc:
             status = "skipped" if exc.kind in (ts.NOT_PERMITTED, ts.MISSING_TOKEN) else "error"
-            summary["series"][mid] = {"status": status, "reason": exc.kind, "detail": str(exc)[:200]}
+            summary["series"][mid] = {"status": status, "reason": exc.kind, "interface": s["kind"],
+                                      "detail": str(exc)[:200]}
             log(f"::warning title=market series skipped::{mid}: {exc.kind}")
             continue
         if not fetched[mid]:
             summary["series"][mid] = {"status": "empty", "reason": "endpoint returned no rows"}
             log(f"::warning title=market series empty::{mid}: endpoint returned no rows")
+            continue
+        if start == date.fromisoformat(spec["history_start"]):
+            first = date.fromisoformat(min(fetched[mid]))
+            if (first - start).days > TRUNCATION_SLACK_DAYS:
+                # The interface returns newest rows first, so a row cap silently drops the oldest history.
+                summary.setdefault("warnings", []).append(f"{mid}: history begins {first}, later than {start}")
+                log(f"::warning title=market history short::{mid}: history begins {first} (asked from {start}); "
+                    "the interface row cap may have truncated it")
     for s in spec["series"]:
         mid = s["metric_id"]
         if s["kind"] == "derived":
@@ -193,8 +250,12 @@ def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: dat
         if fresh:
             appended[f"{FILE_PREFIX}{mid}.csv"] = fresh
     summary["new_rows"] = sum(len(v) for v in appended.values())
+    summary["requests"] = list(fetcher.requests)
+    summary["failed"] = [s["metric_id"] for s in spec["series"]
+                         if summary["series"].get(s["metric_id"], {}).get("status") != "ok"]
     log(f"market refresh: {summary['new_rows']} new row(s) across {len(appended)} series; "
-        f"{sum(1 for v in summary['series'].values() if v['status'] == 'ok')}/{len(spec['series'])} series ok")
+        f"{sum(1 for v in summary['series'].values() if v['status'] == 'ok')}/{len(spec['series'])} series ok; "
+        f"{len(fetcher.requests)} request(s) sent")
     if not dry_run:
         for fname, rows in appended.items():
             ingest.append_rows(rows, obs_dir / fname)
@@ -202,6 +263,11 @@ def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: dat
 
 
 CROSSCHECK_DIR = "data/market/crosschecks"
+
+
+def incomplete(summary: dict) -> list[str]:
+    """Configured series that did not come back ok (used by `market-refresh --require-all`)."""
+    return list(summary.get("failed", [])) or [m for m, v in summary.get("series", {}).items() if v.get("status") != "ok"]
 
 
 def run_market(root: Path | str = ".", *, crosscheck=None, **kwargs) -> dict:

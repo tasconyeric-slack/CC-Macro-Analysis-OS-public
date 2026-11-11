@@ -342,3 +342,75 @@ def test_run_market_writes_a_crosscheck_record_when_rows_were_added(root):
     assert len(files) == 1 and summary["crosschecks"][0]["metric_id"] == "mk_ust10y"
     again = md.run_market(root, call=FakeTushare(), today=TODAY, log=lambda *_: None, now="2026-11-09T13:30:00+00:00")
     assert again["new_rows"] == 0 and len(list((root / "data/market/crosschecks").glob("*.json"))) == 1
+
+
+# ---------------------------------------------------------------- quota safety (one call per interface per hour)
+class Refusing(FakeTushare):
+    """Answers like the Owner's account after its allowance is used: a refusal per interface."""
+
+    def __init__(self, refuse: dict[str, tuple[str, str]], **kw):
+        super().__init__(**kw)
+        self.refuse = refuse
+
+    def __call__(self, api, params, fields=None):
+        if api in self.refuse:
+            self.calls.append((api, dict(params)))
+            kind, msg = self.refuse[api]
+            raise tc.TushareError(kind, msg)
+        return super().__call__(api, params, fields)
+
+
+def test_a_rate_limited_interface_is_requested_once_per_run_and_other_interfaces_still_run(root):
+    call = Refusing({"shibor": (tc.RATE_LIMITED, "抱歉，您访问接口(shibor)频率超限(1次/小时)")})
+    summary = run(root, call, dry_run=True)
+    assert [api for api, _ in call.calls].count("shibor") == 1          # four SHIBOR series, one request
+    shibor = {m: v for m, v in summary["series"].items() if m.startswith("mk_shibor")}
+    assert len(shibor) == 4 and all(v["reason"] == tc.RATE_LIMITED and v["interface"] == "shibor" for v in shibor.values())
+    assert summary["series"]["mk_ust10y"]["status"] == "ok" and summary["series"]["mk_csi300"]["status"] == "ok"
+    assert summary["requests"].count("shibor") == 1
+    assert sorted(md.incomplete(summary)) == ["mk_shibor_1w", "mk_shibor_1y", "mk_shibor_3m", "mk_shibor_on"]
+
+
+def test_an_invalid_token_stops_every_interface_after_one_request(root):
+    call = Refusing({api: (tc.INVALID_TOKEN, "您的token不对，请确认。")
+                     for api in ("shibor", "hibor", "us_tycr", "us_trycr", "index_daily")})
+    summary = run(root, call, dry_run=True)
+    assert len(call.calls) == 1 and summary["requests"] == [call.calls[0][0]]
+    assert len(md.incomplete(summary)) == len(md.load_spec(root)["series"])
+
+
+def test_series_sharing_an_interface_stay_one_request_when_only_some_have_history(root):
+    run(root, FakeTushare())
+    obs_dir = root / "data/demo/observations"
+    (obs_dir / "tushare_mk_shibor_1w.csv").unlink()       # e.g. a tenor added later: no stored rows yet
+    call = FakeTushare()
+    summary = run(root, call, dry_run=True)
+    shibor = [p for api, p in call.calls if api == "shibor"]
+    assert len(shibor) == 1 and shibor[0]["start_date"] == "20200101"
+    assert summary["series"]["mk_shibor_1w"]["new"] > 0 and summary["series"]["mk_shibor_on"]["new"] == 0
+    hibor = [p for api, p in call.calls if api == "hibor"]
+    assert len(hibor) == 1 and hibor[0]["start_date"] != "20200101"   # untouched groups keep the short lookback
+
+
+def test_a_backfill_cut_short_by_a_row_cap_is_reported(root):
+    class Capped(FakeTushare):
+        def __call__(self, api, params, fields=None):
+            rows = super().__call__(api, params, fields)
+            return [r for r in rows if str(r.get("date") or r.get("trade_date")).replace("-", "") >= "20230101"] \
+                if api == "shibor" else rows
+    summary = run(root, Capped(), dry_run=True)
+    assert any(w.startswith("mk_shibor_on: history begins 2023-01-02") for w in summary["warnings"])
+    assert summary["series"]["mk_shibor_on"]["status"] == "ok"           # reported, not dropped
+
+
+def test_require_all_turns_a_partial_live_run_into_a_failed_check(monkeypatch, tmp_path, capsys):
+    from cnmacro import cli
+    import cnmacro.market_data as m
+    partial = {"series": {"mk_ust10y": {"status": "ok"}, "mk_shibor_on": {"status": "error", "reason": tc.RATE_LIMITED}},
+               "failed": ["mk_shibor_on"], "new_rows": 0}
+    monkeypatch.setattr(m, "run_market", lambda *a, **k: partial)
+    monkeypatch.setattr(cli.ingest, "sync_clock", lambda **k: None)
+    monkeypatch.chdir(tmp_path)
+    assert cli.main(["market-refresh", "--dry-run", "--require-all"]) == 3
+    assert "mk_shibor_on" in capsys.readouterr().out
+    assert cli.main(["market-refresh", "--dry-run"]) == 0                 # scheduled runs report and stay green

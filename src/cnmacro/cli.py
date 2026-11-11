@@ -235,13 +235,18 @@ def cmd_refresh_public(a) -> int:
 
 
 def cmd_market_refresh(a) -> int:
-    from .market_data import run_market
+    from .market_data import incomplete, run_market
     ingest.sync_clock(timeout=10)
     summary = run_market(".", backfill=a.backfill, dry_run=a.dry_run)
     print(json.dumps(summary, indent=2, ensure_ascii=False))
     if a.summary:
         Path(a.summary).write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-    return 0   # missing token, non-permitted endpoints and cross-check gaps are reported, never a failed run
+    missing = incomplete(summary)
+    if a.require_all and missing:
+        # A live acceptance run must not look green when a requested series did not arrive.
+        print(f"::error title=market series missing::{len(missing)} series not ok: {', '.join(missing)}")
+        return 3
+    return 0   # scheduled runs: missing series and cross-check gaps are reported, the run stays green
 
 
 def _wind_failure(f) -> int:
@@ -519,6 +524,8 @@ def main(argv=None) -> int:
     s.add_argument("--backfill", action="store_true", help="re-read the full history, not just the recent window")
     s.add_argument("--dry-run", action="store_true", help="fetch and diff, write nothing")
     s.add_argument("--summary", help="write the JSON summary here")
+    s.add_argument("--require-all", action="store_true",
+                   help="exit 3 unless every configured series came back ok (live acceptance runs)")
     s.set_defaults(f=cmd_market_refresh)
     s = sub.add_parser("refresh-private", help="LOCAL ONLY: fetch the named provider(s), publish private snapshots, run the private eval")
     s.add_argument("--provider", action="extend", nargs="+", metavar="P",

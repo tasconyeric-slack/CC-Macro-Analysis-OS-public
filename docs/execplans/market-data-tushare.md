@@ -49,3 +49,15 @@ See the PR description for the live checklist. Not claimable from a local run: t
 - DR007, if no Tushare endpoint covers it (see the matrix).
 - Compacting the daily series JSON (points + vintages duplicate the CSV) if page weight becomes a problem.
 - Upstream-vs-downstream comparison (Shenwan L1), FX, CGB yields and commodity futures: parked until the Tushare account may call `sw_daily`, `fx_daily`, `yc_cb`, `fut_*`.
+
+## 7. Quota-safe live acceptance (2026-11-11, Issue #69 W3)
+
+Follows the Owner's PR #37 review of 2026-11-11 (run #42766607208: 1/11 series ok; SHIBOR, HIBOR, UST nominal and CSI 300 refused by the provider's frequency limit, slope without inputs, FRED cross-check pending).
+
+- **One request per interface, even when refused.** `Fetcher` remembers a rate-limit or permission refusal per interface for the rest of the run, so the other SHIBOR/HIBOR/UST tenors do not send a second request that is bound to be refused (and would spend the next allowance). A missing or invalid token stops every interface after the first refusal. The run summary lists `requests` (interfaces actually called) and `failed` (series not ok, with `reason` and `interface`).
+- **Shared interfaces share one window.** Series read from the same query (four SHIBOR tenors, two HIBOR tenors, UST 1Y/10Y) request the earliest start in their group, so a tenor without stored history no longer splits the group into two requests.
+- **Short history is visible.** A backfill whose first row is more than 14 days after `history_start` is reported in `warnings` and the run log (the interfaces return newest rows first, so a row cap drops the oldest history). SHIBOR and UST have ~1,720 trading days since 2020-01-01 against a 2,000-row cap.
+- **Acceptance runs are red unless complete.** `market-refresh --require-all` exits 3 when any configured series is not ok. PR live runs and manual dry runs use it; the scheduled run does not (it reports and stays green, unchanged).
+- **Pull requests do not spend the allowance by accident.** A push runs only the offline market tests. A live dry run happens once per application of the `market-live-dry-run` label, scheduled after the provider's day resets (00:00 Beijing) so neither an hourly nor a daily limit is still in force.
+
+Not changed: the 11 permitted series, the 13 parked series (not enabled), no new provider. The three consecutive scheduled trading days remain a post-merge check (GitHub runs `schedule` only from `main`).
