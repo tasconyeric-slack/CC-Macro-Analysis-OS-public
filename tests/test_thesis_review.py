@@ -157,3 +157,29 @@ def test_a_terminal_status_keeps_its_preregistered_rule_in_the_signed_update(cas
     doc = yaml.safe_load(upd.read_text(encoding="utf-8"))
     assert doc["status"] == "CONFIRMED" and doc["terminal_rule_fired"] == "R-FIXTURE"
     assert not fold(case)[2]
+
+
+def test_the_signed_update_names_every_release_entry_and_the_card_reads_in_both_languages(case):
+    drafted(case)
+    card = review.decision_card(case, RID)
+    assert "CPI" in card.splitlines()[1] and "PPI" in card.splitlines()[1]          # CPI and PPI share one release
+    assert "竞争性解释" in card and "供给端" in card                                   # H0 in the frozen Chinese wording
+    row = review.summary(review.reviews(case)[-1], now="2026-11-13T04:00:00Z")
+    assert row["status"] == "awaiting_analyst" and row["awaiting_hours"] == 48.0
+    _, upd = review.decide(case, RID, "approve", FIXTURE_SIGNER, at="2026-11-11T05:00:00Z")
+    doc = yaml.safe_load(upd.read_text(encoding="utf-8"))
+    assert doc["release"].startswith("2026-10 CPI")                                    # the key the site already uses
+    assert [e["period"] for e in doc["release_entries"]] == ["2026-10", "2026-10"]
+    assert any("PPI" in e["name"] for e in doc["release_entries"]) and not fold(case)[2]
+    assert review.summary(review.reviews(case)[-1])["awaiting_hours"] is None
+
+
+def test_a_newer_draft_supersedes_the_older_one_which_can_no_longer_be_signed(case):
+    older = review.build_draft(paths(case), "2026-11-02T0938Z.json", created_at="2026-11-11T03:00:00Z")
+    review.write_draft(case, older)
+    drafted(case)
+    states = {r["review_id"]: r["status"] for r in review.reviews(case)}
+    assert states == {"2026-11-02T0938Z": "superseded", RID: "awaiting_analyst"}
+    with pytest.raises(review.ReviewError, match="superseded"):
+        review.decide(case, "2026-11-02T0938Z", "approve", FIXTURE_SIGNER, at="2026-11-11T05:00:00Z")
+    assert not (case / "reviews" / "2026-11-02T0938Z" / "decision.json").exists()

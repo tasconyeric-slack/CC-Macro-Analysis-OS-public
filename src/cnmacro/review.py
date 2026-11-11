@@ -439,6 +439,10 @@ def signed_update(case_dir: Path, draft: dict, decision: dict, edits: dict) -> d
     text_zh = (edits.get("text_zh") or ("" if edits.get("text_en") else draft["text"]["zh"])).strip()
     doc = {
         "kind": "update", "baseline": base_path.name, "as_of": decision["at"], "release": draft["release"]["name"],
+        # every calendar entry the release delivered (CPI and PPI share one release time); `release` stays the first
+        # entry's calendar name, the key the site and history already use
+        "release_entries": [{k: e.get(k) for k in ("name", "period", "release_at", "url")}
+                            for e in draft["release"].get("entries") or []],
         "author": decision["signed_by"],
         "signature": {"signed_by": decision["signed_by"], "signed_at": decision["at"], "action": decision["action"],
                       "via": decision["via"], "review_id": draft["review_id"], "draft_sha256": decision["draft_sha256"]},
@@ -485,24 +489,38 @@ def _print(obj) -> None:
     print(json.dumps(obj, indent=2, ensure_ascii=False, default=str))
 
 
-def summary(r: dict) -> dict:
+def summary(r: dict, now: str | None = None) -> dict:
     d, dec = r["draft"], r["decision"]
     return {"review_id": r["review_id"], "status": r["status"], "release": d["release"]["name"],
             "release_at": d["release"]["release_at"], "draft_created_at": d["created_at"],
             "judgment_in_force": d["previous_state"]["file"],
+            # how long the analyst has had it (the §7.2 48-hour cadence counts a visible draft, not silence)
+            "awaiting_hours": (round((utc_naive(now or ingest.now_iso()) - utc_naive(d["created_at"])).total_seconds() / 3600, 1)
+                               if r["status"] == "awaiting_analyst" else None),
             "decision": None if dec is None else {k: dec.get(k) for k in ("action", "signed_by", "at", "via", "published_update")}}
+
+
+def _frozen_zh(case_dir: Path) -> dict:
+    """The case's frozen Chinese wording (hypothesis names and claims), if present."""
+    p = Path(case_dir) / "frozen_zh.yaml"
+    return (yaml.safe_load(p.read_text(encoding="utf-8")) or {}) if p.exists() else {}
 
 
 def decision_card(case_dir: Path, review_id: str) -> str:
     """The short decision surface the analyst reads before choosing Approve / Edit / Reject."""
     d, dec = load_review(case_dir, review_id)
     p = d["previous_state"]
+    names = " + ".join(e["name"] for e in d["release"].get("entries") or []) or d["release"]["name"]
+    comp = d["competing_explanation"]
+    zh = (_frozen_zh(case_dir).get("hypotheses") or {}).get(comp["hypothesis"]) or {}
     lines = [f"# Thesis review {review_id} — {status_of(d, dec)}",
-             f"Release: {d['release']['name']} ({d['release']['release_at']})",
+             f"Release: {names} ({d['release']['release_at']})",
              f"Judgment in force: {p['file']} — probability {round(p['probability'] * 100)}%, {p['conviction']}, {p['status']}",
              "", "## Proposed update (EN)", d["text"]["en"], "", "## 建议更新（中文）", d["text"]["zh"], "",
-             "## Competing explanation", f"{d['competing_explanation']['hypothesis']}: {d['competing_explanation']['claim']}",
-             "Discriminating tests: " + ", ".join(f"{t['test']} ({t['outcome']})" for t in d["competing_explanation"]["discriminating_tests"]),
+             "## Competing explanation / 竞争性解释", f"{comp['hypothesis']}: {comp['claim']}"]
+    if zh.get("claim"):
+        lines.append(f"{comp['hypothesis']} {zh.get('name') or comp.get('name')}：{zh['claim']}")
+    lines += ["Discriminating tests: " + ", ".join(f"{t['test']} ({t['outcome']})" for t in comp["discriminating_tests"]),
              "", "## Watch next"]
     lines += [f"- {w['release_at']}: {', '.join(w['metrics'])} → tests {', '.join(w['tests']) or '–'}" for w in d["watch_next"]]
     ri = d.get("research_inputs") or {}
