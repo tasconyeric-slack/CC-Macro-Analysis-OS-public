@@ -10,9 +10,9 @@ from htmlutil import parse
 @pytest.mark.parametrize("loc", LOCALES)
 def test_the_view_comes_before_the_system(built, loc):
     text = parse(built / loc / "index.html").text()
-    t = {"en": dict(view="Current view", states="Where each hypothesis stands", evidence="Key evidence", system="How this view is kept honest",
+    t = {"en": dict(view="Current research view", states="Where each hypothesis stands", evidence="Key evidence", system="How this view is kept honest",
                     prereg="Preregistered at", audit="Audit trail", ev="Deterministic eval|deterministic eval"),
-         "zh": dict(view="当前判断", states="各假设目前的状态", evidence="关键证据", system="这一判断如何保持严谨",
+         "zh": dict(view="当前研究判断", states="各假设目前的状态", evidence="关键证据", system="这一判断如何保持严谨",
                     prereg="预先登记：概率", audit="审计轨迹", ev="确定性评估")}[loc]
     order = [text.index(t["view"]), text.index(t["states"]), text.index(t["evidence"])]
     assert order == sorted(order), order
@@ -24,21 +24,24 @@ def test_the_view_comes_before_the_system(built, loc):
     assert re.search(t["ev"], raw) and re.search(t["ev"], raw).start() > raw.index(t["system"])
 
 
-def test_first_screen_shows_the_required_figures_and_the_probability_label(built):
-    en = parse(built / "en/index.html").text()
-    head = en[: en.index("Where each hypothesis stands")]
-    for needle in ("Current macro view", "Is China forming a sustainable turning point in nominal growth?",
-                   "The price side has turned, but broad domestic-demand confirmation is still absent",
-                   "more consistent with an upstream- and external-price-led nominal rebound than with a durable, demand-led reflation",
-                   "Analyst probability 30%", "Judgment confidence LOW", "Status ACTIVE", "Evidence as of", "Latest data refresh",
-                   "Discretionary analyst judgment on a 5ppt grid; not a statistically calibrated model probability."):
-        assert needle in head, needle
-    zh = parse(built / "zh/index.html").text()
-    head = zh[: zh.index("各假设目前的状态")]
-    for needle in ("中国名义增长是否正在形成可持续拐点？", "价格端已经转向，但内需尚未出现广泛的确认", "分析师概率 30%",
-                   "判断置信度 低", "状态 进行中", "证据截至", "最近一次数据刷新",
-                   "分析师主观判断，以5个百分点为刻度；并非经统计校准的模型概率。"):
-        assert needle in head, needle
+def test_first_screen_shows_dated_view_report_next_confirmation_and_real_change(built, model):
+    for loc in LOCALES:
+        raw = (built / loc / "index.html").read_text()
+        text = parse(built / loc / "index.html").text()
+        assert 'id="current-view-title"' in raw and 'id="next-confirmation"' in raw
+        assert 'macro-weekly-2026-W45.html' in raw
+        assert '2026' in text
+        assert ('No new signed analyst update' if loc == 'en' else '尚无新签署的分析师更新') in text
+        # Current price evidence is independent of the previous completed report cutoff.
+        for mid in ('cn_ppi_yoy', 'cn_core_cpi_yoy'):
+            point = model['data_portal']['series'][mid]['points'][-1]
+            assert point['period'] in text and f"{point['value']:.2f}" in text
+        assert raw.index('current-view-title') < raw.index('material-changes') < raw.index('research-charts')
+        assert 'news-feed' not in raw and 'front-news' not in raw
+        nav = raw[raw.index('<nav id="primary-nav"'):raw.index('</nav>')]
+        assert 'research.html' in nav and 'news.html' not in nav and 'memo.html' not in nav
+        for legacy in ('news.html','daily.html','policy.html','evidence.html','updates.html','method.html'):
+            assert legacy in raw
 
 
 @pytest.mark.parametrize("loc", LOCALES)

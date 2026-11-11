@@ -178,7 +178,7 @@ def test_vercel_build_stops_when_python_is_not_the_baseline(tmp_path):
 def test_vercel_production_build_keeps_the_true_audit_trail(tmp_path, platform_python, scenario):
     clone, out = build_on_vercel_like_clone(tmp_path, scenario, platform_python)
     for loc in LOCALES:   # the same portal pages in each language, built into the one artifact
-        assert sorted(p.name for p in (clone / "site/dist" / loc).glob("*.html") if not p.name.startswith(("news-edition-", "news-archive-"))) == PAGES
+        assert sorted(p.name for p in (clone / "site/dist" / loc).glob("*.html") if not p.name.startswith(("news-edition-", "news-archive-", "macro-weekly-", "macro-monthly-"))) == PAGES
     if scenario == "unshallow_fails":
         assert "shallow clone = true" in out    # the manifest path is what is being tested
     if scenario == "unshallow_works":

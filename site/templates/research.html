@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% import "_research.html" as r with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}research.css">{% endblock %}
+{% block body %}
+<header class="memo-head"><div><div class="eyebrow">CC Macro</div><h1>{{ t('research.title') }}</h1><p>{{ t('research.description') }}</p></div></header>
+<div class="research-grid">
+{% for kind in ['weekly','monthly'] %}{% set e = research_editions|selectattr('edition_type','equalto',kind)|first %}{% if e %}{{ r.edition_card(e, t('research.' ~ kind)) }}{% endif %}{% endfor %}
+</div>
+<section><h2>{{ t('research.archive') }}</h2>
+<ul class="research-archive">{% for e in research_editions %}<li><a href="{{ e.edition_id }}.html">{{ e.title }}</a><span class="small muted">{{ e.period_start }} — {{ e.period_end }} · {{ t('research.draft') }}</span></li>{% endfor %}</ul></section>
+<section><h2>{{ t('research_home.chronology') }}</h2><p>{{ t('research_home.no_signed') }}</p><p><a href="updates.html#baseline">{{ t('research.prior') }} · {{ baseline.as_of|date if baseline else t('common.pending') }}</a> · <a href="updates.html">{{ t('nav.updates') }} ›</a></p></section>
+<section><h2>{{ t('research.legacy') }}</h2><p><a href="memo.html">{{ t('nav.memo') }}</a> · <a href="updates.html">{{ t('nav.updates') }}</a> · <a href="evidence.html">{{ t('nav.evidence') }}</a> · <a href="policy.html">{{ t('nav.policy') }}</a> · <a href="news.html">{{ t('nav.news') }}</a> · <a href="daily.html">{{ t('nav.daily') }}</a></p></section>
+{% endblock %}

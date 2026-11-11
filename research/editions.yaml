@@ -1,0 +1,5 @@
+# Stable archive start keys. Existing scheduled Vercel builds generate newly completed
+# BJT calendar periods; rebuilds refresh factual drafts, never approve research.
+schema: 1
+weekly_start: '2026-11-02'
+monthly_start: '2026-10-01'

@@ -1,0 +1,16 @@
+/* Research-first composition; all visual values follow Masonry Red. */
+.research-hero { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:var(--mr-space-section); padding:var(--mr-space-xxl); background:var(--mr-surface-soft); border-radius:var(--mr-radius-lg); }
+.research-hero h1 { font-size:44px; line-height:1.15; margin-block:var(--mr-space-lg); }
+.research-question { font-size:18px; font-weight:600; line-height:1.3; }
+.research-next { min-width:0; padding:var(--mr-space-xl); background:var(--mr-canvas); border-radius:var(--mr-radius-md); }
+.research-next h2 { margin:0; padding:0; border:0; font-size:22px; line-height:1.25; }
+.research-change-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--mr-space-lg); }
+.research-change-grid.count-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.research-change-grid.count-1 { grid-template-columns:minmax(0,1fr); }
+.research-chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--mr-space-xl); }
+.research-hero p,.research-tile p { overflow-wrap:anywhere; }
+@media (max-width:768px) {
+ .research-hero { grid-template-columns:minmax(0,1fr); gap:var(--mr-space-xl); padding:var(--mr-space-xl); }
+ .research-hero h1 { font-size:28px; line-height:1.2; }
+ .research-change-grid,.research-change-grid.count-2,.research-change-grid.count-1,.research-chart-grid { grid-template-columns:minmax(0,1fr); }
+}
