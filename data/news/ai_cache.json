@@ -257,6 +257,92 @@
    "title_en": "China's October soybean imports 7.345 million tonnes, down 22.5% year on year",
    "why_zh": "大豆进口是观察中国农产品需求与进口走势的重要数据，10月同比下降22.5%。",
    "why_en": "Soybean imports are a key gauge of China's agricultural demand and trade flows; October imports fell 22.5% year on year."
+  },
+  "news_f7ac604d00a69748015c|dfecf794597e6a12|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f7ac604d00a69748015c",
+   "content_hash": "dfecf794597e6a12",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "布雷纳德推介低首付方案，涉及美国住房可负担性立法动向，值得关注美国政策走向的读者留意。",
+   "why_en": "Brainard is pitching a low down payment plan amid housing affordability legislation efforts, a development worth noting for readers tracking US policy direction.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_7229e95e2d206f8e9822|99028feb47b2010e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7229e95e2d206f8e9822",
+   "content_hash": "99028feb47b2010e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "China's October crude oil imports 41.938 million tonnes, down 13.3% year on year",
+   "why_zh": "原油进口是观察中国内需与工业活动的重要高频指标，这一同比降幅值得关注。",
+   "why_en": "Crude oil imports are a key high-frequency gauge of China's domestic demand and industrial activity, making this year-on-year decline worth watching."
+  },
+  "news_e0eeeeee40498ffbe244|b5118bebf6cd463c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e0eeeeee40498ffbe244",
+   "content_hash": "b5118bebf6cd463c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "China's October iron ore and concentrate imports 105.658 million tonnes, down 5.1% year on year",
+   "why_zh": "铁矿石进口反映中国钢铁与建筑需求，是跟踪中国经济走势的重要数据。",
+   "why_en": "Iron ore imports reflect China's steel and construction demand, making this an important data point for tracking the economy."
+  },
+  "news_230ac71adcc35f96b302|eab76624bd5861eb|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_230ac71adcc35f96b302",
+   "content_hash": "eab76624bd5861eb",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "皖能集团联合两家上市公司出资1亿元投向太空算力，体现地方能源国企布局新兴科技产业。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_eaa42f7d2edd42afe0d7|dc74dde294bed21c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_eaa42f7d2edd42afe0d7",
+   "content_hash": "dc74dde294bed21c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "NDRC: set public service fee standards reasonably; no charges outside the list",
+   "why_zh": "收费清单化管理与科学定价将约束公共服务收费行为，涉及养老、殡葬等民生领域。",
+   "why_en": "List-based fee management and scientific pricing would constrain public service charges, touching areas such as elderly care and funeral services."
+  },
+  "news_795abe67c77f83b42f9a|9657dec5592a6dcd|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_795abe67c77f83b42f9a",
+   "content_hash": "9657dec5592a6dcd",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "Eight departments jointly issue notice to support physical bookstores in serving nationwide reading",
+   "why_zh": "八部门联合发文支持实体书店，体现政策对文化消费与服务业领域的关注。",
+   "why_en": "Eight departments jointly issued the notice backing physical bookstores, signalling policy attention to cultural consumption and services."
+  },
+  "news_f23b22a5744942e5edda|d37205c28733c4a7|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f23b22a5744942e5edda",
+   "content_hash": "d37205c28733c4a7",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "发改委介绍增进民生福祉情况，关系到居民收入与消费相关政策走向。",
+   "why_en": "The NDRC briefing on improving people's wellbeing bears on policies affecting household income and consumption.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_5aa01b718e3e56ea9583|2cdc49792faa7b28|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_5aa01b718e3e56ea9583",
+   "content_hash": "2cdc49792faa7b28",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "Transcript: press conference on high-quality accounting development during the 15th Five-Year Plan period",
+   "why_zh": "会计高质量发展部署影响企业财务规范与信息披露要求，值得市场参与者关注。",
+   "why_en": "Plans for high-quality accounting development affect corporate financial standards and disclosure requirements, relevant to market participants."
   }
  }
 }

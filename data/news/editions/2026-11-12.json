@@ -139,10 +139,11 @@
    "publisher": "东方财富",
    "topic": "credit",
    "publishers": [
-    "东方财富"
+    "东方财富",
+    "中国新闻网"
    ],
    "score": 65,
-   "rank_key": 69.15888308335967,
+   "rank_key": 71.59167373200866,
    "ai": {
     "title_en": "PBOC: support more eligible overseas entities in issuing panda bonds",
     "why_zh": "央行在2026年第三季度货币政策执行报告中提出支持更多符合条件的境外主体发行熊猫债券，事关债市对外开放。",
@@ -171,6 +172,25 @@
   }
  ],
  "quick": [
+  {
+   "event_id": "evt-f7ac604d00a6",
+   "title_zh": "原美联储副主席：敦促美国民主党为首次购房者推出1000美元首付方案",
+   "summary_zh": "前美国总统拜登的国家经济委员会主任布雷纳德（Lael Brainard）向民主党人推介一项低首付方案，旨在将数百万新购房者带入市场；与此同时，即将上任的国会领导人也在评估可能帮助他们取得早期立法成果的住房可负担性措施。一份提案文本显示，由布雷纳德（曾担任美联储副主席、并在前总统奥巴马任内担任负责国际事务的财政部副部长）领导的一个新政策小组正推动设立一项联邦住房管理局（FHA）计划，为符合“严格承保标准”的首次购房者提供低至1000美元首",
+   "url": "https://wallstreetcn.com/livenews/3198525",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 69,
+   "rank_key": 73.15888308335967,
+   "ai": {
+    "why_zh": "布雷纳德推介低首付方案，涉及美国住房可负担性立法动向，值得关注美国政策走向的读者留意。",
+    "why_en": "Brainard is pitching a low down payment plan amid housing affordability legislation efforts, a development worth noting for readers tracking US policy direction.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-77211cac3fb2",
    "title_zh": "美债跌势料延续加息押注升温或推10年期收益率破5%",
@@ -225,6 +245,25 @@
     "title_en": "PBOC: supports eligible tech firms in issuing sci-tech innovation bonds, broadening direct financing channels",
     "why_zh": "央行在2026年第三季度货币政策执行报告中提出用好债券风险分担工具，支持科技企业拓宽直接融资。",
     "why_en": "The central bank's Q3 2026 monetary policy report calls for using bond risk-sharing tools to help tech firms broaden direct financing.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-508c7a0e1734",
+   "title_zh": "周二美股盘前你需要了解的全球要闻",
+   "summary_zh": "美国10月核心CPI环比上涨0.3%超预期，12月加息50基点预期骤然升温。沃勒释放美联储“最鹰信号”：若通胀居高不下，12月应加息50基点，需收回此前“三次预防性降息”。冲击美国科技IPO融资纪录！Anthropic最高募资904亿美元、完全稀释估值1.4万亿美元。据央视，新一轮俄美乌三方首日会谈结束，将于明日继续进行。阿里巴巴：建议分拆平头哥于香港联交所主板独立上市。软银两年来首次季度亏损！AI暴跌重创愿景基金，美国数据中心项目遭巨",
+   "url": "https://wallstreetcn.com/livenews/3197738",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 74,
+   "rank_key": 61.15888308335967,
+   "ai": {
+    "title_en": "Global news to know before Tuesday's US market open",
+    "why_zh": "盘前要闻涵盖美国通胀与加息预期、AI融资及阿里分拆等，是判断外部金融环境与中概科技股的参考。",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
