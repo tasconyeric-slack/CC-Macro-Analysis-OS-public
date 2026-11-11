@@ -161,3 +161,13 @@ def test_calendar_renders_in_both_languages(built):
         assert tba in page and 'data-date="2026-11-16"' in page
         assert "consensus" not in page.lower()
         assert ("前值" if loc == "zh" else "Previous") in page and "desk-calendar-metrics" not in page
+
+
+def test_calendar_script_loads_once_and_its_spacing_uses_design_tokens(built):
+    """Loaded twice, every ‹/› click moved two months; spacing comes from Masonry Red tokens, not ad-hoc pixels."""
+    import re
+    for loc in ("zh", "en"):
+        page = (built / loc / "daily.html").read_text(encoding="utf-8")
+        assert page.count("economic-calendar.js") == 1
+    css = (built / "static" / "daily.css").read_text(encoding="utf-8")
+    assert not re.findall(r"(?:margin|padding|gap)[\w-]*:\s*[^;}]*\b[1-35]px", css)

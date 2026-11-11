@@ -84,13 +84,13 @@
 .desk-calendar-event { display: flex; gap: var(--mr-space-xs); align-items: baseline; min-width: 0; font-size: 12px; line-height: 1.4; }
 .desk-calendar-items .desk-calendar-event { display: block; padding: var(--mr-space-sm); border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
 .desk-calendar-event time { flex: none; color: var(--ink-3); font-size: 11px; font-variant-numeric: tabular-nums; }
-.desk-calendar-items .desk-calendar-event time { display: block; margin-bottom: 2px; }
+.desk-calendar-items .desk-calendar-event time { display: block; margin-bottom: var(--mr-space-xxs); }
 .desk-calendar-name { min-width: 0; overflow-wrap: anywhere; }
 .desk-calendar-name a { color: var(--ink); font-weight: 600; text-decoration: none; }
 .desk-calendar-name a:hover { text-decoration: underline; }
 .desk-calendar-metrics { display: flex; flex-wrap: wrap; gap: var(--mr-space-sm); margin-top: var(--mr-space-xs); }
 .desk-calendar-metrics strong { color: var(--ink); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.desk-calendar-metrics small { color: var(--ink-3); font-size: 10px; font-weight: 400; margin-left: 2px; }
+.desk-calendar-metrics small { color: var(--ink-3); font-size: 10px; font-weight: 400; margin-left: var(--mr-space-xxs); }
 
 .desk-calendar-origin { flex: none; font-size: 12px; color: var(--ink-3); }
 .desk-calendar-items .desk-calendar-origin { display: inline-block; margin-top: var(--mr-space-xs); }
@@ -123,7 +123,7 @@
 .desk-calendar-reported a { margin-left: var(--mr-space-xs); font-size: 12px; }
 .desk-calendar-action span { color: var(--ink-2); font-size: 12px; }
 .desk-calendar-links { display: flex; flex-wrap: wrap; gap: var(--mr-space-xs) var(--mr-space-md); font-size: 12px; }
-.desk-calendar-items .desk-calendar-chip + .desk-calendar-chip { margin-top: 2px; }
+.desk-calendar-items .desk-calendar-chip + .desk-calendar-chip { margin-top: var(--mr-space-xxs); }
 .desk-calendar-agenda-item { border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
 .desk-calendar-agenda-item .desk-calendar-chip { padding: var(--mr-space-md); font-size: 14px; }
 .desk-calendar-agenda-item .desk-calendar-chip span { white-space: normal; }
