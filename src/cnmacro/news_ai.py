@@ -21,8 +21,8 @@ from datetime import timedelta
 from pathlib import Path
 from cnmacro.events.store import stamp
 
-PROMPT_VERSION = 'news-ai-prompt/1'
-CACHE_VERSION = 1
+PROMPT_VERSION = 'news-ai-prompt/2'
+CACHE_VERSION = 2
 CACHE_NAME = 'ai_cache.json'
 DEFAULT_MODEL = 'deepseek-flash'
 DEFAULT_MAX_ITEMS = 12
@@ -201,10 +201,12 @@ def number_set(text):
 
 
 def source_numbers(src):
-    text = ' '.join(str(src.get(k, '')) for k in ('title_zh', 'summary_zh', 'published_at'))
+    # Only factual source text licenses quantities. Publication timestamps do not
+    # authorize arbitrary percentages or amounts (e.g. the day "9" is not 9%).
+    text = ' '.join(str(src.get(k, '')) for k in ('title_zh', 'summary_zh'))
+    # Keep magnitude normalization: 100亿元 = 10 billion yuan, not 100 yuan.
+    # Never whitelist the unscaled mantissa of an amount with a Chinese unit.
     nums = number_set(text)
-    # a unit-less reading is allowed too: "100亿" may be written as 100 in a table cell or the date it was published
-    nums |= {float(m[1].replace(',', '') + (m[2] or '')) for m in NUMBER.finditer(text)}
     for m in CN_NUMBER.finditer(text):
         v = cn_int(m[0])
         if v is not None:
