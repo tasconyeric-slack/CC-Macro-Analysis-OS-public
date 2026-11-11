@@ -1,47 +1,36 @@
-{% extends "base.html" %}{% import "_macros.html" as mx with context %}
+{% extends "base.html" %}{% import "_macros.html" as mx with context %}{% import "_research.html" as r with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}research.css"><link rel="stylesheet" href="{{ asset }}research-home.css">{% endblock %}
 {% block body %}
-{# ---- 1. front band: the macro snapshot on a soft wash ---- #}
-<section class="front" aria-labelledby="front-title">
-  <div class="front-head"><div><p class="eyebrow">{{ t('reader.kicker') }}</p><h1 id="front-title">{{ t('reader.title') }}</h1><p class="lede">{{ t('reader.description') }}</p></div><a class="mr-btn" href="daily.html">{{ t('portal.daily_title') }}</a></div>
-  <div class="reader-snapshot" role="group" aria-label="{{ t('reader.snapshot') }}">{% for k in macro_snapshot %}<a class="reader-indicator" href="data-{{ metrics[k.metric_id].category }}.html#metric-{{ k.metric_id }}"><span>{{ k.name }}</span><strong>{{ '%.1f'|format(k.value) }}<small>{{ k.unit_label }}</small></strong><p>{{ k.period|period }}{% if k.delta is not none %} · {{ '%+.1f'|format(k.delta) }} {{ k.delta_unit }}{% endif %}</p>{{ k.spark or '' }}<small>{{ k.publisher_name }} · {{ k.release_date|date if k.release_date else k.retrieved_at|date }}</small></a>{% endfor %}</div>
+<section class="research-hero" aria-labelledby="current-view-title">
+  <div>
+    <p class="eyebrow">{{ t('research_home.kicker') }} · {{ (judgment_doc.as_of if judgment_doc else evidence_as_of)|date }}</p>
+    <h1 id="current-view-title">{{ current_view.headline or case.question }}</h1>
+    <p class="research-question">{{ case.question }}</p>
+    <p class="small muted">{{ t('research_home.prior_status') }} <a href="updates.html#baseline">{{ t('research.prior') }} ›</a></p>
+    {% set latest = research_editions|selectattr('edition_type','equalto','weekly')|first %}
+    {% if latest %}<a class="mr-btn mr-btn--primary" href="{{ latest.edition_id }}.html">{{ t('research_home.read_weekly') }} · {{ latest.key }}</a>{% endif %}
+    <a class="mr-btn mr-btn--tertiary" href="research.html">{{ t('research_home.all_research') }} ›</a>
+  </div>
+  <aside class="research-next" aria-labelledby="next-confirmation">
+    <h2 id="next-confirmation">{{ t('research_home.next') }}</h2>
+    <p>{{ t('research_home.next_body') }}</p>
+    {% if research_overview and research_overview.next_releases %}{% set next = research_overview.next_releases[0] %}
+    <p class="small"><a href="{{ next.url }}">{{ next.release|when }}</a><br>{% for mid in next.metrics %}{{ v.metric_name(mid) }}{% if not loop.last %} / {% endif %}{% endfor %}</p>
+    {% else %}<p class="small muted">{{ t('research.no_calendar') }}</p>{% endif %}
+  </aside>
 </section>
-
-{# ---- 2. headlines beside the current research judgment ---- #}
-<div class="front-split">
-<div class="front-news">{% include "news-feed.html" %}</div>
-<aside class="judgment-card" aria-labelledby="judgment-title">
-  <p class="eyebrow" id="judgment-title">{{ t('home.current_view') }}</p>
-  <p class="judgment-q">{{ case.question }}</p>
-  {% if current_view.headline %}<p class="judgment-headline">{{ current_view.headline }}</p>{% else %}<p class="judgment-headline">{{ case.statement }}</p>{% endif %}
-  {% if view_current is false %}<p class="stale small">{{ t('home.view_stale') }}</p>{% endif %}
-  <div class="judgment-prob"><div class="label">{{ t('home.fig.probability') }}</div><div class="value">{{ prob }}</div><p class="fignote">{{ t('home.prob_note') }}</p></div>
-  <dl class="judgment-meta" aria-label="{{ t('home.figures_label') }}">
-    <dt>{{ t('home.fig.confidence') }}</dt><dd>{{ confidence_label }}</dd>
-    <dt>{{ t('home.fig.status') }}</dt><dd>{{ status_label }}</dd>
-    <dt>{{ t('home.fig.evidence_as_of') }}</dt><dd>{{ evidence_as_of|when }}</dd>
-    <dt>{{ t('home.fig.refresh') }}</dt><dd>{{ refresh_at|when }}</dd>
-  </dl>
-  <div class="judgment-actions"><a class="mr-btn mr-btn--primary" href="memo.html">{{ t('portal.read_research') }}</a><a class="mr-btn mr-btn--tertiary" href="evidence.html">{{ t('portal.evidence_title') }} ›</a></div>
-</aside>
-</div>
-
-{# ---- 3. what changed: the latest releases and the research view ---- #}
-<section class="change-section" aria-labelledby="recent-changes">
-  <div class="section-heading"><div><h2 id="recent-changes">{{ t('portal.changed') }}</h2><p>{{ t('portal.changed_note') }}</p></div><a class="mr-btn mr-btn--tertiary" href="updates.html">{{ t('portal.view_history') }} ›</a></div>
-  <div class="change-grid">{% for release in desk.releases[:2] %}<article><p class="change-date">{{ release.published_at|when if release.published_at else release.retrieved_at|when }}</p><h3><a href="daily.html#{{ release.item_id }}">{{ release.title }}</a></h3><dl class="change-values">{% for value in release['values'][:2] %}<div><dt>{{ value.name }}</dt><dd>{{ '%.1f'|format(value.value) }}<small>{{ value.unit_label }}</small></dd></div>{% endfor %}</dl><a class="change-source" href="{{ release.canonical_url }}">{{ release.publisher_name }}</a></article>{% endfor %}<article class="change-view"><p class="change-date">{{ t('desk.judgment_date')|colon }}{{ desk.judgment_as_of|date }}</p><h3><a href="memo.html">{{ t('reader.research') }}</a></h3><p>{{ current_view.headline if current_view else case.statement }}</p><a class="change-source" href="updates.html">{{ t('portal.view_history') }} ›</a></article></div>
+{% if research_overview %}
+<section aria-labelledby="material-changes">
+  <div class="section-heading"><div><h2 id="material-changes">{{ t('research_home.changed') }}</h2><p>{{ t('research_home.facts') }} · {{ research_overview.as_of|when }}</p></div></div>
+  <div class="research-change-grid count-{{ research_overview.change_cards|length }}">{% for c in research_overview.change_cards %}
+  <article class="research-tile"><h3><a href="#{{ c.metric_id }}">{{ c.question }}</a></h3><p><strong>{{ c.latest.reference_period }} · {{ c.number }}</strong></p><p class="small">{{ c.comparison }}</p><p>{{ c.interpretation }}</p><a class="small" href="{{ c.latest.source_url }}">{{ c.latest.source }} ↗</a></article>
+  {% else %}<p>{{ t('research.no_changes') }}</p>{% endfor %}</div>
 </section>
-
-{# ---- 4. the research view in full: question, reasoning, policy stance ---- #}
-<section class="research-view" aria-labelledby="q">
-  <div class="hero-kicker">{{ t('portal.research_portal') }} <span>{{ t('portal.public_sources') }}</span></div>
-  <p class="eyebrow">{{ t('home.eyebrow') }}</p>
-  <h2 id="q">{{ case.question }}</h2>
-  {% if current_view.headline %}<p class="viewbody">{{ current_view.body }}</p>
-  {% if current_view.policy %}<p class="policyline"><span class="tag">{{ t('home.policy_tag') }}</span> {{ current_view.policy }} <a href="evidence.html#policy-context">{{ t('home.policy_link') }} ›</a></p>{% endif %}
-  {% else %}<p class="viewbody">{{ case.statement }}</p>{% endif %}
-  <div class="hero-actions"><a class="mr-btn" href="memo.html">{{ t('portal.read_research') }}</a><a class="mr-btn mr-btn--tertiary" href="data.html">{{ t('portal.browse_data') }} ›</a></div>
-</section>
-
+<section aria-labelledby="research-charts"><div class="section-heading"><div><h2 id="research-charts">{{ t('research_home.charts') }}</h2><p>{{ t('research_home.chart_note') }}</p></div><a href="data.html">{{ t('nav.data') }} ›</a></div>
+<div class="research-chart-grid">{% for c in research_overview.cards if c.svg %}{{ r.chart(c) }}{% endfor %}</div></section>
+{% endif %}
+<section aria-labelledby="latest-editions"><div class="section-heading"><div><h2 id="latest-editions">{{ t('research.title') }}</h2></div><a href="research.html">{{ t('research.archive') }} ›</a></div><div class="research-grid">{% for kind in ['weekly','monthly'] %}{% set e = research_editions|selectattr('edition_type','equalto',kind)|first %}{% if e %}{{ r.edition_card(e,t('research.' ~ kind)) }}{% endif %}{% endfor %}</div></section>
+<section aria-labelledby="prior-reasoning"><h2 id="prior-reasoning">{{ t('research_home.prior_reasoning') }}</h2><p class="small muted">{{ (judgment_doc.as_of if judgment_doc else evidence_as_of)|date }} · {{ t('research_home.prior_status') }}</p><p>{{ current_view.body or case.statement }}</p><a href="memo.html">{{ t('nav.memo') }} ›</a> · <a href="updates.html">{{ t('nav.updates') }} ›</a></section>
 {# ---- 2. where each hypothesis stands (qualitative; counts live on the Evidence page) ---- #}
 <section aria-labelledby="hs">
   <h2 id="hs">{{ t('home.states_title') }}</h2>
@@ -89,47 +78,6 @@
   <p class="small"><a href="evidence.html#policy-context">{{ t('home.policy_link') }} ›</a></p>
 </section>
 {% endif %}
-
-{# ---- 5. what comes next, and the target series ---- #}
-<div class="grid2">
-  <section>
-    <h2>{{ t('home.next_title') }}</h2>
-    {% for r in next_releases[:3] %}
-    <div class="rel">
-      <div><strong>{{ r.label }}</strong></div>
-      <div class="small muted">{{ r.release|when }}</div>
-      {% if r.tests %}<ul class="small">{% for x in r.tests %}<li><a class="mono" href="evidence.html#{{ x.hypothesis }}">{{ x.id }}</a> {{ x.description }} <span class="muted">· {{ t('home.now') }} {{ mx.effect(x.result) }}</span></li>{% endfor %}</ul>
-      {% else %}<p class="small muted">{{ t('home.context_only') }}</p>{% endif %}
-    </div>
-    {% else %}<div class="empty">{{ t('home.no_releases') }}</div>{% endfor %}
-    <p class="small muted">{{ t('home.no_single_release_html') }}</p>
-  </section>
-  <section>
-    <h2>{{ t('home.target_title') }}</h2>
-    <div class="chartcard">
-      <div class="title">{{ t('home.target_chart_title') }}</div>
-      <div class="sub">{{ t('home.target_chart_sub') }}</div>
-      {% if target_chart %}{{ target_chart }}{% else %}<p class="muted small">{{ t('home.awaiting_gdp') }}</p>{% endif %}
-      <div class="meta">{{ t('home.target_meta_html', asof=evidence_as_of|when) }}</div>
-    </div>
-  </section>
-</div>
-
-{# ---- entry points: data lenses, then the daily and research paths ---- #}
-<section class="portal-columns" aria-labelledby="portal-columns">
-  <div id="portal-columns">{{ mx.section_header(t('portal.data_group'), t('portal.data_note')) }}</div>
-  <div class="column-grid column-grid-dense">
-    {% for c in portal.categories %}{{ mx.column_card(c.url, c.title, c.description, c.kicker, '', '', [t('portal.metrics', n=c.metric_count)], t('portal.last_release', date=c.latest_release|date) if c.latest_release else t('portal.no_release')) }}{% endfor %}
-  </div>
-  {{ mx.section_header(t('portal.policy_group'), t('portal.policy_note')) }}
-  <div class="column-grid column-grid-five">
-    {{ mx.column_card('daily.html', t('portal.daily_title'), t('portal.daily_description'), t('portal.daily_kicker')) }}
-    {{ mx.column_card('daily.html#calendar', t('portal.calendar_title'), t('portal.calendar_description'), t('portal.calendar_kicker')) }}
-    {{ mx.column_card('policy.html', t('portal.policy_title'), t('portal.policy_description'), t('portal.policy_kicker')) }}
-    {{ mx.column_card('memo.html', t('portal.research_title'), t('portal.research_description'), t('portal.research_kicker')) }}
-    {{ mx.column_card('evidence.html', t('portal.evidence_title'), t('portal.evidence_description'), t('portal.evidence_kicker')) }}
-  </div>
-</section>
 
 {# ---- 6. the system behind the view: preregistration, audit trail, eval, data sources ---- #}
 <details class="system reader-method"><summary>{{ t('home.system_title') }}</summary><section aria-labelledby="sys">

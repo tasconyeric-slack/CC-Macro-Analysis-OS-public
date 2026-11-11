@@ -822,3 +822,18 @@ research:
   weekly: 最新周报
   monthly: 最新月报
   chart_shortfall: 当前截止时点不足三条序列可绘图；仅展示下方真实可用观测。
+
+research_home:
+  kicker: 当前研究判断 · 冻结的既有观点
+  prior_status: 尚无新签署的分析师更新。最新事实解释仍为草稿。
+  read_weekly: 阅读周报草稿
+  all_research: 浏览研究
+  next: 下一步确认
+  next_body: 核心价格、订单与零售能否确认生产端涨价之外的需求？同时观察地产数量端的交叉信号。
+  changed: 重要证据变化 · 最近一周
+  facts: 自动刷新的事实 · 解释待分析师审阅
+  charts: 名义增长判断背后的问题
+  chart_note: 当前已采集的公开观测；各图分别标注观察期与来源。新增可用指最近七天。
+  prior_reasoning: 冻结观点的推理依据
+  chronology: 研究决策历史
+  no_signed: 尚无已签署的观点更新。可查阅冻结的既有判断和事实刷新历史；数据刷新不代表分析师批准。

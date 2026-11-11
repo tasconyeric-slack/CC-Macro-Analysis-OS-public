@@ -18,7 +18,7 @@ a11y:
   nav: Main navigation
 
 nav:
-  research: Research editions
+  research: Research
   news: News
   daily: Daily
   data: Data
@@ -829,3 +829,18 @@ research:
   weekly: Latest Weekly
   monthly: Latest Monthly
   chart_shortfall: Fewer than three chartable series are available at this cutoff; coverage is limited to the actual observations below.
+
+research_home:
+  kicker: Current research view · frozen prior
+  prior_status: No new signed analyst update is available. Current factual interpretation remains draft.
+  read_weekly: Read Weekly draft
+  all_research: Browse research
+  next: Next confirmation
+  next_body: Can core prices, orders and retail confirm demand beyond producer-price gains? Watch property volumes as a cross-check.
+  changed: Consequential evidence · latest week
+  facts: Automatically refreshed facts · interpretation pending analyst
+  charts: Questions behind the nominal-growth view
+  chart_note: Current captured public observations; each chart has its own reference period and source. New availability means the latest seven days.
+  prior_reasoning: Reasoning behind the frozen prior
+  chronology: Thesis decision history
+  no_signed: No signed thesis update yet. Inspect the frozen prior and factual refresh history; a refresh is not an analyst approval.

@@ -61,7 +61,7 @@ SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
 HYP_ORDER = ["H1", "H2", "H3", "H4", "H0"]
 PAGES = ["index", "news", "daily", "data", "policy", "memo", "research", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
-PRIMARY_PAGES = ["index", "news", "data", "memo"]
+PRIMARY_PAGES = ["index", "research", "data"]
 REF_LINES = {"%": 0.0}
 
 
@@ -553,6 +553,9 @@ def context(model: dict, v: View, stem: str, env_md: Environment) -> dict:
     if stem == "data":
         ctx["data_explorer"] = data_context(model, v)
     ctx["research_editions"] = [research_context(e, v) for e in model.get("research_editions", [])]
+    if stem == "index":
+        from research_overview import overview_context
+        ctx["research_overview"] = overview_context(model, v)
     ctx["memo"], ctx["memo_refs"] = memo_html(model, v, env_md) if stem == "memo" else (None, [])
     return ctx
 
@@ -607,8 +610,8 @@ def render_site(model: dict, out: Path) -> dict:
             ctx["meta"] = meta(v, stem)
             ctx["asset"] = "../static/"
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
-            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
-            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method"]]
+            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "research" and stem == "memo") or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["news", "daily", "policy", "evidence", "updates", "memo", "charts", "method"]]
             html = env.get_template('prices.html' if stem == 'data-prices' else ("data-category.html" if stem.startswith("data-") else page_file(stem))).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
             if stem == "news" and ctx["macro_news"]["enabled"]:
@@ -630,8 +633,8 @@ def render_site(model: dict, out: Path) -> dict:
                            "alternates": [(L.HREFLANG[l], page_url(l, stem)) for l in L.LOCALES]}
             ctx["asset"] = "../static/"
             ctx["lang_base"] = {l: f"../{l}/{stem}.html" for l in L.LOCALES}
-            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), False) for s in PRIMARY_PAGES]
-            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["research", "daily", "policy", "evidence", "updates", "method"]]
+            ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == "research") for s in PRIMARY_PAGES]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["news", "daily", "policy", "evidence", "updates", "memo", "method"]]
             (out / loc / page_file(stem)).write_text(env.get_template("research-edition.html").render(**ctx), encoding="utf-8")
         missing[loc] = sorted(set(v.missing))
     # the root selector and the legacy V1.0 flat URLs
