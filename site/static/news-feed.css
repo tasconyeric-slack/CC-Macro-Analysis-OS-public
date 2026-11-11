@@ -2,29 +2,41 @@
 
 /* section header shared by the home preview and the Daily page */
 .macro-news { margin: var(--mr-space-section) 0; }
-.news-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid var(--rule); padding-top: 24px; }
+.news-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
 .news-heading h2 { margin: 0; padding: 0; border: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -1.2px; }
 html[lang="zh-Hans"] .news-heading h2 { letter-spacing: 0; line-height: 1.35; }
 .news-heading p { color: var(--ink-3); font-size: 14px; margin: 6px 0 0; }
 
-/* a story: topic and metadata, headline, short excerpt, then sources and related series */
-.news-story { padding: var(--mr-space-xl) 0; border-bottom: 1px solid var(--rule); min-width: 0; }
+/* a story is an editorial card: topic chip and time, headline, short excerpt, then sources and
+   related series. Cards keep the ranked order left to right, top to bottom. */
+.news-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--mr-space-lg); margin-top: var(--mr-space-xl); }
+.news-story { display: flex; flex-direction: column; min-width: 0; padding: var(--mr-space-xl); border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
+/* the lead story spans the row; an odd last card does too, so no row is left half-empty */
+.news-list > .news-story:first-child, .news-list > .news-story:last-child:nth-child(even) { grid-column: 1 / -1; }
+.news-list > .news-story:first-child h3 { font-size: 22px; line-height: 1.4; }
 .news-story[hidden], .news-rows li[hidden] { display: none; }
-.news-story h3 { margin: 8px 0 6px; font-size: 19px; font-weight: 600; line-height: 1.45; text-wrap: pretty; }
+.news-story h3 { margin: var(--mr-space-md) 0 var(--mr-space-sm); font-size: 18px; font-weight: 600; line-height: 1.45; text-wrap: pretty; }
 .news-story h3 a { color: var(--ink); }
-.news-meta { display: flex; gap: 6px 12px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.news-meta { display: flex; gap: var(--mr-space-xs) var(--mr-space-md); flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .news-topic { font-weight: 700; color: var(--ink); }
+.news-story .news-topic, .edition-body .news-topic { padding: var(--mr-space-xxs) var(--mr-space-md); border-radius: var(--mr-radius-full); background: var(--mr-canvas); font-size: 12px; line-height: 1.4; }
+.edition-body .news-topic { background: var(--surface-2); }
 .news-count { color: inherit; }
-.news-badge { font-size: 11px; font-weight: 700; line-height: 1.4; padding: var(--mr-space-xxs) var(--mr-space-sm); border-radius: var(--mr-radius-full); background: var(--surface-2); border: 1px solid var(--surface-2); color: var(--ink-2); }
-.news-hot { background: var(--ink); border-color: var(--ink); color: var(--page); }
-.news-excerpt { max-width: 72ch; margin: 4px 0; font-size: 14px; line-height: 1.7; color: var(--ink-3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.news-links { display: flex; gap: var(--mr-space-xs) var(--mr-space-md); flex-wrap: wrap; align-items: center; margin-top: var(--mr-space-md); font-size: 12px; color: var(--ink-3); }
+.news-badge { font-size: 11px; font-weight: 700; line-height: 1.4; padding: var(--mr-space-xxs) var(--mr-space-sm); border-radius: var(--mr-radius-full); background: var(--mr-secondary-bg); color: var(--ink-2); }
+.news-hot { background: var(--ink); color: var(--page); }
+.news-excerpt { max-width: 72ch; margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.news-links { display: flex; gap: var(--mr-space-xs) var(--mr-space-md); flex-wrap: wrap; align-items: center; margin-top: auto; padding-top: var(--mr-space-lg); font-size: 12px; color: var(--ink-3); }
 .news-links a { color: var(--ink-2); }
 /* a related public series is a data link: shown as a quiet chip */
-.news-links a.news-data { padding: var(--mr-space-xxs) var(--mr-space-md); border-radius: var(--mr-radius-full); background: var(--surface-2); color: var(--ink); font-weight: 700; }
-.news-links a.news-data:hover { text-decoration: none; background: var(--mr-secondary-bg); }
+.news-links a.news-data { padding: var(--mr-space-xxs) var(--mr-space-md); border-radius: var(--mr-radius-full); background: var(--mr-canvas); color: var(--ink); font-weight: 700; }
+.news-links a.news-data:hover { text-decoration: none; }
+.news-links a.news-data:active { background: var(--mr-secondary-bg); }
 .news-story a, .news-rows a, .news-index a { text-decoration: none; }
 .news-story h3 a:hover, .news-rows a:hover, .news-index a:hover { text-decoration: underline; text-underline-offset: 3px; }
+/* the Daily page shows twelve stories across the full width */
+.page-daily .news-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.page-daily .news-list > .news-story:first-child, .page-daily .news-list > .news-story:last-child:nth-child(even) { grid-column: auto; }
+.page-daily .news-list > .news-story:first-child h3 { font-size: 18px; }
 
 /* News page */
 .news-page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin: 8px 0 0; }
@@ -33,7 +45,7 @@ html[lang="zh-Hans"] .news-heading h2 { letter-spacing: 0; line-height: 1.35; }
 .news-search { margin: 24px 0 0; }
 .news-search:has(#news-search[hidden]), .news-search:has(#news-search:empty) { display: none; }
 .news-columns { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; align-items: start; }
-.news-columns .macro-news { margin-top: 32px; }
+.news-columns .macro-news { margin-top: var(--mr-space-xxl); }
 .news-columns .macro-news > h2 { margin-top: 0; }
 /* sidebar: a soft card instead of heavy rules */
 .news-side { position: sticky; top: calc(var(--mr-nav-h) + var(--mr-space-xl)); margin-top: var(--mr-space-xxl); padding: var(--mr-space-sm) var(--mr-space-xl) var(--mr-space-lg); border-radius: var(--mr-radius-md); background: var(--surface-2); }
@@ -47,9 +59,9 @@ html[lang="zh-Hans"] .news-heading h2 { letter-spacing: 0; line-height: 1.35; }
 
 /* all updates: a dense dated list with a pill topic filter */
 .news-all { margin: var(--mr-space-section) 0; }
-.news-all-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--rule); padding-top: 24px; }
+.news-all-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.news-all-head .mr-chips { margin: 0; max-width: 100%; }
 .news-all-head h2 { margin: 0; padding: 0; border: 0; }
-.news-all-head select { appearance: none; -webkit-appearance: none; min-height: 36px; padding: 0 calc(var(--mr-space-xxl) + var(--mr-space-xxs)) 0 var(--mr-space-lg); border: 0; border-radius: var(--mr-radius-full); background: var(--surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' fill='none' stroke='%2362625b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center; color: var(--ink); font: 700 14px/1 var(--mr-font); cursor: pointer; }
 .news-rows { list-style: none; padding: 0; margin: 16px 0; }
 .news-rows li { display: grid; grid-template-columns: 92px 136px minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 1.6; align-items: baseline; }
 .news-rows a { color: var(--ink); }
@@ -76,9 +88,15 @@ html[lang="zh-Hans"] .news-heading h2 { letter-spacing: 0; line-height: 1.35; }
 
 .news-empty { color: var(--ink-3); }
 
+@media (max-width: 1100px) { .page-daily .news-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) {
   .news-columns { grid-template-columns: 1fr; gap: 0; }
   .news-side { position: static; }
+}
+@media (max-width: 640px) {
+  .news-list, .page-daily .news-list { grid-template-columns: minmax(0, 1fr); gap: var(--mr-space-md); }
+  .news-story { padding: var(--mr-space-lg); }
+  .news-list > .news-story:first-child h3 { font-size: 19px; }
 }
 @media (max-width: 540px) {
   .news-heading { display: block; }

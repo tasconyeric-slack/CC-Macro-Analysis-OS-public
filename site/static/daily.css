@@ -11,7 +11,7 @@
 
 /* headline indicators: the same cards as the home snapshot */
 .desk-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 0; }
-.desk-kpi { display: flex; flex-direction: column; min-width: 0; padding: var(--mr-space-xl); border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
+.desk-kpi { display: flex; flex-direction: column; min-width: 0; padding: var(--mr-space-xl); border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
 .desk-kpi .kpi-tile { border: 0; border-radius: 0; background: transparent; padding: 0; }
 .desk-kpi .label { font-size: 14px; font-weight: 700; color: var(--ink); }
 .desk-kpi .kpi-value { margin: var(--mr-space-md) 0 var(--mr-space-xxs); font-size: 40px; line-height: 1.1; }
@@ -29,14 +29,14 @@
 .desk-brief { padding: var(--mr-space-xxl); border-radius: var(--mr-radius-md); background: var(--surface-2); }
 .desk-brief p { margin: var(--mr-space-md) 0; max-width: 72ch; }
 .desk-brief > a { font-weight: 700; color: var(--ink); }
-.desk-judgment { padding: var(--mr-space-xl); border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--surface); }
+.desk-judgment { padding: var(--mr-space-xl); border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--mr-canvas); }
 .desk-judgment p { margin: 8px 0; }
 .desk-release { border-top: 1px solid var(--rule); padding: var(--mr-space-xl) 0; }
 .desk-release h3 { margin: 8px 0 16px; font-size: 20px; }
 .desk-release h3 a { color: var(--ink); }
 .desk-release-top { display: flex; gap: 12px; align-items: center; font-size: 12px; color: var(--ink-3); }
 .desk-release-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; margin-bottom: 16px; }
-.desk-release-values > div { min-width: 0; padding: 16px; border-radius: var(--mr-radius-md); background: var(--surface-2); }
+.desk-release-values > div { min-width: 0; padding: var(--mr-space-lg); border-radius: var(--mr-radius-md); background: var(--surface-2); }
 .desk-release-values span, .desk-release-values strong { display: block; }
 .desk-release-values span { font-size: 12px; color: var(--ink-3); }
 .desk-release-values strong { margin: 4px 0; font-size: 28px; font-weight: 700; letter-spacing: -0.8px; color: var(--ink); font-variant-numeric: tabular-nums; }

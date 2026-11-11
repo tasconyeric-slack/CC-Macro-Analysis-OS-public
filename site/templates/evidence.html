@@ -32,9 +32,9 @@
   </tbody>
 </table></div>
 <p class="small muted tally">{{ t('evidence.tally', sup=h.supports, cha=h.challenges, pen=h.pending) }}</p>
-<div class="grid2">
-  <div><h3>{{ t('evidence.for') }}</h3>{% for c in h.claims_for %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
-  <div><h3>{{ t('evidence.against') }}</h3>{% for c in h.claims_against %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
+<div class="grid2 evidence-panels">
+  <div class="panel"><h3>{{ t('evidence.for') }}</h3>{% for c in h.claims_for %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
+  <div class="panel"><h3>{{ t('evidence.against') }}</h3>{% for c in h.claims_against %}{{ mx.claim(c, anchor=(h.id == c.hypotheses[0])) }}{% else %}<p class="muted small">{{ t('evidence.none') }}</p>{% endfor %}</div>
 </div>
 {% endfor %}
 
