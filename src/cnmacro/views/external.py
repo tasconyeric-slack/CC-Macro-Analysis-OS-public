@@ -36,7 +36,9 @@ REQUIRED = ("view_id", "institution", "institution_type", "title", "published_at
             "source_url", "via", "hypothesis", "stance", "quote", "redistribution")
 
 
-def validate_external_view(rec: dict) -> list[str]:
+def validate_external_view(rec) -> list[str]:
+    if not isinstance(rec, dict):
+        return [f"record must be a JSON object, got {type(rec).__name__}"]
     where = rec.get("view_id", "<no view_id>")
     errs = [f"{where}: missing {k}" for k in REQUIRED if rec.get(k) in (None, "")]
     if errs:
@@ -61,7 +63,9 @@ def validate_external_view(rec: dict) -> list[str]:
     except (ValueError, TypeError):
         errs.append(f"{where}: published_at / retrieved_at must be ISO dates")
     fc = rec.get("forecast")
-    if fc is not None:
+    if fc is not None and not isinstance(fc, dict):
+        errs.append(f"{where}: forecast must be an object with metric_id, period, value, unit")
+    elif fc is not None:
         missing = [k for k in ("metric_id", "period", "value", "unit") if fc.get(k) in (None, "")]
         if missing:
             errs.append(f"{where}: forecast missing {', '.join(missing)} (only a stated number with period and unit)")

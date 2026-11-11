@@ -103,13 +103,18 @@ def build_comparison(case_dir: str | Path, *, to_refresh: str | None = None,
     case, _, _ = effective_case(case_dir)
     frozen_zh = _load_optional_yaml(case_dir / "frozen_zh.yaml")
     docs = signed_documents(case_dir)
-    signed = docs[-1]
     refreshes = refresh_records(case_dir)
     if to_refresh:
         refreshes_upto = [r for r in refreshes if r["_file"] <= to_refresh]
         if not refreshes_upto or refreshes_upto[-1]["_file"] != to_refresh:
             raise ValueError(f"no refresh record named {to_refresh}")
         refreshes = refreshes_upto
+        # the signed view in force at the cutoff, never a later update (or its later results)
+        cutoff = utc_naive(refreshes[-1]["as_of"])
+        docs = [d for d in docs if utc_naive(d["as_of"]) <= cutoff]
+        if not docs:
+            raise ValueError(f"{to_refresh} precedes the first signed view")
+    signed = docs[-1]
 
     then, then_src, then_as_of = _evidence_at_signing(signed, refreshes)
     after = [r for r in refreshes if utc_naive(r["as_of"]) > utc_naive(signed["as_of"])]

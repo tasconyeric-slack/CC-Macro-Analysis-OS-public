@@ -82,6 +82,11 @@ def test_a_later_update_without_results_is_compared_from_the_refresh_it_was_sign
     assert [d["file"] for d in c["signed_history"]][-1] == "2026-10-24-update.yaml"
     # no zh rendering for the new update: the English text is shown rather than nothing
     assert next(h for h in c["hypotheses"] if h["id"] == "H1")["signed_assessment"]["zh"] == "Price turn holds."
+    # an earlier cutoff uses the view in force then, never the later update or its results
+    early = build_comparison(case, to_refresh=recs[2].name)
+    assert early["signed_view"]["file"].endswith("-baseline.yaml")
+    assert early["evidence_now"]["source"] == recs[2].name
+    assert [d["file"] for d in early["signed_history"]][-1].endswith("-baseline.yaml")
 
 
 def view(i, **kw):
@@ -103,12 +108,16 @@ def test_external_views_fail_closed_and_respect_time_and_redistribution(tmp_path
     assert any("source_url" in e for e in validate_external_view(view(1, source_url="http://x")))
     assert any("full text" in e for e in validate_external_view(view(1, quote="x" * 500)))
     assert any("forecast" in e for e in validate_external_view(view(1, forecast={"metric_id": "cn_cpi_yoy", "value": 1})))
+    assert any("forecast" in e for e in validate_external_view(view(1, forecast=[])))
+    assert validate_external_view(None) and validate_external_view([])
     recs = [view(1), view(2, source_url=""), view(3, redistribution="private"),
-            view(4, published_at="2026-12-01", retrieved_at="2026-12-02T00:00:00Z"), view(1)]
+            view(4, published_at="2026-12-01", retrieved_at="2026-12-02T00:00:00Z"), view(1),
+            None, [], view(5, forecast=[])]
     write_views(tmp_path / "v", recs)
     views, errors = load_external_views(tmp_path / "v", "2026-11-09T00:00:00Z")
     assert [v["view_id"] for v in views] == ["v1"]                       # private and future-dated left out
     assert any("v2" in e for e in errors) and any("duplicate" in e for e in errors)
+    assert sum("JSON object" in e for e in errors) == 2 and any("v5" in e for e in errors)
     private, _ = load_external_views(tmp_path / "v", "2026-11-09T00:00:00Z", public=False)
     assert {v["view_id"] for v in private} == {"v1", "v3"}
     assert load_external_views(tmp_path / "missing") == ([], [])
