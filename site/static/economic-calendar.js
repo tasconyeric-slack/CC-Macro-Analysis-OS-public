@@ -2,7 +2,8 @@
    Events originate in the server-rendered official calendar; no synthetic dates. */
 (() => {
   const root = document.querySelector('[data-calendar-root]');
-  if (!root) return;
+  if (!root || root.dataset.calendarReady) return;
+  root.dataset.calendarReady = 'true';
   const list = root.querySelector('[data-calendar-source]');
   const grid = root.querySelector('[data-calendar-grid]');
   const agenda = root.querySelector('[data-calendar-agenda]');
@@ -19,31 +20,18 @@
   for (const event of events) {
     (months[event.date] ||= []).push(event);
   }
-  for (const day of Object.values(months)) day.sort((a, b) => a.time.localeCompare(b.time));
-  let selected = today;
+  // Timed releases first, in Beijing order; date-only publications close the day.
+  for (const day of Object.values(months)) day.sort((a, b) => (a.time || '99:99').localeCompare(b.time || '99:99'));
+  const upcoming = events.map(event => event.date).filter(date => date >= today).sort();
+  let selected = months[today] ? today : (upcoming.find(date => date.slice(0, 7) === today.slice(0, 7)) || today);
 
-  function compactName(full) {
-    if (language === 'en') {
-      return full.replace(/^(January|February|March|April|May|June|July|August|September|October|November|December)\s+20\d{2}\s+/i, '')
-        .replace(/\s*\(national economic performance release\)/gi, '').trim();
-    }
-    return full.replace(/20\d{2}年\d{1,2}月/g, '')
-      .replace(/（国民经济运行情况发布）/g, '')
-      .replace(/月度报告/g, '')
-      .replace(/居民消费价格指数/g, 'CPI')
-      .replace(/工业生产者价格指数/g, 'PPI')
-      .replace(/规模以上工业生产/g, '工业生产')
-      .replace(/房地产开发和销售情况/g, '房地产')
-      .replace(/工业经济效益/g, '工业利润')
-      .trim();
-  }
-
-  function cloneEvent(event) {
+  function cloneEvent(event, compact) {
     const item = event.node.cloneNode(true);
+    item.removeAttribute('id');
     const name = item.querySelector('.desk-calendar-name a');
-    if (name) {
+    if (name && compact && name.dataset.short) {
       name.title = name.textContent.trim();
-      name.textContent = compactName(name.textContent.trim());
+      name.textContent = name.dataset.short;
     }
     return item;
   }
@@ -63,7 +51,7 @@
       none.textContent = '—';
       agenda.append(none);
     } else {
-      daily.forEach(event => agenda.append(cloneEvent(event)));
+      daily.forEach(event => agenda.append(cloneEvent(event, false)));
     }
     root.querySelectorAll('[data-calendar-day]').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.calendarDay === selected));
@@ -104,7 +92,7 @@
       cell.append(btn);
       const content = document.createElement('div');
       content.className = 'desk-calendar-items';
-      (months[date] || []).forEach(event => content.append(cloneEvent(event)));
+      (months[date] || []).forEach(event => content.append(cloneEvent(event, true)));
       cell.append(content);
       const counter = document.createElement('span');
       counter.className = 'desk-calendar-count';

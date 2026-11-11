@@ -94,6 +94,21 @@
 
 .desk-calendar-origin { flex: none; font-size: 12px; color: var(--ink-3); }
 .desk-calendar-items .desk-calendar-origin { display: inline-block; margin-top: var(--mr-space-xs); }
+.desk-calendar-body { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.desk-calendar-date { margin-right: var(--mr-space-xs); }
+.desk-calendar-items .desk-calendar-date, .desk-calendar-agenda .desk-calendar-date { display: none; }
+.desk-calendar-src { color: var(--ink-3); font-size: 11px; }
+.desk-calendar-metrics a { display: inline-flex; align-items: baseline; gap: 3px; color: var(--ink); text-decoration: none; }
+.desk-calendar-metrics a:hover strong { text-decoration: underline; }
+.desk-calendar-metrics a > span, .desk-calendar-metrics em, .desk-calendar-prev { color: var(--ink-3); font-size: 11px; font-style: normal; white-space: nowrap; }
+.desk-calendar-metrics em { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.desk-calendar-items .desk-calendar-src, .desk-calendar-items .desk-calendar-prev, .desk-calendar-items .desk-calendar-metrics em small,
+.desk-calendar-items .desk-calendar-metrics a:nth-child(n+3) { display: none; }
+.desk-calendar-event[data-status="scheduled"] .desk-calendar-name a, .desk-calendar-event[data-status="today"] .desk-calendar-name a { color: var(--ink-2); }
+.desk-calendar-tba { margin-top: var(--mr-space-lg); }
+.desk-calendar-tba h3 { margin: 0 0 var(--mr-space-sm); font-size: 14px; }
+.desk-calendar-tba ul { display: flex; flex-wrap: wrap; gap: var(--mr-space-sm) var(--mr-space-lg); margin: 0; padding: 0; list-style: none; font-size: 13px; }
+.desk-calendar-tba li span { color: var(--ink-3); font-size: 12px; }
 .desk-calendar-count { display: none; }
 .desk-calendar-agenda { display: none; }
 .desk-calendar-source .desk-calendar-event { padding: var(--mr-space-lg) 0; border-bottom: 1px solid var(--rule); }

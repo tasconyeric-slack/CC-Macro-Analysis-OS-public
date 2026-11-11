@@ -21,16 +21,21 @@
   <div class="desk-calendar-agenda" data-calendar-agenda aria-live="polite"></div>
   <div class="desk-calendar-source" data-calendar-source>
     {% for item in desk.calendar %}
-    <article class="desk-calendar-event" data-calendar-event data-date="{{ item.release[:10] }}" data-time="{{ item.release[11:16] }}" data-status="{{ item.status }}">
-      <time datetime="{{ item.release }}">{{ item.release[11:16] }}</time>
-      <span class="desk-calendar-name"><a href="{{ '#' ~ item.related_id if item.related_id else item.url }}"{% if not item.related_id %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></span>
-      {% if item.related_id %}{% for release in desk.releases if release.item_id == item.related_id %}
-      <span class="desk-calendar-metrics">{% for value in release['values'][:2] %}<strong title="{{ value.name }}">{{ '%.1f'|format(value.value) }}<small>{{ value.unit_label }}</small></strong>{% endfor %}</span>
-      {% endfor %}{% endif %}
-      {% if item.related_id %}<a class="desk-calendar-origin" href="{{ item.url }}" target="_blank" rel="noopener" aria-label="{{ t('desk.official_calendar') }}" title="{{ t('desk.official_calendar') }}">↗</a>{% endif %}
+    <article class="desk-calendar-event" id="{{ item.anchor }}" data-calendar-event data-date="{{ item.date }}" data-time="{{ item.time }}" data-status="{{ item.status }}" data-source="{{ item.source|lower }}">
+      <time datetime="{{ item.release }}"><span class="desk-calendar-date">{{ item.date[5:] }}</span>{{ item.time }}</time>
+      <div class="desk-calendar-body">
+        <span class="desk-calendar-name"><a href="{{ '#' ~ item.related_id if item.related_id else item.url }}" data-short="{{ item.short }}"{% if not item.related_id %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></span>
+        <span class="desk-calendar-src">{{ item.publisher_name }}{% if item.members %} · {{ item.members|join(' · ') }}{% endif %}</span>
+        {% if item['values'] %}<span class="desk-calendar-metrics">{% for val in item['values'] %}<a href="data-{{ val.category }}.html#metric-{{ val.metric_id }}" title="{{ val.full_name }} · {{ val.period|period }}"><span>{{ val.name }}</span><strong>{{ '%.1f'|format(val.value) }}<small>{{ val.unit_label }}</small></strong>{% if val.previous is not none %}<em>{{ '%+.1f'|format(val.delta) }}<small>{{ val.delta_unit }}</small></em><small class="desk-calendar-prev">{{ '前值' if loc == 'zh' else 'prev.' }} {{ '%.1f'|format(val.previous) }}</small>{% endif %}</a>{% endfor %}</span>{% endif %}
+      </div>
+      <a class="desk-calendar-origin" href="{{ item.url }}" target="_blank" rel="noopener" aria-label="{{ t('desk.official_calendar') }}" title="{{ t('desk.official_calendar') }}">↗</a>
     </article>
     {% endfor %}
   </div>
+  {% if desk.calendar_tba %}<div class="desk-calendar-tba">
+    <h3>{{ '时间待公布' if loc == 'zh' else 'Date not yet announced' }}</h3>
+    <ul>{% for item in desk.calendar_tba %}<li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.label }}</a> <span>{{ item.publisher_name }}</span></li>{% endfor %}</ul>
+  </div>{% endif %}
 </section>
 
 {% include "news-feed.html" %}
@@ -42,5 +47,5 @@
 {% for release in desk.releases[:18] %}<article class="desk-release" id="{{ release.item_id }}"><div class="desk-release-top"><span>{{ release.period|period }}</span>{% if release.is_revision %}<span class="tag">{{ t('desk.revision') }}</span>{% endif %}</div><h3>{{ release.title }}</h3><div class="desk-release-values">{% for val in release['values'] %}<div><span>{{ val.name }}</span><strong>{{ '%.1f'|format(val.value) }}<small>{{ val.unit_label }}</small></strong><a href="data-{{ metrics[val.metric_id].category }}.html#metric-{{ val.metric_id }}">{{ t('desk.chart_detail') }}</a></div>{% endfor %}</div>
 {{ mx.source_line(release.publisher_name, release.period|period, release.published_at, release.retrieved_at, release.canonical_url) }}{% if release.flip_labels %}<p class="small muted">{{ t('desk.flips') }} {% for flip in release.flip_labels %}<a href="evidence.html#{{ flip.hypothesis }}">{{ flip.description }}</a> {% endfor %}</p>{% endif %}<a class="small" href="evidence.html">{{ t('desk.open_evidence') }}</a></article>{% endfor %}</section>
 </div><aside class="desk-sidebar"><section><h2>{{ t('desk.watch_next') }}</h2>{% for item in desk.upcoming[:3] %}<div class="desk-next"><span class="desk-state state-{{ item.status }}">{{ t('desk.state.' ~ item.status) }}</span><h3>{{ item.label }}</h3><p>{{ item.release|when }}</p><a href="{{ item.url }}" rel="noopener">{{ t('desk.official_calendar') }}</a></div>{% endfor %}</section><section><h2>{{ t('desk.research_path') }}</h2><div class="desk-research-links"><a href="memo.html">{{ t('nav.memo') }}</a><a href="evidence.html">{{ t('nav.evidence') }}</a><a href="updates.html">{{ t('nav.updates') }}</a></div></section></aside></div>
-{% block scripts %}<script src="{{ asset }}economic-calendar.js" defer></script>{% endblock %}
 {% endblock %}
+{% block scripts %}<script src="{{ asset }}economic-calendar.js" defer></script>{% endblock %}
