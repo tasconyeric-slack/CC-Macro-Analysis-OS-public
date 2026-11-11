@@ -6,7 +6,7 @@
 <div class="timeline" style="margin-top:28px">
 {% for it in audit_items %}{% set d = it.doc %}
   {% if it.kind == "baseline" %}
-  <div class="tl-item base" id="baseline">
+  <div class="tl-item base" id="baseline" data-origin-sha="{{ d._commit.short }}">
     <div class="eyebrow"><span class="tag">{{ t('kind.baseline') }}</span> {{ t('updates.preregistered') }}</div>
     <strong>{{ t('updates.as_of_when', when=d.as_of|when) }}</strong>
     {% if d.committed_before %}<div class="small muted">{{ t('updates.committed_before', release=d.committed_release, when=d.committed_before.at|when) }}</div>{% endif %}
@@ -14,7 +14,7 @@
     <p class="small">{{ d.rationale_l }}</p>
   </div>
   {% elif it.kind == "amendment" %}
-  <div class="tl-item amend" id="{{ d.id }}">
+  <div class="tl-item amend" id="{{ d.id }}" data-origin-sha="{{ d._commit.short }}">
     <div class="eyebrow"><span class="tag">{{ t('kind.amendment') }}</span> {{ d.id }} · {{ t('home.before_any_release') }}</div>
     <strong>{{ d.title_l }}</strong>
     <p class="small">{{ t('updates.why')|labelb }}{{ d.reason_l }}</p>
