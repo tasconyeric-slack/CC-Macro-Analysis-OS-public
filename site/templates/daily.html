@@ -5,6 +5,31 @@
 <header class="desk-heading"><div><span>{{ t('desk.kicker') }}</span><h1>{{ t('portal.daily_title') }}</h1><p>{{ t('desk.lede') }}</p></div><div class="desk-clock">{{ t('desk.beijing') }}<strong>{{ desk.built_at|when }}</strong><small>{{ t('desk.last_refresh') }} {{ desk.last_refresh|when }}</small></div></header>
 <div class="desk-kpis">{% for k in desk.kpis if k.metric_id in ['cn_rgdp_yoy','cn_cpi_yoy','cn_ppi_yoy','cn_pmi_mfg'] %}<div class="desk-kpi">{{ mx.kpi_tile(k.name, ('%.1f'|format(k.value)) if k.value is not none else '—', k.unit_label if k.value is not none else '', k.period|period if k.period else '', k.publisher_name, k.release_date, t('desk.delta', value=('%+.1f'|format(k.delta)) ~ ' ' ~ k.delta_unit) if k.delta is not none else '') }}
 {% if k.value is not none %}<a class="desk-data-link" href="data-{{ metrics[k.metric_id].category if k.metric_id in metrics else 'prices' }}.html#metric-{{ k.metric_id if k.metric_id in metrics else 'deflator' }}">{{ t('desk.chart_detail') }}</a>{% if not k.release_date %}<div class="small muted">{{ t('desk.publication_unknown') }}</div>{% endif %}{% else %}<p class="small muted">{{ t('desk.awaiting_official') }}</p>{% endif %}</div>{% endfor %}</div>
+
+<section id="calendar" class="desk-calendar" data-calendar-root data-locale="{{ loc }}" data-today="{{ desk.built_at[:10] }}" aria-labelledby="calendar-title">
+  <div class="desk-calendar-head">
+    <h2 id="calendar-title">{{ t('portal.calendar_title') }}</h2>
+    <div class="desk-calendar-toolbar">
+      <span class="desk-calendar-tz">{{ t('desk.beijing') }}</span>
+      <button type="button" class="mr-btn mr-btn--tertiary" data-calendar-prev aria-label="{{ '上个月' if loc == 'zh' else 'Previous month' }}">‹</button>
+      <input type="month" data-calendar-month aria-label="{{ '选择月份' if loc == 'zh' else 'Choose month' }}" value="{{ desk.built_at[:7] }}">
+      <button type="button" class="mr-btn mr-btn--tertiary" data-calendar-next aria-label="{{ '下个月' if loc == 'zh' else 'Next month' }}">›</button>
+    </div>
+  </div>
+  <div class="desk-calendar-weekdays" aria-hidden="true">{% for wd in (['一','二','三','四','五','六','日'] if loc == 'zh' else ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']) %}<span>{{ wd }}</span>{% endfor %}</div>
+  <div class="desk-calendar-grid" data-calendar-grid aria-label="{{ t('portal.calendar_title') }}"></div>
+  <div class="desk-calendar-agenda" data-calendar-agenda aria-live="polite"></div>
+  <div class="desk-calendar-source" data-calendar-source>
+    {% for item in desk.calendar %}
+    <article class="desk-calendar-event" data-calendar-event data-date="{{ item.release[:10] }}" data-time="{{ item.release[11:16] }}" data-status="{{ item.status }}">
+      <time datetime="{{ item.release }}">{{ item.release[11:16] }}</time>
+      <span class="desk-calendar-name"><a href="{{ '#' ~ item.related_id if item.related_id else item.url }}"{% if not item.related_id %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></span>
+      {% if item.related_id %}<a class="desk-calendar-origin" href="{{ item.url }}" target="_blank" rel="noopener" aria-label="{{ t('desk.official_calendar') }}" title="{{ t('desk.official_calendar') }}">↗</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
 {% include "news-feed.html" %}
 <div class="desk-layout"><div>
 <section class="desk-brief" aria-labelledby="brief"><div class="desk-section-title"><h2 id="brief">{{ t('desk.brief_title') }}</h2>{{ mx.tier_badge('FACT') }}</div><p class="small muted">{{ t('desk.brief_note') }}</p>{% for sentence in desk.brief %}<p>{{ sentence }}</p>{% endfor %}<a href="evidence.html">{{ t('desk.open_evidence') }}</a></section>
@@ -14,5 +39,5 @@
 {% for release in desk.releases[:18] %}<article class="desk-release" id="{{ release.item_id }}"><div class="desk-release-top">{{ mx.tier_badge('FACT') }} <span>{{ release.period|period }}</span>{% if release.is_revision %}<span class="tag">{{ t('desk.revision') }}</span>{% endif %}</div><h3>{{ release.title }}</h3><div class="desk-release-values">{% for val in release['values'] %}<div><span>{{ val.name }}</span><strong>{{ '%.1f'|format(val.value) }}<small>{{ val.unit_label }}</small></strong><a href="data-{{ metrics[val.metric_id].category }}.html#metric-{{ val.metric_id }}">{{ t('desk.chart_detail') }}</a></div>{% endfor %}</div>
 {{ mx.source_line(release.publisher_name, release.period|period, release.published_at, release.retrieved_at, release.canonical_url) }}<p class="small muted">{{ t('desk.release_time')|colon }}{{ release.published_at|when if release.published_at else t('desk.publication_unknown') }}{% if release.test_flips %} · {{ t('desk.flips') }} {% for flip in release.flip_labels %}<a href="evidence.html#{{ flip.hypothesis }}">{{ flip.description }}</a> {% endfor %}{% else %} · {{ t('desk.no_flips') }}{% endif %}</p><a class="small" href="evidence.html">{{ t('desk.open_evidence') }}</a></article>{% endfor %}</section>
 </div><aside class="desk-sidebar"><section><h2>{{ t('desk.watch_next') }}</h2>{% for item in desk.upcoming[:3] %}<div class="desk-next"><span class="desk-state state-{{ item.status }}">{{ t('desk.state.' ~ item.status) }}</span><h3>{{ item.label }}</h3><p>{{ item.release|when }}</p><a href="{{ item.url }}" rel="noopener">{{ t('desk.official_calendar') }}</a></div>{% endfor %}</section>{% if desk.source_status %}<section><h2>{{ t('desk.source_status') }}</h2>{% for source in desk.source_status %}<p class="small"><strong>{{ source.source }}</strong> {{ t('desk.source_ok' if source.ok else 'desk.source_failed') }}</p>{% if not source.ok %}<p class="small muted">{{ source.error }}</p>{% endif %}{% endfor %}</section>{% endif %}<section><h2>{{ t('desk.research_path') }}</h2><p>{{ t('desk.research_note') }}</p><div class="desk-research-links"><a href="memo.html">{{ t('nav.memo') }}</a><a href="evidence.html">{{ t('nav.evidence') }}</a><a href="updates.html">{{ t('nav.updates') }}</a></div></section></aside></div>
-<section id="calendar" class="desk-calendar" aria-labelledby="calendar-title"><h2 id="calendar-title">{{ t('portal.calendar_title') }}</h2><p>{{ t('desk.calendar_note') }}</p><div class="desk-calendar-table">{% for item in desk.calendar %}<article><span class="desk-state state-{{ item.status }}">{{ t('desk.state.' ~ item.status) }}</span><div><h3>{{ item.label }}</h3><span>{{ item.period|period }} · {{ item.release|when }}</span></div><div>{% if item.related_id %}<a href="#{{ item.related_id }}">{{ t('desk.view_release') }}</a><br>{% endif %}<a href="{{ item.url }}" rel="noopener">{{ t('desk.official_calendar') }}</a></div></article>{% endfor %}</div></section>
+{% block scripts %}<script src="{{ asset }}economic-calendar.js" defer></script>{% endblock %}
 {% endblock %}
