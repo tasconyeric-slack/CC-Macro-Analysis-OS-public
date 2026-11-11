@@ -536,6 +536,8 @@ def main(argv=None) -> int:
     events_cli.register(sub)
     from . import policy_cli
     policy_cli.register(sub)
+    from . import research_inputs
+    research_inputs.register(sub)
     a = p.parse_args(argv)
     return a.f(a)
 
