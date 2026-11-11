@@ -127,6 +127,136 @@
    "created_at": "2026-11-11T03:00:45+00:00",
    "why_zh": "10月CPI同比涨0.7%、PPI涨5.7%，物价温和为货币政策适度宽松提供空间，是判断政策基调的关键依据。",
    "why_en": "With CPI up 0.7% and PPI up 5.7% year on year in October, moderate prices leave room for a moderately loose monetary stance, a key policy signal."
+  },
+  "news_25863f243216518ddbb1|b62d85361b9d2a86|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_25863f243216518ddbb1",
+   "content_hash": "b62d85361b9d2a86",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "why_zh": "西安高新区前三季度外贸进出口总值6540.56亿元、同比增长161.1%，分别占陕西省和西安市的81.98%和85.56%，是观察地方外贸动能的重要样本。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_4c6e6e53c9c74db6af82|c620bdff7e202812|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_4c6e6e53c9c74db6af82",
+   "content_hash": "c620bdff7e202812",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "Ministry of Finance to issue US dollar sovereign bonds in Hong Kong",
+   "why_zh": "财政部在香港发行美元主权债券，为观察中国主权债务境外发行节奏提供信息。",
+   "why_en": "The Ministry of Finance's plan to issue US dollar sovereign bonds in Hong Kong offers a view of China's offshore sovereign debt issuance."
+  },
+  "news_6d7406f3f6fd65773e07|a3822435b604ccd6|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6d7406f3f6fd65773e07",
+   "content_hash": "a3822435b604ccd6",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "Shenzhen's import and export value grew 8.5% a year on average over past 30 years",
+   "why_zh": "深圳对APEC其他经济体进出口从1996年的2675亿元增至去年的3.13万亿元，年均增长8.5%，体现外贸规模长期扩张。",
+   "why_en": "Shenzhen's trade with other APEC economies rose from 267.5 billion yuan in 1996 to 3.13 trillion yuan last year, an average annual gain of 8.5%, showing long-term trade expansion."
+  },
+  "news_b1fa8ea672993b38077f|aef1697cd970cfff|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_b1fa8ea672993b38077f",
+   "content_hash": "aef1697cd970cfff",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "Ministry of Finance plans to issue 2026 book-entry discount government bonds (74th tranche) with 60 billion yuan tender face value",
+   "why_zh": "财政部拟发行182天期贴现国债、招标面值总额600亿元，是观察短期国债发行与财政融资安排的直接信息。",
+   "why_en": "The Ministry of Finance plans a 182-day discount bond with 60 billion yuan tender face value, direct information on short-term government bond issuance and fiscal financing."
+  },
+  "news_d5af6df3a12e72448149|16a2dcd9e7c01c65|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d5af6df3a12e72448149",
+   "content_hash": "16a2dcd9e7c01c65",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "PBOC: support more eligible overseas entities in issuing panda bonds",
+   "why_zh": "央行在2026年第三季度货币政策执行报告中提出支持更多符合条件的境外主体发行熊猫债券，事关债市对外开放。",
+   "why_en": "The central bank's third-quarter 2026 monetary policy report says it will support more eligible overseas entities in issuing panda bonds, a signal on bond-market opening."
+  },
+  "news_f1abc8fef4c0fd29bfec|71459ee630f4f508|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f1abc8fef4c0fd29bfec",
+   "content_hash": "71459ee630f4f508",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "why_zh": "央行副行长出席国际清算银行行长例会，是观察中国央行与国际金融监管界沟通的窗口。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_77211cac3fb2be426a92|6d01b079579f891e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_77211cac3fb2be426a92",
+   "content_hash": "6d01b079579f891e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "Treasury slump may extend; rate-hike bets could push 10-year yield above 5%",
+   "why_zh": "美债收益率走势与美联储加息预期，会通过汇率和跨境资金影响中国金融条件。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_3a87961890ef3cce3c8d|87fb6d153a10252e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_3a87961890ef3cce3c8d",
+   "content_hash": "87fb6d153a10252e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "CSRC: effectively safeguard investors' lawful rights, maintain sound market ecosystem",
+   "why_zh": "证监会就特别代表人诉讼表态，涉及投资者保护与证券监管执法，关系A股市场生态。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_e530449c448500cc6795|939d3d1a1b8dd8ee|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e530449c448500cc6795",
+   "content_hash": "939d3d1a1b8dd8ee",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "PBOC: supports eligible tech firms in issuing sci-tech innovation bonds, broadening direct financing channels",
+   "why_zh": "央行在2026年第三季度货币政策执行报告中提出用好债券风险分担工具，支持科技企业拓宽直接融资。",
+   "why_en": "The central bank's Q3 2026 monetary policy report calls for using bond risk-sharing tools to help tech firms broaden direct financing."
+  },
+  "news_f892dcebe208bd08485e|68d9fbd76910afec|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f892dcebe208bd08485e",
+   "content_hash": "68d9fbd76910afec",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "Morning news roundup",
+   "why_zh": "汇总显示按美元计中国10月出口同比增长35.2%、进口同比增长41.6%，为观察外贸走势提供最新数据。",
+   "why_en": "The roundup reports China's October exports up 35.2% and imports up 41.6% in dollar terms, offering the latest read on trade."
+  },
+  "news_b09c17f9f83439f7f2c9|e9005d30423c1d74|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_b09c17f9f83439f7f2c9",
+   "content_hash": "e9005d30423c1d74",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "why_zh": "美联储理事鲍曼指出AI回报不及预期可能引发估值回调，并担忧AI相关债务快速上升的风险。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_1d9475a2e1ee4cfa3821|b3c85b67e9767406|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1d9475a2e1ee4cfa3821",
+   "content_hash": "b3c85b67e9767406",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T10:48:44+00:00",
+   "title_en": "China's October soybean imports 7.345 million tonnes, down 22.5% year on year",
+   "why_zh": "大豆进口是观察中国农产品需求与进口走势的重要数据，10月同比下降22.5%。",
+   "why_en": "Soybean imports are a key gauge of China's agricultural demand and trade flows; October imports fell 22.5% year on year."
   }
  }
 }

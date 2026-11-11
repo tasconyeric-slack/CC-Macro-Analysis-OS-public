@@ -60,15 +60,60 @@
 .desk-sidebar .state-released { background: var(--mr-success-pale); }
 .desk-research-links { display: grid; gap: 12px; }
 
-/* release calendar */
-.desk-calendar { margin-top: var(--mr-space-section); }
-.desk-calendar > p { font-size: 14px; color: var(--ink-3); }
-.desk-calendar-table article { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: var(--mr-space-lg); align-items: center; padding: var(--mr-space-lg) 0; border-top: 1px solid var(--rule); }
-.desk-calendar-table h3 { margin: 0 0 4px; font-size: 16px; }
-.desk-calendar-table span, .desk-calendar-table a { font-size: 13px; }
-.desk-calendar-table a { font-weight: 700; color: var(--ink); }
-.desk-calendar-table .desk-state { justify-self: start; }
-.desk-calendar-table div span { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+/* Official release calendar: month grid, progressively enhanced from the source list. */
+.desk-calendar { margin: var(--mr-space-section) 0; }
+.desk-calendar-head { display: flex; align-items: center; justify-content: space-between; gap: var(--mr-space-lg); margin-bottom: var(--mr-space-lg); }
+.desk-calendar-head h2 { margin: 0; }
+.desk-calendar-toolbar { display: flex; align-items: center; gap: var(--mr-space-sm); }
+.desk-calendar-toolbar button { min-width: 40px; padding: var(--mr-space-sm); font-size: 22px; line-height: 1; }
+.desk-calendar-tz { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.desk-calendar-toolbar input { width: 148px; border: 1px solid var(--rule); border-radius: var(--mr-radius-md); background: var(--mr-canvas); color: var(--ink); font: inherit; font-size: 14px; padding: var(--mr-space-sm) var(--mr-space-md); }
+.desk-calendar-toolbar input:focus-visible, .desk-calendar-day:focus-visible { outline: 2px solid var(--mr-focus-outer); outline-offset: 2px; }
+.desk-calendar-weekdays { display: none; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; border: 1px solid var(--rule); border-bottom: 0; border-radius: var(--mr-radius-md) var(--mr-radius-md) 0 0; background: var(--mr-surface-card); }
+.desk-calendar-weekdays span { padding: var(--mr-space-md) var(--mr-space-sm); color: var(--ink-3); font-size: 12px; font-weight: 700; }
+.desk-calendar-grid { display: none; grid-template-columns: repeat(7, minmax(0, 1fr)); border: 1px solid var(--rule); border-radius: 0 0 var(--mr-radius-md) var(--mr-radius-md); overflow: hidden; }
+.calendar-enhanced .desk-calendar-weekdays, .calendar-enhanced .desk-calendar-grid { display: grid; }
+.calendar-enhanced .desk-calendar-source { display: none; }
+.desk-calendar-cell { min-width: 0; min-height: 136px; padding: var(--mr-space-sm); border-top: 1px solid var(--rule); border-right: 1px solid var(--rule); background: var(--mr-canvas); }
+.desk-calendar-cell:nth-child(7n) { border-right: 0; }
+.desk-calendar-cell.is-today { background: var(--mr-surface-card); }
+.desk-calendar-blank { background: var(--mr-surface-card); }
+.desk-calendar-day { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: var(--mr-radius-full); background: transparent; color: var(--ink-2); font: inherit; font-size: 13px; font-weight: 700; width: 28px; height: 28px; cursor: pointer; }
+.desk-calendar-cell.is-today .desk-calendar-day { background: var(--mr-secondary-bg); color: var(--ink); }
+.desk-calendar-items { display: grid; align-content: start; gap: var(--mr-space-xs); margin-top: var(--mr-space-xs); }
+.desk-calendar-event { display: flex; gap: var(--mr-space-xs); align-items: baseline; min-width: 0; font-size: 12px; line-height: 1.4; }
+.desk-calendar-items .desk-calendar-event { display: block; padding: var(--mr-space-sm); border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
+.desk-calendar-event time { flex: none; color: var(--ink-3); font-size: 11px; font-variant-numeric: tabular-nums; }
+.desk-calendar-items .desk-calendar-event time { display: block; margin-bottom: 2px; }
+.desk-calendar-name { min-width: 0; overflow-wrap: anywhere; }
+.desk-calendar-name a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.desk-calendar-name a:hover { text-decoration: underline; }
+.desk-calendar-metrics { display: flex; flex-wrap: wrap; gap: var(--mr-space-sm); margin-top: var(--mr-space-xs); }
+.desk-calendar-metrics strong { color: var(--ink); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.desk-calendar-metrics small { color: var(--ink-3); font-size: 10px; font-weight: 400; margin-left: 2px; }
+
+.desk-calendar-origin { flex: none; font-size: 12px; color: var(--ink-3); }
+.desk-calendar-items .desk-calendar-origin { display: inline-block; margin-top: var(--mr-space-xs); }
+.desk-calendar-count { display: none; }
+.desk-calendar-agenda { display: none; }
+.desk-calendar-source .desk-calendar-event { padding: var(--mr-space-lg) 0; border-bottom: 1px solid var(--rule); }
+.desk-calendar-source .desk-calendar-event time { font-size: 13px; }
+@media (max-width: 700px) {
+  .desk-calendar-head { align-items: flex-start; flex-direction: column; }
+  .desk-calendar-toolbar { width: 100%; justify-content: space-between; }
+  .desk-calendar-tz { margin-right: auto; }
+  .desk-calendar-toolbar input { width: 138px; }
+  .desk-calendar-weekdays span { padding: var(--mr-space-sm) 0; }
+  .desk-calendar-cell { min-height: 60px; padding: var(--mr-space-xs); text-align: center; }
+  .desk-calendar-day { width: 100%; height: 28px; }
+  .desk-calendar-day[aria-pressed="true"] { background: var(--mr-secondary-bg); }
+  .desk-calendar-items { display: none; }
+  .desk-calendar-count { display: block; margin: 0 auto; font-size: 11px; color: var(--ink-3); }
+  .desk-calendar-cell.has-events .desk-calendar-count { font-weight: 700; color: var(--ink); }
+  .calendar-enhanced .desk-calendar-agenda { display: grid; gap: var(--mr-space-sm); padding: var(--mr-space-lg) 0; }
+  .desk-calendar-agenda h3 { margin: 0 0 var(--mr-space-xs); font-size: 16px; }
+  .desk-calendar-agenda .desk-calendar-event { align-items: center; padding: var(--mr-space-md); border-radius: var(--mr-radius-md); background: var(--mr-surface-card); }
+}
 
 @media (max-width: 900px) {
   .desk-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
