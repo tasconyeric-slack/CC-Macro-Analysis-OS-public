@@ -1,6 +1,9 @@
 (function(){
-  var sel=document.querySelector('select[data-news-topic]');
-  if(sel){sel.addEventListener('change',function(){var v=sel.value;document.querySelectorAll('.news-rows li[data-news-topic]').forEach(function(li){li.hidden=v!=='all'&&li.getAttribute('data-news-topic')!==v;});});}
+  // topic filter chips on the News page: one pressed chip at a time
+  var group=document.querySelector('[data-news-topics]');
+  if(group){group.addEventListener('click',function(ev){var b=ev.target.closest('button[data-topic]');if(!b)return;var v=b.getAttribute('data-topic');
+    group.querySelectorAll('button[data-topic]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    document.querySelectorAll('.news-rows li[data-news-topic]').forEach(function(li){li.hidden=v!=='all'&&li.getAttribute('data-news-topic')!==v;});});}
   var box=document.getElementById('news-search');
   if(!box)return;
   // Pagefind's files are written by the indexing step after the site build; load them only when present.

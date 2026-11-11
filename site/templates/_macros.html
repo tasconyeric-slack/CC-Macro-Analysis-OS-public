@@ -10,7 +10,8 @@
 {%- endmacro %}
 
 {% macro column_card(url, title, description, kicker='', number='', frequency='', chips=[], meta='') -%}
-<a class="column-card" href="{{ url }}"><div class="column-card-top"><span>{{ t('portal.column') }} {{ number }}</span>{% if frequency %}<span class="frequency-tag">{{ frequency }}</span>{% endif %}</div>{% if kicker and kicker|lower != title|lower %}<div class="column-kicker">{{ kicker }}</div>{% endif %}<h3>{{ title }}</h3><p>{{ description }}</p>{% if chips %}<div class="column-chips">{% for chip in chips %}<span>{{ chip }}</span>{% endfor %}</div>{% endif %}{% if meta %}<div class="column-meta">{{ meta }}</div>{% endif %}<span class="column-link">{{ t('portal.open_column') }} <span aria-hidden="true">↗</span></span></a>
+{#- number is accepted for older callers but no longer shown: the cards are entry points, not a numbered index -#}
+<a class="column-card" href="{{ url }}">{% if (kicker and kicker|lower != title|lower) or frequency %}<div class="column-card-top">{% if kicker and kicker|lower != title|lower %}<span class="column-kicker">{{ kicker }}</span>{% endif %}{% if frequency %}<span class="frequency-tag">{{ frequency }}</span>{% endif %}</div>{% endif %}<h3>{{ title }}</h3><p>{{ description }}</p>{% if chips %}<div class="column-chips">{% for chip in chips %}<span>{{ chip }}</span>{% endfor %}</div>{% endif %}{% if meta %}<div class="column-meta">{{ meta }}</div>{% endif %}<span class="column-link">{{ t('portal.open_column') }} <span aria-hidden="true">›</span></span></a>
 {%- endmacro %}
 
 {% macro kpi_tile(name, value, unit='', period='', publisher='', released='', delta='') -%}
