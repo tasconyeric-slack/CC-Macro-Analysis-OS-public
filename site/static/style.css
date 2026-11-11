@@ -1,6 +1,6 @@
 /* ===================== Masonry Red foundation =====================
    Design guide: docs/design/README.md. Values come only from docs/design/masonry-red/tokens.json
-   plus the guide's ccmacro adaptations (primary-pressed #561726, site dark mode, CJK font stack).
+   plus the guide's ccmacro adaptations (primary-pressed #561726, light-first with opt-in dark theme, CJK font stack).
    --mr-* are the design-system tokens. The older names below (--surface, --ink, --rule, --accent …)
    are kept as aliases so every page and stylesheet reads the same palette. */
 :root {
@@ -50,19 +50,10 @@
   --cc-radius: var(--mr-radius-md);
   --cc-shadow: none;
 }
-/* Dark mode is a ccmacro adaptation (the design system is light-only): the site's warm dark
-   surfaces, with ink replacing burgundy where burgundy on near-black would be too faint. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --mr-ink: #f4f3ef; --mr-ink-soft: #f4f3ef; --mr-body: #c3c2b7; --mr-charcoal: #e5e5e0; --mr-mute: #8f8e86;
-    --mr-canvas: #161615; --mr-surface-card: #262622; --mr-secondary-bg: #33332f; --mr-secondary-pressed: #1f1f1d; --mr-on-secondary: #f4f3ef;
-    --mr-hairline: #33332f; --mr-hairline-soft: #2b2b28; --mr-focus-inner: #161615;
-    --mr-brand: var(--mr-ink); --mr-cta: #f4f3ef; --mr-cta-pressed: #c8c8c1; --mr-on-cta: #161615;
-    --mr-success-deep: #4cb36b; --mr-error-deep: #e66767; --mr-accent-purple: var(--mr-ink); --mr-accent-purple-deep: var(--mr-body);
-    --surface: #1f1f1d; --ref: #77756d; --warn: #d39a2c;
-  }
-}
+/* Light-first: the site always renders the light Masonry Red theme, whatever the operating
+   system's appearance setting. The warm dark theme below is kept for an explicit opt-in only
+   (data-theme="dark" on <html>); nothing turns it on automatically. Ink replaces burgundy there,
+   where burgundy on near-black would be too faint. */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --mr-ink: #f4f3ef; --mr-ink-soft: #f4f3ef; --mr-body: #c3c2b7; --mr-charcoal: #e5e5e0; --mr-mute: #8f8e86;
@@ -92,7 +83,6 @@ nav a:hover { text-decoration: none; color: var(--ink); }
 
 .banner { background: #fff4d6; color: #5c4400; border-bottom: 1px solid #ecd9a0; font-size: 13px; padding: 8px 0; }
 :root[data-theme="dark"] .banner { background: #3a3014; color: #f1dc9a; border-color: #5a4a1c; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .banner { background: #3a3014; color: #f1dc9a; border-color: #5a4a1c; } }
 
 main { padding: 40px 0 var(--mr-space-section); }
 /* hierarchy by weight and size; headings in ink, prose in body */
