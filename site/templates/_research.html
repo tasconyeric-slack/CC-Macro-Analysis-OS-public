@@ -1,0 +1,21 @@
+{% macro edition_card(e, label='') %}
+<article class="research-tile">
+  {% if label %}<div class="eyebrow">{{ label }}</div>{% endif %}
+  <h3><a href="{{ e.edition_id }}.html">{{ e.title }}</a></h3>
+  <p class="small muted">{{ e.period_start }} — {{ e.period_end }} · {{ t('research.draft') }}</p>
+  <p>{{ e.takeaway }}</p>
+  <a class="more" href="{{ e.edition_id }}.html">{{ t('research.open') }} ›</a>
+</article>
+{% endmacro %}
+{% macro chart(c) %}
+<article class="research-chart" id="{{ c.metric_id }}">
+  <div class="eyebrow">{{ t('research.new') if c.new_in_period else t('research.context') }} · {{ c.hypotheses|join(' / ') }}</div>
+  <h3>{{ c.question }}</h3>
+  <p><strong>{{ c.name }} · {{ c.latest.reference_period }} · {{ c.number }}</strong></p>
+  <p class="small">{{ c.comparison }}</p>
+  {% if c.svg %}{{ c.svg }}{% endif %}
+  <p>{{ c.interpretation }}</p>
+  <p class="small muted">{{ t('research.release') }}: {{ c.latest.release_date or t('research.unknown') }} · {{ t('research.retrieved') }}: {{ c.latest.retrieved_at }}</p>
+  <p class="small"><a href="{{ c.latest.source_url }}" rel="noopener">{{ c.latest.source }} ↗</a> · <a href="data-{{ c.category }}.html#metric-{{ c.metric_id }}">{{ t('nav.data') }} ›</a></p>
+</article>
+{% endmacro %}

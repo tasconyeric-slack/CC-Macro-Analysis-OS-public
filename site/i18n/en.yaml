@@ -18,6 +18,7 @@ a11y:
   nav: Main navigation
 
 nav:
+  research: Research editions
   news: News
   daily: Daily
   data: Data
@@ -787,3 +788,44 @@ prices:
   percentile_note: "Percentile: average rank within the trailing 36 calendar months, scaled from 0 to 100; ties average, constant samples = 50. n is the actual number of published observations, not an assumed 36."
   components: "Explore the components"
   fuel_note: "NBS transport fuel changes to transport energy in January 2026. The chart breaks at this classification change and percentiles use only the comparable segment; neither is broad energy. PMI prices are diffusion indices (50 = unchanged), not inflation rates."
+
+research:
+  title: Research editions
+  description: China macro research from public observations, with charts, counter-evidence and sources.
+  draft: Research draft · awaiting analyst
+  period: Reporting period · Beijing time
+  asof: Evidence cutoff
+  generated: Generated
+  lead: Reading the evidence
+  changes: What changed this period
+  no_changes: No new release in the selected research indicators this period. The charts below carry forward earlier observations; this is not evidence that the economy was unchanged.
+  context: Carried-forward context
+  new: New availability this period
+  why: Why it matters · draft interpretation
+  charts: Drivers and cross-checks
+  counter: Competing explanation and counter-evidence
+  counter_body: Producer prices can rise because of costs or external prices without stronger domestic demand. Core inflation, retail and property test that alternative. Conversely, weak property alone cannot rule out recovery elsewhere. Compare their periods before interpreting the pattern; correlation does not establish transmission.
+  watch: What would alter the view
+  watch_body: Look for sustained breadth across core inflation, new orders and retail, with a narrowing property drag. A producer-price rise without consumer or volume confirmation leaves the upstream-cost explanation open. These are research questions, not new preregistered thresholds.
+  next: Next verified releases at the cutoff
+  no_calendar: No future release was verified in the stored calendar at this cutoff. Consult the official release schedule; no date is inferred.
+  policy: Policy transmission · source context
+  policy_note: Announced or funded measures are not realized demand. These existing curated records provide context, not a new analyst decision.
+  delta: Thesis delta
+  pending: Pending analyst review. This draft changes no signed thesis, probability or conviction. The frozen prior remains a reference, not approval of this edition.
+  prior: Frozen prior
+  sources: Sources and coverage
+  coverage: Only the available public price, activity, property, orders and money series are assessed. GDP without a verified release date is not treated as a dated release; no asset-price inference is made. Missing sectors are not filled with news or estimates.
+  vintage: Retrospective factual draft generated now, not a report published or signed in the historical period. Public captures made after the cutoff may reconstruct earlier releases; retrieval dates and limitations are disclosed below. This is not an independently archived point-in-time vintage.
+  unknown: Official release time unknown; availability uses capture time.
+  release: Released
+  retrieved: Retrieved
+  lineage: Observation references and source limitations
+  archive: Edition archive
+  open: Read draft
+  json: Structured research data
+  refreshes: Refresh records during the period
+  legacy: Research library
+  weekly: Latest Weekly
+  monthly: Latest Monthly
+  chart_shortfall: Fewer than three chartable series are available at this cutoff; coverage is limited to the actual observations below.
