@@ -41,6 +41,8 @@ def test_policy_action_names_issuer_action_and_size():
     assert (tariff["issuer"], tariff["kind"]) == ("TARIFF", "tariff")
     assert extract_action("美联储理事沃勒：12月应加息50基点") is None
     assert extract_action("一份通知印发") is None                         # a document needs a named issuer
+    assert extract_action("央行：今年将灵活高效运用降准降息等多种货币政策工具") is None  # intention, not a cut
+    assert extract_action("中国人民银行决定于11月15日下调存款准备金率0.5个百分点")["kind"] == "rrr_cut"
 
 
 def _news_dir(tmp_path):
@@ -103,3 +105,16 @@ def test_news_to_occurrence_to_calendar_to_research_inputs(model, tmp_path):
     assert rows["evt-trade"]["reported_figures"][0]["span"] == "出口同比(按美元计) 35.2%，前值 36.3%"
     assert "cn_exports_usd_yoy" in rows["evt-trade"]["linked_metrics"]
     assert rows["evt-cpi"]["reported_figures"][0]["metric_id"] == "cn_cpi_yoy"
+
+
+def test_a_group_seen_only_in_part_at_as_of_shows_only_what_was_available(tmp_path):
+    news = _news_dir(tmp_path)
+    feed = json.loads((news / "latest.json").read_text(encoding="utf-8"))
+    late = {**feed["items"][1], "item_id": "late", "first_seen_at": "2026-11-12T00:00:00+00:00"}
+    feed["items"] = [i for i in feed["items"] if i["item_id"] != "n2"] + [late]
+    cpi = next(e for e in feed["events"] if e["event_id"] == "evt-cpi")
+    cpi["items"] = ["n3", "late"]                    # the official page arrives after as_of
+    (news / "latest.json").write_text(json.dumps(feed, ensure_ascii=False), encoding="utf-8")
+    occ = {o["occurrence_id"]: o for o in build_occurrences(news, None, "2026-11-11T06:00:00Z")}["evt-cpi"]
+    assert occ["publisher"] == "东方财富" and not occ["official"]
+    assert occ["url"] == "https://finance.eastmoney.com/a/1.html" and occ["publishers"] == ["东方财富"]

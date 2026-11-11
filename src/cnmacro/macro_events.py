@@ -76,6 +76,9 @@ ACTIONS = [
 AMOUNT = re.compile(r"(\d+(?:\.\d+)?)\s*(万亿元|亿元|亿美元)")
 RATE = re.compile(r"(\d+(?:\.\d+)?)\s*(个百分点|基点|%)")
 EFFECTIVE = re.compile(r"自(?:(20\d\d)年)?(\d{1,2})月(\d{1,2})日起")
+# a stated intention or possibility is a policy signal, not an announced action
+INTENT = re.compile(r"将|拟|计划|考虑|可能|有望|预计|适时|择机|空间|运用|是否|或将|预期|呼吁|建议|若|如果|继续实施好|研究")
+DECIDED = re.compile(r"决定|宣布|自(?:20\d\d年)?\d{1,2}月\d{1,2}日起|即日起|发布公告|印发|出台")
 ROUNDUP = re.compile(r"要闻|早餐|汇总|晚报|早报|盘前|收评|午评|一周|周报|看点")
 OFFICIAL_HOST = re.compile(r"(^|\.)gov\.cn$")
 SENTENCE = re.compile(r"[^。；;!?！？\n]+")
@@ -159,6 +162,8 @@ def extract_action(text: str) -> dict | None:
             m = re.search(rx, sent)
             if not m:
                 continue
+            if INTENT.search(sent) and not DECIDED.search(sent):
+                continue  # '将灵活运用降准降息' is a signal, not a cut
             issuer = next(((code, z, e) for code, irx, z, e in ISSUERS if re.search(irx, sent)), None)
             if issuer is None and kind in ("document", "bond", "facility", "liquidity"):
                 continue  # a document or bond with no named Chinese issuer is not a policy action we can attribute
@@ -257,16 +262,23 @@ def build_occurrences(news_dir: Path, events_dir: Path | None, as_of: str) -> li
                    and items[i].get("published_at")]
         if not members:
             continue
-        title, summary = ev["title_zh"], ev.get("summary_zh") or ""
+        # Group metadata describes every member, including ones collected after as_of. Use it only when every
+        # member was available by then; otherwise rebuild from the eligible members (as research_inputs does).
+        whole = len(members) == len(ev.get("items", []))
+        g = ev if whole else {}
+        rep = next((m for m in members if m["canonical_url"] == g.get("url")),
+                   min(members, key=lambda m: (m.get("source_tier") != "T1", stamp(m["published_at"]))))
+        title, summary = g.get("title_zh") or rep["title_zh"], g.get("summary_zh") or rep.get("summary_zh") or ""
         if ROUNDUP.search(title) or not _china(title, title + " " + summary):
             continue
-        rep = next((m for m in members if m["canonical_url"] == ev.get("url")), members[0])
         published = rep["published_at"]  # the reported occurrence's own time, not an earlier related member
-        official = bool(ev.get("official")) and bool(OFFICIAL_HOST.search(urlsplit(ev.get("url", "")).hostname or ""))
-        occ = _occurrence(ev["event_id"], title, summary, ev.get("url") or rep["canonical_url"],
-                          ev.get("publisher") or rep["publisher"], published,
+        url = g.get("url") or rep["canonical_url"]
+        first_party = bool(g.get("official")) if whole else rep.get("source_tier") == "T1"
+        official = first_party and bool(OFFICIAL_HOST.search(urlsplit(url).hostname or ""))
+        occ = _occurrence(ev["event_id"], title, summary, url,
+                          g.get("publisher") or rep["publisher"], published,
                           min(m["first_seen_at"] for m in members), official, members, ev.get("topic"),
-                          (ev.get("ai") or {}).get("title_en") if feed.get("ai_display") else None)
+                          (g.get("ai") or {}).get("title_en") if feed.get("ai_display") else None)
         held_urls.update(occ["source_urls"])
         out.append(occ)
     grouped = {i for ev in feed.get("events", []) for i in ev.get("items", [])}
