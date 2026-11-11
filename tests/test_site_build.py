@@ -25,10 +25,10 @@ def test_shallow_clone_build_keeps_the_true_audit_trail(tmp_path):
     page = (dist / "en/updates.html").read_text(encoding="utf-8")
 
     def shown(anchor):
-        return re.search(rf'id="{anchor}".*?commit <span class="mono">(\w+)', page, re.S).group(1)
+        return re.search(rf'id="{anchor}"[^>]*data-origin-sha="([0-9a-f]+)"', page).group(1)
     # each entry is credited to the commit that first added its file, not to the clone's graft commit
     assert shown("baseline") == audit[PREREG + "2026-10-04-baseline.yaml"]["sha"][:7]
     assert shown("A-01") == audit[PREREG + "2026-10-04-amendment-01-terminal-rules.yaml"]["sha"][:7]
     # the Chinese page credits the very same commits
     zh = (dist / "zh/updates.html").read_text(encoding="utf-8")
-    assert re.search(r'id="baseline".*?<span class="mono">%s' % audit[PREREG + "2026-10-04-baseline.yaml"]["sha"][:7], zh, re.S)
+    assert re.search(r'id="baseline"[^>]*data-origin-sha="%s"' % audit[PREREG + "2026-10-04-baseline.yaml"]["sha"][:7], zh)
