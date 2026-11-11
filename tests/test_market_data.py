@@ -414,3 +414,17 @@ def test_require_all_turns_a_partial_live_run_into_a_failed_check(monkeypatch, t
     assert cli.main(["market-refresh", "--dry-run", "--require-all"]) == 3
     assert "mk_shibor_on" in capsys.readouterr().out
     assert cli.main(["market-refresh", "--dry-run"]) == 0                 # scheduled runs report and stay green
+
+
+def test_a_dry_run_cross_checks_the_values_it_fetched_without_writing_them(root):
+    """Live acceptance runs are dry runs: the FRED check must use the fetched days, not an empty store."""
+    header = ",".join(OBS_COLUMNS)
+    row = "gl_ust10y,2026-10,4.29,,unknown,2026-11-08T15:26:30+00:00,FRED,GS10,public,,ok,x"
+    (root / "data/demo/observations/fred_gl_ust10y.csv").write_text(header + "\n" + row + "\n", encoding="utf-8")
+    summary = md.run_market(root, call=FakeTushare(), today=TODAY, dry_run=True, log=lambda *_: None,
+                            now="2026-11-09T12:30:00+00:00")
+    check = summary["crosschecks"][0]
+    assert (check["metric_id"], check["status"], check["date"]) == ("mk_ust10y", "ok", "2026-10")
+    assert check["days"] >= 15 and abs(check["difference"]) <= 0.05
+    assert not list((root / "data/demo/observations").glob("tushare_*.csv"))      # still nothing written
+    assert not (root / "data/market/crosschecks").exists()

@@ -185,8 +185,9 @@ def to_rows(metric_id: str, source_code: str, values: dict[str, float], got: str
 
 
 def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: date | None = None, backfill: bool = False,
-                   dry_run: bool = False, log=print, now: str | None = None) -> dict:
-    """Fetch every configured series; returns a summary and (unless dry_run) appends the new rows."""
+                   dry_run: bool = False, log=print, now: str | None = None, values_out: dict | None = None) -> dict:
+    """Fetch every configured series; returns a summary and (unless dry_run) appends the new rows.
+    `values_out`, if given, receives {metric_id: {date: value}} for every series that came back ok."""
     from .refresh import new_rows       # imported here: refresh pulls in the whole evidence stack
     root = Path(root)
     spec = load_spec(root)
@@ -249,6 +250,8 @@ def refresh_market(root: Path | str = ".", *, call: Caller = ts.call, today: dat
                                   "latest": max(fetched[mid]), "history_start": min(fetched[mid])}
         if fresh:
             appended[f"{FILE_PREFIX}{mid}.csv"] = fresh
+        if values_out is not None:
+            values_out[mid] = dict(fetched[mid])
     summary["new_rows"] = sum(len(v) for v in appended.values())
     summary["requests"] = list(fetcher.requests)
     summary["failed"] = [s["metric_id"] for s in spec["series"]
@@ -276,11 +279,16 @@ def run_market(root: Path | str = ".", *, crosscheck=None, **kwargs) -> dict:
     from . import market_crosscheck as xc
     root = Path(root)
     log = kwargs.get("log", print)
-    summary = refresh_market(root, **kwargs)
+    fetched: dict[str, dict[str, float]] = {}
+    summary = refresh_market(root, values_out=fetched, **kwargs)
     obs = load_observations(root / "data/demo/observations")
     active = {s["metric_id"] for s in load_spec(root)["series"]}
     needed = set(xc.CHECKS) | set(xc.MONTHLY_CHECKS) | {c["series"] for c in xc.MONTHLY_CHECKS.values()}
     stored = {mid: held_values(obs, mid) for mid in needed}
+    # A dry run writes nothing, so the store alone would leave every check pending: check what this run fetched,
+    # on top of what is stored (identical to the stored values after a real run).
+    for mid in needed & set(fetched):
+        stored[mid] = {**stored[mid], **fetched[mid]}
     results = (crosscheck or xc.run_crosschecks)(stored, log=log, active=active)
     summary["crosschecks"] = results
     summary["crosscheck_gaps"] = [r["metric_id"] for r in results if r["status"] == "gap"]
