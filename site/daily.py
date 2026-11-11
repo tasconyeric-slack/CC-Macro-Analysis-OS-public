@@ -46,13 +46,21 @@ SHORT_METRIC = {  # concise reading labels for calendar cards (zh, en)
     "cn_budget_rev_ytd_yoy": ("财政收入", "Revenue YTD"), "cn_budget_exp_ytd_yoy": ("财政支出", "Spending YTD")}
 
 
-def official_publications(model):
-    """Releases already published by PBOC, GACC and MOF, each with its official page and date."""
+def official_publications(model, occurrences=()):
+    """Releases already published by PBOC, GACC and MOF, each with its official page and date: the recorded
+    list, plus PBoC / MOF release pages the hourly intake has collected since (one entry per release)."""
     if "official_publications" in model:
-        return model["official_publications"]
-    if not PUBLICATIONS.exists():
-        return []
-    return yaml.safe_load(PUBLICATIONS.read_text(encoding="utf-8")).get("publications", [])
+        held = list(model["official_publications"])
+    elif PUBLICATIONS.exists():
+        held = yaml.safe_load(PUBLICATIONS.read_text(encoding="utf-8")).get("publications", [])
+    else:
+        held = []
+    have = {(p["source"], p["kind"], str(p["period"])) for p in held} | {p["url"] for p in held}
+    for p in macro_events.official_releases(occurrences):
+        if (p["source"], p["kind"], p["period"]) not in have and p["url"] not in have:
+            held.append(p)
+            have |= {(p["source"], p["kind"], p["period"]), p["url"]}
+    return held
 
 
 def _beijing_ts(value):
@@ -83,7 +91,7 @@ def reading(model, mid, period):
             "source_url": code if code.startswith("https://") else None}
 
 
-def _release_items(model):
+def _release_items(model, occurrences=()):
     """Every dated China release: NBS scheduled entries and PBOC/GACC/MOF published ones."""
     for r in model["release_calendar"]:
         kinds = ingest.release_kinds(r["name"])
@@ -93,7 +101,7 @@ def _release_items(model):
                "shown": list(dict.fromkeys(headline + list(r.get("display_metrics") or []) + list(r["metrics"]))),
                "url": r.get("url"), "published": False, "required": list(r.get("display_metrics") or []),
                "name": r["name"]}
-    for p in official_publications(model):
+    for p in official_publications(model, occurrences):
         yield {"source": p["source"], "at": str(p["published"]), "period": str(p["period"]), "kinds": [p["kind"]],
                "metrics": [], "shown": list(ingest.KIND[p["kind"]][5]), "url": p["url"], "published": True}
 
@@ -106,7 +114,7 @@ def build_calendar(model, now=None, occurrences=()):
     today = clock.tz_convert("Asia/Shanghai").date()
     obs = model["observations"]
     groups = {}
-    for item in _release_items(model):
+    for item in _release_items(model, occurrences):
         groups.setdefault((item["source"], item["at"]), []).append(item)
     events = []
     for (source, at), items in groups.items():
@@ -243,11 +251,11 @@ def _fold(event, occ):
     event["hypotheses"] = sorted(set(event["hypotheses"]) | set(occ["hypotheses"]))
 
 
-def undated_releases(model):
+def undated_releases(model, occurrences=()):
     """The next PBOC, GACC and MOF releases: real, recurring, but without an announced date."""
     out = []
     for kind in LISTINGS:
-        held = [p for p in official_publications(model) if p["kind"] == kind]
+        held = [p for p in official_publications(model, occurrences) if p["kind"] == kind]
         if not held:
             continue
         latest = max(held, key=lambda p: p["period"])
@@ -366,7 +374,7 @@ def build_desk(model, events_dir=None):
             "last_refresh": model["refresh_at"], "judgment_as_of": (judgment or {}).get("as_of"),
             "has_analyst_update": bool(analyst_updates), "kpis": kpis, "claims": claims,
             "releases": releases, "calendar": build_calendar(model, occurrences=occurrences),
-            "calendar_tba": undated_releases(model), "occurrences": occurrences,
+            "calendar_tba": undated_releases(model, occurrences), "occurrences": occurrences,
             "events": events,
             "announcements": announcements, "source_status": sources}
 

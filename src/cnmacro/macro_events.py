@@ -78,7 +78,11 @@ RATE = re.compile(r"(\d+(?:\.\d+)?)\s*(个百分点|基点|%)")
 EFFECTIVE = re.compile(r"自(?:(20\d\d)年)?(\d{1,2})月(\d{1,2})日起")
 # a stated intention or possibility is a policy signal, not an announced action
 INTENT = re.compile(r"将|拟|计划|考虑|可能|有望|预计|适时|择机|空间|运用|是否|或将|预期|呼吁|建议|若|如果|继续实施好|研究")
-DECIDED = re.compile(r"决定|宣布|自(?:20\d\d年)?\d{1,2}月\d{1,2}日起|即日起|发布公告|印发|出台")
+DECIDED = re.compile(r"决定|宣布|批准|自(?:20\d\d年)?\d{1,2}月\d{1,2}日起|即日起|发布公告|印发|出台")
+# a scheduled issuance ('财政部将于11月16日当周发行') is announced, not intended
+SCHEDULED = re.compile(r"将于(?:20\d\d年)?\d{1,2}月\d{1,2}日")
+# a Chinese issuer's bond sold in Hong Kong or abroad is still a China policy action; the venue is not the issuer
+VENUE = re.compile(r"(?:财政部|人民银行|央行).{0,24}(?:在|于).{0,12}发行")
 ROUNDUP = re.compile(r"要闻|早餐|汇总|晚报|早报|盘前|收评|午评|一周|周报|看点")
 OFFICIAL_HOST = re.compile(r"(^|\.)gov\.cn$")
 SENTENCE = re.compile(r"[^。；;!?！？\n]+")
@@ -156,15 +160,22 @@ def extract_figures(text: str, published_at: str) -> list[dict]:
 def extract_action(text: str) -> dict | None:
     """The first China policy action in the text: issuer, action, amount or rate, effective date."""
     for sent in SENTENCE.findall(text or ""):
-        if OUTSIDE.search(sent) and not re.search(r"对美|美加征", sent):
-            continue
+        abroad = bool(OUTSIDE.search(sent)) and not re.search(r"对美|美加征", sent)
         for kind, rx, zh, en in ACTIONS:
             m = re.search(rx, sent)
             if not m:
                 continue
-            if INTENT.search(sent) and not DECIDED.search(sent):
+            venue = VENUE.search(sent)
+            if abroad and not (kind == "bond" and venue and OUTSIDE.search(sent).start() > venue.start()):
+                continue  # '美国财政部…发行' is foreign; '财政部…在香港发行' is a Chinese issuer abroad
+            if INTENT.search(sent) and not DECIDED.search(sent) and not (kind == "bond" and SCHEDULED.search(sent)):
                 continue  # '将灵活运用降准降息' is a signal, not a cut
-            issuer = next(((code, z, e) for code, irx, z, e in ISSUERS if re.search(irx, sent)), None)
+            # the issuer named closest before the action acts ('经国务院批准，财政部将…发行' is MOF's issuance)
+            named = [(hit.start(), -i, (code, z, e)) for i, (code, irx, z, e) in enumerate(ISSUERS)
+                     for hit in re.finditer(irx, sent)]  # at one position the more specific (earlier listed) wins
+            before = [n for n in named if n[0] < m.start()]
+            issuer = (max(before, key=lambda n: n[:2]) if before else
+                      min(named, key=lambda n: (n[0], -n[1])) if named else (0, 0, None))[2]
             if issuer is None and kind in ("document", "bond", "facility", "liquidity"):
                 continue  # a document or bond with no named Chinese issuer is not a policy action we can attribute
             tail = sent[m.start():]
@@ -221,7 +232,11 @@ def read_members(members) -> tuple[list[dict], dict | None]:
                       "official": m.get("source_tier") == "T1" and bool(OFFICIAL_HOST.search(urlsplit(m["canonical_url"]).hostname or ""))})
             figures.append(f)
         lead = (SENTENCE.findall(m.get("summary_zh") or "") or [""])[0]
-        action = action or extract_action(m["title_zh"] + "。" + lead)
+        found = extract_action(m["title_zh"] + "。" + lead)
+        if action is None:
+            action = found
+        elif found and found["kind"] == action["kind"]:  # another outlet's text may give the size or start date
+            action = {**action, **{k: found[k] for k in ("amount", "rate", "effective") if not action[k] and found[k]}}
     figures.sort(key=lambda f: (not f["official"], f["published_at"]))
     seen, unique = set(), []
     for f in figures:  # the same reading reported by several outlets is one figure, first-party first
@@ -314,9 +329,40 @@ def build_occurrences(news_dir: Path, events_dir: Path | None, as_of: str) -> li
     return sorted(out, key=lambda o: stamp(o["published_at"]), reverse=True)
 
 
+# An institution's own release page, already collected by the hourly intake, records that the release came out.
+RELEASE_PAGES = [
+    ("PBOC", "pboc", "中国人民银行",
+     re.compile(r"(?P<y>20\d\d)年(?:(?P<m>\d{1,2})月|(?P<q>一季度|上半年|前三季度))?金融统计数据报告")),
+    ("MOF", "mof", "财政部",
+     re.compile(r"(?P<y>20\d\d)年(?:1[-—–](?P<m>\d{1,2})月|(?P<q>一季度|上半年|前三季度))?财政收支情况")),
+]
+
+
+def official_releases(occurrences) -> list[dict]:
+    """PBoC and MOF releases the intake has seen on the institution's own site, dated by that page, so the
+    calendar records them as published without a manual calendar run. Never a forecast of a future date."""
+    out = []
+    for occ in occurrences:
+        if not occ["official"]:
+            continue
+        for source, kind, publisher, rx in RELEASE_PAGES:
+            m = rx.fullmatch((occ["title_zh"] or "").strip())
+            if not m or occ["publisher"] != publisher:
+                continue
+            month = int(m.group("m")) if m.group("m") else {"一季度": 3, "上半年": 6, "前三季度": 9, None: 12}[m.group("q")]
+            if not 1 <= month <= 12:
+                continue
+            out.append({"source": source, "kind": kind, "title_zh": occ["title_zh"], "period": f"{m.group('y')}-{month:02d}",
+                        "published": occ["date"] + (f"T{occ['time']}:00+08:00" if occ["time"] else ""),
+                        "url": occ["url"], "occurrence_id": occ["occurrence_id"]})
+    return out
+
+
 def material(occ: dict) -> bool:
     """Worth a dated calendar entry: a reported China figure, a policy action, or first-party news on the thesis."""
     action = occ["action"]
-    # a document or meeting reaches the calendar from its first-party page; a media notice of one stays in the feed
-    acts = bool(action and (action["kind"] not in ("meeting", "document") or (occ["official"] and occ["hypotheses"])))
+    # a State Council / Politburo meeting reaches the calendar from a first-party page; a document needs a thesis
+    # link as well; a media notice of either stays in the feed
+    acts = bool(action and (action["kind"] != "document" or (occ["official"] and occ["hypotheses"]))
+                and (action["kind"] != "meeting" or occ["official"]))
     return bool(occ["figures"] or acts or (occ["official"] and occ["hypotheses"]))

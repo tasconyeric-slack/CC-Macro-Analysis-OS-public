@@ -4,7 +4,7 @@ import json
 from cnmacro.events.store import stamp
 from cnmacro.macro_events import build_occurrences, extract_action, extract_figures, material
 from cnmacro.research_inputs import _news
-from daily import build_calendar, calendar_view
+from daily import build_calendar, calendar_view, undated_releases
 from views import View
 
 AT = "2026-11-10T10:30:00+08:00"
@@ -43,6 +43,17 @@ def test_policy_action_names_issuer_action_and_size():
     assert extract_action("一份通知印发") is None                         # a document needs a named issuer
     assert extract_action("央行：今年将灵活高效运用降准降息等多种货币政策工具") is None  # intention, not a cut
     assert extract_action("中国人民银行决定于11月15日下调存款准备金率0.5个百分点")["kind"] == "rrr_cut"
+
+
+def test_a_chinese_sovereign_issue_abroad_is_an_action_and_a_foreign_one_is_not():
+    hk = extract_action("财政部将在香港发行美元主权债券。经国务院批准，财政部将于2026年11月16日当周在香港特别行政区"
+                        "发行美元主权债券，规模不超过20亿美元")
+    assert (hk["kind"], hk["issuer"], hk["amount"]) == ("bond", "MOF", "20亿美元")  # MOF issues; the State Council approves
+    ca = extract_action("11月9日，中华人民共和国财政部代表中央政府在加拿大成功发行了40亿元人民币绿色主权债券")
+    assert (ca["issuer"], ca["amount"]) == ("MOF", "40亿元")
+    assert extract_action("财政部将在香港发行美元主权债券") is None      # no date and no decision: not yet an action
+    assert extract_action("美国财政部在纽约发行国债") is None
+    assert extract_action("日本央行在东京发行国债") is None
 
 
 def _news_dir(tmp_path):
@@ -118,3 +129,24 @@ def test_a_group_seen_only_in_part_at_as_of_shows_only_what_was_available(tmp_pa
     occ = {o["occurrence_id"]: o for o in build_occurrences(news, None, "2026-11-11T06:00:00Z")}["evt-cpi"]
     assert occ["publisher"] == "东方财富" and not occ["official"]
     assert occ["url"] == "https://finance.eastmoney.com/a/1.html" and occ["publishers"] == ["东方财富"]
+
+
+def test_a_release_page_collected_by_the_intake_marks_the_release_published(model, tmp_path):
+    """The PBoC's own 金融统计数据报告 page, seen by the hourly intake, puts the release on the calendar as published
+    on the page's date, and moves the next release to 'date not yet announced'. A media headline does not."""
+    def occ(oid, title, publisher, official, url, date):
+        return {"occurrence_id": oid, "kind": "news", "title_zh": title, "title_en": None, "publisher": publisher,
+                "official": official, "url": url, "date": date, "time": "", "published_at": date + "T00:00:00+08:00",
+                "figures": [], "action": None, "hypotheses": [], "metric_ids": [], "reports": [], "source_urls": [url]}
+    page = "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026111316000000000/index.html"
+    occurrences = [occ("p", "2026年10月金融统计数据报告", "中国人民银行", True, page, "2026-11-13"),
+                   occ("m", "2026年11月金融统计数据报告", "东方财富", False, "https://finance.eastmoney.com/a/2.html", "2026-11-13")]
+    held = [{"source": "PBOC", "kind": "pboc", "period": "2026-09", "published": "2026-10-14",
+             "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/sep/index.html"}]
+    fixture = {**model, "release_calendar": [], "official_publications": held}
+    cal = build_calendar(fixture, "2026-11-14T00:00:00Z", occurrences=occurrences)
+    pboc = [(e["period"], e["date"], e["status"], e["url"]) for e in cal if e["source"] == "PBOC"]
+    assert pboc == [("2026-09", "2026-10-14", "released", held[0]["url"]), ("2026-10", "2026-11-13", "released", page)]
+    assert [(t["source"], t["period"]) for t in undated_releases(fixture, occurrences) if t["source"] == "PBOC"] == [("PBOC", "2026-11")]
+    early = build_calendar(fixture, "2026-11-14T00:00:00Z", occurrences=occurrences[1:])
+    assert [e["period"] for e in early if e["source"] == "PBOC"] == ["2026-09"]   # media alone never dates a release
