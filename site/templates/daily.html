@@ -21,14 +21,20 @@
   <div class="desk-calendar-agenda" data-calendar-agenda aria-live="polite"></div>
   <div class="desk-calendar-source" data-calendar-source>
     {% for item in desk.calendar %}
-    <article class="desk-calendar-event" id="{{ item.anchor }}" data-calendar-event data-date="{{ item.date }}" data-time="{{ item.time }}" data-status="{{ item.status }}" data-source="{{ item.source|lower }}">
+    <article class="desk-calendar-event" id="{{ item.anchor }}" data-calendar-event data-date="{{ item.date }}" data-time="{{ item.time }}" data-status="{{ 'released' if item.status in ['released', 'pending'] else 'upcoming' }}" data-kind="{{ item.kind }}">
       <time datetime="{{ item.release }}"><span class="desk-calendar-date">{{ item.date[5:] }}</span>{{ item.time }}</time>
       <div class="desk-calendar-body">
-        <span class="desk-calendar-name"><a href="{{ '#' ~ item.related_id if item.related_id else item.url }}" data-short="{{ item.short }}"{% if not item.related_id %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a></span>
-        <span class="desk-calendar-src">{{ item.publisher_name }}{% if item.members %} · {{ item.members|join(' · ') }}{% endif %}</span>
-        {% if item['values'] %}<span class="desk-calendar-metrics">{% for val in item['values'] %}<a href="data-{{ val.category }}.html#metric-{{ val.metric_id }}" title="{{ val.full_name }} · {{ val.period|period }}"><span>{{ val.name }}</span><strong>{{ '%.1f'|format(val.value) }}<small>{{ val.unit_label }}</small></strong>{% if val.previous is not none %}<em>{{ '%+.1f'|format(val.delta) }}<small>{{ val.delta_unit }}</small></em><small class="desk-calendar-prev">{{ '前值' if loc == 'zh' else 'prev.' }} {{ '%.1f'|format(val.previous) }}</small>{% endif %}</a>{% endfor %}</span>{% endif %}
+        <h3 class="desk-calendar-name"{% if item.short_is_zh %} lang="zh-Hans"{% endif %} data-short="{{ item.short }}">{{ item.label }}</h3>
+        <div class="desk-calendar-detail">
+          <p class="desk-calendar-src">{{ item.publisher_name }}{% if item.members %} · {{ item.members|join(' · ') }}{% endif %} · {% if item.status in ['released', 'pending'] %}{{ '已发布' if loc == 'zh' else 'Released' }}{% else %}{{ '即将发布' if loc == 'zh' else 'Upcoming' }}{% endif %}{% if item.period and item.kinds %} · {{ '参考期' if loc == 'zh' else 'Period' }} {{ item.period|period }}{% endif %}</p>
+          {% if item['values'] %}<table class="desk-calendar-readings"><thead><tr><th></th><th>{{ '公布值' if loc == 'zh' else 'Actual' }}</th><th>{{ '前值' if loc == 'zh' else 'Previous' }}</th><th>{{ '变化' if loc == 'zh' else 'Change' }}</th></tr></thead><tbody>
+          {% for val in item['values'] %}<tr><th scope="row"><a href="data-{{ val.category }}.html#metric-{{ val.metric_id }}" title="{{ val.full_name }}">{{ val.name }}</a></th><td><strong>{{ '%.1f'|format(val.value) }}</strong>{{ val.unit_label }}</td><td>{{ ('%.1f'|format(val.previous)) ~ val.unit_label if val.previous is not none else '—' }}</td><td>{{ ('%+.1f'|format(val.delta)) ~ ' ' ~ val.delta_unit if val.delta is not none else '—' }}</td></tr>{% endfor %}
+          </tbody></table>{% endif %}
+          {% if item.reported %}<ul class="desk-calendar-reported">{% for f in item.reported %}<li><span>{{ f.name }}</span> <strong>{{ f.value }}{{ f.unit_label }}</strong>{% if f.previous is not none %} <small>{{ '前值' if loc == 'zh' else 'prev.' }} {{ f.previous }}{{ f.unit_label }}</small>{% endif %} <a href="{{ f.url }}" target="_blank" rel="noopener" title="{{ f.span }}">{{ ('据' ~ f.publisher) if loc == 'zh' else ('via ' ~ f.publisher) }}</a>{% if f.metric_id and f.metric_id in metrics %} <a href="data-{{ metrics[f.metric_id].category }}.html#metric-{{ f.metric_id }}">{{ '图表' if loc == 'zh' else 'Chart' }}</a>{% endif %}</li>{% endfor %}</ul>{% endif %}
+          {% if item.action %}<p class="desk-calendar-action"><strong>{{ (item.action.issuer_zh or '') ~ item.action.action_zh if loc == 'zh' else ((item.action.issuer_en ~ ' ') if item.action.issuer_en else '') ~ item.action.action_en }}</strong>{% if item.action.amount %} · {{ item.action.amount }}{% endif %}{% if item.action.rate %} · {{ item.action.rate }}{% endif %}{% if item.action.effective %} · {{ '生效' if loc == 'zh' else 'effective' }} {{ item.action.effective }}{% endif %}<br><span lang="zh-Hans">{{ item.action.span }}</span></p>{% endif %}
+          <p class="desk-calendar-links"><a href="{{ item.url }}" target="_blank" rel="noopener">{{ '原文' if loc == 'zh' else 'Source' }} ↗</a>{% for c in item.coverage[:4] %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.publisher }}</a>{% endfor %}{% if item.related_id %}<a href="#{{ item.related_id }}">{{ '数据记录' if loc == 'zh' else 'Data record' }}</a>{% endif %}{% for h in item.hypotheses %}<a href="evidence.html#{{ h }}">{{ h }}</a>{% endfor %}</p>
+        </div>
       </div>
-      <a class="desk-calendar-origin" href="{{ item.url }}" target="_blank" rel="noopener" aria-label="{{ t('desk.official_calendar') }}" title="{{ t('desk.official_calendar') }}">↗</a>
     </article>
     {% endfor %}
   </div>

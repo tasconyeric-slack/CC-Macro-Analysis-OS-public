@@ -160,4 +160,4 @@ def test_calendar_renders_in_both_languages(built):
         page = (built / loc / "daily.html").read_text(encoding="utf-8")
         assert tba in page and 'data-date="2026-11-16"' in page
         assert "consensus" not in page.lower()
-        assert ("前值" if loc == "zh" else "prev.") in page
+        assert ("前值" if loc == "zh" else "Previous") in page and "desk-calendar-metrics" not in page

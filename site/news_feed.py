@@ -5,7 +5,7 @@ from pathlib import Path
 import localization as L
 from cnmacro.news_feed import TOPICS, classify
 from cnmacro.news_rank import score, BROWSE_FLOOR
-from cnmacro import news_ai
+from cnmacro import news_ai, macro_events
 from cnmacro.events.store import stamp, BEIJING
 ROOT = Path(__file__).resolve().parents[1]
 NEWS = ROOT / 'data/news'
@@ -71,6 +71,34 @@ def _related(model, topic, loc):
     return links
 
 
+def _facts(members, model, loc):
+    """Numbers and the policy action stated in the event's own texts (as reported, with the outlet)."""
+    i = 0 if loc == 'zh' else 1
+    basis = {'yoy': ('同比', 'y/y'), 'mom': ('环比', 'm/m'), 'ytd': ('累计同比', 'YTD y/y'), 'level': ('', '')}
+    facts, seen, action = [], set(), None
+    for x in members:
+        for f in macro_events.extract_figures(x['title_zh'] + '。' + (x.get('summary_zh') or ''), x['published_at']):
+            key = (f['indicator'], f['basis'], f['currency'], f['period'])
+            if key in seen:
+                continue
+            seen.add(key)
+            ind = macro_events.IND[f['indicator']]
+            cur = {'USD': ('美元计', 'USD'), 'CNY': ('人民币计', 'CNY')}.get(f['currency'], ('', ''))[i]
+            m = model.get('metrics', {}).get(f['metric_id']) if f['metric_id'] else None
+            parts = [ind[2 + i], basis[f['basis']][i], f'({cur})' if cur else '']
+            facts.append({'label': (' ' if i else '').join(p for p in parts if p),
+                          'value': f"{f['value']:g}{'' if f['unit'] == 'index' else '%'}", 'period': L.fmt_period(f['period'], loc) + ('' if loc == 'zh' else ' '),
+                          'publisher': x['publisher'], 'url': x['canonical_url'],
+                          'chart': f"data-{m.category}.html#metric-{f['metric_id']}" if m is not None and getattr(m, 'category', None) else None})
+        lead = (macro_events.SENTENCE.findall(x.get('summary_zh') or '') or [''])[0]
+        action = action or macro_events.extract_action(x['title_zh'] + '。' + lead)
+    if action:
+        action = ((action['issuer_zh'] or '') + action['action_zh'] if not i else
+                  ' '.join(filter(None, [action['issuer_en'], action['action_en']]))) + \
+                 ''.join(f' · {v}' for v in (action['amount'], action['rate']) if v)
+    return facts[:4], action
+
+
 def _official_events(model, cutoff):
     """Items from the existing official intake (NBS, PBOC, gov.cn policy library)."""
     try:
@@ -110,11 +138,12 @@ def news_context(model, loc):
             if x['canonical_url'] != e['url'] and x['publisher'] not in named:
                 others.append({'publisher': x['publisher'], 'url': x['canonical_url']}); named.add(x['publisher'])
         is_release = any(x.get('content_type') == 'data_release' for x in members)
+        facts, action = _facts(members, model, loc)
         events.append({'id': e['event_id'], **_headline(e['title_zh'], e.get('ai'), loc, show), 'summary': e.get('summary_zh', '') if e.get('summary_zh') != e['title_zh'] else '',
                        'url': e['url'], 'publisher': e['publisher'], 'n_sources': len(e['publishers']), 'official': e['official'],
                        'hot': e['heat'] >= 1.5, 'topic': e['topic'], 'topic_name': _topic(e['topic'], loc), 'time': _when(e['last_at'], loc),
                        'last_at': e['last_at'], 'importance': e['importance'], 'others': others[:6], 'related': _related(model, e['topic'], loc) if is_release else [],
-                       'zh_only': loc == 'en'})
+                       'zh_only': loc == 'en', 'facts': facts, 'action': action})
     # top stories: the last 48 hours by importance, then older selected events
     recent = [e for e in events if (stamp(cutoff) - stamp(e['last_at'])).total_seconds() <= 48 * 3600]
     older = sorted([e for e in events if e not in recent], key=lambda e: e['last_at'], reverse=True)
