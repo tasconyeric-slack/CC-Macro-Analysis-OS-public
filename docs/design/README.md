@@ -45,7 +45,7 @@ CC Macro 公开网站（https://ccmacro.byliyz.com/）的视觉设计以 **Mason
 | 共用控件 | `.mr-btn`（`--primary` / `--tertiary`）与 `.mr-chip`（放在 `.mr-chips` 行内，`aria-current` 或 `aria-pressed="true"` 为选中）定义在 `style.css`，页面直接复用 | 不为每个页面重复写按钮和筛选样式 |
 | 导航主按钮 | 站点没有注册功能，导航右侧放语言切换（胶囊分段控件），不放主色按钮 | 不虚构不存在的功能 |
 | 图片类组件 | PinCard、MasonryGrid、CategoryTile、FeatureCard 的“图片即卡片”规则只在有真实图片时使用；数据卡片、图表沿用 16px 圆角、扁平、hairline 的通用规则 | 站点以数据和图表为主，不使用装饰性图片 |
-| 导航结构 | 主导航固定为 Overview · News · Data · Research；Daily、Policy 等从 News 内页与页脚进入 | PRODUCT_STRATEGY §0 |
+| 导航结构 | **Research-First MVP 目标：Overview · Research · Data**；News、Daily、Policy、Evidence、Updates 继续保留实际页面和深链，作为研究的次级资料入口，首页不突出新闻热榜 | PRODUCT_STRATEGY §0（2026-11-10 Owner-directed revision）；Research-First Blueprint |
 
 **已应用：** 页眉与页脚（PR #38）；全站 token、排版、卡片、表格、标签、按钮与筛选控件（Masonry Red foundation）。各栏目页面布局在后续改动中逐步迁移。
 
