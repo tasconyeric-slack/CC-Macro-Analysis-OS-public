@@ -761,3 +761,22 @@ policy_compare:
     strengthened: 措辞增强
     weakened: 措辞减弱
     unchanged: 未变
+prices:
+  kicker: "价格传导 · 月度事实"
+  chain_title: "从工厂出厂到居民消费"
+  chain_note: "对照上游生产资料、终端生活资料与核心消费价格。价差反映相对价格变化，不能单独证明因果传导。"
+  common: "最新共同月份 · 同比"
+  producer_gap: "生产资料 − 生活资料"
+  consumer_gap: "生活资料 − 核心 CPI"
+  no_common: "三条序列尚无共同的已公布月份。"
+  xlsx: "全部价格序列 · XLSX"
+  month: "本月读数"
+  table_note: "每行标明最新已公布月份；前期指紧邻的上一自然月；未公布的数据保留为空（–）。增速变化单位为百分点，PMI 变化单位为指数点。"
+  component: "分项"
+  latest: "本期"
+  prior: "前期"
+  change: "变化"
+  percentile: "三年分位"
+  percentile_note: "分位：过去 36 个自然月内已公布读数的平均秩，缩放为 0–100；并列取平均，全部相同记为 50。n 为实际观测数，并不假定有 36 期。"
+  components: "分项走势"
+  fuel_note: "统计局自 2026 年 1 月将交通工具用燃料改为交通工具用能源。图线在此口径变化处断开，分位只使用同口径区段；两者均不等同于广义能源。PMI 价格为扩散指数（50 表示持平），并非通胀率。"

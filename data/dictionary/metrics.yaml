@@ -1001,6 +1001,429 @@ metrics:
   caliber_notes:
     - Official published caliber; historical revisions and reference-period definitions remain visible in the observation history.
 
+# Prices-depth components: public descriptive diagnostics, no evidence-test changes.
+- metric_id: cn_cpi_mom
+  category: prices
+  name: CPI MoM
+  name_zh: CPI 居民消费价格环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:居民消费价格:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 居民消费价格. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_core_cpi_mom
+  category: prices
+  name: Core CPI, excluding food and energy MoM
+  name_zh: CPI 不包括食品和能源环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:不包括食品和能源:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 不包括食品和能源. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_cpi_food_yoy
+  category: prices
+  name: CPI food YoY
+  name_zh: CPI 食品同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:食品:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 食品. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_food_mom
+  category: prices
+  name: CPI food MoM
+  name_zh: CPI 食品环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:食品:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 食品. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_pork_yoy
+  category: prices
+  name: CPI pork YoY
+  name_zh: CPI 猪肉同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:猪肉:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 猪肉. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_pork_mom
+  category: prices
+  name: CPI pork MoM
+  name_zh: CPI 猪肉环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:猪肉:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 猪肉. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_fuel_yoy
+  category: prices
+  name: CPI transport fuel / energy (classification break 2026) YoY
+  name_zh: CPI 交通工具用燃料／能源（2026年口径变化）同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:交通工具用燃料:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 交通工具用燃料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+  - Transport fuel through 2025; transport energy (交通工具用能源) from 2026-01. Classification break; not broad energy.
+- metric_id: cn_cpi_fuel_mom
+  category: prices
+  name: CPI transport fuel / energy (classification break 2026) MoM
+  name_zh: CPI 交通工具用燃料／能源（2026年口径变化）环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:交通工具用燃料:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 交通工具用燃料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+  - Transport fuel through 2025; transport energy (交通工具用能源) from 2026-01. Classification break; not broad energy.
+- metric_id: cn_cpi_services_yoy
+  category: prices
+  name: CPI services YoY
+  name_zh: CPI 服务同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:服务:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 服务. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_services_mom
+  category: prices
+  name: CPI services MoM
+  name_zh: CPI 服务环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:服务:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 服务. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_cpi_goods_yoy
+  category: prices
+  name: CPI consumer goods YoY
+  name_zh: CPI 消费品同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:消费品:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 消费品. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_cpi_goods_mom
+  category: prices
+  name: CPI consumer goods MoM
+  name_zh: CPI 消费品环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:消费品:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 消费品. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_ppi_producer_mom
+  category: prices
+  name: PPI producer goods MoM
+  name_zh: PPI 生产资料环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:生产资料:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 生产资料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_ppi_consumer_mom
+  category: prices
+  name: PPI consumer goods MoM
+  name_zh: PPI 生活资料环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:生活资料:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 生活资料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_ppi_mining_yoy
+  category: prices
+  name: PPI mining YoY
+  name_zh: PPI 采掘同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:采掘:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 采掘. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_ppi_mining_mom
+  category: prices
+  name: PPI mining MoM
+  name_zh: PPI 采掘环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:采掘:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 采掘. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_ppi_raw_materials_yoy
+  category: prices
+  name: PPI raw materials YoY
+  name_zh: PPI 原材料同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:原材料:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 原材料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_ppi_raw_materials_mom
+  category: prices
+  name: PPI raw materials MoM
+  name_zh: PPI 原材料环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:原材料:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 原材料. YoY and MoM are published growth
+    rates, not derived from rounded index levels.'
+- metric_id: cn_ppi_processing_yoy
+  category: prices
+  name: PPI processing YoY
+  name_zh: PPI 加工同比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: yoy
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:加工:yoy
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 加工. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_ppi_processing_mom
+  category: prices
+  name: PPI processing MoM
+  name_zh: PPI 加工环比
+  tier: diagnostic
+  frequency: M
+  unit: '%'
+  transform: mom
+  hypotheses:
+  - H1
+  role: Published monthly component for tracing price transmission; no inferred contribution
+    or automatic judgment.
+  role_zh: 统计局公布的月度价格分项，用于观察价格传导；不推算贡献，不自动形成判断。
+  source_primary: NBS
+  source_code: nbs-release:加工:mom
+  release: NBS monthly CPI/PPI release table
+  redistribution: public
+  caliber_notes:
+  - 'Exact NBS monthly release-table label: 加工. YoY and MoM are published growth rates,
+    not derived from rounded index levels.'
+- metric_id: cn_pmi_input_price
+  category: pmi
+  name: Manufacturing PMI main raw-material purchase prices
+  name_zh: 制造业PMI主要原材料购进价格
+  tier: diagnostic
+  frequency: M
+  unit: index (50 = no change)
+  transform: level
+  hypotheses:
+  - H1
+  role: Published manufacturing purchase-price diffusion index; 50 means unchanged
+    prices, not zero inflation.
+  role_zh: 制造业购进价格扩散指数；50 表示价格持平，并非通胀率为零。
+  source_primary: NBS
+  source_code: nbs-release:主要原材料购进价格
+  release: NBS monthly manufacturing PMI release table
+  redistribution: public
+  caliber_notes:
+  - Manufacturing only. Diffusion index; not a YoY/MoM inflation rate.
+
 - metric_id: cn_imports_usd_yoy
   category: trade
   name: Goods imports USD YoY

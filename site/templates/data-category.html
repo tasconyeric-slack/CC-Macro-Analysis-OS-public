@@ -5,6 +5,7 @@
 <p class="data-back"><a href="data.html">{{ t('portal.data_group') }}</a></p>
 <div class="data-intro"><div><p class="small muted">{{ category.kicker }}</p><h1>{{ category.title }}</h1><p class="lede">{{ category.description }}</p></div><div class="data-total"><strong>{{ data_explorer.available }}</strong><span>{{ t('data_explorer.series') }}</span></div></div>
 <nav class="data-category-nav mr-chips" aria-label="{{ t('data_explorer.categories') }}">{% for c in portal.categories %}<a class="mr-chip" href="{{ c.url }}"{% if c.id == category.id %} aria-current="page"{% endif %}>{{ c.title }}</a>{% endfor %}</nav>
+{% block dashboard %}{% endblock %}
 <div class="data-metric-nav">{% for c in data_explorer.cards %}<a href="#metric-{{ c.id }}">{{ c.name }}</a>{% endfor %}</div>
 <div class="data-metrics">{% for c in data_explorer.cards %}
 <article class="data-metric chartcard" id="metric-{{ c.id }}">
@@ -12,6 +13,7 @@
 {% if c.latest %}
 <div class="data-reading"><div><strong>{{ c.value }}</strong><span>{{ c.unit }}</span><p>{{ c.latest.period|period }}</p></div><dl><dt>{{ t('data_explorer.previous') }}</dt><dd>{{ c.previous_change }}</dd><dt>{{ t('data_explorer.year') }}</dt><dd>{{ c.year_change }}</dd></dl></div>
 {{ mx.source_line(c.publisher, c.latest.period|period, c.latest.release_date, c.latest.retrieved_at, c.source_url) }}
+{% if category.id == 'prices' %}<p class="small"><a href="{{ c.csv_url }}" download>{{ t('data_explorer.download') }}</a></p>{% endif %}
 {% if not c.latest.release_date %}<p class="small data-limitation">{{ t('data_explorer.unknown_release') }}</p>{% endif %}
 <div class="data-range mr-chips mr-chips--sm" role="group" aria-label="{{ t('data_explorer.range') }}">{% for r in c.ranges %}<button type="button" class="mr-chip" data-range="{{ r.key }}" aria-pressed="{{ 'true' if r.key == 'all' else 'false' }}">{{ t('data_explorer.' ~ r.key) }}</button>{% endfor %}</div>
 {% for r in c.ranges %}<div data-range-plot="{{ r.key }}"{% if r.key != 'all' %} hidden{% endif %}>{% for p in r.plots %}<div class="data-plot-{{ p.size }}">{{ p.svg }}</div>{% endfor %}</div>{% endfor %}
