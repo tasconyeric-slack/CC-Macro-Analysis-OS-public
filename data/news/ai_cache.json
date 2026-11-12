@@ -355,6 +355,38 @@
    "rejected": {
     "why_zh": "advice"
    }
+  },
+  "news_d0ebabb8d1b2581709d3|9d00e8e5d64c041d|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d0ebabb8d1b2581709d3",
+   "content_hash": "9d00e8e5d64c041d",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Henan's foreign trade hits record high, imports and exports at 937.16 billion yuan in first 10 months",
+   "why_zh": "河南前10个月进出口增长26.1%，规模创历史同期新高，反映中部省份外贸动能。",
+   "why_en": "Henan's trade rose 26.1% in the first 10 months to a record high for the period, showing export momentum in a central province."
+  },
+  "news_6163eb043e11743210f9|fd9795590c8cd70a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6163eb043e11743210f9",
+   "content_hash": "fd9795590c8cd70a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Hengqin port's annual vehicle traffic tops 4 million for first time",
+   "why_zh": "横琴口岸年车流首次突破400万辆次，显示粤澳跨境人员和车辆流动加快。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_607e2ff687381dad9a71|962cef950864a921|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_607e2ff687381dad9a71",
+   "content_hash": "962cef950864a921",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Three keywords explain China's foreign trade data for first 10 months",
+   "why_zh": "海关总署数据显示前10个月货物贸易进出口44.81万亿元，增长20%，是观察外贸走势的关键数据。",
+   "why_en": "Customs data showing goods trade of 44.81 trillion yuan in the first 10 months, up 20%, is a key read on the outlook for trade."
   }
  }
 }
