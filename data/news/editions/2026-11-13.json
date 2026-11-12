@@ -6,12 +6,25 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-5fb9b8181929",
   "evt-d0ebabb8d1b2",
-  "evt-6163eb043e11",
   "evt-508c7a0e1734",
   "evt-530d64a1cae8"
  ],
  "body": [
+  {
+   "event_id": "evt-5fb9b8181929",
+   "title_zh": "墨西哥央行副行长Jonathan Heath：央行近期降息至6.25%让人感到困惑",
+   "summary_zh": "墨西哥央行副行长Jonathan Heath：央行近期降息至6.25%让人感到困惑。在通胀上行、（北方邻国的）美联储似乎准备继续加息之际，我们的降息还释放出错误信息。（路透）",
+   "url": "https://wallstreetcn.com/livenews/3199317",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 83,
+   "rank_key": 87.15888308335967
+  },
   {
    "event_id": "evt-d0ebabb8d1b2",
    "title_zh": "河南外贸规模创历史新高前10个月进出口9371.6亿元",
@@ -33,25 +46,6 @@
    }
   },
   {
-   "event_id": "evt-6163eb043e11",
-   "title_zh": "横琴口岸年度车流首破400万辆次",
-   "summary_zh": "据珠海边检总站横琴边检站统计，截至11月12日16时，横琴口岸查验出入境车辆突破400万辆次，同比增长36.2%，为口岸启用以来首个单年突破400万辆次，车流总量居全国口岸第三。其中澳门单牌车近267万辆次，占66.7%。口岸首创粤澳“合作查验、一次放行”模式，将跨境车辆通关时长由8分钟压缩至100秒以内，最快50秒办结；今年5月7日30条联合一站式车道启用智能“刷脸”通关，已有155万人次使用，完成登记授权的车主超3.1万人。（央视新",
-   "url": "https://wallstreetcn.com/livenews/3199005",
-   "publisher": "华尔街见闻",
-   "topic": "trade",
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "score": 67,
-   "rank_key": 71.15888308335967,
-   "ai": {
-    "title_en": "Hengqin port's annual vehicle traffic tops 4 million for first time",
-    "why_zh": "横琴口岸年车流首次突破400万辆次，显示粤澳跨境人员和车辆流动加快。",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
-  },
-  {
    "event_id": "evt-508c7a0e1734",
    "title_zh": "周二美股盘前你需要了解的全球要闻",
    "summary_zh": "美国10月核心CPI环比上涨0.3%超预期，12月加息50基点预期骤然升温。沃勒释放美联储“最鹰信号”：若通胀居高不下，12月应加息50基点，需收回此前“三次预防性降息”。冲击美国科技IPO融资纪录！Anthropic最高募资904亿美元、完全稀释估值1.4万亿美元。据央视，新一轮俄美乌三方首日会谈结束，将于明日继续进行。阿里巴巴：建议分拆平头哥于香港联交所主板独立上市。软银两年来首次季度亏损！AI暴跌重创愿景基金，美国数据中心项目遭巨",
@@ -62,7 +56,7 @@
     "华尔街见闻"
    ],
    "score": 74,
-   "rank_key": 68.15888308335967,
+   "rank_key": 75.15888308335967,
    "ai": {
     "title_en": "Global news to know before Tuesday's US market open",
     "why_zh": "盘前要闻涵盖美国通胀与加息预期、AI融资及阿里分拆等，是判断外部金融环境与中概科技股的参考。",
@@ -91,6 +85,26 @@
    }
   }
  ],
- "quick": [],
+ "quick": [
+  {
+   "event_id": "evt-6163eb043e11",
+   "title_zh": "横琴口岸年度车流首破400万辆次",
+   "summary_zh": "据珠海边检总站横琴边检站统计，截至11月12日16时，横琴口岸查验出入境车辆突破400万辆次，同比增长36.2%，为口岸启用以来首个单年突破400万辆次，车流总量居全国口岸第三。其中澳门单牌车近267万辆次，占66.7%。口岸首创粤澳“合作查验、一次放行”模式，将跨境车辆通关时长由8分钟压缩至100秒以内，最快50秒办结；今年5月7日30条联合一站式车道启用智能“刷脸”通关，已有155万人次使用，完成登记授权的车主超3.1万人。（央视新",
+   "url": "https://wallstreetcn.com/livenews/3199005",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Hengqin port's annual vehicle traffic tops 4 million for first time",
+    "why_zh": "横琴口岸年车流首次突破400万辆次，显示粤澳跨境人员和车辆流动加快。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "final": false
 }
