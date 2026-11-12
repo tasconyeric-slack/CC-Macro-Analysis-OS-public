@@ -15,7 +15,6 @@
   <div class="memo-judgment">
     <div class="label">{{ t('home.fig.probability') }}</div>
     <div class="memo-prob">{{ prob }}</div>
-    <p class="fignote">{{ t('home.prob_note') }}</p>
     <dl>
       <dt>{{ t('home.fig.confidence') }}</dt><dd>{{ confidence_label }}</dd>
       <dt>{{ t('home.fig.status') }}</dt><dd>{{ status_label }}</dd>
@@ -27,7 +26,6 @@
 </div>
 <section class="memo-refs" aria-labelledby="refs">
   <h2 id="refs">{{ t('memo.refs_title') }}</h2>
-  <p class="small muted">{{ t('memo.refs_note') }}</p>
   <ol class="refs">
   {% for r in memo_refs %}
     <li id="ref-{{ r.n }}" value="{{ r.n }}">
