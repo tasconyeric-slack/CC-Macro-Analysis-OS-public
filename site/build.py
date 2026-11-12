@@ -313,6 +313,8 @@ def build_model(cfg) -> dict:
             "n": len(pts),
         }
         charts.append(chart)
+        if m.category == "markets":
+            continue            # daily market series are context, not inputs to the preregistered evidence tests
         by_h[m.hypotheses[0]].append(chart)
         if pts and m.tier == "core":
             freshness.append(chart)
@@ -626,7 +628,8 @@ def render_site(model: dict, out: Path) -> dict:
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
             ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
             ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method"]]
-            html = env.get_template('prices.html' if stem == 'data-prices' else ("data-category.html" if stem.startswith("data-") else page_file(stem))).render(**ctx)
+            template = {"data-prices": "prices.html", "data-markets": "data-markets.html"}.get(stem)
+            html = env.get_template(template or ("data-category.html" if stem.startswith("data-") else page_file(stem))).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
             if stem == "news" and ctx["macro_news"]["enabled"]:
                 base = {k: ctx[k] for k in ("nav", "footer_nav", "asset")}
