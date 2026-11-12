@@ -343,6 +343,18 @@
    "title_en": "Transcript: press conference on high-quality accounting development during the 15th Five-Year Plan period",
    "why_zh": "会计高质量发展部署影响企业财务规范与信息披露要求，值得市场参与者关注。",
    "why_en": "Plans for high-quality accounting development affect corporate financial standards and disclosure requirements, relevant to market participants."
+  },
+  "news_cf69e96920cf6b72ff6a|6563fac92e60302d|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_cf69e96920cf6b72ff6a",
+   "content_hash": "6563fac92e60302d",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T01:29:51+00:00",
+   "title_en": "US rate-hike expectations strengthen as institutions assess gold price direction",
+   "why_en": "US inflation data beat expectations, strengthening hawkish Fed expectations and pushing gold below 4100 dollars an ounce as institutions cut price targets.",
+   "rejected": {
+    "why_zh": "advice"
+   }
   }
  }
 }

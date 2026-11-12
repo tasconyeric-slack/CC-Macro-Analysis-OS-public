@@ -1,0 +1,12 @@
+{
+ "date": "2026-11-13",
+ "window": [
+  "2026-11-12T08:00:00+08:00",
+  "2026-11-13T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [],
+ "body": [],
+ "quick": [],
+ "final": false
+}
