@@ -8,6 +8,7 @@
  "lead_events": [
   "evt-d0ebabb8d1b2",
   "evt-6163eb043e11",
+  "evt-508c7a0e1734",
   "evt-530d64a1cae8"
  ],
  "body": [
@@ -46,6 +47,25 @@
    "ai": {
     "title_en": "Hengqin port's annual vehicle traffic tops 4 million for first time",
     "why_zh": "横琴口岸年车流首次突破400万辆次，显示粤澳跨境人员和车辆流动加快。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-508c7a0e1734",
+   "title_zh": "周二美股盘前你需要了解的全球要闻",
+   "summary_zh": "美国10月核心CPI环比上涨0.3%超预期，12月加息50基点预期骤然升温。沃勒释放美联储“最鹰信号”：若通胀居高不下，12月应加息50基点，需收回此前“三次预防性降息”。冲击美国科技IPO融资纪录！Anthropic最高募资904亿美元、完全稀释估值1.4万亿美元。据央视，新一轮俄美乌三方首日会谈结束，将于明日继续进行。阿里巴巴：建议分拆平头哥于香港联交所主板独立上市。软银两年来首次季度亏损！AI暴跌重创愿景基金，美国数据中心项目遭巨",
+   "url": "https://wallstreetcn.com/livenews/3197738",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 74,
+   "rank_key": 68.15888308335967,
+   "ai": {
+    "title_en": "Global news to know before Tuesday's US market open",
+    "why_zh": "盘前要闻涵盖美国通胀与加息预期、AI融资及阿里分拆等，是判断外部金融环境与中概科技股的参考。",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
