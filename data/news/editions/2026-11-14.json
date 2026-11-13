@@ -106,6 +106,46 @@
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
+  },
+  {
+   "event_id": "evt-1b4caa50d7c3",
+   "title_zh": "稳市活水持续涌入，着力增强A股内在稳定性",
+   "summary_zh": "政策引导与市场力量同频共振，转化为A股内在稳定力量。11月6日召开的国务院常务会议提出“完善资本市场稳市机制”，释放明确的政策呵护市场信号。受访机构人士认为，随着中长期资金入市渠道持续拓宽、稳市工具体系日益完善，A股抵御外部冲击、平滑波动的韧性将有望稳步增强。",
+   "url": "https://wallstreetcn.com/livenews/3199960",
+   "publisher": "华尔街见闻",
+   "topic": "policy",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "Steady-market liquidity keeps flowing in, aiming to strengthen A-shares' internal stability",
+    "why_zh": "国常会提出完善资本市场稳市机制，中长期资金入市渠道拓宽，事关A股稳定性。",
+    "why_en": "The State Council executive meeting proposed improving capital-market stability mechanisms, and broadening long-term fund entry channels matters for A-share stability.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-6b03842168fb",
+   "title_zh": "美联储警示：AI推升资产估值过高带来潜在风险",
+   "summary_zh": "美联储发布半年度金融稳定报告。报告指出，人工智能（AI）和过高的资产估值可能引发潜在脆弱性。 “资产估值压力持续处于高位。股票估值指标一直居高不下，部分原因是市场对‘超级智能’（super intelligence）的狂热，”美联储在报告中使用了美国总统特朗普对AI的偏好称呼。该央行补充称，这种狂热情绪已因市场对企业资本支出和债务发行计划的担忧而有所降温。",
+   "url": "https://wallstreetcn.com/livenews/3200013",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "Fed warns AI-driven asset valuations too high pose potential risks",
+    "why_zh": "美联储半年度金融稳定报告点名AI与高资产估值带来的脆弱性，是全球风险偏好的重要参照。",
+    "why_en": "The Fed's semiannual financial stability report flags vulnerabilities from AI and high asset valuations, a key reference for global risk appetite.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   }
  ],
  "final": false

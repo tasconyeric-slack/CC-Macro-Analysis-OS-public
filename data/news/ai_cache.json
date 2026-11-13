@@ -457,6 +457,26 @@
     "title_en": "name",
     "why_en": "name"
    }
+  },
+  "news_1b4caa50d7c3e5c5886c|2b6f080f3fae0e90|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1b4caa50d7c3e5c5886c",
+   "content_hash": "2b6f080f3fae0e90",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T21:57:03+00:00",
+   "title_en": "Steady-market liquidity keeps flowing in, aiming to strengthen A-shares' internal stability",
+   "why_zh": "国常会提出完善资本市场稳市机制，中长期资金入市渠道拓宽，事关A股稳定性。",
+   "why_en": "The State Council executive meeting proposed improving capital-market stability mechanisms, and broadening long-term fund entry channels matters for A-share stability."
+  },
+  "news_6b03842168fb08271e4b|5b289be343994103|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6b03842168fb08271e4b",
+   "content_hash": "5b289be343994103",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T21:57:03+00:00",
+   "title_en": "Fed warns AI-driven asset valuations too high pose potential risks",
+   "why_zh": "美联储半年度金融稳定报告点名AI与高资产估值带来的脆弱性，是全球风险偏好的重要参照。",
+   "why_en": "The Fed's semiannual financial stability report flags vulnerabilities from AI and high asset valuations, a key reference for global risk appetite."
   }
  }
 }
