@@ -433,6 +433,30 @@
    "title_en": "China's Ministry of Finance issues 3-year bonds at 1.2200% and 10-year bonds at 1.5600%",
    "why_zh": "国债发行利率与投标倍数反映券商与银行等机构的配置需求，是观察中国债市的重要参考。",
    "why_en": "Sovereign bond yields and bid-to-cover ratios show institutional demand and are a useful gauge of China's bond market."
+  },
+  "news_e1e5e356d9bbae1b3610|418c539f5e7afedf|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e1e5e356d9bbae1b3610",
+   "content_hash": "418c539f5e7afedf",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T15:20:13+00:00",
+   "title_en": "Mexico rate cut fuels speculation officials intend to weaken the peso",
+   "why_zh": "比索自9月初两年高点暴跌近9%，市场猜测墨西哥央行有意推动贬值，关乎新兴市场汇率与货币政策走向。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_3565cc20eac748a7a568|2ca170f9090b1321|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_3565cc20eac748a7a568",
+   "content_hash": "2ca170f9090b1321",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T15:20:13+00:00",
+   "why_zh": "10月末社融存量增7.2%、M2增7.1%，专家认为年内全面降息降准可能性下降，反映货币政策取向。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
   }
  }
 }

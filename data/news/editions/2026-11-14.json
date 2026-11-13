@@ -6,10 +6,49 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
-  "release-trade-2026-10",
-  "evt-9578dfbe3c0f"
+  "evt-e1e5e356d9bb",
+  "release-credit-2026-10"
  ],
  "body": [
+  {
+   "event_id": "evt-e1e5e356d9bb",
+   "title_zh": "墨西哥降息引发官员意图让比索贬值的猜测",
+   "summary_zh": "交易员正日益猜测墨西哥央行正在推动本币贬值，此前比索的强势曾对出口和旅游业构成威胁。自9月初创下两年高点以来，墨西哥比索已暴跌近9%，在彭博追踪的31种主要货币中表现倒数第二。当月Banxico官员释放愿意降低借贷成本的信号后，比索的加速自由落体式下跌随之而来——上周该行出乎经济学家（此前普遍预期按兵不动）的意料，将利率下调了25个基点。",
+   "url": "https://wallstreetcn.com/livenews/3199878",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 83,
+   "rank_key": 87.15888308335967,
+   "ai": {
+    "title_en": "Mexico rate cut fuels speculation officials intend to weaken the peso",
+    "why_zh": "比索自9月初两年高点暴跌近9%，市场猜测墨西哥央行有意推动贬值，关乎新兴市场汇率与货币政策走向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "release-credit-2026-10",
+   "title_zh": "10月末社融、M2增速均超7% 专家：年内降息降准可能性下降",
+   "summary_zh": "中国人民银行公布2026年10月金融数据。10月末，社会融资规模存量为469.16万亿元，同比增长7.2%；广义货币（M2）余额359.06万亿元，同比增长7.1%。两项指标均高于名义GDP增速，同经济增长、价格总水平预期目标相匹配。东方金诚首席宏观分析师王青判断，年底前使用全面降息降准等总量型货币政策工具的可能性下降，监管部门将主要引导银行等金融机构加大对国民经济重点领域和薄弱环节的支持力度，推动“六张网”建设及“五篇大文章”领域贷款",
+   "url": "https://wallstreetcn.com/livenews/3199857",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 81,
+   "rank_key": 85.15888308335967,
+   "ai": {
+    "why_zh": "10月末社融存量增7.2%、M2增7.1%，专家认为年内全面降息降准可能性下降，反映货币政策取向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
   {
    "event_id": "release-trade-2026-10",
    "title_zh": "连续5个月破万亿元前10月广东进出口规模超去年全年",
@@ -47,9 +86,7 @@
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
-  }
- ],
- "quick": [
+  },
   {
    "event_id": "evt-ae0848947a19",
    "title_zh": "中国财政部发行3年期债券，规模1200亿元，发行利率1.2200%，边际利率1.2400%，预期1.2500%，投标倍数3.07倍，边际倍数2.55倍；中国财政部发行10年期债券",
