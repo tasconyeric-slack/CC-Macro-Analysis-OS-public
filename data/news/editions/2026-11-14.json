@@ -1,0 +1,75 @@
+{
+ "date": "2026-11-14",
+ "window": [
+  "2026-11-13T08:00:00+08:00",
+  "2026-11-14T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "release-trade-2026-10",
+  "evt-9578dfbe3c0f"
+ ],
+ "body": [
+  {
+   "event_id": "release-trade-2026-10",
+   "title_zh": "连续5个月破万亿元前10月广东进出口规模超去年全年",
+   "summary_zh": "海关总署广东分署发布最新数据，今年前10月广东外贸进出口9.8万亿元，已超过去年全年规模，比去年同期增长25.7%。其中，出口5.73万亿元，增长15.1%；进口4.07万亿元，增长44.6%。前10个月，广东外贸规模占全国比重达21.9%，较去年同期提升1个百分点。据了解，继今年6月历史首次突破万亿元大关后，广东进出口月度规模已连续5个月超万亿元。",
+   "url": "https://wallstreetcn.com/livenews/3199557",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 80,
+   "rank_key": 84.15888308335967,
+   "ai": {
+    "why_zh": "广东前10月进出口9.8万亿元、占全国21.9%，是观察中国外贸走势的重要窗口。",
+    "why_en": "Guangdong's 9.8 trillion yuan of trade in the first 10 months, 21.9% of the national total, is a key window on China's export performance.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-9578dfbe3c0f",
+   "title_zh": "早间要闻汇总",
+   "summary_zh": "创业板指半日跌超1%，江苏银行等多只银行股创历史新高。恒指半日跌0.9%，恒生科技指数跌1.8%，智谱跌近9%，MINIMAX跌超6%。美联储威廉姆斯：美联储在使通胀率回归目标方面“还有工作要做”。报道：三星正就收购数据中心冷却系统公司Modine进行谈判。中芯国际联合CEO赵海军：全年销售收入预计超120亿美元，同比增长近三成。新华社：10月高频数据折射中国经济稳中向好态势。",
+   "url": "https://wallstreetcn.com/livenews/3199560",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 74,
+   "rank_key": 78.15888308335967,
+   "ai": {
+    "title_en": "Morning news roundup",
+    "why_zh": "汇总涵盖A股与港股盘中表现、美联储官员表态及中芯国际收入预期等，便于快速把握当日市场信息。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
+  {
+   "event_id": "evt-ae0848947a19",
+   "title_zh": "中国财政部发行3年期债券，规模1200亿元，发行利率1.2200%，边际利率1.2400%，预期1.2500%，投标倍数3.07倍，边际倍数2.55倍；中国财政部发行10年期债券",
+   "summary_zh": "中国财政部发行3年期债券，规模1200亿元，发行利率1.2200%，边际利率1.2400%，预期1.2500%，投标倍数3.07倍，边际倍数2.55倍；中国财政部发行10年期债券，规模800亿元，发行利率1.5600%，边际利率1.5800%，预期1.5800%，投标倍数4.32倍，边际倍数1.78倍。",
+   "url": "https://wallstreetcn.com/livenews/3199549",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "China's Ministry of Finance issues 3-year bonds at 1.2200% and 10-year bonds at 1.5600%",
+    "why_zh": "国债发行利率与投标倍数反映券商与银行等机构的配置需求，是观察中国债市的重要参考。",
+    "why_en": "Sovereign bond yields and bid-to-cover ratios show institutional demand and are a useful gauge of China's bond market.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "final": false
+}

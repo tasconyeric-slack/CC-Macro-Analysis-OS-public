@@ -399,6 +399,40 @@
     "why_zh": "name",
     "why_en": "name"
    }
+  },
+  "news_7538a546c7dec8d890cf|657b26d37011b1ce|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7538a546c7dec8d890cf",
+   "content_hash": "657b26d37011b1ce",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "why_zh": "广东前10月进出口9.8万亿元、占全国21.9%，是观察中国外贸走势的重要窗口。",
+   "why_en": "Guangdong's 9.8 trillion yuan of trade in the first 10 months, 21.9% of the national total, is a key window on China's export performance.",
+   "rejected": {
+    "title_en": "number"
+   }
+  },
+  "news_9578dfbe3c0f71035e5b|b1efe1eefbd41bad|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9578dfbe3c0f71035e5b",
+   "content_hash": "b1efe1eefbd41bad",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "title_en": "Morning news roundup",
+   "why_zh": "汇总涵盖A股与港股盘中表现、美联储官员表态及中芯国际收入预期等，便于快速把握当日市场信息。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_ae0848947a19a9726159|69d848b467f879a0|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ae0848947a19a9726159",
+   "content_hash": "69d848b467f879a0",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "title_en": "China's Ministry of Finance issues 3-year bonds at 1.2200% and 10-year bonds at 1.5600%",
+   "why_zh": "国债发行利率与投标倍数反映券商与银行等机构的配置需求，是观察中国债市的重要参考。",
+   "why_en": "Sovereign bond yields and bid-to-cover ratios show institutional demand and are a useful gauge of China's bond market."
   }
  }
 }
