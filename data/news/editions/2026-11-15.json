@@ -6,11 +6,33 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-3b2d79cf934a",
   "evt-e4c0f1e8abd0",
   "evt-5e670beb5015",
   "evt-46ddcaa2d863"
  ],
  "body": [
+  {
+   "event_id": "evt-3b2d79cf934a",
+   "title_zh": "深圳已成为中国内地首个外贸进出口超5万亿元的城市",
+   "summary_zh": "11月14日，2026年APEC领导人会议周新闻中心举行广东省、深圳市专场中外媒体吹风会。会上，深圳市商务局局长张非梦表示，根据最新数据，深圳外贸再创新高，已成为中国内地首个外贸进出口超5万亿元的城市。",
+   "url": "https://wallstreetcn.com/livenews/3200085",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "中国新闻网",
+    "华尔街见闻"
+   ],
+   "score": 76,
+   "rank_key": 82.59167373200866,
+   "ai": {
+    "title_en": "Shenzhen becomes first city in mainland China with foreign trade exceeding 5 trillion yuan",
+    "why_zh": "深圳外贸规模首次突破5万亿元，成为中国内地首个达到这一水平的外贸城市，反映其外贸体量。",
+    "why_en": "Shenzhen's foreign trade has surpassed 5 trillion yuan, making it the first mainland Chinese city to reach that level and highlighting the scale of its trade.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-e4c0f1e8abd0",
    "title_zh": "中国外贸快到顶了吗",
@@ -58,10 +80,11 @@
    "topic": "trade",
    "publishers": [
     "东方财富",
-    "中国新闻网"
+    "中国新闻网",
+    "华尔街见闻"
    ],
    "score": 61,
-   "rank_key": 67.59167373200866,
+   "rank_key": 69.31776616671934,
    "ai": {
     "why_zh": "中美经贸磋商机制项下贸易理事会首次会议举行，这一机制动向值得关注中国经济的人留意。",
     "model": "deepseek-flash",
