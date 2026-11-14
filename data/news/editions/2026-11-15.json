@@ -7,7 +7,8 @@
  "rule_version": "macro-rank-v1",
  "lead_events": [
   "evt-e4c0f1e8abd0",
-  "evt-5e670beb5015"
+  "evt-5e670beb5015",
+  "evt-46ddcaa2d863"
  ],
  "body": [
   {
@@ -44,6 +45,25 @@
    "rank_key": 72.15888308335967,
    "ai": {
     "title_en": "October financial data land: traditional credit contracts as direct financing rises",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-46ddcaa2d863",
+   "title_zh": "中美举行中美经贸磋商机制项下贸易理事会首次会议",
+   "summary_zh": "中美举行中美经贸磋商机制项下贸易理事会首次会议",
+   "url": "https://www.mofcom.gov.cn/xwfb/rcxwfb/art/2026/art_c564995ff6054093a1ed039e10c89aad.html",
+   "publisher": "商务部",
+   "topic": "trade",
+   "publishers": [
+    "东方财富",
+    "中国新闻网"
+   ],
+   "score": 61,
+   "rank_key": 67.59167373200866,
+   "ai": {
+    "why_zh": "中美经贸磋商机制项下贸易理事会首次会议举行，这一机制动向值得关注中国经济的人留意。",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
