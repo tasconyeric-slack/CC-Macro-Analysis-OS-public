@@ -1,0 +1,54 @@
+{
+ "date": "2026-11-15",
+ "window": [
+  "2026-11-14T08:00:00+08:00",
+  "2026-11-15T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-e4c0f1e8abd0",
+  "evt-5e670beb5015"
+ ],
+ "body": [
+  {
+   "event_id": "evt-e4c0f1e8abd0",
+   "title_zh": "中国外贸快到顶了吗",
+   "summary_zh": "【中国外贸快到顶了吗】“金九银十”是外贸行业的普遍共识，今年也不例外。刚刚发布的数据显示，10月份，我国货物贸易进出口4.87万亿元，同比增长31.2%，增速为近年来新高。就在上个月，外贸进出口单月规模首次突破了5万亿元大关。对于当前外贸发展态势，海关总署新闻发言人用“保持强劲增长态势，韧性和活力更加彰显”加以评价。与此同时，市场上有关“外贸增势能否延续”“是否即将触碰‘天花板’”的声音也频频出现。中国外贸是不是真的快到顶了？",
+   "url": "https://finance.eastmoney.com/a/202611143931095039.html",
+   "publisher": "东方财富",
+   "topic": "trade",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 77,
+   "rank_key": 81.15888308335967,
+   "ai": {
+    "title_en": "Is China's foreign trade nearing its peak?",
+    "why_zh": "10月货物贸易进出口4.87万亿元、同比增长31.2%，增速为近年来新高，外贸增势能否延续成为关注焦点。",
+    "why_en": "With October goods trade at 4.87 trillion yuan, up 31.2% year on year and the fastest in recent years, whether the momentum can last is a key question.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-5e670beb5015",
+   "title_zh": "10月金融数据落地传统信贷收缩直接融资崛起",
+   "summary_zh": "【10月金融数据落地传统信贷收缩直接融资崛起】1-10月的社会融资规模增量中，债券和股票融资合计占比52.99%，已超过贷款占比13.87个百分点。特别是企业债券保持较快增长，今年以来新增3.1万亿元，是上年同期增量的1.7倍。“近年来我国金融市场业态更加丰富、深度广度稳步提升，实体经济融资渠道更加多元化，形成了信贷、债券、股票等协同发展的格局。”权威专家表示。",
+   "url": "https://finance.eastmoney.com/a/202611133931006882.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "October financial data land: traditional credit contracts as direct financing rises",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

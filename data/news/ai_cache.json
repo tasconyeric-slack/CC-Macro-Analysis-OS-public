@@ -477,6 +477,28 @@
    "title_en": "Fed warns AI-driven asset valuations too high pose potential risks",
    "why_zh": "美联储半年度金融稳定报告点名AI与高资产估值带来的脆弱性，是全球风险偏好的重要参照。",
    "why_en": "The Fed's semiannual financial stability report flags vulnerabilities from AI and high asset valuations, a key reference for global risk appetite."
+  },
+  "news_e4c0f1e8abd0f2365e16|93f780828cc59392|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e4c0f1e8abd0f2365e16",
+   "content_hash": "93f780828cc59392",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T02:22:36+00:00",
+   "title_en": "Is China's foreign trade nearing its peak?",
+   "why_zh": "10月货物贸易进出口4.87万亿元、同比增长31.2%，增速为近年来新高，外贸增势能否延续成为关注焦点。",
+   "why_en": "With October goods trade at 4.87 trillion yuan, up 31.2% year on year and the fastest in recent years, whether the momentum can last is a key question."
+  },
+  "news_5e670beb5015d65d3f30|b17ea8c2527c1e1a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_5e670beb5015d65d3f30",
+   "content_hash": "b17ea8c2527c1e1a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T02:22:36+00:00",
+   "title_en": "October financial data land: traditional credit contracts as direct financing rises",
+   "rejected": {
+    "why_zh": "number",
+    "why_en": "number"
+   }
   }
  }
 }
