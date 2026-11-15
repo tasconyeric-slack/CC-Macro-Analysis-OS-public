@@ -521,6 +521,18 @@
    "title_en": "Shenzhen becomes first city in mainland China with foreign trade exceeding 5 trillion yuan",
    "why_zh": "深圳外贸规模首次突破5万亿元，成为中国内地首个达到这一水平的外贸城市，反映其外贸体量。",
    "why_en": "Shenzhen's foreign trade has surpassed 5 trillion yuan, making it the first mainland Chinese city to reach that level and highlighting the scale of its trade."
+  },
+  "news_4a679bafb1bc367b36ae|eb4d687f3aa58c76|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_4a679bafb1bc367b36ae",
+   "content_hash": "eb4d687f3aa58c76",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-15T01:51:06+00:00",
+   "why_zh": "央行上调外汇存款准备金率正式生效，有助于促进外汇市场供求平衡。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
   }
  }
 }
