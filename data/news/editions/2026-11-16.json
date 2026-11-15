@@ -6,7 +6,8 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
-  "evt-4a679bafb1bc"
+  "evt-4a679bafb1bc",
+  "evt-42d671b7f756"
  ],
  "body": [
   {
@@ -25,6 +26,24 @@
    "rank_key": 91.31776616671934,
    "ai": {
     "why_zh": "央行上调外汇存款准备金率正式生效，有助于促进外汇市场供求平衡。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-42d671b7f756",
+   "title_zh": "中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌",
+   "summary_zh": "【中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌】停牌10个交易日后，中国稀土（000831）于11月13日晚披露重组预案和复牌公告。公司拟通过发行股份的方式购买实控人中国稀土集团持有的中稀（凉山）稀土有限公司（下称“中稀凉山”）51%股权，并向不超过35名特定投资者发行股份募集配套资金。",
+   "url": "https://finance.eastmoney.com/a/202611153931495487.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "why_zh": "中国稀土披露拟以发行股份方式收购中稀凉山51%股权的重组预案，股票复牌，涉及稀土集团资产整合。",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }

@@ -533,6 +533,18 @@
     "title_en": "name",
     "why_en": "name"
    }
+  },
+  "news_42d671b7f7567dd64118|4910982bea68ae40|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_42d671b7f7567dd64118",
+   "content_hash": "4910982bea68ae40",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-15T21:44:13+00:00",
+   "why_zh": "中国稀土披露拟以发行股份方式收购中稀凉山51%股权的重组预案，股票复牌，涉及稀土集团资产整合。",
+   "rejected": {
+    "title_en": "advice",
+    "why_en": "advice"
+   }
   }
  }
 }
