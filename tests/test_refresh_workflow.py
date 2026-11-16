@@ -21,7 +21,7 @@ WORKFLOW = ROOT / ".github/workflows/refresh.yml"
 STEP = "Commit new public artifacts"
 CASE = "research/cases/cn-nominal"
 # where a refresh writes; everything staged must be under one of these
-OUTPUT_ROOTS = ("data/demo/observations/", f"{CASE}/eval/", f"{CASE}/refreshes/", f"{CASE}/updates/")
+OUTPUT_ROOTS = ("data/demo/observations/", f"{CASE}/eval/", f"{CASE}/refreshes/", f"{CASE}/updates/", f"{CASE}/inputs/")
 # representative analyst/research-controlled files under the same case root, tracked on main
 ANALYST_FILES = {
     f"{CASE}/case.yaml": "id: cn-nominal\n",
@@ -162,3 +162,15 @@ def test_generated_secret_blocks_refresh_commit(main_like_repo):
     done = run_script(main_like_repo, staging_script())
     assert done.returncode != 0
     assert "possible credential assignment" in done.stdout
+
+
+def test_scheduled_refresh_builds_and_commits_the_daily_research_input_bundle():
+    """#56/#57: Weekly and Monthly drafts read research-input bundles, so the scheduled refresh must build them."""
+    steps = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))["jobs"]["refresh"]["steps"]
+    (build,) = [s for s in steps if str(s.get("name", "")).startswith("Build the day's research input bundle")]
+    assert "research-inputs build --as-of" in build["run"]
+    assert "pull_request" in build["if"] and "inputs.dry_run" in build["if"]       # never on PRs or dry runs
+    assert steps.index(build) < steps.index([s for s in steps if s.get("name") == STEP][0])
+    assert f"{CASE}/inputs" in commit_step_script()
+    committer = (ROOT / "scripts/commit_public_refresh.py").read_text(encoding="utf-8")
+    assert f'"{CASE}/inputs/"' in committer

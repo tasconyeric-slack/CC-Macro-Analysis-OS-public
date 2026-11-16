@@ -1,0 +1,228 @@
+{
+ "date": "2026-11-17",
+ "window": [
+  "2026-11-16T08:00:00+08:00",
+  "2026-11-17T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "release-fai-2026-10",
+  "evt-c754e31e6205",
+  "evt-a9d47a3a5175",
+  "evt-ed62d7ec9d40"
+ ],
+ "body": [
+  {
+   "event_id": "release-fai-2026-10",
+   "title_zh": "2026年1—10月份全国固定资产投资基本情况",
+   "summary_zh": "1—10月份，全国固定资产投资（不含农户）364824亿元，同比下降8.1%（按可比口径计算，详见附注7）。其中，知识产权产品投资同比增长9.2%。分产业看，第一产业投资7018亿元，同比下降6.1%；第二产业投资142333亿元，下降3.6%；第三产业投资215473亿元，下降10.9%。工业投资同比下降3.6%。其中，采矿业...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261116_1965841.html",
+   "publisher": "国家统计局",
+   "topic": "growth",
+   "publishers": [
+    "中国新闻网",
+    "国家统计局"
+   ],
+   "score": 79,
+   "rank_key": 88.59167373200866,
+   "ai": {
+    "title_en": "Basic situation of national fixed asset investment in January-October 2026",
+    "why_zh": "全国固定资产投资同比下降8.1%，三大产业投资均下降，反映投资端整体走弱。",
+    "why_en": "Nationwide fixed asset investment fell 8.1% year on year, with investment down in all three sectors, pointing to broad weakness on the investment side.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-c754e31e6205",
+   "title_zh": "2026年1—10月份社会消费品零售总额增长1.0%",
+   "summary_zh": "1—10月份，社会消费品零售总额416464亿元，同比增长1.0%。其中，除汽车以外的消费品零售额383811亿元，增长2.8%。10月份，社会消费品零售总额46463亿元，同比增长0.4%。其中，除汽车以外的消费品零售额43162亿元，增长2.5%。按经营单位所在地分，1—10月份，城镇消费品零售额359918亿元，同比增长0.9%；乡...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261116_1965839.html",
+   "publisher": "国家统计局",
+   "topic": "growth",
+   "publishers": [
+    "国家统计局"
+   ],
+   "score": 79,
+   "rank_key": 86.15888308335967,
+   "ai": {
+    "title_en": "Retail sales of consumer goods up 1.0% in January-October 2026",
+    "why_zh": "前10个月社零总额同比增长1.0%，10月当月仅增0.4%，消费复苏力度放缓。",
+    "why_en": "Retail sales rose 1.0% year on year in January-October but only 0.4% in October alone, suggesting a slower pace of consumer recovery.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-a9d47a3a5175",
+   "title_zh": "前10个月西部陆海新通道沿线经通道进出口超8700亿元",
+   "summary_zh": "今年前10个月，西部陆海新通道沿线“13+2”省（区、市）经通道进出口8788.2亿元，同比增长11.9%，规模创历史同期新高。沿线省（区、市）的机电产品、高新技术产品经通道加速走向海外市场，前10个月分别出口2500.1亿元、1345.1亿元，同比分别增长15.5%、29.8%。同时，来自世界各地的大宗商品、特色农产品等经通道源源不断进入我国西部内陆地区。（央视新闻）",
+   "url": "https://wallstreetcn.com/livenews/3200488",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 76,
+   "rank_key": 80.15888308335967,
+   "ai": {
+    "why_zh": "沿线13+2省区市经通道进出口8788.2亿元、增长11.9%，体现西部外贸通道动能。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-ed62d7ec9d40",
+   "title_zh": "国家统计局答一财：客观理性看待投资降幅扩大",
+   "summary_zh": "前10个月，全国固定资产投资同比下降8.1%。",
+   "url": "https://www.yicai.com/news/103441781.html",
+   "publisher": "第一财经",
+   "topic": "growth",
+   "publishers": [
+    "第一财经"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "why_zh": "官方回应前10个月固定资产投资同比下降8.1%的降幅扩大，涉及投资形势判断。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-1f3b273e1254",
+   "title_zh": "摩根士丹利上调韩国终端利率预期紧缩周期或延长至2028年",
+   "summary_zh": "【摩根士丹利上调韩国终端利率预期紧缩周期或延长至2028年】摩根士丹利在最新发布的报告中预测，韩国央行将在本月及明年2月的货币政策委员会会议上各上调基准利率25个基点，最终达到3.5%。这一预测较市场此前普遍预期的3.25%终端利率高出25个基点，也高于韩国央行8月政策委员会利率预测中值3.25%。",
+   "url": "https://finance.eastmoney.com/a/202611163931578151.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "why_zh": "外部利率路径变化会影响全球资金流向，与中国经济和政策环境存在联动。",
+    "why_en": "Shifts in external rate paths affect global capital flows and interact with China's economy and policy environment.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-74fd5d1dbb2e",
+   "title_zh": "罗马尼亚央行将2026年通胀预测上调至7.4%",
+   "summary_zh": "罗马尼亚央行将2026年通胀预测上调至7.4%。",
+   "url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniyxpxc5963298.d.html",
+   "publisher": "新浪财经",
+   "topic": "prices",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "Romanian central bank raises 2026 inflation forecast to 7.4%",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-77dd9bac2ffa",
+   "title_zh": "调查显示欧元区第四季度通胀率预计将升至4%",
+   "summary_zh": "一项调查显示，在10月价格涨幅是欧洲央行目标的两倍后，经济学家们纷纷上调预测，料今年最后一个季度欧元区通胀率将达到4%。根据11月6日至11日对19位经济学家进行的调查，他们对欧元区第四季度通胀率的预估中值从上月调查时的3.8%上调至4%。西班牙、意大利和法国的通胀预期也被上调，德国的预期则被下调。（彭博）",
+   "url": "https://wallstreetcn.com/livenews/3200507",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 69,
+   "rank_key": 73.15888308335967,
+   "ai": {
+    "title_en": "Survey shows eurozone fourth-quarter inflation expected to rise to 4%",
+    "why_zh": "欧元区通胀预期上调至4%，作为中国重要贸易伙伴的价格走势，关系到外需与出口前景。",
+    "why_en": "Eurozone inflation expectations were raised to 4%, a price trend in a major trading partner that bears on external demand and export prospects.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
+  {
+   "event_id": "evt-0f60da69beef",
+   "title_zh": "2026年10月份规模以上工业增加值增长4.8%",
+   "summary_zh": "10月份，规模以上工业增加值同比实际增长4.8%（增加值增速均为扣除价格因素的实际增长率）。从环比看，10月份，规模以上工业增加值比上月增长0.21%。1—10月份，规模以上工业增加值同比增长5.3%。分三大门类看，10月份，采矿业增加值同比增长0.7%，制造业增长5.4%，电力、热力、燃气及水生产和供应业增长4.4...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261116_1965842.html",
+   "publisher": "国家统计局",
+   "topic": "growth",
+   "publishers": [
+    "国家统计局"
+   ],
+   "score": 79,
+   "rank_key": 86.15888308335967,
+   "ai": {
+    "title_en": "October 2026 industrial value added above designated size grows 4.8%",
+    "why_zh": "工业增加值是衡量中国实体经济运行的关键月度指标，10月同比增速为4.8%。",
+    "why_en": "Industrial value added is a key monthly gauge of China's real economy; October's year-on-year growth was 4.8%.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "release-house-2026-10",
+   "title_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
+   "summary_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
+   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965838.html",
+   "publisher": "国家统计局",
+   "topic": "property",
+   "publishers": [
+    "东方财富",
+    "中国新闻网",
+    "华尔街见闻",
+    "第一财经"
+   ],
+   "score": 71,
+   "rank_key": 80.6566274746046
+  },
+  {
+   "event_id": "evt-9578dfbe3c0f",
+   "title_zh": "早间要闻汇总",
+   "summary_zh": "创业板指半日跌超1%，江苏银行等多只银行股创历史新高。恒指半日跌0.9%，恒生科技指数跌1.8%，智谱跌近9%，MINIMAX跌超6%。美联储威廉姆斯：美联储在使通胀率回归目标方面“还有工作要做”。报道：三星正就收购数据中心冷却系统公司Modine进行谈判。中芯国际联合CEO赵海军：全年销售收入预计超120亿美元，同比增长近三成。新华社：10月高频数据折射中国经济稳中向好态势。",
+   "url": "https://wallstreetcn.com/livenews/3199560",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 74,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Morning news roundup",
+    "why_zh": "汇总涵盖A股与港股盘中表现、美联储官员表态及中芯国际收入预期等，便于快速把握当日市场信息。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-9c27f2c1fee0",
+   "title_zh": "2026年10月份70个大中城市商品住宅销售价格变动情况",
+   "summary_zh": "表1：2026年10月70个大中城市新建商品住宅销售价格指数城市环比同比1-10月平均城市环比同比1-10月平均上月=100上年同月=100上年同期=100上月=100上年同月=100上年同期=100北京99.997.497.7唐山99.794.794.0天津99.796.895.7秦皇岛99.894.894.8石家庄100.096.795.7包头99.994.593.0太原100.199...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261116_1965836.html",
+   "publisher": "国家统计局",
+   "topic": "property",
+   "publishers": [
+    "国家统计局"
+   ],
+   "score": 55,
+   "rank_key": 62.15888308335967,
+   "ai": {
+    "title_en": "Commercial residential sales price changes in 70 large and medium cities in October 2026",
+    "why_zh": "70城房价是观察中国房地产这一关键领域冷暖的月度核心指标。",
+    "why_en": "The 70-city price index is a core monthly gauge of conditions in China's key property sector.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "final": false
+}

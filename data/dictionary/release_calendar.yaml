@@ -122,3 +122,179 @@ releases:
     metrics: [cn_pmi_output_price, cn_pmi_new_orders, cn_pmi_new_export_orders, cn_pmi_mfg]
     url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59
     verified_on: "2026-10-04"
+  # NBS release agenda (queryAgendas) 2026-09-01..2027-03-31, checked 2026-11-11.
+  - name: "2026-08 CPI (居民消费价格指数月度报告)"
+    period: "2026-08"
+    release: "2026-09-09T09:30:00+08:00"
+    metrics: []
+    display_metrics: [cn_cpi_yoy, cn_core_cpi_yoy]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 PPI (工业生产者价格指数月度报告)"
+    period: "2026-08"
+    release: "2026-09-09T09:30:00+08:00"
+    metrics: []
+    display_metrics: [cn_ppi_yoy, cn_ppi_mom]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 home prices (70 cities) (商品住宅销售价格指数月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T09:30:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 fixed-asset investment (固定资产投资月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 national economic performance (国民经济运行情况)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_unemployment]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 property development and sales (房地产开发和销售情况月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_property_sales_area_ytd_yoy]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 retail sales (社会消费品零售总额月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_retail_sales_yoy]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 energy production (能源生产情况月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 industrial production (规模以上工业生产月度报告)"
+    period: "2026-08"
+    release: "2026-09-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_ip_yoy]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-08 industrial profits (工业经济效益月度报告)"
+    period: "2026-08"
+    release: "2026-09-28T09:30:00+08:00"
+    metrics: []
+    display_metrics: [cn_ind_profit_ytd_yoy]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-09 PMI (采购经理指数月度报告)"
+    period: "2026-09"
+    release: "2026-09-30T09:30:00+08:00"
+    metrics: []
+    display_metrics: [cn_pmi_mfg, cn_pmi_nonmfg, cn_pmi_new_orders]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-09 home prices (70 cities) (商品住宅销售价格指数月度报告)"
+    period: "2026-09"
+    release: "2026-10-19T09:30:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026Q3 household income (全国居民收支情况季度报告)"
+    period: "2026Q3"
+    release: "2026-10-19T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026Q3 capacity utilization (全国工业产能利用率季度报告)"
+    period: "2026Q3"
+    release: "2026-10-19T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-09 fixed-asset investment (固定资产投资月度报告)"
+    period: "2026-09"
+    release: "2026-10-19T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-09 energy production (能源生产情况月度报告)"
+    period: "2026-09"
+    release: "2026-10-19T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026Q3 value added by industry (季度主要行业增加值初步核算报告)"
+    period: "2026Q3"
+    release: "2026-10-20T09:30:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-10 home prices (70 cities) (商品住宅销售价格指数月度报告)"
+    period: "2026-10"
+    release: "2026-11-16T09:30:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-10 fixed-asset investment (固定资产投资月度报告)"
+    period: "2026-10"
+    release: "2026-11-16T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-10 national economic performance (国民经济运行情况)"
+    period: "2026-10"
+    release: "2026-11-16T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_unemployment]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-10 energy production (能源生产情况月度报告)"
+    period: "2026-10"
+    release: "2026-11-16T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-11 home prices (70 cities) (商品住宅销售价格指数月度报告)"
+    period: "2026-11"
+    release: "2026-12-15T09:30:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-11 fixed-asset investment (固定资产投资月度报告)"
+    period: "2026-11"
+    release: "2026-12-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-11 national economic performance (国民经济运行情况)"
+    period: "2026-11"
+    release: "2026-12-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: [cn_unemployment]
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"
+  - name: "2026-11 energy production (能源生产情况月度报告)"
+    period: "2026-11"
+    release: "2026-12-15T10:00:00+08:00"
+    metrics: []
+    display_metrics: []
+    url: https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/09/01%2000:00:00&endDate=2027/03/31%2023:59:59
+    verified_on: "2026-11-11"

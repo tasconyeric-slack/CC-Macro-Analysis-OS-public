@@ -1,0 +1,18 @@
+# Institutional-view sources checked for Issue #11 / #69 (W5). Append a row per check; never
+# store a token here. No source below is connected, so no institutional view is published.
+checks:
+  - source: FinLens research API (macro.finlens.cn/research/v1)
+    checked_on: '2026-11-11'
+    result:
+      en: Not connected. The Owner has not claimed a token, redistribution permission is unconfirmed, and the cloud build network refuses the host (proxy 403), so the Skill contract could not be read.
+      zh: 未接入。Owner 尚未领取 token，转载许可未确认；云端构建网络拒绝访问该域名（代理 403），无法读取 Skill 合约。
+  - source: Tushare research_report
+    checked_on: '2026-11-11'
+    result:
+      en: No permission on the current account (error 40203).
+      zh: 当前账户无接口权限（错误 40203）。
+  - source: Broker WeChat accounts via Sogou / wechat2rss / RSSHub
+    checked_on: '2026-11-09'
+    result:
+      en: No reliable daily source (stale ranking, anti-spider page, 403); see docs/research/wechat-collection-test.md.
+      zh: 无可靠的每日来源（结果陈旧、反爬页面、403）；见 docs/research/wechat-collection-test.md。

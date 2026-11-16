@@ -430,6 +430,47 @@ AGENDA_MAP = [  # (name prefix after removing the time suffix, metrics, period r
 ]
 
 
+# China release kinds shown on the public calendar: (kind, title keywords, short zh, short en,
+# reference-period rule for NBS agenda titles, metrics displayed with the release).
+# Display metrics never feed the refresh scheduler; that stays on AGENDA_MAP and `metrics`.
+RELEASE_KINDS = [
+    ("cpi", ("居民消费价格", "CPI"), "CPI", "CPI", "prev_month", ["cn_cpi_yoy", "cn_core_cpi_yoy"]),
+    ("ppi", ("工业生产者价格", "PPI"), "PPI", "PPI", "prev_month", ["cn_ppi_yoy", "cn_ppi_mom"]),
+    ("pmi", ("采购经理", "PMI"), "PMI", "PMI", "pmi", ["cn_pmi_mfg", "cn_pmi_nonmfg", "cn_pmi_new_orders"]),
+    ("gdp", ("GDP",), "GDP", "GDP", "prev_quarter", ["cn_rgdp_yoy"]),
+    ("economy", ("国民经济运行", "national economic performance", "activity"), "国民经济运行",
+     "Economic activity", "prev_month", ["cn_unemployment"]),
+    ("ip", ("规模以上工业生产", "industrial production"), "工业生产", "Industrial output", "prev_month", ["cn_ip_yoy"]),
+    ("retail", ("社会消费品零售", "retail sales"), "社零", "Retail sales", "prev_month", ["cn_retail_sales_yoy"]),
+    ("fai", ("固定资产投资", "fixed-asset investment"), "固定资产投资", "Fixed-asset investment", "prev_month", []),
+    ("property", ("房地产开发", "property development"), "房地产", "Property", "prev_month",
+     ["cn_property_sales_area_ytd_yoy"]),
+    ("homes", ("商品住宅销售价格", "home prices"), "70城房价", "Home prices", "prev_month", []),
+    ("energy", ("能源生产", "energy production"), "能源生产", "Energy output", "prev_month", []),
+    ("profits", ("工业经济效益", "industrial profits"), "工业利润", "Industrial profits", "profit",
+     ["cn_ind_profit_ytd_yoy"]),
+    ("income", ("居民收支", "household income"), "居民收支", "Household income", "prev_quarter", []),
+    ("capacity", ("产能利用率", "capacity utilization"), "产能利用率", "Capacity utilization", "prev_quarter", []),
+    ("industry_va", ("主要行业增加值", "value added by industry"), "分行业增加值", "Value added by industry",
+     "prev_quarter", []),
+    ("pboc", ("金融统计数据", "financial statistics"), "金融统计", "Money & credit", None,
+     ["cn_m2_yoy", "cn_m1_yoy", "cn_tsf_stock_yoy"]),
+    ("gacc_flash", ("进出口", "trade (preliminary)"), "进出口初值", "Trade (preliminary)", None,
+     ["cn_exports_usd_yoy", "cn_imports_usd_yoy"]),
+    ("gacc_bulletin", ("海关统计月报", "customs monthly bulletin"), "海关统计月报", "Customs bulletin", None,
+     ["cn_exports_us_ytd_yoy"]),
+    ("mof", ("财政收支", "fiscal"), "财政收支", "Fiscal revenue & spending", None, ["cn_budget_rev_ytd_yoy", "cn_budget_exp_ytd_yoy"]),
+]
+KIND = {k[0]: k for k in RELEASE_KINDS}
+NBS_SCHEDULE_URL = "https://www.stats.gov.cn/sj/fbrc/"
+
+
+def release_kinds(title: str) -> list[str]:
+    """Kinds named in a calendar or official title, in table order ('CPI and PPI' -> ['cpi', 'ppi'])."""
+    low = title.lower()
+    return [k for k, words, *_ in RELEASE_KINDS if any(w.lower() in low for w in words)]
+
+
 def nbs_agenda(start: str, end: str) -> list[tuple[str, str]]:
     """[(fb_time 'YYYY-MM-DD HH:MM:SS', release name)] between start and end (YYYY-MM-DD), deduplicated."""
     q = urllib.parse.urlencode({"startDate": start.replace("-", "/") + " 00:00:00",

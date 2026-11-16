@@ -257,6 +257,450 @@
    "title_en": "China's October soybean imports 7.345 million tonnes, down 22.5% year on year",
    "why_zh": "大豆进口是观察中国农产品需求与进口走势的重要数据，10月同比下降22.5%。",
    "why_en": "Soybean imports are a key gauge of China's agricultural demand and trade flows; October imports fell 22.5% year on year."
+  },
+  "news_f7ac604d00a69748015c|dfecf794597e6a12|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f7ac604d00a69748015c",
+   "content_hash": "dfecf794597e6a12",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "布雷纳德推介低首付方案，涉及美国住房可负担性立法动向，值得关注美国政策走向的读者留意。",
+   "why_en": "Brainard is pitching a low down payment plan amid housing affordability legislation efforts, a development worth noting for readers tracking US policy direction.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_7229e95e2d206f8e9822|99028feb47b2010e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7229e95e2d206f8e9822",
+   "content_hash": "99028feb47b2010e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "China's October crude oil imports 41.938 million tonnes, down 13.3% year on year",
+   "why_zh": "原油进口是观察中国内需与工业活动的重要高频指标，这一同比降幅值得关注。",
+   "why_en": "Crude oil imports are a key high-frequency gauge of China's domestic demand and industrial activity, making this year-on-year decline worth watching."
+  },
+  "news_e0eeeeee40498ffbe244|b5118bebf6cd463c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e0eeeeee40498ffbe244",
+   "content_hash": "b5118bebf6cd463c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "China's October iron ore and concentrate imports 105.658 million tonnes, down 5.1% year on year",
+   "why_zh": "铁矿石进口反映中国钢铁与建筑需求，是跟踪中国经济走势的重要数据。",
+   "why_en": "Iron ore imports reflect China's steel and construction demand, making this an important data point for tracking the economy."
+  },
+  "news_230ac71adcc35f96b302|eab76624bd5861eb|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_230ac71adcc35f96b302",
+   "content_hash": "eab76624bd5861eb",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "皖能集团联合两家上市公司出资1亿元投向太空算力，体现地方能源国企布局新兴科技产业。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_eaa42f7d2edd42afe0d7|dc74dde294bed21c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_eaa42f7d2edd42afe0d7",
+   "content_hash": "dc74dde294bed21c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "NDRC: set public service fee standards reasonably; no charges outside the list",
+   "why_zh": "收费清单化管理与科学定价将约束公共服务收费行为，涉及养老、殡葬等民生领域。",
+   "why_en": "List-based fee management and scientific pricing would constrain public service charges, touching areas such as elderly care and funeral services."
+  },
+  "news_795abe67c77f83b42f9a|9657dec5592a6dcd|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_795abe67c77f83b42f9a",
+   "content_hash": "9657dec5592a6dcd",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "Eight departments jointly issue notice to support physical bookstores in serving nationwide reading",
+   "why_zh": "八部门联合发文支持实体书店，体现政策对文化消费与服务业领域的关注。",
+   "why_en": "Eight departments jointly issued the notice backing physical bookstores, signalling policy attention to cultural consumption and services."
+  },
+  "news_f23b22a5744942e5edda|d37205c28733c4a7|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f23b22a5744942e5edda",
+   "content_hash": "d37205c28733c4a7",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "why_zh": "发改委介绍增进民生福祉情况，关系到居民收入与消费相关政策走向。",
+   "why_en": "The NDRC briefing on improving people's wellbeing bears on policies affecting household income and consumption.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_5aa01b718e3e56ea9583|2cdc49792faa7b28|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_5aa01b718e3e56ea9583",
+   "content_hash": "2cdc49792faa7b28",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-11T18:39:19+00:00",
+   "title_en": "Transcript: press conference on high-quality accounting development during the 15th Five-Year Plan period",
+   "why_zh": "会计高质量发展部署影响企业财务规范与信息披露要求，值得市场参与者关注。",
+   "why_en": "Plans for high-quality accounting development affect corporate financial standards and disclosure requirements, relevant to market participants."
+  },
+  "news_cf69e96920cf6b72ff6a|6563fac92e60302d|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_cf69e96920cf6b72ff6a",
+   "content_hash": "6563fac92e60302d",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T01:29:51+00:00",
+   "title_en": "US rate-hike expectations strengthen as institutions assess gold price direction",
+   "why_en": "US inflation data beat expectations, strengthening hawkish Fed expectations and pushing gold below 4100 dollars an ounce as institutions cut price targets.",
+   "rejected": {
+    "why_zh": "advice"
+   }
+  },
+  "news_d0ebabb8d1b2581709d3|9d00e8e5d64c041d|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d0ebabb8d1b2581709d3",
+   "content_hash": "9d00e8e5d64c041d",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Henan's foreign trade hits record high, imports and exports at 937.16 billion yuan in first 10 months",
+   "why_zh": "河南前10个月进出口增长26.1%，规模创历史同期新高，反映中部省份外贸动能。",
+   "why_en": "Henan's trade rose 26.1% in the first 10 months to a record high for the period, showing export momentum in a central province."
+  },
+  "news_6163eb043e11743210f9|fd9795590c8cd70a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6163eb043e11743210f9",
+   "content_hash": "fd9795590c8cd70a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Hengqin port's annual vehicle traffic tops 4 million for first time",
+   "why_zh": "横琴口岸年车流首次突破400万辆次，显示粤澳跨境人员和车辆流动加快。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_607e2ff687381dad9a71|962cef950864a921|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_607e2ff687381dad9a71",
+   "content_hash": "962cef950864a921",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T09:44:39+00:00",
+   "title_en": "Three keywords explain China's foreign trade data for first 10 months",
+   "why_zh": "海关总署数据显示前10个月货物贸易进出口44.81万亿元，增长20%，是观察外贸走势的关键数据。",
+   "why_en": "Customs data showing goods trade of 44.81 trillion yuan in the first 10 months, up 20%, is a key read on the outlook for trade."
+  },
+  "news_5fb9b81819295ac860b7|be1953015a4e58ed|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_5fb9b81819295ac860b7",
+   "content_hash": "be1953015a4e58ed",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-12T23:39:07+00:00",
+   "rejected": {
+    "title_en": "number",
+    "why_zh": "name",
+    "why_en": "name"
+   }
+  },
+  "news_7538a546c7dec8d890cf|657b26d37011b1ce|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7538a546c7dec8d890cf",
+   "content_hash": "657b26d37011b1ce",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "why_zh": "广东前10月进出口9.8万亿元、占全国21.9%，是观察中国外贸走势的重要窗口。",
+   "why_en": "Guangdong's 9.8 trillion yuan of trade in the first 10 months, 21.9% of the national total, is a key window on China's export performance.",
+   "rejected": {
+    "title_en": "number"
+   }
+  },
+  "news_9578dfbe3c0f71035e5b|b1efe1eefbd41bad|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9578dfbe3c0f71035e5b",
+   "content_hash": "b1efe1eefbd41bad",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "title_en": "Morning news roundup",
+   "why_zh": "汇总涵盖A股与港股盘中表现、美联储官员表态及中芯国际收入预期等，便于快速把握当日市场信息。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_ae0848947a19a9726159|69d848b467f879a0|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ae0848947a19a9726159",
+   "content_hash": "69d848b467f879a0",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T06:34:32+00:00",
+   "title_en": "China's Ministry of Finance issues 3-year bonds at 1.2200% and 10-year bonds at 1.5600%",
+   "why_zh": "国债发行利率与投标倍数反映券商与银行等机构的配置需求，是观察中国债市的重要参考。",
+   "why_en": "Sovereign bond yields and bid-to-cover ratios show institutional demand and are a useful gauge of China's bond market."
+  },
+  "news_e1e5e356d9bbae1b3610|418c539f5e7afedf|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e1e5e356d9bbae1b3610",
+   "content_hash": "418c539f5e7afedf",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T15:20:13+00:00",
+   "title_en": "Mexico rate cut fuels speculation officials intend to weaken the peso",
+   "why_zh": "比索自9月初两年高点暴跌近9%，市场猜测墨西哥央行有意推动贬值，关乎新兴市场汇率与货币政策走向。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_3565cc20eac748a7a568|2ca170f9090b1321|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_3565cc20eac748a7a568",
+   "content_hash": "2ca170f9090b1321",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T15:20:13+00:00",
+   "why_zh": "10月末社融存量增7.2%、M2增7.1%，专家认为年内全面降息降准可能性下降，反映货币政策取向。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_1b4caa50d7c3e5c5886c|2b6f080f3fae0e90|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1b4caa50d7c3e5c5886c",
+   "content_hash": "2b6f080f3fae0e90",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T21:57:03+00:00",
+   "title_en": "Steady-market liquidity keeps flowing in, aiming to strengthen A-shares' internal stability",
+   "why_zh": "国常会提出完善资本市场稳市机制，中长期资金入市渠道拓宽，事关A股稳定性。",
+   "why_en": "The State Council executive meeting proposed improving capital-market stability mechanisms, and broadening long-term fund entry channels matters for A-share stability."
+  },
+  "news_6b03842168fb08271e4b|5b289be343994103|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6b03842168fb08271e4b",
+   "content_hash": "5b289be343994103",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-13T21:57:03+00:00",
+   "title_en": "Fed warns AI-driven asset valuations too high pose potential risks",
+   "why_zh": "美联储半年度金融稳定报告点名AI与高资产估值带来的脆弱性，是全球风险偏好的重要参照。",
+   "why_en": "The Fed's semiannual financial stability report flags vulnerabilities from AI and high asset valuations, a key reference for global risk appetite."
+  },
+  "news_e4c0f1e8abd0f2365e16|93f780828cc59392|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e4c0f1e8abd0f2365e16",
+   "content_hash": "93f780828cc59392",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T02:22:36+00:00",
+   "title_en": "Is China's foreign trade nearing its peak?",
+   "why_zh": "10月货物贸易进出口4.87万亿元、同比增长31.2%，增速为近年来新高，外贸增势能否延续成为关注焦点。",
+   "why_en": "With October goods trade at 4.87 trillion yuan, up 31.2% year on year and the fastest in recent years, whether the momentum can last is a key question."
+  },
+  "news_5e670beb5015d65d3f30|b17ea8c2527c1e1a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_5e670beb5015d65d3f30",
+   "content_hash": "b17ea8c2527c1e1a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T02:22:36+00:00",
+   "title_en": "October financial data land: traditional credit contracts as direct financing rises",
+   "rejected": {
+    "why_zh": "number",
+    "why_en": "number"
+   }
+  },
+  "news_46ddcaa2d863d9a1bf57|a1a186e6c8a8a4ff|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_46ddcaa2d863d9a1bf57",
+   "content_hash": "a1a186e6c8a8a4ff",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T10:15:20+00:00",
+   "why_zh": "中美经贸磋商机制项下贸易理事会首次会议举行，这一机制动向值得关注中国经济的人留意。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_3b2d79cf934aed51f78c|4b19c48a8f61a29c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_3b2d79cf934aed51f78c",
+   "content_hash": "4b19c48a8f61a29c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-14T16:36:46+00:00",
+   "title_en": "Shenzhen becomes first city in mainland China with foreign trade exceeding 5 trillion yuan",
+   "why_zh": "深圳外贸规模首次突破5万亿元，成为中国内地首个达到这一水平的外贸城市，反映其外贸体量。",
+   "why_en": "Shenzhen's foreign trade has surpassed 5 trillion yuan, making it the first mainland Chinese city to reach that level and highlighting the scale of its trade."
+  },
+  "news_4a679bafb1bc367b36ae|eb4d687f3aa58c76|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_4a679bafb1bc367b36ae",
+   "content_hash": "eb4d687f3aa58c76",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-15T01:51:06+00:00",
+   "why_zh": "央行上调外汇存款准备金率正式生效，有助于促进外汇市场供求平衡。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_42d671b7f7567dd64118|4910982bea68ae40|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_42d671b7f7567dd64118",
+   "content_hash": "4910982bea68ae40",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-15T21:44:13+00:00",
+   "why_zh": "中国稀土披露拟以发行股份方式收购中稀凉山51%股权的重组预案，股票复牌，涉及稀土集团资产整合。",
+   "rejected": {
+    "title_en": "advice",
+    "why_en": "advice"
+   }
+  },
+  "news_e663d5c900c9121177bf|4033a29045de0185|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e663d5c900c9121177bf",
+   "content_hash": "4033a29045de0185",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "rejected": {
+    "title_en": "name",
+    "why_zh": "number",
+    "why_en": "number"
+   }
+  },
+  "news_1f3b273e12547a89d97e|c292558404d6b01a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1f3b273e12547a89d97e",
+   "content_hash": "c292558404d6b01a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "why_zh": "外部利率路径变化会影响全球资金流向，与中国经济和政策环境存在联动。",
+   "why_en": "Shifts in external rate paths affect global capital flows and interact with China's economy and policy environment.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_9c27f2c1fee0f20369ce|f765047b166f5a50|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9c27f2c1fee0f20369ce",
+   "content_hash": "f765047b166f5a50",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "title_en": "Commercial residential sales price changes in 70 large and medium cities in October 2026",
+   "why_zh": "70城房价是观察中国房地产这一关键领域冷暖的月度核心指标。",
+   "why_en": "The 70-city price index is a core monthly gauge of conditions in China's key property sector."
+  },
+  "news_d0a301e593173a1066a2|a74335df52099c66|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d0a301e593173a1066a2",
+   "content_hash": "a74335df52099c66",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "title_en": "Wallstreetcn morning briefing | November 16, 2026",
+   "why_zh": "汇总中国10月社融、M2与M1剪刀差等数据，是观察经济与政策动向的速览。",
+   "why_en": "A roundup including China's October social financing, M2 and the M2-M1 gap, a quick look at economic and policy signals."
+  },
+  "news_06e6ed11e8bd28301ec7|905f0f65b104c2a8|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_06e6ed11e8bd28301ec7",
+   "content_hash": "905f0f65b104c2a8",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "why_zh": "外资大行上调H股评级并给出具体涨幅预期，反映其对盈利、估值和仓位的最新判断。",
+   "why_en": "A major foreign bank's upgraded rating and specific gain forecasts for H shares signal its latest view on earnings, valuation and positioning.",
+   "rejected": {
+    "title_en": "advice"
+   }
+  },
+  "news_d58ebd12c065859ac9b9|46cc9fabd1321b43|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d58ebd12c065859ac9b9",
+   "content_hash": "46cc9fabd1321b43",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Basic situation of national fixed asset investment in January-October 2026",
+   "why_zh": "全国固定资产投资同比下降8.1%，三大产业投资均下降，反映投资端整体走弱。",
+   "why_en": "Nationwide fixed asset investment fell 8.1% year on year, with investment down in all three sectors, pointing to broad weakness on the investment side."
+  },
+  "news_c754e31e620556398b4d|522d3a9c1d2659e9|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_c754e31e620556398b4d",
+   "content_hash": "522d3a9c1d2659e9",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Retail sales of consumer goods up 1.0% in January-October 2026",
+   "why_zh": "前10个月社零总额同比增长1.0%，10月当月仅增0.4%，消费复苏力度放缓。",
+   "why_en": "Retail sales rose 1.0% year on year in January-October but only 0.4% in October alone, suggesting a slower pace of consumer recovery."
+  },
+  "news_a9d47a3a51756ad063fc|5e1b0292b7caa697|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_a9d47a3a51756ad063fc",
+   "content_hash": "5e1b0292b7caa697",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "沿线13+2省区市经通道进出口8788.2亿元、增长11.9%，体现西部外贸通道动能。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "number"
+   }
+  },
+  "news_ed62d7ec9d4050f4025f|83f13bd291f492b2|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ed62d7ec9d4050f4025f",
+   "content_hash": "83f13bd291f492b2",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "官方回应前10个月固定资产投资同比下降8.1%的降幅扩大，涉及投资形势判断。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "number"
+   }
+  },
+  "news_74fd5d1dbb2e77d1bbeb|128867a99fd7312c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_74fd5d1dbb2e77d1bbeb",
+   "content_hash": "128867a99fd7312c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Romanian central bank raises 2026 inflation forecast to 7.4%",
+   "rejected": {
+    "why_zh": "name",
+    "why_en": "name"
+   }
+  },
+  "news_77dd9bac2ffa96a24487|58d84b1e370e6d9e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_77dd9bac2ffa96a24487",
+   "content_hash": "58d84b1e370e6d9e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Survey shows eurozone fourth-quarter inflation expected to rise to 4%",
+   "why_zh": "欧元区通胀预期上调至4%，作为中国重要贸易伙伴的价格走势，关系到外需与出口前景。",
+   "why_en": "Eurozone inflation expectations were raised to 4%, a price trend in a major trading partner that bears on external demand and export prospects."
+  },
+  "news_0f60da69beef10b36da9|dec0a8791f6dee4e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_0f60da69beef10b36da9",
+   "content_hash": "dec0a8791f6dee4e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "October 2026 industrial value added above designated size grows 4.8%",
+   "why_zh": "工业增加值是衡量中国实体经济运行的关键月度指标，10月同比增速为4.8%。",
+   "why_en": "Industrial value added is a key monthly gauge of China's real economy; October's year-on-year growth was 4.8%."
+  },
+  "news_d554a06c0a62a4e409b2|3bc94af273024da2|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d554a06c0a62a4e409b2",
+   "content_hash": "3bc94af273024da2",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "国家统计局投资司官员解读前10个月投资数据，是观察中国固定资产投资走势的官方口径。",
+   "why_en": "An NBS investment department official's reading of the first ten months' investment data offers the official view on China's fixed-asset investment trend.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_1ecdd397888b20df855d|953ad935ec824534|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1ecdd397888b20df855d",
+   "content_hash": "953ad935ec824534",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "国家统计局首席统计师对1—10月消费市场数据的解读，是观察中国消费需求变化的重要官方口径。",
+   "why_en": "A chief statistician's reading of January-October consumer market data offers an official lens on how China's consumer demand is changing.",
+   "rejected": {
+    "title_en": "name"
+   }
   }
  }
 }

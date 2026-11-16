@@ -1,5 +1,7 @@
 """Research input bundle: already-collected news, policy and official-release records, triaged for the
-CN nominal-growth thesis (H0-H4). Deterministic; no model call, no new source, no typed figures.
+CN nominal-growth thesis (H0-H4). Deterministic; no model call, no new source, no typed figures: numbers and
+policy actions appear only as `reported_figures` / `policy_action` read from the item's own text (cnmacro.macro_events),
+each with its exact span, outlet and URL. They are what the text says, not Observations.
 
     research/cases/cn-nominal/inputs/<YYYY-MM-DD>.json     one bundle per as_of date, written once
 
@@ -31,6 +33,7 @@ from .events.grouping import RULES, triage as rule_triage
 from .events.store import load_grouped_items, stamp
 from .news_feed import CHINA, FOREIGN, TOPICS, classify
 from .news_rank import TYPES
+from .macro_events import read_members
 
 VERSION = 1
 GENERATOR = "deterministic:cnmacro.research_inputs@1"
@@ -134,6 +137,7 @@ def _official(events_dir: Path, start, end, as_of: str, metrics: set[str], test_
             triage, why = "irrelevant", r.get("triage_reason_en") or "No hypothesis rule matches a specific tool or observation."
         else:
             why = " ".join(dict.fromkeys(m["en"] for m in rule_triage(r, _rules())["mechanism"])) or r.get("triage_reason_en")
+        figures, action = read_members([{**r, "source_tier": "T1"}])
         out.append({
             "event_id": r.get("event_id") or r["item_id"], "title": r["title_zh"], "source_url": r["canonical_url"],
             "publisher": r["publisher"], "published_at": iso_z(r["published_at"]), "available_at": iso_z(r["first_seen_at"]),
@@ -148,6 +152,9 @@ def _official(events_dir: Path, start, end, as_of: str, metrics: set[str], test_
             "tests": tests if triage == "research_needed" else [],
             "stage": r.get("stage"), "intake_triage": r.get("triage"), "source_status": r.get("status"),
             "coverage": len(r.get("member_item_ids") or [1]),
+            "reported_figures": [{k: f[k] for k in ("indicator", "value", "unit", "basis", "currency", "period", "previous",
+                                                    "metric_id", "span", "publisher", "url", "published_at")} for f in figures],
+            "policy_action": action,
         })
     return out
 
@@ -194,16 +201,23 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
         info = rule_triage({"title_zh": g.get("title_zh") or rep["title_zh"], "summary_zh": g.get("summary_zh") or rep.get("summary_zh"),
                             "item_id": rep["item_id"], "kind": "media"}, _rules())
         hs = _hyps(h["hypothesis"] for h in info["hypotheses"])
+        # numbers and policy actions as stated in the eligible members' texts: reported, attributed, never Observations
+        figures, action = read_members(members)
         host = urlsplit(g.get("url") or rep["canonical_url"]).hostname or ""
         first_party = bool(g.get("official") if whole else any(m.get("source_tier") == "T1" for m in members)) and bool(OFFICIAL_HOSTS.search(host))
         foreign = bool(FOREIGN.search(g.get("title_zh") or rep["title_zh"] or "")) or (classify(body) == "global" and not CHINA.search(body))
         title = g.get("title_zh") or rep["title_zh"]
-        actionable = bool(re.search(TYPES["data_release"], body) or re.search(TYPES["policy_action"], body))
+        actionable = bool(re.search(TYPES["data_release"], body) or re.search(TYPES["policy_action"], body) or figures)
         topic_hyp = TOPIC_HYP.get(classify(body))
         if first_party and not hs and topic_hyp and not foreign and not re.search(_rules()["irrelevant"]["pattern"], body):
             hs = [topic_hyp]
             info = {**info, "triage": "monitor", "mechanism": [{"en": f"Topic rule only ({classify(body)}): "
                     + MECHANISM[topic_hyp] + "; no hypothesis-rule excerpt, read the first-party text."}]}
+        reported = [f["metric_id"] for f in figures if f["metric_id"] in metrics]
+        if not hs and reported and topic_hyp and not foreign and not ROUNDUP.search(title):
+            hs = [topic_hyp]  # a reported China figure for a public metric is a lead on that metric's mechanism
+            info = {**info, "triage": "monitor", "mechanism": [{"en": f"Reports {', '.join(sorted(set(reported)))}: "
+                    + MECHANISM[topic_hyp] + "; a lead until the official print is held."}]}
         if foreign or not hs or info["triage"] == "irrelevant":
             triage = "irrelevant"
             why = ("Foreign or global-market item with no China nominal-growth mechanism in the text." if foreign
@@ -218,6 +232,8 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
             why = " ".join(dict.fromkeys(m["en"] for m in info["mechanism"]))
         url = g.get("url") or rep["canonical_url"]
         repetition = official_by_url.get(url)
+        figures = [{k: f[k] for k in ("indicator", "value", "unit", "basis", "currency", "period", "previous",
+                                      "metric_id", "span", "publisher", "url", "published_at")} for f in figures]
         out.append({
             "event_id": ev["event_id"], "title": title, "source_url": url,
             "publisher": g.get("publisher") or rep["publisher"],
@@ -227,7 +243,9 @@ def _news(news_dir: Path, start, end, as_of, metrics: set[str], official_by_url:
             "why_relevant": (f"Reporting of an occurrence already held first-hand ({repetition}); no additional economic change."
                              if repetition else why),
             "triage": triage,
-            "linked_metrics": [m for m in rep.get("metric_ids", []) if m in metrics] if triage != "irrelevant" else [],
+            "linked_metrics": sorted({m for m in rep.get("metric_ids", []) + [f["metric_id"] for f in figures]
+                                      if m in metrics}) if triage != "irrelevant" else [],
+            "reported_figures": figures, "policy_action": action,
             "excerpt": _excerpt(g.get("summary_zh") or rep.get("summary_zh") or rep["title_zh"]),
             "evidence_kind": ("official_release" if str(ev["event_id"]).startswith("release-") else "first_party_policy")
                              if first_party else "media_report",

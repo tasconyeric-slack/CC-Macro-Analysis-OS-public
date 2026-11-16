@@ -9,6 +9,7 @@
     decide      record Accept / Edit / Reject / Keep unresolved per section
     verify      is a Run Record intact and reproducible?
     runs        list Run Records
+    brief ...   Research Brief: release + source-linked news/policy, Explain + Challenge, reviewed export (brief_cli.py)
 
 Exit codes of `run` / `replay`: 0 validated, 2 validation failed (record written), 3 model unavailable (record
 written; continue manually), 4 no delta / context could not be built (nothing to interpret). Nothing here
@@ -263,3 +264,5 @@ def register(sub) -> None:
     g = s.add_mutually_exclusive_group(required=True); g.add_argument("--template", action="store_true"); g.add_argument("--file"); s.set_defaults(f=_guarded(cmd_decide))
     s = cs.add_parser("verify"); rid(s); s.add_argument("--no-rebuild", action="store_true"); s.set_defaults(f=_guarded(cmd_verify))
     s = cs.add_parser("runs"); s.set_defaults(f=_guarded(cmd_runs))
+    from . import brief_cli
+    brief_cli.register(cs, _guarded, model)

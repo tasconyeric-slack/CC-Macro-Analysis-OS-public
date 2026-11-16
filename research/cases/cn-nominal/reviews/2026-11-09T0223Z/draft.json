@@ -1,0 +1,625 @@
+{
+  "competing_explanation": {
+    "claim": "Any price improvement is driven by supply discipline or imported commodity costs without demand confirmation, so it is not sustainable.",
+    "discriminating_tests": [
+      {
+        "description": "Core CPI inflation is higher than six months earlier.",
+        "outcome": "false",
+        "test": "T-H2-01"
+      },
+      {
+        "description": "M1 growth is higher than six months earlier.",
+        "outcome": "false",
+        "test": "T-H2-02"
+      },
+      {
+        "description": "Property sales are contracting less (or growing more) than six months earlier.",
+        "outcome": "false",
+        "test": "T-H2-03"
+      },
+      {
+        "description": "Net new medium and long-term household loans (mortgages) are positive on a 3-month average.",
+        "outcome": "false",
+        "test": "T-H2-06"
+      }
+    ],
+    "hypothesis": "H0",
+    "name": "Supply-led bounce (competing)",
+    "tests_now": {
+      "challenges": 0,
+      "insufficient_data": 0,
+      "supports": 3
+    }
+  },
+  "context_sha256": "00448378b149ed875e97471a0693b6f2a05d985e818bde349bba8add768687cc",
+  "contradicting_evidence": [
+    {
+      "description": "Core CPI inflation is higher than six months earlier.",
+      "effect": "challenges",
+      "hypothesis": "H2",
+      "latest_period": "2026-10",
+      "observed": -0.4,
+      "outcome": "false",
+      "test": "T-H2-01"
+    },
+    {
+      "description": "M1 growth is higher than six months earlier.",
+      "effect": "challenges",
+      "hypothesis": "H2",
+      "latest_period": "2026-09",
+      "observed": -1.9,
+      "outcome": "false",
+      "test": "T-H2-02"
+    },
+    {
+      "description": "Property sales are contracting less (or growing more) than six months earlier.",
+      "effect": "challenges",
+      "hypothesis": "H2",
+      "latest_period": "2026-09",
+      "observed": -2.8,
+      "outcome": "false",
+      "test": "T-H2-03"
+    },
+    {
+      "description": "Net new medium and long-term household loans (mortgages) are positive on a 3-month average.",
+      "effect": "challenges",
+      "hypothesis": "H2",
+      "latest_period": "2026-09",
+      "observed": -383.4133,
+      "outcome": "false",
+      "test": "T-H2-06"
+    },
+    {
+      "description": "Aggregate credit growth is not decelerating over the last quarter.",
+      "effect": "challenges",
+      "hypothesis": "H3",
+      "latest_period": "2026-09",
+      "observed": -0.3,
+      "outcome": "false",
+      "test": "T-H3-01"
+    },
+    {
+      "description": "New export orders are expanding on a 3-month average.",
+      "effect": "challenges",
+      "hypothesis": "H4",
+      "latest_period": "2026-10",
+      "observed": 49.6,
+      "outcome": "false",
+      "test": "T-H4-02"
+    },
+    {
+      "description": "Oil is higher than six months earlier (imported cost push).",
+      "effect": "supports",
+      "hypothesis": "H0",
+      "latest_period": "2026-09",
+      "observed": 2.6131,
+      "outcome": "true",
+      "test": "T-H0-01"
+    },
+    {
+      "description": "Copper is higher than six months earlier (global metals cost push).",
+      "effect": "supports",
+      "hypothesis": "H0",
+      "latest_period": "2026-09",
+      "observed": 1944.3464,
+      "outcome": "true",
+      "test": "T-H0-02"
+    },
+    {
+      "description": "Consumer-goods factory prices are still falling, so the PPI rise has not passed downstream.",
+      "effect": "supports",
+      "hypothesis": "H0",
+      "latest_period": "2026-10",
+      "observed": -0.1,
+      "outcome": "true",
+      "test": "T-H0-03"
+    }
+  ],
+  "created_at": "2026-11-11T03:44:08Z",
+  "created_by": "deterministic:cnmacro.review",
+  "flips_since_judgment": [
+    {
+      "effect_from": "challenges",
+      "effect_to": "supports",
+      "from": "false",
+      "hypothesis": "H1",
+      "period_from": "2026-08",
+      "period_to": "2026-10",
+      "test": "T-H1-01",
+      "to": "true"
+    },
+    {
+      "effect_from": "challenges",
+      "effect_to": "supports",
+      "from": "false",
+      "hypothesis": "H1",
+      "period_from": "2026Q2",
+      "period_to": "2026Q3",
+      "test": "T-H1-05",
+      "to": "true"
+    },
+    {
+      "effect_from": "supports",
+      "effect_to": "challenges",
+      "from": "true",
+      "hypothesis": "H2",
+      "period_from": "2026-08",
+      "period_to": "2026-09",
+      "test": "T-H2-03",
+      "to": "false"
+    },
+    {
+      "effect_from": "challenges",
+      "effect_to": "supports",
+      "from": "false",
+      "hypothesis": "H2",
+      "period_from": "2026-09",
+      "period_to": "2026-10",
+      "test": "T-H2-04",
+      "to": "true"
+    }
+  ],
+  "hypotheses": {
+    "H0": {
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Supply-led bounce (competing)",
+      "tests_now": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 3
+      },
+      "tests_prior": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 3
+      }
+    },
+    "H1": {
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Price turn",
+      "tests_now": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 6
+      },
+      "tests_prior": {
+        "challenges": 0,
+        "insufficient_data": 0,
+        "supports": 6
+      }
+    },
+    "H2": {
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Domestic demand",
+      "tests_now": {
+        "challenges": 4,
+        "insufficient_data": 0,
+        "supports": 2
+      },
+      "tests_prior": {
+        "challenges": 4,
+        "insufficient_data": 0,
+        "supports": 2
+      }
+    },
+    "H3": {
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "Policy impulse",
+      "tests_now": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 1
+      },
+      "tests_prior": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 1
+      }
+    },
+    "H4": {
+      "flips": [],
+      "mechanical_delta": "unchanged",
+      "name": "External demand",
+      "tests_now": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 1
+      },
+      "tests_prior": {
+        "challenges": 1,
+        "insufficient_data": 0,
+        "supports": 1
+      }
+    }
+  },
+  "kind": "thesis_review_draft",
+  "new_facts": [
+    {
+      "change": -0.2,
+      "metric_id": "cn_cpi_yoy",
+      "name": "CPI YoY",
+      "name_zh": "居民消费价格指数同比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": 0.9,
+      "quality_flag": "ok",
+      "ref": "obs:cn_cpi_yoy@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": false,
+      "unit": "%",
+      "value": 0.7
+    },
+    {
+      "change": -0.2,
+      "metric_id": "cn_core_cpi_yoy",
+      "name": "Core CPI YoY (ex food and energy)",
+      "name_zh": "扣除食品和能源价格后的核心CPI同比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": 1.0,
+      "quality_flag": "ok",
+      "ref": "obs:cn_core_cpi_yoy@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": true,
+      "unit": "%",
+      "value": 0.8
+    },
+    {
+      "change": 0.7,
+      "metric_id": "cn_ppi_yoy",
+      "name": "PPI YoY",
+      "name_zh": "工业生产者出厂价格指数同比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": 5.0,
+      "quality_flag": "ok",
+      "ref": "obs:cn_ppi_yoy@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": true,
+      "unit": "%",
+      "value": 5.7
+    },
+    {
+      "change": -0.5,
+      "metric_id": "cn_ppi_mom",
+      "name": "PPI MoM",
+      "name_zh": "工业生产者出厂价格指数环比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": 1.2,
+      "quality_flag": "ok",
+      "ref": "obs:cn_ppi_mom@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": true,
+      "unit": "%",
+      "value": 0.7
+    },
+    {
+      "change": 0.9,
+      "metric_id": "cn_ppi_producer_yoy",
+      "name": "PPI, producer goods YoY",
+      "name_zh": "PPI生产资料同比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": 6.5,
+      "quality_flag": "ok",
+      "ref": "obs:cn_ppi_producer_yoy@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": false,
+      "unit": "%",
+      "value": 7.4
+    },
+    {
+      "change": 0.0,
+      "metric_id": "cn_ppi_consumer_yoy",
+      "name": "PPI, consumer goods YoY",
+      "name_zh": "PPI生活资料同比",
+      "period": "2026-10",
+      "previous_period": "2026-09",
+      "previous_value": -0.1,
+      "quality_flag": "ok",
+      "ref": "obs:cn_ppi_consumer_yoy@2026-10",
+      "release_date": "2026-11-09T09:30:00+08:00",
+      "source": "NBS",
+      "tested": true,
+      "unit": "%",
+      "value": -0.1
+    }
+  ],
+  "previous_state": {
+    "as_of": "2026-10-04T06:00:00Z",
+    "author": "preregistered baseline",
+    "conviction": "LOW",
+    "file": "2026-10-04-baseline.yaml",
+    "kind": "baseline",
+    "last_update_direction": "UNCHANGED",
+    "probability": 0.3,
+    "statement_en": "The deflator turned positive in 2026Q2 and the price leg is more likely than not to hold through 2027Q1 (I-05); the September PMI output price index points to renewed factory-gate momentum. But the turn is concentrated upstream and coincides with the oil and metals shock (I-01). Private domestic demand has not turned (I-02): with the September PMI, new orders slipped below the expansion line on a three-month average, so fewer demand tests pass than the three of six that confirmation requires. Policy impulse is fading (I-03); exports help but do not satisfy the domestic-demand leg (I-04). Price leg roughly 65%, demand leg below even odds given the price leg: 30%.",
+    "statement_zh": null,
+    "status": "ACTIVE"
+  },
+  "proposal": {
+    "conviction": "LOW",
+    "last_update_direction": "UNCHANGED",
+    "probability": 0.3,
+    "status": "ACTIVE",
+    "thesis_change": "none_proposed",
+    "why": "the draft is produced by code; it never proposes a probability, conviction or status change. Only the analyst can, by choosing Edit."
+  },
+  "refresh_record": {
+    "as_of": "2026-11-09T02:23:58+00:00",
+    "file": "2026-11-09T0223Z.json",
+    "previous_evidence_as_of": "2026-11-08T17:44:51+00:00",
+    "sha256": "12134145dd2ec6c07ccd0ae184317073af9d09e3b117f0414341c5cb6f72a1a9"
+  },
+  "release": {
+    "entries": [
+      {
+        "metrics": [
+          "cn_cpi_yoy",
+          "cn_core_cpi_yoy"
+        ],
+        "name": "2026-10 CPI (居民消费价格指数月度报告)",
+        "period": "2026-10",
+        "release_at": "2026-11-09T09:30:00+08:00",
+        "url": "https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59"
+      },
+      {
+        "metrics": [
+          "cn_ppi_yoy",
+          "cn_ppi_mom",
+          "cn_ppi_producer_yoy",
+          "cn_ppi_consumer_yoy"
+        ],
+        "name": "2026-10 PPI (工业生产者价格指数月度报告)",
+        "period": "2026-10",
+        "release_at": "2026-11-09T09:30:00+08:00",
+        "url": "https://data.stats.gov.cn/dg/website/publicrelease/web/external/queryAgendas?startDate=2026/10/01%2000:00:00&endDate=2026/12/31%2023:59:59"
+      }
+    ],
+    "name": "2026-10 CPI (居民消费价格指数月度报告)",
+    "period": "2026-10",
+    "release_at": "2026-11-09T09:30:00+08:00"
+  },
+  "research_inputs": null,
+  "review_id": "2026-11-09T0223Z",
+  "status": "awaiting_analyst",
+  "suggested_direction": {
+    "direction": "neutral",
+    "note": "mechanical tally of evidence-test flips; the analyst judgment is unchanged until an update is appended",
+    "score": 0
+  },
+  "supporting_evidence": [
+    {
+      "description": "PPI month-on-month momentum is positive on a 3-month average.",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026-10",
+      "observed": 0.7667,
+      "outcome": "true",
+      "test": "T-H1-01"
+    },
+    {
+      "description": "PPI YoY is higher than six months earlier.",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026-10",
+      "observed": 2.9,
+      "outcome": "true",
+      "test": "T-H1-02"
+    },
+    {
+      "description": "PMI output prices signal rising factory-gate prices on average.",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026-10",
+      "observed": 52.0333,
+      "outcome": "true",
+      "test": "T-H1-03"
+    },
+    {
+      "description": "The implied GDP deflator is non-negative in the latest quarter.",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026Q3",
+      "observed": 1.4394,
+      "outcome": "true",
+      "test": "T-H1-04"
+    },
+    {
+      "description": "The implied GDP deflator is non-negative for two consecutive quarters.",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026Q3",
+      "observed": 1.4394,
+      "outcome": "true",
+      "test": "T-H1-05"
+    },
+    {
+      "description": "Industrial profits are growing year-to-date (reflation reaching margins).",
+      "effect": "supports",
+      "hypothesis": "H1",
+      "latest_period": "2026-09",
+      "observed": 15.5,
+      "outcome": "true",
+      "test": "T-H1-06"
+    },
+    {
+      "description": "Manufacturing new orders are expanding on a 3-month average.",
+      "effect": "supports",
+      "hypothesis": "H2",
+      "latest_period": "2026-10",
+      "observed": 50.1667,
+      "outcome": "true",
+      "test": "T-H2-04"
+    },
+    {
+      "description": "Retail sales growth is higher than three months earlier.",
+      "effect": "supports",
+      "hypothesis": "H2",
+      "latest_period": "2026-09",
+      "observed": 0.1,
+      "outcome": "true",
+      "test": "T-H2-05"
+    },
+    {
+      "description": "Budget expenditure is growing year-to-date.",
+      "effect": "supports",
+      "hypothesis": "H3",
+      "latest_period": "2026-09",
+      "observed": 1.0,
+      "outcome": "true",
+      "test": "T-H3-02"
+    },
+    {
+      "description": "Exports are growing on a 3-month average.",
+      "effect": "supports",
+      "hypothesis": "H4",
+      "latest_period": "2026-09",
+      "observed": 28.4,
+      "outcome": "true",
+      "test": "T-H4-01"
+    }
+  ],
+  "terminal": {
+    "owner": "code",
+    "rule_fired": null,
+    "status": "ACTIVE"
+  },
+  "test_changes_this_release": {
+    "flipped": [],
+    "marginal": [
+      {
+        "change": 0.4667,
+        "hypothesis": "H1",
+        "observed_from": 0.3,
+        "observed_to": 0.7667,
+        "period_from": "2026-09",
+        "period_to": "2026-10",
+        "test": "T-H1-01"
+      },
+      {
+        "change": -1.6,
+        "hypothesis": "H1",
+        "observed_from": 4.5,
+        "observed_to": 2.9,
+        "period_from": "2026-09",
+        "period_to": "2026-10",
+        "test": "T-H1-02"
+      },
+      {
+        "change": -0.3,
+        "hypothesis": "H2",
+        "observed_from": -0.1,
+        "observed_to": -0.4,
+        "period_from": "2026-09",
+        "period_to": "2026-10",
+        "test": "T-H2-01"
+      },
+      {
+        "change": 0.0,
+        "hypothesis": "H0",
+        "observed_from": -0.1,
+        "observed_to": -0.1,
+        "period_from": "2026-09",
+        "period_to": "2026-10",
+        "test": "T-H0-03"
+      }
+    ]
+  },
+  "text": {
+    "en": "Release of 2026-11-09: Core CPI YoY (ex food and energy) 2026-10 0.8% (prior 1.0%); PPI YoY 2026-10 5.7% (prior 5.0%); PPI MoM 2026-10 0.7% (prior 1.2%); PPI, consumer goods YoY 2026-10 -0.1% (prior -0.1%); CPI YoY 2026-10 0.7% (prior 0.9%); PPI, producer goods YoY 2026-10 7.4% (prior 6.5%). No preregistered evidence test changed outcome on this release; since the judgment in force (2026-10-04-baseline.yaml, 2026-10-04) the changes are: T-H1-01 false→true, T-H1-05 false→true, T-H2-03 true→false, T-H2-04 false→true. Across all tests, 10 currently read in favour of the thesis and 9 against it (H0, the supply-led explanation, counted against). Terminal status ACTIVE. Proposed: no change to the thesis; probability stays 30%, conviction LOW, status ACTIVE.",
+    "zh": "2026-11-09 发布：扣除食品和能源价格后的核心CPI同比 2026-10 0.8%（前值 1.0%）；工业生产者出厂价格指数同比 2026-10 5.7%（前值 5.0%）；工业生产者出厂价格指数环比 2026-10 0.7%（前值 1.2%）；PPI生活资料同比 2026-10 -0.1%（前值 -0.1%）；居民消费价格指数同比 2026-10 0.7%（前值 0.9%）；PPI生产资料同比 2026-10 7.4%（前值 6.5%）。本次发布没有预注册证据检验改变结果；相对现行判断（2026-10-04-baseline.yaml，2026-10-04），检验变化为：T-H1-01 false→true、T-H1-05 false→true、T-H2-03 true→false、T-H2-04 false→true。全部检验中，目前 10 项支持命题、9 项不支持（H0 供给主导解释计为不支持）。终止状态：进行中。建议：命题判断不变；概率维持 30%，信心低，状态进行中。"
+  },
+  "version": 1,
+  "watch_next": [
+    {
+      "metrics": [
+        "cn_ip_yoy",
+        "cn_property_sales_area_ytd_yoy",
+        "cn_retail_sales_yoy"
+      ],
+      "periods": [
+        "2026-10"
+      ],
+      "release_at": "2026-11-16T02:00:00Z",
+      "tests": [
+        "T-H2-03",
+        "T-H2-05"
+      ]
+    },
+    {
+      "metrics": [
+        "cn_ind_profit_ytd_yoy"
+      ],
+      "periods": [
+        "2026-10"
+      ],
+      "release_at": "2026-11-27T01:30:00Z",
+      "tests": [
+        "T-H1-06"
+      ]
+    },
+    {
+      "metrics": [
+        "cn_pmi_mfg",
+        "cn_pmi_new_export_orders",
+        "cn_pmi_new_orders",
+        "cn_pmi_output_price"
+      ],
+      "periods": [
+        "2026-11"
+      ],
+      "release_at": "2026-11-30T01:30:00Z",
+      "tests": [
+        "T-H1-03",
+        "T-H2-04",
+        "T-H4-02"
+      ]
+    },
+    {
+      "metrics": [
+        "cn_core_cpi_yoy",
+        "cn_cpi_yoy",
+        "cn_ppi_consumer_yoy",
+        "cn_ppi_mom",
+        "cn_ppi_producer_yoy",
+        "cn_ppi_yoy"
+      ],
+      "periods": [
+        "2026-11"
+      ],
+      "release_at": "2026-12-09T01:30:00Z",
+      "tests": [
+        "T-H0-03",
+        "T-H1-01",
+        "T-H1-02",
+        "T-H2-01"
+      ]
+    },
+    {
+      "metrics": [
+        "cn_ip_yoy",
+        "cn_property_sales_area_ytd_yoy",
+        "cn_retail_sales_yoy"
+      ],
+      "periods": [
+        "2026-11"
+      ],
+      "release_at": "2026-12-15T02:00:00Z",
+      "tests": [
+        "T-H2-03",
+        "T-H2-05"
+      ]
+    }
+  ]
+}

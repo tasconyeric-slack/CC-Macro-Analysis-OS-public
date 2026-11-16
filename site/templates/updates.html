@@ -10,6 +10,22 @@
   <span><span class="tag">{{ t('kind.update') }}</span> {{ t('updates.legend.update') }}</span>
 </div>
 {% if not baseline %}<div class="empty" style="margin-top:24px">{{ t('updates.no_baseline') }}</div>{% else %}
+{% if latest_review %}{% set r = latest_review %}
+<section class="card review review-{{ r.status }}" id="review-{{ r.id }}" style="margin-top:24px" aria-labelledby="review-title">
+  <div class="eyebrow" id="review-title"><span class="tag">{{ t('review.kind') }}</span> {{ t('review.title') }} · <strong>{{ t('review.status.' ~ r.status) }}</strong></div>
+  <p class="small">{{ t('review.release', name=r.release, when=r.release_at|when) }} · {{ t('review.drafted', when=r.created_at|when, file=r.refresh_file) }}</p>
+  {% if r.status in ('awaiting_analyst', 'rejected', 'superseded') %}<p class="small">{{ t('review.in_force_html', file=r.in_force.file, when=r.in_force.as_of|when) }}</p>{% endif %}
+  {% if r.decision and r.status in ('approved', 'edited') %}<p class="small">{{ t('review.signed_html', who=r.decision.signed_by, when=r.decision.at|when, action=t('review.action.' ~ r.decision.action), anchor=r.update_anchor, file=r.update_file) }}</p>{% endif %}
+  {% if r.status == 'rejected' %}<p class="small">{{ t('review.rejected_html', who=r.decision.signed_by, when=r.decision.at|when) }}</p>{% endif %}
+  {% if r.decision and r.decision.reason %}<p class="small">{{ t('review.reason')|labelb }}{{ r.decision.reason }}</p>{% endif %}
+  {% if r.status == 'awaiting_analyst' %}<p class="small"><strong>{{ t('review.proposed') }}</strong></p><p>{{ r.text }}</p>{% endif %}
+  <p class="small">{{ t('review.flips')|labelb }}{% for f in r.flips %}<span class="mono">{{ f.test }}</span> {{ f['from'] }}→{{ f.to }}{% if not loop.last %} · {% endif %}{% else %}{{ t('review.none') }}{% endfor %}</p>
+  <p class="small">{{ t('review.competing')|labelb }}<span class="mono">{{ r.competing.hypothesis }}</span> {{ r.competing.claim }}{% if r.competing.discriminating_tests %} ({% for x in r.competing.discriminating_tests %}<span class="mono">{{ x.test }}</span>{% if not loop.last %}, {% endif %}{% endfor %}){% endif %}</p>
+  <p class="small">{{ t('review.watch')|labelb }}{% for w in r.watch %}{{ w.release_at|when }}: {% for x in w.tests %}<span class="mono">{{ x }}</span>{% if not loop.last %}, {% endif %}{% endfor %}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+  {% if r.inputs %}<p class="small">{{ t('review.inputs')|labelb }}{% for i in r.inputs %}<a href="{{ i.source_url }}">{{ i.title }}</a> ({{ i.publisher }}){% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+  <p class="small muted">{{ t('review.legend') }}</p>
+</section>
+{% endif %}
 <div class="timeline" style="margin-top:28px">
 {% for it in audit_items %}{% set d = it.doc %}
   {% if it.kind == "baseline" %}
@@ -42,7 +58,7 @@
     <p class="small">{{ t('updates.refresh_summary', terminal=v.status(d.terminal.after.status), direction=t('direction.suggested.' ~ d.suggested_direction.direction) if t.has('direction.suggested.' ~ d.suggested_direction.direction) else d.suggested_direction.direction, prob=d.analyst_judgment.probability|pct) }}</p>
   </div>
   {% else %}
-  <div class="tl-item">
+  <div class="tl-item" id="u-{{ d._file.rsplit('.', 1)[0] }}">
     <div class="eyebrow"><span class="tag">{{ t('kind.update') }}</span> {{ d.release_l }}{% if d.author %} · {{ d.author }}{% endif %}</div>
     <strong>{{ t('updates.as_of_when', when=d.as_of|when) }}</strong> · <span class="mono">{{ d._file }}</span> · {{ t('updates.commit') }} <span class="mono">{{ d._commit.short or t('common.pending') }}</span>
     <p class="diff">{{ t('updates.diff_line', p0=d.previous_state.probability|pct, p1=d.probability|pct, c0=v.confidence(d.previous_state.conviction), c1=v.confidence(d.conviction), direction=v.direction(d.last_update_direction), status=v.status(d.status)) }}</p>
@@ -63,6 +79,6 @@
     {% else %}<p class="small muted">{{ t('updates.no_date') }}</p>{% endif %}
   </div>
 </div>
-{% if not updates %}<p class="small muted">{{ t('updates.no_update_yet') }}</p>{% endif %}
+{% if not updates and not latest_review %}<p class="small muted">{{ t('updates.no_update_yet') }}</p>{% endif %}
 {% endif %}
 {% endblock %}

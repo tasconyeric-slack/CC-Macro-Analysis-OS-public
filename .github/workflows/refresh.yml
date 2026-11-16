@@ -71,6 +71,22 @@ jobs:
             ${{ inputs.all && '--all' || '' }}
             ${{ inputs.dry_run && '--dry-run' || '' }}
         run: python -m cnmacro refresh-public --summary refresh-summary.json $ARGS
+      - name: Build the day's research input bundle (deterministic; once per UTC date)
+        if: github.event_name != 'pull_request' && !inputs.dry_run && (github.event_name == 'workflow_dispatch' || github.event.schedule == '20 10 * * *')
+        # Hypothesis-linked triage of news, policy and official intake already collected (#56). Weekly and Monthly
+        # drafts read these bundles, so one is built after the last scheduled refresh of each day. Bundles are
+        # write-once: an existing one for today is left alone, and a build problem never fails the refresh.
+        run: |
+          if [ -e "research/cases/cn-nominal/inputs/$(date -u +%F).json" ]; then
+            echo "Bundle for $(date -u +%F) already exists; nothing to build."
+          else
+            python -m cnmacro research-inputs build --as-of "$(date -u +%Y-%m-%dT%H:00:00Z)" || echo "::warning title=research inputs::bundle not built; see log"
+          fi
+      - name: Draft the analyst review of a new release (draft only; never signs)
+        if: github.event_name != 'pull_request' && !inputs.dry_run
+        # A refresh that brought a new reading of a tested series gets a deterministic draft under reviews/.
+        # The analyst decides it with the "thesis review decision" workflow. A drafting problem never fails the refresh.
+        run: python -m cnmacro review draft || echo "::warning title=review draft::not drafted; see log"
       - name: Secrets and data-boundary check
         run: python scripts/check_secrets.py
       - name: Commit new public artifacts
@@ -80,11 +96,11 @@ jobs:
         run: |
           # Least privilege: stage only what a refresh writes. The rest of research/cases/cn-nominal
           # (case.yaml, preregistered/, claims, presentation, memo templates...) is analyst-controlled
-          # and must never be auto-committed. refreshes/ and updates/ are append-only directories that
+          # and must never be auto-committed. refreshes/, updates/ and reviews/ (drafts only, never a decision) are append-only directories that
           # only exist once a refresh has written a record, and git fails a pathspec that matches
           # nothing, so each is staged only if present (no placeholder directories).
           git add -A -- data/demo/observations research/cases/cn-nominal/eval
-          for d in research/cases/cn-nominal/refreshes research/cases/cn-nominal/updates; do
+          for d in research/cases/cn-nominal/refreshes research/cases/cn-nominal/updates research/cases/cn-nominal/reviews research/cases/cn-nominal/inputs; do
             if [ -e "$d" ]; then
               git add -A -- "$d"
             fi

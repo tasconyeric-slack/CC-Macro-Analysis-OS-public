@@ -409,7 +409,7 @@ def preregistration(case_dir: Path) -> Check:
     anchor = origin_history(case_dir)
     anchored = anchor.get("files", {})
     files = (sorted((case_dir / "preregistered").glob("*.yaml")) + sorted((case_dir / "updates").glob("*.yaml"))
-             + sorted((case_dir / "refreshes").glob("*.json")))
+             + sorted((case_dir / "refreshes").glob("*.json")) + sorted((case_dir / "reviews").glob("*/*.json")))
     if anchor:
         files.append(case_dir / ORIGIN_HISTORY)         # the anchor itself is append-only
     if not files:
