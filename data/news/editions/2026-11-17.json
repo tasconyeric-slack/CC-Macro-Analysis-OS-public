@@ -1,0 +1,72 @@
+{
+ "date": "2026-11-17",
+ "window": [
+  "2026-11-16T08:00:00+08:00",
+  "2026-11-17T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "release-house-2026-10",
+  "evt-1f3b273e1254",
+  "evt-9c27f2c1fee0"
+ ],
+ "body": [
+  {
+   "event_id": "release-house-2026-10",
+   "title_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
+   "summary_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
+   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965838.html",
+   "publisher": "国家统计局",
+   "topic": "property",
+   "publishers": [
+    "东方财富",
+    "中国新闻网",
+    "华尔街见闻",
+    "第一财经"
+   ],
+   "score": 71,
+   "rank_key": 80.6566274746046
+  },
+  {
+   "event_id": "evt-1f3b273e1254",
+   "title_zh": "摩根士丹利上调韩国终端利率预期紧缩周期或延长至2028年",
+   "summary_zh": "【摩根士丹利上调韩国终端利率预期紧缩周期或延长至2028年】摩根士丹利在最新发布的报告中预测，韩国央行将在本月及明年2月的货币政策委员会会议上各上调基准利率25个基点，最终达到3.5%。这一预测较市场此前普遍预期的3.25%终端利率高出25个基点，也高于韩国央行8月政策委员会利率预测中值3.25%。",
+   "url": "https://finance.eastmoney.com/a/202611163931578151.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "why_zh": "外部利率路径变化会影响全球资金流向，与中国经济和政策环境存在联动。",
+    "why_en": "Shifts in external rate paths affect global capital flows and interact with China's economy and policy environment.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-9c27f2c1fee0",
+   "title_zh": "2026年10月份70个大中城市商品住宅销售价格变动情况",
+   "summary_zh": "表1：2026年10月70个大中城市新建商品住宅销售价格指数城市环比同比1-10月平均城市环比同比1-10月平均上月=100上年同月=100上年同期=100上月=100上年同月=100上年同期=100北京99.997.497.7唐山99.794.794.0天津99.796.895.7秦皇岛99.894.894.8石家庄100.096.795.7包头99.994.593.0太原100.199...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261116_1965836.html",
+   "publisher": "国家统计局",
+   "topic": "property",
+   "publishers": [
+    "国家统计局"
+   ],
+   "score": 55,
+   "rank_key": 62.15888308335967,
+   "ai": {
+    "title_en": "Commercial residential sales price changes in 70 large and medium cities in October 2026",
+    "why_zh": "70城房价是观察中国房地产这一关键领域冷暖的月度核心指标。",
+    "why_en": "The 70-city price index is a core monthly gauge of conditions in China's key property sector.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

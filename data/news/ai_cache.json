@@ -545,6 +545,62 @@
     "title_en": "advice",
     "why_en": "advice"
    }
+  },
+  "news_e663d5c900c9121177bf|4033a29045de0185|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_e663d5c900c9121177bf",
+   "content_hash": "4033a29045de0185",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "rejected": {
+    "title_en": "name",
+    "why_zh": "number",
+    "why_en": "number"
+   }
+  },
+  "news_1f3b273e12547a89d97e|c292558404d6b01a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1f3b273e12547a89d97e",
+   "content_hash": "c292558404d6b01a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "why_zh": "外部利率路径变化会影响全球资金流向，与中国经济和政策环境存在联动。",
+   "why_en": "Shifts in external rate paths affect global capital flows and interact with China's economy and policy environment.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_9c27f2c1fee0f20369ce|f765047b166f5a50|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9c27f2c1fee0f20369ce",
+   "content_hash": "f765047b166f5a50",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "title_en": "Commercial residential sales price changes in 70 large and medium cities in October 2026",
+   "why_zh": "70城房价是观察中国房地产这一关键领域冷暖的月度核心指标。",
+   "why_en": "The 70-city price index is a core monthly gauge of conditions in China's key property sector."
+  },
+  "news_d0a301e593173a1066a2|a74335df52099c66|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d0a301e593173a1066a2",
+   "content_hash": "a74335df52099c66",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "title_en": "Wallstreetcn morning briefing | November 16, 2026",
+   "why_zh": "汇总中国10月社融、M2与M1剪刀差等数据，是观察经济与政策动向的速览。",
+   "why_en": "A roundup including China's October social financing, M2 and the M2-M1 gap, a quick look at economic and policy signals."
+  },
+  "news_06e6ed11e8bd28301ec7|905f0f65b104c2a8|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_06e6ed11e8bd28301ec7",
+   "content_hash": "905f0f65b104c2a8",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T01:58:51+00:00",
+   "why_zh": "外资大行上调H股评级并给出具体涨幅预期，反映其对盈利、估值和仓位的最新判断。",
+   "why_en": "A major foreign bank's upgraded rating and specific gain forecasts for H shares signal its latest view on earnings, valuation and positioning.",
+   "rejected": {
+    "title_en": "advice"
+   }
   }
  }
 }
