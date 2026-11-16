@@ -31,6 +31,20 @@ sources:
     show: false         # not a separate line in the status display
     name: {en: Ministry of Finance (via the NBS portal), zh: 财政部（经国家统计局数据库）}
     url: https://www.mof.gov.cn/
+  - id: Tushare
+    status: active
+    name: {en: Tushare Pro (market data), zh: Tushare Pro（市场数据）}
+    url: https://tushare.pro/
+  - id: ChinaBond
+    status: active
+    show: false         # cross-check reference for the Tushare yields; no observations are stored from it
+    name: {en: China Central Depository & Clearing (ChinaBond), zh: 中央国债登记结算公司（中债）}
+    url: https://yield.chinabond.com.cn/
+  - id: CFETS
+    status: active
+    show: false         # cross-check reference for USD/CNY; no observations are stored from it
+    name: {en: China Foreign Exchange Trade System (CFETS), zh: 中国外汇交易中心（CFETS）}
+    url: https://www.chinamoney.com.cn/
   - id: Wind
     status: private_pending
     since: V1.2

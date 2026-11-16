@@ -1,0 +1,386 @@
+# Fetch specification for the daily market series (Tushare). One entry per metric in metrics.yaml
+# (category: markets). `change` is how the page expresses a move: bp (yields, spreads) or pct (prices).
+# The Owner's account (checked 2026-11-10, docs/research/market-source-matrix.md) may call only shibor, hibor, us_tycr,
+# us_trycr and index_daily, about one call per interface per hour: every series below needs one of those.
+# `parked` series are fully specified but NOT fetched: their interface is not permitted for this account
+# (yc_cb, fx_daily, sw_daily, fut_mapping, fut_daily). To enable one after a points upgrade, move its `series` entry
+# into `series` and its `metric` entry into metrics.yaml; the fetchers and tests already exist.
+history_start: '2020-01-01'
+lookback_days: 10
+series:
+- metric_id: mk_shibor_on
+  change: bp
+  kind: shibor
+  field: 'on'
+- metric_id: mk_shibor_1w
+  change: bp
+  kind: shibor
+  field: 1w
+- metric_id: mk_shibor_3m
+  change: bp
+  kind: shibor
+  field: 3m
+- metric_id: mk_shibor_1y
+  change: bp
+  kind: shibor
+  field: 1y
+- metric_id: mk_ust1y
+  change: bp
+  kind: us_tycr
+  field: y1
+- metric_id: mk_ust10y
+  change: bp
+  kind: us_tycr
+  field: y10
+- metric_id: mk_ust_slope_10y_1y
+  change: bp
+  kind: derived
+  minus:
+  - mk_ust10y
+  - mk_ust1y
+  decimals: 4
+- metric_id: mk_ust_real10y
+  change: bp
+  kind: us_trycr
+  field: y10
+- metric_id: mk_hibor_on
+  change: bp
+  kind: hibor
+  field: 'on'
+- metric_id: mk_hibor_3m
+  change: bp
+  kind: hibor
+  field: 3m
+- metric_id: mk_csi300
+  change: pct
+  kind: index_daily
+  ts_code: 000300.SH
+  field: close
+parked:
+- series:
+    metric_id: mk_cn_gov_1y
+    change: bp
+    kind: yc_cb
+    ts_code: 1001.CB
+    curve_type: 0
+    curve_term: 1
+    field: yield
+  metric:
+    metric_id: mk_cn_gov_1y
+    category: markets
+    name: China government bond yield, 1-year (ChinaBond, maturity)
+    name_zh: 中债国债到期收益率：1年
+    tier: diagnostic
+    frequency: D
+    unit: '%'
+    transform: level
+    hypotheses:
+    - H3
+    role: Short end of the China government curve; policy-rate and liquidity expectations.
+    role_zh: 中国国债收益率曲线短端；反映政策利率与流动性预期。
+    source_primary: Tushare
+    source_code: yc_cb:1001.CB
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_cn_gov_10y
+    change: bp
+    kind: yc_cb
+    ts_code: 1001.CB
+    curve_type: 0
+    curve_term: 10
+    field: yield
+  metric:
+    metric_id: mk_cn_gov_10y
+    category: markets
+    name: China government bond yield, 10-year (ChinaBond, maturity)
+    name_zh: 中债国债到期收益率：10年
+    tier: diagnostic
+    frequency: D
+    unit: '%'
+    transform: level
+    hypotheses:
+    - H3
+    role: Benchmark long-term rate; the market's nominal growth and inflation expectation.
+    role_zh: 基准长期利率；反映市场对名义增长与通胀的预期。
+    source_primary: Tushare
+    source_code: yc_cb:1001.CB
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_cn_gov_slope_10y_1y
+    change: bp
+    kind: derived
+    minus:
+    - mk_cn_gov_10y
+    - mk_cn_gov_1y
+    decimals: 4
+  metric:
+    metric_id: mk_cn_gov_slope_10y_1y
+    category: markets
+    name: China government curve slope, 10Y minus 1Y
+    name_zh: 中国国债曲线斜率：10年减1年
+    tier: diagnostic
+    frequency: D
+    unit: '%'
+    transform: level
+    hypotheses:
+    - H3
+    role: Term spread of the government curve, computed from the two stored yields
+      on the same trade date.
+    role_zh: 国债曲线期限利差，由同一交易日的两个已存收益率计算。
+    source_primary: Tushare
+    source_code: derived:mk_cn_gov_10y-mk_cn_gov_1y
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_usdcnh
+    change: pct
+    kind: fx_daily
+    ts_code: USDCNH.FXCM
+    mid_of:
+    - bid_close
+    - ask_close
+  metric:
+    metric_id: mk_usdcnh
+    category: markets
+    name: USD/CNH, daily close (FXCM mid)
+    name_zh: 美元兑离岸人民币（日收盘，FXCM中间价）
+    tier: diagnostic
+    frequency: D
+    unit: CNY per USD
+    transform: level
+    hypotheses:
+    - H3
+    role: Offshore yuan against the dollar; the market-set side of the exchange-rate
+      constraint.
+    role_zh: 离岸人民币兑美元汇率；汇率约束中由市场决定的一侧。
+    source_primary: Tushare
+    source_code: fx_daily:USDCNH.FXCM
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_nonferrous
+    change: pct
+    kind: sw_daily
+    ts_code: 801050.SI
+    field: close
+    group: upstream
+  metric:
+    metric_id: mk_sw_nonferrous
+    category: markets
+    name: Shenwan L1 Nonferrous Metals index, close (upstream)
+    name_zh: 申万一级：有色金属指数收盘（上游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Upstream industry index for the upstream-versus-downstream comparison.
+    role_zh: 用于上下游对比的上游行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801050.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_steel
+    change: pct
+    kind: sw_daily
+    ts_code: 801040.SI
+    field: close
+    group: upstream
+  metric:
+    metric_id: mk_sw_steel
+    category: markets
+    name: Shenwan L1 Steel index, close (upstream)
+    name_zh: 申万一级：钢铁指数收盘（上游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Upstream industry index for the upstream-versus-downstream comparison.
+    role_zh: 用于上下游对比的上游行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801040.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_coal
+    change: pct
+    kind: sw_daily
+    ts_code: 801950.SI
+    field: close
+    group: upstream
+  metric:
+    metric_id: mk_sw_coal
+    category: markets
+    name: Shenwan L1 Coal index, close (upstream)
+    name_zh: 申万一级：煤炭指数收盘（上游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Upstream industry index for the upstream-versus-downstream comparison.
+    role_zh: 用于上下游对比的上游行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801950.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_food
+    change: pct
+    kind: sw_daily
+    ts_code: 801120.SI
+    field: close
+    group: downstream
+  metric:
+    metric_id: mk_sw_food
+    category: markets
+    name: Shenwan L1 Food & Beverage index, close (downstream)
+    name_zh: 申万一级：食品饮料指数收盘（下游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Downstream consumer industry index for the upstream-versus-downstream comparison.
+    role_zh: 用于上下游对比的下游消费行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801120.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_appliances
+    change: pct
+    kind: sw_daily
+    ts_code: 801110.SI
+    field: close
+    group: downstream
+  metric:
+    metric_id: mk_sw_appliances
+    category: markets
+    name: Shenwan L1 Home Appliances index, close (downstream)
+    name_zh: 申万一级：家用电器指数收盘（下游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Downstream consumer industry index for the upstream-versus-downstream comparison.
+    role_zh: 用于上下游对比的下游消费行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801110.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_sw_autos
+    change: pct
+    kind: sw_daily
+    ts_code: 801880.SI
+    field: close
+    group: downstream
+  metric:
+    metric_id: mk_sw_autos
+    category: markets
+    name: Shenwan L1 Automobiles index, close (downstream)
+    name_zh: 申万一级：汽车指数收盘（下游）
+    tier: diagnostic
+    frequency: D
+    unit: index level
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Downstream manufacturing industry index for the upstream-versus-downstream
+      comparison.
+    role_zh: 用于上下游对比的下游制造行业指数。
+    source_primary: Tushare
+    source_code: sw_daily:801880.SI
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_copper_main
+    change: pct
+    kind: fut_main
+    ts_code: CU.SHF
+    field: close
+  metric:
+    metric_id: mk_copper_main
+    category: markets
+    name: Copper, SHFE main contract close
+    name_zh: 沪铜主力合约收盘
+    tier: diagnostic
+    frequency: D
+    unit: CNY/metric ton
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Domestic industrial-metals price; upstream cost pressure. Main-contract
+      series is not roll-adjusted.
+    role_zh: 国内工业金属价格；上游成本压力。主力连续序列未做换月调整。
+    source_primary: Tushare
+    source_code: fut_main:CU.SHF
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_rebar_main
+    change: pct
+    kind: fut_main
+    ts_code: RB.SHF
+    field: close
+  metric:
+    metric_id: mk_rebar_main
+    category: markets
+    name: Rebar, SHFE main contract close
+    name_zh: 螺纹钢主力合约收盘
+    tier: diagnostic
+    frequency: D
+    unit: CNY/metric ton
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Construction-steel price; property and infrastructure demand. Main-contract
+      series is not roll-adjusted.
+    role_zh: 建筑钢材价格；地产与基建需求。主力连续序列未做换月调整。
+    source_primary: Tushare
+    source_code: fut_main:RB.SHF
+    release: daily after market close (Tushare)
+    redistribution: public
+- series:
+    metric_id: mk_iron_ore_main
+    change: pct
+    kind: fut_main
+    ts_code: I.DCE
+    field: close
+  metric:
+    metric_id: mk_iron_ore_main
+    category: markets
+    name: Iron ore, DCE main contract close
+    name_zh: 大商所铁矿石主力合约收盘
+    tier: diagnostic
+    frequency: D
+    unit: CNY/metric ton
+    transform: level
+    hypotheses:
+    - H0
+    - H1
+    role: Steel-chain raw-material price. Main-contract series is not roll-adjusted.
+    role_zh: 钢铁产业链原料价格。主力连续序列未做换月调整。
+    source_primary: Tushare
+    source_code: fut_main:I.DCE
+    release: daily after market close (Tushare)
+    redistribution: public

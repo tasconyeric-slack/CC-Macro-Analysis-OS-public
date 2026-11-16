@@ -1,0 +1,113 @@
+name: public market data
+
+# Daily market series (Tushare) into the observation store, after the Chinese close, with the
+# two official cross-checks (ChinaBond 10Y, CFETS USD/CNY central parity). Facts only: no
+# evidence-test refresh, no research record, never touches the analyst's view. A missing
+# TUSHARE_TOKEN or a non-permitted endpoint skips that series and the run stays green; cross-check
+# gaps are reported as warnings in the run log. Commits go through the verified-commit path.
+# The Tushare account allows about one call per interface per hour, so each interface is read once per run,
+# and a refused interface is not asked again in the same run.
+#
+# Pull requests never spend that allowance by accident: a push runs the offline market tests only (no token).
+# A live acceptance dry run happens once per application of the `market-live-dry-run` label (remove and re-add
+# it to run again, at most once an hour), with --require-all so the check is red unless every series arrived.
+on:
+  schedule:
+    - cron: "40 12 * * 1-5"   # 20:40 Beijing: after yc_cb's 20:00 update; non-trading days add nothing
+  workflow_dispatch:
+    inputs:
+      backfill:
+        description: "Re-read the full history, not just the recent window"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Fetch and diff only; write and commit nothing"
+        type: boolean
+        default: false
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+    paths:
+      - "src/cnmacro/market_data.py"
+      - "src/cnmacro/market_crosscheck.py"
+      - "src/cnmacro/tushare_client.py"
+      - "data/dictionary/market_series.yaml"
+      - "scripts/commit_market_data.py"
+      - ".github/workflows/market.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-market-data
+  cancel-in-progress: false
+
+jobs:
+  offline:
+    if: github.event_name == 'pull_request' && github.event.action != 'labeled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e ".[dev]"
+      - name: Market tests (no token, no network)
+        run: python -m pytest -q tests/test_market_data.py tests/test_market_site.py
+
+  market:
+    if: >-
+      github.event_name != 'pull_request' ||
+      (github.event.action == 'labeled' && github.event.label.name == 'market-live-dry-run')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: pip install -e .
+      - name: Refresh market series and cross-check
+        env:
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+          # pull requests fetch and diff without writing anything
+          # a labelled PR run and a manual dry run are acceptance checks: red unless every series arrived
+          ARGS: >-
+            ${{ github.event_name == 'pull_request' && '--dry-run --require-all' || '' }}
+            ${{ inputs.backfill && '--backfill' || '' }}
+            ${{ inputs.dry_run && '--dry-run --require-all' || '' }}
+        run: python -m cnmacro market-refresh --summary market-summary.json $ARGS
+      - name: Secrets and data-boundary check
+        run: python scripts/check_secrets.py
+      - name: Commit new market observations
+        if: github.event_name != 'pull_request' && !inputs.dry_run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add -A -- 'data/demo/observations/tushare_*.csv'
+          if [ -e data/market/crosschecks ]; then
+            git add -A -- data/market/crosschecks
+          fi
+          python scripts/check_secrets.py --staged
+          if git diff --cached --quiet; then
+            echo "No new market data; nothing to commit."
+            exit 0
+          fi
+          MSG=$(python - <<'PY'
+          import json
+          s = json.load(open("market-summary.json", encoding="utf-8"))
+          gaps = ", ".join(s.get("crosscheck_gaps", [])) or "none"
+          print(f"data: market refresh {s['as_of']}: {s['new_rows']} new observation(s); cross-check gaps: {gaps}")
+          print()
+          print("Automatic market-data refresh (cnmacro market-refresh). Facts only; analyst judgment unchanged.")
+          PY
+          )
+          python scripts/commit_market_data.py "$MSG"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: market-summary
+          path: market-summary.json
+          if-no-files-found: ignore

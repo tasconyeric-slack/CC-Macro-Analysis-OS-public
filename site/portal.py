@@ -13,6 +13,10 @@ def portal_context(model, v):
         mids = [mid for mid, m in public_metrics(model["metrics"]).items() if m.category == cid]
         available = [charts[mid] for mid in mids if mid in charts and charts[mid]["pts"]]
         releases = [str(ch["latest_release"]) for ch in available if ch["latest_release"]]
+        if cid == "markets":    # daily series: read from the portal series, not the evidence-state charts
+            live = {mid: s["points"] for mid, s in model["data_portal"]["series"].items() if mid in mids and s["points"]}
+            available = [{"m": model["metrics"][mid]} for mid in live]
+            releases = [pts[-1]["period"] for pts in live.values()]
         categories.append({
             "id": cid, "title": v.t(f"portal.category.{cid}.title"),
             "kicker": v.t(f"portal.category.{cid}.kicker"),

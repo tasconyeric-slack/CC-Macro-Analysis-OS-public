@@ -3,6 +3,7 @@ import csv
 import json
 from dataclasses import replace
 
+import pandas as pd
 import pytest
 
 from cnmacro.derive import Deriver
@@ -14,6 +15,9 @@ from conftest import ROOT
 def test_every_emitted_raw_series_equals_the_public_store(built, model):
     raw = load_observations(ROOT / "data/demo/observations")
     expected = as_of(raw, model["evidence_as_of"])
+    daily = raw[raw.metric_id.isin([m for m, x in model["metrics"].items() if x.frequency == "D"])]
+    if not daily.empty:     # daily market series are not tied to the evidence state (market.yml)
+        expected = pd.concat([expected[~expected.metric_id.isin(daily.metric_id)], as_of(daily, daily.retrieved_at.max())])
     allowed = public_metrics(model["metrics"])
     emitted = {p.stem for p in (built / "data/series").glob("*.json")}
     assert emitted == set(allowed) | {DEFLATOR}
@@ -50,7 +54,7 @@ def test_public_category_required_and_private_metrics_excluded(model, built):
 
 def test_all_categories_have_charts_details_and_honest_gap(built):
     for loc in ("en", "zh"):
-        for category in CATEGORIES:
+        for category in [c for c in CATEGORIES if c != "markets"]:     # markets: tests/test_market_site.py
             page = (built / loc / f"data-{category}.html").read_text(encoding="utf-8")
             assert 'class="chart"' in page
             assert 'class="data-detail"' in page

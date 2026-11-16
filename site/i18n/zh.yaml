@@ -185,6 +185,8 @@ units:
   USD/bbl: 美元/桶
   USD/metric ton: 美元/吨
   CNY per USD: 人民币/美元
+  index level: 指数点位
+  CNY/metric ton: 元/吨
 
 tier:
   core: 核心
@@ -606,6 +608,10 @@ portal:
       title: 外部环境
       kicker: Global environment
       description: 能源、金属、汇率与美债利率。
+    markets:
+      title: 市场与金融条件
+      kicker: MARKETS & FINANCIAL CONDITIONS
+      description: 每日收益率、货币市场利率、人民币、股指、行业指数与商品期货。
 
 desk:
   kicker: 每日宏观台
@@ -687,6 +693,34 @@ data_explorer:
   coverage_title: 覆盖与边界
   coverage: 政府性基金收入尚无公开观测值。授权利率与高频序列不进入公开站。图中数值属于事实，不会自动改变分析师判断。
   calendar_note: 各分类来自指标字典和实际发布元数据。修订记录可在指标详情中查看。
+
+markets:
+  disclosure: 市场序列来自 Tushare Pro（第三方数据，收盘后每日更新）。美国10年期国债收益率与“全球环境”页已使用的 FRED GS10 月均值核对。仅作研究判断的背景，不是证据检验的输入，也不构成投资建议。
+  change_1d: 较上一交易日变化
+  change_1m: 较一个月前变化
+  percentile: 近一年分位
+  percentile_note: 最近365天内不高于最新水平的天数占比。
+  bp: 个基点
+  range:
+    3m: 3个月
+    1y: 1年
+    all: 全部
+  thinned: 悬停可查看日期与数值。长区间图表已做抽稀；CSV 保留全部观测。
+  vintage_note: CSV 列出每个已捕获的数据版本。Tushare 事后修订的数值作为新版本保留，不会被覆盖。
+  compare_title: 上游与下游对比
+  compare_note: 申万一级行业指数。上游为原材料链条，下游为消费与制造需求。
+  group: 分组
+  series: 序列
+  groups:
+    upstream: 上游
+    downstream: 下游
+  crosscheck:
+    ok: "核对通过：{source}，{date}：{official}；Tushare 相差 {diff}（容差 {tol}）。"
+    gap: "核对出现差异：{source}，{date}：{official}；Tushare 相差 {diff}，超出 {tol} 容差。两个数值均已保留，未做覆盖。"
+    ok_monthly: "核对通过：{date} Tushare 日度数据的月均值与{source} {official} 相比，差异 {diff}（容差 {tol}）。"
+    gap_monthly: "核对出现差异：{date} Tushare 日度数据的月均值与{source} {official} 相比，差异 {diff}，超出 {tol} 容差。两个数值均已保留，未做覆盖。"
+    pending: "核对待定：暂无可比较的{source}数值，这不是失败。"
+    unavailable: "核对不可用：上次运行未能读取{source}页面。"
 
 official_inbox:
   kicker: 官方发布与政策文件

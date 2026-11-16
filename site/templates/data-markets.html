@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "_macros.html" as mx with context %}
+{% block head %}<link rel="stylesheet" href="{{ asset }}data-portal.css">{% endblock %}
+{% block body %}
+<p class="small"><a href="data.html">{{ t('portal.data_group') }}</a></p>
+<div class="data-intro"><div><p class="small muted">{{ category.kicker }}</p><h1>{{ category.title }}</h1><p class="lede">{{ category.description }}</p></div><div class="data-total"><strong>{{ data_explorer.available }}</strong><span>{{ t('data_explorer.series') }}</span></div></div>
+<nav class="data-category-nav" aria-label="{{ t('data_explorer.categories') }}">{% for c in portal.categories %}<a href="{{ c.url }}"{% if c.id == category.id %} aria-current="page"{% endif %}>{{ c.title }}</a>{% endfor %}</nav>
+<aside class="data-boundary"><p>{{ t('markets.disclosure') }}</p></aside>
+{% set grouped = data_explorer.cards|selectattr('group')|selectattr('latest')|list %}
+{% if grouped %}<section id="upstream-downstream"><h2>{{ t('markets.compare_title') }}</h2><p class="small muted">{{ t('markets.compare_note') }}</p>
+<div class="tablewrap"><table><thead><tr><th>{{ t('markets.group') }}</th><th>{{ t('markets.series') }}</th><th>{{ t('markets.change_1d') }}</th><th>{{ t('markets.change_1m') }}</th><th>{{ t('markets.percentile') }}</th></tr></thead><tbody>
+{% for g in ['upstream', 'downstream'] %}{% for c in grouped if c.group == g %}<tr><td>{{ t('markets.groups.' ~ g) }}</td><td><a href="#metric-{{ c.id }}">{{ c.name }}</a></td><td>{{ c.previous_change }}</td><td>{{ c.month_change }}</td><td>{{ c.percentile ~ '%' if c.percentile is not none else '–' }}</td></tr>{% endfor %}{% endfor %}
+</tbody></table></div></section>{% endif %}
+<div class="data-metric-nav">{% for c in data_explorer.cards %}<a href="#metric-{{ c.id }}">{{ c.name }}</a>{% endfor %}</div>
+<div class="data-metrics">{% for c in data_explorer.cards %}
+<article class="data-metric chartcard" id="metric-{{ c.id }}">
+<header class="data-metric-heading"><div><h2>{{ c.name }}</h2><p class="small muted">{{ c.role }}</p></div>{{ mx.tier_badge('FACT') }}</header>
+{% if c.latest %}
+<div class="data-reading"><div><strong>{{ c.value }}</strong><span>{{ c.unit }}</span><p>{{ c.latest.period|date }}</p></div>
+<dl><dt>{{ t('markets.change_1d') }}{% if c.previous_date %} ({{ c.previous_date|date }}){% endif %}</dt><dd>{{ c.previous_change }}</dd>
+<dt>{{ t('markets.change_1m') }}{% if c.month_date %} ({{ c.month_date|date }}){% endif %}</dt><dd>{{ c.month_change }}</dd>
+<dt title="{{ t('markets.percentile_note') }}">{{ t('markets.percentile') }}</dt><dd>{{ c.percentile ~ '%' if c.percentile is not none else '–' }}</dd></dl></div>
+{{ mx.source_line(c.publisher, c.latest.period|date, '', c.latest.retrieved_at, c.source_url) }}
+{% if c.crosscheck %}<p class="small data-crosscheck" data-state="{{ c.crosscheck.state }}">{% if c.crosscheck.state in ('ok', 'gap') %}{{ t('markets.crosscheck.' ~ c.crosscheck.state ~ ('_monthly' if c.crosscheck.basis == 'monthly_mean' else ''), source=c.crosscheck.source_name, date=c.crosscheck.date_text, official=c.crosscheck.official_value, diff=c.crosscheck.difference_text, tol=c.crosscheck.tolerance) }}{% elif c.crosscheck.state == 'pending' %}{{ t('markets.crosscheck.pending', source=c.crosscheck.source_name) }}{% else %}{{ t('markets.crosscheck.unavailable', source=c.crosscheck.source_name) }}{% endif %}</p>{% endif %}
+<div class="data-range" role="group" aria-label="{{ t('data_explorer.range') }}">{% for r in c.ranges %}<button type="button" data-range="{{ r.key }}" aria-pressed="{{ 'true' if r.key == 'all' else 'false' }}">{{ t('markets.range.' ~ r.key) }}</button>{% endfor %}</div>
+{% for r in c.ranges %}<div data-range-plot="{{ r.key }}"{% if r.key != 'all' %} hidden{% endif %}>{% for p in r.plots %}<div class="data-plot-{{ p.size }}">{{ p.svg }}</div>{% endfor %}</div>{% endfor %}
+<p class="small data-chart-hint">{{ t('markets.thinned') }}</p>
+{% else %}{{ mx.empty_state(t('data_explorer.gap'),t('data_explorer.gap_note')) }}{% endif %}
+<details class="data-detail"><summary>{{ t('data_explorer.detail') }}</summary>
+<dl><dt>{{ t('data_explorer.definition') }}</dt><dd>{{ c.role }}</dd>{% if c.source_code %}<dt>{{ t('claim.source_code') }}</dt><dd class="data-code">{{ c.source_code }}</dd>{% endif %}</dl>
+<p><a href="{{ c.csv_url }}" download>{{ t('data_explorer.download') }}</a> / <a href="{{ c.json_url }}">{{ t('data_explorer.json') }}</a>{% if c.source_url %} / <a href="{{ c.source_url }}" rel="noopener">{{ t('data_explorer.source') }}</a>{% endif %}</p>
+<p class="small">{{ t('markets.vintage_note') }}</p>
+</details>
+</article>{% endfor %}</div>
+{% endblock %}
+{% block scripts %}<script src="{{ asset }}data-portal.js"></script>{% endblock %}

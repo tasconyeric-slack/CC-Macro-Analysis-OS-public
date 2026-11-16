@@ -185,6 +185,8 @@ units:
   USD/bbl: USD/bbl
   USD/metric ton: USD/metric ton
   CNY per USD: CNY per USD
+  index level: index level
+  CNY/metric ton: CNY/metric ton
 
 tier:
   core: core
@@ -606,6 +608,10 @@ portal:
       title: Global environment
       kicker: Global environment
       description: Energy, metals, exchange rates and US yields.
+    markets:
+      title: Markets & financial conditions
+      kicker: MARKETS & FINANCIAL CONDITIONS
+      description: Daily yields, money-market rates, the yuan, equities, industry indices and commodity futures.
 
 desk:
   kicker: Daily macro desk
@@ -694,6 +700,34 @@ data_explorer:
     not change the analyst view.
   calendar_note: Each category uses the observation dictionary and actual release
     metadata. Revisions remain visible in the metric detail.
+
+markets:
+  disclosure: Market series come from Tushare Pro (third-party data, refreshed daily after the close). The US Treasury 10Y is cross-checked against the FRED GS10 monthly average already used on the Global environment page. Context for the research view, not an evidence-test input and not investment advice.
+  change_1d: Change vs prior trading day
+  change_1m: Change vs one month earlier
+  percentile: 1-year percentile
+  percentile_note: Share of the last 365 days at or below the latest level.
+  bp: bp
+  range:
+    3m: 3M
+    1y: 1Y
+    all: All
+  thinned: Hover for date and value. Long ranges are thinned for the chart; the CSV holds every observation.
+  vintage_note: The CSV lists every captured vintage. A value that Tushare later revised is kept as a new vintage, never overwritten.
+  compare_title: Upstream vs downstream
+  compare_note: Shenwan level-1 industry indices. Upstream is the raw-material chain; downstream is consumer and manufacturing demand.
+  group: Group
+  series: Series
+  groups:
+    upstream: Upstream
+    downstream: Downstream
+  crosscheck:
+    ok: "Cross-check passed: {source}, {date}: {official}; Tushare differs by {diff} (tolerance {tol})."
+    gap: "Cross-check gap: {source}, {date}: {official}; Tushare differs by {diff}, beyond the {tol} tolerance. Both values are kept; nothing was overwritten."
+    ok_monthly: "Cross-check passed: monthly mean of the Tushare daily values for {date} vs {source} {official}; difference {diff} (tolerance {tol})."
+    gap_monthly: "Cross-check gap: monthly mean of the Tushare daily values for {date} vs {source} {official}; difference {diff}, beyond the {tol} tolerance. Both values are kept; nothing was overwritten."
+    pending: "Cross-check pending: no {source} value can be compared yet; this is not a failure."
+    unavailable: "Cross-check unavailable: the {source} page could not be read in the last run."
 
 official_inbox:
   kicker: Official announcements
