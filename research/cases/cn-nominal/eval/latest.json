@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-13T09:37:33+00:00",
-  "commit": "61d847b7ec948124d1c7cbf9983daf3f1a55bb3f",
+  "generated_at": "2026-11-16T09:50:08+00:00",
+  "commit": "50b2c2bf2d8badfff1dbebc4be44d49c8c9fe04f",
   "mode": "public",
   "checks": [
     {
@@ -36,7 +36,7 @@
       "name": "Preregistration immutability",
       "status": "warn",
       "details": [
-        "2026-11-13T0935Z.json: not committed yet"
+        "2026-11-16T0948Z.json: not committed yet"
       ]
     },
     {
@@ -94,6 +94,10 @@
     "research/cases/cn-nominal/refreshes/2026-11-09T0223Z.json": {
       "sha": "5ebff7a1615a1da4217d26ffd1341fe0b4e74cde",
       "at": "2026-11-09T02:24:36Z"
+    },
+    "research/cases/cn-nominal/refreshes/2026-11-13T0935Z.json": {
+      "sha": "52c5640e8f2b2379544d745bf491c5db656d9a89",
+      "at": "2026-11-13T09:37:54Z"
     }
   }
 }
