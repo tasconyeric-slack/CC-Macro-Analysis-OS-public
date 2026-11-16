@@ -15,7 +15,7 @@ import urllib.request
 
 ROOTS = ("data/demo/observations/", "research/cases/cn-nominal/eval/",
          "research/cases/cn-nominal/refreshes/", "research/cases/cn-nominal/updates/",
-         "research/cases/cn-nominal/reviews/")
+         "research/cases/cn-nominal/reviews/", "research/cases/cn-nominal/inputs/")
 IMMUTABLE = ROOTS[2:]
 
 
