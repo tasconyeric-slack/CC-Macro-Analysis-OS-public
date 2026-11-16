@@ -9,7 +9,7 @@
   "release-fai-2026-10",
   "evt-c754e31e6205",
   "evt-a9d47a3a5175",
-  "evt-ed62d7ec9d40"
+  "evt-1ad4d9f21e79"
  ],
  "body": [
   {
@@ -72,6 +72,27 @@
    }
   },
   {
+   "event_id": "evt-1ad4d9f21e79",
+   "title_zh": "麦克勒姆将于2027年6月卸任加拿大央行行长",
+   "summary_zh": "蒂夫·麦克勒姆（Tiff Macklem）在加拿大央行历史上最为动荡的经济时期之一执掌该行，他将于明年6月七年任期结束时离开央行。“在我担任行长期间，加拿大经历了一个更加碎片化、更易受冲击的世界，”麦克勒姆在一份声明中表示。“央行通过果断行动、在不确定性面前运用稳健判断，并以谦逊和对使命的坚定承诺服务加拿大人，来应对这些挑战。” 央行董事会已经启动遴选下一任CEO的程序。据彭博报道，潜在候选人包括贝莱德的让·博伊文（Jean Boivi",
+   "url": "https://wallstreetcn.com/livenews/3200736",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "东方财富",
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 77.59167373200866,
+   "ai": {
+    "title_en": "Macklem to step down as Bank of Canada governor in June 2027",
+    "why_zh": "加拿大央行行长更替启动遴选程序，为关注中国经济的读者提供主要央行人事变动的外部参照。",
+    "why_en": "The Bank of Canada has begun the process of choosing its next chief, offering an external reference point on central bank leadership changes.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
    "event_id": "evt-ed62d7ec9d40",
    "title_zh": "国家统计局答一财：客观理性看待投资降幅扩大",
    "summary_zh": "前10个月，全国固定资产投资同比下降8.1%。",
@@ -125,26 +146,6 @@
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
-  },
-  {
-   "event_id": "evt-77dd9bac2ffa",
-   "title_zh": "调查显示欧元区第四季度通胀率预计将升至4%",
-   "summary_zh": "一项调查显示，在10月价格涨幅是欧洲央行目标的两倍后，经济学家们纷纷上调预测，料今年最后一个季度欧元区通胀率将达到4%。根据11月6日至11日对19位经济学家进行的调查，他们对欧元区第四季度通胀率的预估中值从上月调查时的3.8%上调至4%。西班牙、意大利和法国的通胀预期也被上调，德国的预期则被下调。（彭博）",
-   "url": "https://wallstreetcn.com/livenews/3200507",
-   "publisher": "华尔街见闻",
-   "topic": "prices",
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "score": 69,
-   "rank_key": 73.15888308335967,
-   "ai": {
-    "title_en": "Survey shows eurozone fourth-quarter inflation expected to rise to 4%",
-    "why_zh": "欧元区通胀预期上调至4%，作为中国重要贸易伙伴的价格走势，关系到外需与出口前景。",
-    "why_en": "Eurozone inflation expectations were raised to 4%, a price trend in a major trading partner that bears on external demand and export prospects.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
   }
  ],
  "quick": [
@@ -183,6 +184,26 @@
    ],
    "score": 71,
    "rank_key": 80.6566274746046
+  },
+  {
+   "event_id": "evt-77dd9bac2ffa",
+   "title_zh": "调查显示欧元区第四季度通胀率预计将升至4%",
+   "summary_zh": "一项调查显示，在10月价格涨幅是欧洲央行目标的两倍后，经济学家们纷纷上调预测，料今年最后一个季度欧元区通胀率将达到4%。根据11月6日至11日对19位经济学家进行的调查，他们对欧元区第四季度通胀率的预估中值从上月调查时的3.8%上调至4%。西班牙、意大利和法国的通胀预期也被上调，德国的预期则被下调。（彭博）",
+   "url": "https://wallstreetcn.com/livenews/3200507",
+   "publisher": "华尔街见闻",
+   "topic": "prices",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 69,
+   "rank_key": 73.15888308335967,
+   "ai": {
+    "title_en": "Survey shows eurozone fourth-quarter inflation expected to rise to 4%",
+    "why_zh": "欧元区通胀预期上调至4%，作为中国重要贸易伙伴的价格走势，关系到外需与出口前景。",
+    "why_en": "Eurozone inflation expectations were raised to 4%, a price trend in a major trading partner that bears on external demand and export prospects.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-9578dfbe3c0f",
