@@ -601,6 +601,106 @@
    "rejected": {
     "title_en": "advice"
    }
+  },
+  "news_d58ebd12c065859ac9b9|46cc9fabd1321b43|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d58ebd12c065859ac9b9",
+   "content_hash": "46cc9fabd1321b43",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Basic situation of national fixed asset investment in January-October 2026",
+   "why_zh": "全国固定资产投资同比下降8.1%，三大产业投资均下降，反映投资端整体走弱。",
+   "why_en": "Nationwide fixed asset investment fell 8.1% year on year, with investment down in all three sectors, pointing to broad weakness on the investment side."
+  },
+  "news_c754e31e620556398b4d|522d3a9c1d2659e9|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_c754e31e620556398b4d",
+   "content_hash": "522d3a9c1d2659e9",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Retail sales of consumer goods up 1.0% in January-October 2026",
+   "why_zh": "前10个月社零总额同比增长1.0%，10月当月仅增0.4%，消费复苏力度放缓。",
+   "why_en": "Retail sales rose 1.0% year on year in January-October but only 0.4% in October alone, suggesting a slower pace of consumer recovery."
+  },
+  "news_a9d47a3a51756ad063fc|5e1b0292b7caa697|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_a9d47a3a51756ad063fc",
+   "content_hash": "5e1b0292b7caa697",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "沿线13+2省区市经通道进出口8788.2亿元、增长11.9%，体现西部外贸通道动能。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "number"
+   }
+  },
+  "news_ed62d7ec9d4050f4025f|83f13bd291f492b2|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ed62d7ec9d4050f4025f",
+   "content_hash": "83f13bd291f492b2",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "官方回应前10个月固定资产投资同比下降8.1%的降幅扩大，涉及投资形势判断。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "number"
+   }
+  },
+  "news_74fd5d1dbb2e77d1bbeb|128867a99fd7312c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_74fd5d1dbb2e77d1bbeb",
+   "content_hash": "128867a99fd7312c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Romanian central bank raises 2026 inflation forecast to 7.4%",
+   "rejected": {
+    "why_zh": "name",
+    "why_en": "name"
+   }
+  },
+  "news_77dd9bac2ffa96a24487|58d84b1e370e6d9e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_77dd9bac2ffa96a24487",
+   "content_hash": "58d84b1e370e6d9e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "Survey shows eurozone fourth-quarter inflation expected to rise to 4%",
+   "why_zh": "欧元区通胀预期上调至4%，作为中国重要贸易伙伴的价格走势，关系到外需与出口前景。",
+   "why_en": "Eurozone inflation expectations were raised to 4%, a price trend in a major trading partner that bears on external demand and export prospects."
+  },
+  "news_0f60da69beef10b36da9|dec0a8791f6dee4e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_0f60da69beef10b36da9",
+   "content_hash": "dec0a8791f6dee4e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "title_en": "October 2026 industrial value added above designated size grows 4.8%",
+   "why_zh": "工业增加值是衡量中国实体经济运行的关键月度指标，10月同比增速为4.8%。",
+   "why_en": "Industrial value added is a key monthly gauge of China's real economy; October's year-on-year growth was 4.8%."
+  },
+  "news_d554a06c0a62a4e409b2|3bc94af273024da2|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d554a06c0a62a4e409b2",
+   "content_hash": "3bc94af273024da2",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "国家统计局投资司官员解读前10个月投资数据，是观察中国固定资产投资走势的官方口径。",
+   "why_en": "An NBS investment department official's reading of the first ten months' investment data offers the official view on China's fixed-asset investment trend.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_1ecdd397888b20df855d|953ad935ec824534|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1ecdd397888b20df855d",
+   "content_hash": "953ad935ec824534",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-16T09:33:25+00:00",
+   "why_zh": "国家统计局首席统计师对1—10月消费市场数据的解读，是观察中国消费需求变化的重要官方口径。",
+   "why_en": "A chief statistician's reading of January-October consumer market data offers an official lens on how China's consumer demand is changing.",
+   "rejected": {
+    "title_en": "name"
+   }
   }
  }
 }
