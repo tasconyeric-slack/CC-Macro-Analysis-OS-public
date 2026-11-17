@@ -779,6 +779,30 @@
    "rejected": {
     "why_zh": "advice"
    }
+  },
+  "news_ada92fc341b1e426bd35|e38de5619a5f5cfd|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ada92fc341b1e426bd35",
+   "content_hash": "e38de5619a5f5cfd",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-17T13:15:17+00:00",
+   "why_zh": "腾讯音乐季度总收入89.4亿元、同比增长5.6%，为观察中国数字音乐消费与平台盈利提供参考。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_c030b8a785aa6397e4d9|2812a42dc9237c92|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_c030b8a785aa6397e4d9",
+   "content_hash": "2812a42dc9237c92",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-17T13:15:17+00:00",
+   "title_en": "Gucci also cuts price of a classic handbag in France by about RMB 7,700; analysis cites financial pressure on middle-income consumers",
+   "rejected": {
+    "why_zh": "number",
+    "why_en": "number"
+   }
   }
  }
 }

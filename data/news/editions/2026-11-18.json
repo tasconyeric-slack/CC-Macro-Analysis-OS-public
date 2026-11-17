@@ -8,7 +8,8 @@
  "lead_events": [
   "evt-61788e1d70db",
   "evt-6ff7187e5d37",
-  "evt-e2735acd08e2"
+  "evt-e2735acd08e2",
+  "evt-ada92fc341b1"
  ],
  "body": [
   {
@@ -67,8 +68,45 @@
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
+  },
+  {
+   "event_id": "evt-ada92fc341b1",
+   "title_zh": "腾讯音乐第三季度总收入同比增长5.6%",
+   "summary_zh": "11月17日，腾讯音乐在港交所公告，2026年第三季度总收入为人民币89.4亿元（13.3亿美元），同比增长5.6%。基于国际财务报告准则，2026年第三季度，净利润及公司权益持有人应占净利润分别为人民币22.2亿元（3.31亿美元）及人民币21.5亿元（3.21亿美元）。",
+   "url": "https://wallstreetcn.com/livenews/3201197",
+   "publisher": "华尔街见闻",
+   "topic": "markets",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 66,
+   "rank_key": 70.15888308335967,
+   "ai": {
+    "why_zh": "腾讯音乐季度总收入89.4亿元、同比增长5.6%，为观察中国数字音乐消费与平台盈利提供参考。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   }
  ],
- "quick": [],
+ "quick": [
+  {
+   "event_id": "evt-c030b8a785aa",
+   "title_zh": "Gucci在法国也降价了一款经典手袋价格下调约7700元！分析称中等收入消费者面临财务压力",
+   "summary_zh": "【Gucci在法国也降价了一款经典手袋价格下调约7700元！分析称中等收入消费者面临财务压力】当地时间11月15日，有媒体报道称，Gucci旗下Padlock系列一款水晶装饰手袋在法国市场的售价，已从今年7月的3500欧元（约合人民币2.57万元）降至2450欧元（约合人民币1.8万元），降幅约30%，折合人民币降价约7700元。",
+   "url": "https://finance.eastmoney.com/a/202611173933064396.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Gucci also cuts price of a classic handbag in France by about RMB 7,700; analysis cites financial pressure on middle-income consumers",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "final": false
 }
