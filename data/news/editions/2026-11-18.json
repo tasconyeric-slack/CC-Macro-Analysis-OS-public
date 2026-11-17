@@ -1,0 +1,74 @@
+{
+ "date": "2026-11-18",
+ "window": [
+  "2026-11-17T08:00:00+08:00",
+  "2026-11-18T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-61788e1d70db",
+  "evt-6ff7187e5d37",
+  "evt-e2735acd08e2"
+ ],
+ "body": [
+  {
+   "event_id": "evt-61788e1d70db",
+   "title_zh": "我国北斗终端设备应用数量近4200万",
+   "summary_zh": "11月17日，在北京举办的北斗时空产业发展论坛上，中国卫星导航定位协会发布的《2026中国北斗产业发展指数报告》显示，截至2026年上半年，我国各种类型的北斗终端设备（不含消费类电子）应用数量接近4200万台/套，较去年同期增加近900万台/套，同比增长约27%，北斗综合应用渗透率超过90%。",
+   "url": "https://wallstreetcn.com/livenews/3200942",
+   "publisher": "华尔街见闻",
+   "topic": "growth",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "why_zh": "该数据反映北斗终端应用规模与渗透率，是观察中国卫星导航产业进展的一项参考。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-6ff7187e5d37",
+   "title_zh": "前10月上海对APEC其他经济体外贸增长22.9%",
+   "summary_zh": "【前10月上海对APEC其他经济体外贸增长22.9%】据上海海关统计，今年前10个月，上海与APEC其他经济体贸易增长动能强劲，进出口规模达2.76万亿元，同比（下同）增长22.9%，是上海外贸增长的重要支撑板块。从贸易伙伴看，区域内多点开花。前10个月上海对越南、韩国、新加坡进出口增速分别达88.4%、73.8%、38.7%；对智利进出口增长38.8%。",
+   "url": "https://finance.eastmoney.com/a/202611173932742598.html",
+   "publisher": "东方财富",
+   "topic": "trade",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Shanghai's trade with other APEC economies up 22.9% in first 10 months",
+    "why_zh": "上海对APEC经济体进出口规模与增速，是观察中国外贸区域结构变化的一个窗口。",
+    "why_en": "Shanghai's trade scale and growth with APEC economies offers a window on shifts in China's regional trade structure.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-e2735acd08e2",
+   "title_zh": "消费电子、半导体、算力产业链集体走强，科创50ETF鹏华涨超2%",
+   "summary_zh": "【消费电子、半导体、算力产业链集体走强，科创50ETF鹏华涨超2%】消费电子、半导体、算力产业链集体走强，消息面上，大疆日前宣布，将于11月18日起调整部分在售的手持云台相机、拇指相机产品的建议零售价。半导体产业链涨价潮已经传导至终端，此前，国内已有众多一线电子消费品牌对产品零售价进行上调。此外，华为昇腾云已覆盖80%的中国具身智能企业，重点高校基本实现全覆盖。",
+   "url": "https://finance.eastmoney.com/a/202611173932748444.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "why_zh": "消费电子与半导体产业链动向及终端价格调整，关系到中国相关产业的成本与需求变化。",
+    "why_en": "Developments in consumer electronics and semiconductors, including retail price adjustments, bear on costs and demand in these Chinese industries.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}
