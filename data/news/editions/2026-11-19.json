@@ -6,11 +6,32 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-766c981dd165",
   "evt-66df3bcf77a3",
   "evt-0b88d0ecb050",
-  "evt-45b98d9b7360"
+  "evt-fff8cbb26f04"
  ],
  "body": [
+  {
+   "event_id": "evt-766c981dd165",
+   "title_zh": "高油价推动英国通胀率创一年来新高",
+   "summary_zh": "【高油价推动英国通胀率创一年来新高】据新华社，英国国家统计局18日公布的数据显示，英国10月消费者价格指数（CPI）同比涨幅由9月的3.5%升至3.6%，为12个月以来最高水平。英国央行同日表示，由于能源价格压力持续累积，明年英国通胀率将持续上升。",
+   "url": "https://finance.eastmoney.com/a/202611183934170754.html",
+   "publisher": "东方财富",
+   "topic": "prices",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 78,
+   "rank_key": 82.15888308335967,
+   "ai": {
+    "title_en": "High oil prices push UK inflation rate to a one-year high",
+    "why_zh": "英国通胀升至12个月最高，英国央行称明年将持续上升，能源价格压力受关注。",
+    "why_en": "UK inflation rose to its highest in 12 months, and the Bank of England said it will keep rising next year, keeping energy price pressure in focus.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-66df3bcf77a3",
    "title_zh": "河南统计局：10月份社会消费品零售总额增长2.9% 比上月加快0.4个百分点",
@@ -52,6 +73,28 @@
    }
   },
   {
+   "event_id": "evt-fff8cbb26f04",
+   "title_zh": "消息人士称，欧洲央行多数行长、副行长及首席经济学家支持上调最低准备金率",
+   "summary_zh": "消息人士称，欧洲央行多数行长、副行长及首席经济学家支持上调最低准备金率。",
+   "url": "https://finance.sina.cn/7x24/2026-11-18/detail-inizehkv1003731.d.html",
+   "publisher": "新浪财经",
+   "topic": "credit",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "Sources say most ECB governors, deputy governors and chief economist support raising minimum reserve ratio",
+    "why_zh": "消息人士称欧洲央行多数行长、副行长及首席经济学家支持上调最低准备金率。",
+    "why_en": "Sources say most ECB governors, deputy governors and the chief economist support raising the minimum reserve ratio.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
+  {
    "event_id": "evt-45b98d9b7360",
    "title_zh": "金融监管总局两部门人事调整",
    "summary_zh": "【金融监管总局两部门人事调整】记者从相关渠道获悉，11月17日下午，金融监管总局机构恢复与处置司、人身保险监管司召开会议，宣布两部门“一把手”任命，刘昇任人身保险监管司司长，此前为机构恢复与处置司司长；刘宏健则从主持人身保险监管司日常工作的岗位上调任机构恢复与处置司司长。",
@@ -72,6 +115,5 @@
    }
   }
  ],
- "quick": [],
  "final": false
 }
