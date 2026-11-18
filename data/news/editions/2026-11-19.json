@@ -1,0 +1,77 @@
+{
+ "date": "2026-11-19",
+ "window": [
+  "2026-11-18T08:00:00+08:00",
+  "2026-11-19T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-66df3bcf77a3",
+  "evt-0b88d0ecb050",
+  "evt-45b98d9b7360"
+ ],
+ "body": [
+  {
+   "event_id": "evt-66df3bcf77a3",
+   "title_zh": "河南统计局：10月份社会消费品零售总额增长2.9% 比上月加快0.4个百分点",
+   "summary_zh": "【河南统计局：10月份社会消费品零售总额增长2.9% 比上月加快0.4个百分点】河南省统计局公布2026年10月份河南省经济运行情况。10月份，社会消费品零售总额2751.08亿元，增长2.9%、比上月加快0.4个百分点，高于全国2.5个百分点。1-10月，社会消费品零售总额24332.70亿元，增长2.6%、比1-9月加快0.1个百分点，高于全国1.6个百分点。",
+   "url": "https://finance.eastmoney.com/a/202611183933828663.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "Henan statistics bureau: October retail sales of consumer goods up 2.9%, 0.4 percentage points faster than previous month",
+    "why_zh": "河南10月社零增速加快且高于全国，为观察地方消费走势提供参照。",
+    "why_en": "Henan's October retail sales growth accelerated and outpaced the national rate, offering a reference for local consumption trends.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-0b88d0ecb050",
+   "title_zh": "中国财政部发行91天期债券，规模600亿元，发行利率1.1061%，边际利率1.1585%，预期1.1200%，投标倍数2.67倍，边际倍数4.70倍；中国财政部发行182天期债",
+   "summary_zh": "中国财政部发行91天期债券，规模600亿元，发行利率1.1061%，边际利率1.1585%，预期1.1200%，投标倍数2.67倍，边际倍数4.70倍；中国财政部发行182天期债券，规模600亿元，发行利率1.1213%，边际利率1.1700%，预期1.1500%，投标倍数2.59倍，边际倍数1.73倍；中国财政部发行7年期债券，规模1500亿元，发行利率1.4000%，边际利率1.4300%，预期1.4200%，投标倍数2.58倍，边",
+   "url": "https://wallstreetcn.com/livenews/3201689",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "China's Ministry of Finance issues 91-day bonds of 60 billion yuan at 1.1061% yield",
+    "why_zh": "国债发行利率与投标倍数反映财政融资节奏和机构配置需求。",
+    "why_en": "Sovereign bond yields and bid multiples reflect the pace of fiscal financing and institutional demand.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-45b98d9b7360",
+   "title_zh": "金融监管总局两部门人事调整",
+   "summary_zh": "【金融监管总局两部门人事调整】记者从相关渠道获悉，11月17日下午，金融监管总局机构恢复与处置司、人身保险监管司召开会议，宣布两部门“一把手”任命，刘昇任人身保险监管司司长，此前为机构恢复与处置司司长；刘宏健则从主持人身保险监管司日常工作的岗位上调任机构恢复与处置司司长。",
+   "url": "https://finance.eastmoney.com/a/202611183933795972.html",
+   "publisher": "东方财富",
+   "topic": "policy",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "Personnel changes at two departments of the financial regulator",
+    "why_zh": "金融监管总局两个监管部门换将，涉及机构处置与人身保险监管。",
+    "why_en": "The financial regulator reshuffled heads of two departments covering institution resolution and life insurance supervision.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

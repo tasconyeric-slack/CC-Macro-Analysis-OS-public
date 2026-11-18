@@ -803,6 +803,36 @@
     "why_zh": "number",
     "why_en": "number"
    }
+  },
+  "news_66df3bcf77a35c6b6833|2ce5e0e00738577c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_66df3bcf77a35c6b6833",
+   "content_hash": "2ce5e0e00738577c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-18T03:41:25+00:00",
+   "title_en": "Henan statistics bureau: October retail sales of consumer goods up 2.9%, 0.4 percentage points faster than previous month",
+   "why_zh": "河南10月社零增速加快且高于全国，为观察地方消费走势提供参照。",
+   "why_en": "Henan's October retail sales growth accelerated and outpaced the national rate, offering a reference for local consumption trends."
+  },
+  "news_0b88d0ecb0500a861ffd|2fa524341eba526f|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_0b88d0ecb0500a861ffd",
+   "content_hash": "2fa524341eba526f",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-18T03:41:25+00:00",
+   "title_en": "China's Ministry of Finance issues 91-day bonds of 60 billion yuan at 1.1061% yield",
+   "why_zh": "国债发行利率与投标倍数反映财政融资节奏和机构配置需求。",
+   "why_en": "Sovereign bond yields and bid multiples reflect the pace of fiscal financing and institutional demand."
+  },
+  "news_45b98d9b736068545e12|953220b8895a75d8|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_45b98d9b736068545e12",
+   "content_hash": "953220b8895a75d8",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-18T03:41:25+00:00",
+   "title_en": "Personnel changes at two departments of the financial regulator",
+   "why_zh": "金融监管总局两个监管部门换将，涉及机构处置与人身保险监管。",
+   "why_en": "The financial regulator reshuffled heads of two departments covering institution resolution and life insurance supervision."
   }
  }
 }
