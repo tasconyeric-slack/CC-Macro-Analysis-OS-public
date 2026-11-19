@@ -893,6 +893,18 @@
    "title_en": "Alibaba second-quarter capex up 60% year on year, free cash flow net outflow widens to 34.5 billion yuan",
    "why_zh": "阿里大幅增加AI基础设施投入，是观察中国科技企业资本开支与现金流状况的重要信号。",
    "why_en": "Alibaba's sharp increase in AI infrastructure spending is a key signal for watching Chinese tech firms' capital expenditure and cash flow."
+  },
+  "news_f75d6a9849d646e8f7ef|1db7d7302a45fbdb|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_f75d6a9849d646e8f7ef",
+   "content_hash": "1db7d7302a45fbdb",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-19T21:27:57+00:00",
+   "title_en": "JPMorgan expects debt ceiling to be reached in February",
+   "rejected": {
+    "why_zh": "name",
+    "why_en": "name"
+   }
   }
  }
 }
