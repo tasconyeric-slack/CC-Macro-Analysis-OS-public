@@ -905,6 +905,48 @@
     "why_zh": "name",
     "why_en": "name"
    }
+  },
+  "news_8c92dfba237e314f9982|3426dca80b374d5e|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_8c92dfba237e314f9982",
+   "content_hash": "3426dca80b374d5e",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T03:06:44+00:00",
+   "title_en": "Ministry of Finance successfully issues US dollar sovereign bonds in Hong Kong",
+   "why_zh": "美元主权债券发行情况受关注，是观察中国主权融资与离岸美元债券市场动向的窗口。",
+   "why_en": "The dollar sovereign bond sale is a window on China's sovereign financing and the offshore dollar bond market."
+  },
+  "news_fa9cc218f8f5d4b28433|71765ce30c8fb59a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_fa9cc218f8f5d4b28433",
+   "content_hash": "71765ce30c8fb59a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T03:06:44+00:00",
+   "title_en": "Five departments issue 2026 edition of marine industry investment and financing guidance catalogue",
+   "why_zh": "目录设11个大类、42个小类共185条，显示政策引导社会资本投向海洋产业的方向。",
+   "why_en": "With 11 major and 42 sub-categories totaling 185 entries, the catalogue signals where policy steers private capital in the marine sector."
+  },
+  "news_65dcf9c9792102ffa6dc|1d2e4b61f5db4a17|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_65dcf9c9792102ffa6dc",
+   "content_hash": "1d2e4b61f5db4a17",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T03:06:44+00:00",
+   "title_en": "China's November LPR unchanged",
+   "why_zh": "1年期报3.00%、5年期报3.50%均与上次持平，是观察中国贷款利率走向的直接指标。",
+   "why_en": "The 1-year at 3.00% and 5-year at 3.50% both held steady, a direct indicator of where China's lending rates stand."
+  },
+  "news_6a3077de22bcdea81de3|71900ae597191712|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_6a3077de22bcdea81de3",
+   "content_hash": "71900ae597191712",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T03:06:44+00:00",
+   "title_en": "Customs: China's October rare earth magnet exports 5,694 tonnes, down 7.6% month-on-month",
+   "why_zh": "稀土磁铁出口量环比下降7.6%，是观察中国稀土出口与相关供应链变化的数据点。",
+   "rejected": {
+    "why_en": "number"
+   }
   }
  }
 }

@@ -1,0 +1,99 @@
+{
+ "date": "2026-11-21",
+ "window": [
+  "2026-11-20T08:00:00+08:00",
+  "2026-11-21T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-8c92dfba237e",
+  "evt-fa9cc218f8f5",
+  "release-lpr-2026-11",
+  "evt-6a3077de22bc"
+ ],
+ "body": [
+  {
+   "event_id": "evt-8c92dfba237e",
+   "title_zh": "财政部在香港成功发行美元主权债券",
+   "summary_zh": "财政部在香港成功发行美元主权债券",
+   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261120_4005035.htm",
+   "publisher": "财政部",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "Ministry of Finance successfully issues US dollar sovereign bonds in Hong Kong",
+    "why_zh": "美元主权债券发行情况受关注，是观察中国主权融资与离岸美元债券市场动向的窗口。",
+    "why_en": "The dollar sovereign bond sale is a window on China's sovereign financing and the offshore dollar bond market.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-fa9cc218f8f5",
+   "title_zh": "五部门印发2026版海洋产业投融资《指导目录》",
+   "summary_zh": "【五部门印发2026版海洋产业投融资《指导目录》】今天（11月20日），自然资源部联合国家发展改革委、中国人民银行等五部门，印发《海洋产业投融资指导目录（2026版）》，精准引导社会资本赋能海洋产业升级，助力我国海洋经济高质量发展。这份新版《目录》共设置11个大类、42个小类，总计185条，清晰划定海洋产业转型重点，提升海洋投融资精准效能。自然资源部海洋战略规划与经济司副司长陈正：在内容设计上，新版《目录》兼顾实用性与前瞻性。实用性方面",
+   "url": "https://finance.sina.cn/7x24/2026-11-20/detail-inizixmr0472218.d.html",
+   "publisher": "新浪财经",
+   "topic": "credit",
+   "publishers": [
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "score": 65,
+   "rank_key": 73.31776616671934,
+   "ai": {
+    "title_en": "Five departments issue 2026 edition of marine industry investment and financing guidance catalogue",
+    "why_zh": "目录设11个大类、42个小类共185条，显示政策引导社会资本投向海洋产业的方向。",
+    "why_en": "With 11 major and 42 sub-categories totaling 185 entries, the catalogue signals where policy steers private capital in the marine sector.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "release-lpr-2026-11",
+   "title_zh": "中国11月LPR维持不变",
+   "summary_zh": "1年期贷款市场报价利率（LPR）最新报3.00%，上次为3.00%；5年期报3.50%，上次为3.50%。",
+   "url": "https://wallstreetcn.com/livenews/3202908",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "China's November LPR unchanged",
+    "why_zh": "1年期报3.00%、5年期报3.50%均与上次持平，是观察中国贷款利率走向的直接指标。",
+    "why_en": "The 1-year at 3.00% and 5-year at 3.50% both held steady, a direct indicator of where China's lending rates stand.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-6a3077de22bc",
+   "title_zh": "海关：中国10月稀土磁铁出口量5,694吨，环比下降7.6%",
+   "summary_zh": "海关：中国10月稀土磁铁出口量5,694吨，环比下降7.6%。",
+   "url": "https://wallstreetcn.com/livenews/3202911",
+   "publisher": "华尔街见闻",
+   "topic": "trade",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Customs: China's October rare earth magnet exports 5,694 tonnes, down 7.6% month-on-month",
+    "why_zh": "稀土磁铁出口量环比下降7.6%，是观察中国稀土出口与相关供应链变化的数据点。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}
