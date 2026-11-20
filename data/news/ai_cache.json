@@ -947,6 +947,80 @@
    "rejected": {
     "why_en": "number"
    }
+  },
+  "news_1c8d57e44290f68969fa|7f2fae1b5510222c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1c8d57e44290f68969fa",
+   "content_hash": "7f2fae1b5510222c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "why_zh": "这是商务部公布的年度前10个月吸收外资数据，反映外资流入的最新规模。",
+   "why_en": "The Commerce Ministry's figure for foreign investment absorbed in the first 10 months of the year shows the latest scale of inbound foreign capital.",
+   "rejected": {
+    "title_en": "number"
+   }
+  },
+  "news_044a3a46142855b67664|3889440a97948097|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_044a3a46142855b67664",
+   "content_hash": "3889440a97948097",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "why_zh": "财政部数据显示10月彩票销售同比增长19.4%，摘要提及足球世界杯后竞猜型彩票销量持续保持高位。",
+   "rejected": {
+    "title_en": "number",
+    "why_en": "name"
+   }
+  },
+  "news_91107ed3b20ffa61a709|37dea0d34b9dde11|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_91107ed3b20ffa61a709",
+   "content_hash": "37dea0d34b9dde11",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "title_en": "Ministry of Finance: January-October securities transaction stamp duty 251.1 billion yuan, up 54.1% year on year",
+   "why_zh": "财政部数据显示前10个月证券交易印花税同比增长54.1%，与同期一般公共预算收入增长4.9%一并公布。",
+   "why_en": "Finance Ministry data show securities transaction stamp duty rose 54.1% year on year in January-October, published alongside 4.9% growth in general public budget revenue."
+  },
+  "news_883c254720f2e0328cb0|56e2567b8d7ca273|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_883c254720f2e0328cb0",
+   "content_hash": "56e2567b8d7ca273",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "title_en": "In the first three quarters, China's banking and insurance sector total assets continued to grow",
+   "why_zh": "金融监管总局三季度监管指标显示银行业和保险业总资产继续增长，反映金融业资产规模变化。",
+   "why_en": "The financial regulator's third-quarter indicators show continued growth in banking and insurance total assets, reflecting changes in the sector's asset scale."
+  },
+  "news_95a17a762e1b47b55806|fb09d124b1c14b8a|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_95a17a762e1b47b55806",
+   "content_hash": "fb09d124b1c14b8a",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "title_en": "Driven by strengthened personal income tax administration on offshore trusts, October personal income tax rose 89.6%",
+   "why_zh": "个税增速跳升反映税收征管加强，关系到投资者离岸资产安排与财政收入走势。",
+   "why_en": "The jump in personal income tax growth reflects stronger tax administration, relevant to offshore asset arrangements and fiscal revenue trends."
+  },
+  "news_c6c90120a539da4f12df|079850adb13b0ee5|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_c6c90120a539da4f12df",
+   "content_hash": "079850adb13b0ee5",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "title_en": "PBOC: October government bond net financing 1,183.52 billion yuan, up 698.34 billion yuan year on year",
+   "why_zh": "政府债净融资大幅多增，是观察财政发力与债券市场供给的重要数据。",
+   "why_en": "A large increase in government bond net financing is key data for watching fiscal effort and bond market supply."
+  },
+  "news_bb1f23373c03d132ea49|da073886fc476523|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_bb1f23373c03d132ea49",
+   "content_hash": "da073886fc476523",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-20T11:27:11+00:00",
+   "title_en": "PBOC: October interbank RMB derivatives turnover 7.5 trillion yuan, up 73.4% year on year",
+   "why_zh": "衍生品成交大增与互换利率下行，反映银行间市场交易活跃度与利率环境变化。",
+   "why_en": "Surging derivatives turnover alongside lower swap rates reflects changing interbank trading activity and the rate environment."
   }
  }
 }

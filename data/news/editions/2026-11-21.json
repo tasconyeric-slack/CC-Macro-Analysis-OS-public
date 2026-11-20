@@ -6,12 +6,69 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
-  "evt-8c92dfba237e",
-  "evt-fa9cc218f8f5",
-  "release-lpr-2026-11",
-  "evt-6a3077de22bc"
+  "evt-1c8d57e44290",
+  "evt-044a3a461428",
+  "evt-91107ed3b20f",
+  "evt-8c92dfba237e"
  ],
  "body": [
+  {
+   "event_id": "evt-1c8d57e44290",
+   "title_zh": "2026年1-10月全国吸收外资6069.3亿元人民币",
+   "summary_zh": "2026年1-10月全国吸收外资6069.3亿元人民币",
+   "url": "https://www.mofcom.gov.cn/xwfb/rcxwfb/art/2026/art_c396eb91d83446af9fb1d00bc3e6d114.html",
+   "publisher": "商务部",
+   "topic": "markets",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "why_zh": "这是商务部公布的年度前10个月吸收外资数据，反映外资流入的最新规模。",
+    "why_en": "The Commerce Ministry's figure for foreign investment absorbed in the first 10 months of the year shows the latest scale of inbound foreign capital.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-044a3a461428",
+   "title_zh": "财政部：10月份，全国共销售彩票559.82亿元，同比增长19.4%",
+   "summary_zh": "财政部表示，10月份，全国共销售彩票559.82亿元，同比增加90.89亿元，增长19.4%，主要是足球世界杯后竞猜型彩票销量持续保持高位。其中，福利彩票机构销售136.36亿元，同比减少13.71亿元，下降9.1%；体育彩票机构销售423.46亿元，同比增加104.60亿元，增长32.8%。",
+   "url": "https://wallstreetcn.com/livenews/3203075",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "why_zh": "财政部数据显示10月彩票销售同比增长19.4%，摘要提及足球世界杯后竞猜型彩票销量持续保持高位。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-91107ed3b20f",
+   "title_zh": "财政部：1-10月证券交易印花税2511亿元，同比增长54.1%",
+   "summary_zh": "财政部数据显示，1-10月，全国一般公共预算收入195671亿元，同比增长4.9%。其中，印花税4712亿元，同比增长24.6%，证券交易印花税2511亿元，同比增长54.1%。1-10月，全国一般公共预算支出228042亿元，同比增长1%。",
+   "url": "https://wallstreetcn.com/livenews/3203124",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "title_en": "Ministry of Finance: January-October securities transaction stamp duty 251.1 billion yuan, up 54.1% year on year",
+    "why_zh": "财政部数据显示前10个月证券交易印花税同比增长54.1%，与同期一般公共预算收入增长4.9%一并公布。",
+    "why_en": "Finance Ministry data show securities transaction stamp duty rose 54.1% year on year in January-October, published alongside 4.9% growth in general public budget revenue.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-8c92dfba237e",
    "title_zh": "财政部在香港成功发行美元主权债券",
@@ -50,6 +107,88 @@
     "title_en": "Five departments issue 2026 edition of marine industry investment and financing guidance catalogue",
     "why_zh": "目录设11个大类、42个小类共185条，显示政策引导社会资本投向海洋产业的方向。",
     "why_en": "With 11 major and 42 sub-categories totaling 185 entries, the catalogue signals where policy steers private capital in the marine sector.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
+  {
+   "event_id": "evt-883c254720f2",
+   "title_zh": "今年前三季度我国银行业保险业总资产继续增长",
+   "summary_zh": "金融监管总局今天发布今年三季度银行业保险业主要监管指标。数据显示，今年三季度末，我国银行业金融机构本外币资产总额503.1万亿元，同比增长6.1%；保险公司和保险资产管理公司总资产44.6万亿元，较年初增长8%；金融控股公司合并总资产28.9万亿元，合并总负债25.9万亿元，合并净资产3.1万亿元。总体看，我国银行业和保险业总资产继续保持增长。",
+   "url": "https://wallstreetcn.com/livenews/3203223",
+   "publisher": "华尔街见闻",
+   "topic": "policy",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "title_en": "In the first three quarters, China's banking and insurance sector total assets continued to grow",
+    "why_zh": "金融监管总局三季度监管指标显示银行业和保险业总资产继续增长，反映金融业资产规模变化。",
+    "why_en": "The financial regulator's third-quarter indicators show continued growth in banking and insurance total assets, reflecting changes in the sector's asset scale.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-95a17a762e1b",
+   "title_zh": "受加强离岸信托个税征管等因素带动 10月个税增长89.6%",
+   "summary_zh": "11月20日，财政部公布的2026年1—10月财政收支运行情况显示，1—10月，全国税收收入16.26万亿元，增长6%。记者从财政部了解到，前10个月个人所得税增长22.9%，其中10月份增长89.6%，主要是加强离岸信托个人所得税征管等因素带动。（证券时报）",
+   "url": "https://wallstreetcn.com/livenews/3203242",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "title_en": "Driven by strengthened personal income tax administration on offshore trusts, October personal income tax rose 89.6%",
+    "why_zh": "个税增速跳升反映税收征管加强，关系到投资者离岸资产安排与财政收入走势。",
+    "why_en": "The jump in personal income tax growth reflects stronger tax administration, relevant to offshore asset arrangements and fiscal revenue trends.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-c6c90120a539",
+   "title_zh": "中国央行：10月政府债券净融资11835.2亿元同比增加6983.4亿元",
+   "summary_zh": "央行发布2026年10月金融市场运行情况。2026年10月，政府债券净融资11835.2亿元，同比增加6983.4亿元；企业债券净融资3445.6亿元，同比增加945.8亿元。2026年10月末，债券市场托管余额212.8万亿元。2026年10月，现券市场成交额33.6万亿元，同比增加12.5%；银行间债券市场现券换手率为14.8%，环比下降2.0个百分点；10年期国债活跃券买卖价差为0.34个基点。",
+   "url": "https://wallstreetcn.com/livenews/3203246",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "title_en": "PBOC: October government bond net financing 1,183.52 billion yuan, up 698.34 billion yuan year on year",
+    "why_zh": "政府债净融资大幅多增，是观察财政发力与债券市场供给的重要数据。",
+    "why_en": "A large increase in government bond net financing is key data for watching fiscal effort and bond market supply.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-bb1f23373c03",
+   "title_zh": "中国央行：10月银行间市场人民币衍生品市场成交额7.5万亿元同比增加73.4%",
+   "summary_zh": "央行发布2026年10月金融市场运行情况。2026年10月，银行间市场人民币衍生品市场成交额7.5万亿元，同比增加73.4%。2026年10月末，1年期FR007互换利率收盘价（均值）为1.38%，环比下降5个基点。2026年10月，国债期货市场成交额8.1万亿元，同比增加25.1%。2026年10月末，国债期货持仓量104.9万手，同比增加43.7%；10年国债期货主力合约收盘价109.8元，环比上升0.4%。",
+   "url": "https://wallstreetcn.com/livenews/3203247",
+   "publisher": "华尔街见闻",
+   "topic": "credit",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 72,
+   "rank_key": 76.15888308335967,
+   "ai": {
+    "title_en": "PBOC: October interbank RMB derivatives turnover 7.5 trillion yuan, up 73.4% year on year",
+    "why_zh": "衍生品成交大增与互换利率下行，反映银行间市场交易活跃度与利率环境变化。",
+    "why_en": "Surging derivatives turnover alongside lower swap rates reflects changing interbank trading activity and the rate environment.",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
@@ -94,6 +233,5 @@
    }
   }
  ],
- "quick": [],
  "final": false
 }
