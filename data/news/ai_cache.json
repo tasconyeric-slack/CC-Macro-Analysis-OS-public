@@ -1065,6 +1065,18 @@
    "title_en": "Business entities nationwide show \"quality improvement toward the new\" in first three quarters",
    "why_zh": "“四新”经济与先进制造业企业数据，反映新产业新赛道相关企业的扩张态势。",
    "why_en": "Data on \"four new\" economy and advanced manufacturing firms reflect the expansion of companies in new industries and new tracks."
+  },
+  "news_81e2c27c8bfe19e30c66|0987eb37cfe313ec|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_81e2c27c8bfe19e30c66",
+   "content_hash": "0987eb37cfe313ec",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-21T17:26:18+00:00",
+   "why_zh": "亚投行将在香港设立办公室，协定由财政部部长蓝佛安与亚投行行长邹加怡签署，为办公室开设奠定基础。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
   }
  }
 }

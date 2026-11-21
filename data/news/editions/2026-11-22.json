@@ -7,7 +7,8 @@
  "rule_version": "macro-rank-v1",
  "lead_events": [
   "evt-9b4f9038b80e",
-  "evt-c0108d3dd80b"
+  "evt-c0108d3dd80b",
+  "evt-81e2c27c8bfe"
  ],
  "body": [
   {
@@ -46,6 +47,24 @@
     "title_en": "Business entities nationwide show \"quality improvement toward the new\" in first three quarters",
     "why_zh": "“四新”经济与先进制造业企业数据，反映新产业新赛道相关企业的扩张态势。",
     "why_en": "Data on \"four new\" economy and advanced manufacturing firms reflect the expansion of companies in new industries and new tracks.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-81e2c27c8bfe",
+   "title_zh": "亚投行将在香港设立办公室",
+   "summary_zh": "【亚投行将在香港设立办公室】中华人民共和国政府与亚洲基础设施投资银行（亚投行）21日在香港签署《中华人民共和国政府与亚洲基础设施投资银行关于在中华人民共和国香港特别行政区设立办公室的协定》，为亚投行在香港开设办公室奠定基础。中华人民共和国政府与亚投行分别由财政部部长蓝佛安和亚投行行长邹加怡代表签署协定。该协定确定亚投行于香港设立办公室，并为特权、豁免与其他有助成立办公室的事宜制定原则。",
+   "url": "https://finance.eastmoney.com/a/202611213936852329.html",
+   "publisher": "东方财富",
+   "topic": "fiscal",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "why_zh": "亚投行将在香港设立办公室，协定由财政部部长蓝佛安与亚投行行长邹加怡签署，为办公室开设奠定基础。",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
