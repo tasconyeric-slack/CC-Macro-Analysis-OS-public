@@ -5,8 +5,52 @@
   "2026-11-22T08:00:00+08:00"
  ],
  "rule_version": "macro-rank-v1",
- "lead_events": [],
- "body": [],
+ "lead_events": [
+  "evt-9b4f9038b80e",
+  "evt-c0108d3dd80b"
+ ],
+ "body": [
+  {
+   "event_id": "evt-9b4f9038b80e",
+   "title_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
+   "summary_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
+   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261121_4005140.htm",
+   "publisher": "财政部",
+   "topic": "growth",
+   "publishers": [
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "score": 65,
+   "rank_key": 73.31776616671934,
+   "ai": {
+    "why_zh": "亚投行香港办公室协定的签署，是观察中国在多边开发机构中角色的一则动向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-c0108d3dd80b",
+   "title_zh": "今年前三季度全国经营主体“提质向新”",
+   "summary_zh": "【今年前三季度全国经营主体“提质向新”】市场监管总局今天（21日）公布数据显示，前三季度，我国“四新”经济与先进制造业发展势头强劲，新产业新赛道相关企业加速壮大，为高质量发展蓄势聚能。“四新”经济与前沿产业增势强劲。截至9月底，全国登记在册“四新”经济企业同比增长5.6%。一是新兴支柱产业保持增长。1月至9月，航天器及运载火箭制造业新设企业同比增长73.3%，集成电路制造业新设企业同比增长21.1%。二是前沿领域加速成长。生成式人工智能",
+   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-inizntha6656419.d.html",
+   "publisher": "新浪财经",
+   "topic": "policy",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Business entities nationwide show \"quality improvement toward the new\" in first three quarters",
+    "why_zh": "“四新”经济与先进制造业企业数据，反映新产业新赛道相关企业的扩张态势。",
+    "why_en": "Data on \"four new\" economy and advanced manufacturing firms reflect the expansion of companies in new industries and new tracks.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "quick": [],
  "final": false
 }
