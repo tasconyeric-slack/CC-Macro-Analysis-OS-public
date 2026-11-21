@@ -1021,6 +1021,28 @@
    "title_en": "PBOC: October interbank RMB derivatives turnover 7.5 trillion yuan, up 73.4% year on year",
    "why_zh": "衍生品成交大增与互换利率下行，反映银行间市场交易活跃度与利率环境变化。",
    "why_en": "Surging derivatives turnover alongside lower swap rates reflects changing interbank trading activity and the rate environment."
+  },
+  "news_eb3b6b03494b099814fe|e65c3ed35cb85788|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_eb3b6b03494b099814fe",
+   "content_hash": "e65c3ed35cb85788",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-21T01:27:38+00:00",
+   "title_en": "Peak-season promotions and improving overseas sales prompt home appliance firms to push new products",
+   "why_zh": "前10个月中国家电出口额达893.65亿美元、同比增长10.4%，出口势头是观察家电业景气的重要线索。",
+   "why_en": "China's home appliance exports reached $89.365 billion in the first 10 months, up 10.4%, making export momentum a key signal for the sector."
+  },
+  "news_b8255f8c48ce7f0d049c|523ac09371546718|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_b8255f8c48ce7f0d049c",
+   "content_hash": "523ac09371546718",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-21T01:27:38+00:00",
+   "title_en": "Memory price trends diverge as makers seek to seize structural opportunities",
+   "why_zh": "集邦咨询预计2027年第一季度闪存合约价格较上季下滑0%至5%，为观察存储器行业供需变化提供参考。",
+   "rejected": {
+    "why_en": "number"
+   }
   }
  }
 }
