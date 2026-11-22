@@ -188,7 +188,7 @@ def test_vercel_production_build_keeps_the_true_audit_trail(tmp_path, platform_p
     page = (clone / "site/dist/en/updates.html").read_text(encoding="utf-8")
     graft = git("rev-parse", "HEAD", cwd=clone) if scenario != "no_git_dir" else None
     for anchor, name in IMMUTABLE.items():
-        shown = re.search(rf'id="{anchor}".*?commit <span class="mono">(\w+)', page, re.S).group(1)
+        shown = re.search(rf'id="{anchor}"[^>]*data-origin-sha="([0-9a-f]+)"', page).group(1)
         assert shown == audit[PREREG + name]["sha"][:7]
         if graft:
             assert shown != graft[:7]   # never the clone's tip

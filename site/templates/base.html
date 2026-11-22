@@ -53,13 +53,11 @@
   <div class="footer-cols">
     <div class="footer-brand">
       <a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">CC</span><span class="brand-text">CC Macro<small>{{ t('site.tagline') }}</small></span></a>
-      <p>{{ t('footer.not_advice') }}</p>
     </div>
     <nav class="footer-col" aria-label="{{ t('footer.col_site') }}"><h2>{{ t('footer.col_site') }}</h2><ul>{% for f, label, on in nav %}<li><a href="{{ f }}"{% if on %} aria-current="page"{% endif %}>{{ label }}</a></li>{% endfor %}</ul></nav>
     <nav class="footer-col footer-links" aria-label="{{ t('footer.col_research') }}"><h2>{{ t('footer.col_research') }}</h2><ul>{% for f, label in footer_nav %}<li><a href="{{ f }}">{{ label }}</a></li>{% endfor %}</ul></nav>
-    <div class="footer-col"><h2>{{ t('footer.col_sources') }}</h2><p>{{ t('footer.boundary') }}</p></div>
+    <div class="footer-col"><h2>{{ t('footer.col_sources') }}</h2><p><a href="method.html#sources">{{ t('nav.method') }}</a></p></div>
   </div>
-  <p class="footer-base">{{ t('footer.built_html', built=built_at|when, commit=commit or t('footer.uncommitted')) }}</p>
 </div></footer>
 <script src="{{ asset }}charts.js"></script>
 <script src="{{ asset }}site.js"></script>

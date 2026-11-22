@@ -3,9 +3,6 @@
 <div class="eyebrow">{{ t('nav.evidence') }}</div>
 <h1>{{ t('evidence.h1') }}</h1>
 <p class="lede">{{ case.statement }}</p>
-<p class="small muted">{{ t('evidence.intro') }}
-{% if baseline %}{{ t('evidence.asof_html', asof=evidence_as_of|when, base=baseline.as_of|when) }}{% endif %}</p>
-<p class="note"><strong>{{ t('evidence.counts_note') }}</strong> {{ t('evidence.counts_why') }}</p>
 
 {% for h in hypotheses %}
 <h2 id="{{ h.id }}">{{ h.id }} · {{ h.name }}{% if h.id == 'H0' %} <span class="tag">{{ t('evidence.competing') }}</span>{% endif %}</h2>
@@ -50,7 +47,6 @@
       <td class="small">{% for c in policy.realized %}<div>{{ c.text }}</div>{% endfor %}</td></tr>
   </tbody>
 </table></div>
-<p class="small muted">{{ t('policy.realized_note') }}</p>
 
 {% for e in policy.events %}
 <article class="event" id="{{ e.id }}">
