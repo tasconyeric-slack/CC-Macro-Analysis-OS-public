@@ -7,7 +7,8 @@
  "rule_version": "macro-rank-v1",
  "lead_events": [
   "evt-38463be5d0d9",
-  "evt-47f07b9a32b4"
+  "evt-47f07b9a32b4",
+  "evt-1c42e0d81b70"
  ],
  "body": [
   {
@@ -45,6 +46,26 @@
    "rank_key": 75.15888308335967,
    "ai": {
     "why_zh": "上交所预计本轮新措施向市场让利13.68亿元，本年度沪市整体降费金额预计超过24亿元。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-1c42e0d81b70",
+   "title_zh": "入境游进入消费增量期商家从“拉人来”转向“接住消费”",
+   "summary_zh": "【入境游进入消费增量期商家从“拉人来”转向“接住消费”】入境游正在从“恢复性增长”走向“消费增量”。近日，在2026携程集团全球合作伙伴峰会上，携程集团CEO孙洁分享的一组数据勾勒出入境游市场新变化：2026年入境游客人均消费同比增长32%，入境酒店订单间夜均价约为国内订单的1.74倍。入境游的增长空间不仅在于“更多人来中国”，更在于“让更多地方参与国际旅游消费”。如今，入境游客已不再局限于高知名度城市，而是愿意向小众、具有鲜明旅游资源",
+   "url": "https://finance.eastmoney.com/a/202611223936970437.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Inbound tourism enters a phase of consumption growth as merchants shift from bringing people in to capturing spending",
+    "why_zh": "入境游从恢复性增长转向消费增量，人均消费与酒店间夜均价变化反映其对相关消费的带动。",
+    "why_en": "Inbound tourism is moving from recovery growth to consumption gains, with per-visitor spending and hotel room rates pointing to its pull on related spending.",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }

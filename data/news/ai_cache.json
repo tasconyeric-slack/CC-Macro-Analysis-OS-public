@@ -1111,6 +1111,16 @@
    "rejected": {
     "title_en": "name"
    }
+  },
+  "news_1c42e0d81b708eb06638|35889ca1f2337aaf|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_1c42e0d81b708eb06638",
+   "content_hash": "35889ca1f2337aaf",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-22T18:29:32+00:00",
+   "title_en": "Inbound tourism enters a phase of consumption growth as merchants shift from bringing people in to capturing spending",
+   "why_zh": "入境游从恢复性增长转向消费增量，人均消费与酒店间夜均价变化反映其对相关消费的带动。",
+   "why_en": "Inbound tourism is moving from recovery growth to consumption gains, with per-visitor spending and hotel room rates pointing to its pull on related spending."
   }
  }
 }
