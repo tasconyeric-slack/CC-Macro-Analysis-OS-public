@@ -1077,6 +1077,40 @@
     "title_en": "name",
     "why_en": "name"
    }
+  },
+  "news_38463be5d0d9a7c60397|4ee8254707f1ccf5|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_38463be5d0d9a7c60397",
+   "content_hash": "4ee8254707f1ccf5",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-22T11:12:18+00:00",
+   "why_en": "Lowering the minimum margin ratio for margin purchases from 100% to 80% directly changes the funding threshold for investors buying securities on margin.",
+   "rejected": {
+    "title_en": "name",
+    "why_zh": "advice"
+   }
+  },
+  "news_47f07b9a32b404a9f42c|172d6ec4dbf1a61f|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_47f07b9a32b404a9f42c",
+   "content_hash": "172d6ec4dbf1a61f",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-22T11:12:18+00:00",
+   "why_zh": "上交所预计本轮新措施向市场让利13.68亿元，本年度沪市整体降费金额预计超过24亿元。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_7cc9d472a3f35452bac3|0602b4b14ad4992f|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7cc9d472a3f35452bac3",
+   "content_hash": "0602b4b14ad4992f",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-22T11:12:18+00:00",
+   "rejected": {
+    "title_en": "name"
+   }
   }
  }
 }

@@ -5,8 +5,65 @@
   "2026-11-23T08:00:00+08:00"
  ],
  "rule_version": "macro-rank-v1",
- "lead_events": [],
- "body": [],
- "quick": [],
+ "lead_events": [
+  "evt-38463be5d0d9",
+  "evt-47f07b9a32b4"
+ ],
+ "body": [
+  {
+   "event_id": "evt-38463be5d0d9",
+   "title_zh": "沪深北交易所调整融资保证金比例",
+   "summary_zh": "【沪深北交易所调整融资保证金比例】2026年11月22日，经中国证监会批准，沪深北交易所发布通知调整融资保证金比例，将投资者融资买入证券的最低保证金比例由100%调低至80%，相关规则调整自2026年11月30日起施行。",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhva8830362.d.html",
+   "publisher": "新浪财经",
+   "topic": "growth",
+   "publishers": [
+    "东方财富",
+    "中国新闻网",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "score": 71,
+   "rank_key": 80.6566274746046,
+   "ai": {
+    "why_en": "Lowering the minimum margin ratio for margin purchases from 100% to 80% directly changes the funding threshold for investors buying securities on margin.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-47f07b9a32b4",
+   "title_zh": "上交所组合式推出新一批降费措施助力激发市场主体活力",
+   "summary_zh": "【上交所组合式推出新一批降费措施助力激发市场主体活力】上交所发布《关于进一步减免相关费用的通知》，推出新一批降费措施，包括免收交易单元使用费，减免数据中心相关服务费用等，并将今年初已发布的免收上市费、债券经手费等措施有效期再延长两年。本次新推出的降费措施预计向市场让利13.68亿元，预计本年度沪市整体降费金额超过24亿元。近年来，上交所认真贯彻落实党中央、国务院有关减税降费部署，在中国证监会统筹指导下，持续挖掘降费空间，陆续出台多项惠企",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhuy2691741.d.html",
+   "publisher": "新浪财经",
+   "topic": "growth",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "why_zh": "上交所预计本轮新措施向市场让利13.68亿元，本年度沪市整体降费金额预计超过24亿元。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [
+  {
+   "event_id": "evt-7cc9d472a3f3",
+   "title_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有",
+   "summary_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有。目标价28.50元人民币，即下跌14%。",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrapa2794901.d.html",
+   "publisher": "新浪财经",
+   "topic": "markets",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967
+  }
+ ],
  "final": false
 }
