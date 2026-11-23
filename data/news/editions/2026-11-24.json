@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-24",
+ "window": [
+  "2026-11-23T08:00:00+08:00",
+  "2026-11-24T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-ae716d979ffe"
+ ],
+ "body": [
+  {
+   "event_id": "evt-ae716d979ffe",
+   "title_zh": "银行业金融机构总资产突破500万亿元",
+   "summary_zh": "【银行业金融机构总资产突破500万亿元】金融监管总局日前发布的最新监管指标数据显示，截至三季度末，银行业金融机构本外币资产总额首次站上500万亿元台阶，同比增长6.1%。资产扩张的同时，银行业净息差延续筑底态势，净利润小幅下滑。多位受访专家表示，在规模稳步扩张的同时，银行业保险业正把重心从“量的增长”转向“质的夯实”。盈利增速与保费增速有所回落，但拨备与偿付能力充足，行业质效转型的安全垫进一步增厚。（上证报）",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizsqqh5494221.d.html",
+   "publisher": "新浪财经",
+   "topic": "policy",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 78,
+   "rank_key": 82.15888308335967,
+   "ai": {
+    "title_en": "Total assets of banking financial institutions exceed 500 trillion yuan",
+    "why_zh": "银行业本外币资产总额首次突破500万亿元、同比增长6.1%，同时净息差延续筑底，反映规模扩张与盈利承压并行。",
+    "why_en": "Banking assets in domestic and foreign currency topped 500 trillion yuan for the first time, up 6.1% year on year, while the net interest margin continued to bottom out, showing asset expansion alongside profit pressure.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

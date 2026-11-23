@@ -1121,6 +1121,16 @@
    "title_en": "Inbound tourism enters a phase of consumption growth as merchants shift from bringing people in to capturing spending",
    "why_zh": "入境游从恢复性增长转向消费增量，人均消费与酒店间夜均价变化反映其对相关消费的带动。",
    "why_en": "Inbound tourism is moving from recovery growth to consumption gains, with per-visitor spending and hotel room rates pointing to its pull on related spending."
+  },
+  "news_9e6ff22047be625b8d6f|2dba0eafa6983f95|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_9e6ff22047be625b8d6f",
+   "content_hash": "2dba0eafa6983f95",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-23T00:15:13+00:00",
+   "title_en": "Total assets of banking financial institutions exceed 500 trillion yuan",
+   "why_zh": "银行业本外币资产总额首次突破500万亿元、同比增长6.1%，同时净息差延续筑底，反映规模扩张与盈利承压并行。",
+   "why_en": "Banking assets in domestic and foreign currency topped 500 trillion yuan for the first time, up 6.1% year on year, while the net interest margin continued to bottom out, showing asset expansion alongside profit pressure."
   }
  }
 }
