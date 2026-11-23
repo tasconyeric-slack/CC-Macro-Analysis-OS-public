@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-23T07:41:08+00:00",
+ "as_of": "2026-11-23T20:07:22+00:00",
  "rule_version": "macro-rank-v1",
  "thresholds": {
   "T1": 55,
@@ -13,7 +13,7 @@
    "tier": "T1",
    "url": "https://www.stats.gov.cn/sj/zxfb/rss.xml",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 10,
    "new": 0,
    "response_sha256": "d219939f6cfd62870808612361626c14d0fb7124333544e44a1827c85f0e819a"
@@ -24,7 +24,7 @@
    "tier": "T1",
    "url": "https://www.stats.gov.cn/sj/sjjd/",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 7,
    "new": 0,
    "response_sha256": "fbd720d9e167b9d41d779ff29dfea3762b90ea6bbedbea3165289857288b6dae"
@@ -35,10 +35,10 @@
    "tier": "T1",
    "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 11,
-   "new": 0,
-   "response_sha256": "edc8ef971759539ce2e543b221212452870e35bc8d7efc63594bc7a2c49196c4"
+   "new": 1,
+   "response_sha256": "1e6a59daab75b9c5b66b276d14e83d21d8af418a29984443bb0628baebcfa230"
   },
   {
    "source": "mof",
@@ -46,10 +46,10 @@
    "tier": "T1",
    "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 4,
    "new": 0,
-   "response_sha256": "d513108cabd72371e0e6da3476f1c2b5de2803555bf5a6eeea83bcb1046a3a9c"
+   "response_sha256": "28ac9299c56d2e1accced1470ec2fdc5020d1ee1f28a0a2c8e601b8245e1b91e"
   },
   {
    "source": "ndrc",
@@ -57,10 +57,10 @@
    "tier": "T1",
    "url": "https://www.ndrc.gov.cn/xwdt/xwfb/",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 11,
-   "new": 0,
-   "response_sha256": "753789c1b1ae65ae32ab1b71b2b3f34acef75c459c1f04bd59f11025e171bdd0"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 12,
+   "new": 1,
+   "response_sha256": "1543cb7fc7463782c60c70798719bec694e831fbd22056c881cb9d9565b39a39"
   },
   {
    "source": "mofcom",
@@ -68,7 +68,7 @@
    "tier": "T1",
    "url": "https://www.mofcom.gov.cn/xwfb/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 12,
    "new": 0,
    "response_sha256": "cb51254f294a4d121f343055be472900fe4e2529fac0c55d5e904822a7840270"
@@ -79,7 +79,7 @@
    "tier": "T1",
    "url": "https://www.safe.gov.cn/safe/whxw/index.html",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 3,
    "new": 0,
    "response_sha256": "df4a46ff4047f025e3e1ec8b28aa052aea6e01f1aadfe210dbf8c6daa868c95f"
@@ -90,7 +90,7 @@
    "tier": "T1",
    "url": "https://www.nfra.gov.cn/cbircweb/DocInfo/SelectDocByItemIdAndChild?itemId=915&pageSize=18&pageIndex=1",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "items": 1,
    "new": 0,
    "response_sha256": "693aeb81d1499475042959a8c3aa67a2cbe1192cf51ac709359ed509390c52a7"
@@ -101,10 +101,10 @@
    "tier": "T2",
    "url": "https://api-one.wallstcn.com/apiv1/content/lives?channel=global-channel&limit=100",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 7,
-   "new": 7,
-   "response_sha256": "eba2c4c51284cb03ebf8f4fbdd72c04fdb1729c3cd5ea9e3e00db838c652ed48"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 3,
+   "new": 3,
+   "response_sha256": "d3c02ace4f49a002f7d40ce614cffc96f559436fa0395067ee36702a3ccfaf1d"
   },
   {
    "source": "sina",
@@ -112,10 +112,10 @@
    "tier": "T2",
    "url": "https://zhibo.sina.com.cn/api/zhibo/feed?page=1&page_size=60&zhibo_id=152",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 3,
-   "new": 3,
-   "response_sha256": "88ec2ecb42d99a7e47c249a0cf04d663dea7ccc5dbbab24dfea2afb7dfa690e3"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 2,
+   "new": 1,
+   "response_sha256": "fc65b210f0554ac71032be8a11253126eb3f876c3fe5cc02da538b6321babef5"
   },
   {
    "source": "eastmoney",
@@ -123,10 +123,10 @@
    "tier": "T2",
    "url": "https://np-weblist.eastmoney.com/comm/web/getFastNewsList?client=web&biz=web_724&fastColumn=102&sortEnd=&pageSize=50&req_trace=1",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 5,
-   "new": 5,
-   "response_sha256": "ba1d2503f151307436dc7716acf49b49d174e414d2d3da34b08bdbfc6a52d7ee"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 2,
+   "new": 2,
+   "response_sha256": "fdab1095f4168b2b68956cd8c45b08255003469cc5c7bdf8b1645e05f203a9bf"
   },
   {
    "source": "yicai",
@@ -134,10 +134,10 @@
    "tier": "T2",
    "url": "https://www.yicai.com/api/ajax/getjuhelist?action=news&page=1&pagesize=25",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 2,
-   "new": 0,
-   "response_sha256": "d93c9a95beab6f6e2b6513bdc2457310a0040843f203379062f41bc5ee9e924b"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 1,
+   "new": 1,
+   "response_sha256": "2b9a218e2980992c1d8b8306ae74b022a566828362549b7a704ca493c8ba2c8f"
   },
   {
    "source": "chinanews",
@@ -145,10 +145,10 @@
    "tier": "T2",
    "url": "https://www.chinanews.com.cn/rss/finance.xml",
    "ok": true,
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "items": 5,
-   "new": 5,
-   "response_sha256": "15941f0ee574854827219589ec3d4a86b6715594d5a2471d917d130ea0af1e7b"
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "items": 8,
+   "new": 8,
+   "response_sha256": "b77fe3943148e03b9f75c502a7259f992cd291748396d102aed6a6d893b94445"
   }
  ],
  "ai_display": true,
@@ -159,56 +159,21 @@
   "prompt_version": "news-ai-prompt/3",
   "max_items": 12,
   "status": "ok",
-  "candidates": 17,
-  "cache_hits": 17,
-  "items_sent": 0,
-  "items_enriched": 0,
+  "candidates": 12,
+  "cache_hits": 11,
+  "items_sent": 1,
+  "items_enriched": 1,
   "items_rejected": 0,
-  "calls": 0,
-  "input_tokens": 0,
-  "output_tokens": 0,
-  "cache_read_tokens": 0,
-  "estimated_cost_usd": 0.0,
+  "calls": 1,
+  "input_tokens": 249,
+  "output_tokens": 104,
+  "cache_read_tokens": 128,
+  "estimated_cost_usd": 0.0002,
   "cost_basis": "peak list price, cache miss: upper bound",
   "rejections": {},
   "errors": []
  },
  "events": [
-  {
-   "event_id": "evt-38463be5d0d9",
-   "topic": "growth",
-   "title_zh": "沪深北交易所调整融资保证金比例",
-   "summary_zh": "【沪深北交易所调整融资保证金比例】2026年11月22日，经中国证监会批准，沪深北交易所发布通知调整融资保证金比例，将投资者融资买入证券的最低保证金比例由100%调低至80%，相关规则调整自2026年11月30日起施行。",
-   "rep_id": "news_38463be5d0d9a7c60397",
-   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhva8830362.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T10:35:04+00:00",
-   "last_at": "2026-11-22T18:40:26+08:00",
-   "score": 71,
-   "heat": 2.174,
-   "publishers": [
-    "东方财富",
-    "中国新闻网",
-    "华尔街见闻",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 89.35,
-   "items": [
-    "news_38463be5d0d9a7c60397",
-    "news_6fffe04cb2edf6f5ad89",
-    "news_67db809e965755b916e8",
-    "news_453dae707ba87797420e",
-    "news_9dc47ffca1602178b8a3"
-   ],
-   "ai": {
-    "why_en": "Lowering the minimum margin ratio for margin purchases from 100% to 80% directly changes the funding threshold for investors buying securities on margin.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
-  },
   {
    "event_id": "release-fai-2026-10",
    "topic": "growth",
@@ -236,27 +201,72 @@
    ]
   },
   {
-   "event_id": "evt-467d48796f0f",
-   "topic": "credit",
-   "title_zh": "中国人民银行上调金融机构外汇存款准备金率至6%",
-   "summary_zh": "【中国人民银行上调金融机构外汇存款准备金率至6%】11月15日，中国人民银行上调金融机构外汇存款准备金率正式生效，外汇存款准备金率由现行的4%提高到6%。这是中国人民银行时隔近5年再度上调外汇存款准备金率。",
-   "rep_id": "news_467d48796f0fc4a28100",
-   "url": "https://finance.eastmoney.com/a/202611163931526066.html",
-   "publisher": "东方财富",
+   "event_id": "evt-ae716d979ffe",
+   "topic": "policy",
+   "title_zh": "银行业金融机构总资产突破500万亿元",
+   "summary_zh": "【银行业金融机构总资产突破500万亿元】金融监管总局日前发布的最新监管指标数据显示，截至三季度末，银行业金融机构本外币资产总额首次站上500万亿元台阶，同比增长6.1%。资产扩张的同时，银行业净息差延续筑底态势，净利润小幅下滑。多位受访专家表示，在规模稳步扩张的同时，银行业保险业正把重心从“量的增长”转向“质的夯实”。盈利增速与保费增速有所回落，但拨备与偿付能力充足，行业质效转型的安全垫进一步增厚。（上证报）",
+   "rep_id": "news_9e6ff22047be625b8d6f",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizsqqh5494221.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-16T00:55:51+08:00",
-   "last_at": "2026-11-16T00:55:51+08:00",
-   "score": 83,
-   "heat": 0,
+   "first_at": "2026-11-21T14:30:05+08:00",
+   "last_at": "2026-11-23T08:05:09+08:00",
+   "score": 78,
+   "heat": 0.561,
    "publishers": [
-    "东方财富"
+    "东方财富",
+    "新浪财经"
    ],
    "official": false,
    "selected": true,
-   "importance": 87.16,
+   "importance": 86.84,
    "items": [
-    "news_467d48796f0fc4a28100"
-   ]
+    "news_ae716d979ffe6142a65c",
+    "news_1fbb1bf50f14ad95c8c9",
+    "news_9e6ff22047be625b8d6f"
+   ],
+   "ai": {
+    "title_en": "Total assets of banking financial institutions exceed 500 trillion yuan",
+    "why_zh": "银行业本外币资产总额首次突破500万亿元、同比增长6.1%，同时净息差延续筑底，反映规模扩张与盈利承压并行。",
+    "why_en": "Banking assets in domestic and foreign currency topped 500 trillion yuan for the first time, up 6.1% year on year, while the net interest margin continued to bottom out, showing asset expansion alongside profit pressure.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-38463be5d0d9",
+   "topic": "growth",
+   "title_zh": "沪深北交易所调整融资保证金比例",
+   "summary_zh": "【沪深北交易所调整融资保证金比例】2026年11月22日，经中国证监会批准，沪深北交易所发布通知调整融资保证金比例，将投资者融资买入证券的最低保证金比例由100%调低至80%，相关规则调整自2026年11月30日起施行。",
+   "rep_id": "news_38463be5d0d9a7c60397",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhva8830362.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T10:35:04+00:00",
+   "last_at": "2026-11-22T18:40:26+08:00",
+   "score": 71,
+   "heat": 1.518,
+   "publishers": [
+    "东方财富",
+    "中国新闻网",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 86.73,
+   "items": [
+    "news_38463be5d0d9a7c60397",
+    "news_6fffe04cb2edf6f5ad89",
+    "news_67db809e965755b916e8",
+    "news_453dae707ba87797420e",
+    "news_9dc47ffca1602178b8a3"
+   ],
+   "ai": {
+    "why_en": "Lowering the minimum margin ratio for margin purchases from 100% to 80% directly changes the funding threshold for investors buying securities on margin.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-c754e31e6205",
@@ -305,73 +315,6 @@
    ]
   },
   {
-   "event_id": "evt-ae716d979ffe",
-   "topic": "policy",
-   "title_zh": "银行业金融机构总资产突破500万亿元",
-   "summary_zh": "【银行业金融机构总资产突破500万亿元】金融监管总局日前发布的最新监管指标数据显示，截至三季度末，银行业金融机构本外币资产总额首次站上500万亿元台阶，同比增长6.1%。资产扩张的同时，银行业净息差延续筑底态势，净利润小幅下滑。多位受访专家表示，在规模稳步扩张的同时，银行业保险业正把重心从“量的增长”转向“质的夯实”。盈利增速与保费增速有所回落，但拨备与偿付能力充足，行业质效转型的安全垫进一步增厚。（上证报）",
-   "rep_id": "news_9e6ff22047be625b8d6f",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizsqqh5494221.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T14:30:05+08:00",
-   "last_at": "2026-11-23T08:05:09+08:00",
-   "score": 78,
-   "heat": 0.25,
-   "publishers": [
-    "东方财富",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 85.59,
-   "items": [
-    "news_ae716d979ffe6142a65c",
-    "news_1fbb1bf50f14ad95c8c9",
-    "news_9e6ff22047be625b8d6f"
-   ],
-   "ai": {
-    "title_en": "Total assets of banking financial institutions exceed 500 trillion yuan",
-    "why_zh": "银行业本外币资产总额首次突破500万亿元、同比增长6.1%，同时净息差延续筑底，反映规模扩张与盈利承压并行。",
-    "why_en": "Banking assets in domestic and foreign currency topped 500 trillion yuan for the first time, up 6.1% year on year, while the net interest margin continued to bottom out, showing asset expansion alongside profit pressure.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
-  },
-  {
-   "event_id": "release-house-2026-10",
-   "topic": "property",
-   "title_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
-   "summary_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
-   "rep_id": "news_e663d5c900c9121177bf",
-   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965838.html",
-   "publisher": "国家统计局",
-   "source_tier": "T1",
-   "first_at": "2026-11-16",
-   "last_at": "2026-11-16T16:55:43+08:00",
-   "score": 71,
-   "heat": 0,
-   "publishers": [
-    "东方财富",
-    "中国新闻网",
-    "华尔街见闻",
-    "国家统计局",
-    "第一财经"
-   ],
-   "official": true,
-   "selected": true,
-   "importance": 84.75,
-   "items": [
-    "news_e663d5c900c9121177bf",
-    "news_db22f0bcba1b56cf7c1d",
-    "news_2015df6c972531d26930",
-    "news_86d9e3739474647e109c",
-    "news_e6c9a2e193090e65c5be",
-    "news_e124a2c6f5625384aae8",
-    "news_96746b76563eb6c6e409",
-    "news_8a29790dfd477e714d78"
-   ]
-  },
-  {
    "event_id": "evt-766c981dd165",
    "topic": "prices",
    "title_zh": "高油价推动英国通胀率创一年来新高",
@@ -417,82 +360,39 @@
    "items": [
     "news_1c8d57e44290f68969fa",
     "news_03a0ad2bc3220d6c156a"
-   ],
-   "ai": {
-    "why_zh": "这是商务部公布的年度前10个月吸收外资数据，反映外资流入的最新规模。",
-    "why_en": "The Commerce Ministry's figure for foreign investment absorbed in the first 10 months of the year shows the latest scale of inbound foreign capital.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
-   "event_id": "evt-d0a301e59317",
-   "topic": "fiscal",
-   "title_zh": "华尔街见闻早餐 | 2026年11月17日",
-   "summary_zh": "避险情绪主导市场，芯片股拖累标普500、纳指三连跌，英伟达跌4%，美元创18个月新高。习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤。环球时报社评：中俄美元首即将会晤，释放强烈政治信号。中国10月社零同比增长0.4%，较上月下滑0.7个百分点，规上工业增加值增长同比放缓至4.8%，1至10月固定资产投资下降8.1%，房地产开发投资下降21.6%。境外机构连续第六个月增持中国国债，增持规模为5月以来最大。特朗普支持黄仁勋回归，",
-   "rep_id": "news_42f25f357b640f21fce0",
-   "url": "https://wallstreetcn.com/livenews/3200887",
+   "event_id": "release-house-2026-10",
+   "topic": "property",
+   "title_zh": "国家统计局：10月一线城市商品住宅销售价格环比总体上涨，二三线城市环比下降",
+   "summary_zh": "国家统计局：10月份，一线城市新建商品住宅销售价格环比由上月上涨0.1%转为持平。其中，上海和深圳分别上涨0.2%和0.1%，广州持平，北京下降0.1%。二线城市新建商品住宅销售价格环比由上月持平转为下降0.1%。三线城市新建商品住宅销售价格环比下降0.2%，降幅与上月相同。70个大中城市中，新建商品住宅销售价格环比上涨城市有14个，比上月减少3个。",
+   "rep_id": "news_2015df6c972531d26930",
+   "url": "https://wallstreetcn.com/livenews/3200304",
    "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-15T23:30:11+00:00",
-   "last_at": "2026-11-22T23:15:31+00:00",
-   "score": 74,
-   "heat": 0.784,
+   "first_at": "2026-11-16T01:30:52+00:00",
+   "last_at": "2026-11-16T16:55:43+08:00",
+   "score": 71,
+   "heat": 0,
    "publishers": [
-    "华尔街见闻"
+    "东方财富",
+    "中国新闻网",
+    "华尔街见闻",
+    "第一财经"
    ],
    "official": false,
    "selected": true,
-   "importance": 81.29,
+   "importance": 80.66,
    "items": [
-    "news_d0a301e593173a1066a2",
-    "news_42f25f357b640f21fce0",
-    "news_6d647257fb7554d639d3",
-    "news_36158d369dbce89165e7",
-    "news_f691c760e0726712ab5b",
-    "news_dc0c2a0fbe84b23cb5bd"
-   ],
-   "ai": {
-    "title_en": "Wallstreetcn morning briefing | November 17, 2026",
-    "why_zh": "该简报汇总中国10月社零、工业增加值与固定资产投资等数据，是观察中国经济走势的要点。",
-    "why_en": "The briefing compiles China's October retail sales, industrial output and fixed-asset investment, key data for tracking the economy.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
-  },
-  {
-   "event_id": "evt-9b4f9038b80e",
-   "topic": "growth",
-   "title_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
-   "summary_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
-   "rep_id": "news_9b4f9038b80eb7a6260c",
-   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261121_4005140.htm",
-   "publisher": "财政部",
-   "source_tier": "T1",
-   "first_at": "2026-11-21",
-   "last_at": "2026-11-21T16:19:52+08:00",
-   "score": 65,
-   "heat": 0.763,
-   "publishers": [
-    "东方财富",
-    "华尔街见闻",
-    "新浪财经",
-    "财政部"
-   ],
-   "official": true,
-   "selected": true,
-   "importance": 80.71,
-   "items": [
-    "news_9b4f9038b80eb7a6260c",
-    "news_40a68d8d294678da095d",
-    "news_b37548a56a8a114bd9c4",
-    "news_5fc88bf9e4eebc69238f"
-   ],
-   "ai": {
-    "why_zh": "亚投行香港办公室协定的签署，是观察中国在多边开发机构中角色的一则动向。",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+    "news_db22f0bcba1b56cf7c1d",
+    "news_2015df6c972531d26930",
+    "news_86d9e3739474647e109c",
+    "news_e6c9a2e193090e65c5be",
+    "news_e124a2c6f5625384aae8",
+    "news_96746b76563eb6c6e409",
+    "news_8a29790dfd477e714d78"
+   ]
   },
   {
    "event_id": "evt-8c92dfba237e",
@@ -520,6 +420,41 @@
    ]
   },
   {
+   "event_id": "evt-d0a301e59317",
+   "topic": "fiscal",
+   "title_zh": "华尔街见闻早餐 | 2026年11月17日",
+   "summary_zh": "避险情绪主导市场，芯片股拖累标普500、纳指三连跌，英伟达跌4%，美元创18个月新高。习近平将同俄罗斯总统普京、美国总统特朗普举行中俄美元首会晤。环球时报社评：中俄美元首即将会晤，释放强烈政治信号。中国10月社零同比增长0.4%，较上月下滑0.7个百分点，规上工业增加值增长同比放缓至4.8%，1至10月固定资产投资下降8.1%，房地产开发投资下降21.6%。境外机构连续第六个月增持中国国债，增持规模为5月以来最大。特朗普支持黄仁勋回归，",
+   "rep_id": "news_42f25f357b640f21fce0",
+   "url": "https://wallstreetcn.com/livenews/3200887",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-15T23:30:11+00:00",
+   "last_at": "2026-11-22T23:15:31+00:00",
+   "score": 74,
+   "heat": 0.547,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 80.35,
+   "items": [
+    "news_d0a301e593173a1066a2",
+    "news_42f25f357b640f21fce0",
+    "news_6d647257fb7554d639d3",
+    "news_36158d369dbce89165e7",
+    "news_f691c760e0726712ab5b",
+    "news_dc0c2a0fbe84b23cb5bd"
+   ],
+   "ai": {
+    "title_en": "Wallstreetcn morning briefing | November 17, 2026",
+    "why_zh": "该简报汇总中国10月社零、工业增加值与固定资产投资等数据，是观察中国经济走势的要点。",
+    "why_en": "The briefing compiles China's October retail sales, industrial output and fixed-asset investment, key data for tracking the economy.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
    "event_id": "evt-a9d47a3a5175",
    "topic": "trade",
    "title_zh": "前10个月西部陆海新通道沿线经通道进出口超8700亿元",
@@ -543,33 +478,6 @@
    ]
   },
   {
-   "event_id": "evt-be6b37914f87",
-   "topic": "growth",
-   "title_zh": "指数震荡资金逆势加仓近两个月超7500亿元借道ETF入市",
-   "summary_zh": "【指数震荡资金逆势加仓近两个月超7500亿元借道ETF入市】数据显示，11月20日股票型ETF单日净流入919.29亿元，刷新年内纪录；自9月底以来，这一数字已突破7500亿元，沪深300、创业板指、科创50等10只核心宽基ETF独揽近7456亿元。创业板指ETF、科创50ETF净流入均破1000亿元。此次资金流入呈现持续时间长、买入金额大等重要特点，多家基金公司表示，底部区域已经显现，市场结构可能趋于均衡，建议把握好投资节奏。",
-   "rep_id": "news_9799825bed8ddf31f4a3",
-   "url": "https://finance.eastmoney.com/a/202611233937007245.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T23:42:42+00:00",
-   "last_at": "2026-11-23T08:04:04+08:00",
-   "score": 62,
-   "heat": 2.391,
-   "publishers": [
-    "东方财富",
-    "华尔街见闻",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 79.88,
-   "items": [
-    "news_be6b37914f875b5ac9bf",
-    "news_18edd84cf189bdc28272",
-    "news_9799825bed8ddf31f4a3"
-   ]
-  },
-  {
    "event_id": "evt-76168c816e50",
    "topic": "fiscal",
    "title_zh": "前10个月全国一般公共预算收入同比增长4.9%",
@@ -581,16 +489,50 @@
    "first_at": "2026-11-23T10:39:38+08:00",
    "last_at": "2026-11-23T10:39:38+08:00",
    "score": 72,
-   "heat": 0.865,
+   "heat": 0.604,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 79.62,
+   "importance": 78.57,
    "items": [
     "news_76168c816e5093c0f23b"
    ]
+  },
+  {
+   "event_id": "evt-9b4f9038b80e",
+   "topic": "growth",
+   "title_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
+   "summary_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
+   "rep_id": "news_9b4f9038b80eb7a6260c",
+   "url": "https://www.mof.gov.cn/zhengwuxinxi/caizhengxinwen/202611/t20261121_4005140.htm",
+   "publisher": "财政部",
+   "source_tier": "T1",
+   "first_at": "2026-11-21",
+   "last_at": "2026-11-21T16:19:52+08:00",
+   "score": 65,
+   "heat": 0,
+   "publishers": [
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经",
+    "财政部"
+   ],
+   "official": true,
+   "selected": true,
+   "importance": 77.66,
+   "items": [
+    "news_9b4f9038b80eb7a6260c",
+    "news_40a68d8d294678da095d",
+    "news_b37548a56a8a114bd9c4",
+    "news_5fc88bf9e4eebc69238f"
+   ],
+   "ai": {
+    "why_zh": "亚投行香港办公室协定的签署，是观察中国在多边开发机构中角色的一则动向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-1ad4d9f21e79",
@@ -616,34 +558,6 @@
     "news_1ad4d9f21e793686bcde",
     "news_ad8544e35b5a086d23a3"
    ]
-  },
-  {
-   "event_id": "evt-47f07b9a32b4",
-   "topic": "growth",
-   "title_zh": "上交所组合式推出新一批降费措施助力激发市场主体活力",
-   "summary_zh": "【上交所组合式推出新一批降费措施助力激发市场主体活力】上交所发布《关于进一步减免相关费用的通知》，推出新一批降费措施，包括免收交易单元使用费，减免数据中心相关服务费用等，并将今年初已发布的免收上市费、债券经手费等措施有效期再延长两年。本次新推出的降费措施预计向市场让利13.68亿元，预计本年度沪市整体降费金额超过24亿元。近年来，上交所认真贯彻落实党中央、国务院有关减税降费部署，在中国证监会统筹指导下，持续挖掘降费空间，陆续出台多项惠企",
-   "rep_id": "news_47f07b9a32b404a9f42c",
-   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhuy2691741.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T18:41:02+08:00",
-   "last_at": "2026-11-22T18:41:02+08:00",
-   "score": 71,
-   "heat": 0.545,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 77.34,
-   "items": [
-    "news_47f07b9a32b404a9f42c"
-   ],
-   "ai": {
-    "why_zh": "上交所预计本轮新措施向市场让利13.68亿元，本年度沪市整体降费金额预计超过24亿元。",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
   },
   {
    "event_id": "evt-a0491c3882b4",
@@ -699,27 +613,59 @@
    }
   },
   {
-   "event_id": "release-credit-2026-10",
-   "topic": "credit",
-   "title_zh": "央行发布10月金融统计数据专家：贷款“降速提质”仍是新常态",
-   "summary_zh": "【央行发布10月金融统计数据专家：贷款“降速提质”仍是新常态】11月13日，中国人民银行发布的10月金融统计数据显示，今年前10个月我国人民币贷款增加11.42万亿元，贷款规模保持合理增长。",
-   "rep_id": "news_cbc215f96c14e58a2fbd",
-   "url": "https://finance.eastmoney.com/a/202611153931504344.html",
+   "event_id": "evt-be6b37914f87",
+   "topic": "growth",
+   "title_zh": "指数震荡资金逆势加仓近两个月超7500亿元借道ETF入市",
+   "summary_zh": "【指数震荡资金逆势加仓近两个月超7500亿元借道ETF入市】数据显示，11月20日股票型ETF单日净流入919.29亿元，刷新年内纪录；自9月底以来，这一数字已突破7500亿元，沪深300、创业板指、科创50等10只核心宽基ETF独揽近7456亿元。创业板指ETF、科创50ETF净流入均破1000亿元。此次资金流入呈现持续时间长、买入金额大等重要特点，多家基金公司表示，底部区域已经显现，市场结构可能趋于均衡，建议把握好投资节奏。",
+   "rep_id": "news_9799825bed8ddf31f4a3",
+   "url": "https://finance.eastmoney.com/a/202611233937007245.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-16T00:15:59+08:00",
-   "last_at": "2026-11-16T00:15:59+08:00",
-   "score": 72,
-   "heat": 0,
+   "first_at": "2026-11-22T23:42:42+00:00",
+   "last_at": "2026-11-23T08:04:04+08:00",
+   "score": 62,
+   "heat": 1.669,
    "publishers": [
-    "东方财富"
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 76.99,
+   "items": [
+    "news_be6b37914f875b5ac9bf",
+    "news_18edd84cf189bdc28272",
+    "news_9799825bed8ddf31f4a3"
+   ]
+  },
+  {
+   "event_id": "evt-47f07b9a32b4",
+   "topic": "growth",
+   "title_zh": "上交所组合式推出新一批降费措施助力激发市场主体活力",
+   "summary_zh": "【上交所组合式推出新一批降费措施助力激发市场主体活力】上交所发布《关于进一步减免相关费用的通知》，推出新一批降费措施，包括免收交易单元使用费，减免数据中心相关服务费用等，并将今年初已发布的免收上市费、债券经手费等措施有效期再延长两年。本次新推出的降费措施预计向市场让利13.68亿元，预计本年度沪市整体降费金额超过24亿元。近年来，上交所认真贯彻落实党中央、国务院有关减税降费部署，在中国证监会统筹指导下，持续挖掘降费空间，陆续出台多项惠企",
+   "rep_id": "news_47f07b9a32b404a9f42c",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhuy2691741.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T18:41:02+08:00",
+   "last_at": "2026-11-22T18:41:02+08:00",
+   "score": 71,
+   "heat": 0.381,
+   "publishers": [
+    "新浪财经"
    ],
    "official": false,
    "selected": true,
-   "importance": 76.16,
+   "importance": 76.68,
    "items": [
-    "news_cbc215f96c14e58a2fbd"
-   ]
+    "news_47f07b9a32b404a9f42c"
+   ],
+   "ai": {
+    "why_zh": "上交所预计本轮新措施向市场让利13.68亿元，本年度沪市整体降费金额预计超过24亿元。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-ed62d7ec9d40",
@@ -857,14 +803,7 @@
    "importance": 76.16,
    "items": [
     "news_91107ed3b20ffa61a709"
-   ],
-   "ai": {
-    "title_en": "Ministry of Finance: January-October securities transaction stamp duty 251.1 billion yuan, up 54.1% year on year",
-    "why_zh": "财政部数据显示前10个月证券交易印花税同比增长54.1%，与同期一般公共预算收入增长4.9%一并公布。",
-    "why_en": "Finance Ministry data show securities transaction stamp duty rose 54.1% year on year in January-October, published alongside 4.9% growth in general public budget revenue.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
    "event_id": "evt-883c254720f2",
@@ -887,14 +826,7 @@
    "importance": 76.16,
    "items": [
     "news_883c254720f2e0328cb0"
-   ],
-   "ai": {
-    "title_en": "In the first three quarters, China's banking and insurance sector total assets continued to grow",
-    "why_zh": "金融监管总局三季度监管指标显示银行业和保险业总资产继续增长，反映金融业资产规模变化。",
-    "why_en": "The financial regulator's third-quarter indicators show continued growth in banking and insurance total assets, reflecting changes in the sector's asset scale.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
    "event_id": "evt-1ca8440be6a1",
@@ -940,14 +872,7 @@
    "importance": 76.16,
    "items": [
     "news_95a17a762e1b47b55806"
-   ],
-   "ai": {
-    "title_en": "Driven by strengthened personal income tax administration on offshore trusts, October personal income tax rose 89.6%",
-    "why_zh": "个税增速跳升反映税收征管加强，关系到投资者离岸资产安排与财政收入走势。",
-    "why_en": "The jump in personal income tax growth reflects stronger tax administration, relevant to offshore asset arrangements and fiscal revenue trends.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
    "event_id": "evt-c6c90120a539",
@@ -970,14 +895,7 @@
    "importance": 76.16,
    "items": [
     "news_c6c90120a539da4f12df"
-   ],
-   "ai": {
-    "title_en": "PBOC: October government bond net financing 1,183.52 billion yuan, up 698.34 billion yuan year on year",
-    "why_zh": "政府债净融资大幅多增，是观察财政发力与债券市场供给的重要数据。",
-    "why_en": "A large increase in government bond net financing is key data for watching fiscal effort and bond market supply.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
    "event_id": "evt-bb1f23373c03",
@@ -1000,14 +918,7 @@
    "importance": 76.16,
    "items": [
     "news_bb1f23373c03d132ea49"
-   ],
-   "ai": {
-    "title_en": "PBOC: October interbank RMB derivatives turnover 7.5 trillion yuan, up 73.4% year on year",
-    "why_zh": "衍生品成交大增与互换利率下行，反映银行间市场交易活跃度与利率环境变化。",
-    "why_en": "Surging derivatives turnover alongside lower swap rates reflects changing interbank trading activity and the rate environment.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   ]
   },
   {
    "event_id": "evt-6caa035ccc35",
@@ -1076,29 +987,6 @@
    "importance": 76.16,
    "items": [
     "news_0af897824a3ccaf1ec5d"
-   ]
-  },
-  {
-   "event_id": "evt-70c7da064d12",
-   "topic": "growth",
-   "title_zh": "从“拉人来”到“接消费” 入境游迈向增量期",
-   "summary_zh": "入境游正在从“恢复性增长”走向“消费增量”。近日，在2026携程集团全球合作伙伴峰会上，携程集团CEO孙洁分享的一组数据勾勒出入境游市场新变化：2026年入境游客人均消费同比增长32%，入境酒店订单间夜均价约为国内订单的1.74倍。入境游的增长空间不仅在于“更多人来中国”，更在于“让更多地方参与国际旅游消费”。如今，入境游客已不再局限于高知名度城市，而是愿意向小众、具有鲜明旅游资源的目的地探索。免签红利之下，行业需要回答的问题已从“如何",
-   "rep_id": "news_70c7da064d12eb78e76f",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736372.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T13:10:16+08:00",
-   "last_at": "2026-11-23T13:10:16+08:00",
-   "score": 68,
-   "heat": 0.93,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 75.88,
-   "items": [
-    "news_70c7da064d12eb78e76f"
    ]
   },
   {
@@ -1217,59 +1105,27 @@
    ]
   },
   {
-   "event_id": "evt-7602e9516545",
-   "topic": "credit",
-   "title_zh": "资金面扰动有限，流动性平稳跨月可期",
-   "summary_zh": "【资金面扰动有限，流动性平稳跨月可期】Wind数据显示，本周（11月23日—11月27日）央行公开市场有3795亿元隔夜逆回购到期，另有10000亿元MLF到期，两项合计13795亿元。受访专家普遍认为，临近跨月时点，央行将继续灵活运用各类公开市场操作工具，呵护流动性充裕，防范资金面出现较大波动。（中证报）",
-   "rep_id": "news_7602e95165457b3992ff",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizskhn2372821.d.html",
-   "publisher": "新浪财经",
+   "event_id": "evt-70c7da064d12",
+   "topic": "growth",
+   "title_zh": "从“拉人来”到“接消费” 入境游迈向增量期",
+   "summary_zh": "入境游正在从“恢复性增长”走向“消费增量”。近日，在2026携程集团全球合作伙伴峰会上，携程集团CEO孙洁分享的一组数据勾勒出入境游市场新变化：2026年入境游客人均消费同比增长32%，入境酒店订单间夜均价约为国内订单的1.74倍。入境游的增长空间不仅在于“更多人来中国”，更在于“让更多地方参与国际旅游消费”。如今，入境游客已不再局限于高知名度城市，而是愿意向小众、具有鲜明旅游资源的目的地探索。免签红利之下，行业需要回答的问题已从“如何",
+   "rep_id": "news_70c7da064d12eb78e76f",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736372.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-23T07:18:04+08:00",
-   "last_at": "2026-11-23T07:46:07+08:00",
-   "score": 62,
-   "heat": 1.581,
+   "first_at": "2026-11-23T13:10:16+08:00",
+   "last_at": "2026-11-23T13:10:16+08:00",
+   "score": 68,
+   "heat": 0.649,
    "publishers": [
-    "东方财富",
-    "新浪财经"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 74.92,
+   "importance": 74.75,
    "items": [
-    "news_7602e95165457b3992ff",
-    "news_55824bdddcfb09127f00"
+    "news_70c7da064d12eb78e76f"
    ]
-  },
-  {
-   "event_id": "evt-1c42e0d81b70",
-   "topic": "growth",
-   "title_zh": "入境游进入消费增量期商家从“拉人来”转向“接住消费”",
-   "summary_zh": "【入境游进入消费增量期商家从“拉人来”转向“接住消费”】入境游正在从“恢复性增长”走向“消费增量”。近日，在2026携程集团全球合作伙伴峰会上，携程集团CEO孙洁分享的一组数据勾勒出入境游市场新变化：2026年入境游客人均消费同比增长32%，入境酒店订单间夜均价约为国内订单的1.74倍。入境游的增长空间不仅在于“更多人来中国”，更在于“让更多地方参与国际旅游消费”。如今，入境游客已不再局限于高知名度城市，而是愿意向小众、具有鲜明旅游资源",
-   "rep_id": "news_1c42e0d81b708eb06638",
-   "url": "https://finance.eastmoney.com/a/202611223936970437.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T23:26:13+08:00",
-   "last_at": "2026-11-22T23:26:13+08:00",
-   "score": 68,
-   "heat": 0.625,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 74.66,
-   "items": [
-    "news_1c42e0d81b708eb06638"
-   ],
-   "ai": {
-    "title_en": "Inbound tourism enters a phase of consumption growth as merchants shift from bringing people in to capturing spending",
-    "why_zh": "入境游从恢复性增长转向消费增量，人均消费与酒店间夜均价变化反映其对相关消费的带动。",
-    "why_en": "Inbound tourism is moving from recovery growth to consumption gains, with per-visitor spending and hotel room rates pointing to its pull on related spending.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
   },
   {
    "event_id": "evt-90190e9deed0",
@@ -1293,6 +1149,36 @@
    "items": [
     "news_90190e9deed0106f5604"
    ]
+  },
+  {
+   "event_id": "evt-1c42e0d81b70",
+   "topic": "growth",
+   "title_zh": "入境游进入消费增量期商家从“拉人来”转向“接住消费”",
+   "summary_zh": "【入境游进入消费增量期商家从“拉人来”转向“接住消费”】入境游正在从“恢复性增长”走向“消费增量”。近日，在2026携程集团全球合作伙伴峰会上，携程集团CEO孙洁分享的一组数据勾勒出入境游市场新变化：2026年入境游客人均消费同比增长32%，入境酒店订单间夜均价约为国内订单的1.74倍。入境游的增长空间不仅在于“更多人来中国”，更在于“让更多地方参与国际旅游消费”。如今，入境游客已不再局限于高知名度城市，而是愿意向小众、具有鲜明旅游资源",
+   "rep_id": "news_1c42e0d81b708eb06638",
+   "url": "https://finance.eastmoney.com/a/202611223936970437.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T23:26:13+08:00",
+   "last_at": "2026-11-22T23:26:13+08:00",
+   "score": 68,
+   "heat": 0.437,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 73.91,
+   "items": [
+    "news_1c42e0d81b708eb06638"
+   ],
+   "ai": {
+    "title_en": "Inbound tourism enters a phase of consumption growth as merchants shift from bringing people in to capturing spending",
+    "why_zh": "入境游从恢复性增长转向消费增量，人均消费与酒店间夜均价变化反映其对相关消费的带动。",
+    "why_en": "Inbound tourism is moving from recovery growth to consumption gains, with per-visitor spending and hotel room rates pointing to its pull on related spending.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-fa9cc218f8f5",
@@ -1320,36 +1206,6 @@
     "news_d4e50756424c17fed5c6",
     "news_0beda0b89236afa4cbf3"
    ]
-  },
-  {
-   "event_id": "evt-c0108d3dd80b",
-   "topic": "policy",
-   "title_zh": "今年前三季度全国经营主体“提质向新”",
-   "summary_zh": "【今年前三季度全国经营主体“提质向新”】市场监管总局今天（21日）公布数据显示，前三季度，我国“四新”经济与先进制造业发展势头强劲，新产业新赛道相关企业加速壮大，为高质量发展蓄势聚能。“四新”经济与前沿产业增势强劲。截至9月底，全国登记在册“四新”经济企业同比增长5.6%。一是新兴支柱产业保持增长。1月至9月，航天器及运载火箭制造业新设企业同比增长73.3%，集成电路制造业新设企业同比增长21.1%。二是前沿领域加速成长。生成式人工智能",
-   "rep_id": "news_c0108d3dd80b8f8d3b95",
-   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-inizntha6656419.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T16:00:28+08:00",
-   "last_at": "2026-11-21T16:00:28+08:00",
-   "score": 68,
-   "heat": 0.252,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 73.17,
-   "items": [
-    "news_c0108d3dd80b8f8d3b95"
-   ],
-   "ai": {
-    "title_en": "Business entities nationwide show \"quality improvement toward the new\" in first three quarters",
-    "why_zh": "“四新”经济与先进制造业企业数据，反映新产业新赛道相关企业的扩张态势。",
-    "why_en": "Data on \"four new\" economy and advanced manufacturing firms reflect the expansion of companies in new industries and new tracks.",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
   },
   {
    "event_id": "evt-77dd9bac2ffa",
@@ -1398,6 +1254,31 @@
    ]
   },
   {
+   "event_id": "evt-7602e9516545",
+   "topic": "credit",
+   "title_zh": "资金面扰动有限，流动性平稳跨月可期",
+   "summary_zh": "【资金面扰动有限，流动性平稳跨月可期】Wind数据显示，本周（11月23日—11月27日）央行公开市场有3795亿元隔夜逆回购到期，另有10000亿元MLF到期，两项合计13795亿元。受访专家普遍认为，临近跨月时点，央行将继续灵活运用各类公开市场操作工具，呵护流动性充裕，防范资金面出现较大波动。（中证报）",
+   "rep_id": "news_7602e95165457b3992ff",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizskhn2372821.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T07:18:04+08:00",
+   "last_at": "2026-11-23T07:46:07+08:00",
+   "score": 62,
+   "heat": 1.104,
+   "publishers": [
+    "东方财富",
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 73.01,
+   "items": [
+    "news_7602e95165457b3992ff",
+    "news_55824bdddcfb09127f00"
+   ]
+  },
+  {
    "event_id": "evt-ccc16d272838",
    "topic": "trade",
    "title_zh": "“中国服务”迈上新台阶——中国经济三季报亮点解析",
@@ -1409,42 +1290,65 @@
    "first_at": "2026-11-22T15:28:51+08:00",
    "last_at": "2026-11-22T15:28:51+08:00",
    "score": 67,
-   "heat": 0.497,
+   "heat": 0.347,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 73.15,
+   "importance": 72.55,
    "items": [
     "news_ccc16d272838cab7cdea"
    ]
   },
   {
-   "event_id": "evt-9b669fa7613b",
-   "topic": "growth",
-   "title_zh": "首批主动ETF今上市主动投资迈入“明牌”时代",
-   "summary_zh": "【首批主动ETF今上市主动投资迈入“明牌”时代】11月23日，首批18只主动ETF正式上市交易，中国公募基金业将迎来“场内主动选股、每日持仓可见、透明化阿尔法”的历史性时刻。按照要求，这些产品需在上市之前将股票仓位提升至不低于80%。从最新净值变化看，主动ETF已呈现出稳健运作特征，为上市后的主动能力验证奠定基础。",
-   "rep_id": "news_9b669fa7613be651a7e1",
-   "url": "https://finance.eastmoney.com/a/202611233937007379.html",
-   "publisher": "东方财富",
+   "event_id": "evt-28a0715c95b5",
+   "topic": "markets",
+   "title_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元，较上周五夜盘收盘涨47点",
+   "summary_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元，较上周五夜盘收盘涨47点。成交量594.77亿美元。",
+   "rep_id": "news_28a0715c95b5dc11f31f",
+   "url": "https://wallstreetcn.com/livenews/3204474",
+   "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-22T23:42:21+00:00",
-   "last_at": "2026-11-23T07:33:34+08:00",
-   "score": 55,
-   "heat": 2.265,
+   "first_at": "2026-11-23T19:01:06+00:00",
+   "last_at": "2026-11-24T03:12:52+08:00",
+   "score": 58,
+   "heat": 1.943,
    "publishers": [
     "东方财富",
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 72.36,
+   "items": [
+    "news_28a0715c95b5dc11f31f",
+    "news_4bed06367093b4291bd0"
+   ]
+  },
+  {
+   "event_id": "evt-1fe14f41ddf1",
+   "topic": "markets",
+   "title_zh": "上期所原油期货夜盘收跌2.01%，报571.30元人民币/桶",
+   "summary_zh": "上期所原油期货夜盘收跌2.01%，报571.30元人民币/桶。沪金夜盘收涨2.11%，沪银收涨4.66%。",
+   "rep_id": "news_1fe14f41ddf1ede9856b",
+   "url": "https://finance.sina.cn/7x24/2026-11-24/detail-inizuhxs7997689.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T18:30:14+00:00",
+   "last_at": "2026-11-24T02:30:02+08:00",
+   "score": 58,
+   "heat": 1.909,
+   "publishers": [
     "华尔街见闻",
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 72.38,
+   "importance": 72.23,
    "items": [
-    "news_9b669fa7613be651a7e1",
-    "news_bd5e07aea2fc0f5aff23",
-    "news_13b08e210b6a4bebf388"
+    "news_1fe14f41ddf1ede9856b",
+    "news_1896217a87523e57c7a4"
    ]
   },
   {
@@ -1588,50 +1492,34 @@
    ]
   },
   {
-   "event_id": "evt-450b54030afe",
-   "topic": "trade",
-   "title_zh": "国产造雪机热销全球 2026年我国冰雪装备规模有望突破千亿元",
-   "summary_zh": "【国产造雪机热销全球 2026年我国冰雪装备规模有望突破千亿元】随着气温降低，我国多地冰雪景区人气迅速攀升。数据显示，近期，含“滑雪”关键词的搜索量同比增长141%，南方用户购买北方雪场雪票的订单量同比增长超四成。国产雪具、可穿戴智能滑雪装备受到市场青睐。某雪具门店销售告诉记者，一款进口品牌的专业雪鞋要4000多元，但国产的2000元就能拿下。冰雪消费热度走高，产业供给同步提速。",
-   "rep_id": "news_450b54030afed79382db",
-   "url": "https://finance.eastmoney.com/a/202611233937228183.html",
-   "publisher": "东方财富",
+   "event_id": "evt-c0108d3dd80b",
+   "topic": "policy",
+   "title_zh": "今年前三季度全国经营主体“提质向新”",
+   "summary_zh": "【今年前三季度全国经营主体“提质向新”】市场监管总局今天（21日）公布数据显示，前三季度，我国“四新”经济与先进制造业发展势头强劲，新产业新赛道相关企业加速壮大，为高质量发展蓄势聚能。“四新”经济与前沿产业增势强劲。截至9月底，全国登记在册“四新”经济企业同比增长5.6%。一是新兴支柱产业保持增长。1月至9月，航天器及运载火箭制造业新设企业同比增长73.3%，集成电路制造业新设企业同比增长21.1%。二是前沿领域加速成长。生成式人工智能",
+   "rep_id": "news_c0108d3dd80b8f8d3b95",
+   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-inizntha6656419.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-23T14:53:34+08:00",
-   "last_at": "2026-11-23T14:53:34+08:00",
-   "score": 64,
-   "heat": 0.977,
+   "first_at": "2026-11-21T16:00:28+08:00",
+   "last_at": "2026-11-21T16:00:28+08:00",
+   "score": 68,
+   "heat": 0,
    "publishers": [
-    "东方财富"
+    "新浪财经"
    ],
    "official": false,
-   "selected": false,
-   "importance": 72.07,
+   "selected": true,
+   "importance": 72.16,
    "items": [
-    "news_450b54030afed79382db"
-   ]
-  },
-  {
-   "event_id": "evt-b61d143b573b",
-   "topic": "growth",
-   "title_zh": "深交所首批主动ETF平稳上市，引入180亿元增量资金",
-   "summary_zh": "据深交所网站，2026年11月23日，深交所首批9只主动ETF成功上市交易，标志着境内ETF创新发展理念完成新跨越，指数化投资生态建设实现新突破，资本市场投融资综合改革取得新成效。中国证监会、深交所、中国结算、首批产品的基金管理人、托管人、销售机构、投资者以及新闻媒体等单位200余名嘉宾代表参加上市仪式，共同见证这一重要时刻。",
-   "rep_id": "news_b61d143b573b8f8ace1f",
-   "url": "https://wallstreetcn.com/livenews/3203925",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T03:51:55+00:00",
-   "last_at": "2026-11-23T03:51:55+00:00",
-   "score": 64,
-   "heat": 0.896,
-   "publishers": [
-    "华尔街见闻"
+    "news_c0108d3dd80b8f8d3b95"
    ],
-   "official": false,
-   "selected": false,
-   "importance": 71.74,
-   "items": [
-    "news_b61d143b573b8f8ace1f"
-   ]
+   "ai": {
+    "title_en": "Business entities nationwide show \"quality improvement toward the new\" in first three quarters",
+    "why_zh": "“四新”经济与先进制造业企业数据，反映新产业新赛道相关企业的扩张态势。",
+    "why_en": "Data on \"four new\" economy and advanced manufacturing firms reflect the expansion of companies in new industries and new tracks.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-57fc02e7cb69",
@@ -1660,30 +1548,6 @@
     "news_75ba0d3c501ab9a214e0",
     "news_660dcd74bca5d1b2706e",
     "news_d902af1e916aa081947e"
-   ]
-  },
-  {
-   "event_id": "evt-7cc9d472a3f3",
-   "topic": "markets",
-   "title_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有",
-   "summary_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有。目标价28.50元人民币，即下跌14%。",
-   "rep_id": "news_7cc9d472a3f35452bac3",
-   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrapa2794901.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T17:53:45+08:00",
-   "last_at": "2026-11-22T17:54:10+08:00",
-   "score": 65,
-   "heat": 0.533,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 71.29,
-   "items": [
-    "news_7cc9d472a3f35452bac3",
-    "news_4000545b8fd3a8f0ec80"
    ]
   },
   {
@@ -1854,32 +1718,74 @@
    }
   },
   {
-   "event_id": "evt-81e2c27c8bfe",
-   "topic": "fiscal",
-   "title_zh": "亚投行将在香港设立办公室",
-   "summary_zh": "【亚投行将在香港设立办公室】中华人民共和国政府与亚洲基础设施投资银行（亚投行）21日在香港签署《中华人民共和国政府与亚洲基础设施投资银行关于在中华人民共和国香港特别行政区设立办公室的协定》，为亚投行在香港开设办公室奠定基础。中华人民共和国政府与亚投行分别由财政部部长蓝佛安和亚投行行长邹加怡代表签署协定。该协定确定亚投行于香港设立办公室，并为特权、豁免与其他有助成立办公室的事宜制定原则。",
-   "rep_id": "news_81e2c27c8bfe19e30c66",
-   "url": "https://finance.eastmoney.com/a/202611213936852329.html",
+   "event_id": "evt-450b54030afe",
+   "topic": "trade",
+   "title_zh": "国产造雪机热销全球 2026年我国冰雪装备规模有望突破千亿元",
+   "summary_zh": "【国产造雪机热销全球 2026年我国冰雪装备规模有望突破千亿元】随着气温降低，我国多地冰雪景区人气迅速攀升。数据显示，近期，含“滑雪”关键词的搜索量同比增长141%，南方用户购买北方雪场雪票的订单量同比增长超四成。国产雪具、可穿戴智能滑雪装备受到市场青睐。某雪具门店销售告诉记者，一款进口品牌的专业雪鞋要4000多元，但国产的2000元就能拿下。冰雪消费热度走高，产业供给同步提速。",
+   "rep_id": "news_450b54030afed79382db",
+   "url": "https://finance.eastmoney.com/a/202611233937228183.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-21T22:24:53+08:00",
-   "last_at": "2026-11-21T22:24:53+08:00",
-   "score": 65,
-   "heat": 0.304,
+   "first_at": "2026-11-23T14:53:34+08:00",
+   "last_at": "2026-11-23T14:53:34+08:00",
+   "score": 64,
+   "heat": 0.682,
    "publishers": [
     "东方财富"
    ],
    "official": false,
-   "selected": true,
-   "importance": 70.37,
+   "selected": false,
+   "importance": 70.89,
    "items": [
-    "news_81e2c27c8bfe19e30c66"
+    "news_450b54030afed79382db"
+   ]
+  },
+  {
+   "event_id": "evt-b61d143b573b",
+   "topic": "growth",
+   "title_zh": "深交所首批主动ETF平稳上市，引入180亿元增量资金",
+   "summary_zh": "据深交所网站，2026年11月23日，深交所首批9只主动ETF成功上市交易，标志着境内ETF创新发展理念完成新跨越，指数化投资生态建设实现新突破，资本市场投融资综合改革取得新成效。中国证监会、深交所、中国结算、首批产品的基金管理人、托管人、销售机构、投资者以及新闻媒体等单位200余名嘉宾代表参加上市仪式，共同见证这一重要时刻。",
+   "rep_id": "news_b61d143b573b8f8ace1f",
+   "url": "https://wallstreetcn.com/livenews/3203925",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T03:51:55+00:00",
+   "last_at": "2026-11-23T03:51:55+00:00",
+   "score": 64,
+   "heat": 0.625,
+   "publishers": [
+    "华尔街见闻"
    ],
-   "ai": {
-    "why_zh": "亚投行将在香港设立办公室，协定由财政部部长蓝佛安与亚投行行长邹加怡签署，为办公室开设奠定基础。",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
+   "official": false,
+   "selected": false,
+   "importance": 70.66,
+   "items": [
+    "news_b61d143b573b8f8ace1f"
+   ]
+  },
+  {
+   "event_id": "evt-7cc9d472a3f3",
+   "topic": "markets",
+   "title_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有",
+   "summary_zh": "杰富瑞有限责任公司将赣锋锂业A股评级下调至落后大盘，分析师Shuhang Jiang之前的评级为持有。目标价28.50元人民币，即下跌14%。",
+   "rep_id": "news_7cc9d472a3f35452bac3",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrapa2794901.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T17:53:45+08:00",
+   "last_at": "2026-11-22T17:54:10+08:00",
+   "score": 65,
+   "heat": 0.372,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": true,
+   "importance": 70.65,
+   "items": [
+    "news_7cc9d472a3f35452bac3",
+    "news_4000545b8fd3a8f0ec80"
+   ]
   },
   {
    "event_id": "evt-ada92fc341b1",
@@ -1951,49 +1857,30 @@
    ]
   },
   {
-   "event_id": "evt-472ec41cf14c",
-   "topic": "markets",
-   "title_zh": "A股迎稳市组合拳，有望带来4000亿增量资金",
-   "summary_zh": "“历次融资保证金比例调整均在市场形势关键节点出台，本次调整积极信号明确。”",
-   "rep_id": "news_472ec41cf14ccc598755",
-   "url": "https://www.yicai.com/news/103449343.html",
-   "publisher": "第一财经",
+   "event_id": "evt-9b669fa7613b",
+   "topic": "growth",
+   "title_zh": "首批主动ETF今上市主动投资迈入“明牌”时代",
+   "summary_zh": "【首批主动ETF今上市主动投资迈入“明牌”时代】11月23日，首批18只主动ETF正式上市交易，中国公募基金业将迎来“场内主动选股、每日持仓可见、透明化阿尔法”的历史性时刻。按照要求，这些产品需在上市之前将股票仓位提升至不低于80%。从最新净值变化看，主动ETF已呈现出稳健运作特征，为上市后的主动能力验证奠定基础。",
+   "rep_id": "news_9b669fa7613be651a7e1",
+   "url": "https://finance.eastmoney.com/a/202611233937007379.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T21:33:32+08:00",
-   "last_at": "2026-11-22T21:33:32+08:00",
-   "score": 63,
-   "heat": 0.592,
+   "first_at": "2026-11-22T23:42:21+00:00",
+   "last_at": "2026-11-23T07:33:34+08:00",
+   "score": 55,
+   "heat": 1.581,
    "publishers": [
-    "第一财经"
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 69.53,
+   "importance": 69.64,
    "items": [
-    "news_472ec41cf14ccc598755"
-   ]
-  },
-  {
-   "event_id": "evt-42d671b7f756",
-   "topic": "growth",
-   "title_zh": "中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌",
-   "summary_zh": "【中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌】停牌10个交易日后，中国稀土（000831）于11月13日晚披露重组预案和复牌公告。公司拟通过发行股份的方式购买实控人中国稀土集团持有的中稀（凉山）稀土有限公司（下称“中稀凉山”）51%股权，并向不超过35名特定投资者发行股份募集配套资金。",
-   "rep_id": "news_42d671b7f7567dd64118",
-   "url": "https://finance.eastmoney.com/a/202611153931495487.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T00:10:41+08:00",
-   "last_at": "2026-11-16T00:10:41+08:00",
-   "score": 65,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": true,
-   "importance": 69.16,
-   "items": [
-    "news_42d671b7f7567dd64118"
+    "news_9b669fa7613be651a7e1",
+    "news_bd5e07aea2fc0f5aff23",
+    "news_13b08e210b6a4bebf388"
    ]
   },
   {
@@ -2135,54 +2022,87 @@
    ]
   },
   {
-   "event_id": "evt-6bf5be4b9c23",
-   "topic": "growth",
-   "title_zh": "“车电融合”渐成主流二线新能源动力电池企业崛起",
-   "summary_zh": "【“车电融合”渐成主流二线新能源动力电池企业崛起】业内专家称，随着全球新能源化浪潮的持续，中国新能源汽车产业链合作驶入新阶段。国内车企以战略投资者等身份与动力电池企业结对合作，有望重塑国内新能源汽车产业链格局。车企在注入资金的同时，能带来更多下游订单，同时还将赋能动力电池企业加大研发力度，加速电化学领域等源头创新。",
-   "rep_id": "news_6bf5be4b9c239b9aabc3",
-   "url": "https://finance.eastmoney.com/a/202611233937005150.html",
+   "event_id": "evt-81e2c27c8bfe",
+   "topic": "fiscal",
+   "title_zh": "亚投行将在香港设立办公室",
+   "summary_zh": "【亚投行将在香港设立办公室】中华人民共和国政府与亚洲基础设施投资银行（亚投行）21日在香港签署《中华人民共和国政府与亚洲基础设施投资银行关于在中华人民共和国香港特别行政区设立办公室的协定》，为亚投行在香港开设办公室奠定基础。中华人民共和国政府与亚投行分别由财政部部长蓝佛安和亚投行行长邹加怡代表签署协定。该协定确定亚投行于香港设立办公室，并为特权、豁免与其他有助成立办公室的事宜制定原则。",
+   "rep_id": "news_81e2c27c8bfe19e30c66",
+   "url": "https://finance.eastmoney.com/a/202611213936852329.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T23:26:25+00:00",
-   "last_at": "2026-11-23T07:26:30+08:00",
-   "score": 51,
-   "heat": 2.363,
-   "publishers": [
-    "东方财富",
-    "华尔街见闻",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 68.77,
-   "items": [
-    "news_6bf5be4b9c239b9aabc3",
-    "news_81b2f17214c97ae6c19e",
-    "news_ade3acf4f9bc82de60e2"
-   ]
-  },
-  {
-   "event_id": "evt-d864c48c7d10",
-   "topic": "global",
-   "title_zh": "美联储估算：当前用于数据中心建设的远期租赁与兜底担保规模已达约3万亿美元",
-   "summary_zh": "【美联储估算：当前用于数据中心建设的远期租赁与兜底担保规模已达约3万亿美元】美联储报告显示，截至今年10月，美国超大规模云厂商建设数据中心的相关债务发行规模已经突破6800亿美元，较2023年全年1300亿美元的规模增长四倍。美联储估算，当前用于数据中心建设的远期租赁与兜底担保规模已经达到约3万亿美元。",
-   "rep_id": "news_d864c48c7d101e91b603",
-   "url": "https://finance.eastmoney.com/a/202611163931525342.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T00:14:20+08:00",
-   "last_at": "2026-11-16T00:14:20+08:00",
-   "score": 64,
+   "first_at": "2026-11-21T22:24:53+08:00",
+   "last_at": "2026-11-21T22:24:53+08:00",
+   "score": 65,
    "heat": 0,
    "publishers": [
     "东方财富"
    ],
    "official": false,
-   "selected": false,
-   "importance": 68.16,
+   "selected": true,
+   "importance": 69.16,
    "items": [
-    "news_d864c48c7d101e91b603"
+    "news_81e2c27c8bfe19e30c66"
+   ],
+   "ai": {
+    "why_zh": "亚投行将在香港设立办公室，协定由财政部部长蓝佛安与亚投行行长邹加怡签署，为办公室开设奠定基础。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-472ec41cf14c",
+   "topic": "markets",
+   "title_zh": "A股迎稳市组合拳，有望带来4000亿增量资金",
+   "summary_zh": "“历次融资保证金比例调整均在市场形势关键节点出台，本次调整积极信号明确。”",
+   "rep_id": "news_472ec41cf14ccc598755",
+   "url": "https://www.yicai.com/news/103449343.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T21:33:32+08:00",
+   "last_at": "2026-11-22T21:33:32+08:00",
+   "score": 63,
+   "heat": 0.414,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 68.81,
+   "items": [
+    "news_472ec41cf14ccc598755"
    ]
+  },
+  {
+   "event_id": "evt-a65117c6db72",
+   "topic": "growth",
+   "title_zh": "国家发展改革委召开视频会议调度督促政府投资资金支付使用和项目储备工作",
+   "summary_zh": "国家发展改革委召开视频会议调度督促政府投资资金支付使用和项目储备工作",
+   "rep_id": "news_3f4519d9953e862b4c0e",
+   "url": "https://www.ndrc.gov.cn/xwdt/xwfb/202611/t20261123_1409044.html",
+   "publisher": "国家发展改革委",
+   "source_tier": "T1",
+   "first_at": "2026-11-21T03:47:18+00:00",
+   "last_at": "2026-11-23",
+   "score": 57,
+   "heat": 0.444,
+   "publishers": [
+    "华尔街见闻",
+    "国家发展改革委"
+   ],
+   "official": true,
+   "selected": true,
+   "importance": 68.37,
+   "items": [
+    "news_a65117c6db72b6b7a138",
+    "news_3f4519d9953e862b4c0e"
+   ],
+   "ai": {
+    "title_en": "NDRC holds video meeting to coordinate and urge payment and use of government investment funds and project reserve work",
+    "why_zh": "国家发展改革委调度政府投资资金支付使用与项目储备，关系稳投资政策落地节奏。",
+    "why_en": "The NDRC's coordination of government investment fund payment and project reserves bears on the pace of implementing investment-stabilisation policy.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
   },
   {
    "event_id": "evt-93479418206b",
@@ -2254,7 +2174,7 @@
    ]
   },
   {
-   "event_id": "evt-f5ee5a04f75d",
+   "event_id": "evt-40d3eda81141",
    "topic": "growth",
    "title_zh": "香港交易所推出离岸人民币债券指数",
    "summary_zh": "据香港交易所公告，香港交易及结算所有限公司（香港交易所）今天（星期一）宣布推出香港交易所离岸人民币债券指数。这是香港交易所首个冠名固定收益指数，也是香港首个追踪在港发行点心债的基准指数。新指数为投资者提供透明且具代表性的市场参考，并支持产品创新，进一步体现香港交易所持续致力发展香港离岸人民币生态圈的承诺。",
@@ -2274,7 +2194,6 @@
    "selected": false,
    "importance": 67.59,
    "items": [
-    "news_f5ee5a04f75d3c5e5565",
     "news_40d3eda811419c2b624c",
     "news_da716ae40c074bf9ef1a"
    ]
@@ -2397,52 +2316,6 @@
    ]
   },
   {
-   "event_id": "evt-605c5c43e8f1",
-   "topic": "property",
-   "title_zh": "下周资本市场大事提醒",
-   "summary_zh": "【下周资本市场大事提醒】1、11月16日，国家统计局将公布10月社会消费品零售总额、工业增加值、固定资产投资等经济数据。同日，国家统计局公布70城住宅销售价格月度报告。2、11月18日至19日，APEC第三十三次领导人非正式会议将在深圳举行。3、阿里、腾讯、拼多多、京东、百度、网易等中概互联头牌集中发布财报。",
-   "rep_id": "news_605c5c43e8f10f74fa44",
-   "url": "https://finance.eastmoney.com/a/202611153931493211.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T21:36:20+08:00",
-   "last_at": "2026-11-15T21:36:20+08:00",
-   "score": 62,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 66.16,
-   "items": [
-    "news_605c5c43e8f10f74fa44"
-   ]
-  },
-  {
-   "event_id": "evt-c9e7b7f49d1f",
-   "topic": "growth",
-   "title_zh": "物理AI产业与行情共振公募抢抓第二波投资红利",
-   "summary_zh": "【物理AI产业与行情共振公募抢抓第二波投资红利】行情与产业共振之下，物理AI的产业叙事正在被市场重新定价。自2026年10月下旬起，沉寂已久的A股机器人板块迎来一波强势行情，多只核心标的轮番走强。Wind物理AI指数近一个月逆势上行，区间涨幅达25.73%；成份股内部行情分化显著，一个月内十余只个股涨幅超47%，上纬新材股价接近翻倍，宇树科技涨幅也达65.76%。",
-   "rep_id": "news_c9e7b7f49d1f407483d1",
-   "url": "https://finance.eastmoney.com/a/202611163931532525.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T04:07:02+08:00",
-   "last_at": "2026-11-16T04:07:02+08:00",
-   "score": 62,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 66.16,
-   "items": [
-    "news_c9e7b7f49d1f407483d1"
-   ]
-  },
-  {
    "event_id": "evt-92873deb9173",
    "topic": "fiscal",
    "title_zh": "中国30年期国债期货跌超0.5%，跌至10月9日来新低",
@@ -2512,6 +2385,33 @@
    ]
   },
   {
+   "event_id": "evt-6bf5be4b9c23",
+   "topic": "growth",
+   "title_zh": "“车电融合”渐成主流二线新能源动力电池企业崛起",
+   "summary_zh": "【“车电融合”渐成主流二线新能源动力电池企业崛起】业内专家称，随着全球新能源化浪潮的持续，中国新能源汽车产业链合作驶入新阶段。国内车企以战略投资者等身份与动力电池企业结对合作，有望重塑国内新能源汽车产业链格局。车企在注入资金的同时，能带来更多下游订单，同时还将赋能动力电池企业加大研发力度，加速电化学领域等源头创新。",
+   "rep_id": "news_6bf5be4b9c239b9aabc3",
+   "url": "https://finance.eastmoney.com/a/202611233937005150.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T23:26:25+00:00",
+   "last_at": "2026-11-23T07:26:30+08:00",
+   "score": 51,
+   "heat": 1.65,
+   "publishers": [
+    "东方财富",
+    "华尔街见闻",
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 65.92,
+   "items": [
+    "news_6bf5be4b9c239b9aabc3",
+    "news_81b2f17214c97ae6c19e",
+    "news_ade3acf4f9bc82de60e2"
+   ]
+  },
+  {
    "event_id": "evt-0022d91f75fc",
    "topic": "markets",
    "title_zh": "上证指数收报3538.95点，涨0.15%",
@@ -2523,40 +2423,15 @@
    "first_at": "2026-11-23T07:01:01+00:00",
    "last_at": "2026-11-23T07:01:01+00:00",
    "score": 58,
-   "heat": 0.981,
+   "heat": 0.685,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 66.08,
+   "importance": 64.9,
    "items": [
     "news_0022d91f75fc4944b493"
-   ]
-  },
-  {
-   "event_id": "evt-4d0787132671",
-   "topic": "prices",
-   "title_zh": "贝森特警告美联储过度紧缩风险指出金融体系出现脆弱迹象",
-   "summary_zh": "【贝森特警告美联储过度紧缩风险指出金融体系出现脆弱迹象】美国财政部长贝森特警告称，美联储若针对最新通胀数据而过度收紧政策，则可能危及美国经济，并指出金融体系出现脆弱迹象。“许多人认为，如果他们过度收紧政策，可能会犯下政策错误，”贝森特周日在接受采访时表示，并提到美联储理事们最近几周发表了一系列鹰派言论。“过去几个月，我们看到金融环境大幅收紧，”他说。",
-   "rep_id": "news_4d0787132671d56b22c0",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizrtks5832018.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T00:40:02+08:00",
-   "last_at": "2026-11-23T00:42:14+08:00",
-   "score": 53,
-   "heat": 1.297,
-   "publishers": [
-    "东方财富",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 64.78,
-   "items": [
-    "news_4d0787132671d56b22c0",
-    "news_cc1c4ebaea48eb78d042"
    ]
   },
   {
@@ -2652,29 +2527,6 @@
    ]
   },
   {
-   "event_id": "evt-ad66ad782244",
-   "topic": "global",
-   "title_zh": "逢低买盘入场推动黄金反弹上周曾创3月以来最差单周表现",
-   "summary_zh": "黄金价格从八个月来最大单周跌幅中反弹，逢低买盘入场，同时市场降低了对美联储12月加息的押注。现货黄金一度上涨2.6%，突破每盎司3,630美元。此前金价上周下跌9%，触及一年多来最低水平。黄金的14天相对强弱指数也已跌破30，表明金价可能处于超卖状态。",
-   "rep_id": "news_ad66ad782244a7eab08a",
-   "url": "https://wallstreetcn.com/livenews/3203935",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T04:57:52+00:00",
-   "last_at": "2026-11-23T04:57:52+00:00",
-   "score": 56,
-   "heat": 0.924,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 63.85,
-   "items": [
-    "news_ad66ad782244a7eab08a"
-   ]
-  },
-  {
    "event_id": "evt-24a32e52fec7",
    "topic": "policy",
    "title_zh": "国务院国资委：新一轮国资国企改革工作台账基本编制完成",
@@ -2750,53 +2602,28 @@
    ]
   },
   {
-   "event_id": "evt-db9cd02420cb",
-   "topic": "growth",
-   "title_zh": "带动消费超45.4亿元第二十五届中国上海国际艺术节闭幕",
-   "summary_zh": "【带动消费超45.4亿元第二十五届中国上海国际艺术节闭幕】11月15日晚，第二十五届中国上海国际艺术节闭幕。从10月17日到11月15日，本届艺术节吸引来自80多个国家和地区的近2万名艺术工作者汇聚申城，呈现了1125场的精彩演出、展览活动，覆盖线上线下观众近1300万人次，整体办节满意率达99.5%。",
-   "rep_id": "news_db9cd02420cbbae3ad1d",
-   "url": "https://finance.eastmoney.com/a/202611153931468849.html",
-   "publisher": "东方财富",
+   "event_id": "evt-4d0787132671",
+   "topic": "prices",
+   "title_zh": "贝森特警告美联储过度紧缩风险指出金融体系出现脆弱迹象",
+   "summary_zh": "【贝森特警告美联储过度紧缩风险指出金融体系出现脆弱迹象】美国财政部长贝森特警告称，美联储若针对最新通胀数据而过度收紧政策，则可能危及美国经济，并指出金融体系出现脆弱迹象。“许多人认为，如果他们过度收紧政策，可能会犯下政策错误，”贝森特周日在接受采访时表示，并提到美联储理事们最近几周发表了一系列鹰派言论。“过去几个月，我们看到金融环境大幅收紧，”他说。",
+   "rep_id": "news_4d0787132671d56b22c0",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-inizrtks5832018.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-15T11:35:40+00:00",
-   "last_at": "2026-11-17T09:23:31+08:00",
-   "score": 55,
-   "heat": 0,
+   "first_at": "2026-11-23T00:40:02+08:00",
+   "last_at": "2026-11-23T00:42:14+08:00",
+   "score": 53,
+   "heat": 0.905,
    "publishers": [
     "东方财富",
-    "华尔街见闻",
-    "第一财经"
+    "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 63.32,
+   "importance": 63.21,
    "items": [
-    "news_db9cd02420cbbae3ad1d",
-    "news_31cd8066ff77b46f6fb8",
-    "news_5262d031eab988c32451"
-   ]
-  },
-  {
-   "event_id": "evt-b60333e5e135",
-   "topic": "markets",
-   "title_zh": "“三重门”改变并购江湖 A股“卖壳”交易难了",
-   "summary_zh": "【“三重门”改变并购江湖 A股“卖壳”交易难了】近一年来，A股“卖壳”江湖正悄然变天：资本运作层面，一边是早前流行的表决权委托操作方式被“束之高阁”，一边是锁价定增难以为继全面让位市价发行，再加上董事高管减持规则硬性约束，三条规则相互咬合，让前几年看似红火的卖壳交易，变得难上加难。",
-   "rep_id": "news_b60333e5e1358f695137",
-   "url": "https://finance.eastmoney.com/a/202611153931505281.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T00:27:21+08:00",
-   "last_at": "2026-11-16T00:27:21+08:00",
-   "score": 59,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 63.16,
-   "items": [
-    "news_b60333e5e1358f695137"
+    "news_4d0787132671d56b22c0",
+    "news_cc1c4ebaea48eb78d042"
    ]
   },
   {
@@ -2940,49 +2767,26 @@
    ]
   },
   {
-   "event_id": "evt-64808b921bc4",
-   "topic": "growth",
-   "title_zh": "江苏徐工交融工程机械产业基金登记成立，出资额15亿",
-   "summary_zh": "【江苏徐工交融工程机械产业基金登记成立，出资额15亿】天眼查App显示，近日，江苏徐工交融工程机械产业基金合伙企业（有限合伙）成立，执行事务合伙人为徐州云汉私募基金管理有限公司、交银资本管理有限公司，出资额15亿元人民币，经营范围为以私募基金从事股权投资、投资管理、资产管理等活动。",
-   "rep_id": "news_64808b921bc420abf268",
-   "url": "https://finance.eastmoney.com/a/202611233937225973.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T14:48:11+08:00",
-   "last_at": "2026-11-23T14:48:11+08:00",
-   "score": 55,
-   "heat": 0.975,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 63.06,
-   "items": [
-    "news_64808b921bc420abf268"
-   ]
-  },
-  {
-   "event_id": "evt-42aa5f9432e9",
-   "topic": "growth",
-   "title_zh": "今年前十个月我国公路水路更新和数智化改造投资占比超33%",
-   "summary_zh": "从交通运输部了解到，今年以来我国公路水路更新和数智化改造完成投资占比不断提升。今年前十个月，这项投资占交通建设投资的比重超33%。最新数据显示，我国国家综合立体交通网建成率已超80%，但目前服役超过20年的交通基础设施占四成；到2030年，我国路龄超过15年的普通公路和投产年限超过20年的铁路占比将超过50%。（央视新闻）",
-   "rep_id": "news_42aa5f9432e9a0a587d9",
-   "url": "https://wallstreetcn.com/livenews/3203933",
+   "event_id": "evt-ad66ad782244",
+   "topic": "global",
+   "title_zh": "逢低买盘入场推动黄金反弹上周曾创3月以来最差单周表现",
+   "summary_zh": "黄金价格从八个月来最大单周跌幅中反弹，逢低买盘入场，同时市场降低了对美联储12月加息的押注。现货黄金一度上涨2.6%，突破每盎司3,630美元。此前金价上周下跌9%，触及一年多来最低水平。黄金的14天相对强弱指数也已跌破30，表明金价可能处于超卖状态。",
+   "rep_id": "news_ad66ad782244a7eab08a",
+   "url": "https://wallstreetcn.com/livenews/3203935",
    "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-23T04:32:41+00:00",
-   "last_at": "2026-11-23T04:32:41+00:00",
-   "score": 55,
-   "heat": 0.913,
+   "first_at": "2026-11-23T04:57:52+00:00",
+   "last_at": "2026-11-23T04:57:52+00:00",
+   "score": 56,
+   "heat": 0.645,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 62.81,
+   "importance": 62.74,
    "items": [
-    "news_42aa5f9432e9a0a587d9"
+    "news_ad66ad782244a7eab08a"
    ]
   },
   {
@@ -3011,95 +2815,26 @@
    ]
   },
   {
-   "event_id": "evt-c859ddb3c68e",
-   "topic": "growth",
-   "title_zh": "外资巨头持续加码中国市场 5亿元投资主动ETF",
-   "summary_zh": "【外资巨头持续加码中国市场 5亿元投资主动ETF】当ETF遇上主动管理，一场新的产品竞赛正在中国公募基金行业拉开帷幕。11月23日，摩根基金旗下首只主动ETF——摩根大盘成长主动股票ETF正式登陆上交所。作为首批获批主动ETF的18家管理人中唯一一家外资公募，摩根基金的入局，既是全球主动ETF发展浪潮在中国市场的延续，也是摩根资产管理深耕中国22年的又一次重要落子。",
-   "rep_id": "news_c859ddb3c68e92ba8977",
-   "url": "https://finance.eastmoney.com/a/202611233937008155.html",
-   "publisher": "东方财富",
+   "event_id": "evt-217021344f46",
+   "topic": "policy",
+   "title_zh": "上海地铁新票价方案落地 12月1日起执行",
+   "summary_zh": "中新网上海11月23日电 (杨硕)11月23日，上海市发展改革委公布《关于优化上海市轨道交通票价机制的复函》，上海地铁票价优化方案正式确定。这是上海地铁票价时隔21年首次调整，新机制将于2026年12月1日起执行。",
+   "rep_id": "news_217021344f46b8447824",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736582.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-23T08:12:57+08:00",
-   "last_at": "2026-11-23T08:12:57+08:00",
+   "first_at": "2026-11-23T18:45:57+08:00",
+   "last_at": "2026-11-23T18:45:57+08:00",
    "score": 55,
-   "heat": 0.806,
+   "heat": 0.763,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 62.38,
+   "importance": 62.21,
    "items": [
-    "news_c859ddb3c68e92ba8977"
-   ]
-  },
-  {
-   "event_id": "evt-d554a06c0a62",
-   "topic": "growth",
-   "title_zh": "国家统计局投资司张刚解读2026年1—10月...",
-   "summary_zh": "国家统计局投资司张刚解读2026年1—10月...",
-   "rep_id": "news_d554a06c0a62a4e409b2",
-   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965851.html",
-   "publisher": "国家统计局",
-   "source_tier": "T1",
-   "first_at": "2026-11-16",
-   "last_at": "2026-11-16",
-   "score": 55,
-   "heat": 0,
-   "publishers": [
-    "国家统计局"
-   ],
-   "official": true,
-   "selected": true,
-   "importance": 62.16,
-   "items": [
-    "news_d554a06c0a62a4e409b2"
-   ]
-  },
-  {
-   "event_id": "evt-1ecdd397888b",
-   "topic": "growth",
-   "title_zh": "国家统计局贸经司首席统计师袁彦解读1—10月份消费市场数据",
-   "summary_zh": "国家统计局贸经司首席统计师袁彦解读1—10月份消费市场数据",
-   "rep_id": "news_1ecdd397888b20df855d",
-   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965850.html",
-   "publisher": "国家统计局",
-   "source_tier": "T1",
-   "first_at": "2026-11-16",
-   "last_at": "2026-11-16",
-   "score": 55,
-   "heat": 0,
-   "publishers": [
-    "国家统计局"
-   ],
-   "official": true,
-   "selected": true,
-   "importance": 62.16,
-   "items": [
-    "news_1ecdd397888b20df855d"
-   ]
-  },
-  {
-   "event_id": "evt-e267bbac4c95",
-   "topic": "markets",
-   "title_zh": "暗盘金价（人民币）日内涨超1%，现报823.9112元/克",
-   "summary_zh": "暗盘金价（人民币）日内涨超1%，现报823.9112元/克。",
-   "rep_id": "news_e267bbac4c9506d23070",
-   "url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniyvzvq6065035.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T02:48:20+08:00",
-   "last_at": "2026-11-16T02:48:20+08:00",
-   "score": 58,
-   "heat": 0,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 62.16,
-   "items": [
-    "news_e267bbac4c9506d23070"
+    "news_217021344f46b8447824"
    ]
   },
   {
@@ -3524,6 +3259,52 @@
    ]
   },
   {
+   "event_id": "evt-64808b921bc4",
+   "topic": "growth",
+   "title_zh": "江苏徐工交融工程机械产业基金登记成立，出资额15亿",
+   "summary_zh": "【江苏徐工交融工程机械产业基金登记成立，出资额15亿】天眼查App显示，近日，江苏徐工交融工程机械产业基金合伙企业（有限合伙）成立，执行事务合伙人为徐州云汉私募基金管理有限公司、交银资本管理有限公司，出资额15亿元人民币，经营范围为以私募基金从事股权投资、投资管理、资产管理等活动。",
+   "rep_id": "news_64808b921bc420abf268",
+   "url": "https://finance.eastmoney.com/a/202611233937225973.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T14:48:11+08:00",
+   "last_at": "2026-11-23T14:48:11+08:00",
+   "score": 55,
+   "heat": 0.681,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 61.88,
+   "items": [
+    "news_64808b921bc420abf268"
+   ]
+  },
+  {
+   "event_id": "evt-42aa5f9432e9",
+   "topic": "growth",
+   "title_zh": "今年前十个月我国公路水路更新和数智化改造投资占比超33%",
+   "summary_zh": "从交通运输部了解到，今年以来我国公路水路更新和数智化改造完成投资占比不断提升。今年前十个月，这项投资占交通建设投资的比重超33%。最新数据显示，我国国家综合立体交通网建成率已超80%，但目前服役超过20年的交通基础设施占四成；到2030年，我国路龄超过15年的普通公路和投产年限超过20年的铁路占比将超过50%。（央视新闻）",
+   "rep_id": "news_42aa5f9432e9a0a587d9",
+   "url": "https://wallstreetcn.com/livenews/3203933",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T04:32:41+00:00",
+   "last_at": "2026-11-23T04:32:41+00:00",
+   "score": 55,
+   "heat": 0.638,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 61.71,
+   "items": [
+    "news_42aa5f9432e9a0a587d9"
+   ]
+  },
+  {
    "event_id": "evt-f2977ee2c296",
    "topic": "growth",
    "title_zh": "蓝思科技创始人等在无锡成立股权投资基金出资额1.2亿",
@@ -3549,51 +3330,26 @@
    ]
   },
   {
-   "event_id": "evt-5059008ca4bc",
-   "topic": "trade",
-   "title_zh": "特朗普称只想向中国出售落后芯片外交部回应",
-   "summary_zh": "【特朗普称只想向中国出售落后芯片外交部回应】11月23日，外交部发言人郭嘉昆主持例行记者会。路透社记者提问，美国总统特朗普称，美国只想向中国出售相对落后的芯片，并称美国政府正就此与中方进行讨论，中方对此有何回应？中方是否正与美方讨论购买此类芯片？郭嘉昆表示，关于美国的出口管制措施，中方此前已经表明了立场。（北京日报）",
-   "rep_id": "news_5059008ca4bcb3378999",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfmy5488234.d.html",
-   "publisher": "新浪财经",
+   "event_id": "evt-c859ddb3c68e",
+   "topic": "growth",
+   "title_zh": "外资巨头持续加码中国市场 5亿元投资主动ETF",
+   "summary_zh": "【外资巨头持续加码中国市场 5亿元投资主动ETF】当ETF遇上主动管理，一场新的产品竞赛正在中国公募基金行业拉开帷幕。11月23日，摩根基金旗下首只主动ETF——摩根大盘成长主动股票ETF正式登陆上交所。作为首批获批主动ETF的18家管理人中唯一一家外资公募，摩根基金的入局，既是全球主动ETF发展浪潮在中国市场的延续，也是摩根资产管理深耕中国22年的又一次重要落子。",
+   "rep_id": "news_c859ddb3c68e92ba8977",
+   "url": "https://finance.eastmoney.com/a/202611233937008155.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-23T07:27:30+00:00",
-   "last_at": "2026-11-23T15:25:36+08:00",
-   "score": 47,
-   "heat": 1.986,
-   "publishers": [
-    "华尔街见闻",
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 61.54,
-   "items": [
-    "news_5059008ca4bcb3378999",
-    "news_8401db40a4b15350b427"
-   ]
-  },
-  {
-   "event_id": "evt-612ec586029a",
-   "topic": "credit",
-   "title_zh": "监管层打出稳市组合拳近4000亿增量资金即将进场",
-   "summary_zh": "【监管层打出稳市组合拳近4000亿增量资金即将进场】11月22日，监管层发布一揽子稳市举措，包括调整融资保证金比例、在创业板引入做市商制度、发布一揽子降费举措等三项举措，监管部门意在稳市场稳预期，增强稳市力量，为市场带来了真金白银的支持，更好地满足投资者融资需求，为市场健康稳定发展筑牢了基础。具体来看，一是调整融资保证金比例。沪深北交易所发布《关于调整融资保证金比例等相关安排的通知》，将融资保证金比例下限从100%降低至80%，此次调整",
-   "rep_id": "news_612ec586029a05ded7ef",
-   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhuw5916105.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T18:42:09+08:00",
-   "last_at": "2026-11-22T18:42:09+08:00",
+   "first_at": "2026-11-23T08:12:57+08:00",
+   "last_at": "2026-11-23T08:12:57+08:00",
    "score": 55,
-   "heat": 0.546,
+   "heat": 0.563,
    "publishers": [
-    "新浪财经"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 61.34,
+   "importance": 61.41,
    "items": [
-    "news_612ec586029a05ded7ef"
+    "news_c859ddb3c68e92ba8977"
    ]
   },
   {
@@ -3621,52 +3377,6 @@
     "news_208a12390e70681c6559",
     "news_5af55714c3362de24add",
     "news_49d9ca1a4995c0a5bc39"
-   ]
-  },
-  {
-   "event_id": "evt-ae5aad5151ae",
-   "topic": "credit",
-   "title_zh": "股债波动影响投资居民“存款搬家”放缓",
-   "summary_zh": "【股债波动影响投资居民“存款搬家”放缓】央行日前披露的最新金融数据显示，今年前10个月，居民部门累计新增存款8.47万亿元，贷款减少1.46万亿元。整体来看，居民部门去杠杆与“存款搬家”仍在同步进行。",
-   "rep_id": "news_ae5aad5151aea5d17200",
-   "url": "https://finance.eastmoney.com/a/202611153931487453.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T00:28:42+08:00",
-   "last_at": "2026-11-16T00:28:42+08:00",
-   "score": 57,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 61.16,
-   "items": [
-    "news_ae5aad5151aea5d17200"
-   ]
-  },
-  {
-   "event_id": "evt-d7d6c8584ff8",
-   "topic": "credit",
-   "title_zh": "房贷贴息未显著拉动住户中长贷居民去杠杆持续",
-   "summary_zh": "【房贷贴息未显著拉动住户中长贷居民去杠杆持续】中国人民银行发布的10月金融数据显示，当月住户贷款减少4300亿元、同比多减696亿元，居民短贷、中长贷双双走弱。与此同时，国家金融与发展实验室（NIFD）发布的最新宏观杠杆率报告显示，居民部门杠杆率从2024年一季度的62.3%下降至2026年三季度的56.4%，累计去杠杆幅度接近6个百分点。",
-   "rep_id": "news_d7d6c8584ff8b062c65a",
-   "url": "https://finance.eastmoney.com/a/202611153931487554.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T01:12:29+08:00",
-   "last_at": "2026-11-16T01:12:29+08:00",
-   "score": 57,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 61.16,
-   "items": [
-    "news_d7d6c8584ff8b062c65a"
    ]
   },
   {
@@ -3877,72 +3587,72 @@
    ]
   },
   {
-   "event_id": "evt-cdf2f050cad5",
-   "topic": "markets",
-   "title_zh": "A股交易迎新一批降费措施，沪深市场预期合计让利超27亿元",
-   "summary_zh": "上交所预计2026年度沪市整体降费金额超过24亿元，深交所预计2026年度深市整体降费金额超过22亿元。",
-   "rep_id": "news_cdf2f050cad562f1e8be",
-   "url": "https://www.yicai.com/news/103449296.html",
-   "publisher": "第一财经",
+   "event_id": "evt-612ec586029a",
+   "topic": "credit",
+   "title_zh": "监管层打出稳市组合拳近4000亿增量资金即将进场",
+   "summary_zh": "【监管层打出稳市组合拳近4000亿增量资金即将进场】11月22日，监管层发布一揽子稳市举措，包括调整融资保证金比例、在创业板引入做市商制度、发布一揽子降费举措等三项举措，监管部门意在稳市场稳预期，增强稳市力量，为市场带来了真金白银的支持，更好地满足投资者融资需求，为市场健康稳定发展筑牢了基础。具体来看，一是调整融资保证金比例。沪深北交易所发布《关于调整融资保证金比例等相关安排的通知》，将融资保证金比例下限从100%降低至80%，此次调整",
+   "rep_id": "news_612ec586029a05ded7ef",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizrhuw5916105.d.html",
+   "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-22T19:25:22+08:00",
-   "last_at": "2026-11-22T19:25:22+08:00",
-   "score": 54,
-   "heat": 0.557,
+   "first_at": "2026-11-22T18:42:09+08:00",
+   "last_at": "2026-11-22T18:42:09+08:00",
+   "score": 55,
+   "heat": 0.381,
    "publishers": [
-    "第一财经"
+    "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 60.39,
+   "importance": 60.68,
    "items": [
-    "news_cdf2f050cad562f1e8be"
+    "news_612ec586029a05ded7ef"
    ]
   },
   {
-   "event_id": "evt-1a01668bc362",
-   "topic": "credit",
-   "title_zh": "黄金急跌引发ETF资金撤离公募建议跟踪三个可验证信号",
-   "summary_zh": "【黄金急跌引发ETF资金撤离公募建议跟踪三个可验证信号】金价快速下挫之际，黄金ETF也出现明显资金净流出。多家基金公司认为，美联储加息预期升温、美元走强及全球流动性冲击，是本轮金价下跌的主要原因。展望后市，尽管黄金短期仍面临一定压力，但全球央行持续购金、美国财政可持续性等中长期支撑因素并未发生根本改变，投资者可关注利率走势与资金流向释放的企稳信号。",
-   "rep_id": "news_1a01668bc362b8f8a260",
-   "url": "https://finance.eastmoney.com/a/202611233937007455.html",
-   "publisher": "东方财富",
+   "event_id": "evt-2ae9351426a9",
+   "topic": "fiscal",
+   "title_zh": "第十七次中欧财金对话在北京举行",
+   "summary_zh": "中新社北京11月23日电 (记者赵建华)中国财政部副部长廖岷与欧盟委员会经济与金融事务总司长沃威23日在北京共同主持第十七次中欧财金对话。会议围绕宏观经济形势和政策、中欧在二十国集团(G20)框架下的多边合作等议题进行了深入讨论。",
+   "rep_id": "news_2ae9351426a9ace3c209",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736629.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-23T08:05:01+08:00",
-   "last_at": "2026-11-23T08:05:01+08:00",
+   "first_at": "2026-11-23T20:28:14+08:00",
+   "last_at": "2026-11-23T20:28:14+08:00",
    "score": 53,
-   "heat": 0.803,
+   "heat": 0.802,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
    "importance": 60.37,
    "items": [
-    "news_1a01668bc362b8f8a260"
+    "news_2ae9351426a9ace3c209"
    ]
   },
   {
-   "event_id": "evt-84ce0368fe7b",
-   "topic": "growth",
-   "title_zh": "国家统计局新闻发言人就2026年10月份国民经济运行情况答记者问",
-   "summary_zh": "国家统计局新闻发言人就2026年10月份国民经济运行情况答记者问",
-   "rep_id": "news_84ce0368fe7b554da623",
-   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965869.html",
-   "publisher": "国家统计局",
-   "source_tier": "T1",
-   "first_at": "2026-11-16",
-   "last_at": "2026-11-16",
+   "event_id": "evt-1a8bcab1ad16",
+   "topic": "fiscal",
+   "title_zh": "第十二次中俄财长对话举行",
+   "summary_zh": "中新社北京11月23日电第十二次中俄财长对话23日在俄罗斯莫斯科举行。双方围绕宏观经济形势与金融合作、多边财金合作等深入探讨，达成多项共识，共同发表《第十二次中俄财长对话联合声明》(下称声明)。据中国财政部公布的新闻稿，中国财政部部长蓝佛安与俄罗斯副总理兼财政部部长西卢阿诺夫共同主持会议。",
+   "rep_id": "news_1a8bcab1ad16c164fa5c",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736637.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T20:31:50+08:00",
+   "last_at": "2026-11-23T20:31:50+08:00",
    "score": 53,
-   "heat": 0,
+   "heat": 0.803,
    "publishers": [
-    "国家统计局"
+    "中国新闻网"
    ],
-   "official": true,
+   "official": false,
    "selected": false,
-   "importance": 60.16,
+   "importance": 60.37,
    "items": [
-    "news_84ce0368fe7b554da623"
+    "news_1a8bcab1ad16c164fa5c"
    ]
   },
   {
@@ -4176,28 +3886,26 @@
    ]
   },
   {
-   "event_id": "evt-3ec497cf5fe3",
-   "topic": "policy",
-   "title_zh": "深交所拟在创业板引入做市商制度",
-   "summary_zh": "【深交所就《创业板股票做市交易业务细则》公开征求意见】为了贯彻落实中国证监会《关于深化创业板改革更好服务新质生产力发展的意见》，明确创业板股票做市交易业务相关安排，促进增强市场内在稳定性，提高市场定价效率，减少股价波动，提升市场韧性，深交所就《深圳证券交易所创业板股票做市交易业务细则（征求意见稿）》公开征求意见。",
-   "rep_id": "news_3ec497cf5fe3fcf1ecf1",
-   "url": "https://finance.eastmoney.com/a/202611223936924084.html",
-   "publisher": "东方财富",
+   "event_id": "evt-cdf2f050cad5",
+   "topic": "markets",
+   "title_zh": "A股交易迎新一批降费措施，沪深市场预期合计让利超27亿元",
+   "summary_zh": "上交所预计2026年度沪市整体降费金额超过24亿元，深交所预计2026年度深市整体降费金额超过22亿元。",
+   "rep_id": "news_cdf2f050cad562f1e8be",
+   "url": "https://www.yicai.com/news/103449296.html",
+   "publisher": "第一财经",
    "source_tier": "T2",
-   "first_at": "2026-11-22T18:35:47+08:00",
-   "last_at": "2026-11-22T18:41:10+08:00",
-   "score": 49,
-   "heat": 1.089,
+   "first_at": "2026-11-22T19:25:22+08:00",
+   "last_at": "2026-11-22T19:25:22+08:00",
+   "score": 54,
+   "heat": 0.389,
    "publishers": [
-    "东方财富",
-    "中国新闻网"
+    "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.95,
+   "importance": 59.71,
    "items": [
-    "news_3ec497cf5fe3fcf1ecf1",
-    "news_eaae4ced5e41a968d76b"
+    "news_cdf2f050cad562f1e8be"
    ]
   },
   {
@@ -4223,6 +3931,29 @@
    "items": [
     "news_aa673eaa1df2f3f945aa",
     "news_ee211e41ccd7b3ab6198"
+   ]
+  },
+  {
+   "event_id": "evt-1a01668bc362",
+   "topic": "credit",
+   "title_zh": "黄金急跌引发ETF资金撤离公募建议跟踪三个可验证信号",
+   "summary_zh": "【黄金急跌引发ETF资金撤离公募建议跟踪三个可验证信号】金价快速下挫之际，黄金ETF也出现明显资金净流出。多家基金公司认为，美联储加息预期升温、美元走强及全球流动性冲击，是本轮金价下跌的主要原因。展望后市，尽管黄金短期仍面临一定压力，但全球央行持续购金、美国财政可持续性等中长期支撑因素并未发生根本改变，投资者可关注利率走势与资金流向释放的企稳信号。",
+   "rep_id": "news_1a01668bc362b8f8a260",
+   "url": "https://finance.eastmoney.com/a/202611233937007455.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T08:05:01+08:00",
+   "last_at": "2026-11-23T08:05:01+08:00",
+   "score": 53,
+   "heat": 0.561,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 59.4,
+   "items": [
+    "news_1a01668bc362b8f8a260"
    ]
   },
   {
@@ -4269,6 +4000,29 @@
    "importance": 59.16,
    "items": [
     "news_c31c1226de6161f40687"
+   ]
+  },
+  {
+   "event_id": "evt-5262d031eab9",
+   "topic": "growth",
+   "title_zh": "上海国际艺术节收官，带动消费规模超45.4亿元",
+   "summary_zh": "作为第二十五届中国上海国际艺术节的闭幕演出，11月15日晚的《天鹅湖》为这场艺术盛会画上圆满句点。",
+   "rep_id": "news_5262d031eab988c32451",
+   "url": "https://www.yicai.com/news/103442584.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-17T09:23:31+08:00",
+   "last_at": "2026-11-17T09:23:31+08:00",
+   "score": 55,
+   "heat": 0,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 59.16,
+   "items": [
+    "news_5262d031eab988c32451"
    ]
   },
   {
@@ -4664,26 +4418,76 @@
    ]
   },
   {
-   "event_id": "evt-360f1b047f5e",
-   "topic": "fiscal",
-   "title_zh": "澳门特区政府将围绕四个维度开展2027年度经济工作",
-   "summary_zh": "【澳门特区政府将围绕四个维度开展2027年度经济工作】澳门特区政府经济财政司司长吴惠娴23日在特区立法会作经济财政范畴2027年度施政方针引介发言表示，将以更新思维、更好方式、更大力度，围绕四个维度开展工作。四个维度分别为：全面优化特区经济治理布局，培育壮大新兴产业，增强经济韧性；精准支持中小企业升级转型，活化社区营商环境，优化就业支持体系，前瞻部署青年职业生涯规划；深化澳琴机制对接，推动产业协同发展，高水平推进横琴粤澳深度合作区第二阶",
-   "rep_id": "news_360f1b047f5ebf222fef",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfna2272613.d.html",
+   "event_id": "evt-5059008ca4bc",
+   "topic": "trade",
+   "title_zh": "特朗普称只想向中国出售落后芯片外交部回应",
+   "summary_zh": "【特朗普称只想向中国出售落后芯片外交部回应】11月23日，外交部发言人郭嘉昆主持例行记者会。路透社记者提问，美国总统特朗普称，美国只想向中国出售相对落后的芯片，并称美国政府正就此与中方进行讨论，中方对此有何回应？中方是否正与美方讨论购买此类芯片？郭嘉昆表示，关于美国的出口管制措施，中方此前已经表明了立场。（北京日报）",
+   "rep_id": "news_5059008ca4bcb3378999",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfmy5488234.d.html",
    "publisher": "新浪财经",
    "source_tier": "T2",
-   "first_at": "2026-11-23T15:34:06+08:00",
-   "last_at": "2026-11-23T15:34:06+08:00",
-   "score": 51,
-   "heat": 0.997,
+   "first_at": "2026-11-23T07:27:30+00:00",
+   "last_at": "2026-11-23T15:25:36+08:00",
+   "score": 47,
+   "heat": 1.387,
    "publishers": [
+    "华尔街见闻",
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 59.15,
+   "importance": 59.14,
    "items": [
-    "news_360f1b047f5ebf222fef"
+    "news_5059008ca4bcb3378999",
+    "news_8401db40a4b15350b427"
+   ]
+  },
+  {
+   "event_id": "evt-52cb3e9a53a7",
+   "topic": "credit",
+   "title_zh": "中国人民银行行长潘功胜会见欧洲中央银行、欧盟委员会和欧元集团相关负责人",
+   "summary_zh": "中国人民银行行长潘功胜会见欧洲中央银行、欧盟委员会和欧元集团相关负责人",
+   "rep_id": "news_52cb3e9a53a7e0554244",
+   "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026112319381491628/index.html",
+   "publisher": "中国人民银行",
+   "source_tier": "T1",
+   "first_at": "2026-11-23",
+   "last_at": "2026-11-23",
+   "score": 50,
+   "heat": 0.444,
+   "publishers": [
+    "中国人民银行"
+   ],
+   "official": true,
+   "selected": false,
+   "importance": 58.93,
+   "items": [
+    "news_52cb3e9a53a7e0554244"
+   ]
+  },
+  {
+   "event_id": "evt-3ec497cf5fe3",
+   "topic": "policy",
+   "title_zh": "深交所拟在创业板引入做市商制度",
+   "summary_zh": "【深交所就《创业板股票做市交易业务细则》公开征求意见】为了贯彻落实中国证监会《关于深化创业板改革更好服务新质生产力发展的意见》，明确创业板股票做市交易业务相关安排，促进增强市场内在稳定性，提高市场定价效率，减少股价波动，提升市场韧性，深交所就《深圳证券交易所创业板股票做市交易业务细则（征求意见稿）》公开征求意见。",
+   "rep_id": "news_3ec497cf5fe3fcf1ecf1",
+   "url": "https://finance.eastmoney.com/a/202611223936924084.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T18:35:47+08:00",
+   "last_at": "2026-11-22T18:41:10+08:00",
+   "score": 49,
+   "heat": 0.76,
+   "publishers": [
+    "东方财富",
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 58.63,
+   "items": [
+    "news_3ec497cf5fe3fcf1ecf1",
+    "news_eaae4ced5e41a968d76b"
    ]
   },
   {
@@ -4698,61 +4502,15 @@
    "first_at": "2026-11-22T05:46:42+08:00",
    "last_at": "2026-11-22T05:46:42+08:00",
    "score": 53,
-   "heat": 0.376,
+   "heat": 0.262,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 58.66,
+   "importance": 58.21,
    "items": [
     "news_d4387ae06d1259ffa2df"
-   ]
-  },
-  {
-   "event_id": "evt-14ab3542e7f4",
-   "topic": "growth",
-   "title_zh": "电子商务助力经济向新向优",
-   "summary_zh": "光明日报北京11月22日电记者张翼从商务部获悉，今年1至10月，我国电子商务平稳发展，线上线下融合持续增强消费市场韧性，数字技术赋能产业转型升级，“丝路电商”拓展国际经贸合作，商务领域新质生产力不断培育壮大，助力我国经济向新向优。",
-   "rep_id": "news_14ab3542e7f45feb55fe",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736330.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T10:41:12+08:00",
-   "last_at": "2026-11-23T10:41:12+08:00",
-   "score": 51,
-   "heat": 0.866,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 58.62,
-   "items": [
-    "news_14ab3542e7f45feb55fe"
-   ]
-  },
-  {
-   "event_id": "evt-469a0a484e97",
-   "topic": "credit",
-   "title_zh": "理性看待短期外部扰动，机构：中国资产长期向好趋势未改",
-   "summary_zh": "过去一周，A股市场弱势调整，投资者情绪受到一定扰动。对此，最新券商策略展望报告认为，海外流动性预期持续收紧，叠加美股科技龙头大幅调整、AI 板块整体情绪走弱，是近期A股风险偏好承压的直接原因。当前，A股正处于悲观预期出清、性价比不断改善的过程中，多维度积极信号正在逐步积累。（上证报）",
-   "rep_id": "news_469a0a484e971b176b7a",
-   "url": "https://wallstreetcn.com/livenews/3203795",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T23:23:47+00:00",
-   "last_at": "2026-11-22T23:23:47+00:00",
-   "score": 51,
-   "heat": 0.787,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 58.31,
-   "items": [
-    "news_469a0a484e971b176b7a"
    ]
   },
   {
@@ -4779,118 +4537,72 @@
    ]
   },
   {
-   "event_id": "evt-ab084839ca77",
+   "event_id": "evt-360f1b047f5e",
+   "topic": "fiscal",
+   "title_zh": "澳门特区政府将围绕四个维度开展2027年度经济工作",
+   "summary_zh": "【澳门特区政府将围绕四个维度开展2027年度经济工作】澳门特区政府经济财政司司长吴惠娴23日在特区立法会作经济财政范畴2027年度施政方针引介发言表示，将以更新思维、更好方式、更大力度，围绕四个维度开展工作。四个维度分别为：全面优化特区经济治理布局，培育壮大新兴产业，增强经济韧性；精准支持中小企业升级转型，活化社区营商环境，优化就业支持体系，前瞻部署青年职业生涯规划；深化澳琴机制对接，推动产业协同发展，高水平推进横琴粤澳深度合作区第二阶",
+   "rep_id": "news_360f1b047f5ebf222fef",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfna2272613.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T15:34:06+08:00",
+   "last_at": "2026-11-23T15:34:06+08:00",
+   "score": 51,
+   "heat": 0.696,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 57.94,
+   "items": [
+    "news_360f1b047f5ebf222fef"
+   ]
+  },
+  {
+   "event_id": "evt-14ab3542e7f4",
    "topic": "growth",
-   "title_zh": "水贝商户一天卖数公斤黄金金价跌了多地现购金热潮",
-   "summary_zh": "【水贝商户一天卖数公斤黄金金价跌了多地现购金热潮】近期金价变动，搅动年末的黄金消费市场。随着伦敦现货黄金失守3600美元/盎司，国内黄金消费市场迎来小高潮。在北京市西城区的菜百首饰总店，柜台前挤满了前来选购黄金饰品的消费者。不少购买婚嫁首饰的消费者在持续观望后，选择在这个时机入手婚嫁用品。这周末，深圳水贝各大商场的柜台前人头攒动，迎来了近几个月来最大客流，各楼层柜台前几乎被围得水泄不通。有商户表示：“这段时间都是人挤人，销售吃饭都没时间",
-   "rep_id": "news_ab084839ca77aa982bb5",
-   "url": "https://finance.eastmoney.com/a/202611223936969492.html",
-   "publisher": "东方财富",
+   "title_zh": "电子商务助力经济向新向优",
+   "summary_zh": "光明日报北京11月22日电记者张翼从商务部获悉，今年1至10月，我国电子商务平稳发展，线上线下融合持续增强消费市场韧性，数字技术赋能产业转型升级，“丝路电商”拓展国际经贸合作，商务领域新质生产力不断培育壮大，助力我国经济向新向优。",
+   "rep_id": "news_14ab3542e7f45feb55fe",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736330.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-22T22:29:20+08:00",
-   "last_at": "2026-11-22T22:29:20+08:00",
+   "first_at": "2026-11-23T10:41:12+08:00",
+   "last_at": "2026-11-23T10:41:12+08:00",
    "score": 51,
-   "heat": 0.609,
+   "heat": 0.604,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.59,
+   "importance": 57.57,
    "items": [
-    "news_ab084839ca77aa982bb5"
+    "news_14ab3542e7f45feb55fe"
    ]
   },
   {
-   "event_id": "evt-00aa5eff7147",
+   "event_id": "evt-469a0a484e97",
    "topic": "credit",
-   "title_zh": "央行反洗钱局：推动反洗钱落地见效，聚焦风险突出重点领域",
-   "summary_zh": "当前反洗钱仍面临较多新挑战",
-   "rep_id": "news_00aa5eff71474c666189",
-   "url": "https://www.yicai.com/news/103449317.html",
-   "publisher": "第一财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T20:56:45+08:00",
-   "last_at": "2026-11-22T20:56:45+08:00",
-   "score": 51,
-   "heat": 0.582,
-   "publishers": [
-    "第一财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.49,
-   "items": [
-    "news_00aa5eff71474c666189"
-   ]
-  },
-  {
-   "event_id": "evt-685f80a73d93",
-   "topic": "markets",
-   "title_zh": "A股融资杠杆比例提至1.25倍，业内预计将带来4000亿资金增量",
-   "summary_zh": "融资保证金比例下限由100%调低至80%，这是A股市场第四次调整融资保证金比例。",
-   "rep_id": "news_685f80a73d934a8a937b",
-   "url": "https://www.yicai.com/news/103449278.html",
-   "publisher": "第一财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T18:50:15+08:00",
-   "last_at": "2026-11-22T18:50:15+08:00",
-   "score": 51,
-   "heat": 0.548,
-   "publishers": [
-    "第一财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.35,
-   "items": [
-    "news_685f80a73d934a8a937b"
-   ]
-  },
-  {
-   "event_id": "evt-65456e2e7054",
-   "topic": "fiscal",
-   "title_zh": "李强抵马尼拉出席中国－东盟领导人会议",
-   "summary_zh": "应东盟轮值主席国菲律宾总统马科斯邀请，国务院总理李强乘包机于11月15日晚抵达马尼拉尼诺伊·阿基诺国际机场，将出席中国－东盟领导人会议。菲律宾财政部长吴诗泽和中国驻菲律宾大使井泉、驻东盟大使王擎等到机场迎接。李强是在结束对泰国正式访问后赴马尼拉的。离开曼谷时，泰国副总理兼财政部长艾尼迪和中国驻泰国大使张建卫等到机场送行。 (新华社)",
-   "rep_id": "news_65456e2e7054be904fbf",
-   "url": "https://wallstreetcn.com/livenews/3200198",
+   "title_zh": "理性看待短期外部扰动，机构：中国资产长期向好趋势未改",
+   "summary_zh": "过去一周，A股市场弱势调整，投资者情绪受到一定扰动。对此，最新券商策略展望报告认为，海外流动性预期持续收紧，叠加美股科技龙头大幅调整、AI 板块整体情绪走弱，是近期A股风险偏好承压的直接原因。当前，A股正处于悲观预期出清、性价比不断改善的过程中，多维度积极信号正在逐步积累。（上证报）",
+   "rep_id": "news_469a0a484e971b176b7a",
+   "url": "https://wallstreetcn.com/livenews/3203795",
    "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-15T12:25:39+00:00",
-   "last_at": "2026-11-15T12:25:39+00:00",
-   "score": 53,
-   "heat": 0,
+   "first_at": "2026-11-22T23:23:47+00:00",
+   "last_at": "2026-11-22T23:23:47+00:00",
+   "score": 51,
+   "heat": 0.55,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.16,
+   "importance": 57.36,
    "items": [
-    "news_65456e2e7054be904fbf"
-   ]
-  },
-  {
-   "event_id": "evt-37c35b44af46",
-   "topic": "fiscal",
-   "title_zh": "黄仁勋去职后，贝森特称英伟达需要“重大重组”",
-   "summary_zh": "美国财政部长斯科特·贝森特表示，在首席执行官黄仁勋被罢免之后，英伟达的领导层需要经历一场“剧烈重组”。贝森特暗示，英伟达应该从公司外部寻找新的领导人。（被罢免的）黄仁勋是了不起的创新者，英伟达非常出色。上级与下属建立恋爱关系是企业大忌。（福克斯新闻）",
-   "rep_id": "news_37c35b44af468afd7d8a",
-   "url": "https://wallstreetcn.com/livenews/3200212",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T15:07:54+00:00",
-   "last_at": "2026-11-15T15:07:54+00:00",
-   "score": 53,
-   "heat": 0,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.16,
-   "items": [
-    "news_37c35b44af468afd7d8a"
+    "news_469a0a484e971b176b7a"
    ]
   },
   {
@@ -5239,118 +4951,95 @@
    ]
   },
   {
-   "event_id": "evt-a65117c6db72",
+   "event_id": "evt-ab084839ca77",
    "topic": "growth",
-   "title_zh": "国家发展改革委召开视频会议调度督促政府投资资金支付使用和项目储备工作",
-   "summary_zh": "2026年11月20日，国家发展改革委召开政府投资资金支付使用和项目储备工作视频会议，委党组成员、副主任岳修虎同志出席并讲话。会议通报了各地政府投资资金支付使用和重大项目储备工作情况，浙江、河南、广东、黑龙江、安徽、陕西等6省发展改革委负责同志作了交流发言。",
-   "rep_id": "news_a65117c6db72b6b7a138",
-   "url": "https://wallstreetcn.com/livenews/3203640",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T03:47:18+00:00",
-   "last_at": "2026-11-21T03:47:18+00:00",
-   "score": 53,
-   "heat": 0,
-   "publishers": [
-    "华尔街见闻"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.16,
-   "items": [
-    "news_a65117c6db72b6b7a138"
-   ]
-  },
-  {
-   "event_id": "evt-4ca2aa190106",
-   "topic": "growth",
-   "title_zh": "云深处有大咖，瑞幸“中国咖啡云南季”溯源一杯云南好风味",
-   "summary_zh": "一方好风土，化作杯中好风味。云南高山之间，独特风土孕育咖啡醇香。近日，瑞幸咖啡以“深的工夫云南功夫中国咖啡云南季”为主题，推出中国云南单一产地SOE咖啡豆为特色的深烘系列新品。新品采用原创双烘焙曲线的差异化工艺，呈现云南高山产区的独特风土，带来浓而不苦、醇厚有回甘的口感，让全国消费者在门店的每一杯日常咖啡中，都能品味云南咖啡的卓越风味。",
-   "rep_id": "news_4ca2aa1901061e3b653b",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736451.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T15:28:06+08:00",
-   "last_at": "2026-11-23T15:28:06+08:00",
-   "score": 49,
-   "heat": 0.994,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 57.13,
-   "items": [
-    "news_4ca2aa1901061e3b653b"
-   ]
-  },
-  {
-   "event_id": "evt-b2e0b3946654",
-   "topic": "policy",
-   "title_zh": "世界无线局域网应用发展联盟获ISO/IEC认可成为A类联络组织",
-   "summary_zh": "【世界无线局域网应用发展联盟获ISO/IEC认可成为A类联络组织】据市场监管总局消息，近日，国际标准化组织和国际电工委员会第一联合技术委员会系统间远程通信和信息交换分技术委员会（ISO/IECJTC1/SC6）正式批准由我国发起成立的世界无线局域网应用发展联盟（WAA）成为其A类联络组织。这标志着我国WLAN应用领域标准化工作获得国际认可，融入全球标准治理体系进程取得重大突破。",
-   "rep_id": "news_b2e0b394665405cc3782",
-   "url": "https://finance.eastmoney.com/a/202611233937220752.html",
+   "title_zh": "水贝商户一天卖数公斤黄金金价跌了多地现购金热潮",
+   "summary_zh": "【水贝商户一天卖数公斤黄金金价跌了多地现购金热潮】近期金价变动，搅动年末的黄金消费市场。随着伦敦现货黄金失守3600美元/盎司，国内黄金消费市场迎来小高潮。在北京市西城区的菜百首饰总店，柜台前挤满了前来选购黄金饰品的消费者。不少购买婚嫁首饰的消费者在持续观望后，选择在这个时机入手婚嫁用品。这周末，深圳水贝各大商场的柜台前人头攒动，迎来了近几个月来最大客流，各楼层柜台前几乎被围得水泄不通。有商户表示：“这段时间都是人挤人，销售吃饭都没时间",
+   "rep_id": "news_ab084839ca77aa982bb5",
+   "url": "https://finance.eastmoney.com/a/202611223936969492.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-23T14:40:21+08:00",
-   "last_at": "2026-11-23T14:40:21+08:00",
-   "score": 49,
-   "heat": 0.971,
+   "first_at": "2026-11-22T22:29:20+08:00",
+   "last_at": "2026-11-22T22:29:20+08:00",
+   "score": 51,
+   "heat": 0.425,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.04,
+   "importance": 56.86,
    "items": [
-    "news_b2e0b394665405cc3782"
+    "news_ab084839ca77aa982bb5"
    ]
   },
   {
-   "event_id": "evt-4a9c03f2af5c",
-   "topic": "markets",
-   "title_zh": "A股福建本地股异动拉升，海峡创新、路桥信息涨超10%，平潭发展、福建水泥、厦门信达等纷纷冲高",
-   "summary_zh": "A股福建本地股异动拉升，海峡创新、路桥信息涨超10%，平潭发展、福建水泥、厦门信达等纷纷冲高。",
-   "rep_id": "news_4a9c03f2af5c1a6552e7",
-   "url": "https://wallstreetcn.com/livenews/3203966",
-   "publisher": "华尔街见闻",
+   "event_id": "evt-ffeb1d75a6c3",
+   "topic": "growth",
+   "title_zh": "高密度算力散热需求大液冷领域快步扩容",
+   "summary_zh": "【高密度算力散热需求大液冷领域快步扩容】随着人工智能产业的快速发展，高密度算力中心的散热需求，让液冷成为全球算力基础设施建设中的重要一环。液冷产业链上市公司的布局和进展受到投资者高度关注。近日，多家A股液冷上市公司在与投资者交流时披露了产能建设、产品交付、在手订单等方面的进展。",
+   "rep_id": "news_ffeb1d75a6c3f327cdab",
+   "url": "https://finance.eastmoney.com/a/202611243937734557.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-23T06:17:35+00:00",
-   "last_at": "2026-11-23T06:17:35+00:00",
+   "first_at": "2026-11-24T01:23:49+08:00",
+   "last_at": "2026-11-24T01:23:49+08:00",
    "score": 49,
-   "heat": 0.961,
+   "heat": 0.924,
    "publishers": [
-    "华尔街见闻"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 57.0,
+   "importance": 56.85,
    "items": [
-    "news_4a9c03f2af5c1a6552e7"
+    "news_ffeb1d75a6c3f327cdab"
    ]
   },
   {
-   "event_id": "evt-0bedcf98a5eb",
-   "topic": "markets",
-   "title_zh": "沪指拉升翻红，此前一度跌超1%，创业板指涨超3%，算力硬件、机器人、短剧、贵金属等方向涨幅居前居前，全市场超4400只股上涨",
-   "summary_zh": "沪指拉升翻红，此前一度跌超1%，创业板指涨超3%，算力硬件、机器人、短剧、贵金属等方向涨幅居前居前，全市场超4400只股上涨。",
-   "rep_id": "news_0bedcf98a5eb8ffd1ccf",
-   "url": "https://wallstreetcn.com/livenews/3203954",
-   "publisher": "华尔街见闻",
+   "event_id": "evt-00aa5eff7147",
+   "topic": "credit",
+   "title_zh": "央行反洗钱局：推动反洗钱落地见效，聚焦风险突出重点领域",
+   "summary_zh": "当前反洗钱仍面临较多新挑战",
+   "rep_id": "news_00aa5eff71474c666189",
+   "url": "https://www.yicai.com/news/103449317.html",
+   "publisher": "第一财经",
    "source_tier": "T2",
-   "first_at": "2026-11-23T05:45:40+00:00",
-   "last_at": "2026-11-23T05:45:40+00:00",
-   "score": 49,
-   "heat": 0.946,
+   "first_at": "2026-11-22T20:56:45+08:00",
+   "last_at": "2026-11-22T20:56:45+08:00",
+   "score": 51,
+   "heat": 0.406,
    "publishers": [
-    "华尔街见闻"
+    "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.94,
+   "importance": 56.78,
    "items": [
-    "news_0bedcf98a5eb8ffd1ccf"
+    "news_00aa5eff71474c666189"
+   ]
+  },
+  {
+   "event_id": "evt-685f80a73d93",
+   "topic": "markets",
+   "title_zh": "A股融资杠杆比例提至1.25倍，业内预计将带来4000亿资金增量",
+   "summary_zh": "融资保证金比例下限由100%调低至80%，这是A股市场第四次调整融资保证金比例。",
+   "rep_id": "news_685f80a73d934a8a937b",
+   "url": "https://www.yicai.com/news/103449278.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T18:50:15+08:00",
+   "last_at": "2026-11-22T18:50:15+08:00",
+   "score": 51,
+   "heat": 0.382,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 56.69,
+   "items": [
+    "news_685f80a73d934a8a937b"
    ]
   },
   {
@@ -5379,118 +5068,72 @@
    ]
   },
   {
-   "event_id": "evt-3880c6bb6dba",
-   "topic": "markets",
-   "title_zh": "股债金罕见同跌资产配置“失灵”了吗",
-   "summary_zh": "【股债金罕见同跌资产配置“失灵”了吗】11月20日前后，一个让多元资产配置者感到担忧的画面出现了：A股、港股、美股同步下跌，债市刚刚经历一轮理财赎回，国际现货黄金盘中更是跌破3600美元/盎司关口，单周跌幅逼近9%。股、债、金，这三类原本应该不同频的资产，突然站在同一条下行曲线上。",
-   "rep_id": "news_3880c6bb6dba31cd7d9c",
-   "url": "https://finance.eastmoney.com/a/202611233937007944.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T08:07:00+08:00",
-   "last_at": "2026-11-23T08:07:00+08:00",
-   "score": 49,
-   "heat": 0.804,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 56.37,
-   "items": [
-    "news_3880c6bb6dba31cd7d9c"
-   ]
-  },
-  {
-   "event_id": "evt-8b8456815512",
-   "topic": "growth",
-   "title_zh": "“淘金客”挤爆柜台！一个金手镯一周便宜了1500元",
-   "summary_zh": "【“淘金客”挤爆柜台！一个金手镯一周便宜了1500元】11月22日记者实地走访深圳水贝市场发现，黄金饰品批发报价降至918元/克，比一周前下跌约75元/克。水贝市场周末人头攒动，挤满了“淘金”的消费者。据水贝商户介绍，本周末水贝的客流量增加了几乎一倍，成交量也增长了近三成。为了减少金价急跌带来的库存贬值影响，水贝多数商户会采取“卖出多少，进货多少”的策略来进行风险对冲。",
-   "rep_id": "news_8b845681551217a7ab59",
-   "url": "https://finance.eastmoney.com/a/202611223936959974.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T07:50:22+08:00",
-   "last_at": "2026-11-23T07:50:22+08:00",
-   "score": 49,
-   "heat": 0.797,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 56.35,
-   "items": [
-    "news_8b845681551217a7ab59"
-   ]
-  },
-  {
-   "event_id": "evt-3a1f506ae503",
+   "event_id": "evt-1a511e55d34a",
    "topic": "policy",
-   "title_zh": "国资专业化整合逻辑生变 “强者牵头”走向前台",
-   "summary_zh": "【国资专业化整合逻辑生变 “强者牵头”走向前台】近期举办的进一步深化国资国企改革专题研讨班强调，新一轮改革要聚焦产业链短板、创新资源分散、同质化竞争等三个重点问题推进专业化整合，摒弃“大吃小”做法，以创新能力强的企业为主体开展整合，划清纾困边界，防止“救助型”并购。这标志着本轮专业化整合中，判断“谁主导整合”的标准，从“谁的报表更大”转向“谁在产业链关键环节上真正有竞争力”。",
-   "rep_id": "news_3a1f506ae50350cc8ea9",
-   "url": "https://finance.eastmoney.com/a/202611233937007049.html",
-   "publisher": "东方财富",
+   "title_zh": "《婴幼儿辅助食品生产许可审查细则（2026版）》发布",
+   "summary_zh": "中新网11月23日电据国家市场监督管理总局网站消息，近年来，婴辅食品行业快速发展，新原料、新工艺、新产品不断涌现，食品安全国家标准不断更新完善。为进一步加强婴幼儿辅助食品(以下简称婴辅食品)生产许可管理，督促企业落实主体责任，近日，市场监管总局修订发布《婴幼儿辅助食品生产许可审查细则(2026版)》(以下称《细则》)。",
+   "rep_id": "news_1a511e55d34a0729e6a0",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736623.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-23T07:54:11+08:00",
-   "last_at": "2026-11-23T07:54:11+08:00",
+   "first_at": "2026-11-23T20:03:13+08:00",
+   "last_at": "2026-11-23T20:03:13+08:00",
    "score": 49,
-   "heat": 0.799,
+   "heat": 0.792,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.35,
+   "importance": 56.33,
    "items": [
-    "news_3a1f506ae50350cc8ea9"
+    "news_1a511e55d34a0729e6a0"
    ]
   },
   {
-   "event_id": "evt-b3ca79b04040",
-   "topic": "growth",
-   "title_zh": "多家私募三季度加仓中概股",
-   "summary_zh": "【多家私募三季度加仓中概股】头部私募近日披露的美股持仓情况，透露出其对中国资产的积极预期。比如：高瓴资本三季度加仓阿里巴巴、拼多多、唯品会等标的，并建仓携程和满帮集团；高毅资产大手笔加仓BOSS直聘等。在头部私募看来，中国资产的中长期投资吸引力正在逐步提升，中国在全球AI产业中占据举足轻重的地位，国内电力设备、储能、机器人、电动车等方向也存在丰富机会。",
-   "rep_id": "news_b3ca79b040401aeda929",
-   "url": "https://finance.eastmoney.com/a/202611233937005434.html",
-   "publisher": "东方财富",
+   "event_id": "evt-f6fb72e09dfd",
+   "topic": "policy",
+   "title_zh": "中国发起成立的世界无线局域网应用发展联盟获国际认可",
+   "summary_zh": "中新社北京11月23日电 (记者刘亮)中国国家市场监管总局23日公布，国际标准化组织和国际电工委员会第一联合技术委员会系统间远程通信和信息交换分技术委员会(ISO/IEC JTC 1/SC 6)近日正式批准由中国发起成立的世界无线局域网应用发展联盟(WAA)成为其A类联络组织。这标志着中国WLAN(无线局域网)应用领域标准化工作获得国际认可。",
+   "rep_id": "news_f6fb72e09dfd7ef07a72",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736594.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-23T07:19:41+08:00",
-   "last_at": "2026-11-23T07:19:41+08:00",
+   "first_at": "2026-11-23T19:10:02+08:00",
+   "last_at": "2026-11-23T19:10:02+08:00",
    "score": 49,
-   "heat": 0.786,
+   "heat": 0.772,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.3,
+   "importance": 56.25,
    "items": [
-    "news_b3ca79b040401aeda929"
+    "news_f6fb72e09dfd7ef07a72"
    ]
   },
   {
-   "event_id": "evt-41186911cdf6",
-   "topic": "trade",
-   "title_zh": "安世跨境争端现追加禁令罚金最高可达3亿欧元！*ST闻泰明确不认可并将上诉",
-   "summary_zh": "【安世跨境争端现追加禁令罚金最高可达3亿欧元！*ST闻泰明确不认可并将上诉】11月15日晚间，*ST闻泰披露关于子公司经营管理情况的进展公告。其境外子公司安世半导体控股有限公司（Nexperia Holding B.V. ）与安世半导体有限公司此前向荷兰阿姆斯特丹上诉法院企业法庭提交追加临时措施申请，企业法庭于10月30日开庭审理，11月11日作出临时措施裁定。裁定责令*ST闻泰、裕成控股（*ST闻泰子公司）、安世中国及相关人员尊重并容",
-   "rep_id": "news_41186911cdf6c5290eb7",
-   "url": "https://finance.eastmoney.com/a/202611153931483033.html",
-   "publisher": "东方财富",
+   "event_id": "evt-8b9a90208641",
+   "topic": "markets",
+   "title_zh": "A股周一放量上涨创业板指收盘涨逾3％",
+   "summary_zh": "中新社北京11月23日电 (记者陈康亮)中国A股23日(周一)放量上涨，主要股指悉数飘红，其中，创业板指收盘涨逾3%。",
+   "rep_id": "news_8b9a90208641ae602420",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736585.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-16T00:09:47+08:00",
-   "last_at": "2026-11-16T00:09:47+08:00",
-   "score": 52,
-   "heat": 0,
+   "first_at": "2026-11-23T18:42:14+08:00",
+   "last_at": "2026-11-23T18:42:14+08:00",
+   "score": 49,
+   "heat": 0.762,
    "publishers": [
-    "东方财富"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.16,
+   "importance": 56.21,
    "items": [
-    "news_41186911cdf6c5290eb7"
+    "news_8b9a90208641ae602420"
    ]
   },
   {
@@ -5540,26 +5183,95 @@
    ]
   },
   {
-   "event_id": "evt-cb4323cd94c2",
+   "event_id": "evt-4ca2aa190106",
    "topic": "growth",
-   "title_zh": "南水北调“天河”大模型完成升级",
-   "summary_zh": "【南水北调“天河”大模型完成升级】从中国南水北调集团了解到，全新升级的南水北调“天河”大模型V2发布。此次完成升级的南水北调“天河”大模型从V1版本夯实基础，到V2版本深化应用，推动水网管理决策向数据—机理—智能协同驱动转型。在防汛度汛领域，“天河”大模型接入遥感卫星27颗、气象雷达237部，汇聚雨情、水情等多源数据，推动防汛形势分析由小时级压缩至分钟级。在水质保护领域，“天河”大模型依托覆盖水源区、输水区、受水区的水质监测体系，整编入",
-   "rep_id": "news_cb4323cd94c27b0c5511",
-   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-iniznthe3427813.d.html",
-   "publisher": "新浪财经",
+   "title_zh": "云深处有大咖，瑞幸“中国咖啡云南季”溯源一杯云南好风味",
+   "summary_zh": "一方好风土，化作杯中好风味。云南高山之间，独特风土孕育咖啡醇香。近日，瑞幸咖啡以“深的工夫云南功夫中国咖啡云南季”为主题，推出中国云南单一产地SOE咖啡豆为特色的深烘系列新品。新品采用原创双烘焙曲线的差异化工艺，呈现云南高山产区的独特风土，带来浓而不苦、醇厚有回甘的口感，让全国消费者在门店的每一杯日常咖啡中，都能品味云南咖啡的卓越风味。",
+   "rep_id": "news_4ca2aa1901061e3b653b",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736451.shtml",
+   "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-21T15:49:31+08:00",
-   "last_at": "2026-11-21T15:49:31+08:00",
-   "score": 51,
-   "heat": 0.251,
+   "first_at": "2026-11-23T15:28:06+08:00",
+   "last_at": "2026-11-23T15:28:06+08:00",
+   "score": 49,
+   "heat": 0.694,
    "publishers": [
-    "新浪财经"
+    "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 56.16,
+   "importance": 55.93,
    "items": [
-    "news_cb4323cd94c27b0c5511"
+    "news_4ca2aa1901061e3b653b"
+   ]
+  },
+  {
+   "event_id": "evt-b2e0b3946654",
+   "topic": "policy",
+   "title_zh": "世界无线局域网应用发展联盟获ISO/IEC认可成为A类联络组织",
+   "summary_zh": "【世界无线局域网应用发展联盟获ISO/IEC认可成为A类联络组织】据市场监管总局消息，近日，国际标准化组织和国际电工委员会第一联合技术委员会系统间远程通信和信息交换分技术委员会（ISO/IECJTC1/SC6）正式批准由我国发起成立的世界无线局域网应用发展联盟（WAA）成为其A类联络组织。这标志着我国WLAN应用领域标准化工作获得国际认可，融入全球标准治理体系进程取得重大突破。",
+   "rep_id": "news_b2e0b394665405cc3782",
+   "url": "https://finance.eastmoney.com/a/202611233937220752.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T14:40:21+08:00",
+   "last_at": "2026-11-23T14:40:21+08:00",
+   "score": 49,
+   "heat": 0.678,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.87,
+   "items": [
+    "news_b2e0b394665405cc3782"
+   ]
+  },
+  {
+   "event_id": "evt-4a9c03f2af5c",
+   "topic": "markets",
+   "title_zh": "A股福建本地股异动拉升，海峡创新、路桥信息涨超10%，平潭发展、福建水泥、厦门信达等纷纷冲高",
+   "summary_zh": "A股福建本地股异动拉升，海峡创新、路桥信息涨超10%，平潭发展、福建水泥、厦门信达等纷纷冲高。",
+   "rep_id": "news_4a9c03f2af5c1a6552e7",
+   "url": "https://wallstreetcn.com/livenews/3203966",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T06:17:35+00:00",
+   "last_at": "2026-11-23T06:17:35+00:00",
+   "score": 49,
+   "heat": 0.671,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.84,
+   "items": [
+    "news_4a9c03f2af5c1a6552e7"
+   ]
+  },
+  {
+   "event_id": "evt-0bedcf98a5eb",
+   "topic": "markets",
+   "title_zh": "沪指拉升翻红，此前一度跌超1%，创业板指涨超3%，算力硬件、机器人、短剧、贵金属等方向涨幅居前居前，全市场超4400只股上涨",
+   "summary_zh": "沪指拉升翻红，此前一度跌超1%，创业板指涨超3%，算力硬件、机器人、短剧、贵金属等方向涨幅居前居前，全市场超4400只股上涨。",
+   "rep_id": "news_0bedcf98a5eb8ffd1ccf",
+   "url": "https://wallstreetcn.com/livenews/3203954",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T05:45:40+00:00",
+   "last_at": "2026-11-23T05:45:40+00:00",
+   "score": 49,
+   "heat": 0.66,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.8,
+   "items": [
+    "news_0bedcf98a5eb8ffd1ccf"
    ]
   },
   {
@@ -5588,118 +5300,95 @@
    ]
   },
   {
-   "event_id": "evt-5cd19d12bef8",
-   "topic": "growth",
-   "title_zh": "中国经济看“新”丨从“尝鲜”到“潮流”，智能穿戴打开消费新空间",
-   "summary_zh": "新华社北京11月22日电题：从“尝鲜”到“潮流”，智能穿戴打开消费新空间",
-   "rep_id": "news_5cd19d12bef8bcbc2ae3",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-22/10736203.shtml",
-   "publisher": "中国新闻网",
+   "event_id": "evt-3880c6bb6dba",
+   "topic": "markets",
+   "title_zh": "股债金罕见同跌资产配置“失灵”了吗",
+   "summary_zh": "【股债金罕见同跌资产配置“失灵”了吗】11月20日前后，一个让多元资产配置者感到担忧的画面出现了：A股、港股、美股同步下跌，债市刚刚经历一轮理财赎回，国际现货黄金盘中更是跌破3600美元/盎司关口，单周跌幅逼近9%。股、债、金，这三类原本应该不同频的资产，突然站在同一条下行曲线上。",
+   "rep_id": "news_3880c6bb6dba31cd7d9c",
+   "url": "https://finance.eastmoney.com/a/202611233937007944.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T21:52:36+08:00",
-   "last_at": "2026-11-22T21:52:36+08:00",
+   "first_at": "2026-11-23T08:07:00+08:00",
+   "last_at": "2026-11-23T08:07:00+08:00",
    "score": 49,
-   "heat": 0.598,
+   "heat": 0.561,
    "publishers": [
-    "中国新闻网"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 55.55,
+   "importance": 55.4,
    "items": [
-    "news_5cd19d12bef8bcbc2ae3"
+    "news_3880c6bb6dba31cd7d9c"
    ]
   },
   {
-   "event_id": "evt-2c64b08773a3",
+   "event_id": "evt-8b8456815512",
    "topic": "growth",
-   "title_zh": "硬科技冠军营（西安站）暨光子产业投资对接会在西安举行",
-   "summary_zh": "中新网西安11月22日电 (记者阿琳娜)以“汇光成炬星耀新程”为主题的硬科技冠军营(西安站)暨光子产业投资对接会20日在西安举办。全国光子赛道近70位头部企业家、投资机构代表齐聚现场，共寻光子产业合作机遇，聚力延链补链强链。",
-   "rep_id": "news_2c64b08773a3f708418a",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-22/10736175.shtml",
-   "publisher": "中国新闻网",
+   "title_zh": "“淘金客”挤爆柜台！一个金手镯一周便宜了1500元",
+   "summary_zh": "【“淘金客”挤爆柜台！一个金手镯一周便宜了1500元】11月22日记者实地走访深圳水贝市场发现，黄金饰品批发报价降至918元/克，比一周前下跌约75元/克。水贝市场周末人头攒动，挤满了“淘金”的消费者。据水贝商户介绍，本周末水贝的客流量增加了几乎一倍，成交量也增长了近三成。为了减少金价急跌带来的库存贬值影响，水贝多数商户会采取“卖出多少，进货多少”的策略来进行风险对冲。",
+   "rep_id": "news_8b845681551217a7ab59",
+   "url": "https://finance.eastmoney.com/a/202611223936959974.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T20:17:37+08:00",
-   "last_at": "2026-11-22T20:17:37+08:00",
+   "first_at": "2026-11-23T07:50:22+08:00",
+   "last_at": "2026-11-23T07:50:22+08:00",
    "score": 49,
-   "heat": 0.571,
+   "heat": 0.557,
    "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 55.44,
-   "items": [
-    "news_2c64b08773a3f708418a"
-   ]
-  },
-  {
-   "event_id": "evt-f9c53c58d630",
-   "topic": "policy",
-   "title_zh": "中国政府代表团参加国际民航组织第七次世界范围航空运输会议",
-   "summary_zh": "当地时间11月16日至20日，国际民航组织第七次世界范围航空运输会议在加拿大蒙特利尔召开。中国民用航空局副局长梁楠率中国政府代表团参会并受邀在高级别小组讨论环节发言。会议通过了《部长级宣言》，确立对接国际民航组织《2026—2050战略规划》的全球航空运输经济改革框架，重点涵盖航空基础设施投融资机制、监管机构能力建设与跨国互联互通，为未来国际航空运输发展指明方向。中国代表团向本次会议提交了多份工作文件，深入参与各项议题讨论，广泛开展交流",
-   "rep_id": "news_f9c53c58d63065224eb3",
-   "url": "https://wallstreetcn.com/livenews/3203744",
-   "publisher": "华尔街见闻",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T11:32:25+00:00",
-   "last_at": "2026-11-22T11:32:25+00:00",
-   "score": 49,
-   "heat": 0.559,
-   "publishers": [
-    "华尔街见闻"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
    "importance": 55.39,
    "items": [
-    "news_f9c53c58d63065224eb3"
+    "news_8b845681551217a7ab59"
    ]
   },
   {
-   "event_id": "evt-82a4d3d851b0",
-   "topic": "markets",
-   "title_zh": "机构论后市丨关注芯片制造、军工和低波红利价值类资产",
-   "summary_zh": "沪指本周累计跌2.77%，深成指跌6.49%，创业板指跌8.82%，科创综指跌11.03%。A股后市怎么走？看看机构怎么说：",
-   "rep_id": "news_82a4d3d851b07fdc2db1",
-   "url": "https://www.yicai.com/news/103449266.html",
-   "publisher": "第一财经",
+   "event_id": "evt-3a1f506ae503",
+   "topic": "policy",
+   "title_zh": "国资专业化整合逻辑生变 “强者牵头”走向前台",
+   "summary_zh": "【国资专业化整合逻辑生变 “强者牵头”走向前台】近期举办的进一步深化国资国企改革专题研讨班强调，新一轮改革要聚焦产业链短板、创新资源分散、同质化竞争等三个重点问题推进专业化整合，摒弃“大吃小”做法，以创新能力强的企业为主体开展整合，划清纾困边界，防止“救助型”并购。这标志着本轮专业化整合中，判断“谁主导整合”的标准，从“谁的报表更大”转向“谁在产业链关键环节上真正有竞争力”。",
+   "rep_id": "news_3a1f506ae50350cc8ea9",
+   "url": "https://finance.eastmoney.com/a/202611233937007049.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T17:53:10+08:00",
-   "last_at": "2026-11-22T17:53:10+08:00",
+   "first_at": "2026-11-23T07:54:11+08:00",
+   "last_at": "2026-11-23T07:54:11+08:00",
    "score": 49,
-   "heat": 0.533,
+   "heat": 0.558,
    "publishers": [
-    "第一财经"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 55.29,
+   "importance": 55.39,
    "items": [
-    "news_82a4d3d851b07fdc2db1"
+    "news_3a1f506ae50350cc8ea9"
    ]
   },
   {
-   "event_id": "evt-dab65144314e",
-   "topic": "markets",
-   "title_zh": "近一周融资调仓路线图出炉 9股融资净买入额逾亿元",
-   "summary_zh": "【近一周融资调仓路线图出炉 9股融资净买入额逾亿元】近一周（11月13日至19日），A股融资余额持续走低，最新值降至21927.43亿元，为近一年新低。融资资金呈现净偿还态势，金额合计859.16亿元。31个申万一级行业全部呈现净偿还态势。电子板块居首，净偿还额高达214.28亿元；电力设备板块随后，净偿还额81.40亿元；机械设备、有色金属、通信板块分列第三名至第五名，净偿还额依次为64.59亿元、60.34亿元、55.72亿元。个股",
-   "rep_id": "news_dab65144314e0cba8c11",
-   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizraph1266556.d.html",
-   "publisher": "新浪财经",
+   "event_id": "evt-b3ca79b04040",
+   "topic": "growth",
+   "title_zh": "多家私募三季度加仓中概股",
+   "summary_zh": "【多家私募三季度加仓中概股】头部私募近日披露的美股持仓情况，透露出其对中国资产的积极预期。比如：高瓴资本三季度加仓阿里巴巴、拼多多、唯品会等标的，并建仓携程和满帮集团；高毅资产大手笔加仓BOSS直聘等。在头部私募看来，中国资产的中长期投资吸引力正在逐步提升，中国在全球AI产业中占据举足轻重的地位，国内电力设备、储能、机器人、电动车等方向也存在丰富机会。",
+   "rep_id": "news_b3ca79b040401aeda929",
+   "url": "https://finance.eastmoney.com/a/202611233937005434.html",
+   "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-22T17:41:47+08:00",
-   "last_at": "2026-11-22T17:41:47+08:00",
+   "first_at": "2026-11-23T07:19:41+08:00",
+   "last_at": "2026-11-23T07:19:41+08:00",
    "score": 49,
-   "heat": 0.53,
+   "heat": 0.548,
    "publishers": [
-    "新浪财经"
+    "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 55.28,
+   "importance": 55.35,
    "items": [
-    "news_dab65144314e0cba8c11"
+    "news_b3ca79b040401aeda929"
    ]
   },
   {
@@ -6209,49 +5898,141 @@
    ]
   },
   {
-   "event_id": "evt-10f9f43533e6",
+   "event_id": "evt-cb4323cd94c2",
    "topic": "growth",
-   "title_zh": "结构向优、动能向新我国消费市场潜能不断释放",
-   "summary_zh": "“经”彩新图景丨结构向优、动能向新我国消费市场潜能不断释放",
-   "rep_id": "news_10f9f43533e6720ee947",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-21/10735914.shtml",
+   "title_zh": "南水北调“天河”大模型完成升级",
+   "summary_zh": "【南水北调“天河”大模型完成升级】从中国南水北调集团了解到，全新升级的南水北调“天河”大模型V2发布。此次完成升级的南水北调“天河”大模型从V1版本夯实基础，到V2版本深化应用，推动水网管理决策向数据—机理—智能协同驱动转型。在防汛度汛领域，“天河”大模型接入遥感卫星27颗、气象雷达237部，汇聚雨情、水情等多源数据，推动防汛形势分析由小时级压缩至分钟级。在水质保护领域，“天河”大模型依托覆盖水源区、输水区、受水区的水质监测体系，整编入",
+   "rep_id": "news_cb4323cd94c27b0c5511",
+   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-iniznthe3427813.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-21T15:49:31+08:00",
+   "last_at": "2026-11-21T15:49:31+08:00",
+   "score": 51,
+   "heat": 0,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 55.16,
+   "items": [
+    "news_cb4323cd94c27b0c5511"
+   ]
+  },
+  {
+   "event_id": "evt-5cd19d12bef8",
+   "topic": "growth",
+   "title_zh": "中国经济看“新”丨从“尝鲜”到“潮流”，智能穿戴打开消费新空间",
+   "summary_zh": "新华社北京11月22日电题：从“尝鲜”到“潮流”，智能穿戴打开消费新空间",
+   "rep_id": "news_5cd19d12bef8bcbc2ae3",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-22/10736203.shtml",
    "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-21T21:14:40+08:00",
-   "last_at": "2026-11-21T21:14:40+08:00",
+   "first_at": "2026-11-22T21:52:36+08:00",
+   "last_at": "2026-11-22T21:52:36+08:00",
    "score": 49,
-   "heat": 0.294,
+   "heat": 0.417,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.33,
+   "importance": 54.83,
    "items": [
-    "news_10f9f43533e6720ee947"
+    "news_5cd19d12bef8bcbc2ae3"
    ]
   },
   {
-   "event_id": "evt-632d5f7813d2",
-   "topic": "markets",
-   "title_zh": "涉案金额超3亿元！首例区块链虚拟货币新型协助传销案被查处",
-   "summary_zh": "日前，北京首例利用区块链、虚拟货币技术为传销活动提供协助的违法案件被查处，涉案金额超3亿元人民币。涉案科技公司是某公链的外包服务商，提供运营、市场推广、宣传推广、交易所对接和维护等服务。该公链推出多款理财项目，兜售相关虚拟货币，以高额收益回报为诱饵，迅速售出了价值人民币超3亿元的虚拟货币。（央视新闻）",
-   "rep_id": "news_632d5f7813d2a324ea29",
-   "url": "https://wallstreetcn.com/livenews/3203777",
+   "event_id": "evt-2c64b08773a3",
+   "topic": "growth",
+   "title_zh": "硬科技冠军营（西安站）暨光子产业投资对接会在西安举行",
+   "summary_zh": "中新网西安11月22日电 (记者阿琳娜)以“汇光成炬星耀新程”为主题的硬科技冠军营(西安站)暨光子产业投资对接会20日在西安举办。全国光子赛道近70位头部企业家、投资机构代表齐聚现场，共寻光子产业合作机遇，聚力延链补链强链。",
+   "rep_id": "news_2c64b08773a3f708418a",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-22/10736175.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T20:17:37+08:00",
+   "last_at": "2026-11-22T20:17:37+08:00",
+   "score": 49,
+   "heat": 0.399,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 54.75,
+   "items": [
+    "news_2c64b08773a3f708418a"
+   ]
+  },
+  {
+   "event_id": "evt-f9c53c58d630",
+   "topic": "policy",
+   "title_zh": "中国政府代表团参加国际民航组织第七次世界范围航空运输会议",
+   "summary_zh": "当地时间11月16日至20日，国际民航组织第七次世界范围航空运输会议在加拿大蒙特利尔召开。中国民用航空局副局长梁楠率中国政府代表团参会并受邀在高级别小组讨论环节发言。会议通过了《部长级宣言》，确立对接国际民航组织《2026—2050战略规划》的全球航空运输经济改革框架，重点涵盖航空基础设施投融资机制、监管机构能力建设与跨国互联互通，为未来国际航空运输发展指明方向。中国代表团向本次会议提交了多份工作文件，深入参与各项议题讨论，广泛开展交流",
+   "rep_id": "news_f9c53c58d63065224eb3",
+   "url": "https://wallstreetcn.com/livenews/3203744",
    "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-22T22:47:18+00:00",
-   "last_at": "2026-11-22T22:47:18+00:00",
-   "score": 47,
-   "heat": 0.773,
+   "first_at": "2026-11-22T11:32:25+00:00",
+   "last_at": "2026-11-22T11:32:25+00:00",
+   "score": 49,
+   "heat": 0.39,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.25,
+   "importance": 54.72,
    "items": [
-    "news_632d5f7813d2a324ea29"
+    "news_f9c53c58d63065224eb3"
+   ]
+  },
+  {
+   "event_id": "evt-82a4d3d851b0",
+   "topic": "markets",
+   "title_zh": "机构论后市丨关注芯片制造、军工和低波红利价值类资产",
+   "summary_zh": "沪指本周累计跌2.77%，深成指跌6.49%，创业板指跌8.82%，科创综指跌11.03%。A股后市怎么走？看看机构怎么说：",
+   "rep_id": "news_82a4d3d851b07fdc2db1",
+   "url": "https://www.yicai.com/news/103449266.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T17:53:10+08:00",
+   "last_at": "2026-11-22T17:53:10+08:00",
+   "score": 49,
+   "heat": 0.372,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 54.65,
+   "items": [
+    "news_82a4d3d851b07fdc2db1"
+   ]
+  },
+  {
+   "event_id": "evt-dab65144314e",
+   "topic": "markets",
+   "title_zh": "近一周融资调仓路线图出炉 9股融资净买入额逾亿元",
+   "summary_zh": "【近一周融资调仓路线图出炉 9股融资净买入额逾亿元】近一周（11月13日至19日），A股融资余额持续走低，最新值降至21927.43亿元，为近一年新低。融资资金呈现净偿还态势，金额合计859.16亿元。31个申万一级行业全部呈现净偿还态势。电子板块居首，净偿还额高达214.28亿元；电力设备板块随后，净偿还额81.40亿元；机械设备、有色金属、通信板块分列第三名至第五名，净偿还额依次为64.59亿元、60.34亿元、55.72亿元。个股",
+   "rep_id": "news_dab65144314e0cba8c11",
+   "url": "https://finance.sina.cn/7x24/2026-11-22/detail-inizraph1266556.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T17:41:47+08:00",
+   "last_at": "2026-11-22T17:41:47+08:00",
+   "score": 49,
+   "heat": 0.37,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 54.64,
+   "items": [
+    "news_dab65144314e0cba8c11"
    ]
   },
   {
@@ -6301,118 +6082,26 @@
    ]
   },
   {
-   "event_id": "evt-5e3ba6230813",
-   "topic": "growth",
-   "title_zh": "中国台湾地区金管会：11月23日起全面禁止平盘以下放空",
-   "summary_zh": "中国台湾地区金管会：11月23日起全面禁止平盘以下放空。投资人融券卖出及借券卖出上市（柜）股票及台湾存托凭证，卖出价格不得低于前一营业日收盘价。",
-   "rep_id": "news_5e3ba6230813087aca9a",
-   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-iniznthe3426889.d.html",
-   "publisher": "新浪财经",
+   "event_id": "evt-632d5f7813d2",
+   "topic": "markets",
+   "title_zh": "涉案金额超3亿元！首例区块链虚拟货币新型协助传销案被查处",
+   "summary_zh": "日前，北京首例利用区块链、虚拟货币技术为传销活动提供协助的违法案件被查处，涉案金额超3亿元人民币。涉案科技公司是某公链的外包服务商，提供运营、市场推广、宣传推广、交易所对接和维护等服务。该公链推出多款理财项目，兜售相关虚拟货币，以高额收益回报为诱饵，迅速售出了价值人民币超3亿元的虚拟货币。（央视新闻）",
+   "rep_id": "news_632d5f7813d2a324ea29",
+   "url": "https://wallstreetcn.com/livenews/3203777",
+   "publisher": "华尔街见闻",
    "source_tier": "T2",
-   "first_at": "2026-11-21T15:47:32+08:00",
-   "last_at": "2026-11-21T15:47:32+08:00",
-   "score": 49,
-   "heat": 0.251,
+   "first_at": "2026-11-22T22:47:18+00:00",
+   "last_at": "2026-11-22T22:47:18+00:00",
+   "score": 47,
+   "heat": 0.54,
    "publishers": [
-    "新浪财经"
+    "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 54.16,
+   "importance": 53.32,
    "items": [
-    "news_5e3ba6230813087aca9a"
-   ]
-  },
-  {
-   "event_id": "evt-de64033f21e8",
-   "topic": "trade",
-   "title_zh": "李强同新加坡总理黄循财会谈",
-   "summary_zh": "【李强同新加坡总理黄循财会谈】11月21日上午，国务院总理李强在北京钓鱼台国宾馆同新加坡总理黄循财举行会谈。李强表示，在双方共同努力下，中新关系保持良好发展势头，互利合作成果丰硕。昨天，习近平主席同总理先生举行会晤，就深化两国关系作出进一步规划。中方愿同新方加强战略沟通，筑牢政治互信，支持彼此核心利益和重大关切，拓展务实合作，推动中新全方位高质量的前瞻性伙伴关系取得更多成果，持续增进两国民众福祉。李强指出，中方愿同新方加快推进中新自贸协",
-   "rep_id": "news_de64033f21e88c20ba07",
-   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-inizntha6676147.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T16:33:45+08:00",
-   "last_at": "2026-11-21T16:33:45+08:00",
-   "score": 48,
-   "heat": 0.256,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.18,
-   "items": [
-    "news_de64033f21e88c20ba07"
-   ]
-  },
-  {
-   "event_id": "evt-866fe8d50a8f",
-   "topic": "growth",
-   "title_zh": "中国平台企业“出招”优化新就业群体劳动权益保障",
-   "summary_zh": "中新社北京11月15日电 (记者刘亮)随着中国平台经济发展壮大，外卖骑手、网约车司机等新就业形态劳动者涌现，其权益保障问题日益受关注。从健康守护到社会保障，从规则透明到人文关怀，中国平台企业多向发力，持续优化新就业群体劳动权益保障。",
-   "rep_id": "news_866fe8d50a8f669a543a",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-15/10732517.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T22:46:03+08:00",
-   "last_at": "2026-11-15T22:46:03+08:00",
-   "score": 49,
-   "heat": 0,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.16,
-   "items": [
-    "news_866fe8d50a8f669a543a"
-   ]
-  },
-  {
-   "event_id": "evt-b8bffcaeca14",
-   "topic": "trade",
-   "title_zh": "商务部副部长兼中华人民共和国国际贸易谈判副代表凌激会见宝马集团董事长聂科维",
-   "summary_zh": "商务部副部长兼中华人民共和国国际贸易谈判副代表凌激会见宝马集团董事长聂科维",
-   "rep_id": "news_b8bffcaeca14f05c18b5",
-   "url": "https://www.mofcom.gov.cn/xwfb/bldhd/art/2026/art_2b42f6b2d452450882658102f4b10870.html",
-   "publisher": "商务部",
-   "source_tier": "T1",
-   "first_at": "2026-11-16",
-   "last_at": "2026-11-16",
-   "score": 46,
-   "heat": 0,
-   "publishers": [
-    "商务部"
-   ],
-   "official": true,
-   "selected": false,
-   "importance": 53.16,
-   "items": [
-    "news_b8bffcaeca14f05c18b5"
-   ]
-  },
-  {
-   "event_id": "evt-b1d302235a35",
-   "topic": "growth",
-   "title_zh": "掘金中国资产海外资金看多信号密集显现",
-   "summary_zh": "【掘金中国资产海外资金看多信号密集显现】全球市场波动之下，海外资金对中国资产的看多信号正在密集显现：最新披露的三季度13F持仓文件显示，巴克莱、花旗、富达投资等机构对多家头部中概互联网企业进行了明显加仓；华尔街知名投资人迈克尔·巴里更是持续买入京东看涨期权和比亚迪股票。",
-   "rep_id": "news_b1d302235a3518ffca24",
-   "url": "https://finance.eastmoney.com/a/202611163931527831.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T02:03:52+08:00",
-   "last_at": "2026-11-16T02:03:52+08:00",
-   "score": 49,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 53.16,
-   "items": [
-    "news_b1d302235a3518ffca24"
+    "news_632d5f7813d2a324ea29"
    ]
   },
   {
@@ -7246,6 +6935,52 @@
    ]
   },
   {
+   "event_id": "evt-5e3ba6230813",
+   "topic": "growth",
+   "title_zh": "中国台湾地区金管会：11月23日起全面禁止平盘以下放空",
+   "summary_zh": "中国台湾地区金管会：11月23日起全面禁止平盘以下放空。投资人融券卖出及借券卖出上市（柜）股票及台湾存托凭证，卖出价格不得低于前一营业日收盘价。",
+   "rep_id": "news_5e3ba6230813087aca9a",
+   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-iniznthe3426889.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-21T15:47:32+08:00",
+   "last_at": "2026-11-21T15:47:32+08:00",
+   "score": 49,
+   "heat": 0,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 53.16,
+   "items": [
+    "news_5e3ba6230813087aca9a"
+   ]
+  },
+  {
+   "event_id": "evt-10f9f43533e6",
+   "topic": "growth",
+   "title_zh": "结构向优、动能向新我国消费市场潜能不断释放",
+   "summary_zh": "“经”彩新图景丨结构向优、动能向新我国消费市场潜能不断释放",
+   "rep_id": "news_10f9f43533e6720ee947",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-21/10735914.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-21T21:14:40+08:00",
+   "last_at": "2026-11-21T21:14:40+08:00",
+   "score": 49,
+   "heat": 0,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 53.16,
+   "items": [
+    "news_10f9f43533e6720ee947"
+   ]
+  },
+  {
    "event_id": "evt-46aaff05e7da",
    "topic": "trade",
    "title_zh": "爱尔兰提出欧盟碳市场改革折中方案，以推动分歧重重的谈判",
@@ -7478,6 +7213,52 @@
    ]
   },
   {
+   "event_id": "evt-de64033f21e8",
+   "topic": "trade",
+   "title_zh": "李强同新加坡总理黄循财会谈",
+   "summary_zh": "【李强同新加坡总理黄循财会谈】11月21日上午，国务院总理李强在北京钓鱼台国宾馆同新加坡总理黄循财举行会谈。李强表示，在双方共同努力下，中新关系保持良好发展势头，互利合作成果丰硕。昨天，习近平主席同总理先生举行会晤，就深化两国关系作出进一步规划。中方愿同新方加强战略沟通，筑牢政治互信，支持彼此核心利益和重大关切，拓展务实合作，推动中新全方位高质量的前瞻性伙伴关系取得更多成果，持续增进两国民众福祉。李强指出，中方愿同新方加快推进中新自贸协",
+   "rep_id": "news_de64033f21e88c20ba07",
+   "url": "https://finance.sina.cn/7x24/2026-11-21/detail-inizntha6676147.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-21T16:33:45+08:00",
+   "last_at": "2026-11-21T16:33:45+08:00",
+   "score": 48,
+   "heat": 0,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 52.16,
+   "items": [
+    "news_de64033f21e88c20ba07"
+   ]
+  },
+  {
+   "event_id": "evt-d319d0afd619",
+   "topic": "policy",
+   "title_zh": "丁薛祥会见新加坡国务资政李显龙",
+   "summary_zh": "中共中央政治局常委、国务院副总理丁薛祥在新加坡会见新加坡国务资政李显龙。丁薛祥表示，在两国领导人关心和指引下，中新政府双边合作机制运行良好，各领域合作成效显著。今天上午，我同颜金勇副总理共同主持召开机制会议，按照两国领导人战略引领，探讨进一步拓展未来合作的新路径、新方法，更好增进两国人民福祉。中方愿同新方共同努力，把双方领导人深化合作的意愿和共识转化为行动和成果，充分体现中新关系的全方位、高质量、前瞻性。（新华社）",
+   "rep_id": "news_d319d0afd6196c8eeec0",
+   "url": "https://wallstreetcn.com/livenews/3204378",
+   "publisher": "华尔街见闻",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T15:01:27+00:00",
+   "last_at": "2026-11-23T15:01:27+00:00",
+   "score": 44,
+   "heat": 0.863,
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 51.61,
+   "items": [
+    "news_d319d0afd6196c8eeec0"
+   ]
+  },
+  {
    "event_id": "evt-19348f7ecd71",
    "topic": "trade",
    "title_zh": "又一百万吨长协落子中国从最大天然气买家转向国际能源“协调者”",
@@ -7489,38 +7270,15 @@
    "first_at": "2026-11-22T05:20:38+08:00",
    "last_at": "2026-11-22T05:20:38+08:00",
    "score": 46,
-   "heat": 0.371,
+   "heat": 0.259,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 51.64,
+   "importance": 51.19,
    "items": [
     "news_19348f7ecd71c1ea1f01"
-   ]
-  },
-  {
-   "event_id": "evt-d50f41b8d7d4",
-   "topic": "markets",
-   "title_zh": "中国银河证券杨超：A股三大“新政”精准发力有效稳住市场基本面与中长期预期",
-   "summary_zh": "【中国银河证券杨超：A股三大“新政”精准发力有效稳住市场基本面与中长期预期】11月22日，监管层推出三大稳市举措。中国银河证券策略首席分析师杨超接受证券时报记者采访时表示，本次监管层集中落地降杠杆门槛、完善交易制度、全面降费让利三位一体稳市新政，形成多维共振的强力托底组合拳，夯实A股企稳回升的市场基础。",
-   "rep_id": "news_d50f41b8d7d400d8a8fa",
-   "url": "https://finance.eastmoney.com/a/202611223936949690.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T21:25:00+08:00",
-   "last_at": "2026-11-22T21:25:00+08:00",
-   "score": 45,
-   "heat": 0.59,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 51.52,
-   "items": [
-    "news_d50f41b8d7d400d8a8fa"
    ]
   },
   {
@@ -7777,118 +7535,95 @@
    ]
   },
   {
-   "event_id": "evt-cbe206b29a04",
+   "event_id": "evt-d50f41b8d7d4",
    "topic": "markets",
-   "title_zh": "特变电工集团更名为中丝路能源装备集团",
-   "summary_zh": "【特变电工集团更名为中丝路能源装备集团】天眼查显示，11月20日，新疆特变电工集团有限公司发生工商变更，企业名称变更为中丝路能源装备集团有限公司。该公司成立于2003年1月，注册资本7500万元人民币，经营范围包括输配电及控制设备制造、机械电气设备制造、机械电气设备销售等。",
-   "rep_id": "news_cbe206b29a044d06cac3",
-   "url": "https://finance.eastmoney.com/a/202611233937235880.html",
+   "title_zh": "中国银河证券杨超：A股三大“新政”精准发力有效稳住市场基本面与中长期预期",
+   "summary_zh": "【中国银河证券杨超：A股三大“新政”精准发力有效稳住市场基本面与中长期预期】11月22日，监管层推出三大稳市举措。中国银河证券策略首席分析师杨超接受证券时报记者采访时表示，本次监管层集中落地降杠杆门槛、完善交易制度、全面降费让利三位一体稳市新政，形成多维共振的强力托底组合拳，夯实A股企稳回升的市场基础。",
+   "rep_id": "news_d50f41b8d7d400d8a8fa",
+   "url": "https://finance.eastmoney.com/a/202611223936949690.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-23T15:04:37+08:00",
-   "last_at": "2026-11-23T15:04:37+08:00",
+   "first_at": "2026-11-22T21:25:00+08:00",
+   "last_at": "2026-11-22T21:25:00+08:00",
+   "score": 45,
+   "heat": 0.412,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 50.81,
+   "items": [
+    "news_d50f41b8d7d400d8a8fa"
+   ]
+  },
+  {
+   "event_id": "evt-24f45d1767d7",
+   "topic": "markets",
+   "title_zh": "三箭齐发稳市场，A股走出V型反弹",
+   "summary_zh": "刚过去的周末，资本市场连迎三项重大政策利好。",
+   "rep_id": "news_24f45d1767d72b63f9ce",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736708.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T23:00:14+08:00",
+   "last_at": "2026-11-23T23:00:14+08:00",
    "score": 43,
-   "heat": 0.983,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 51.09,
-   "items": [
-    "news_cbe206b29a044d06cac3"
-   ]
-  },
-  {
-   "event_id": "evt-4ee6412cf1b3",
-   "topic": "trade",
-   "title_zh": "“中国中小电机之都”福建福安：产业向“新” 发展向“兴”",
-   "summary_zh": "中新网宁德11月15日电 (记者吕巧琴叶茂)作为“中国中小电机之都”和“中国按摩保健器具生产/出口基地”，福建省宁德福安市正以数字化转型和适老化创新为双引擎，推动电机电器与按摩器具两大传统特色产业向高端化、智能化、绿色化迈进。",
-   "rep_id": "news_4ee6412cf1b3a4ae0f8e",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-15/10732384.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T17:00:32+08:00",
-   "last_at": "2026-11-15T17:00:32+08:00",
-   "score": 46,
-   "heat": 0,
+   "heat": 0.863,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 50.16,
+   "importance": 50.61,
    "items": [
-    "news_4ee6412cf1b3a4ae0f8e"
+    "news_24f45d1767d72b63f9ce"
    ]
   },
   {
-   "event_id": "evt-453ec0697c06",
-   "topic": "trade",
-   "title_zh": "（深圳APEC）从深圳港口到海外市场，跨境物流链升级通达亚太",
-   "summary_zh": "中新社深圳11月15日电题：从深圳港口到海外市场，跨境物流链升级通达亚太",
-   "rep_id": "news_453ec0697c068a9afc3d",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-15/10732421.shtml",
+   "event_id": "evt-2ee22e050ab8",
+   "topic": "markets",
+   "title_zh": "全球首只离岸人民币债券ETF在港挂牌",
+   "summary_zh": "中新社香港11月23日电 (记者戴小橦)全球首只离岸人民币债券交易所买卖基金(ETF)23日于香港交易及结算所有限公司(简称“港交所”)正式挂牌上市。",
+   "rep_id": "news_2ee22e050ab8abd0410a",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736675.shtml",
    "publisher": "中国新闻网",
    "source_tier": "T2",
-   "first_at": "2026-11-15T18:47:20+08:00",
-   "last_at": "2026-11-15T18:47:20+08:00",
-   "score": 46,
-   "heat": 0,
+   "first_at": "2026-11-23T21:49:54+08:00",
+   "last_at": "2026-11-23T21:49:54+08:00",
+   "score": 43,
+   "heat": 0.834,
    "publishers": [
     "中国新闻网"
    ],
    "official": false,
    "selected": false,
-   "importance": 50.16,
+   "importance": 50.49,
    "items": [
-    "news_453ec0697c068a9afc3d"
+    "news_2ee22e050ab8abd0410a"
    ]
   },
   {
-   "event_id": "evt-e6ae37bc885b",
-   "topic": "trade",
-   "title_zh": "宁夏贺兰山东麓葡萄酒亮相青田侨博会借侨为桥开拓海外市场",
-   "summary_zh": "中新网银川11月15日电 (记者李佩珊)11月13日至15日，第八届华侨进口商品博览会暨青田进口葡萄酒交易会在浙江青田举办。宁夏贺兰山东麓葡萄酒产业园区管委会携手16家优质酒庄组团参展，借力侨乡遍布全球的华侨资源，向海内外客商展示中国葡萄酒的风土魅力，开拓海外市场渠道。",
-   "rep_id": "news_e6ae37bc885b7eed9296",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-15/10732439.shtml",
-   "publisher": "中国新闻网",
+   "event_id": "evt-4fddb72b685c",
+   "topic": "markets",
+   "title_zh": "主动ETF助力长钱入市，稳市组合拳催化A股修复",
+   "summary_zh": "政策是此轮反弹最核心催化，但并非唯一驱动因素。",
+   "rep_id": "news_4fddb72b685c6c37a714",
+   "url": "https://www.yicai.com/news/103450937.html",
+   "publisher": "第一财经",
    "source_tier": "T2",
-   "first_at": "2026-11-15T19:16:13+08:00",
-   "last_at": "2026-11-15T19:16:13+08:00",
-   "score": 46,
-   "heat": 0,
+   "first_at": "2026-11-23T21:13:15+08:00",
+   "last_at": "2026-11-23T21:13:15+08:00",
+   "score": 43,
+   "heat": 0.819,
    "publishers": [
-    "中国新闻网"
+    "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 50.16,
+   "importance": 50.43,
    "items": [
-    "news_e6ae37bc885b7eed9296"
-   ]
-  },
-  {
-   "event_id": "evt-c3f401184a59",
-   "topic": "trade",
-   "title_zh": "全球航运界人士“维港对话” 聚焦中外合作新空间",
-   "summary_zh": "【全球航运界人士“维港对话” 聚焦中外合作新空间】由香港航商总会主办的“维港对话”15日在港举行，60多位中外航运和经贸企业以及智库代表围绕航运政策、香港国际航运中心定位、贸易格局变化及绿色转型等议题深入交流。",
-   "rep_id": "news_c3f401184a59b9576bb0",
-   "url": "https://finance.eastmoney.com/a/202611153931510227.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T00:32:42+08:00",
-   "last_at": "2026-11-16T00:32:42+08:00",
-   "score": 46,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 50.16,
-   "items": [
-    "news_c3f401184a59b9576bb0"
+    "news_4fddb72b685c6c37a714"
    ]
   },
   {
@@ -8168,6 +7903,29 @@
    ]
   },
   {
+   "event_id": "evt-cbe206b29a04",
+   "topic": "markets",
+   "title_zh": "特变电工集团更名为中丝路能源装备集团",
+   "summary_zh": "【特变电工集团更名为中丝路能源装备集团】天眼查显示，11月20日，新疆特变电工集团有限公司发生工商变更，企业名称变更为中丝路能源装备集团有限公司。该公司成立于2003年1月，注册资本7500万元人民币，经营范围包括输配电及控制设备制造、机械电气设备制造、机械电气设备销售等。",
+   "rep_id": "news_cbe206b29a044d06cac3",
+   "url": "https://finance.eastmoney.com/a/202611233937235880.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T15:04:37+08:00",
+   "last_at": "2026-11-23T15:04:37+08:00",
+   "score": 43,
+   "heat": 0.686,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 49.9,
+   "items": [
+    "news_cbe206b29a044d06cac3"
+   ]
+  },
+  {
    "event_id": "evt-65f251735b4f",
    "topic": "markets",
    "title_zh": "小鹏G9L在泰国、印尼上市",
@@ -8179,13 +7937,13 @@
    "first_at": "2026-11-22T18:17:38+08:00",
    "last_at": "2026-11-22T18:17:38+08:00",
    "score": 43,
-   "heat": 0.539,
+   "heat": 0.376,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 49.31,
+   "importance": 48.66,
    "items": [
     "news_65f251735b4f63473498"
    ]
@@ -8328,75 +8086,6 @@
    "importance": 48.16,
    "items": [
     "news_fc4191ba0e2a596da5be"
-   ]
-  },
-  {
-   "event_id": "evt-39548b8e46e2",
-   "topic": "policy",
-   "title_zh": "工业和信息化部电子信息司组织赴广西、海南调研并召开2026年四季度电子信息制造业发展形势座谈会",
-   "summary_zh": "【工业和信息化部电子信息司组织赴广西、海南调研并召开2026年四季度电子信息制造业发展形势座谈会】近日，工业和信息化部电子信息司有关负责同志带队赴广西壮族自治区南宁市、海南省海口市开展2026年四季度电子信息制造业发展形势调研，并在海南省组织召开2026年四季度电子信息制造业发展形势座谈会。中国电子信息产业发展研究院相关同志参加调研。会议提出，推动电子信息制造业高质量发展，要着力落实四个协同。一是加强行业协同，推动传统电子信息领域与人工",
-   "rep_id": "news_39548b8e46e2678f3612",
-   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfmy5496299.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T15:34:09+08:00",
-   "last_at": "2026-11-23T15:34:09+08:00",
-   "score": 40,
-   "heat": 0.997,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 48.15,
-   "items": [
-    "news_39548b8e46e2678f3612"
-   ]
-  },
-  {
-   "event_id": "evt-e153d03a9ae1",
-   "topic": "fiscal",
-   "title_zh": "辽宁省财政精准赋能筑牢公共卫生应急屏障",
-   "summary_zh": "中新网沈阳11月23日电 (记者李晛)记者23日自辽宁省财政厅获悉，为落实《“健康中国2030”规划纲要》《突发事件紧急医学救援“十四五”规划》部署要求，辽宁省财政立足公共卫生安全保障职能，统筹资金、精准发力，全周期支持应急救援队伍建设运行，持续夯实辽宁省应急救援处置根基。",
-   "rep_id": "news_e153d03a9ae12f9bf073",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736418.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-23T14:37:07+08:00",
-   "last_at": "2026-11-23T14:37:07+08:00",
-   "score": 40,
-   "heat": 0.97,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 48.04,
-   "items": [
-    "news_e153d03a9ae12f9bf073"
-   ]
-  },
-  {
-   "event_id": "evt-10ed66746c10",
-   "topic": "global",
-   "title_zh": "明年起美联储将减少议息频次",
-   "summary_zh": "【明年起美联储将减少议息频次】当地时间11月12日，美联储公布了修订后的2027年联邦公开市场委员会（FOMC）会议暂定日程，并作出重大调整——明年10月不再投票决定利率，这意味着明年美联储将少调整一次联邦基金利率。为何要进行会议机制调整？美联储主席沃什给出的答案是，要制定正确的政策，就需要在及时、定期且信息密集的节点上，对近期的经济动态进行评估。但同样重要的是，美联储需要留出专门的时间和空间来进行战略层面的审议，去重新思考那些重大问题",
-   "rep_id": "news_10ed66746c107aabcb50",
-   "url": "https://finance.eastmoney.com/a/202611153931513192.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T23:02:10+08:00",
-   "last_at": "2026-11-15T23:02:10+08:00",
-   "score": 43,
-   "heat": 0,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 47.16,
-   "items": [
-    "news_10ed66746c107aabcb50"
    ]
   },
   {
@@ -8562,6 +8251,52 @@
    ]
   },
   {
+   "event_id": "evt-39548b8e46e2",
+   "topic": "policy",
+   "title_zh": "工业和信息化部电子信息司组织赴广西、海南调研并召开2026年四季度电子信息制造业发展形势座谈会",
+   "summary_zh": "【工业和信息化部电子信息司组织赴广西、海南调研并召开2026年四季度电子信息制造业发展形势座谈会】近日，工业和信息化部电子信息司有关负责同志带队赴广西壮族自治区南宁市、海南省海口市开展2026年四季度电子信息制造业发展形势调研，并在海南省组织召开2026年四季度电子信息制造业发展形势座谈会。中国电子信息产业发展研究院相关同志参加调研。会议提出，推动电子信息制造业高质量发展，要着力落实四个协同。一是加强行业协同，推动传统电子信息领域与人工",
+   "rep_id": "news_39548b8e46e2678f3612",
+   "url": "https://finance.sina.cn/7x24/2026-11-23/detail-iniztfmy5496299.d.html",
+   "publisher": "新浪财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T15:34:09+08:00",
+   "last_at": "2026-11-23T15:34:09+08:00",
+   "score": 40,
+   "heat": 0.696,
+   "publishers": [
+    "新浪财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 46.94,
+   "items": [
+    "news_39548b8e46e2678f3612"
+   ]
+  },
+  {
+   "event_id": "evt-e153d03a9ae1",
+   "topic": "fiscal",
+   "title_zh": "辽宁省财政精准赋能筑牢公共卫生应急屏障",
+   "summary_zh": "中新网沈阳11月23日电 (记者李晛)记者23日自辽宁省财政厅获悉，为落实《“健康中国2030”规划纲要》《突发事件紧急医学救援“十四五”规划》部署要求，辽宁省财政立足公共卫生安全保障职能，统筹资金、精准发力，全周期支持应急救援队伍建设运行，持续夯实辽宁省应急救援处置根基。",
+   "rep_id": "news_e153d03a9ae12f9bf073",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-23/10736418.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T14:37:07+08:00",
+   "last_at": "2026-11-23T14:37:07+08:00",
+   "score": 40,
+   "heat": 0.677,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 46.87,
+   "items": [
+    "news_e153d03a9ae12f9bf073"
+   ]
+  },
+  {
    "event_id": "evt-34d7dc81ff07",
    "topic": "global",
    "title_zh": "特朗普重申美国应该拥有全球最低的利率",
@@ -8609,75 +8344,6 @@
    "items": [
     "news_e1abd077df1f07f0845b",
     "news_da79d802424b1be8f8b4"
-   ]
-  },
-  {
-   "event_id": "evt-325ca4c9d061",
-   "topic": "global",
-   "title_zh": "美联储加息与AI退潮共振，全球资产定价再校准",
-   "summary_zh": "重定价的下一站，是利率顶与盈利底谁先到来。",
-   "rep_id": "news_325ca4c9d0610737b6c9",
-   "url": "https://www.yicai.com/news/103449341.html",
-   "publisher": "第一财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-22T21:33:51+08:00",
-   "last_at": "2026-11-22T21:33:51+08:00",
-   "score": 40,
-   "heat": 0.593,
-   "publishers": [
-    "第一财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 46.53,
-   "items": [
-    "news_325ca4c9d0610737b6c9"
-   ]
-  },
-  {
-   "event_id": "evt-970ab315ae07",
-   "topic": "global",
-   "title_zh": "美国财长贝森特对美联储表示：应向前看，而非纠结于过去",
-   "summary_zh": "美国财长贝森特对美联储表示：应向前看，而非纠结于过去。",
-   "rep_id": "news_970ab315ae070ee5d77e",
-   "url": "https://finance.sina.cn/7x24/2026-11-15/detail-iniyvvps6143463.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-15T23:16:04+08:00",
-   "last_at": "2026-11-15T23:16:04+08:00",
-   "score": 42,
-   "heat": 0,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 46.16,
-   "items": [
-    "news_970ab315ae070ee5d77e"
-   ]
-  },
-  {
-   "event_id": "evt-f80458ac8f4f",
-   "topic": "global",
-   "title_zh": "美联储施密德：我认为当前利率并不具有限制性",
-   "summary_zh": "美联储施密德：我认为当前利率并不具有限制性。",
-   "rep_id": "news_f80458ac8f4ff8e04869",
-   "url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniywhcr2713833.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T03:44:48+08:00",
-   "last_at": "2026-11-16T03:44:48+08:00",
-   "score": 42,
-   "heat": 0,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 46.16,
-   "items": [
-    "news_f80458ac8f4ff8e04869"
    ]
   },
   {
@@ -8819,6 +8485,29 @@
    ]
   },
   {
+   "event_id": "evt-325ca4c9d061",
+   "topic": "global",
+   "title_zh": "美联储加息与AI退潮共振，全球资产定价再校准",
+   "summary_zh": "重定价的下一站，是利率顶与盈利底谁先到来。",
+   "rep_id": "news_325ca4c9d0610737b6c9",
+   "url": "https://www.yicai.com/news/103449341.html",
+   "publisher": "第一财经",
+   "source_tier": "T2",
+   "first_at": "2026-11-22T21:33:51+08:00",
+   "last_at": "2026-11-22T21:33:51+08:00",
+   "score": 40,
+   "heat": 0.414,
+   "publishers": [
+    "第一财经"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 45.81,
+   "items": [
+    "news_325ca4c9d0610737b6c9"
+   ]
+  },
+  {
    "event_id": "evt-4c7f498bc1a9",
    "topic": "global",
    "title_zh": "美股点金丨VIX爆表！恐慌抛售席卷市场，纳指能否顶住“熊敲门”",
@@ -8830,13 +8519,13 @@
    "first_at": "2026-11-22T14:26:33+08:00",
    "last_at": "2026-11-22T14:26:33+08:00",
    "score": 40,
-   "heat": 0.482,
+   "heat": 0.337,
    "publishers": [
     "第一财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 46.09,
+   "importance": 45.51,
    "items": [
     "news_4c7f498bc1a90686f5aa"
    ]
@@ -8853,13 +8542,13 @@
    "first_at": "2026-11-22T05:43:55+00:00",
    "last_at": "2026-11-22T05:43:55+00:00",
    "score": 40,
-   "heat": 0.473,
+   "heat": 0.33,
    "publishers": [
     "华尔街见闻"
    ],
    "official": false,
    "selected": false,
-   "importance": 46.05,
+   "importance": 45.48,
    "items": [
     "news_a193ed67c47469368563"
    ]
@@ -8876,61 +8565,15 @@
    "first_at": "2026-11-22T10:17:46+08:00",
    "last_at": "2026-11-22T10:17:46+08:00",
    "score": 40,
-   "heat": 0.428,
+   "heat": 0.299,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 45.87,
+   "importance": 45.35,
    "items": [
     "news_375e205e98304c4da5b5"
-   ]
-  },
-  {
-   "event_id": "evt-b59ae3e6da3f",
-   "topic": "global",
-   "title_zh": "特朗普批美联储利率太高美联储主席陷两难",
-   "summary_zh": "【特朗普批美联储利率太高美联储主席陷两难】当地时间20日，美国总统特朗普再度批评美联储，称当前利率水平过高，美联储的决策带有“政治属性”。不过，他说自己的这一表态并不是在责怪美联储主席凯文·沃什。",
-   "rep_id": "news_b59ae3e6da3feb38f35d",
-   "url": "https://finance.eastmoney.com/a/202611213936832424.html",
-   "publisher": "东方财富",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T18:47:52+08:00",
-   "last_at": "2026-11-21T18:47:52+08:00",
-   "score": 40,
-   "heat": 0.274,
-   "publishers": [
-    "东方财富"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 45.25,
-   "items": [
-    "news_b59ae3e6da3feb38f35d"
-   ]
-  },
-  {
-   "event_id": "evt-14252048ffde",
-   "topic": "global",
-   "title_zh": "美联储施密德：从许多指标来看，经济表现良好",
-   "summary_zh": "美联储施密德：从许多指标来看，经济表现良好。",
-   "rep_id": "news_14252048ffdefa43c230",
-   "url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniyvzvn9288136.d.html",
-   "publisher": "新浪财经",
-   "source_tier": "T2",
-   "first_at": "2026-11-16T02:40:40+08:00",
-   "last_at": "2026-11-16T02:40:40+08:00",
-   "score": 40,
-   "heat": 0,
-   "publishers": [
-    "新浪财经"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 44.16,
-   "items": [
-    "news_14252048ffdefa43c230"
    ]
   },
   {
@@ -9371,26 +9014,26 @@
    ]
   },
   {
-   "event_id": "evt-63412df71517",
-   "topic": "markets",
-   "title_zh": "上周111家公募机构调研超410次",
-   "summary_zh": "【上周111家公募机构调研超410次】数据显示，上周（2026年11月16日—11月22日）共有111家公募机构参与到A股调研活动中，覆盖到25个申万一级行业中的94只个股，合计调研达413次。",
-   "rep_id": "news_63412df7151746274452",
-   "url": "https://finance.eastmoney.com/a/202611233937235648.html",
+   "event_id": "evt-b59ae3e6da3f",
+   "topic": "global",
+   "title_zh": "特朗普批美联储利率太高美联储主席陷两难",
+   "summary_zh": "【特朗普批美联储利率太高美联储主席陷两难】当地时间20日，美国总统特朗普再度批评美联储，称当前利率水平过高，美联储的决策带有“政治属性”。不过，他说自己的这一表态并不是在责怪美联储主席凯文·沃什。",
+   "rep_id": "news_b59ae3e6da3feb38f35d",
+   "url": "https://finance.eastmoney.com/a/202611213936832424.html",
    "publisher": "东方财富",
    "source_tier": "T2",
-   "first_at": "2026-11-23T15:01:00+08:00",
-   "last_at": "2026-11-23T15:01:00+08:00",
-   "score": 36,
-   "heat": 0.981,
+   "first_at": "2026-11-21T18:47:52+08:00",
+   "last_at": "2026-11-21T18:47:52+08:00",
+   "score": 40,
+   "heat": 0,
    "publishers": [
     "东方财富"
    ],
    "official": false,
    "selected": false,
-   "importance": 44.08,
+   "importance": 44.16,
    "items": [
-    "news_63412df7151746274452"
+    "news_b59ae3e6da3feb38f35d"
    ]
   },
   {
@@ -9417,6 +9060,29 @@
    ]
   },
   {
+   "event_id": "evt-63412df71517",
+   "topic": "markets",
+   "title_zh": "上周111家公募机构调研超410次",
+   "summary_zh": "【上周111家公募机构调研超410次】数据显示，上周（2026年11月16日—11月22日）共有111家公募机构参与到A股调研活动中，覆盖到25个申万一级行业中的94只个股，合计调研达413次。",
+   "rep_id": "news_63412df7151746274452",
+   "url": "https://finance.eastmoney.com/a/202611233937235648.html",
+   "publisher": "东方财富",
+   "source_tier": "T2",
+   "first_at": "2026-11-23T15:01:00+08:00",
+   "last_at": "2026-11-23T15:01:00+08:00",
+   "score": 36,
+   "heat": 0.685,
+   "publishers": [
+    "东方财富"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 42.9,
+   "items": [
+    "news_63412df7151746274452"
+   ]
+  },
+  {
    "event_id": "evt-9cc60c2052fe",
    "topic": "markets",
    "title_zh": "年内险资调研A股公司超1.46万次关注电子元件、工业机械、集成电路及医疗保健设备等领域",
@@ -9439,29 +9105,6 @@
    "items": [
     "news_9cc60c2052fe01f10a13",
     "news_9cd26ddf67f3558972ff"
-   ]
-  },
-  {
-   "event_id": "evt-59113c474d44",
-   "topic": "trade",
-   "title_zh": "中部六省“论道”崛起新路径外国客商看好中部市场",
-   "summary_zh": "中新社郑州11月21日电 (记者阚力)第十四届中国中部投资贸易博览会(以下简称中博会)21日在河南郑州启幕，中部六省政商界人士与会“论道”中部崛起新路径，组团前来寻觅合作机遇的外国客商看好中部地区市场。",
-   "rep_id": "news_59113c474d4498937dc5",
-   "url": "https://www.chinanews.com.cn/cj/2026/11-21/10735856.shtml",
-   "publisher": "中国新闻网",
-   "source_tier": "T2",
-   "first_at": "2026-11-21T20:12:12+08:00",
-   "last_at": "2026-11-21T20:12:12+08:00",
-   "score": 37,
-   "heat": 0.285,
-   "publishers": [
-    "中国新闻网"
-   ],
-   "official": false,
-   "selected": false,
-   "importance": 42.3,
-   "items": [
-    "news_59113c474d4498937dc5"
    ]
   },
   {
@@ -9511,6 +9154,29 @@
    ]
   },
   {
+   "event_id": "evt-59113c474d44",
+   "topic": "trade",
+   "title_zh": "中部六省“论道”崛起新路径外国客商看好中部市场",
+   "summary_zh": "中新社郑州11月21日电 (记者阚力)第十四届中国中部投资贸易博览会(以下简称中博会)21日在河南郑州启幕，中部六省政商界人士与会“论道”中部崛起新路径，组团前来寻觅合作机遇的外国客商看好中部地区市场。",
+   "rep_id": "news_59113c474d4498937dc5",
+   "url": "https://www.chinanews.com.cn/cj/2026/11-21/10735856.shtml",
+   "publisher": "中国新闻网",
+   "source_tier": "T2",
+   "first_at": "2026-11-21T20:12:12+08:00",
+   "last_at": "2026-11-21T20:12:12+08:00",
+   "score": 37,
+   "heat": 0,
+   "publishers": [
+    "中国新闻网"
+   ],
+   "official": false,
+   "selected": false,
+   "importance": 41.16,
+   "items": [
+    "news_59113c474d4498937dc5"
+   ]
+  },
+  {
    "event_id": "evt-031fd70c0827",
    "topic": "trade",
    "title_zh": "江苏省省长刘小涛会见香港航商总会主席赵式庆",
@@ -9522,13 +9188,13 @@
    "first_at": "2026-11-22T09:06:49+08:00",
    "last_at": "2026-11-22T09:06:49+08:00",
    "score": 35,
-   "heat": 0.414,
+   "heat": 0.289,
    "publishers": [
     "新浪财经"
    ],
    "official": false,
    "selected": false,
-   "importance": 40.81,
+   "importance": 40.31,
    "items": [
     "news_031fd70c08277927aa38"
    ]
@@ -9604,6 +9270,376 @@
   }
  ],
  "items": [
+  {
+   "item_id": "news_4bed06367093b4291bd0",
+   "kind": "media",
+   "title_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611243937746491.html",
+   "published_at": "2026-11-24T03:12:52+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元，较上周五夜盘收盘涨47点。成交量594.77亿美元。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_ae88c728a14c96f9a5f048cd6cdef6da3214d8975ff22d6fddc92f2463fff85f",
+   "content_hash": "5edabcdda30b280d",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-28a0715c95b5"
+  },
+  {
+   "item_id": "news_28a0715c95b5dc11f31f",
+   "kind": "media",
+   "title_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元，较上周五夜盘收盘涨47点",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3204474",
+   "published_at": "2026-11-23T19:01:06+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "在岸人民币兑美元（CNY）北京时间03:00收报6.6667元，较上周五夜盘收盘涨47点。成交量594.77亿美元。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_589c7a4c5fada34a281637d4de7be7654b7ba0222239451384e996d331d1d40b",
+   "content_hash": "65e24bd999ce8db0",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-28a0715c95b5"
+  },
+  {
+   "item_id": "news_1896217a87523e57c7a4",
+   "kind": "media",
+   "title_zh": "上期所原油期货2701合约夜盘收跌2.01%，报571.30元人民币/桶",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3204465",
+   "published_at": "2026-11-23T18:30:14+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "上期所原油期货2701合约夜盘收跌2.01%，报571.30元人民币/桶。沪金夜盘收涨2.22%，沪银收涨4.66%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_8c5b22c06554d2c5ff342ab28cad6ca661a728cf6be3ff557b4d0d48fe77841d",
+   "content_hash": "2510f197dc227539",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-1fe14f41ddf1"
+  },
+  {
+   "item_id": "news_1fe14f41ddf1ede9856b",
+   "kind": "media",
+   "title_zh": "上期所原油期货夜盘收跌2.01%，报571.30元人民币/桶",
+   "title_en": null,
+   "publisher": "新浪财经",
+   "source": "sina",
+   "canonical_url": "https://finance.sina.cn/7x24/2026-11-24/detail-inizuhxs7997689.d.html",
+   "published_at": "2026-11-24T02:30:02+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "上期所原油期货夜盘收跌2.01%，报571.30元人民币/桶。沪金夜盘收涨2.11%，沪银收涨4.66%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_07223139046f0cac62fb04f54f8deca224d698fbb385ff90551f48726eebfbe8",
+   "content_hash": "b71ae0b4837f8503",
+   "content_type": "market",
+   "score": 58,
+   "event_id": "evt-1fe14f41ddf1"
+  },
+  {
+   "item_id": "news_ffeb1d75a6c3f327cdab",
+   "kind": "media",
+   "title_zh": "高密度算力散热需求大液冷领域快步扩容",
+   "title_en": null,
+   "publisher": "东方财富",
+   "source": "eastmoney",
+   "canonical_url": "https://finance.eastmoney.com/a/202611243937734557.html",
+   "published_at": "2026-11-24T01:23:49+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "【高密度算力散热需求大液冷领域快步扩容】随着人工智能产业的快速发展，高密度算力中心的散热需求，让液冷成为全球算力基础设施建设中的重要一环。液冷产业链上市公司的布局和进展受到投资者高度关注。近日，多家A股液冷上市公司在与投资者交流时披露了产能建设、产品交付、在手订单等方面的进展。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "growth",
+   "metric_ids": [
+    "cn_rgdp_yoy",
+    "cn_ip_yoy",
+    "cn_retail_sales_yoy"
+   ],
+   "event_group_id": "news_event_9130e5e1c67bf3453a2dcc635025fc70a850ca71bbf80dc6aff632d282707e97",
+   "content_hash": "13b847c91d7b19a6",
+   "content_type": "other",
+   "score": 49,
+   "event_id": "evt-ffeb1d75a6c3"
+  },
+  {
+   "item_id": "news_d319d0afd6196c8eeec0",
+   "kind": "media",
+   "title_zh": "丁薛祥会见新加坡国务资政李显龙",
+   "title_en": null,
+   "publisher": "华尔街见闻",
+   "source": "wallstreetcn",
+   "canonical_url": "https://wallstreetcn.com/livenews/3204378",
+   "published_at": "2026-11-23T15:01:27+00:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中共中央政治局常委、国务院副总理丁薛祥在新加坡会见新加坡国务资政李显龙。丁薛祥表示，在两国领导人关心和指引下，中新政府双边合作机制运行良好，各领域合作成效显著。今天上午，我同颜金勇副总理共同主持召开机制会议，按照两国领导人战略引领，探讨进一步拓展未来合作的新路径、新方法，更好增进两国人民福祉。中方愿同新方共同努力，把双方领导人深化合作的意愿和共识转化为行动和成果，充分体现中新关系的全方位、高质量、前瞻性。（新华社）",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "policy",
+   "metric_ids": [],
+   "event_group_id": "news_event_bf03208f58657700c08cd1d78873747b9ed724965b4fa705f1c67266582aa3fc",
+   "content_hash": "e5479a6058552715",
+   "content_type": "meeting",
+   "score": 44,
+   "event_id": "evt-d319d0afd619"
+  },
+  {
+   "item_id": "news_24f45d1767d72b63f9ce",
+   "kind": "media",
+   "title_zh": "三箭齐发稳市场，A股走出V型反弹",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736708.shtml",
+   "published_at": "2026-11-23T23:00:14+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "刚过去的周末，资本市场连迎三项重大政策利好。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_9e37a02b29aebc7f4f7af5cbf1fb661cdae8dd416088160c2c29e8867f4dfd88",
+   "content_hash": "a180bbec72dbd09a",
+   "content_type": "other",
+   "score": 43,
+   "event_id": "evt-24f45d1767d7"
+  },
+  {
+   "item_id": "news_2ee22e050ab8abd0410a",
+   "kind": "media",
+   "title_zh": "全球首只离岸人民币债券ETF在港挂牌",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736675.shtml",
+   "published_at": "2026-11-23T21:49:54+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新社香港11月23日电 (记者戴小橦)全球首只离岸人民币债券交易所买卖基金(ETF)23日于香港交易及结算所有限公司(简称“港交所”)正式挂牌上市。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_c7522d4d35247ce91fc648157d8c3e90441496dfcfd36e999f9bbc1566165556",
+   "content_hash": "dbdd779912c5120f",
+   "content_type": "other",
+   "score": 43,
+   "event_id": "evt-2ee22e050ab8"
+  },
+  {
+   "item_id": "news_4fddb72b685c6c37a714",
+   "kind": "media",
+   "title_zh": "主动ETF助力长钱入市，稳市组合拳催化A股修复",
+   "title_en": null,
+   "publisher": "第一财经",
+   "source": "yicai",
+   "canonical_url": "https://www.yicai.com/news/103450937.html",
+   "published_at": "2026-11-23T21:13:15+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "政策是此轮反弹最核心催化，但并非唯一驱动因素。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_cfb9d351f687826cff2798c7ee88a4ca4341318c43258896d3a6b979af444dc1",
+   "content_hash": "19f9f7a72cd40561",
+   "content_type": "other",
+   "score": 43,
+   "event_id": "evt-4fddb72b685c"
+  },
+  {
+   "item_id": "news_1a8bcab1ad16c164fa5c",
+   "kind": "media",
+   "title_zh": "第十二次中俄财长对话举行",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736637.shtml",
+   "published_at": "2026-11-23T20:31:50+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新社北京11月23日电第十二次中俄财长对话23日在俄罗斯莫斯科举行。双方围绕宏观经济形势与金融合作、多边财金合作等深入探讨，达成多项共识，共同发表《第十二次中俄财长对话联合声明》(下称声明)。据中国财政部公布的新闻稿，中国财政部部长蓝佛安与俄罗斯副总理兼财政部部长西卢阿诺夫共同主持会议。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "fiscal",
+   "metric_ids": [
+    "cn_budget_exp_ytd_yoy",
+    "cn_tsf_govbond_flow"
+   ],
+   "event_group_id": "news_event_e700633d8c48ff72284c0a602c1302f33e00ddfe6bc1609af9f0d5814e71ef5b",
+   "content_hash": "b7de2dec05a2f23d",
+   "content_type": "meeting",
+   "score": 53,
+   "event_id": "evt-1a8bcab1ad16"
+  },
+  {
+   "item_id": "news_2ae9351426a9ace3c209",
+   "kind": "media",
+   "title_zh": "第十七次中欧财金对话在北京举行",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736629.shtml",
+   "published_at": "2026-11-23T20:28:14+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新社北京11月23日电 (记者赵建华)中国财政部副部长廖岷与欧盟委员会经济与金融事务总司长沃威23日在北京共同主持第十七次中欧财金对话。会议围绕宏观经济形势和政策、中欧在二十国集团(G20)框架下的多边合作等议题进行了深入讨论。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "fiscal",
+   "metric_ids": [
+    "cn_budget_exp_ytd_yoy",
+    "cn_tsf_govbond_flow"
+   ],
+   "event_group_id": "news_event_606528667f06018456b7f747bdbde1208097ad6717ec9f9b0ec03552281dc951",
+   "content_hash": "a4802e1ce183703e",
+   "content_type": "meeting",
+   "score": 53,
+   "event_id": "evt-2ae9351426a9"
+  },
+  {
+   "item_id": "news_1a511e55d34a0729e6a0",
+   "kind": "media",
+   "title_zh": "《婴幼儿辅助食品生产许可审查细则（2026版）》发布",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736623.shtml",
+   "published_at": "2026-11-23T20:03:13+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新网11月23日电据国家市场监督管理总局网站消息，近年来，婴辅食品行业快速发展，新原料、新工艺、新产品不断涌现，食品安全国家标准不断更新完善。为进一步加强婴幼儿辅助食品(以下简称婴辅食品)生产许可管理，督促企业落实主体责任，近日，市场监管总局修订发布《婴幼儿辅助食品生产许可审查细则(2026版)》(以下称《细则》)。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "policy",
+   "metric_ids": [],
+   "event_group_id": "news_event_7d2261cdcceb44411a53d23ba1eea8e8e1c966868522f199fc4260f4ad93edaf",
+   "content_hash": "0d2ed3a9b0b0d234",
+   "content_type": "other",
+   "score": 49,
+   "event_id": "evt-1a511e55d34a"
+  },
+  {
+   "item_id": "news_f6fb72e09dfd7ef07a72",
+   "kind": "media",
+   "title_zh": "中国发起成立的世界无线局域网应用发展联盟获国际认可",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736594.shtml",
+   "published_at": "2026-11-23T19:10:02+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新社北京11月23日电 (记者刘亮)中国国家市场监管总局23日公布，国际标准化组织和国际电工委员会第一联合技术委员会系统间远程通信和信息交换分技术委员会(ISO/IEC JTC 1/SC 6)近日正式批准由中国发起成立的世界无线局域网应用发展联盟(WAA)成为其A类联络组织。这标志着中国WLAN(无线局域网)应用领域标准化工作获得国际认可。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "policy",
+   "metric_ids": [],
+   "event_group_id": "news_event_81ddd7f49cb8569e9903179df1509f9ddfb4bdaea9bd6e6fbff0ab0e1d3e72b5",
+   "content_hash": "9de0cdd5edc58e11",
+   "content_type": "other",
+   "score": 49,
+   "event_id": "evt-f6fb72e09dfd"
+  },
+  {
+   "item_id": "news_217021344f46b8447824",
+   "kind": "media",
+   "title_zh": "上海地铁新票价方案落地 12月1日起执行",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736582.shtml",
+   "published_at": "2026-11-23T18:45:57+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新网上海11月23日电 (杨硕)11月23日，上海市发展改革委公布《关于优化上海市轨道交通票价机制的复函》，上海地铁票价优化方案正式确定。这是上海地铁票价时隔21年首次调整，新机制将于2026年12月1日起执行。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "policy",
+   "metric_ids": [],
+   "event_group_id": "news_event_d39051856f150eb411cf8035f0b8c7b62e2d117713f7083fcaab57029eedafe1",
+   "content_hash": "86ad0a83cd7cd6c9",
+   "content_type": "other",
+   "score": 55,
+   "event_id": "evt-217021344f46"
+  },
+  {
+   "item_id": "news_8b9a90208641ae602420",
+   "kind": "media",
+   "title_zh": "A股周一放量上涨创业板指收盘涨逾3％",
+   "title_en": null,
+   "publisher": "中国新闻网",
+   "source": "chinanews",
+   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-23/10736585.shtml",
+   "published_at": "2026-11-23T18:42:14+08:00",
+   "publication_precision": "second",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中新社北京11月23日电 (记者陈康亮)中国A股23日(周一)放量上涨，主要股指悉数飘红，其中，创业板指收盘涨逾3%。",
+   "source_tier": "T2",
+   "tier": "EVENT",
+   "topic": "markets",
+   "metric_ids": [],
+   "event_group_id": "news_event_a9ac9de72185e74aef687c8671578488ab3816139f3146ddacf9be689d11dbf3",
+   "content_hash": "cc89603155ca4efe",
+   "content_type": "other",
+   "score": 49,
+   "event_id": "evt-8b9a90208641"
+  },
   {
    "item_id": "news_39548b8e46e2678f3612",
    "kind": "media",
@@ -10746,6 +10782,61 @@
    "content_type": "commentary",
    "score": 53,
    "event_id": "evt-4d0787132671"
+  },
+  {
+   "item_id": "news_52cb3e9a53a7e0554244",
+   "kind": "announcement",
+   "title_zh": "中国人民银行行长潘功胜会见欧洲中央银行、欧盟委员会和欧元集团相关负责人",
+   "title_en": null,
+   "publisher": "中国人民银行",
+   "source": "pbc",
+   "canonical_url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2026112319381491628/index.html",
+   "published_at": "2026-11-23",
+   "publication_precision": "date",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "中国人民银行行长潘功胜会见欧洲中央银行、欧盟委员会和欧元集团相关负责人",
+   "source_tier": "T1",
+   "tier": "EVENT",
+   "topic": "credit",
+   "metric_ids": [
+    "cn_m1_yoy",
+    "cn_tsf_stock_yoy"
+   ],
+   "event_group_id": "news_event_35549281d2c2f453729f1ad1119189f14585ca652af1edca291d2a3597ddb9ed",
+   "content_hash": "969746cdd818f530",
+   "content_type": "meeting",
+   "score": 50,
+   "event_id": "evt-52cb3e9a53a7"
+  },
+  {
+   "item_id": "news_3f4519d9953e862b4c0e",
+   "kind": "announcement",
+   "title_zh": "国家发展改革委召开视频会议调度督促政府投资资金支付使用和项目储备工作",
+   "title_en": null,
+   "publisher": "国家发展改革委",
+   "source": "ndrc",
+   "canonical_url": "https://www.ndrc.gov.cn/xwdt/xwfb/202611/t20261123_1409044.html",
+   "published_at": "2026-11-23",
+   "publication_precision": "date",
+   "first_seen_at": "2026-11-23T20:07:22+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
+   "language": "zh",
+   "summary_zh": "国家发展改革委召开视频会议调度督促政府投资资金支付使用和项目储备工作",
+   "source_tier": "T1",
+   "tier": "EVENT",
+   "topic": "growth",
+   "metric_ids": [
+    "cn_rgdp_yoy",
+    "cn_ip_yoy",
+    "cn_retail_sales_yoy"
+   ],
+   "event_group_id": "news_event_7d939a2b10907970e4ed9d62ed2fed0dd905e9827909c4ac41031f8b9d2f5bf0",
+   "content_hash": "3e26b81120e98a80",
+   "content_type": "meeting",
+   "score": 57,
+   "event_id": "evt-a65117c6db72"
   },
   {
    "item_id": "news_1c42e0d81b708eb06638",
@@ -12679,7 +12770,7 @@
    "published_at": "2026-11-21",
    "publication_precision": "date",
    "first_seen_at": "2026-11-21T09:41:54+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行召开党的二十届五中全会精神宣讲报告会",
    "source_tier": "T1",
@@ -12706,7 +12797,7 @@
    "published_at": "2026-11-21",
    "publication_precision": "date",
    "first_seen_at": "2026-11-21T17:26:18+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "第十四届中国中部投资贸易博览会在河南郑州举行",
    "source_tier": "T1",
@@ -12733,7 +12824,7 @@
    "published_at": "2026-11-21",
    "publication_precision": "date",
    "first_seen_at": "2026-11-21T09:41:54+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "蓝佛安出席亚洲基础设施投资银行香港办公室协定签署仪式",
    "source_tier": "T1",
@@ -14812,7 +14903,7 @@
    "published_at": "2026-11-20",
    "publication_precision": "date",
    "first_seen_at": "2026-11-20T11:27:11+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行行长潘功胜会见万事达卡首席执行官孟轲",
    "source_tier": "T1",
@@ -14839,7 +14930,7 @@
    "published_at": "2026-11-20",
    "publication_precision": "date",
    "first_seen_at": "2026-11-20T11:27:11+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行公告﹝2026﹞第29号",
    "source_tier": "T1",
@@ -14866,7 +14957,7 @@
    "published_at": "2026-11-20",
    "publication_precision": "date",
    "first_seen_at": "2026-11-20T11:27:11+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "2026年1-10月全国吸收外资6069.3亿元人民币",
    "source_tier": "T1",
@@ -14890,7 +14981,7 @@
    "published_at": "2026-11-20",
    "publication_precision": "date",
    "first_seen_at": "2026-11-20T03:06:44+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "财政部在香港成功发行美元主权债券",
    "source_tier": "T1",
@@ -16276,7 +16367,7 @@
    "published_at": "2026-11-19",
    "publication_precision": "date",
    "first_seen_at": "2026-11-19T12:56:36+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "商务部消费促进司负责人谈2026年1-10月我国消费市场情况",
    "source_tier": "T1",
@@ -16304,7 +16395,7 @@
    "published_at": "2026-11-19",
    "publication_precision": "date",
    "first_seen_at": "2026-11-19T12:56:36+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "全国预算与会计研究会第六届会员代表大会在北京召开",
    "source_tier": "T1",
@@ -16331,7 +16422,7 @@
    "published_at": "2026-11-19",
    "publication_precision": "date",
    "first_seen_at": "2026-11-20T11:27:11+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "2026年1-10月财政收支情况",
    "source_tier": "T1",
@@ -17939,7 +18030,7 @@
    "published_at": "2026-11-18",
    "publication_precision": "date",
    "first_seen_at": "2026-11-18T03:41:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "中国人民银行与加拿大财政部、加拿大央行共同签署《中加金融工作组工作规范...",
    "source_tier": "T1",
@@ -18718,7 +18809,7 @@
    "content_hash": "9347b341291a8393",
    "content_type": "other",
    "score": 55,
-   "event_id": "evt-db9cd02420cb"
+   "event_id": "evt-5262d031eab9"
   },
   {
    "item_id": "news_731a42eb667754a00bdd",
@@ -19440,7 +19531,7 @@
    "content_hash": "d3027bea50a6b86f",
    "content_type": "policy_action",
    "score": 59,
-   "event_id": "evt-f5ee5a04f75d"
+   "event_id": "evt-40d3eda81141"
   },
   {
    "item_id": "news_ad8544e35b5a086d23a3",
@@ -20548,7 +20639,7 @@
    "published_at": "2026-11-16T10:00:05+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "（2026年11月16日）国家统计局 10月份，在以习近平同志为核心的党中央坚强领导下，各地区各部门认真贯彻落实党中央和国务院决策部署，坚持稳中求进工作总基调，强化存量政策和增量政策协同，扎实推进高质量发展，生产供给平稳增长，市场销售规模扩大，对外贸易快速增长，就业物价总体稳定，新质生产力茁壮成长，国...",
    "source_tier": "T1",
@@ -20575,7 +20666,7 @@
    "published_at": "2026-11-16T10:00:04+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "10月份，规模以上工业增加值同比实际增长4.8%（增加值增速均为扣除价格因素的实际增长率）。从环比看，10月份，规模以上工业增加值比上月增长0.21%。1—10月份，规模以上工业增加值同比增长5.3%。分三大门类看，10月份，采矿业增加值同比增长0.7%，制造业增长5.4%，电力、热力、燃气及水生产和供应业增长4.4...",
    "source_tier": "T1",
@@ -20603,7 +20694,7 @@
    "published_at": "2026-11-16T10:00:03+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "1—10月份，全国固定资产投资（不含农户）364824亿元，同比下降8.1%（按可比口径计算，详见附注7）。其中，知识产权产品投资同比增长9.2%。分产业看，第一产业投资7018亿元，同比下降6.1%；第二产业投资142333亿元，下降3.6%；第三产业投资215473亿元，下降10.9%。工业投资同比下降3.6%。其中，采矿业...",
    "source_tier": "T1",
@@ -20631,7 +20722,7 @@
    "published_at": "2026-11-16T10:00:02+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "一、房地产开发投资完成情况 1—10月份，全国房地产开发投资57215亿元，同比下降21.6%（按可比口径计算，详见附注5）；其中，住宅投资44102亿元，下降21.4%。 1—10月份，房地产开发企业房屋施工面积568164万平方米，同比下降13.0%。其中，住宅施工面积394637万平方米，下降13.3%。房屋新开工面积37036...",
    "source_tier": "T1",
@@ -20657,7 +20748,7 @@
    "published_at": "2026-11-16T10:00:01+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "1—10月份，社会消费品零售总额416464亿元，同比增长1.0%。其中，除汽车以外的消费品零售额383811亿元，增长2.8%。10月份，社会消费品零售总额46463亿元，同比增长0.4%。其中，除汽车以外的消费品零售额43162亿元，增长2.5%。按经营单位所在地分，1—10月份，城镇消费品零售额359918亿元，同比增长0.9%；乡...",
    "source_tier": "T1",
@@ -20970,7 +21061,7 @@
    "published_at": "2026-11-16T09:30:01+08:00",
    "publication_precision": "second",
    "first_seen_at": "2026-11-16T01:58:51+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
+   "retrieved_at": "2026-11-23T20:07:22+00:00",
    "language": "zh",
    "summary_zh": "表1：2026年10月70个大中城市新建商品住宅销售价格指数城市环比同比1-10月平均城市环比同比1-10月平均上月=100上年同月=100上年同期=100上月=100上年同月=100上年同期=100北京99.997.497.7唐山99.794.794.0天津99.796.895.7秦皇岛99.894.894.8石家庄100.096.795.7包头99.994.593.0太原100.199...",
    "source_tier": "T1",
@@ -21110,7 +21201,7 @@
    "content_hash": "447d2c31ed3e3b72",
    "content_type": "policy_action",
    "score": 61,
-   "event_id": "evt-f5ee5a04f75d"
+   "event_id": "evt-40d3eda81141"
   },
   {
    "item_id": "news_35887c9e0ce2acad058b",
@@ -21322,829 +21413,6 @@
    "content_type": "other",
    "score": 46,
    "event_id": "evt-46aaff05e7da"
-  },
-  {
-   "item_id": "news_c9e7b7f49d1f407483d1",
-   "kind": "media",
-   "title_zh": "物理AI产业与行情共振公募抢抓第二波投资红利",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611163931532525.html",
-   "published_at": "2026-11-16T04:07:02+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【物理AI产业与行情共振公募抢抓第二波投资红利】行情与产业共振之下，物理AI的产业叙事正在被市场重新定价。自2026年10月下旬起，沉寂已久的A股机器人板块迎来一波强势行情，多只核心标的轮番走强。Wind物理AI指数近一个月逆势上行，区间涨幅达25.73%；成份股内部行情分化显著，一个月内十余只个股涨幅超47%，上纬新材股价接近翻倍，宇树科技涨幅也达65.76%。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_c09ac237be393f0d9c3ba2530733c44de79c205ac46debb3844449924172013b",
-   "content_hash": "65c319b78849f44b",
-   "content_type": "market",
-   "score": 62,
-   "event_id": "evt-c9e7b7f49d1f"
-  },
-  {
-   "item_id": "news_f80458ac8f4ff8e04869",
-   "kind": "media",
-   "title_zh": "美联储施密德：我认为当前利率并不具有限制性",
-   "title_en": null,
-   "publisher": "新浪财经",
-   "source": "sina",
-   "canonical_url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniywhcr2713833.d.html",
-   "published_at": "2026-11-16T03:44:48+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "美联储施密德：我认为当前利率并不具有限制性。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "global",
-   "metric_ids": [],
-   "event_group_id": "news_event_d69181eaf4cbb24fce630f06a9548fce347fbc16e848dfd8ede783c63267133f",
-   "content_hash": "bfc0be8a184d9be0",
-   "content_type": "commentary",
-   "score": 42,
-   "event_id": "evt-f80458ac8f4f"
-  },
-  {
-   "item_id": "news_e267bbac4c9506d23070",
-   "kind": "media",
-   "title_zh": "暗盘金价（人民币）日内涨超1%，现报823.9112元/克",
-   "title_en": null,
-   "publisher": "新浪财经",
-   "source": "sina",
-   "canonical_url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniyvzvq6065035.d.html",
-   "published_at": "2026-11-16T02:48:20+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "暗盘金价（人民币）日内涨超1%，现报823.9112元/克。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "markets",
-   "metric_ids": [],
-   "event_group_id": "news_event_81398142176a848eec8496fdb76340350f61cf40aa0d7e637fb19116ce551d56",
-   "content_hash": "90dec4a3e905c139",
-   "content_type": "market",
-   "score": 58,
-   "event_id": "evt-e267bbac4c95"
-  },
-  {
-   "item_id": "news_14252048ffdefa43c230",
-   "kind": "media",
-   "title_zh": "美联储施密德：从许多指标来看，经济表现良好",
-   "title_en": null,
-   "publisher": "新浪财经",
-   "source": "sina",
-   "canonical_url": "https://finance.sina.cn/7x24/2026-11-16/detail-iniyvzvn9288136.d.html",
-   "published_at": "2026-11-16T02:40:40+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "美联储施密德：从许多指标来看，经济表现良好。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "global",
-   "metric_ids": [],
-   "event_group_id": "news_event_9e90a30a2c1fbc7c2aa5158e84bb8f6f8e862b5471cb623eb73dac67d1d74896",
-   "content_hash": "ccef2cd3c60069e8",
-   "content_type": "other",
-   "score": 40,
-   "event_id": "evt-14252048ffde"
-  },
-  {
-   "item_id": "news_f5ee5a04f75d3c5e5565",
-   "kind": "media",
-   "title_zh": "港交所今日推出离岸人民币债券指数",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611163931532356.html",
-   "published_at": "2026-11-16T02:15:12+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【港交所今日推出离岸人民币债券指数】继今年8月推出5年期人民币国债期货之后，11月16日，香港交易所正式推出离岸人民币债券指数。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "fiscal",
-   "metric_ids": [
-    "cn_budget_exp_ytd_yoy",
-    "cn_tsf_govbond_flow"
-   ],
-   "event_group_id": "news_event_14354e97d882789588aef19b3cb8d075ab6dc81c6c1d0b0386d1b0faef20596a",
-   "content_hash": "a3493c3d992b9a30",
-   "content_type": "market",
-   "score": 53,
-   "event_id": "evt-f5ee5a04f75d"
-  },
-  {
-   "item_id": "news_b1d302235a3518ffca24",
-   "kind": "media",
-   "title_zh": "掘金中国资产海外资金看多信号密集显现",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611163931527831.html",
-   "published_at": "2026-11-16T02:03:52+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【掘金中国资产海外资金看多信号密集显现】全球市场波动之下，海外资金对中国资产的看多信号正在密集显现：最新披露的三季度13F持仓文件显示，巴克莱、花旗、富达投资等机构对多家头部中概互联网企业进行了明显加仓；华尔街知名投资人迈克尔·巴里更是持续买入京东看涨期权和比亚迪股票。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_63ff980e9a62d7ca61f929396684e357c3525ca4f6d938bfdf19fbc8ea84c688",
-   "content_hash": "5632d6b1a2deff90",
-   "content_type": "other",
-   "score": 49,
-   "event_id": "evt-b1d302235a35"
-  },
-  {
-   "item_id": "news_d7d6c8584ff8b062c65a",
-   "kind": "media",
-   "title_zh": "房贷贴息未显著拉动住户中长贷居民去杠杆持续",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931487554.html",
-   "published_at": "2026-11-16T01:12:29+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【房贷贴息未显著拉动住户中长贷居民去杠杆持续】中国人民银行发布的10月金融数据显示，当月住户贷款减少4300亿元、同比多减696亿元，居民短贷、中长贷双双走弱。与此同时，国家金融与发展实验室（NIFD）发布的最新宏观杠杆率报告显示，居民部门杠杆率从2024年一季度的62.3%下降至2026年三季度的56.4%，累计去杠杆幅度接近6个百分点。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "credit",
-   "metric_ids": [
-    "cn_m1_yoy",
-    "cn_tsf_stock_yoy"
-   ],
-   "event_group_id": "news_event_ac3593a454737493e23f40c7f82bb9b31ebfd2fce79dc71a8f71722a31b3e8b9",
-   "content_hash": "8454322dc518f610",
-   "content_type": "other",
-   "score": 57,
-   "event_id": "evt-d7d6c8584ff8"
-  },
-  {
-   "item_id": "news_467d48796f0fc4a28100",
-   "kind": "media",
-   "title_zh": "中国人民银行上调金融机构外汇存款准备金率至6%",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611163931526066.html",
-   "published_at": "2026-11-16T00:55:51+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【中国人民银行上调金融机构外汇存款准备金率至6%】11月15日，中国人民银行上调金融机构外汇存款准备金率正式生效，外汇存款准备金率由现行的4%提高到6%。这是中国人民银行时隔近5年再度上调外汇存款准备金率。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "credit",
-   "metric_ids": [
-    "cn_m1_yoy",
-    "cn_tsf_stock_yoy"
-   ],
-   "event_group_id": "news_event_d131f25101a6738fd06e64024275409e38072792b214b8f506cf814f22828ea7",
-   "content_hash": "27c65bf4be8ad1a3",
-   "content_type": "policy_action",
-   "score": 83,
-   "event_id": "evt-467d48796f0f"
-  },
-  {
-   "item_id": "news_c3f401184a59b9576bb0",
-   "kind": "media",
-   "title_zh": "全球航运界人士“维港对话” 聚焦中外合作新空间",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931510227.html",
-   "published_at": "2026-11-16T00:32:42+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【全球航运界人士“维港对话” 聚焦中外合作新空间】由香港航商总会主办的“维港对话”15日在港举行，60多位中外航运和经贸企业以及智库代表围绕航运政策、香港国际航运中心定位、贸易格局变化及绿色转型等议题深入交流。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_ef2ee3246adea01ef2c01cff4da46be6652b10692af730bab98d0b7d39cdbd0a",
-   "content_hash": "42376aa2e2ed2907",
-   "content_type": "other",
-   "score": 46,
-   "event_id": "evt-c3f401184a59"
-  },
-  {
-   "item_id": "news_ae5aad5151aea5d17200",
-   "kind": "media",
-   "title_zh": "股债波动影响投资居民“存款搬家”放缓",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931487453.html",
-   "published_at": "2026-11-16T00:28:42+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【股债波动影响投资居民“存款搬家”放缓】央行日前披露的最新金融数据显示，今年前10个月，居民部门累计新增存款8.47万亿元，贷款减少1.46万亿元。整体来看，居民部门去杠杆与“存款搬家”仍在同步进行。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "credit",
-   "metric_ids": [
-    "cn_m1_yoy",
-    "cn_tsf_stock_yoy"
-   ],
-   "event_group_id": "news_event_17b20f86e07e077b706d9629e13b641bffdec100bff2ad04b32b9dba7d42a175",
-   "content_hash": "74148f29ff684464",
-   "content_type": "other",
-   "score": 57,
-   "event_id": "evt-ae5aad5151ae"
-  },
-  {
-   "item_id": "news_b60333e5e1358f695137",
-   "kind": "media",
-   "title_zh": "“三重门”改变并购江湖 A股“卖壳”交易难了",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931505281.html",
-   "published_at": "2026-11-16T00:27:21+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【“三重门”改变并购江湖 A股“卖壳”交易难了】近一年来，A股“卖壳”江湖正悄然变天：资本运作层面，一边是早前流行的表决权委托操作方式被“束之高阁”，一边是锁价定增难以为继全面让位市价发行，再加上董事高管减持规则硬性约束，三条规则相互咬合，让前几年看似红火的卖壳交易，变得难上加难。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "markets",
-   "metric_ids": [],
-   "event_group_id": "news_event_adaf6949bcfd93ec79913d13758c295255362ff07fc5bb8720785a9b44e7fee0",
-   "content_hash": "2faf5422f83a3703",
-   "content_type": "policy_action",
-   "score": 59,
-   "event_id": "evt-b60333e5e135"
-  },
-  {
-   "item_id": "news_cbc215f96c14e58a2fbd",
-   "kind": "media",
-   "title_zh": "央行发布10月金融统计数据专家：贷款“降速提质”仍是新常态",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931504344.html",
-   "published_at": "2026-11-16T00:15:59+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【央行发布10月金融统计数据专家：贷款“降速提质”仍是新常态】11月13日，中国人民银行发布的10月金融统计数据显示，今年前10个月我国人民币贷款增加11.42万亿元，贷款规模保持合理增长。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "credit",
-   "metric_ids": [
-    "cn_m1_yoy",
-    "cn_tsf_stock_yoy"
-   ],
-   "event_group_id": "news_event_08742cbbfd464892350a7297654b81eefc152f2843a6fe8b70c3e1564fcea8a0",
-   "content_hash": "46465013f2f053dc",
-   "content_type": "data_release",
-   "score": 72,
-   "event_id": "release-credit-2026-10"
-  },
-  {
-   "item_id": "news_d864c48c7d101e91b603",
-   "kind": "media",
-   "title_zh": "美联储估算：当前用于数据中心建设的远期租赁与兜底担保规模已达约3万亿美元",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611163931525342.html",
-   "published_at": "2026-11-16T00:14:20+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【美联储估算：当前用于数据中心建设的远期租赁与兜底担保规模已达约3万亿美元】美联储报告显示，截至今年10月，美国超大规模云厂商建设数据中心的相关债务发行规模已经突破6800亿美元，较2023年全年1300亿美元的规模增长四倍。美联储估算，当前用于数据中心建设的远期租赁与兜底担保规模已经达到约3万亿美元。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "global",
-   "metric_ids": [],
-   "event_group_id": "news_event_e91aa85a141dc7ef9378890d2fd2db02f673909215a1f2492c210921ae0a6dab",
-   "content_hash": "de6e6bd61b87be41",
-   "content_type": "policy_action",
-   "score": 64,
-   "event_id": "evt-d864c48c7d10"
-  },
-  {
-   "item_id": "news_42d671b7f7567dd64118",
-   "kind": "media",
-   "title_zh": "中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931495487.html",
-   "published_at": "2026-11-16T00:10:41+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【中国稀土重组出炉拟购买中稀凉山51%股权！股票复牌】停牌10个交易日后，中国稀土（000831）于11月13日晚披露重组预案和复牌公告。公司拟通过发行股份的方式购买实控人中国稀土集团持有的中稀（凉山）稀土有限公司（下称“中稀凉山”）51%股权，并向不超过35名特定投资者发行股份募集配套资金。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_7a5b6cc020119804ccfb90e70454401ee81e934cf76c4da06cd563071d0c91e9",
-   "content_hash": "9f5f9415ca94b417",
-   "content_type": "policy_action",
-   "score": 65,
-   "event_id": "evt-42d671b7f756"
-  },
-  {
-   "item_id": "news_41186911cdf6c5290eb7",
-   "kind": "media",
-   "title_zh": "安世跨境争端现追加禁令罚金最高可达3亿欧元！*ST闻泰明确不认可并将上诉",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931483033.html",
-   "published_at": "2026-11-16T00:09:47+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T21:44:13+00:00",
-   "retrieved_at": "2026-11-15T21:44:13+00:00",
-   "language": "zh",
-   "summary_zh": "【安世跨境争端现追加禁令罚金最高可达3亿欧元！*ST闻泰明确不认可并将上诉】11月15日晚间，*ST闻泰披露关于子公司经营管理情况的进展公告。其境外子公司安世半导体控股有限公司（Nexperia Holding B.V. ）与安世半导体有限公司此前向荷兰阿姆斯特丹上诉法院企业法庭提交追加临时措施申请，企业法庭于10月30日开庭审理，11月11日作出临时措施裁定。裁定责令*ST闻泰、裕成控股（*ST闻泰子公司）、安世中国及相关人员尊重并容",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_fe3f20d495648ebacda2cad3bad5bbd084f41933c848942c0c46b1aa660ea2c3",
-   "content_hash": "ce587935779a83f0",
-   "content_type": "other",
-   "score": 52,
-   "event_id": "evt-41186911cdf6"
-  },
-  {
-   "item_id": "news_84ce0368fe7b554da623",
-   "kind": "announcement",
-   "title_zh": "国家统计局新闻发言人就2026年10月份国民经济运行情况答记者问",
-   "title_en": null,
-   "publisher": "国家统计局",
-   "source": "nbs_jd",
-   "canonical_url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965869.html",
-   "published_at": "2026-11-16",
-   "publication_precision": "date",
-   "first_seen_at": "2026-11-16T20:24:09+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "language": "zh",
-   "summary_zh": "国家统计局新闻发言人就2026年10月份国民经济运行情况答记者问",
-   "source_tier": "T1",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_b820ec596a55a8d306bfc959234bf3fb6e2bfa43337821b9ade079842ae4a77d",
-   "content_hash": "ec71f2deb61914a3",
-   "content_type": "other",
-   "score": 53,
-   "event_id": "evt-84ce0368fe7b"
-  },
-  {
-   "item_id": "news_d554a06c0a62a4e409b2",
-   "kind": "announcement",
-   "title_zh": "国家统计局投资司张刚解读2026年1—10月...",
-   "title_en": null,
-   "publisher": "国家统计局",
-   "source": "nbs_jd",
-   "canonical_url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965851.html",
-   "published_at": "2026-11-16",
-   "publication_precision": "date",
-   "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "language": "zh",
-   "summary_zh": "国家统计局投资司张刚解读2026年1—10月...",
-   "source_tier": "T1",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_b698cf96553975020f3d0a983682bbb0a793038e61be5c287d88ee3ba3766fb1",
-   "content_hash": "6f20ee47c2029226",
-   "content_type": "commentary",
-   "score": 55,
-   "event_id": "evt-d554a06c0a62"
-  },
-  {
-   "item_id": "news_1ecdd397888b20df855d",
-   "kind": "announcement",
-   "title_zh": "国家统计局贸经司首席统计师袁彦解读1—10月份消费市场数据",
-   "title_en": null,
-   "publisher": "国家统计局",
-   "source": "nbs_jd",
-   "canonical_url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965850.html",
-   "published_at": "2026-11-16",
-   "publication_precision": "date",
-   "first_seen_at": "2026-11-16T09:33:25+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "language": "zh",
-   "summary_zh": "国家统计局贸经司首席统计师袁彦解读1—10月份消费市场数据",
-   "source_tier": "T1",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_1a7d11cff25dd5b155a44eba0b85f23de913a34c314d11fee523db270c3c8837",
-   "content_hash": "19d75fc11499b805",
-   "content_type": "commentary",
-   "score": 55,
-   "event_id": "evt-1ecdd397888b"
-  },
-  {
-   "item_id": "news_e663d5c900c9121177bf",
-   "kind": "announcement",
-   "title_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
-   "title_en": null,
-   "publisher": "国家统计局",
-   "source": "nbs_jd",
-   "canonical_url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261116_1965838.html",
-   "published_at": "2026-11-16",
-   "publication_precision": "date",
-   "first_seen_at": "2026-11-16T01:58:51+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "language": "zh",
-   "summary_zh": "国家统计局城市司高级统计师杨彩芳解读2026年10月份商品住宅销售价格变...",
-   "source_tier": "T1",
-   "tier": "EVENT",
-   "topic": "property",
-   "metric_ids": [
-    "cn_property_sales_area_ytd_yoy"
-   ],
-   "event_group_id": "news_event_d954bd0b007f588c10edaad6b6b4125888dce8b0db976d7b2705cde36b25103c",
-   "content_hash": "35bab9079d427876",
-   "content_type": "commentary",
-   "score": 52,
-   "event_id": "release-house-2026-10"
-  },
-  {
-   "item_id": "news_b8bffcaeca14f05c18b5",
-   "kind": "announcement",
-   "title_zh": "商务部副部长兼中华人民共和国国际贸易谈判副代表凌激会见宝马集团董事长聂科维",
-   "title_en": null,
-   "publisher": "商务部",
-   "source": "mofcom",
-   "canonical_url": "https://www.mofcom.gov.cn/xwfb/bldhd/art/2026/art_2b42f6b2d452450882658102f4b10870.html",
-   "published_at": "2026-11-16",
-   "publication_precision": "date",
-   "first_seen_at": "2026-11-16T20:24:09+00:00",
-   "retrieved_at": "2026-11-23T07:41:08+00:00",
-   "language": "zh",
-   "summary_zh": "商务部副部长兼中华人民共和国国际贸易谈判副代表凌激会见宝马集团董事长聂科维",
-   "source_tier": "T1",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_dcc8d9ea0ba404c56686afa70d235b3e42e89b9ddeccb58eeebea1111841024a",
-   "content_hash": "619075b2cb286415",
-   "content_type": "meeting",
-   "score": 46,
-   "event_id": "evt-b8bffcaeca14"
-  },
-  {
-   "item_id": "news_970ab315ae070ee5d77e",
-   "kind": "media",
-   "title_zh": "美国财长贝森特对美联储表示：应向前看，而非纠结于过去",
-   "title_en": null,
-   "publisher": "新浪财经",
-   "source": "sina",
-   "canonical_url": "https://finance.sina.cn/7x24/2026-11-15/detail-iniyvvps6143463.d.html",
-   "published_at": "2026-11-15T23:16:04+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T17:03:26+00:00",
-   "language": "zh",
-   "summary_zh": "美国财长贝森特对美联储表示：应向前看，而非纠结于过去。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "global",
-   "metric_ids": [],
-   "event_group_id": "news_event_4363be648469dc4ef9817fd9cd65e31e95ac099b4635d8b209ffabad2ceeb682",
-   "content_hash": "557557f1c0dc786e",
-   "content_type": "commentary",
-   "score": 42,
-   "event_id": "evt-970ab315ae07"
-  },
-  {
-   "item_id": "news_37c35b44af468afd7d8a",
-   "kind": "media",
-   "title_zh": "黄仁勋去职后，贝森特称英伟达需要“重大重组”",
-   "title_en": null,
-   "publisher": "华尔街见闻",
-   "source": "wallstreetcn",
-   "canonical_url": "https://wallstreetcn.com/livenews/3200212",
-   "published_at": "2026-11-15T15:07:54+00:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "美国财政部长斯科特·贝森特表示，在首席执行官黄仁勋被罢免之后，英伟达的领导层需要经历一场“剧烈重组”。贝森特暗示，英伟达应该从公司外部寻找新的领导人。（被罢免的）黄仁勋是了不起的创新者，英伟达非常出色。上级与下属建立恋爱关系是企业大忌。（福克斯新闻）",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "fiscal",
-   "metric_ids": [
-    "cn_budget_exp_ytd_yoy",
-    "cn_tsf_govbond_flow"
-   ],
-   "event_group_id": "news_event_8c00710d38fa0d716934f06e9f093d65fc3df6f59e80183c12888f365c6ed886",
-   "content_hash": "7f84e9f95b1edb09",
-   "content_type": "commentary",
-   "score": 53,
-   "event_id": "evt-37c35b44af46"
-  },
-  {
-   "item_id": "news_10ed66746c107aabcb50",
-   "kind": "media",
-   "title_zh": "明年起美联储将减少议息频次",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931513192.html",
-   "published_at": "2026-11-15T23:02:10+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T17:03:26+00:00",
-   "language": "zh",
-   "summary_zh": "【明年起美联储将减少议息频次】当地时间11月12日，美联储公布了修订后的2027年联邦公开市场委员会（FOMC）会议暂定日程，并作出重大调整——明年10月不再投票决定利率，这意味着明年美联储将少调整一次联邦基金利率。为何要进行会议机制调整？美联储主席沃什给出的答案是，要制定正确的政策，就需要在及时、定期且信息密集的节点上，对近期的经济动态进行评估。但同样重要的是，美联储需要留出专门的时间和空间来进行战略层面的审议，去重新思考那些重大问题",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "global",
-   "metric_ids": [],
-   "event_group_id": "news_event_74d9db3ebf8a57c8dbcd1de68800aea0620dff265c578d96bbd01f2ebb3eaf04",
-   "content_hash": "ffb70260ab2f32fd",
-   "content_type": "meeting",
-   "score": 43,
-   "event_id": "evt-10ed66746c10"
-  },
-  {
-   "item_id": "news_866fe8d50a8f669a543a",
-   "kind": "media",
-   "title_zh": "中国平台企业“出招”优化新就业群体劳动权益保障",
-   "title_en": null,
-   "publisher": "中国新闻网",
-   "source": "chinanews",
-   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-15/10732517.shtml",
-   "published_at": "2026-11-15T22:46:03+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "中新社北京11月15日电 (记者刘亮)随着中国平台经济发展壮大，外卖骑手、网约车司机等新就业形态劳动者涌现，其权益保障问题日益受关注。从健康守护到社会保障，从规则透明到人文关怀，中国平台企业多向发力，持续优化新就业群体劳动权益保障。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_0011260c144bed4fb73340940fdd4ff1844171b67e128e966215eaec277a7492",
-   "content_hash": "85b0d50ca616b6dc",
-   "content_type": "other",
-   "score": 49,
-   "event_id": "evt-866fe8d50a8f"
-  },
-  {
-   "item_id": "news_605c5c43e8f10f74fa44",
-   "kind": "media",
-   "title_zh": "下周资本市场大事提醒",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931493211.html",
-   "published_at": "2026-11-15T21:36:20+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T17:03:26+00:00",
-   "language": "zh",
-   "summary_zh": "【下周资本市场大事提醒】1、11月16日，国家统计局将公布10月社会消费品零售总额、工业增加值、固定资产投资等经济数据。同日，国家统计局公布70城住宅销售价格月度报告。2、11月18日至19日，APEC第三十三次领导人非正式会议将在深圳举行。3、阿里、腾讯、拼多多、京东、百度、网易等中概互联头牌集中发布财报。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "property",
-   "metric_ids": [
-    "cn_property_sales_area_ytd_yoy"
-   ],
-   "event_group_id": "news_event_ed947f2f714223f625d3f009cfb31beb92926392c579b2db85ab2a0a7f19a719",
-   "content_hash": "abfee0a302a1bd3a",
-   "content_type": "data_release",
-   "score": 62,
-   "event_id": "evt-605c5c43e8f1"
-  },
-  {
-   "item_id": "news_65456e2e7054be904fbf",
-   "kind": "media",
-   "title_zh": "李强抵马尼拉出席中国－东盟领导人会议",
-   "title_en": null,
-   "publisher": "华尔街见闻",
-   "source": "wallstreetcn",
-   "canonical_url": "https://wallstreetcn.com/livenews/3200198",
-   "published_at": "2026-11-15T12:25:39+00:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "应东盟轮值主席国菲律宾总统马科斯邀请，国务院总理李强乘包机于11月15日晚抵达马尼拉尼诺伊·阿基诺国际机场，将出席中国－东盟领导人会议。菲律宾财政部长吴诗泽和中国驻菲律宾大使井泉、驻东盟大使王擎等到机场迎接。李强是在结束对泰国正式访问后赴马尼拉的。离开曼谷时，泰国副总理兼财政部长艾尼迪和中国驻泰国大使张建卫等到机场送行。 (新华社)",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "fiscal",
-   "metric_ids": [
-    "cn_budget_exp_ytd_yoy",
-    "cn_tsf_govbond_flow"
-   ],
-   "event_group_id": "news_event_043cc3e12d17970b0a569487402b2157f81bb7ddb0b884c2b562a0b0df3c91e1",
-   "content_hash": "900b705a5af48f82",
-   "content_type": "meeting",
-   "score": 53,
-   "event_id": "evt-65456e2e7054"
-  },
-  {
-   "item_id": "news_31cd8066ff77b46f6fb8",
-   "kind": "media",
-   "title_zh": "带动消费超45.4亿元第二十五届中国上海国际艺术节闭幕",
-   "title_en": null,
-   "publisher": "华尔街见闻",
-   "source": "wallstreetcn",
-   "canonical_url": "https://wallstreetcn.com/livenews/3200195",
-   "published_at": "2026-11-15T11:35:40+00:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "第二十五届中国上海国际艺术节11月15日晚闭幕。从10月17日到11月15日，本届艺术节吸引来自80多个国家和地区的近2万名艺术工作者汇聚申城，呈现了1125场的精彩演出、展览活动，覆盖线上线下观众近1300万人次，整体办节满意率达99.5%。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_9df21b01ee6971e220eab781f91f29bb1650f1b756f7de45bfa65fbb540da387",
-   "content_hash": "bce56657613bdc10",
-   "content_type": "other",
-   "score": 55,
-   "event_id": "evt-db9cd02420cb"
-  },
-  {
-   "item_id": "news_db9cd02420cbbae3ad1d",
-   "kind": "media",
-   "title_zh": "带动消费超45.4亿元第二十五届中国上海国际艺术节闭幕",
-   "title_en": null,
-   "publisher": "东方财富",
-   "source": "eastmoney",
-   "canonical_url": "https://finance.eastmoney.com/a/202611153931468849.html",
-   "published_at": "2026-11-15T19:34:37+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-15T17:03:26+00:00",
-   "language": "zh",
-   "summary_zh": "【带动消费超45.4亿元第二十五届中国上海国际艺术节闭幕】11月15日晚，第二十五届中国上海国际艺术节闭幕。从10月17日到11月15日，本届艺术节吸引来自80多个国家和地区的近2万名艺术工作者汇聚申城，呈现了1125场的精彩演出、展览活动，覆盖线上线下观众近1300万人次，整体办节满意率达99.5%。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "growth",
-   "metric_ids": [
-    "cn_rgdp_yoy",
-    "cn_ip_yoy",
-    "cn_retail_sales_yoy"
-   ],
-   "event_group_id": "news_event_9df21b01ee6971e220eab781f91f29bb1650f1b756f7de45bfa65fbb540da387",
-   "content_hash": "35a469d465f94d36",
-   "content_type": "other",
-   "score": 55,
-   "event_id": "evt-db9cd02420cb"
-  },
-  {
-   "item_id": "news_e6ae37bc885b7eed9296",
-   "kind": "media",
-   "title_zh": "宁夏贺兰山东麓葡萄酒亮相青田侨博会借侨为桥开拓海外市场",
-   "title_en": null,
-   "publisher": "中国新闻网",
-   "source": "chinanews",
-   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-15/10732439.shtml",
-   "published_at": "2026-11-15T19:16:13+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "中新网银川11月15日电 (记者李佩珊)11月13日至15日，第八届华侨进口商品博览会暨青田进口葡萄酒交易会在浙江青田举办。宁夏贺兰山东麓葡萄酒产业园区管委会携手16家优质酒庄组团参展，借力侨乡遍布全球的华侨资源，向海内外客商展示中国葡萄酒的风土魅力，开拓海外市场渠道。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_caa9964d0ebb58b6ba82e0547b6cdfd20e3363514f1a8979d99ed428d5065bec",
-   "content_hash": "d9eca64c7d924135",
-   "content_type": "other",
-   "score": 46,
-   "event_id": "evt-e6ae37bc885b"
-  },
-  {
-   "item_id": "news_453ec0697c068a9afc3d",
-   "kind": "media",
-   "title_zh": "（深圳APEC）从深圳港口到海外市场，跨境物流链升级通达亚太",
-   "title_en": null,
-   "publisher": "中国新闻网",
-   "source": "chinanews",
-   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-15/10732421.shtml",
-   "published_at": "2026-11-15T18:47:20+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T17:03:26+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "中新社深圳11月15日电题：从深圳港口到海外市场，跨境物流链升级通达亚太",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_e3ccb713794a5714642746346f2fef4797526e87a6ee8cbf35c16b2b23bf9269",
-   "content_hash": "dc210f56a8f0aca9",
-   "content_type": "other",
-   "score": 46,
-   "event_id": "evt-453ec0697c06"
-  },
-  {
-   "item_id": "news_4ee6412cf1b3a4ae0f8e",
-   "kind": "media",
-   "title_zh": "“中国中小电机之都”福建福安：产业向“新” 发展向“兴”",
-   "title_en": null,
-   "publisher": "中国新闻网",
-   "source": "chinanews",
-   "canonical_url": "https://www.chinanews.com.cn/cj/2026/11-15/10732384.shtml",
-   "published_at": "2026-11-15T17:00:32+08:00",
-   "publication_precision": "second",
-   "first_seen_at": "2026-11-15T09:17:03+00:00",
-   "retrieved_at": "2026-11-16T01:58:51+00:00",
-   "language": "zh",
-   "summary_zh": "中新网宁德11月15日电 (记者吕巧琴叶茂)作为“中国中小电机之都”和“中国按摩保健器具生产/出口基地”，福建省宁德福安市正以数字化转型和适老化创新为双引擎，推动电机电器与按摩器具两大传统特色产业向高端化、智能化、绿色化迈进。",
-   "source_tier": "T2",
-   "tier": "EVENT",
-   "topic": "trade",
-   "metric_ids": [
-    "cn_exports_usd_yoy",
-    "cn_pmi_new_export_orders"
-   ],
-   "event_group_id": "news_event_d9789f7e96e078f9dc4f668a446ccefe271a018f810a20f254fb03fefcfa5281",
-   "content_hash": "0cbddc8c49edd81c",
-   "content_type": "other",
-   "score": 46,
-   "event_id": "evt-4ee6412cf1b3"
   }
  ]
 }
