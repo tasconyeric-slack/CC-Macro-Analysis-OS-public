@@ -1,6 +1,6 @@
 {
   "gov_fiscal": {
-    "items_hash": "a64a9394c73b49e77886c96fee269911f839df5c3f612ef365924af1801a6a94",
+    "items_hash": "50b7f2d678f04fde8087e0418384bd20a9191528075f7af4ec007efb2164132f",
     "last_seen_id": "item_e592e0a2ecd207396bdf3479",
     "last_seen_publication": "2026-11-20"
   },
@@ -15,8 +15,8 @@
     "last_seen_publication": "2026-11-16T10:00:05+08:00"
   },
   "pboc": {
-    "items_hash": "06e6f2654fc12f4b72e0f1c76c295454af731514a38fb56d130d1e5e003fb5d9",
-    "last_seen_id": "item_ce19386280ec76775a84f37e",
-    "last_seen_publication": "2026-11-21T09:47:33+08:00"
+    "items_hash": "cc0694a666f2d64f6cd3c7cc2528dbc3053da087bb092c0c8aee8e7edc4a2c71",
+    "last_seen_id": "item_15d4e0cb62ebb540ab7a2a03",
+    "last_seen_publication": "2026-11-23T19:38:14+08:00"
   }
 }
