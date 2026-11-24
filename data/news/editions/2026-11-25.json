@@ -1,0 +1,77 @@
+{
+ "date": "2026-11-25",
+ "window": [
+  "2026-11-24T08:00:00+08:00",
+  "2026-11-25T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-45d70bb1f596",
+  "evt-95e31d81ce99",
+  "evt-403a2b9da330"
+ ],
+ "body": [
+  {
+   "event_id": "evt-45d70bb1f596",
+   "title_zh": "中国财政部发行10年期债券，规模800亿元，发行利率1.5571%，边际利率1.5799%，预期1.5800%，投标倍数4.91倍，边际倍数3.32倍",
+   "summary_zh": "中国财政部发行10年期债券，规模800亿元，发行利率1.5571%，边际利率1.5799%，预期1.5800%，投标倍数4.91倍，边际倍数3.32倍。",
+   "url": "https://wallstreetcn.com/livenews/3204677",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "China's Ministry of Finance issues 10-year bonds of 80 billion yuan at 1.5571% yield",
+    "why_zh": "此次10年期国债发行利率与投标倍数，反映财政融资成本与机构认购状况。",
+    "why_en": "The 10-year bond issuance rate and bid-to-cover show the cost of fiscal financing and institutional demand.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-95e31d81ce99",
+   "title_zh": "中国财政部发行91天期债券，规模600亿元，发行利率1.1466%，边际利率1.2029%，预期1.1500%，投标倍数2.49倍，边际倍数1.70倍；中国财政部发行5年期债券，",
+   "summary_zh": "中国财政部发行91天期债券，规模600亿元，发行利率1.1466%，边际利率1.2029%，预期1.1500%，投标倍数2.49倍，边际倍数1.70倍；中国财政部发行5年期债券，规模1200亿元，发行利率1.2900%，边际利率1.3100%，预期1.3200%，投标倍数2.81倍，边际倍数2.23倍。",
+   "url": "https://wallstreetcn.com/livenews/3204678",
+   "publisher": "华尔街见闻",
+   "topic": "fiscal",
+   "publishers": [
+    "华尔街见闻"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "China's Ministry of Finance issues 91-day bonds of 60 billion yuan and 5-year bonds of 120 billion yuan",
+    "why_zh": "91天期与5年期国债的发行利率和投标倍数，反映短端与中端财政融资需求。",
+    "why_en": "The issuance rates and bid-to-cover of the 91-day and 5-year bonds show short- and medium-term fiscal financing demand.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-403a2b9da330",
+   "title_zh": "央行在香港发行200亿元人民币3个月期央票、300亿元人民币1年期央票",
+   "summary_zh": "【央行在香港发行200亿元人民币3个月期央票、300亿元人民币1年期央票】央行在香港发行200亿元人民币3个月期央票，中标利率1.32%；在香港发行300亿元人民币1年期央票，中标利率1.41%。",
+   "url": "https://finance.eastmoney.com/a/202611243938320926.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "PBOC issues 20 billion yuan of 3-month and 30 billion yuan of 1-year central bank bills in Hong Kong",
+    "why_zh": "央行在香港发行央票及其中标利率，关乎离岸人民币流动性与汇率管理工具。",
+    "why_en": "The PBOC's Hong Kong central bank bill issuance and its award rates bear on offshore yuan liquidity and exchange-rate tools.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}
