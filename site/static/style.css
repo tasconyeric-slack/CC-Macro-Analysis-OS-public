@@ -628,3 +628,21 @@ header.top nav a.on::after { content: ""; position: absolute; left: 12px; right:
 .page-index main section > h2:not(#q), .page-index main .grid2 > section > h2 { margin: var(--mr-space-section) 0 var(--mr-space-lg); padding: 0; border: 0; font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -1.2px; }
 html[lang="zh-Hans"] .page-index main section > h2:not(#q) { letter-spacing: 0; line-height: 1.35; }
 @media (max-width: 520px) { .page-index main section > h2:not(#q), .page-index main .grid2 > section > h2 { margin-top: var(--mr-space-xxl); font-size: 23px; } }
+
+/* Macro benchmark */
+.page-benchmark [id] { scroll-margin-top: var(--mr-space-section); }
+.benchmark-score .benchmark-count { display: block; font-size: var(--mr-space-xxl); color: var(--ink); }
+.benchmark-score p { margin-bottom: 0; }
+.benchmark-evidence li { margin-bottom: var(--mr-space-md); }
+.benchmark-evidence a { margin-inline-start: var(--mr-space-sm); }
+.benchmark-case { border-bottom: 1px solid var(--rule); padding: var(--mr-space-md) 0; }
+.benchmark-case summary { cursor: pointer; }
+.benchmark-case summary span { margin-inline-start: var(--mr-space-sm); }
+.benchmark-field { overflow-wrap: anywhere; }
+.benchmark-payload {
+  padding: var(--mr-space-md);
+  border-radius: var(--mr-radius-md);
+  background: var(--mr-surface-card);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
