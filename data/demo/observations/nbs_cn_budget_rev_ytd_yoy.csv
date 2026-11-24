@@ -1,0 +1,2 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_budget_rev_ytd_yoy,2026-10,4.9,,unknown,2026-11-24T12:32:33+00:00,MOF,nbs:0083b57bb6b44d4d964b87a89192344e/03e60611a6be446099bef411599bceb0,public,,ok,"MOF statistic republished on the NBS data portal; first-release date not recorded, availability taken as retrieval time"

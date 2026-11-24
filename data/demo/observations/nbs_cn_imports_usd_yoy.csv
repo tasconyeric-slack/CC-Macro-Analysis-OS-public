@@ -1,0 +1,2 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_imports_usd_yoy,2026-10,41.6,,unknown,2026-11-24T12:32:33+00:00,GACC,nbs:7e11b47c828d4e4e925f1c5a98305558/cc1ac699bc4f4cd7aa5c2b7a1e643259,public,,ok,"GACC statistic republished on the NBS data portal; first-release date not recorded, availability taken as retrieval time"

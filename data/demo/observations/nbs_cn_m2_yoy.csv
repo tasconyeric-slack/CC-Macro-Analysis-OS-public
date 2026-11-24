@@ -1,0 +1,2 @@
+metric_id,reference_period,value,release_date,release_date_basis,retrieved_at,source,source_code,source_class,consensus,quality_flag,limitation
+cn_m2_yoy,2026-10,7.1,,unknown,2026-11-24T12:32:33+00:00,PBOC,nbs:82130c6621a745cda3d64b090e733383/e03f2232631f41cd9d754a7d7feb4a81,public,,ok,"PBOC statistic republished on the NBS data portal; first-release date not recorded, availability taken as retrieval time"
