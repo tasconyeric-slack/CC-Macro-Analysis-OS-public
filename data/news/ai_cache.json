@@ -1193,6 +1193,40 @@
    "title_en": "Musk's brain-computer interface company shows new results; 8 stocks draw clustered institutional favor",
    "why_zh": "Neuralink公布临床试验录像，展示受试者通过脑机接口游玩游戏，A股脑机接口概念股随之受到关注。",
    "why_en": "Neuralink released clinical trial footage showing a patient playing a game via a brain-computer interface, drawing attention to A-share brain-computer interface concept stocks."
+  },
+  "news_dc29fbe03be1c5a9340d|7c7840e8f5d8356d|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_dc29fbe03be1c5a9340d",
+   "content_hash": "7c7840e8f5d8356d",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-25T09:48:04+00:00",
+   "title_en": "October air quality figures released: national average PM2.5 concentration flat from a year earlier",
+   "why_zh": "空气质量数据反映环境治理成效，与公众健康和绿色发展政策相关。",
+   "why_en": "Air quality data reflect progress in environmental governance and bear on public health and green development policy."
+  },
+  "news_cd18f935a01a52d25863|7e6f21306b2cda66|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_cd18f935a01a52d25863",
+   "content_hash": "7e6f21306b2cda66",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-25T09:48:04+00:00",
+   "why_zh": "农业工作组是中美经贸沟通的具体渠道，其进展关系双边贸易走向。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_bcc9826593241e676862|548aa9014bf4a251|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_bcc9826593241e676862",
+   "content_hash": "548aa9014bf4a251",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-25T09:48:04+00:00",
+   "why_zh": "三峡水运新通道属重大基础设施议题，涉及长江航运能力与投资安排。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
   }
  }
 }

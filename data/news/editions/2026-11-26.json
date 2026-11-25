@@ -5,8 +5,50 @@
   "2026-11-26T08:00:00+08:00"
  ],
  "rule_version": "macro-rank-v1",
- "lead_events": [],
- "body": [],
+ "lead_events": [
+  "release-credit-2026-10",
+  "evt-cd18f935a01a"
+ ],
+ "body": [
+  {
+   "event_id": "release-credit-2026-10",
+   "title_zh": "10月空气质量状况公布全国PM2.5平均浓度值同比持平",
+   "summary_zh": "【10月空气质量状况公布全国PM2.5平均浓度值同比持平】生态环境部今天公布10月份全国空气质量状况。10月，全国339个地级及以上城市PM2.5平均浓度为23.4微克/立方米，同比持平；PM10平均浓度为44微克/立方米，同比上升12.8%；其他污染物数值中，二氧化氮同比下降，二氧化硫、一氧化碳同比持平，臭氧有所上升。全国339个地级及以上城市平均空气质量优良天数比例为90.1%，同比下降3.6个百分点；平均重度及以上污染天数比例为0",
+   "url": "https://finance.sina.cn/7x24/2026-11-25/detail-inizxxyi4250054.d.html",
+   "publisher": "新浪财经",
+   "topic": "credit",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 71,
+   "rank_key": 75.15888308335967,
+   "ai": {
+    "title_en": "October air quality figures released: national average PM2.5 concentration flat from a year earlier",
+    "why_zh": "空气质量数据反映环境治理成效，与公众健康和绿色发展政策相关。",
+    "why_en": "Air quality data reflect progress in environmental governance and bear on public health and green development policy.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-cd18f935a01a",
+   "title_zh": "中美贸易理事会项下农业工作组首次会议在京举行",
+   "summary_zh": "中美贸易理事会项下农业工作组首次会议在京举行",
+   "url": "https://www.mofcom.gov.cn/xwfb/rcxwfb/art/2026/art_6e6ac6c48c544802b6f2b68e4ef07522.html",
+   "publisher": "商务部",
+   "topic": "trade",
+   "publishers": [
+    "中国新闻网"
+   ],
+   "score": 59,
+   "rank_key": 59.15888308335967,
+   "ai": {
+    "why_zh": "农业工作组是中美经贸沟通的具体渠道，其进展关系双边贸易走向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "quick": [],
  "final": false
 }
