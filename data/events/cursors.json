@@ -1,8 +1,8 @@
 {
   "gov_fiscal": {
-    "items_hash": "760b8d4188efb55c1ab76ea6a71e1ad09e8d3ec76b18f4ad45aa8f075cf69dff",
-    "last_seen_id": "item_988635f4543b60edc10c9fe1",
-    "last_seen_publication": "2026-11-25"
+    "items_hash": "c48ab4583fd069618d9a7f678c1c5e113e1b20bfe9c00d9e1e62522cfa4a039b",
+    "last_seen_id": "item_d5149e8667a51cc4e306f5a2",
+    "last_seen_publication": "2026-11-26"
   },
   "gov_monetary": {
     "items_hash": "03faa3bf277fdb8f7ed745f798dfd9d4269bb184ad12e2f9b3f0ac161fe8b646",
@@ -15,8 +15,8 @@
     "last_seen_publication": "2026-11-24T09:30:00+08:00"
   },
   "pboc": {
-    "items_hash": "cc0694a666f2d64f6cd3c7cc2528dbc3053da087bb092c0c8aee8e7edc4a2c71",
-    "last_seen_id": "item_15d4e0cb62ebb540ab7a2a03",
-    "last_seen_publication": "2026-11-23T19:38:14+08:00"
+    "items_hash": "7e00c5a968cfdd2e2527434a65b3aa5facdd3d3d1cea8db86c4f05debc55d193",
+    "last_seen_id": "item_2ec7e8d21f74bf3b75d93059",
+    "last_seen_publication": "2026-11-26T18:00:18+08:00"
   }
 }
