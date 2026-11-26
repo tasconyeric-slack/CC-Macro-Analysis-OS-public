@@ -7,7 +7,9 @@
  "rule_version": "macro-rank-v1",
  "lead_events": [
   "evt-cd6bdf7b3a1d",
-  "evt-38000c87da1d"
+  "evt-38000c87da1d",
+  "evt-06541e5de860",
+  "evt-c7724148e9bd"
  ],
  "body": [
   {
@@ -46,6 +48,45 @@
     "title_en": "China's agricultural produce and food ingredient circulation volume up 2.17% year on year in first three quarters",
     "why_zh": "前三季度农产品与食材流通规模达4.63万亿元，供应链服务市场成流通环节最具活力单元。",
     "why_en": "Circulation of agricultural produce and food ingredients reached 4.63 trillion yuan in the first three quarters, with supply chain services the most dynamic segment.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-06541e5de860",
+   "title_zh": "万亿级算力产业链迎利好！广东：鼓励算力中心优先使用国产算力芯片",
+   "summary_zh": "【万亿级算力产业链迎利好！广东：鼓励算力中心优先使用国产算力芯片】万亿级算力产业链迎利好！11月26日下午，广东省政务服务和数据管理局、广东省发展和改革委员会印发《广东省算力发展“十五五”规划》（简称《规划》），目标到2028年，广东算力发展取得重要阶段性成效，智算规模突破1000 EFlops（FP16），全省数据中心绿电使用占比超80%，新建大型及以上数据中心电能利用效率（PUE）小于1.2，存量数据中心能效显著提升，绿色低碳发展达",
+   "url": "https://finance.eastmoney.com/a/202611263940966497.html",
+   "publisher": "东方财富",
+   "topic": "policy",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Guangdong encourages computing centers to prioritize domestic chips under 15th Five-Year computing plan",
+    "why_zh": "广东印发算力发展“十五五”规划，提出到2028年智算规模突破1000 EFlops等目标，关注算力产业政策走向的读者需留意。",
+    "why_en": "Guangdong issued a 15th Five-Year plan for computing power, targeting over 1000 EFlops of intelligent computing by 2028, a signal worth watching for those tracking computing-sector policy.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-c7724148e9bd",
+   "title_zh": "《新一代通信网建设实施方案》发布适时开展6G网络建设二〇三〇年建成新一代通信网",
+   "summary_zh": "【《新一代通信网建设实施方案》发布适时开展6G网络建设二〇三〇年建成新一代通信网】工业和信息化部、国家网信办、国家发展改革委日前印发《新一代通信网建设实施方案》（以下简称《实施方案》），提出到2030年，建成覆盖完善、性能领先的新一代通信网。",
+   "url": "https://finance.eastmoney.com/a/202611273941007295.html",
+   "publisher": "东方财富",
+   "topic": "policy",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "New-generation communication network plan issued; 6G buildout to proceed in due course, network targeted by 2030",
+    "why_en": "Three ministries issued an implementation plan for a new-generation communication network, targeting completion by 2030, which bears on the direction of communications infrastructure investment.",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }

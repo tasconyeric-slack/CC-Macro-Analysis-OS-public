@@ -1247,6 +1247,28 @@
    "title_en": "Commerce Ministry: Firmly opposes US imposition of 301 tariffs on China and other economies",
    "why_zh": "美方301调查及加征关税被中方指严重违反世贸组织规则，这关系到中国外贸环境与相关经济体。",
    "why_en": "China's commerce ministry says the US 301 investigation and tariffs seriously violate WTO rules, a point that bears on China's trade environment and other affected economies."
+  },
+  "news_06541e5de8600aea154f|5717ebe88daeb7d4|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_06541e5de8600aea154f",
+   "content_hash": "5717ebe88daeb7d4",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-26T22:16:36+00:00",
+   "title_en": "Guangdong encourages computing centers to prioritize domestic chips under 15th Five-Year computing plan",
+   "why_zh": "广东印发算力发展“十五五”规划，提出到2028年智算规模突破1000 EFlops等目标，关注算力产业政策走向的读者需留意。",
+   "why_en": "Guangdong issued a 15th Five-Year plan for computing power, targeting over 1000 EFlops of intelligent computing by 2028, a signal worth watching for those tracking computing-sector policy."
+  },
+  "news_c7724148e9bd3e513af2|476467f539221020|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_c7724148e9bd3e513af2",
+   "content_hash": "476467f539221020",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-26T22:16:36+00:00",
+   "title_en": "New-generation communication network plan issued; 6G buildout to proceed in due course, network targeted by 2030",
+   "why_en": "Three ministries issued an implementation plan for a new-generation communication network, targeting completion by 2030, which bears on the direction of communications infrastructure investment.",
+   "rejected": {
+    "why_zh": "name"
+   }
   }
  }
 }
