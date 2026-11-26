@@ -1,0 +1,79 @@
+<div class="eyebrow">{{ t('benchmark.kicker') }}</div>
+<h1>{{ t('benchmark.title') }}</h1>
+<p class="lede">{{ t('benchmark.lede') }}</p>
+<p class="small muted">{{ t('benchmark.scope', n=bench.cases|length, runs=bench.model_performance_runs) }}</p>
+<p><a class="mr-btn mr-btn--primary" href="#wrong-metric">{{ t('benchmark.open_case') }}</a>
+  <a class="mr-btn mr-btn--tertiary" href="{{ report_url }}" download="ccmacro-benchmark-results.json">{{ t('benchmark.download') }}</a></p>
+
+<h2 id="results">{{ t('benchmark.results') }}</h2>
+<div class="grid3 benchmark-scores">
+  {% for config, row in bench.summary.items() %}
+  <section class="card benchmark-score">
+    <h3>{{ t('benchmark.config.' ~ config) }}</h3>
+    <strong class="benchmark-count">{{ row.block.correct }}/{{ row.block.total }}</strong>
+    <span class="small">{{ t('benchmark.blocked') }}</span>
+    <p class="small">{{ t('benchmark.clean', kept=row.allow.correct, total=row.allow.total) }}</p>
+  </section>
+  {% endfor %}
+</div>
+
+{% set focal = bench.cases[-1] %}
+<section aria-labelledby="wrong-metric">
+  <h2 id="wrong-metric">{{ t('benchmark.focal') }}</h2>
+  <p>{{ t('benchmark.focal_intro') }}</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>{{ t('benchmark.before') }}</h3>
+      <p lang="en">{{ focal.contract_rendered }}</p>
+      <p class="small muted">{{ t('benchmark.before_note') }}</p>
+    </div>
+    <div class="card">
+      <h3>{{ t('benchmark.after') }}</h3>
+      <p>{{ t('benchmark.after_note') }}</p>
+      <p class="mono benchmark-field">{{ focal.violations[0].gate if focal.violations else t('benchmark.no_violation') }}</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="evidence-snapshot">
+  <h2 id="evidence-snapshot">{{ t('benchmark.evidence') }}</h2>
+  <p>{{ t('benchmark.prompt', period=bench.release.period) }}</p>
+  <p class="small muted">{{ t('benchmark.cutoff', as_of=bench.as_of, prior=bench.prior_as_of) }} {{ t('benchmark.clock') }}</p>
+  <ul class="benchmark-evidence">
+    {% for row in bench.evidence %}
+    <li><strong>{{ t('benchmark.metric.' ~ loop.index) }} · {{ row.display }}</strong><br>
+      <code class="mono benchmark-field">{{ row.ref }}</code>
+      <a class="small" href="{{ row.source }}">{{ t('benchmark.nbs') }}</a></li>
+    {% endfor %}
+  </ul>
+  <p class="small">{{ t('benchmark.snapshot') }} <code class="mono benchmark-field">{{ bench.context_sha256 }}</code> ·
+    <a href="{{ bench.archive_url }}">{{ t('benchmark.archive') }}</a></p>
+</section>
+
+<section aria-labelledby="test-cases">
+  <h2 id="test-cases">{{ t('benchmark.cases') }}</h2>
+  <div class="benchmark-cases">
+  {% for row in bench.cases %}
+    <details class="benchmark-case" id="case-{{ row.id }}">
+      <summary><strong>{{ t('benchmark.case.' ~ row.id) }}</strong>
+        <span class="small muted">{{ t('benchmark.expected') }} · {{ t('benchmark.verdict.' ~ row.expected) }}</span></summary>
+      <p class="small">{{ t('benchmark.config.json') }} · {{ t('benchmark.verdict.' ~ row.decisions.json) }}<br>
+        {{ t('benchmark.config.contract') }} · {{ t('benchmark.verdict.' ~ row.decisions.contract) }}<br>
+        {{ t('benchmark.config.aligned') }} · {{ t('benchmark.verdict.' ~ row.decisions.aligned) }}</p>
+      {% if row.violations %}<ul class="small">
+        {% for violation in row.violations %}
+        <li><strong>{{ t('benchmark.gate.' ~ violation.gate) }}</strong> <code class="benchmark-field">{{ violation.path }}</code></li>
+        {% endfor %}
+      </ul>{% else %}<p class="small">{{ t('benchmark.no_violation') }}</p>{% endif %}
+      <pre class="benchmark-payload" lang="en">{{ row.candidate_excerpt|tojson(indent=2) }}</pre>
+    </details>
+  {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="evidence-status">
+  <h2 id="evidence-status">{{ t('benchmark.status') }}</h2>
+  <p>{{ t('benchmark.fallback', n=bench.fallback.facts) }} <a href="{{ bench.fallback.record_url }}">{{ t('benchmark.run_record') }}</a></p>
+  <p>{{ t('benchmark.limits') }}</p>
+  <p>{{ t('benchmark.next') }}</p>
+</section>

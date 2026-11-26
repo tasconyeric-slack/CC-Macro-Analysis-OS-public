@@ -29,6 +29,7 @@ nav:
   updates: 发布更新
   charts: 证据浏览
   method: 方法与评估
+  benchmark: 宏观发布 Benchmark
 
 page:
   news:
@@ -61,6 +62,9 @@ page:
   method:
     title: 方法与评估
     description: "系统如何保持严谨：确定性评估检查、数据来源及其状态、已知局限。"
+  benchmark:
+    title: 宏观发布 Benchmark
+    description: 用真实宏观快照和可复现用例，评测数值、引用、时点及指标绑定。
 
 selector:
   question: 中国名义增长是否正在形成可持续拐点？
@@ -851,3 +855,65 @@ review:
   action:
     approve: 批准
     edit: 修改后批准
+
+benchmark:
+  kicker: 宏观研究 Copilot · 评测演示
+  title: 宏观发布 Benchmark
+  lede: 同一份 CPI/PPI 数据，同一批答案。比较解析、生产校验和指标绑定三种配置能拦住哪些研究错误。
+  scope: "1 个历史发布快照 · {n} 个开发用例（手写及定向改写）· {runs} 次纳入评分的真实模型运行"
+  open_case: 查看错绑指标案例
+  download: 下载评测结果 JSON
+  results: 三种配置的结果
+  blocked: 个预设失败用例被拦截
+  clean: "合格对照通过 {kept}/{total}"
+  config:
+    json: 仅解析 JSON
+    contract: 生产校验
+    aligned: 生产校验 + 指标绑定
+  focal: 有效引用也可能指向错误指标
+  focal_intro: 样本保留“PPI 同比”的文字，将同一输入包里的核心 CPI 引用填入该数字位置，并同步改写申报引用。该引用存在、可用且申报完整。
+  before: 生产校验放行后的渲染
+  before_note: 这里展示历史重放的手写变体，英文句子保留了错绑后的实际渲染结果。
+  after: 增加任务级检查后拦截
+  after_note: 指定的 PPI 同比位置必须绑定对应月份的 PPI 同比证据。解析正确且引用有效仍不足以通过这道断言。
+  evidence: 题目与证据快照
+  prompt: "题目要求基于冻结证据解读 {period} 的价格发布。首条解读以 PPI 同比作为第一个数值引用，再给出环比、对已有研究假设的影响及反向证据。每个数值均用证据 ID 引用。"
+  cutoff: "回放截至 {as_of}，回放对照 {prior}"
+  clock: 回放沿用项目日历的可用性口径，精度与官方日内首发时刻不同。
+  snapshot: 快照 SHA-256
+  archive: 查看历史重放记录
+  nbs: 国家统计局原始发布
+  metric:
+    '1': PPI 同比
+    '2': PPI 环比
+    '3': 核心 CPI 同比
+  cases: 逐题查看判定与失败位置
+  expected: 预期
+  verdict:
+    allow: 放行
+    block: 拦截
+  case:
+    aligned: 合格对照
+    bare-number: 用裸数字替换引用
+    unknown-ref: 引用白名单之外的指标
+    future-period: 使用截止时点之后的结果
+    rule-overwrite: 覆盖机械规则输出
+    undeclared-ref: 数值引用未在该条答案中申报
+    wrong-metric: 有效引用绑定到错误指标
+  gate:
+    numeric_grounding: 裸数字或单位
+    invalid_evidence_ref: 无效证据引用
+    as_of_violation: 越过信息截止时点
+    mechanical_delta_overwrite: 试图改写机械判断
+    missing_evidence: 缺少必须申报的证据
+    claim_evidence_mismatch: 结论与证据指标不匹配
+    schema: 结构不符合约定
+    thesis_state_write: 试图改写分析师观点状态
+    divergence_inconsistent: 分歧标识不一致
+  no_violation: 没有触发校验错误
+  status: 证据与待验证项
+  fallback: "项目另存有 2026 年 10 月 PPI 真实发布的流程记录。模型不可用时，系统保留了 {n} 条可追溯的确定性事实供研究使用。"
+  run_record: 查看流程记录
+  limits: 检验计数来自一个历史快照与定向错误，可用于验证工程边界。解释质量、生产错误率和模型间差异需要在独立发布样本上测量。历史框架晚于该次数据，历史回测还需排查模型是否知道后续结果。
+  next: 模型评测需先冻结人工标注并按发布批次划分开发集和留出集，然后以相同证据与预算比较规则摘要、单模型和带校验的 Copilot。另测反方解释的有用性及相对分析师盲判新增的洞察。
+  method_link: 打开宏观发布 Benchmark

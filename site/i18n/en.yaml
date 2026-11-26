@@ -29,6 +29,7 @@ nav:
   updates: Release Updates
   charts: Evidence Explorer
   method: Method & Eval
+  benchmark: Macro Release Benchmark
 
 page:
   news:
@@ -61,6 +62,9 @@ page:
   method:
     title: Method & Eval
     description: "How the system keeps itself honest: deterministic eval checks, data sources and their status, known limitations."
+  benchmark:
+    title: Macro Release Benchmark
+    description: Evaluate numbers, citations, timing and metric binding with a frozen macro release and reproducible cases.
 
 selector:
   question: Is China forming a sustainable turning point in nominal growth?
@@ -858,3 +862,65 @@ review:
   action:
     approve: approve
     edit: edit
+
+benchmark:
+  kicker: Macro Research Copilot · Evaluation demo
+  title: Macro Release Benchmark
+  lede: Compare what JSON parsing, production validation and metric binding catch on the same set of CPI and PPI answers.
+  scope: "1 historical release snapshot · {n} development cases (handwritten and edited) · {runs} scored live model outputs"
+  open_case: Inspect the misbound metric
+  download: Download results JSON
+  results: Results by configuration
+  blocked: seeded failures blocked
+  clean: "Clean control accepted {kept}/{total}"
+  config:
+    json: JSON parsing only
+    contract: Production validation
+    aligned: Validation + metric binding
+  focal: A valid reference can point to the wrong metric
+  focal_intro: The candidate keeps the PPI YoY wording but substitutes the core CPI reference from the same evidence pack and updates the declaration. That reference is available, valid and declared.
+  before: Rendered after production validation
+  before_note: This is the actual rendering of the edited replay fixture.
+  after: Blocked by a task-specific check
+  after_note: The slot for PPI YoY must bind to that month's PPI YoY observation. The assertion checks which metric the reference identifies.
+  evidence: Task and evidence snapshot
+  prompt: "Use the frozen evidence to explain the {period} price release. Use PPI YoY as the first numeric binding in the opening point. Give PPI MoM, implications and counterevidence. Cite each figure by evidence ID."
+  cutoff: "Replay cutoff {as_of}. Replay comparison {prior}."
+  clock: Replay uses the project calendar availability convention, which can differ from the official intraday first release.
+  snapshot: Snapshot SHA-256
+  archive: Open the archived replay
+  nbs: Official NBS release
+  metric:
+    '1': PPI YoY
+    '2': PPI MoM
+    '3': Core CPI YoY
+  cases: Inspect the individual cases
+  expected: Expected
+  verdict:
+    allow: Allow
+    block: Block
+  case:
+    aligned: Clean control
+    bare-number: Bare figure in place of a reference
+    unknown-ref: Reference outside the allowlist
+    future-period: Result after the information cutoff
+    rule-overwrite: Overwrites the mechanical result
+    undeclared-ref: Value's reference is undeclared
+    wrong-metric: Valid reference bound to the wrong metric
+  gate:
+    numeric_grounding: Bare number or unit
+    invalid_evidence_ref: Invalid evidence reference
+    as_of_violation: Information cutoff violation
+    mechanical_delta_overwrite: Attempt to overwrite the mechanical result
+    missing_evidence: Required evidence declaration missing
+    claim_evidence_mismatch: Claim and evidence refer to different metrics
+    schema: Invalid structure
+    thesis_state_write: Attempt to change analyst-owned state
+    divergence_inconsistent: Inconsistent divergence flag
+  no_violation: No validation error
+  status: Evidence and open validation
+  fallback: "A separate workflow record covers the real October 2026 PPI release. The model was unavailable, and the system preserved {n} traceable, deterministic facts for the researcher."
+  run_record: Open the workflow record
+  limits: Counts measure how the checks handle handpicked errors from one snapshot. Explanation quality, production error rates and model differences require independent releases. The framework was written after the historical release, and models should be probed for knowledge of subsequent events.
+  next: Freeze human labels before inference and hold out entire releases. Compare a rules summary, a model with the same evidence, and a guarded Copilot on equal budgets. Measure useful counterarguments and insight added beyond the analyst's blind take.
+  method_link: Open the Macro Release Benchmark

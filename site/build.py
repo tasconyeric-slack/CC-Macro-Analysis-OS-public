@@ -55,13 +55,14 @@ from views import View, pick, validate_policy_events  # noqa: E402
 from portal import CATEGORY_METRICS, portal_context  # noqa: E402
 from news_feed import news_context, edition_context, archive_context, edition_days, archive_months
 from daily import build_desk, desk_context, write_desk  # noqa: E402
+from macro_benchmark import build_report as build_benchmark_report
 from data_portal import build_data_portal, data_context, public_history, write_data_assets  # noqa: E402
 from research_editions import build_editions, edition_context as research_context, write_editions
 
 SITE = yaml.safe_load((ROOT / "site/site.yaml").read_text(encoding="utf-8"))
 SITE_URL = SITE["url"].rstrip("/")
 HYP_ORDER = ["H1", "H2", "H3", "H4", "H0"]
-PAGES = ["index", "news", "daily", "data", "policy", "memo", "research", "evidence", "updates", "charts", "method"] + [f"data-{c}" for c in CATEGORY_METRICS]
+PAGES = ["index", "news", "daily", "data", "policy", "memo", "research", "evidence", "updates", "charts", "method", "benchmark"] + [f"data-{c}" for c in CATEGORY_METRICS]
 PRIMARY_PAGES = ["index", "news", "data", "memo"]
 REF_LINES = {"%": 0.0}
 
@@ -616,6 +617,8 @@ def render_site(model: dict, out: Path) -> dict:
     shutil.copytree(ROOT / "site/static", out / "static")
     write_data_assets(model["data_portal"], out)
     write_editions(model.get("research_editions", []), out)
+    benchmark = build_benchmark_report()
+    (out / "benchmark-results.json").write_text(json.dumps(benchmark, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     from prices import write_price_assets
     write_price_assets(model['data_portal'], out)
     # browsers ask for /favicon.ico at the root before they read any <link>
@@ -630,9 +633,11 @@ def render_site(model: dict, out: Path) -> dict:
             ctx = context(model, v, stem, env_md)
             ctx["meta"] = meta(v, stem)
             ctx["asset"] = "../static/"
+            if stem == "benchmark":
+                ctx.update(bench=benchmark, report_url="../benchmark-results.json")
             ctx["lang_base"] = {l: f"../{l}/{page_file(stem)}" for l in L.LOCALES}
             ctx["nav"] = [(page_file(s), v.t(f"nav.{s}"), s == stem or (s == "data" and stem.startswith("data-"))) for s in PRIMARY_PAGES]
-            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method"]]
+            ctx["footer_nav"] = [(page_file(s), v.t(f"nav.{s}")) for s in ["daily", "policy", "evidence", "updates", "charts", "method", "benchmark"]]
             html = env.get_template('prices.html' if stem == 'data-prices' else ("data-category.html" if stem.startswith("data-") else page_file(stem))).render(**ctx)
             (out / loc / page_file(stem)).write_text(html, encoding="utf-8")
             if stem == "news" and ctx["macro_news"]["enabled"]:
