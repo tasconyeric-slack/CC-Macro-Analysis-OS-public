@@ -1237,6 +1237,16 @@
    "title_en": "China's agricultural produce and food ingredient circulation volume up 2.17% year on year in first three quarters",
    "why_zh": "前三季度农产品与食材流通规模达4.63万亿元，供应链服务市场成流通环节最具活力单元。",
    "why_en": "Circulation of agricultural produce and food ingredients reached 4.63 trillion yuan in the first three quarters, with supply chain services the most dynamic segment."
+  },
+  "news_cd6bdf7b3a1d2b0d7443|e845f07a63c02d69|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_cd6bdf7b3a1d2b0d7443",
+   "content_hash": "e845f07a63c02d69",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-26T12:19:11+00:00",
+   "title_en": "Commerce Ministry: Firmly opposes US imposition of 301 tariffs on China and other economies",
+   "why_zh": "美方301调查及加征关税被中方指严重违反世贸组织规则，这关系到中国外贸环境与相关经济体。",
+   "why_en": "China's commerce ministry says the US 301 investigation and tariffs seriously violate WTO rules, a point that bears on China's trade environment and other affected economies."
   }
  }
 }
