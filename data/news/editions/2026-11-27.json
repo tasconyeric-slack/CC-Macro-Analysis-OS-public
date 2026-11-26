@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-27",
+ "window": [
+  "2026-11-26T08:00:00+08:00",
+  "2026-11-27T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-38000c87da1d"
+ ],
+ "body": [
+  {
+   "event_id": "evt-38000c87da1d",
+   "title_zh": "前三季度我国农产品与食材流通规模同比增长2.17%",
+   "summary_zh": "【前三季度我国农产品与食材流通规模同比增长2.17%】从中国物流与采购联合会了解到，今年以来，农产品与食材供应链行业运行保持温和增长，结构深入调整，供应链服务市场成为流通环节中最具活力的单元。今年前三季度，我国农产品与食材流通规模4.63万亿元，同比增长2.17%。农产品与食材消费规模7.04万亿元，同比增长2.13%，零售端托举消费大盘，餐饮端释放结构性增量，市场需求基本盘保持稳固。供应链服务市场规模达1.26万亿元，同比增长2.23",
+   "url": "https://finance.sina.cn/7x24/2026-11-26/detail-inizzmzr3862568.d.html",
+   "publisher": "新浪财经",
+   "topic": "prices",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "China's agricultural produce and food ingredient circulation volume up 2.17% year on year in first three quarters",
+    "why_zh": "前三季度农产品与食材流通规模达4.63万亿元，供应链服务市场成流通环节最具活力单元。",
+    "why_en": "Circulation of agricultural produce and food ingredients reached 4.63 trillion yuan in the first three quarters, with supply chain services the most dynamic segment.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}
