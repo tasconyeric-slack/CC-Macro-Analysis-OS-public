@@ -6,12 +6,32 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "evt-fd91364c2ad2",
   "evt-7352a62fdf94",
   "release-profits-2026-10",
-  "evt-aa0cc53f3780",
-  "evt-94d2c076631d"
+  "evt-aa0cc53f3780"
  ],
  "body": [
+  {
+   "event_id": "evt-fd91364c2ad2",
+   "title_zh": "印尼央行行长：预计2027年国内生产总值展望为5.2%至6%",
+   "summary_zh": "印尼央行行长表示，预计2027年国内生产总值展望为5.2%至6%。",
+   "url": "https://finance.eastmoney.com/a/202611273941922424.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 78,
+   "rank_key": 82.15888308335967,
+   "ai": {
+    "title_en": "Indonesia central bank governor: 2027 GDP outlook expected at 5.2% to 6%",
+    "why_zh": "印尼是重要新兴经济体，其央行对2027年增长区间的预测为观察区域经济前景提供参考。",
+    "why_en": "Indonesia is a major emerging economy, and its central bank's projected 2027 growth range offers a reference for watching the regional economic outlook.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-7352a62fdf94",
    "title_zh": "国常会：加力发挥“国家队”稳市作用，进一步优化中央汇金公司的类“平准基金”功能",
@@ -91,6 +111,26 @@
    }
   }
  ],
- "quick": [],
+ "quick": [
+  {
+   "event_id": "evt-710f746eed9f",
+   "title_zh": "中国太保：坚定看好资本市场平稳健康发展的广阔前景",
+   "summary_zh": "【中国太保：坚定看好资本市场平稳健康发展的广阔前景】11月27日举行的国务院常务会议研究持续深化资本市场投融资综合改革工作。中国太保表示，国务院常务会议对资本市场投融资综合改革的部署，进一步明确了政策导向，有助于持续优化市场生态，夯实长期发展根基。中国太保坚信中国经济长期向好的基本面，坚定看好资本市场平稳健康发展的广阔前景。",
+   "url": "https://finance.eastmoney.com/a/202611273941899565.html",
+   "publisher": "东方财富",
+   "topic": "policy",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "why_zh": "国务院常务会议研究深化资本市场投融资综合改革，大型险企的回应反映机构对政策导向的解读。",
+    "why_en": "The State Council executive meeting studied deepening comprehensive reform of capital market investment and financing, and a major insurer's response reflects how institutions read the policy direction.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
  "final": false
 }

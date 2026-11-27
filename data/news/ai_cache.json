@@ -1313,6 +1313,28 @@
    "title_en": "Thai export growth expected to exceed record target on AI demand",
    "why_zh": "泰国是区域贸易伙伴，其AI相关出口强劲与10月进出口数据，为观察外需提供参照。",
    "why_en": "Thailand is a regional trading partner, and its strong AI-related exports and October trade figures offer a reference point for gauging external demand."
+  },
+  "news_fd91364c2ad21238a51f|388f0fe4699b1fde|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_fd91364c2ad21238a51f",
+   "content_hash": "388f0fe4699b1fde",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T14:58:49+00:00",
+   "title_en": "Indonesia central bank governor: 2027 GDP outlook expected at 5.2% to 6%",
+   "why_zh": "印尼是重要新兴经济体，其央行对2027年增长区间的预测为观察区域经济前景提供参考。",
+   "why_en": "Indonesia is a major emerging economy, and its central bank's projected 2027 growth range offers a reference for watching the regional economic outlook."
+  },
+  "news_710f746eed9f2ff6dd7a|0ed734cf461b4fd9|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_710f746eed9f2ff6dd7a",
+   "content_hash": "0ed734cf461b4fd9",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T14:58:49+00:00",
+   "why_zh": "国务院常务会议研究深化资本市场投融资综合改革，大型险企的回应反映机构对政策导向的解读。",
+   "why_en": "The State Council executive meeting studied deepening comprehensive reform of capital market investment and financing, and a major insurer's response reflects how institutions read the policy direction.",
+   "rejected": {
+    "title_en": "name"
+   }
   }
  }
 }
