@@ -1,0 +1,96 @@
+{
+ "date": "2026-11-28",
+ "window": [
+  "2026-11-27T08:00:00+08:00",
+  "2026-11-28T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-7352a62fdf94",
+  "release-profits-2026-10",
+  "evt-aa0cc53f3780",
+  "evt-94d2c076631d"
+ ],
+ "body": [
+  {
+   "event_id": "evt-7352a62fdf94",
+   "title_zh": "国常会：加力发挥“国家队”稳市作用，进一步优化中央汇金公司的类“平准基金”功能",
+   "summary_zh": "【国常会：加力发挥“国家队”稳市作用，进一步优化中央汇金公司的类“平准基金”功能】国务院总理李强11月27日主持召开国务院常务会议，听取推动高质量发展综合督查情况汇报，研究持续深化资本市场投融资综合改革工作，听取国家标准体系建设情况汇报，审议通过《生产安全事故隐患排查治理条例（草案）》。会议指出，资本市场事关经济发展大局。要坚持目标导向、问题导向，坚持逆周期调节和改革攻坚两手抓，持续完善资本市场稳市机制，实施好存量政策，谋划出台增量政策",
+   "url": "https://finance.sina.cn/7x24/2026-11-27/detail-inkaczqf1056553.d.html",
+   "publisher": "新浪财经",
+   "topic": "credit",
+   "publishers": [
+    "东方财富",
+    "新浪财经"
+   ],
+   "score": 73,
+   "rank_key": 79.59167373200866,
+   "ai": {
+    "why_zh": "国常会部署完善资本市场稳市机制并优化中央汇金类“平准基金”功能，事关股市政策取向。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "release-profits-2026-10",
+   "title_zh": "国家统计局工业司首席统计师于卫宁解读2026年1—10月份工业企业利润数据",
+   "summary_zh": "国家统计局工业司首席统计师于卫宁解读2026年1—10月份工业企业利润数据",
+   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261127_1965950.html",
+   "publisher": "国家统计局",
+   "topic": "growth",
+   "publishers": [
+    "中国新闻网"
+   ],
+   "score": 75,
+   "rank_key": 79.15888308335967,
+   "ai": {
+    "why_zh": "国家统计局官员解读前10个月工业企业利润数据，是观察工业经营状况的官方口径。",
+    "why_en": "An NBS official's reading of industrial enterprise profits for the first 10 months offers the official view of industrial business conditions.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-aa0cc53f3780",
+   "title_zh": "李强主持召开国务院常务会议研究持续深化资本市场投融资综合改革工作",
+   "summary_zh": "【李强主持召开国务院常务会议研究持续深化资本市场投融资综合改革工作】国务院总理李强11月27日主持召开国务院常务会议，会议指出，资本市场事关经济发展大局。要坚持目标导向、问题导向，坚持逆周期调节和改革攻坚两手抓，持续完善资本市场稳市机制，实施好存量政策，谋划出台增量政策，促进资本市场平稳健康发展。要推动上市公司加大分红回购力度，加力发挥“国家队”稳市作用，进一步优化中央汇金公司的类“平准基金”功能，提供充足流动性保障。",
+   "url": "https://finance.eastmoney.com/a/202611273941563415.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 73,
+   "rank_key": 77.15888308335967,
+   "ai": {
+    "title_en": "Li Qiang chairs State Council executive meeting to study deepening reform of capital market investment and financing",
+    "why_zh": "会议提出推动上市公司加大分红回购、发挥“国家队”稳市作用，涉及资本市场政策方向。",
+    "why_en": "The meeting calls for listed companies to increase dividends and buybacks and for the \"national team\" to play a bigger market-stabilizing role, bearing on capital market policy direction.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-94d2c076631d",
+   "title_zh": "得益于AI需求推动泰国出口增速有望超过创纪录的目标",
+   "summary_zh": "【得益于AI需求推动泰国出口增速有望超过创纪录的目标】泰国商务部贸易政策与战略办公室主任Nantapong Chiralerspong表示，受人工智能(AI)相关产品需求强劲推动，泰国今年出口增速可能超过19%的目标，这一增速目标本身已创纪录。商务部数据显示，10月出口同比增长27.5%，至368.6亿美元；预估为增长26.0%；进口同比增长53.2%，至492亿美元；预估为增长35.2%；贸易逆差为123.4亿美元，预估为69.20亿",
+   "url": "https://finance.sina.cn/7x24/2026-11-27/detail-inkaczqn5551984.d.html",
+   "publisher": "新浪财经",
+   "topic": "trade",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Thai export growth expected to exceed record target on AI demand",
+    "why_zh": "泰国是区域贸易伙伴，其AI相关出口强劲与10月进出口数据，为观察外需提供参照。",
+    "why_en": "Thailand is a regional trading partner, and its strong AI-related exports and October trade figures offer a reference point for gauging external demand.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

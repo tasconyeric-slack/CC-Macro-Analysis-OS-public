@@ -1269,6 +1269,50 @@
    "rejected": {
     "why_zh": "name"
    }
+  },
+  "news_7352a62fdf9462198d43|3a07434cadf42ec1|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_7352a62fdf9462198d43",
+   "content_hash": "3a07434cadf42ec1",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T04:58:41+00:00",
+   "why_zh": "国常会部署完善资本市场稳市机制并优化中央汇金类“平准基金”功能，事关股市政策取向。",
+   "rejected": {
+    "title_en": "name",
+    "why_en": "name"
+   }
+  },
+  "news_173062f31ffaf9d088e4|ee34ed2a31a4272b|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_173062f31ffaf9d088e4",
+   "content_hash": "ee34ed2a31a4272b",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T04:58:41+00:00",
+   "why_zh": "国家统计局官员解读前10个月工业企业利润数据，是观察工业经营状况的官方口径。",
+   "why_en": "An NBS official's reading of industrial enterprise profits for the first 10 months offers the official view of industrial business conditions.",
+   "rejected": {
+    "title_en": "name"
+   }
+  },
+  "news_aa0cc53f3780117806f3|33ad46ac7be04ba5|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_aa0cc53f3780117806f3",
+   "content_hash": "33ad46ac7be04ba5",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T04:58:41+00:00",
+   "title_en": "Li Qiang chairs State Council executive meeting to study deepening reform of capital market investment and financing",
+   "why_zh": "会议提出推动上市公司加大分红回购、发挥“国家队”稳市作用，涉及资本市场政策方向。",
+   "why_en": "The meeting calls for listed companies to increase dividends and buybacks and for the \"national team\" to play a bigger market-stabilizing role, bearing on capital market policy direction."
+  },
+  "news_94d2c076631d62379faf|1fcbe3a35ba0f721|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_94d2c076631d62379faf",
+   "content_hash": "1fcbe3a35ba0f721",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T04:58:41+00:00",
+   "title_en": "Thai export growth expected to exceed record target on AI demand",
+   "why_zh": "泰国是区域贸易伙伴，其AI相关出口强劲与10月进出口数据，为观察外需提供参照。",
+   "why_en": "Thailand is a regional trading partner, and its strong AI-related exports and October trade figures offer a reference point for gauging external demand."
   }
  }
 }
