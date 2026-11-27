@@ -1335,6 +1335,38 @@
    "rejected": {
     "title_en": "name"
    }
+  },
+  "news_0f544bb0e52f21776974|610efc2fcfa73d1c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_0f544bb0e52f21776974",
+   "content_hash": "610efc2fcfa73d1c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T23:24:40+00:00",
+   "title_en": "Profits of industrial enterprises above designated size nationwide rose 16.0% in January-October 2026",
+   "why_zh": "规模以上工业企业利润是观察中国工业盈利状况的关键指标，该数据显示1—10月利润总额67373.6亿元。",
+   "rejected": {
+    "why_en": "number"
+   }
+  },
+  "news_d25135e998f92cb91834|11854e45339c138c|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d25135e998f92cb91834",
+   "content_hash": "11854e45339c138c",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T23:24:40+00:00",
+   "title_en": "State Council executive meeting raises capital market again within a month, releasing multiple clear signals",
+   "why_zh": "国务院常务会议一个月内两度聚焦资本市场，涉及投融资综合改革与稳市机制，反映政策取向。",
+   "why_en": "The State Council executive meeting focused on capital markets twice in one month, covering investment and financing reform and market-stabilising mechanisms."
+  },
+  "news_ae3b123ed46c47ff0ea4|4d356136dfcc2bc5|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_ae3b123ed46c47ff0ea4",
+   "content_hash": "4d356136dfcc2bc5",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-27T23:24:40+00:00",
+   "title_en": "PBOC lowers large-denomination certificate of deposit subscription threshold, removes loan penalty interest rate floor and cap",
+   "why_zh": "央行发布两项规章，调整大额存单认购起点并取消贷款罚息利率上下限，自2027年3月21日起施行。",
+   "why_en": "The PBOC issued two regulations adjusting the subscription threshold for large-denomination certificates of deposit and removing floors and caps on loan penalty interest rates, effective from March 21, 2027."
   }
  }
 }

@@ -6,12 +6,32 @@
  ],
  "rule_version": "macro-rank-v1",
  "lead_events": [
+  "release-profits-2026-10",
   "evt-fd91364c2ad2",
   "evt-7352a62fdf94",
-  "release-profits-2026-10",
   "evt-aa0cc53f3780"
  ],
  "body": [
+  {
+   "event_id": "release-profits-2026-10",
+   "title_zh": "2026年1—10月份全国规模以上工业企业利润增长16.0%",
+   "summary_zh": "1—10月份，全国规模以上工业企业实现利润总额67373.6亿元，同比增长16.0%（按可比口径计算，详见附注二）。 1—10月份，规模以上工业企业中，国有控股企业实现利润总额21080.3亿元，同比增长13.0%；股份制企业实现利润总额52426.6亿元，增长21.4%；外商及港澳台投资企业实现利润总额14678.7亿元，增长0.2%；私...",
+   "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261127_1965949.html",
+   "publisher": "国家统计局",
+   "topic": "growth",
+   "publishers": [
+    "中国新闻网",
+    "国家统计局"
+   ],
+   "score": 79,
+   "rank_key": 88.59167373200866,
+   "ai": {
+    "title_en": "Profits of industrial enterprises above designated size nationwide rose 16.0% in January-October 2026",
+    "why_zh": "规模以上工业企业利润是观察中国工业盈利状况的关键指标，该数据显示1—10月利润总额67373.6亿元。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
   {
    "event_id": "evt-fd91364c2ad2",
    "title_zh": "印尼央行行长：预计2027年国内生产总值展望为5.2%至6%",
@@ -47,25 +67,6 @@
    "rank_key": 79.59167373200866,
    "ai": {
     "why_zh": "国常会部署完善资本市场稳市机制并优化中央汇金类“平准基金”功能，事关股市政策取向。",
-    "model": "deepseek-flash",
-    "prompt_version": "news-ai-prompt/3"
-   }
-  },
-  {
-   "event_id": "release-profits-2026-10",
-   "title_zh": "国家统计局工业司首席统计师于卫宁解读2026年1—10月份工业企业利润数据",
-   "summary_zh": "国家统计局工业司首席统计师于卫宁解读2026年1—10月份工业企业利润数据",
-   "url": "https://www.stats.gov.cn/sj/sjjd/202611/t20261127_1965950.html",
-   "publisher": "国家统计局",
-   "topic": "growth",
-   "publishers": [
-    "中国新闻网"
-   ],
-   "score": 75,
-   "rank_key": 79.15888308335967,
-   "ai": {
-    "why_zh": "国家统计局官员解读前10个月工业企业利润数据，是观察工业经营状况的官方口径。",
-    "why_en": "An NBS official's reading of industrial enterprise profits for the first 10 months offers the official view of industrial business conditions.",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
@@ -113,6 +114,26 @@
  ],
  "quick": [
   {
+   "event_id": "evt-d25135e998f9",
+   "title_zh": "月内两提资本市场国常会释放多重鲜明信号",
+   "summary_zh": "【月内两提资本市场国常会释放多重鲜明信号】一个月内，国务院常务会议两度聚焦资本市场。11月27日召开的国常会研究持续深化资本市场投融资综合改革工作；11月6日召开的国常会提出“完善资本市场稳市机制，增强股市内在稳定性，促进资本市场平稳健康发展”。在业内人士看来，月内国常会两提资本市场，政策脉络一以贯之、持续升级，充分显示国家对资本市场发展的高度重视。",
+   "url": "https://finance.eastmoney.com/a/202611283942118992.html",
+   "publisher": "东方财富",
+   "topic": "policy",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 73,
+   "rank_key": 77.15888308335967,
+   "ai": {
+    "title_en": "State Council executive meeting raises capital market again within a month, releasing multiple clear signals",
+    "why_zh": "国务院常务会议一个月内两度聚焦资本市场，涉及投融资综合改革与稳市机制，反映政策取向。",
+    "why_en": "The State Council executive meeting focused on capital markets twice in one month, covering investment and financing reform and market-stabilising mechanisms.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
    "event_id": "evt-710f746eed9f",
    "title_zh": "中国太保：坚定看好资本市场平稳健康发展的广阔前景",
    "summary_zh": "【中国太保：坚定看好资本市场平稳健康发展的广阔前景】11月27日举行的国务院常务会议研究持续深化资本市场投融资综合改革工作。中国太保表示，国务院常务会议对资本市场投融资综合改革的部署，进一步明确了政策导向，有助于持续优化市场生态，夯实长期发展根基。中国太保坚信中国经济长期向好的基本面，坚定看好资本市场平稳健康发展的广阔前景。",
@@ -127,6 +148,26 @@
    "ai": {
     "why_zh": "国务院常务会议研究深化资本市场投融资综合改革，大型险企的回应反映机构对政策导向的解读。",
     "why_en": "The State Council executive meeting studied deepening comprehensive reform of capital market investment and financing, and a major insurer's response reflects how institutions read the policy direction.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-ae3b123ed46c",
+   "title_zh": "央行下调大额存单认购起点取消贷款罚息利率上下限",
+   "summary_zh": "【央行下调大额存单认购起点取消贷款罚息利率上下限】11月27日，中国人民银行正式发布《大额存单管理办法》（以下简称《办法》）和《人民币存贷款利率管理规定》（以下简称《规定》），两部规章均自2027年3月21日起施行。两部规章将此前分散在多份文件中的规则整合为统一制度，并对市场反映集中的条款作出调整，包括适度下调大额存单认购起点金额，取消贷款罚息利率上下限并明确罚息利率由借贷双方协商确定等。",
+   "url": "https://finance.eastmoney.com/a/202611283942121171.html",
+   "publisher": "东方财富",
+   "topic": "credit",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 65,
+   "rank_key": 69.15888308335967,
+   "ai": {
+    "title_en": "PBOC lowers large-denomination certificate of deposit subscription threshold, removes loan penalty interest rate floor and cap",
+    "why_zh": "央行发布两项规章，调整大额存单认购起点并取消贷款罚息利率上下限，自2027年3月21日起施行。",
+    "why_en": "The PBOC issued two regulations adjusting the subscription threshold for large-denomination certificates of deposit and removing floors and caps on loan penalty interest rates, effective from March 21, 2027.",
     "model": "deepseek-flash",
     "prompt_version": "news-ai-prompt/3"
    }
