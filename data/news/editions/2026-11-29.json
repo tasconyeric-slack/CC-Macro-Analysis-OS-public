@@ -1,0 +1,75 @@
+{
+ "date": "2026-11-29",
+ "window": [
+  "2026-11-28T08:00:00+08:00",
+  "2026-11-29T08:00:00+08:00"
+ ],
+ "rule_version": "macro-rank-v1",
+ "lead_events": [
+  "evt-8d1532735c72",
+  "evt-63a7ee036e94",
+  "evt-d05ed3e4f141"
+ ],
+ "body": [
+  {
+   "event_id": "evt-8d1532735c72",
+   "title_zh": "前10个月黑龙江省货物贸易进出口总值同比增长9.7%",
+   "summary_zh": "【前10个月黑龙江省货物贸易进出口总值同比增长9.7%】据哈尔滨海关统计，2026年前10个月，黑龙江省货物贸易进出口总值2830.1亿元，比去年同期增长9.7%。其中，出口877.3亿元，增长21.2%；进口1952.8亿元，增长5.2%。",
+   "url": "https://finance.sina.cn/7x24/2026-11-28/detail-inkahepf0667074.d.html",
+   "publisher": "新浪财经",
+   "topic": "trade",
+   "publishers": [
+    "新浪财经"
+   ],
+   "score": 70,
+   "rank_key": 74.15888308335967,
+   "ai": {
+    "title_en": "Heilongjiang goods trade imports and exports up 9.7% year on year in first 10 months",
+    "why_zh": "哈尔滨海关数据显示，2026年前10个月黑龙江省货物贸易进出口总值2830.1亿元，同比增长9.7%，出口增长21.2%。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-63a7ee036e94",
+   "title_zh": "从用电结构之变看经济发展之进",
+   "summary_zh": "【从用电结构之变看经济发展之进】电力是经济运行的“晴雨表”。国家能源局近日发布的数据显示，今年前10月，我国全社会用电量累计89442亿千瓦时，同比增长3.7%。在总量平稳增长的同时，分产业、分行业的用电结构悄然演进：工业用电量平稳有升，高技术及装备制造业用电量持续走强，充换电服务业、互联网数据服务用电量高速增长。用电量结构的变化，折射出中国经济发展的新动能新趋势。",
+   "url": "https://finance.eastmoney.com/a/202611283942354728.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 68,
+   "rank_key": 72.15888308335967,
+   "ai": {
+    "title_en": "Power use structure shifts highlight new momentum in economic development",
+    "why_zh": "国家能源局数据显示，今年前10月全社会用电量同比增长3.7%，用电结构变化折射经济发展新动能。",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  },
+  {
+   "event_id": "evt-d05ed3e4f141",
+   "title_zh": "价格周报｜降温、腌腊启动消费边际回暖，猪价反弹至10元/公斤",
+   "summary_zh": "【价格周报｜降温、腌腊启动消费边际回暖，猪价反弹至10元/公斤】据农业农村部监测，11月27日，全国农产品批发市场猪肉平均价格为14.95元/公斤，与上周五（11月20日）的14.9元/公斤相比，上涨0.3%。本周的平均价格为14.87元/公斤，与上周的14.8元/公斤相比，上涨0.5%。",
+   "url": "https://finance.eastmoney.com/a/202611283942363543.html",
+   "publisher": "东方财富",
+   "topic": "growth",
+   "publishers": [
+    "东方财富"
+   ],
+   "score": 67,
+   "rank_key": 71.15888308335967,
+   "ai": {
+    "title_en": "Price weekly: cooling weather, curing season lift demand marginally, pig prices rebound to 10 yuan/kg",
+    "why_zh": "农业农村部监测显示，11月27日全国农产品批发市场猪肉均价14.95元/公斤，较上周五上涨0.3%。",
+    "why_en": "Agriculture ministry monitoring shows the national average pork price at wholesale markets was 14.95 yuan/kg on November 27, up 0.3% from the previous Friday.",
+    "model": "deepseek-flash",
+    "prompt_version": "news-ai-prompt/3"
+   }
+  }
+ ],
+ "quick": [],
+ "final": false
+}

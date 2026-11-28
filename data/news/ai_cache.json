@@ -1367,6 +1367,40 @@
    "title_en": "PBOC lowers large-denomination certificate of deposit subscription threshold, removes loan penalty interest rate floor and cap",
    "why_zh": "央行发布两项规章，调整大额存单认购起点并取消贷款罚息利率上下限，自2027年3月21日起施行。",
    "why_en": "The PBOC issued two regulations adjusting the subscription threshold for large-denomination certificates of deposit and removing floors and caps on loan penalty interest rates, effective from March 21, 2027."
+  },
+  "news_8d1532735c72070f4398|4cce8ba48fff1b90|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_8d1532735c72070f4398",
+   "content_hash": "4cce8ba48fff1b90",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-28T07:39:26+00:00",
+   "title_en": "Heilongjiang goods trade imports and exports up 9.7% year on year in first 10 months",
+   "why_zh": "哈尔滨海关数据显示，2026年前10个月黑龙江省货物贸易进出口总值2830.1亿元，同比增长9.7%，出口增长21.2%。",
+   "rejected": {
+    "why_en": "number"
+   }
+  },
+  "news_63a7ee036e946a554010|57838e73920c2c67|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_63a7ee036e946a554010",
+   "content_hash": "57838e73920c2c67",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-28T07:39:26+00:00",
+   "title_en": "Power use structure shifts highlight new momentum in economic development",
+   "why_zh": "国家能源局数据显示，今年前10月全社会用电量同比增长3.7%，用电结构变化折射经济发展新动能。",
+   "rejected": {
+    "why_en": "name"
+   }
+  },
+  "news_d05ed3e4f141a2ef25d4|6635863d262a599b|news-ai-prompt/3|deepseek-flash": {
+   "item_id": "news_d05ed3e4f141a2ef25d4",
+   "content_hash": "6635863d262a599b",
+   "prompt_version": "news-ai-prompt/3",
+   "model": "deepseek-flash",
+   "created_at": "2026-11-28T07:39:26+00:00",
+   "title_en": "Price weekly: cooling weather, curing season lift demand marginally, pig prices rebound to 10 yuan/kg",
+   "why_zh": "农业农村部监测显示，11月27日全国农产品批发市场猪肉均价14.95元/公斤，较上周五上涨0.3%。",
+   "why_en": "Agriculture ministry monitoring shows the national average pork price at wholesale markets was 14.95 yuan/kg on November 27, up 0.3% from the previous Friday."
   }
  }
 }
